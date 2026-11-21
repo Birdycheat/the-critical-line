@@ -1,0 +1,662 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "PSR-01",
+      "chapter": "inputs",
+      "anchor": "inputs-power-sum-repulsion",
+      "title": "Positive prime moments bound a list of shifted zero distances containing the target",
+      "statement": "For a distinct labelled zero satisfying the repulsion hypotheses and Δ=1−Re ρ, the shifted local zero distances w have Re w≥Δ and include 2Δ. Their first reciprocal moment has real part ≤2λ/Δ²+25 C_F H and the absolute j-th moment is bounded by the principal-plus-quadratic prime moment plus 2jλ/Δ^(j+1)+C_F H25^j.",
+      "hypotheses": "m≥3, T≥2, |Im ρ|≤T, χ₁ a nonprincipal quadratic character modulo m, L(β,χ₁)=0, 0<λ=1−β<c₁/H, H=log(mT), (χ,ρ)≠(χ₁,β), and Δ≤c₀. The constants are chosen uniformly so β≥19/20, β≥1−1/log(3m), and Δ≤1/25.",
+      "definitions": [
+        "w=s₁−ρ′, with s₁=1+Δ+i Im ρ, from the two shifted character lists after erasing one eligible exceptional occurrence.",
+        "P_{j−1} is the real signed factorial-normalized (j−1)st derivative of the sum of the principal and quadratic negative logarithmic derivatives at 1+Δ."
+      ],
+      "dependencies": [],
+      "equations": [
+        "inputs-power-sum-gain",
+        "inputs-power-sum-moments"
+      ],
+      "sources": [
+        {
+          "declaration": "DeuringHeilbronnMB",
+          "label": "Uniform hypotheses on the two characters and the height",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHBSt.lean",
+          "lines": [
+            11,
+            17
+          ],
+          "declaration_lines": {
+            "DeuringHeilbronnMB": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHBSt.lean#L11-L17"
+        },
+        {
+          "declaration": "dhPos_term_nonneg",
+          "label": "Positivity of each prime-power coefficient at the two heights",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPos.lean",
+          "lines": [
+            101,
+            147
+          ],
+          "declaration_lines": {
+            "dhPos_term_nonneg": 101
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPos.lean#L101-L147"
+        },
+        {
+          "declaration": "deuring_heilbronn_dominant",
+          "label": "The unshifted positive series bounds the modulus of the shifted pair",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHDom.lean",
+          "lines": [
+            108,
+            126
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_dominant": 108
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHDom.lean#L108-L126"
+        },
+        {
+          "declaration": "DHLocal",
+          "label": "Local zero lists and the normalized derivative expansion",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHSt.lean",
+          "lines": [
+            35,
+            45
+          ],
+          "declaration_lines": {
+            "DHLocal": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHSt.lean#L35-L45"
+        },
+        {
+          "declaration": "deuring_heilbronn_cauchy",
+          "label": "Complex-analytic remainder after removing the zeros",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHCauchy.lean",
+          "lines": [
+            84,
+            150
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_cauchy": 84
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHCauchy.lean#L84-L150"
+        },
+        {
+          "declaration": "deuring_heilbronn_local",
+          "label": "Applying the local expansion to principal and nonprincipal factors",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHLocal.lean",
+          "lines": [
+            167,
+            179
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_local": 167
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHLocal.lean#L167-L179"
+        },
+        {
+          "declaration": "dhfPoles",
+          "label": "The paired shifted pole and the case outside the shifted disk",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqFA.lean",
+          "lines": [
+            97,
+            144
+          ],
+          "declaration_lines": {
+            "dhfPoles": 109
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqFA.lean#L97-L144"
+        },
+        {
+          "declaration": "deuring_heilbronn_inequality",
+          "label": "Keeping the target zero when erasing the exceptional occurrence",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean",
+          "lines": [
+            131,
+            159
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_inequality": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean#L131-L159"
+        },
+        {
+          "declaration": "deuring_heilbronn_inequality",
+          "label": "First real moment and bounds in modulus for higher moments",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean",
+          "lines": [
+            161,
+            226
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_inequality": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean#L161-L226"
+        },
+        {
+          "declaration": "DHPrime",
+          "label": "The inverse-power, divisor-interval and prime moment estimates",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DHFinish2Of.lean",
+          "lines": [
+            23,
+            52
+          ],
+          "declaration_lines": {
+            "DHPrime": 44
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DHFinish2Of.lean#L23-L52"
+        },
+        {
+          "declaration": "deuring_heilbronn_hypergeometric",
+          "label": "Weighted divisor sums on an interval",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHHyper.lean",
+          "lines": [
+            114,
+            189
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_hypergeometric": 114
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHHyper.lean#L114-L189"
+        },
+        {
+          "declaration": "lfunction_one_le_of_siegel_zero",
+          "label": "Bounding the value at one by the distance to a real zero",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrimeA.lean",
+          "lines": [
+            191,
+            208
+          ],
+          "declaration_lines": {
+            "lfunction_one_le_of_siegel_zero": 191
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrimeA.lean#L191-L208"
+        },
+        {
+          "declaration": "deuring_heilbronn_prime_sum",
+          "label": "Using the interval estimate and the prime tail bound",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrime.lean",
+          "lines": [
+            151,
+            161
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_prime_sum": 151
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrime.lean#L151-L161"
+        },
+        {
+          "declaration": "region_gap",
+          "label": "Ordinary zero-free gap for a distinct labelled pair",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHFinish.lean",
+          "lines": [
+            22,
+            72
+          ],
+          "declaration_lines": {
+            "region_gap": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHFinish.lean#L22-L72"
+        },
+        {
+          "declaration": "excBound",
+          "label": "The exceptional-zero lower bound from the Siegel estimate",
+          "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+          "lines": [
+            26,
+            33
+          ],
+          "declaration_lines": {
+            "excBound": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean#L26-L33"
+        },
+        {
+          "declaration": "deuring_heilbronn_finish_turan",
+          "label": "Choice of the cubic exponent and use of the two ordinary lower bounds",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean",
+          "lines": [
+            49,
+            94
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_finish_turan": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean#L49-L94"
+        }
+      ]
+    },
+    {
+      "id": "PSR-02",
+      "chapter": "inputs",
+      "anchor": "inputs-power-sum-comparison",
+      "title": "Comparing Turán’s lower bound with positive prime moments gives cubic-logarithm repulsion",
+      "statement": "Under PSR-01, ΔH≥c₂ log(c₁/(λH³)). For large positive K=log(c₁/(λH³)), failure would force 8^j≤E₀G(j+1)² at some j>αK. Bounded K is covered by the usual zero-free gap.",
+      "hypotheses": "Absolute positive constants in PSR-01, the ordinary zero-free gap ΔH≥c_Z/2, and the exceptional bound λ≥c_S/√m. The finite power-sum theorem applies to the retained n≥1 normalized values.",
+      "definitions": [
+        "u=Δ/w, S=∑Re u, r=16e², ε=1/r, α=1/(2 log r), h=⌈αK⌉."
+      ],
+      "dependencies": [
+        "PSR-01"
+      ],
+      "equations": [
+        "inputs-power-sum-turan"
+      ],
+      "sources": [
+        {
+          "declaration": "turan2Main",
+          "label": "Proof of the finite Turán bound for absolute power sums",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/Turan2Main.lean",
+          "lines": [
+            29,
+            174
+          ],
+          "declaration_lines": {
+            "turan2Main": 29
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/Turan2Main.lean#L29-L174"
+        },
+        {
+          "declaration": "turan_power_sum_bound",
+          "label": "The constants 1600 and one in the power-sum theorem",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TuranPowerSumBound.lean",
+          "lines": [
+            12,
+            15
+          ],
+          "declaration_lines": {
+            "turan_power_sum_bound": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TuranPowerSumBound.lean#L12-L15"
+        },
+        {
+          "declaration": "exists_power_sum_lower_bound",
+          "label": "Selecting the large values, normalizing their maximum and restoring the tail",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/ExistsPowerSumLowerBound.lean",
+          "lines": [
+            9,
+            107
+          ],
+          "declaration_lines": {
+            "exists_power_sum_lower_bound": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/ExistsPowerSumLowerBound.lean#L9-L107"
+        },
+        {
+          "declaration": "rr",
+          "label": "Geometric ratio, cutoff, and degree-window constants",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TwentyFiveMulSmallConstant.lean",
+          "lines": [
+            9,
+            18
+          ],
+          "declaration_lines": {
+            "rr": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TwentyFiveMulSmallConstant.lean#L9-L18"
+        },
+        {
+          "declaration": "core2",
+          "label": "First moment, degree window, and lower bound for the retained powers",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+          "lines": [
+            75,
+            133
+          ],
+          "declaration_lines": {
+            "core2": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean#L75-L133"
+        },
+        {
+          "declaration": "ub_terms",
+          "label": "Bounding the arithmetic, factorial and local analytic remainders",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/UbTerms.lean",
+          "lines": [
+            84,
+            184
+          ],
+          "declaration_lines": {
+            "ub_terms": 84
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/UbTerms.lean#L84-L184"
+        },
+        {
+          "declaration": "core2",
+          "label": "Contradiction between the two geometric rates",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+          "lines": [
+            135,
+            160
+          ],
+          "declaration_lines": {
+            "core2": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean#L135-L160"
+        },
+        {
+          "declaration": "deuring_heilbronn_finish_turan",
+          "label": "Applying the moment bounds to the target zero",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean",
+          "lines": [
+            95,
+            150
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_finish_turan": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean#L95-L150"
+        },
+        {
+          "declaration": "deuring_heilbronn_lossy",
+          "label": "Assembly of the repulsion inputs",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_lossy": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean#L13-L15"
+        },
+        {
+          "declaration": "pnt_progressions_relative_weak_holds",
+          "label": "Use of repulsion in the progression theorem’s weighted zero sum",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+          "lines": [
+            18,
+            24
+          ],
+          "declaration_lines": {
+            "pnt_progressions_relative_weak_holds": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean#L18-L24"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_finish_turan",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_finish_turan"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "turan_power_sum_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "turan_power_sum_bound"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_inequality",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_inequality"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_positivity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_positivity"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_local",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_local"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_cauchy",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_cauchy"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_dominant",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_dominant"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_prime_sum",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 15,
+        "spelling": "deuring_heilbronn_prime_sum"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_hypergeometric",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 15,
+        "spelling": "deuring_heilbronn_hypergeometric"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_inequality",
+      "callee": "dhPair",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean",
+        "line": 96,
+        "spelling": "dhPair"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_inequality",
+      "callee": "dhFlat",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean",
+        "line": 131,
+        "spelling": "dhFlat"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_inequality",
+      "callee": "dhfPoles",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHIneqF.lean",
+        "line": 197,
+        "spelling": "dhfPoles"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_prime_sum",
+      "callee": "lfunction_one_le_of_siegel_zero",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrime.lean",
+        "line": 154,
+        "spelling": "lfunction_one_le_of_siegel_zero"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_prime_sum",
+      "callee": "tail_mertens",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrime.lean",
+        "line": 155,
+        "spelling": "Formalism.HermitianLattices.Ext.BoxTail.tail_mertens"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_prime_sum",
+      "callee": "dhpr_main",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHPrime.lean",
+        "line": 159,
+        "spelling": "dhpr_main"
+      }
+    },
+    {
+      "caller": "turan_power_sum_bound",
+      "callee": "turan2Main",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TuranPowerSumBound.lean",
+        "line": 14,
+        "spelling": "T2.turan2Main"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_finish_turan",
+      "callee": "excBound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean",
+        "line": 19,
+        "spelling": "excBound"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_finish_turan",
+      "callee": "region_gap",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean",
+        "line": 20,
+        "spelling": "DHF.region_gap"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_finish_turan",
+      "callee": "core2",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnFinishTuran.lean",
+        "line": 129,
+        "spelling": "TuranPowerSumBounds.core2"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "exists_power_sum_lower_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 109,
+        "spelling": "exists_power_sum_lower_bound"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "lb_part",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 133,
+        "spelling": "lb_part"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "turan_lb",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 133,
+        "spelling": "turan_lb"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "ub_terms",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 141,
+        "spelling": "ub_terms"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "far_part",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 145,
+        "spelling": "far_part"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "x_part",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 146,
+        "spelling": "x_part"
+      }
+    },
+    {
+      "caller": "core2",
+      "callee": "final_step",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/NormUSum.lean",
+        "line": 160,
+        "spelling": "final_step"
+      }
+    },
+    {
+      "caller": "deuringHeilbronnMB_proof'",
+      "callee": "deuring_heilbronn_lossy",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 20,
+        "spelling": "deuring_heilbronn_lossy"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "deuringHeilbronnMB_proof'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "deuringHeilbronnMB_proof'"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "zero_sum_bound_lossy",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "zero_sum_bound_lossy"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PSR-01",
+      "PSR-02"
+    ],
+    [
+      "PSR-02",
+      "EZS-02"
+    ]
+  ],
+  "outstanding": [
+    "The analytic prime moment uses bounds for the logarithmic derivative, the weighted divisor interval, the prime tail, and the value of the quadratic L-function at one. Their exact statements and providers are cited.",
+    "The ordinary Dirichlet zero-free region and the Siegel lower bound with exponent one half are independent inputs. The Turán inequality is stated on the page and cited to its finite proof."
+  ]
+}

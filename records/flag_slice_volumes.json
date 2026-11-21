@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FSV-01",
+      "chapter": "global",
+      "anchor": "global-flag-layer-product",
+      "title": "Counting all off-diagonal layers in a completed flag",
+      "statement": "The covolume of the complex block lattice on layer k is the coefficient covolume to the number of entries times the product of height ratios. Over all layers the height product is P squared.",
+      "hypotheses": "Adapted integral flag frames over a finite-unramified CM field, positive flag sizes and the orthonormal coordinates at all archimedean places.",
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Weights of all pairs of flag blocks",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            32,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L32-L35"
+        },
+        {
+          "label": "Complex lattice of homomorphisms on one layer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            111,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L111-L132",
+          "declaration": "layer_covolume",
+          "declaration_lines": {
+            "layer_covolume": 111
+          }
+        },
+        {
+          "label": "Rectangular blocks in orthonormal coordinates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            164,
+            193
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L164-L193"
+        },
+        {
+          "label": "Covolume of an integral Hom lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HomLatticeCovolumeEmbeddingFamily.lean",
+          "lines": [
+            53,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HomLatticeCovolumeEmbeddingFamily.lean#L53-L75",
+          "declaration": "homCovolume_family",
+          "declaration_lines": {
+            "homCovolume_family": 53
+          }
+        },
+        {
+          "label": "Pairing the block and dual-block heights",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdLayerHeightQuotientsEqSq.lean",
+          "lines": [
+            55,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdLayerHeightQuotientsEqSq.lean#L55-L67",
+          "declaration": "htProd",
+          "declaration_lines": {
+            "htProd": 55
+          }
+        },
+        {
+          "label": "Separation of the central and reflected pairs",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdLayerHeightQuotientsEqSq.lean",
+          "lines": [
+            70,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdLayerHeightQuotientsEqSq.lean#L70-L108"
+        },
+        {
+          "label": "The archimedean covolume constant and the root discriminant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutInstDegreeRootDiscriminantRank.lean",
+          "lines": [
+            44,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutInstDegreeRootDiscriminantRank.lean#L44-L62",
+          "declaration": "GlobalTheory.FlagMeas.instance_numbers",
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.instance_numbers": 44
+          }
+        }
+      ],
+      "equations": [
+        "global-flag-layer-covol"
+      ]
+    },
+    {
+      "id": "FSV-02",
+      "chapter": "global",
+      "anchor": "global-flag-real-layer",
+      "title": "Lifting integral skew layers and bounding the unipotent covolume",
+      "statement": "The covolume of the integral unipotent radical is at most (2ν_E)^(f d_N/2) times the base height factor.",
+      "hypotheses": "Conjugation-stable full block lattices, integral adjoint, finite-unramified CM extension and finite triangular filtration.",
+      "dependencies": [
+        "FSV-01"
+      ],
+      "sources": [
+        {
+          "label": "The real and imaginary lattices and their index",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ConjStableLatticeRealImagCovolumeLe.lean",
+          "lines": [
+            135,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ConjStableLatticeRealImagCovolumeLe.lean#L135-L158",
+          "declaration": "real_imag_covolume_le",
+          "declaration_lines": {
+            "real_imag_covolume_le": 135
+          }
+        },
+        {
+          "label": "Equal covolumes by prime-to-prime scalar maps",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZlatticeCovolumeEqOfCoprimeScalars.lean",
+          "lines": [
+            91,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZlatticeCovolumeEqOfCoprimeScalars.lean#L91-L121",
+          "declaration": "covolume_eq_of_scalars",
+          "declaration_lines": {
+            "covolume_eq_of_scalars": 91
+          }
+        },
+        {
+          "label": "An integral imaginary scalar for each rational prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsSkewIntegerNormCoprimePrime.lean",
+          "lines": [
+            59,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsSkewIntegerNormCoprimePrime.lean#L59-L80",
+          "declaration": "exists_skew_norm_coprime",
+          "declaration_lines": {
+            "exists_skew_norm_coprime": 59
+          }
+        },
+        {
+          "label": "An integral element of relative trace one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsTraceOne.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsTraceOne.lean#L32-L48",
+          "declaration": "exists_trace_one",
+          "declaration_lines": {
+            "exists_trace_one": 32
+          }
+        },
+        {
+          "label": "A fundamental domain for the real directions",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            46,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L46-L66",
+          "declaration": "real_domain",
+          "declaration_lines": {
+            "real_domain": 46
+          }
+        },
+        {
+          "label": "The two integral maps and their common covolume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            67,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L67-L105"
+        },
+        {
+          "label": "A skew representative with the prescribed leading term",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            345,
+            373
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L345-L373"
+        },
+        {
+          "label": "Lifting a skew layer to a unitary element",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean",
+          "lines": [
+            8,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean#L8-L18",
+          "declaration": "exists_unitary_of_skew_layer",
+          "declaration_lines": {
+            "exists_unitary_of_skew_layer": 8
+          }
+        },
+        {
+          "label": "Correcting the first nonzero defect",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean",
+          "lines": [
+            53,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean#L53-L70"
+        },
+        {
+          "label": "Cancellation of the linear term",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean",
+          "lines": [
+            79,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsUnitaryLeadingTermOfSkewLayer.lean#L79-L104"
+        },
+        {
+          "label": "Successive domains cover the unipotent quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolumeLeProdLayersUnipotent.lean",
+          "lines": [
+            108,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolumeLeProdLayersUnipotent.lean#L108-L156",
+          "declaration": "covol_le_prod_layers",
+          "declaration_lines": {
+            "covol_le_prod_layers": 108
+          }
+        },
+        {
+          "label": "The radical is bounded by the product of the layer volumes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            393,
+            405
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L393-L405"
+        },
+        {
+          "label": "Taking the square root of the paired heights",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+          "lines": [
+            427,
+            437
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean#L427-L437"
+        }
+      ],
+      "equations": [
+        "global-flag-radical-volume"
+      ]
+    },
+    {
+      "id": "FSV-03",
+      "chapter": "global",
+      "anchor": "global-flag-block-determinants",
+      "title": "Integrating the general linear blocks for one stabilizer",
+      "statement": "The gauge-normalized marked slice is bounded by its residual class covolume, determinant-slab weights, radical and Iwasawa constants, and the integral of P times the logarithmic size density.",
+      "hypotheses": "An adapted marked flag, fixed block lattice classes and residual representative, compatible Haar gauges, measurable region of admissible sizes. The signature (p,q) is the same at all real places and 0 < τ₁ < ⋯ < τₐ < 1/2.",
+      "dependencies": [
+        "FSV-02"
+      ],
+      "sources": [
+        {
+          "label": "Recovering the size from the determinant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLeviRealPlacesProductMeasure.lean",
+          "lines": [
+            92,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLeviRealPlacesProductMeasure.lean#L92-L105",
+          "declaration": "size_solve",
+          "declaration_lines": {
+            "size_solve": 92
+          }
+        },
+        {
+          "label": "The determinant slab has unit logarithmic width",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            137,
+            159
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L137-L159",
+          "declaration": "lintegral_cone",
+          "declaration_lines": {
+            "lintegral_cone": 137
+          }
+        },
+        {
+          "label": "Separating determinant and shape on the lattice quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            202,
+            220
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L202-L220",
+          "declaration": "covol_withDensity_detNorm",
+          "declaration_lines": {
+            "covol_withDensity_detNorm": 202
+          }
+        },
+        {
+          "label": "The product of the metric factors over real places",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLeviRealPlacesProductMeasure.lean",
+          "lines": [
+            222,
+            234
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLeviRealPlacesProductMeasure.lean#L222-L234"
+        },
+        {
+          "label": "Pushing the logarithmic determinant measure to size",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+          "lines": [
+            382,
+            410
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean#L382-L410",
+          "declaration": "exists_dom",
+          "declaration_lines": {
+            "exists_dom": 382
+          }
+        },
+        {
+          "label": "The residual stabilizer and the product of block factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+          "lines": [
+            414,
+            438
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean#L414-L438",
+          "declaration": "covol_leviGroup_le",
+          "declaration_lines": {
+            "covol_leviGroup_le": 414
+          }
+        },
+        {
+          "label": "The bound for one adapted stabilizer slice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+          "lines": [
+            174,
+            186
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean#L174-L186",
+          "declaration": "bound",
+          "declaration_lines": {
+            "bound": 174
+          }
+        },
+        {
+          "label": "The parabolic integration factor and both arithmetic bounds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+          "lines": [
+            245,
+            268
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean#L245-L268"
+        },
+        {
+          "label": "Combining the factors and integrating over the region of sizes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+          "lines": [
+            298,
+            325
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean#L298-L325"
+        },
+        {
+          "label": "Haar integration for one real parabolic",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean",
+          "lines": [
+            10,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean#L10-L15",
+          "declaration": "iwasawaFormula",
+          "declaration_lines": {
+            "iwasawaFormula": 10
+          }
+        },
+        {
+          "label": "Multiplying the normalized formulas over real places",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaNMKIntegrationPiProduct.lean",
+          "lines": [
+            42,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaNMKIntegrationPiProduct.lean#L42-L62",
+          "declaration": "prod_formula",
+          "declaration_lines": {
+            "prod_formula": 42
+          }
+        },
+        {
+          "label": "Block sizes under the simultaneous change of frame",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLayerProductMeasureMulProdLocal.lean",
+          "lines": [
+            37,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLayerProductMeasureMulProdLocal.lean#L37-L48",
+          "declaration": "layerProd_mul_prod",
+          "declaration_lines": {
+            "layerProd_mul_prod": 37
+          }
+        },
+        {
+          "label": "The ordered simplex of admissible sizes",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            30,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L30-L35"
+        },
+        {
+          "label": "A fundamental domain stable under positive scalar action",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            441,
+            463
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L441-L463",
+          "declaration": "exists_cone_domain",
+          "declaration_lines": {
+            "exists_cone_domain": 441
+          }
+        }
+      ],
+      "equations": [
+        "global-flag-slice-density"
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.conjStable_lattice_real_imag_covolume_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 63,
+        "spelling": "GlobalTheory.T.conjStable_lattice_real_imag_covolume_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.zlattice_covolume_eq_of_coprime_scalars",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 65,
+        "spelling": "GlobalTheory.T.zlattice_covolume_eq_of_coprime_scalars"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_skew_integer_norm_coprime_prime",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 66,
+        "spelling": "GlobalTheory.T.exists_skew_integer_norm_coprime_prime"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.covolume_pi_lattice_unitary_coordinates",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 169,
+        "spelling": "GlobalTheory.T.covolume_pi_lattice_unitary_coordinates"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.height_flag_piece_triangular_frame",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 192,
+        "spelling": "GlobalTheory.T.height_flag_piece_triangular_frame"
+      }
+    },
+    {
+      "callee": "real_domain",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 345,
+        "spelling": "real_domain"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_unitary_leading_term_of_skew_layer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 358,
+        "spelling": "GlobalTheory.T.exists_unitary_leading_term_of_skew_layer"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.covolume_le_prod_layers_unipotent",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 393,
+        "spelling": "GlobalTheory.T.covolume_le_prod_layers_unipotent"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.prod_layer_height_quotients_eq_sq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 432,
+        "spelling": "GlobalTheory.T.prod_layer_height_quotients_eq_sq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.isotropicFlagUnipotentDim_eq_sum_pairs",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentRadicalIntegralPointsCovolume.lean",
+        "line": 432,
+        "spelling": "GlobalTheory.T.isotropicFlagUnipotentDim_eq_sum_pairs"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.leftQuotientCovolume_withDensity_detNormSq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+        "line": 407,
+        "spelling": "GlobalTheory.T.leftQuotientCovolume_withDensity_detNormSq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.FlagMeas.lintegral_rpow_neg_change_of_variable",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+        "line": 409,
+        "spelling": "GlobalTheory.FlagMeas.lintegral_rpow_neg_change_of_variable"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.flagLevi_realPlaces_product_measure",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+        "line": 430,
+        "spelling": "GlobalTheory.T.flagLevi_realPlaces_product_measure"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.flagLayerProductMeasure_mul_prod_local",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 250,
+        "spelling": "GlobalTheory.T.flagLayerProductMeasure_mul_prod_local"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.iwasawaNMKIntegration_pi_product",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 260,
+        "spelling": "GlobalTheory.T.iwasawaNMKIntegration_pi_product"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.unitary_iwasawa_integration_formula_real_place",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 262,
+        "spelling": "GlobalTheory.T.unitary_iwasawa_integration_formula_real_place"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.unipotentRadical_integral_points_covolume",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 266,
+        "spelling": "GlobalTheory.T.unipotentRadical_integral_points_covolume"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.levi_factor_integral_mod_integral_points_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 268,
+        "spelling": "GlobalTheory.T.levi_factor_integral_mod_integral_points_le"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FSV-01",
+      "FSV-02"
+    ],
+    [
+      "FSV-02",
+      "FSV-03"
+    ],
+    [
+      "FSV-03",
+      "FMU-02"
+    ]
+  ],
+  "outstanding": [
+    "The adapted integral flag basis, the normalized one-place Iwasawa formula, and the scalar-stable general linear fundamental domain are inputs."
+  ]
+}

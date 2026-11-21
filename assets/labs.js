@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "flag-layer-exponents": {
+      title: "Which flag layers supply the exponent?",
+      kind: "The volume factor of an isotropic flag",
+      section: "global",
+      params: [
+        choose("n", "Ambient dimension n", [["4", "4"], ["6", "6"], ["8", "8"]], "4"),
+        choose("jumps", "Rank jumps j", [["1", "(1)"], ["2", "(2)"], ["1,1", "(1, 1)"]], "1"),
+        choose("depth", "Largest graded size", [["1", "1/2"], ["2", "1/4"], ["3", "1/8"]], "1"),
+      ],
+      caption: "Setting f = 1 illustrates the archimedean exponents at a single real place. This calculation requires no CM extension with that signature unramified at all finite places. Layer k joins blocks k positions apart. Each matrix entry gives one direction. Read the exponent terms from left to right in the completed flag. Add the layer sums and halve the exponent to obtain the volume factor P.",
+      method: "With a single jump the graded size is the selected value s. With two jumps the sizes are (s², s). The completed ranks are the jumps, the middle rank n − 2Σjᵢ, and the jumps in reverse. Each short block has height hᵢ = τᵢ^(2jᵢ), the middle has height 1, and the opposite blocks have reciprocal heights. For two blocks b < c, the number of directions is r_b r_c. The contribution before the square root is h_b^(r_c)/h_c^(r_b). The table adds its negative base-two logarithm to layer c − b. A middle block of rank zero keeps its position and contributes zero directions. The setting s = 1/2 evaluates the algebraic formula at the cutoff.",
+    },
     "central-rounding": {
       title: "Where does rounding half a skew-adjoint matrix land?",
       kind: "The center of a Gaussian Hermitian plane",
@@ -1278,6 +1290,42 @@
   }
 
   function render(id, v) {
+    if (id === "flag-layer-exponents") {
+      const n = Number(v.n);
+      const jumps = v.jumps.split(",").map(Number);
+      const depth = Number(v.depth);
+      const totalRank = jumps.reduce((sum, rank) => sum + rank, 0);
+      const sizeExponents = jumps.map((_, i) => (jumps.length - i) * depth);
+      const shortBlocks = jumps.map((rank, i) => ({rank, heightExponent: 2 * rank * sizeExponents[i]}));
+      const opposite = [...shortBlocks].reverse().map(block => ({
+        rank: block.rank, heightExponent: -block.heightExponent,
+      }));
+      const blocks = [...shortBlocks, {rank: n - 2 * totalRank, heightExponent: 0}, ...opposite];
+      let directions = 0, totalExponent = 0, rows = "";
+      for (let layer = 1; layer < blocks.length; layer++) {
+        let layerDirections = 0;
+        const terms = [];
+        for (let b = 0; b + layer < blocks.length; b++) {
+          const left = blocks[b], right = blocks[b + layer];
+          layerDirections += left.rank * right.rank;
+          terms.push(left.heightExponent * right.rank - right.heightExponent * left.rank);
+        }
+        const exponent = terms.reduce((sum, term) => sum + term, 0);
+        directions += layerDirections;
+        totalExponent += exponent;
+        rows += '<tr><th scope="row">' + layer + '</th><td>' + layerDirections +
+          '</td><td>' + terms.join(' + ') + '</td><td>' + exponent + '</td></tr>';
+      }
+      const sizeLabels = sizeExponents.map(exponent => '1/' + (2 ** exponent));
+      const half = totalExponent / 2;
+      const product = half <= 12 ? '1/' + (2 ** half) : '2<sup>−' + half + '</sup>';
+      return '<table class="carry-table"><caption>Sizes (' + sizeLabels.join(', ') +
+        '), completed ranks (' + blocks.map(block => block.rank).join(', ') + ')</caption>' +
+        '<thead><tr><th scope="col">Layer</th><th scope="col">Entries</th>' +
+        '<th scope="col">Terms</th><th scope="col">Sum</th></tr></thead><tbody>' +
+        rows + '</tbody></table>' + metrics([["Total directions d", directions],
+          ["Exponent after the square root", totalExponent + '/2 = ' + half], ["Volume factor P", product]]);
+    }
     if (id === "central-rounding") {
       const quarters = Number(v.quarters);
       const roundedHalf = Math.round(quarters / 8);

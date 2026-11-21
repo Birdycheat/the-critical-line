@@ -208,6 +208,10 @@ async function run() {
           assert.equal(await fig.locator("table caption").innerText(), "Rows of 3G modulo 3 at s = 1, t = 0");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "1", "9"]);
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["0", "0", "0", "0"]);
+        } else if (id === "flag-layer-exponents") {
+          assert.equal(await fig.locator("table caption").innerText(), "Sizes (1/2), completed ranks (1, 2, 1)");
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["4", "4 + 4", "8", "1", "4", "4"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["5", "12/2 = 6", "1/64"]);
         } else if (id === "flag-average") {
           assert.equal(await fig.locator("table caption").innerText(), "Line averages over 𝔽₂₅");
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["25", "−1/26", "601", "0", "25", "1/26"]);

@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GCR-01",
+      "chapter": "lifts",
+      "anchor": "lifts-gram-column-recursion",
+      "title": "Fixing the first vector leaves the Gram fibre in its orthogonal complement",
+      "statement": "In the represented orthogonal decomposition ⟨t⟩⊕J, a first vector of norm t is h_y e. For target ⟨t⟩⊕T the remaining columns are h_y(0,X_j) with Gram_J(X)=T. Nearby targets have complement B−b*b/x, and det S=x det(B−b*b/x).",
+      "hypotheses": "E/F is CM and R is one completion of the totally real F. Work with a fixed scalar t in F×, a nonsingular J of dimension r, and a nonsingular Hermitian target T of size n. The rank condition of the global theorem is separate.",
+      "correspondence": "The moving frame can be chosen measurably and compactly controlled on the orbit. Changing the chosen frame multiplies on the right by the stabilizer of e, whose action on the complement preserves its Gram measure.",
+      "dependencies": [],
+      "equations": [
+        "lifts-gram-column-schur"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.vec",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.cvec",
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.schurM",
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.Bset"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.vec": 11,
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.cvec": 25,
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.schurM": 29,
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.Bset": 44
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StageData.lean",
+          "lines": [
+            11,
+            46
+          ],
+          "label": "Moving tuple, cross entries and the smaller Hermitian Gram matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StageData.lean#L11-L46"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.BsetUnit.det_eq_corner_mul",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.BsetUnit.det_eq_corner_mul": 10
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductInvariance.lean",
+          "lines": [
+            10,
+            40
+          ],
+          "label": "Factor the block determinant by its corner",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductInvariance.lean#L10-L40"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.TupFubini.lintegral_tuple_moving_frame",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.TupFubini.lintegral_tuple_moving_frame": 90
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureOrthogonalExtension.lean",
+          "lines": [
+            90,
+            121
+          ],
+          "label": "Integrate the remaining tuple in the moving unitary frame",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureOrthogonalExtension.lean#L90-L121"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.OrbitSection.orbit_section",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.OrbitSection.orbit_section": 305
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneGramMeasurableSection.lean",
+          "lines": [
+            305,
+            366
+          ],
+          "label": "A measurable choice of frame on the one-vector fibre",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneGramMeasurableSection.lean#L305-L366"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FibreInv.map_actW_fibre",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FibreInv.map_actW_fibre": 17
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresInvariant.lean",
+          "lines": [
+            17,
+            64
+          ],
+          "label": "Unitary invariance of the conditional Gram measure",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresInvariant.lean#L17-L64"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GCR-02",
+      "chapter": "lifts",
+      "anchor": "lifts-gram-column-measures",
+      "title": "The measure in a two-stage column integral has n copies of a local Haar modulus",
+      "statement": "For a nonnegative measurable test and compatible coordinate Haar measures, the local integral on the block fibre equals c_v(t)^n times the integral on the first-vector fibre of the complement integral. At a field place c_v(t)=|t|_v^{-2}.",
+      "hypotheses": "Additive Haar on R and one F-basis of E are used to construct all three measures. The source and target have the same represented first scalar t≠0. Near the centre x=a²t with a(t)=1, and the Schur complement is nonsingular.",
+      "correspondence": "For the moving target the weight is κ₁(a) cm(a)^n; at the centre these are 1 and the pushforward modulus of multiplication by t. Uniqueness for regular families upgrades the integrated change of variables to the exact target.",
+      "dependencies": [
+        "GCR-01",
+        "GFG-02"
+      ],
+      "equations": [
+        "lifts-gram-column-stages"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibS",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.Pint"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibS": 60,
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.Pint": 69
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StageData.lean",
+          "lines": [
+            60,
+            77
+          ],
+          "label": "The normalized candidate on the moving block target",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StageData.lean#L60-L77"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_scale_modulus_length_one",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_scale_modulus_length_one": 77
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneFiberMeasureBlockExtension.lean",
+          "lines": [
+            77,
+            142
+          ],
+          "label": "The first-vector scaling and the pushforward modulus per cross entry",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneFiberMeasureBlockExtension.lean#L77-L142"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.pi_const_smul",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.subst_row_translate"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.pi_const_smul": 14,
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.subst_row_translate": 25
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureConsProduct.lean",
+          "lines": [
+            14,
+            86
+          ],
+          "label": "Translate the lower-right block and scale the n cross coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureConsProduct.lean#L14-L86"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.ContTwo.cont_double",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.ContTwo.cont_double": 70
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductUniqueness.lean",
+          "lines": [
+            70,
+            242
+          ],
+          "label": "Continuity of the two-stage integral under variation of the target",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductUniqueness.lean#L70-L242"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.StageValue.corner_half_trace_block_one",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.StageValue.cvec_block",
+            "GlobalTheory.CompanionTheory.SW.StageValue.schur_block",
+            "GlobalTheory.CompanionTheory.SW.StageValue.family_at_block"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.StageValue.corner_half_trace_block_one": 48,
+            "GlobalTheory.CompanionTheory.SW.StageValue.cvec_block": 54,
+            "GlobalTheory.CompanionTheory.SW.StageValue.schur_block": 66,
+            "GlobalTheory.CompanionTheory.SW.StageValue.family_at_block": 86
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductSupport.lean",
+          "lines": [
+            48,
+            102
+          ],
+          "label": "The square branch, cross terms and candidate at the block centre",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductSupport.lean#L48-L102"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block": 20
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+          "lines": [
+            20,
+            40
+          ],
+          "label": "Disintegration and continuity of the candidate family",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean#L20-L40"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.fibre_block_stages",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.fibre_block_stages": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean",
+          "lines": [
+            55,
+            160
+          ],
+          "label": "The specialized two-stage formula and independence of the chosen frame",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean#L55-L160"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GCR-03",
+      "chapter": "lifts",
+      "anchor": "lifts-gram-column-product",
+      "title": "The product formula cancels the cross-coordinate normalizations",
+      "statement": "For t∈F× one has ∏_v c_v(t)^n=1. The standard lattice fibre mass also splits into the first-vector and complement masses away from finitely many places.",
+      "hypotheses": "The factors use normalized local absolute values of F, and c_v(t)=|t|_v^{-2} equals one almost everywhere. In global strict-rank recursion n+1≤r and either r≥2 or the full ambient space ⟨t⟩⊕J is anisotropic.",
+      "correspondence": "The two local changes of Haar need not be one individually. Their product is one before multiplying the separate standard-lattice tails. The worked example takes t=2 in Q(i)/Q.",
+      "dependencies": [
+        "GCR-02"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PfK.map_inclR_mul",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PfK.map_inclR_mul": 53
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ScalarMultiplicationEulerProduct.lean",
+          "lines": [
+            53,
+            100
+          ],
+          "label": "Scalar Haar multiplication and its product over the places",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ScalarMultiplicationEulerProduct.lean#L53-L100"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.map_inclR_prodFormula",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.map_inclR_prodFormula": 90
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ScalarMultiplicationEulerProduct.lean",
+          "lines": [
+            90,
+            100
+          ],
+          "label": "The global unit-product identity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ScalarMultiplicationEulerProduct.lean#L90-L100"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.StageGood.stage_good",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.StageGood.stage_good": 42
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalMeasuresOrthogonalSumAlmostAllPlaces.lean",
+          "lines": [
+            42,
+            93
+          ],
+          "label": "Splitting the integral orthogonal lattice outside a finite set",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalMeasuresOrthogonalSumAlmostAllPlaces.lean#L42-L93"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.GoodMass.good_mass",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.GoodMass.good_mass": 33
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneEventually.lean",
+          "lines": [
+            33,
+            76
+          ],
+          "label": "Good-place mass for the standard tuple lattice",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneEventually.lean#L33-L76"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.step_lt",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.step_lt": 278
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            278,
+            308
+          ],
+          "label": "The represented first line, the rank hypotheses and the local moduli",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L278-L308"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.step_lt",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.step_lt": 278
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            325,
+            376
+          ],
+          "label": "Cancellation of the finite-place and infinite-place scale factors",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L325-L376"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.fibre_block_stages",
+      "callee": "GlobalTheory.T.rank_one_gram_measurable_section",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean",
+        "line": 75,
+        "spelling": "GlobalTheory.T.rank_one_gram_measurable_section"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.fibre_block_stages",
+      "callee": "GlobalTheory.T.exists_fibre_family_block_one_eq_map_prod",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean",
+        "line": 85,
+        "spelling": "GlobalTheory.T.exists_fibre_family_block_one_eq_map_prod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.fibre_block_stages",
+      "callee": "GlobalTheory.CompanionTheory.SW.StabFirst.stab_first",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean",
+        "line": 133,
+        "spelling": "GlobalTheory.CompanionTheory.SW.StabFirst.stab_first"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.fibre_block_stages",
+      "callee": "GlobalTheory.T.gram_fiber_measures_invariant",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneProduct.lean",
+        "line": 152,
+        "spelling": "GlobalTheory.T.gram_fiber_measures_invariant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.local_units_continuous_square_root",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 24,
+        "spelling": "GlobalTheory.T.local_units_continuous_square_root"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.coordK_map_mul_eq_smul_continuous_modulus",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 26,
+        "spelling": "GlobalTheory.T.coordK_map_mul_eq_smul_continuous_modulus"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.gram_fiber_cons_at_block_one_eq_map_prod",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.gram_fiber_cons_at_block_one_eq_map_prod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.gram_fiber_cons_concentrated_on_fiber",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.gram_fiber_cons_concentrated_on_fiber"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.setLIntegral_Uset_coordW_eq_Mid",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 36,
+        "spelling": "GlobalTheory.T.setLIntegral_Uset_coordW_eq_Mid"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.gram_fiber_cons_iterated_lintegral_eq_Mid",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 37,
+        "spelling": "GlobalTheory.T.gram_fiber_cons_iterated_lintegral_eq_Mid"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_family_near_block",
+      "callee": "GlobalTheory.T.gram_fiber_cons_integrable_and_continuousOn_integral",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensityBlockOneSum.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.gram_fiber_cons_integrable_and_continuousOn_integral"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.ContTwo.cont_double",
+      "callee": "continuousAt_of_dominated",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberConsProductUniqueness.lean",
+        "line": 242,
+        "spelling": "continuousAt_of_dominated"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PiLocalization₂.fibre_scale_modulus_length_one",
+      "callee": "nnreal_eq_of_smul_haar",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneFiberMeasureBlockExtension.lean",
+        "line": 141,
+        "spelling": "nnreal_eq_of_smul_haar"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.scalar_multiplication_euler_product",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 299,
+        "spelling": "GlobalTheory.T.scalar_multiplication_euler_product"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.local_density_block_one_eventually",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 325,
+        "spelling": "GlobalTheory.T.local_density_block_one_eventually"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.local_measures_orthogonal_sum_almost_all_places",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 326,
+        "spelling": "GlobalTheory.T.local_measures_orthogonal_sum_almost_all_places"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.local_density_block_one_product",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 337,
+        "spelling": "GlobalTheory.T.local_density_block_one_product"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.local_density_block_one_product",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 339,
+        "spelling": "GlobalTheory.T.local_density_block_one_product"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.step_lt",
+      "callee": "GlobalTheory.T.lintegral_thetaMeas_block_one_eq_rank_one",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 349,
+        "spelling": "GlobalTheory.T.lintegral_thetaMeas_block_one_eq_rank_one"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GCR-01",
+      "GCR-02"
+    ],
+    [
+      "GFG-02",
+      "GCR-02"
+    ],
+    [
+      "GCR-02",
+      "GCR-03"
+    ],
+    [
+      "GCR-03",
+      "GGD-02"
+    ]
+  ],
+  "outstanding": [
+    "The existence of a compactly controlled measurable rank-one unitary section, unitary invariance and the almost-everywhere integral orthogonal splitting are stated and sourced. The distinct global unfolding over the adelic stabilizer is outside this local calculation."
+  ]
+}

@@ -84,6 +84,56 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Compare each displayed flag layer with individual matrix coordinates and the closed layer product.
+for (const n of [4, 6, 8]) {
+  for (const jumps of [[1], [2], [1, 1]]) {
+    for (const depth of [1, 2, 3]) {
+      const a = jumps.length;
+      const middle = n - 2 * jumps.reduce((sum, rank) => sum + rank);
+      const sizes = a === 1 ? [2 ** -depth] : [2 ** (-2 * depth), 2 ** -depth];
+      let product = 1;
+      for (let i = 0; i < a; i++) {
+        const rank = jumps[i];
+        product *= sizes[i] ** (2 * rank * middle) * (sizes[i] ** 2) ** (rank ** 2);
+        for (let j = i + 1; j < a; j++) {
+          const multiplicity = 2 * rank * jumps[j];
+          product *= (sizes[i] / sizes[j]) ** multiplicity * (sizes[i] * sizes[j]) ** multiplicity;
+        }
+      }
+      const coordinates = [];
+      for (let i = 0; i < a; i++) {
+        for (let k = 0; k < jumps[i]; k++) {
+          coordinates.push({block: i, size: sizes[i]}, {block: 2 * a - i, size: 1 / sizes[i]});
+        }
+      }
+      for (let k = 0; k < middle; k++) coordinates.push({block: a, size: 1});
+      const expected = Array.from({length: 2 * a}, () => ({directions: 0, exponent: 0}));
+      for (const left of coordinates) for (const right of coordinates) {
+        if (left.block >= right.block) continue;
+        const layer = expected[right.block - left.block - 1];
+        layer.directions++;
+        layer.exponent += -2 * Math.log2(left.size / right.size);
+      }
+      const rendered = lib.render("flag-layer-exponents", {n, jumps: jumps.join(","), depth});
+      const rows = [...rendered.matchAll(/<tr><th scope="row">(\d+)<\/th><td>(\d+)<\/td><td>([\d +]+)<\/td><td>(\d+)<\/td><\/tr>/g)];
+      assert.equal(rows.length, expected.length);
+      let rawExponent = 0, totalDirections = 0;
+      for (const [i, [, layer, directions, terms, exponent]] of rows.entries()) {
+        assert.equal(Number(layer), i + 1);
+        assert.deepEqual({directions: Number(directions), exponent: Number(exponent)}, expected[i]);
+        assert.equal(terms.split(" + ").map(Number).reduce((sum, x) => sum + x, 0), Number(exponent));
+        rawExponent += Number(exponent);
+        totalDirections += Number(directions);
+      }
+      assert.equal(2 ** (-rawExponent / 2), product);
+      const stats = [...rendered.matchAll(/<dd>(.*?)<\/dd>/g)].map(match => match[1]);
+      assert.equal(Number(stats[0]), totalDirections);
+      assert.equal(stats[1], rawExponent + "/2 = " + rawExponent / 2);
+      const power = -Math.log2(product);
+      assert.equal(stats[2], power <= 12 ? "1/" + (2 ** power) : "2<sup>−" + power + "</sup>");
+    }
+  }
+}
 // Enumerate the Gaussian coefficients in the upper-right entry of the hyperbolic plane.
 for (let quarters = 0; quarters <= 8; quarters++) {
   const t = quarters / 4;
