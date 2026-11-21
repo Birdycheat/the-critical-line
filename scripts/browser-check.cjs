@@ -102,7 +102,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "marked-ideal-weight") {
+        if (id === "split-gram-phases") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(0, 2)", "0", "(2, 0)", "0", "(3, 3)", "4", "(4, 4)", "1"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["i, −i", "2 of 4"]);
+        } else if (id === "marked-ideal-weight") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1/2", "4", "2", "1/8"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "1/4"]);
         } else if (id === "progression-difference") {

@@ -110,3 +110,7 @@
 ### Source model and the two parallel theta lifts
 
 The description of an iterated theta integral in the local chapter defines its span and what it means to meet a summand. Three named definitions in that source file were absent by name from the full published solution export. The chapter now presents this construction as a mathematical model and explains the specific nonzero projection used in each of the two parallel Galois-side lifts. All 111 written calls recorded elsewhere in the route have a direct counterpart in their caller’s exported value. The comparison concerns these named calls, and the published record lists its selection and the three absent names. [Theta integrals](book.html#local-chain) · [Direct references](records/solution_terms.json)
+
+### Normalizing a primitive column in a split algebra
+
+The shorter account of transverse compactness described a single largest coordinate. Over the two components of a split place the largest entries can occur at different indices. The revised argument exhibits those two pivots, carries along a functional pairing to one, and uses scalar one at all but finitely many places. Only after forming the normalized hyperbolic pair does it invoke the compact family of isometries on its Gram fibre. [Transverse compactness](book.html#lifts-isotropic-transverse) · [Split pivots](book.html#lifts-primitive-witness-local)

@@ -111,6 +111,18 @@ for (const chain of solution.theta_value_paths) {
       "Missing direct theta reference " + chain[i]);
   }
 }
+for (const path of solution.chapter_value_paths) {
+  assert.ok(ledger.has(path.claim) && path.names.length >= 2);
+  assert.ok(html["atlas.html"].includes('data-chapter-path="' + path.claim + '"'));
+  for (const [index, name] of path.names.entries()) {
+    assert.ok(solution.selected_declarations[name], "Uninspected chapter declaration " + name);
+    if (index > 0) {
+      const caller = solution.selected_declarations[path.names[index - 1]];
+      assert.ok(caller.value.constants.includes(name), "Missing chapter call to " + name);
+    }
+  }
+}
+assert.ok(!html["print.html"].includes("data-chapter-path="));
 let comparedFields = 0;
 for (const mod of Object.values(comparison.modules)) {
   for (const [name, fields] of Object.entries(mod.declarations)) {
@@ -128,6 +140,26 @@ assert.equal(comparedFields, comparison.result.equal_fields);
 assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
+}
+// Reconstruct t as a Gaussian residue x + iy and multiply before splitting at 5.
+for (let a = 0; a < 5; a++) {
+  for (let b = 0; b < 5; b++) {
+    const reduce = n => ((n % 5) + 5) % 5;
+    const x = reduce(3 * (a + b)), y = reduce(b - a);
+    const html = lib.render("split-gram-phases", {first: a, second: b});
+    const cells = [...html.matchAll(/<tr><th scope="row">([^<]+)<\/th><td>\((\d), (\d)\)<\/td><td>(\d)<\/td>/g)];
+    const gaussian = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+    assert.equal(cells.length, 4);
+    let units = 0;
+    for (let i = 0; i < gaussian.length; i++) {
+      const [r, s] = gaussian[i];
+      const re = 1 - r * x - s * y, im = s * x - r * y;
+      const norm = reduce(re * re + im * im);
+      assert.deepEqual(cells[i].slice(2).map(Number), [reduce(re + 2 * im), reduce(re + 3 * im), norm]);
+      if (norm !== 0) units++;
+    }
+    assert.ok(units >= 2 && html.includes(units + " of 4"));
+  }
 }
 // Compute each fundamental area from the real 2 by 2 basis for a Gaussian line.
 for (const [real, imag] of [[1, 0], [1, 1], [2, 0], [2, 1]]) {

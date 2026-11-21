@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FZR-01",
+      "chapter": "global",
+      "anchor": "global-flag-regulator-cover",
+      "title": "Small ideals cover the unit torus and bound the class number times the regulator",
+      "statement": "For a totally complex number field of degree 2f with Y the square root of its absolute discriminant, hR ≤ Y^s(s/(s−1))^(2f) for every real s>1. In any fixed ideal class the regulator is at most the sum over nonzero integral ideals of norm ≤Y of log(Y/N𝔞)^(f−1)/(f−1)!.",
+      "hypotheses": "Integral ideal classes in the maximal order, ordinary Euclidean measure at each complex place, weighted logarithms twice the log modulus, and regulator measured after one coordinate is deleted. The rank-zero simplex has volume one.",
+      "correspondence": "The proof derives the covering of the unit torus using the same inverse ideal class, Minkowski polydisc, and dimensions as the source. The final Euler-product comparison provides the same upper bound as the source’s finite counts of ideals of given norm.",
+      "dependencies": [
+        "CLM-01"
+      ],
+      "equations": [
+        "global-flag-class-regulator-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.RegulatorClassBound.exists_mem_box",
+          "declaration_lines": {
+            "GlobalTheory.RegulatorClassBound.exists_mem_box": 14
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+          "lines": [
+            14,
+            67
+          ],
+          "label": "The polydisc volume and the lattice-point threshold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean#L14-L67"
+        },
+        {
+          "declaration": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+          "declaration_lines": {
+            "GlobalTheory.RegulatorClassBound.regulator_le_sum_class": 80
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+          "lines": [
+            80,
+            103
+          ],
+          "label": "The inverse ideal class and the simplices in logarithmic coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean#L80-L103"
+        },
+        {
+          "declaration": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+          "declaration_lines": {
+            "GlobalTheory.RegulatorClassBound.regulator_le_sum_class": 80
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+          "lines": [
+            114,
+            158
+          ],
+          "label": "Choosing the ideal from a point of the torus",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean#L114-L158"
+        },
+        {
+          "declaration": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+          "declaration_lines": {
+            "GlobalTheory.RegulatorClassBound.regulator_le_sum_class": 80
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+          "lines": [
+            159,
+            189
+          ],
+          "label": "Translation by a unit and the simplex-volume bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean#L159-L189"
+        },
+        {
+          "declaration": "GlobalTheory.covolume_le_sum_volume_of_cover",
+          "declaration_lines": {
+            "GlobalTheory.covolume_le_sum_volume_of_cover": 10
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolumeLeSumVolumeOfCover.lean",
+          "lines": [
+            10,
+            40
+          ],
+          "label": "Bounding the covolume by the volumes of covering sets",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolumeLeSumVolumeOfCover.lean#L10-L40"
+        },
+        {
+          "declaration": "GlobalTheory.log_pow_div_factorial_le_rpow_of_one_le",
+          "declaration_lines": {
+            "GlobalTheory.log_pow_div_factorial_le_rpow_of_one_le": 9,
+            "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow": 17
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpow.lean",
+          "lines": [
+            9,
+            67
+          ],
+          "label": "Summing over all ideal classes and bounding the logarithmic weights",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpow.lean#L9-L67",
+          "related_declarations": [
+            "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.IdealZetaSum.sum_absNorm_rpow_neg_le",
+          "declaration_lines": {
+            "GlobalTheory.IdealZetaSum.sum_absNorm_rpow_neg_le": 75
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SumAbsNormRpowNegLeDedekindZetaBound.lean",
+          "lines": [
+            75,
+            97
+          ],
+          "label": "Bounding the finite sum of inverse ideal norms",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SumAbsNormRpowNegLeDedekindZetaBound.lean#L75-L97"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "FZR-02",
+      "chapter": "global",
+      "anchor": "global-flag-zeta-residue",
+      "title": "The residue at one and its cost in a prescribed flag type",
+      "statement": "For every totally complex E of degree 2f and root discriminant d, 0<Res₁ ζ_E≤(16 log d)^(2f). For a positive rank-jump profile of length a and total rank J in ambient rank n, log d≤exp n gives (Res₁ ζ_E)^a≤exp(2fJ(3+n)).",
+      "hypotheses": "The field bound uses the analytic class number formula with torsion order w, the lower bound d≥3/2 and the class-number regulator estimate. Applying it to the displayed flag coefficient uses the CM data of the finite-unramified flag-volume branch. Positive jumps imply a≤J.",
+      "correspondence": "The numerical comparison takes s=1+1/log d. A short application of the classical ideal-class Minkowski bound supplies the source’s d≥3/2 premise. The consumer invokes this residue estimate separately from its bound on ordinary zeta values at integer arguments at least two. The example only uses the totally complex field theorem. The elementary logarithmic majorant and telescoping geometric series in the exposition prove the same bound exp(2f) for one block of ordinary values.",
+      "dependencies": [
+        "FZR-01",
+        "CLM-01",
+        "CLM-05"
+      ],
+      "equations": [
+        "global-flag-residue-budget"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.rootDiscr_ge_three_halves_of_totallyComplex",
+          "declaration_lines": {
+            "GlobalTheory.rootDiscr_ge_three_halves_of_totallyComplex": 10
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RootDiscrGeThreeHalvesOfIsTotallyComplex.lean",
+          "lines": [
+            10,
+            49
+          ],
+          "label": "The root-discriminant lower bound and its relation to the square root of the discriminant",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RootDiscrGeThreeHalvesOfIsTotallyComplex.lean#L10-L49"
+        },
+        {
+          "declaration": "GlobalTheory.residue_rankin_numeric",
+          "declaration_lines": {
+            "GlobalTheory.residue_rankin_numeric": 9
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+          "lines": [
+            9,
+            46
+          ],
+          "label": "Choosing the exponent and checking the constant sixteen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean#L9-L46"
+        },
+        {
+          "declaration": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+          "declaration_lines": {
+            "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow": 48
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+          "lines": [
+            48,
+            75
+          ],
+          "label": "Class number formula and the positive residue bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean#L48-L75"
+        },
+        {
+          "declaration": "GlobalTheory.FlagMeas.genLinVolume",
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.genLinVolume": 11
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean",
+          "lines": [
+            11,
+            29
+          ],
+          "label": "One residue at rank one and ordinary zeta values at the subsequent ranks",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean#L11-L29"
+        },
+        {
+          "declaration": "GlobalTheory.FlagMeas.constantBound",
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.constantBound": 82
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            82,
+            89
+          ],
+          "label": "Calling the residue bound in the flag estimate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L82-L89"
+        },
+        {
+          "declaration": "GlobalTheory.FlagMeas.constantBound",
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.constantBound": 82
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            176,
+            205
+          ],
+          "label": "Raising to the block count and estimating the ordinary zeta factors separately",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L176-L205"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+      "callee": "GlobalTheory.RegulatorClassBound.exists_mem_box",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+        "line": 126,
+        "spelling": "exists_mem_box"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+      "callee": "GlobalTheory.RegulatorClassBound.sum_mult_log",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+        "line": 145,
+        "spelling": "sum_mult_log"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+      "callee": "GlobalTheory.covolume_le_sum_volume_of_cover",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+        "line": 178,
+        "spelling": "GlobalTheory.covolume_le_sum_volume_of_cover"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+      "callee": "GlobalTheory.SimplexVolume.volume_simplex_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClass.lean",
+        "line": 182,
+        "spelling": "GlobalTheory.SimplexVolume.volume_simplex_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow",
+      "callee": "GlobalTheory.T.regulator_le_sum_small_ideals_in_class",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpow.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.T.regulator_le_sum_small_ideals_in_class"
+      }
+    },
+    {
+      "caller": "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow",
+      "callee": "GlobalTheory.log_pow_div_factorial_le_rpow_of_one_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpow.lean",
+        "line": 55,
+        "spelling": "log_pow_div_factorial_le_rpow_of_one_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow",
+      "callee": "GlobalTheory.T.sum_absNorm_rpow_neg_le_dedekindZeta_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpow.lean",
+        "line": 67,
+        "spelling": "GlobalTheory.T.sum_absNorm_rpow_neg_le_dedekindZeta_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+      "callee": "GlobalTheory.T.rootDiscr_ge_three_halves_of_isTotallyComplex",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.T.rootDiscr_ge_three_halves_of_isTotallyComplex"
+      }
+    },
+    {
+      "caller": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+      "callee": "GlobalTheory.residue_rankin_numeric",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+        "line": 55,
+        "spelling": "residue_rankin_numeric"
+      }
+    },
+    {
+      "caller": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+      "callee": "GlobalTheory.T.classNumber_mul_regulator_le_sqrt_discr_rpow'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.classNumber_mul_regulator_le_sqrt_discr_rpow'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+      "callee": "NumberField.dedekindZeta_residue_def",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPow.lean",
+        "line": 68,
+        "spelling": "dedekindZeta_residue_def"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.constantBound",
+      "callee": "GlobalTheory.T.dedekindZeta_residue_le_sixteen_log_rootDiscr_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 85,
+        "spelling": "GlobalTheory.T.dedekindZeta_residue_le_sixteen_log_rootDiscr_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.regulator_le_sum_small_ideals_in_class",
+      "callee": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RegulatorLeSumSmallIdealsInClassStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.RegulatorClassBound.regulator_le_sum_class"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.sum_absNorm_rpow_neg_le_dedekindZeta_bound",
+      "callee": "GlobalTheory.IdealZetaSum.sum_absNorm_rpow_neg_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SumAbsNormRpowNegLeDedekindZetaBoundStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.IdealZetaSum.sum_absNorm_rpow_neg_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.classNumber_mul_regulator_le_sqrt_discr_rpow'",
+      "callee": "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberMulRegulatorLeSqrtDiscrRpowStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.classNumber_mul_regulator_le_sqrt_discr_rpow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.rootDiscr_ge_three_halves_of_isTotallyComplex",
+      "callee": "GlobalTheory.rootDiscr_ge_three_halves_of_totallyComplex",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RootDiscrGeThreeHalvesOfIsTotallyComplexStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.rootDiscr_ge_three_halves_of_totallyComplex"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.dedekindZeta_residue_le_sixteen_log_rootDiscr_pow",
+      "callee": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DedekindZetaResidueLeSixteenLogRootDiscrPowStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.dedekindZeta_residue_le_log_rootDiscr_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.flag_explicit_constant_le_exp_neg_half",
+      "callee": "GlobalTheory.FlagMeas.constantBound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalfStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.FlagMeas.constantBound"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CLM-01",
+      "FZR-01"
+    ],
+    [
+      "CLM-01",
+      "FZR-02"
+    ],
+    [
+      "CLM-05",
+      "FZR-02"
+    ],
+    [
+      "FZR-01",
+      "FZR-02"
+    ],
+    [
+      "FZR-02",
+      "RFV-01"
+    ]
+  ],
+  "outstanding": [
+    "Dirichlet’s unit theorem, Minkowski’s lattice-point and ideal-class bounds, and the analytic class number formula are cited classical inputs. The reciprocal quadratic-character factors in the flag coefficient use a separate estimate."
+  ]
+}

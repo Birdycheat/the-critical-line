@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SDM-01",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-mean-square",
+      "title": "A finite mean square for zero-dependent rows of primitive characters",
+      "hypotheses": "Q≥3; a finite set S of distinct primitive characters with conductors ≤Q; 399/400<Re ρχ<1 and |Im ρχ|≤Q; integral U≥1. One point per character; no height separation required. The upstream zero detector chooses a block for Q≥20 and conductor >1.",
+      "statement": "For any coefficient vector on U<n≤2U, with rows vχ(n)=χ(n)n^(−(ρχ−399/400)), ∑χ|∑n b(n)vχ(n)|² ≤ (U+8|S|Q³)∑n|b(n)|².",
+      "definitions": [
+        "ξ(n)=χ(n)conj(ψ(n)) has period qχ qψ. Gχψ=∑n vχ(n)conj(vψ(n))."
+      ],
+      "dependencies": [],
+      "equations": [
+        "inputs-short-detector-sieve"
+      ],
+      "sources": [
+        {
+          "declaration": "DualIneq",
+          "label": "The finite duality estimate and the two character-correlation bounds",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean",
+          "lines": [
+            24,
+            36
+          ],
+          "declaration_lines": {
+            "DualIneq": 24
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean#L24-L36"
+        },
+        {
+          "declaration": "mulLevel_ne_one",
+          "label": "Comparing the conductors of the two characters raised to the product modulus",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+          "lines": [
+            11,
+            28
+          ],
+          "declaration_lines": {
+            "mulLevel_ne_one": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean#L11-L28"
+        },
+        {
+          "declaration": "mulLevel_apply",
+          "label": "The quotient character on units and the vanishing on nonunits",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+          "lines": [
+            30,
+            57
+          ],
+          "declaration_lines": {
+            "mulLevel_apply": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean#L30-L57"
+        },
+        {
+          "declaration": "pair_sum_bound",
+          "label": "Complete periods vanish and the remainder has length at most the product modulus",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+          "lines": [
+            72,
+            101
+          ],
+          "declaration_lines": {
+            "pair_sum_bound": 98
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean#L72-L101"
+        },
+        {
+          "declaration": "norm_cpow_step_le",
+          "label": "Variation of a complex power over one integer step",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+          "lines": [
+            13,
+            30
+          ],
+          "declaration_lines": {
+            "norm_cpow_step_le": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean#L13-L30"
+        },
+        {
+          "declaration": "pair_twist_bound",
+          "label": "The endpoint terms and differences in summation by parts",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+          "lines": [
+            32,
+            73
+          ],
+          "declaration_lines": {
+            "pair_twist_bound": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean#L32-L73"
+        },
+        {
+          "declaration": "blockCountOf_statement",
+          "label": "The row matrix and its diagonal entries",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean",
+          "lines": [
+            29,
+            62
+          ],
+          "declaration_lines": {
+            "blockCountOf_statement": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean#L29-L62"
+        },
+        {
+          "declaration": "blockCountOf_statement",
+          "label": "Conjugation, the height difference, and the absolute row sums",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean",
+          "lines": [
+            63,
+            114
+          ],
+          "declaration_lines": {
+            "blockCountOf_statement": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean#L63-L114"
+        },
+        {
+          "declaration": "duality_inequality",
+          "label": "Expanding the outputs and the Cauchy–Schwarz step",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+          "lines": [
+            9,
+            47
+          ],
+          "declaration_lines": {
+            "duality_inequality": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean#L9-L47"
+        },
+        {
+          "declaration": "duality_inequality",
+          "label": "The symmetric quadratic bound followed by cancellation",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+          "lines": [
+            86,
+            124
+          ],
+          "declaration_lines": {
+            "duality_inequality": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean#L86-L124"
+        },
+        {
+          "declaration": "zero_density_box",
+          "label": "The duality and correlation estimates selected for the varying-conductor count",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration_lines": {
+            "zero_density_box": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean#L13-L15"
+        }
+      ]
+    },
+    {
+      "id": "SDM-02",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-absorption",
+      "title": "The coefficient-square constant and uniform absorption in the selected windows",
+      "hypotheses": "Positive integer U,J; Möbius product with cutoffs Y,N. For each character in S, the selected block has absolute value at least 1/(2J). For the uniform zero-detection windows Q is at least a fixed Q₀≥20 depending only on C.",
+      "statement": "With e=1/400, A=max(1,1/(e log 2)), K=ceil(2^(1/e)), C=A^(2K), the coefficient sum of squares is ≤C U^(−197/200). If 8CQ³ U^(−197/200) ≤ 1/(8J²), then |S| ≤8CJ²U^(3/200). The selected windows attain that condition simultaneously for large enough Q.",
+      "definitions": [
+        "b(n)=a(n)n^(−399/400); X=ceil Q,Y=X⁴,J=8(floor(log₂X)+1),N=2^J and U=Y2^j for 0≤j<J."
+      ],
+      "dependencies": [
+        "SDM-01",
+        "ZDB-01"
+      ],
+      "equations": [
+        "inputs-short-detector-budget"
+      ],
+      "sources": [
+        {
+          "declaration": "mco",
+          "label": "Möbius coefficients, the dyadic detector and the fixed real exponent",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean",
+          "lines": [
+            16,
+            26
+          ],
+          "declaration_lines": {
+            "mco": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean#L16-L26"
+        },
+        {
+          "declaration": "mco_norm_le",
+          "label": "Controlling the truncated coefficient by the number of divisors",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            60,
+            78
+          ],
+          "declaration_lines": {
+            "mco_norm_le": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L60-L78"
+        },
+        {
+          "declaration": "divisor_weight_bound",
+          "label": "A choice of constant for the elementary divisor estimate",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+          "lines": [
+            56,
+            92
+          ],
+          "declaration_lines": {
+            "divisor_weight_bound": 56
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean#L56-L92"
+        },
+        {
+          "declaration": "coefficient_square_bound",
+          "label": "The choice of epsilon and the per-integer estimate",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            133,
+            159
+          ],
+          "declaration_lines": {
+            "coefficient_square_bound": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L133-L159"
+        },
+        {
+          "declaration": "coefficient_square_bound",
+          "label": "Summing exactly U terms and relaxing the exponent",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            178,
+            191
+          ],
+          "declaration_lines": {
+            "coefficient_square_bound": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L178-L191"
+        },
+        {
+          "declaration": "BlockCount",
+          "label": "The block threshold and the uniform numerical window",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean",
+          "lines": [
+            58,
+            72
+          ],
+          "declaration_lines": {
+            "BlockCount": 58
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean#L58-L72"
+        },
+        {
+          "declaration": "blockCountOf_statement",
+          "label": "The weighted detector as a row output",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean",
+          "lines": [
+            114,
+            136
+          ],
+          "declaration_lines": {
+            "blockCountOf_statement": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean#L114-L136"
+        },
+        {
+          "declaration": "blockCountOf_statement",
+          "label": "Subtracting half the detector threshold",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean",
+          "lines": [
+            137,
+            166
+          ],
+          "declaration_lines": {
+            "blockCountOf_statement": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZBlock.lean#L137-L166"
+        },
+        {
+          "declaration": "numeric_constants",
+          "label": "A common threshold depending only on the squared coefficient constant",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean",
+          "lines": [
+            10,
+            19
+          ],
+          "declaration_lines": {
+            "numeric_constants": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean#L10-L19"
+        },
+        {
+          "declaration": "numeric_constants",
+          "label": "The lower bound on the shortest block pays for the off-diagonal terms",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean",
+          "lines": [
+            64,
+            92
+          ],
+          "declaration_lines": {
+            "numeric_constants": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean#L64-L92"
+        },
+        {
+          "declaration": "final_bound_of_assembly",
+          "label": "Assigning one block to each selected primitive character",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean",
+          "lines": [
+            73,
+            104
+          ],
+          "declaration_lines": {
+            "final_bound_of_assembly": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean#L73-L104"
+        },
+        {
+          "declaration": "zero_density_box",
+          "label": "Assembly with the divisor bound and the zero-detection lemma",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration_lines": {
+            "zero_density_box": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean#L13-L15"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "zero_density_box",
+      "callee": "final_bound_of_assembly",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "final_bound_of_assembly"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "coefficient_square_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "coefficient_square_bound"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "divisor_weight_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "Formalism.FX.divisor_weight_bound"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "zero_detection",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "zero_detection"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "mollifier_identity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "mollifier_identity"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "blockCountOf_statement",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 15,
+        "spelling": "blockCountOf_statement"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "duality_inequality",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 15,
+        "spelling": "duality_inequality"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "pair_twist_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 15,
+        "spelling": "pair_twist_bound"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "pair_sum_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 15,
+        "spelling": "pair_sum_bound"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "numeric_constants",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 15,
+        "spelling": "numeric_constants"
+      }
+    },
+    {
+      "caller": "count_bad_core",
+      "callee": "zero_density_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean",
+        "line": 24,
+        "spelling": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.zero_density_box"
+      }
+    },
+    {
+      "caller": "mulLevel_ne_one",
+      "callee": "conductor_changeLevel",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 20,
+        "spelling": "DirichletCharacter.conductor_changeLevel"
+      }
+    },
+    {
+      "caller": "mulLevel_ne_one",
+      "callee": "changeLevel_injective",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 27,
+        "spelling": "DirichletCharacter.changeLevel_injective"
+      }
+    },
+    {
+      "caller": "sum_range_modulus_shift_eq_zero_of_ne_one",
+      "callee": "sum_eq_zero_of_ne_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 79,
+        "spelling": "MulChar.sum_eq_zero_of_ne_one"
+      }
+    },
+    {
+      "caller": "norm_charSum_range_le_modulus_of_ne_one",
+      "callee": "sum_range_modulus_shift_eq_zero_of_ne_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 95,
+        "spelling": "sum_range_modulus_shift_eq_zero_of_ne_one"
+      }
+    },
+    {
+      "caller": "pair_sum_bound",
+      "callee": "norm_charSum_range_le_modulus_of_ne_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 100,
+        "spelling": "norm_charSum_range_le_modulus_of_ne_one"
+      }
+    },
+    {
+      "caller": "pair_sum_bound",
+      "callee": "mulLevel_ne_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZPair.lean",
+        "line": 100,
+        "spelling": "mulLevel_ne_one"
+      }
+    },
+    {
+      "caller": "norm_cpow_step_le",
+      "callee": "norm_cpow_sub_le'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+        "line": 16,
+        "spelling": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'"
+      }
+    },
+    {
+      "caller": "pair_twist_bound",
+      "callee": "sum_Ioc_by_parts",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+        "line": 42,
+        "spelling": "Finset.sum_Ioc_by_parts"
+      }
+    },
+    {
+      "caller": "pair_twist_bound",
+      "callee": "norm_cpow_step_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+        "line": 60,
+        "spelling": "norm_cpow_step_le"
+      }
+    },
+    {
+      "caller": "duality_inequality",
+      "callee": "sum_mul_sq_le_sq_mul_sq",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+        "line": 47,
+        "spelling": "Finset.sum_mul_sq_le_sq_mul_sq"
+      }
+    },
+    {
+      "caller": "divisor_weight_bound",
+      "callee": "succ_le_max_mul_pow",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 73,
+        "spelling": "succ_le_max_mul_pow"
+      }
+    },
+    {
+      "caller": "divisor_weight_bound",
+      "callee": "succ_le_pow_of_two_le",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 75,
+        "spelling": "succ_le_pow_of_two_le"
+      }
+    },
+    {
+      "caller": "coefficient_square_bound",
+      "callee": "mco_norm_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+        "line": 156,
+        "spelling": "mco_norm_le"
+      }
+    },
+    {
+      "caller": "numeric_constants",
+      "callee": "isLittleO_log_rpow_rpow_atTop",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean",
+        "line": 12,
+        "spelling": "isLittleO_log_rpow_rpow_atTop"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SDM-01",
+      "SDM-02"
+    ],
+    [
+      "ZDB-01",
+      "SDM-02"
+    ],
+    [
+      "SDM-01",
+      "ZDB-02"
+    ],
+    [
+      "SDM-02",
+      "ZDB-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Andrew Sutherland, Number Theory I, Lecture 18 (2021), Theorem 18.13 and Corollary 18.15 (primitive induction and period orthogonality)",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes18.pdf#page=5"
+    }
+  ],
+  "outstanding": [
+    "The zero detector and its choices of truncations remain the upstream input ZDB-01. ZDB-03 independently treats conductor one, sums over the blocks, and includes bounded heights."
+  ]
+}

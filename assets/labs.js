@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "split-gram-phases": {
+      title: "Which phase permits division in both components?",
+      kind: "A split Hermitian denominator at 5",
+      section: "lifts",
+      params: [
+        range("first", "First component of t", 0, 4, 1, 1),
+        range("second", "Second component of t", 0, 4, 1, 4),
+      ],
+      caption: "A phase permits division when both entries of its denominator are nonzero. At t = (1, 4), the two real signs give zeros in opposite components, leaving i and −i.",
+      method: "Take the two reductions of i to be 2 and 3 in the field of five elements. Conjugation swaps the two entries. For each phase λ compute δ = 1 − conjugate(λ)t component by component and multiply its entries for the norm. The denominator is invertible exactly when the norm is nonzero modulo 5. All computations take place in the residue algebra. Every selected t = (a,b) occurs for two length-one columns. In the standard split plane take x = (1,0) and y with first coordinate conjugate(t) and second coordinate (1,1−ab). Then h(y,x) = t and the two coordinate norms of y sum to ab+(1−ab) = 1.",
+    },
     "marked-ideal-weight": {
       title: "Which part of the orbit weight remembers the ideal?",
       kind: "Covolumes of a marked Gaussian lattice",
@@ -1339,6 +1350,23 @@
   }
 
   function render(id, v) {
+    if (id === "split-gram-phases") {
+      const a = Number(v.first), b = Number(v.second);
+      const phases = [["1", 1, 1], ["−1", 4, 4], ["i", 2, 3], ["−i", 3, 2]];
+      const mod5 = value => ((value % 5) + 5) % 5;
+      const usable = [];
+      const rows = phases.map(([label, first, second]) => {
+        const left = mod5(1 - second * a), right = mod5(1 - first * b);
+        const norm = mod5(left * right);
+        if (norm !== 0) usable.push(label);
+        return '<tr><th scope="row">' + label + '</th><td>(' + left + ', ' + right +
+          ')</td><td>' + norm + '</td></tr>';
+      });
+      return '<table class="carry-table"><caption>Residues at t = (' + a + ', ' + b +
+        ')</caption><thead><tr><th scope="col">Phase</th><th scope="col">Denominator δ</th>' +
+        '<th scope="col">Norm</th></tr></thead><tbody>' + rows.join("") + '</tbody></table>' +
+        metrics([["Usable phases", usable.join(", ")], ["Total", usable.length + " of 4"]]);
+    }
     if (id === "marked-ideal-weight") {
       const rank = Number(v.rank);
       const norm = Number(v.norm);

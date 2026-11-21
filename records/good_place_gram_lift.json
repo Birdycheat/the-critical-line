@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GPL-01",
+      "chapter": "lifts",
+      "anchor": "lifts-good-gram-phase",
+      "title": "Four norm-one phases give an integral inverse",
+      "statement": "At every odd finite place where d, Q and β are units and P is integral, for each integral t in the quadratic algebra at least one phase λ among ±1 and ±(P+Qθ) makes β−conj(λ)t an integral unit.",
+      "hypotheses": "Quadratic CM extension E/F with trace-zero generator θ, θ²=d≠0, β∈F×, α=P+Qθ and P²−dQ²=1 with Q≠0. Local coefficient ring is the full ring of integers, including the product of valuation rings in the split case.",
+      "correspondence": "The source shows the four base norms generate the unit ideal over the base algebra. The displayed residue-field proof is the valuation-ring specialization of its two norm differences. The source wrapper allows arbitrary unit β by applying the rational-scalar result to β⁻¹t and the target 1. The split calculation at 5 illustrates why invertibility must hold in both factors.",
+      "dependencies": [],
+      "equations": [
+        "lifts-good-gram-norm-test"
+      ],
+      "sources": [
+        {
+          "declaration": "PIW.AdelicOrbitU.quadGen",
+          "declaration_lines": {
+            "PIW.AdelicOrbitU.quadGen": 201,
+            "PIW.AdelicOrbitU.stLam": 267
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+          "lines": [
+            201,
+            267
+          ],
+          "label": "A trace-zero generator for the quadratic algebra",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean#L201-L267",
+          "related_declarations": [
+            "PIW.AdelicOrbitU.stLam"
+          ]
+        },
+        {
+          "declaration": "PIW.AdelicOrbitU.stLam_of",
+          "declaration_lines": {
+            "PIW.AdelicOrbitU.stLam_of": 160
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+          "lines": [
+            160,
+            195
+          ],
+          "label": "Choosing the norm-one phase and its rational denominators",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean#L160-L195"
+        },
+        {
+          "declaration": "PIW.AdelicOrbitU.norm_id",
+          "declaration_lines": {
+            "PIW.AdelicOrbitU.norm_id": 32,
+            "PIW.AdelicOrbitU.core": 41
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+          "lines": [
+            32,
+            83
+          ],
+          "label": "The four norms and their two differences",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean#L32-L83",
+          "related_declarations": [
+            "PIW.AdelicOrbitU.core"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LamUnit.exists_norm_one_sub_isUnit",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LamUnit.exists_norm_one_sub_isUnit": 57
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsNormOneUnitShift.lean",
+          "lines": [
+            57,
+            75
+          ],
+          "label": "Restoring the unit diagonal entry",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsNormOneUnitShift.lean#L57-L75"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GPL-02",
+      "chapter": "lifts",
+      "anchor": "lifts-good-place-gram-lift",
+      "title": "Integral isometries matching a regular Gram frame at almost every finite place",
+      "statement": "For rational X with nonsingular Gram matrix and adelic Y of the same Gram matrix, there is a finite set S such that at every finite v outside S an isometry preserving the coordinate lattice sends X to Yᵥ. One S works for every Y in a fixed compact family.",
+      "hypotheses": "CM quadratic number fields, nonsingular rational Hermitian form J, finite ambient and frame dimensions. Choose a rational simultaneous diagonalization of the shared Gram matrix. Outside S the rational frames and changes of coordinates, form matrix and inverse, local target frame and phase parameters are integral; all diagonal entries, 2, d and Q are units. Leave all ramified and dyadic places in S.",
+      "correspondence": "The source applies the diagonal-column isometry to the adelic coefficient algebra, using a restricted-product choice with integral inverses outside finitely many places. The exposition works coordinatewise over a fixed good local ring. It gives the matrices and integral inverses, tracks their successive action, and obtains a uniform exceptional set on a compact family by a finite subcover. AGF-02 uses this local component to produce an adelic inverse.",
+      "dependencies": [
+        "AGF-01",
+        "GPL-01"
+      ],
+      "equations": [
+        "lifts-good-gram-integral-action"
+      ],
+      "sources": [
+        {
+          "declaration": "PIW.AdelicOrbitU.local_sum",
+          "declaration_lines": {
+            "PIW.AdelicOrbitU.local_sum": 80,
+            "PIW.AdelicOrbitU.uc_rp": 91
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean",
+          "lines": [
+            80,
+            127
+          ],
+          "label": "Selecting a norm which is a unit in the local integers",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean#L80-L127",
+          "related_declarations": [
+            "PIW.AdelicOrbitU.uc_rp"
+          ]
+        },
+        {
+          "declaration": "PIW.AdelicOrbitU.uc_rp",
+          "declaration_lines": {
+            "PIW.AdelicOrbitU.uc_rp": 91,
+            "PIW.AdelicOrbitU.uc_fin": 173,
+            "PIW.AdelicOrbitU.stP": 179
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean",
+          "lines": [
+            128,
+            183
+          ],
+          "label": "Selecting integral inverses in the restricted product",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean#L128-L183",
+          "related_declarations": [
+            "PIW.AdelicOrbitU.uc_fin",
+            "PIW.AdelicOrbitU.stP"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.quasi",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.quasi": 43,
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.refl_fix": 70
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean",
+          "lines": [
+            43,
+            89
+          ],
+          "label": "The unitary operators and their inverses",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean#L43-L89",
+          "related_declarations": [
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.refl_fix"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.witt_diag",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.witt_diag": 95
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean",
+          "lines": [
+            95,
+            117
+          ],
+          "label": "The induction on the columns",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean#L95-L117"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.WittDiag.trans_diag",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.WittDiag.trans_diag": 13
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionDiagonalGramTuples.lean",
+          "lines": [
+            13,
+            20
+          ],
+          "label": "Supplying phases to the diagonal extension",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionDiagonalGramTuples.lean#L13-L20"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.TransUC.trans_uc",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.TransUC.trans_uc": 49
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicOrbitOfRationalTuple.lean",
+          "lines": [
+            61,
+            100
+          ],
+          "label": "Returning to the original frames",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicOrbitOfRationalTuple.lean#L61-L100"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.TransA.trans_adelic",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.TransA.trans_adelic": 11
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionRationalToAdelic.lean",
+          "lines": [
+            11,
+            17
+          ],
+          "label": "Using the unit choice for the adeles",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionRationalToAdelic.lean#L11-L17"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PIW.AdelicOrbitU.core",
+      "callee": "PIW.AdelicOrbitU.norm_id",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+        "line": 121,
+        "spelling": "norm_id"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.stLam_of",
+      "callee": "PIW.AdelicOrbitU.core",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+        "line": 182,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.stLam",
+      "callee": "PIW.AdelicOrbitU.stLam_of",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+        "line": 267,
+        "spelling": "stLam_of"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.stLam",
+      "callee": "PIW.AdelicOrbitU.quadGen",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/StLamOf.lean",
+        "line": 267,
+        "spelling": "quadGen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LamUnit.exists_norm_one_sub_isUnit",
+      "callee": "PIW.AdelicOrbitU.stLam",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsNormOneUnitShift.lean",
+        "line": 62,
+        "spelling": "PIW.AdelicOrbitU.stLam"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.WittDiag.trans_diag",
+      "callee": "GlobalTheory.CompanionTheory.SW.LamUnit.exists_norm_one_sub_isUnit",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionDiagonalGramTuples.lean",
+        "line": 17,
+        "spelling": "LamUnit.exists_norm_one_sub_isUnit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.WittDiag.trans_diag",
+      "callee": "CompanionTheory.PlacePermOperatorBicommutantSpan.witt_diag",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionDiagonalGramTuples.lean",
+        "line": 15,
+        "spelling": "CompanionTheory.PlacePermOperatorBicommutantSpan.witt_diag"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.witt_diag",
+      "callee": "CompanionTheory.PlacePermOperatorBicommutantSpan.refl_fix",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean",
+        "line": 109,
+        "spelling": "refl_fix"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.refl_fix",
+      "callee": "CompanionTheory.PlacePermOperatorBicommutantSpan.quasi",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/HfSubSmul.lean",
+        "line": 77,
+        "spelling": "quasi"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.uc_fin",
+      "callee": "PIW.AdelicOrbitU.local_sum",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean",
+        "line": 177,
+        "spelling": "local_sum"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.uc_fin",
+      "callee": "PIW.AdelicOrbitU.uc_rp",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean",
+        "line": 175,
+        "spelling": "uc_rp"
+      }
+    },
+    {
+      "caller": "PIW.AdelicOrbitU.stP",
+      "callee": "PIW.AdelicOrbitU.uc_fin",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicUnitaryOrbits/LocalSum.lean",
+        "line": 183,
+        "spelling": "uc_fin"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.TransUC.trans_uc",
+      "callee": "GlobalTheory.T.witt_extension_diagonal_gram_tuples",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicOrbitOfRationalTuple.lean",
+        "line": 88,
+        "spelling": "GlobalTheory.T.witt_extension_diagonal_gram_tuples"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.TransA.trans_adelic",
+      "callee": "PIW.AdelicOrbitU.stP",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionRationalToAdelic.lean",
+        "line": 17,
+        "spelling": "PIW.AdelicOrbitU.stP"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.TransA.trans_adelic",
+      "callee": "GlobalTheory.T.adelic_orbit_of_rational_tuple",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WittExtensionRationalToAdelic.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.T.adelic_orbit_of_rational_tuple"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "AGF-01",
+      "GPL-02"
+    ],
+    [
+      "GPL-01",
+      "GPL-02"
+    ],
+    [
+      "GPL-02",
+      "AGF-02"
+    ]
+  ],
+  "outstanding": [
+    "The finite exceptional set may include primes where an independent integral transport would work. At these places this argument supplies no lattice-stabilizer assertion. AGF supplies the field-level choice and restricted-product assembly."
+  ]
+}

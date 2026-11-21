@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "PVC-01",
+      "chapter": "global",
+      "anchor": "global-period-volume-comparison",
+      "title": "The large compact block in the short-flag volume",
+      "statement": "If n≥18, J≤p≤n and p−J≥max(n/2,n−2√n), then log(S(p)/S(p−J))≤J[log(2π)−(n−2√n)log(n/(2πe))], where S(r) is the product of the unit sphere areas in complex dimensions 1 through r.",
+      "hypotheses": "Integers n, p, J≥0. The inequality holds for the empty interval J=0. The field and the adelic measures enter only when this scalar ratio is used in a flag coefficient.",
+      "definitions": [
+        "A_m=2π^(m+1)/m!, the area of the unit sphere in ℂ^(m+1).",
+        "S(0)=1 and S(r)=∏_{0≤m<r}A_m. The unitary group volume convention also contains a separate factor 2^(r(r−1)/2)."
+      ],
+      "dependencies": [],
+      "equations": [
+        "global-period-volume-factors",
+        "global-period-volume-large"
+      ],
+      "sources": [
+        {
+          "label": "The two compact normalization factors",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L13-L15",
+          "declaration": "sphV",
+          "declaration_lines": {
+            "sphV": 13
+          }
+        },
+        {
+          "label": "Bound one sphere using a single exponential-series term",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean",
+          "lines": [
+            17,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean#L17-L49",
+          "declaration": "log_factor_le",
+          "declaration_lines": {
+            "log_factor_le": 17
+          }
+        },
+        {
+          "label": "Sum the consecutive logarithms beginning at p−J",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean",
+          "lines": [
+            51,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean#L51-L72",
+          "declaration": "log_sphV_ratio_le",
+          "declaration_lines": {
+            "log_sphV_ratio_le": 67
+          }
+        },
+        {
+          "label": "Large-rank comparison with its five hypotheses",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRankStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRankStatement.lean#L6-L7",
+          "declaration": "GlobalTheory.T.log_unitarySphereVolumeProduct_ratio_le_large_rank",
+          "declaration_lines": {
+            "GlobalTheory.T.log_unitarySphereVolumeProduct_ratio_le_large_rank": 6
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "PVC-02",
+      "chapter": "global",
+      "anchor": "global-period-volume-blocks",
+      "title": "The compact contribution to the probability of one short flag",
+      "statement": "For rank jumps of total J and f real places, log(C^f) ≤ fJ[c−(n−2s)(L−c−1)+3.49+sL/4] where C=S(p)S(q)/(S(p−J)S(q−J)∏S(j_i)), s=√n, L=log n and c=log(2π).",
+      "hypotheses": "Common signature (p,q), n=p+q, log n≥15, q²≤n, positive integer rank jumps summing to J≤q. The single-place computation uses only these numerical inequalities. The ambient short-flag probability has additional arithmetic hypotheses.",
+      "definitions": [
+        "The quotient S(q)/S(q−J) costs at most 3.49J in its logarithm.",
+        "Each inverse jump factor costs at most j_i s log(s)/2, so the total costs at most JsL/4."
+      ],
+      "dependencies": [
+        "PVC-01"
+      ],
+      "equations": [
+        "global-period-volume-product",
+        "global-period-volume-cost"
+      ],
+      "sources": [
+        {
+          "label": "The compact factor occurs in the full arithmetic coefficient",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            22,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L22-L28",
+          "declaration": "kapBd",
+          "declaration_lines": {
+            "kapBd": 22
+          }
+        },
+        {
+          "label": "Every single sphere factor is at most 32.5",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZetaProdSphereVolumeBounds.lean",
+          "lines": [
+            155,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZetaProdSphereVolumeBounds.lean#L155-L182",
+          "declaration": "sphere_le",
+          "declaration_lines": {
+            "sphere_le": 155
+          }
+        },
+        {
+          "label": "The finite exponential comparison and q-block estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean",
+          "lines": [
+            19,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean#L19-L41",
+          "declaration": "sphV_add_le",
+          "declaration_lines": {
+            "sphV_add_le": 25
+          }
+        },
+        {
+          "label": "The reciprocal small-block bound for every rank",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean",
+          "lines": [
+            43,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean#L43-L70",
+          "declaration": "inv_sphV_le",
+          "declaration_lines": {
+            "inv_sphV_le": 43
+          }
+        },
+        {
+          "label": "Both scalar estimates in their stated normalization",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBoundsStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBoundsStatement.lean#L6-L7",
+          "declaration": "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds",
+          "declaration_lines": {
+            "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds": 6
+          }
+        },
+        {
+          "label": "Apply the square-root bound to one jump",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            38,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L38-L53",
+          "declaration": "inv_sph_le",
+          "declaration_lines": {
+            "inv_sph_le": 38
+          }
+        },
+        {
+          "label": "The two signature blocks and the inverse jump factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            145,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L145-L174"
+        },
+        {
+          "label": "Compact factor in the final product",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            219,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L219-L228"
+        },
+        {
+          "label": "Apply the coefficient bound to the probability of one ordered flag",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NonzeroFlagProbabilityBoundOfVolumeRatioInductio.lean",
+          "lines": [
+            109,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NonzeroFlagProbabilityBoundOfVolumeRatioInductio.lean#L109-L118"
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "Real.pow_div_factorial_le_exp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean",
+        "line": 33,
+        "spelling": "Real.pow_div_factorial_le_exp"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SphRatio.log_factor_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean",
+        "line": 59,
+        "spelling": "log_factor_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SphRatio.log_ratio_add_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRank.lean",
+        "line": 70,
+        "spelling": "log_ratio_add_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SphRatio.log_sphV_ratio_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LogUnitarySphereVolumeProductRatioLeLargeRankStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.SphRatio.log_sphV_ratio_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.zetaProd_sphereVolume_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean",
+        "line": 29,
+        "spelling": "GlobalTheory.zetaProd_sphereVolume_bounds"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SphereRatio.inv_sphV_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBounds.lean",
+        "line": 70,
+        "spelling": "GlobalTheory.SphereRatio.inv_sphV_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.sphV_ratio_and_inv_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitarySphereVolumeProductRatioAndInvBoundsStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.sphV_ratio_and_inv_bounds"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 40,
+        "spelling": "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.log_unitarySphereVolumeProduct_ratio_le_large_rank",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 145,
+        "spelling": "GlobalTheory.T.log_unitarySphereVolumeProduct_ratio_le_large_rank"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 150,
+        "spelling": "GlobalTheory.T.unitarySphereVolumeProduct_ratio_and_inv_bounds"
+      }
+    },
+    {
+      "callee": "GlobalTheory.FlagMeas.ConstBd.inv_sph_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 156,
+        "spelling": "inv_sph_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.flag_explicit_constant_le_exp_neg_half",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NonzeroFlagProbabilityBoundOfVolumeRatioInductio.lean",
+        "line": 112,
+        "spelling": "GlobalTheory.T.flag_explicit_constant_le_exp_neg_half"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PVC-01",
+      "PVC-02"
+    ],
+    [
+      "PVC-02",
+      "RFV-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "NIST Digital Library of Mathematical Functions, equation 5.9.1 (radial gamma integral)",
+      "url": "https://dlmf.nist.gov/5.9.E1"
+    },
+    {
+      "title": "NIST Digital Library of Mathematical Functions, equation 5.4.1 (factorial values)",
+      "url": "https://dlmf.nist.gov/5.4.E1"
+    },
+    {
+      "title": "NIST Digital Library of Mathematical Functions, equation 4.2.19 (exponential series)",
+      "url": "https://dlmf.nist.gov/4.2.E19"
+    }
+  ],
+  "outstanding": [
+    "The quantity bounded here is one compact factor of the coefficient for a short flag. Its arithmetic factors and the further count of rows enter RFV-01 and RFV-02. The dimension detected by the period maps also requires the diagonal and mixed Gram estimates of MDR-02."
+  ]
+}

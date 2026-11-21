@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SDT-01",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-tail",
+      "title": "Uniform partial sums of a nonprincipal L-function at a zero",
+      "hypotheses": "Nonprincipal character χ modulo q; |A(n)|≤B at each n for A(n)=∑_{k=1}^n χ(k); integer N≥1; σ=Re s>0. One may choose B=q+1.",
+      "statement": "The Abel series ∑n≥1 A(n)(n^(−s)−(n+1)^(−s)) represents L(s,χ). Subtracting P_N gives a telescoping tail and the boundary −A(N)(N+1)^(−s), bounded together by B(1+|s|/σ)(N+1)^(−σ) ≤ 2B(1+|s|/σ)N^(−σ).",
+      "definitions": [
+        "P_N(s) is the sum of χ(n)n^(−s) for 1≤n≤N."
+      ],
+      "dependencies": [],
+      "equations": [
+        "inputs-short-detector-abel",
+        "inputs-short-detector-remainder"
+      ],
+      "sources": [
+        {
+          "declaration": "norm_character_sum_Icc_le",
+          "label": "Removing complete periods and bounding the inclusive character sum",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LGrowth.lean",
+          "lines": [
+            26,
+            49
+          ],
+          "declaration_lines": {
+            "norm_character_sum_Icc_le": 39
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LGrowth.lean#L26-L49"
+        },
+        {
+          "declaration": "norm_cpow_sub_le",
+          "label": "Two bounds on successive complex powers",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+          "lines": [
+            44,
+            75
+          ],
+          "declaration_lines": {
+            "norm_cpow_sub_le": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean#L44-L75"
+        },
+        {
+          "declaration": "partial_identity",
+          "label": "The partial summation identity and its boundary term",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+          "lines": [
+            121,
+            139
+          ],
+          "declaration_lines": {
+            "partial_identity": 129
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean#L121-L139"
+        },
+        {
+          "declaration": "G_differentiableOn",
+          "label": "A local uniform majorant on the positive real half-plane",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+          "lines": [
+            141,
+            181
+          ],
+          "declaration_lines": {
+            "G_differentiableOn": 141
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean#L141-L181"
+        },
+        {
+          "declaration": "LFunction_eq_G",
+          "label": "Identifying the holomorphic sum with the continued L-function",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+          "lines": [
+            213,
+            244
+          ],
+          "declaration_lines": {
+            "LFunction_eq_G": 228
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean#L213-L244"
+        },
+        {
+          "declaration": "LFunctionPartialSum.norm_tail_le",
+          "label": "The telescoping tail for a bounded partial-sum function",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+          "lines": [
+            12,
+            24
+          ],
+          "declaration_lines": {
+            "LFunctionPartialSum.norm_tail_le": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean#L12-L24"
+        },
+        {
+          "declaration": "LFunctionPartialSum.norm_tail_le",
+          "label": "Summing the positive differences down to the initial endpoint",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+          "lines": [
+            110,
+            133
+          ],
+          "declaration_lines": {
+            "LFunctionPartialSum.norm_tail_le": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean#L110-L133"
+        },
+        {
+          "declaration": "l_function_partial_sum",
+          "label": "Subtracting the finite sum and weakening to the detector constant",
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+          "lines": [
+            136,
+            169
+          ],
+          "declaration_lines": {
+            "l_function_partial_sum": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean#L136-L169"
+        },
+        {
+          "declaration": "zero_detection",
+          "label": "The conductor, bounded character sums, and evaluation at the chosen zero",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            54,
+            77
+          ],
+          "declaration_lines": {
+            "zero_detection": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L54-L77"
+        }
+      ]
+    },
+    {
+      "id": "SDT-02",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-blocks",
+      "title": "One large block among exactly J half-open intervals",
+      "hypotheses": "Q≥20, primitive χ of conductor 1<q≤Q, L(ρ,χ)=0, Re ρ>399/400, |Im ρ|≤Q. Y and N are positive integral cutoffs in the finite Möbius identity.",
+      "statement": "With X=ceil Q, Y=X⁴, J=8(floor(log₂X)+1), N=2^J, the product of the first N L-terms and the first Y Möbius terms has norm at most 3/X≤1/2. Its nonconstant tail splits over (Y2^j,Y2^(j+1)] for 0≤j<J; at least one block has modulus ≥1/(2J). The selected zeros also satisfy Re ρ<1 by nonvanishing for nonprincipal characters on Re s≥1, as required by the subsequent block estimate.",
+      "definitions": [
+        "The constant coefficient of P_N M_Y is 1, the coefficients for 2≤n≤Y vanish, and its support ends at YN. The terminal block is (YN/2,YN]."
+      ],
+      "dependencies": [
+        "SDT-01"
+      ],
+      "equations": [
+        "inputs-short-detector-product",
+        "inputs-short-detector-selection"
+      ],
+      "sources": [
+        {
+          "declaration": "Detect",
+          "label": "All four cutoffs, the zero box and the threshold for one selected index",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean",
+          "lines": [
+            48,
+            56
+          ],
+          "declaration_lines": {
+            "Detect": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDefs.lean#L48-L56"
+        },
+        {
+          "declaration": "sum_blocks",
+          "label": "The exact partition into J consecutive half-open blocks",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            10,
+            18
+          ],
+          "declaration_lines": {
+            "sum_blocks": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L10-L18"
+        },
+        {
+          "declaration": "mollM_norm_le",
+          "label": "The bound for the short Möbius factor",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            20,
+            40
+          ],
+          "declaration_lines": {
+            "mollM_norm_le": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L20-L40"
+        },
+        {
+          "declaration": "mollifier_identity",
+          "label": "The truncated product, its constant term and the terminal cutoff",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            79,
+            97
+          ],
+          "declaration_lines": {
+            "mollifier_identity": 79
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L79-L97"
+        },
+        {
+          "declaration": "zero_detection",
+          "label": "Dominating X to the eighth power and applying the product identity",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            60,
+            80
+          ],
+          "declaration_lines": {
+            "zero_detection": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L60-L80"
+        },
+        {
+          "declaration": "zero_detection",
+          "label": "The conductor-height bounds and the power 15/16",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            82,
+            115
+          ],
+          "declaration_lines": {
+            "zero_detection": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L82-L115"
+        },
+        {
+          "declaration": "zero_detection",
+          "label": "The estimate 3/X for the product and the lower bound for its tail",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            117,
+            147
+          ],
+          "declaration_lines": {
+            "zero_detection": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L117-L147"
+        },
+        {
+          "declaration": "zero_detection",
+          "label": "Selecting a closed threshold 1/(2J) among exactly J blocks",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+          "lines": [
+            149,
+            162
+          ],
+          "declaration_lines": {
+            "zero_detection": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean#L149-L162"
+        },
+        {
+          "declaration": "final_bound_of_assembly",
+          "label": "Assigning one detected index to each character of conductor greater than one",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean",
+          "lines": [
+            60,
+            83
+          ],
+          "declaration_lines": {
+            "final_bound_of_assembly": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean#L60-L83"
+        },
+        {
+          "declaration": "zero_density_box",
+          "label": "The zero detector used in the assembled character count",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration_lines": {
+            "zero_density_box": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean#L13-L15"
+        },
+        {
+          "declaration": "final_bound_of_assembly",
+          "label": "Nonvanishing on the closed right half-plane supplies the strict strip bound to the block estimate",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean",
+          "lines": [
+            84,
+            105
+          ],
+          "declaration_lines": {
+            "final_bound_of_assembly": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean#L84-L105"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "norm_character_sum_Icc_le",
+      "callee": "norm_character_sum_range_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LGrowth.lean",
+        "line": 51,
+        "spelling": "norm_character_sum_range_le"
+      }
+    },
+    {
+      "caller": "norm_character_sum_range_le",
+      "callee": "character_sum_range_add_modulus",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LGrowth.lean",
+        "line": 36,
+        "spelling": "character_sum_range_add_modulus"
+      }
+    },
+    {
+      "caller": "partial_identity",
+      "callee": "Ap_succ",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 137,
+        "spelling": "Ap_succ"
+      }
+    },
+    {
+      "caller": "LFunction_eq_G",
+      "callee": "G_differentiableOn",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 233,
+        "spelling": "G_differentiableOn"
+      }
+    },
+    {
+      "caller": "LFunction_eq_G",
+      "callee": "LFunction_eq_G_of_one_lt",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 243,
+        "spelling": "LFunction_eq_G_of_one_lt"
+      }
+    },
+    {
+      "caller": "l_function_partial_sum",
+      "callee": "LFunction_eq_G",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+        "line": 140,
+        "spelling": "LFunction_eq_G"
+      }
+    },
+    {
+      "caller": "l_function_partial_sum",
+      "callee": "partial_identity",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+        "line": 140,
+        "spelling": "partial_identity"
+      }
+    },
+    {
+      "caller": "l_function_partial_sum",
+      "callee": "summable_dterm",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+        "line": 141,
+        "spelling": "summable_dterm"
+      }
+    },
+    {
+      "caller": "l_function_partial_sum",
+      "callee": "norm_tail_le",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LPartialSum.lean",
+        "line": 149,
+        "spelling": "norm_tail_le"
+      }
+    },
+    {
+      "caller": "sum_blocks",
+      "callee": "sum_Ioc_consecutive",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 18,
+        "spelling": "Finset.sum_Ioc_consecutive"
+      }
+    },
+    {
+      "caller": "mollM_norm_le",
+      "callee": "abs_moebius_le_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 29,
+        "spelling": "ArithmeticFunction.abs_moebius_le_one"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "conductor_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 57,
+        "spelling": "DirichletCharacter.conductor_one"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "lt_pow_succ_log_self",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 62,
+        "spelling": "Nat.lt_pow_succ_log_self"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "norm_character_sum_Icc_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 72,
+        "spelling": "Formalism.ZeroFreeDirichlet.norm_character_sum_Icc_le"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "l_function_partial_sum",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 73,
+        "spelling": "Formalism.FX.l_function_partial_sum"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "mollM_norm_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 77,
+        "spelling": "mollM_norm_le"
+      }
+    },
+    {
+      "caller": "zero_detection",
+      "callee": "sum_blocks",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDetect.lean",
+        "line": 150,
+        "spelling": "sum_blocks"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "zero_detection",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "zero_detection"
+      }
+    },
+    {
+      "caller": "zero_density_box",
+      "callee": "mollifier_identity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+        "line": 14,
+        "spelling": "mollifier_identity"
+      }
+    },
+    {
+      "caller": "final_bound_of_assembly",
+      "callee": "LFunction_ne_zero_of_one_le_re",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZFinal.lean",
+        "line": 89,
+        "spelling": "DirichletCharacter.LFunction_ne_zero_of_one_le_re"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SDT-01",
+      "SDT-02"
+    ],
+    [
+      "SDT-02",
+      "ZDB-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Kiran Kedlaya, Notes on analytic number theory, Lemma 3.2, Theorem 3.5 and equation (3.2.3) (nonprincipal periods and Abel continuation)",
+      "url": "https://kskedlaya.org/ant/chap-lfunc.html"
+    },
+    {
+      "title": "Kiran Kedlaya, Notes on analytic number theory, (3.2.1) and Theorems 3.8, 3.10, 3.11 (nonvanishing to the right and on the entire line of real part one for nonprincipal characters)",
+      "url": "https://kskedlaya.org/ant/chap-lfunc.html"
+    }
+  ],
+  "outstanding": [
+    "The elementary finite Möbius product is derived in ZDB-01. The selected block is then supplied to the separate Gram-matrix estimate SDM-01/02. Conductor one and bounded heights enter the final assembly ZDB-03."
+  ],
+  "external_formal_sources": [
+    {
+      "claim": "SDT-02",
+      "declaration": "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "path": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+      "lines": [
+        398,
+        401
+      ],
+      "url": "https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/LSeries/Nonvanishing.lean#L398-L401"
+    }
+  ]
+}
