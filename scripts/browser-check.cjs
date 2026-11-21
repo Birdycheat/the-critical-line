@@ -102,7 +102,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "cartan-power") {
+        if (id === "parabolic-shell") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1", "1/16", "1/16", "16", "1/16", "1"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4", "4"]);
+        } else if (id === "cartan-power") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["0.00", "−88722.84", "−697.83"]);
         } else if (id === "convex-nerve-cut") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["A, B, AB", "B", "B, C, BC"]);

@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "parabolic-shell": {
+      title: "Which box keeps its mass under dilation?",
+      kind: "Haar measure on an isotropic line stabilizer",
+      section: "lifts",
+      params: [
+        choose("degree", "Number of real places of F", [["1", "1"], ["2", "2"]], "1"),
+        choose("rank", "Dimension of the complement W", [["1", "1"], ["2", "2"], ["3", "3"]], "1"),
+        choose("stretch", "Scalar at infinity", [["-1", "1/2"], ["0", "1"], ["1", "2"]], "1"),
+      ],
+      caption: "Moving only the scalar range changes the mass of a shell. A left translate moves the additive box as well. Its volume growth cancels the change in idèle density.",
+      method: "The flow is defined at every real time. Here the times are −log 2, 0 and log 2, so the scaling factors are exact fractions. At a real place the horizontal variable is a complex vector of dimension s, while the real central coordinate scales by the square of the chosen scalar. For d places and scale u the two image-volume factors are u^(2ds) and u^(2d). The scalar density gains their reciprocal. The finite components, the unitary domain and multiplicative Haar volume of the scalar range stay fixed.",
+    },
     "cartan-power": {
       title: "When does the power bound fall below one?",
       kind: "One moving plane in signature (3, 1)",
@@ -1366,6 +1378,19 @@
   }
 
   function render(id, v) {
+    if (id === "parabolic-shell") {
+      const places = Number(v.degree), rank = Number(v.rank), step = Number(v.stretch);
+      const horizontal = 2 * places * rank * step;
+      const central = 2 * places * step;
+      const power = exponent => exponent < 0 ? "1/" + 2 ** -exponent : String(2 ** exponent);
+      const additive = power(horizontal + central);
+      const density = power(-horizontal - central);
+      return '<table class="carry-table"><caption>Factors relative to the original box</caption>' +
+        '<thead><tr><th scope="col">Move</th><th scope="col">Additive</th><th scope="col">Density</th><th scope="col">Mass</th></tr></thead>' +
+        '<tbody><tr><th scope="row">Scalar only</th><td>1</td><td>' + density + '</td><td>' + density + '</td></tr>' +
+        '<tr><th scope="row">Left translate</th><td>' + additive + '</td><td>' + density + '</td><td>1</td></tr></tbody></table>' +
+        metrics([["Horizontal volume in the translate", power(horizontal)], ["Central volume in the translate", power(central)]]);
+    }
     if (id === "cartan-power") {
       const s = Number(v.scale) * Math.LN2;
       const squareDistance = 2 * s * s;

@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "STM-01",
+      "chapter": "normalization",
+      "anchor": "normalization-shifted-tensor-projectors",
+      "title": "Reading a smooth dual tensor by its shifted discrete-series summands",
+      "hypotheses": "A signed unitary group U(p,q) with 1≤q≤p and a discrete-series representation π of dominant regular parameter λ with opposite-sign gaps ≥200m³.",
+      "statement": "On the smooth tensor with the dual defining representation, regular one-coordinate lowerings index the shifted summands. Their projections sum to the identity and their coordinates realize the signed invariant form with a scalar on each summand.",
+      "definitions": [
+        "The tensor is a column of m smooth vectors, with action π(g) and matrix factor (g⁻¹)ᵗ.",
+        "The Casimir coordinate is κs=λs+(m−1)/2. Multiplication by the spectral interpolation polynomial extracts the s-coordinate on this smooth decomposition."
+      ],
+      "dependencies": [],
+      "equations": [
+        "normalization-shifted-form-identity"
+      ],
+      "sources": [
+        {
+          "declaration": "Dec",
+          "label": "The tensor action, signed form and smooth summand identities",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean",
+          "lines": [
+            118,
+            147
+          ],
+          "declaration_lines": {
+            "Dec": 129
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean#L118-L147"
+        },
+        {
+          "declaration": "injV",
+          "label": "Joint separation by maps to the shifted models",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean",
+          "lines": [
+            176,
+            185
+          ],
+          "declaration_lines": {
+            "injV": 176
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean#L176-L185"
+        },
+        {
+          "declaration": "decReg",
+          "label": "Occurrence by reverse translation, tensor adjunction and multiplicity one",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+          "lines": [
+            17,
+            64
+          ],
+          "declaration_lines": {
+            "decReg": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean#L17-L64"
+        },
+        {
+          "declaration": "dec_U",
+          "label": "The separation threshold and admissible one-coordinate shifts",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            45,
+            65
+          ],
+          "declaration_lines": {
+            "dec_U": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L45-L65"
+        },
+        {
+          "declaration": "dec_U",
+          "label": "Summand coordinates, the signed form and the Casimir eigenvalues",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            121,
+            150
+          ],
+          "declaration_lines": {
+            "dec_U": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L121-L150"
+        },
+        {
+          "declaration": "unitary_decomposition_exists",
+          "label": "Transport to a signed unitary group with both signs",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            178,
+            200
+          ],
+          "declaration_lines": {
+            "unitary_decomposition_exists": 190
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L178-L200"
+        }
+      ]
+    },
+    {
+      "id": "STM-02",
+      "chapter": "normalization",
+      "anchor": "normalization-shifted-formal-degree",
+      "title": "Comparing formal degrees before and after a one-coordinate lowering",
+      "hypotheses": "Both signs occur, both parameters are regular and the initial opposite-sign gap is ≥200m³. The two degrees are for the same Haar measure on the same group.",
+      "statement": "The reciprocal shifted degree costs at most 2^(m−1)/dπ by counting affected unordered pairs. The ordered-pair bound used on the route is 2^(2m)/dπ ≤ X^m/dπ.",
+      "definitions": [
+        "The degree is a signature- and measure-dependent positive constant times the type A product ∏a<b |λa−λb|/(b−a).",
+        "Each shifted gap in an affected pair is a positive integer. The original gap is at most its successor."
+      ],
+      "dependencies": [
+        "STM-01"
+      ],
+      "equations": [
+        "normalization-shifted-degree-ratio"
+      ],
+      "sources": [
+        {
+          "declaration": "fdegHC",
+          "label": "The type A root product and its denominator",
+          "path": "src/Formalism/FormalDegreeBessel/StatementDS.lean",
+          "lines": [
+            19,
+            24
+          ],
+          "declaration_lines": {
+            "fdegHC": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/FormalDegreeBessel/StatementDS.lean#L19-L24"
+        },
+        {
+          "declaration": "fdeg_gap",
+          "label": "The common formal-degree constant and its sufficient gap",
+          "path": "src/Development/WeilBound/HeckeVectors/HeckeDoubleCosets/HeckeCoefficientDegrees/DegreeHcOfGoodPresentFamily.lean",
+          "lines": [
+            19,
+            40
+          ],
+          "declaration_lines": {
+            "fdeg_gap": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/HeckeVectors/HeckeDoubleCosets/HeckeCoefficientDegrees/DegreeHcOfGoodPresentFamily.lean#L19-L40"
+        },
+        {
+          "declaration": "fdeg_of_isHCParam_sub_single_ne",
+          "label": "Comparison of a gap with its shifted gap",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean",
+          "lines": [
+            157,
+            188
+          ],
+          "declaration_lines": {
+            "fdeg_of_isHCParam_sub_single_ne": 157
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean#L157-L188"
+        },
+        {
+          "declaration": "fdeg_shift",
+          "label": "Product comparison and the ordered-pair majorant",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean",
+          "lines": [
+            190,
+            238
+          ],
+          "declaration_lines": {
+            "fdeg_shift": 190
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean#L190-L238"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Checking the shifted gap and the ratio of reciprocal degrees",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            117,
+            142
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L117-L142"
+        }
+      ]
+    },
+    {
+      "id": "STM-03",
+      "chapter": "normalization",
+      "anchor": "normalization-shifted-component-mass",
+      "title": "The signed form and the exact squared mass of one tensor component",
+      "hypotheses": "The smooth tensor and degrees of STM-01 and STM-02, the signed branching pair, the unit lowest-type vectors, the seeded coefficient projection, an integrable self-adjoint coefficient with convolution factor κ>0, and the differential word estimate.",
+      "statement": "For al,s(g)=⟨ξ,(ps A(g)el v₀)z⟩, the integral of |al,s|² equals |γs||cs|‖rs(el v₀)‖²/ds. The three factors cost X^m, X^(4m) and X^m/dπ.",
+      "definitions": [
+        "The cofactor identity evaluates the distinguished entry after applying P as γsP, with a product of n factors μj−λs+1/2 divided by differences λj−λs.",
+        "The stabilizer average at one smooth witness and Schur orthogonality cancel κ and the test pairing."
+      ],
+      "dependencies": [
+        "STM-01",
+        "STM-02"
+      ],
+      "equations": [
+        "normalization-shifted-component-identity"
+      ],
+      "sources": [
+        {
+          "declaration": "Comat",
+          "label": "The two different bounds for a tensor projector",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean",
+          "lines": [
+            159,
+            163
+          ],
+          "declaration_lines": {
+            "Comat": 159
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean#L159-L163"
+        },
+        {
+          "declaration": "th_proj",
+          "label": "Cofactor evaluation on each eigenspace and extraction of a coordinate minor",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+          "lines": [
+            23,
+            65
+          ],
+          "declaration_lines": {
+            "th_proj": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean#L23-L65"
+        },
+        {
+          "declaration": "exists_norm_le_one_p_eq_smul_Th",
+          "label": "The product of separated roots in the denominator",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            86,
+            116
+          ],
+          "declaration_lines": {
+            "exists_norm_le_one_p_eq_smul_Th": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L86-L116"
+        },
+        {
+          "declaration": "comat_of",
+          "label": "Differential word bounds and expansion of a quantum minor",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            155,
+            219
+          ],
+          "declaration_lines": {
+            "comat_of": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L155-L219"
+        },
+        {
+          "declaration": "comat_of",
+          "label": "The compressed minor and its scalar on the smaller group",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            220,
+            276
+          ],
+          "declaration_lines": {
+            "comat_of": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L220-L276"
+        },
+        {
+          "declaration": "comatrix_word_bound",
+          "label": "The word estimate used for the cofactor argument",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+          "lines": [
+            4,
+            8
+          ],
+          "declaration_lines": {
+            "comatrix_word_bound": 6
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean#L4-L8"
+        },
+        {
+          "declaration": "idem_avg",
+          "label": "The averaging functional for an integrable convolution eigenfunction",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean",
+          "lines": [
+            16,
+            38
+          ],
+          "declaration_lines": {
+            "idem_avg": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean#L16-L38"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Averaging on the stabilizer and testing the signed form",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            70,
+            107
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L70-L107"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Schur orthogonality, exact cancellation and the component mass",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            108,
+            148
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L108-L148"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "unitary_decomposition_exists",
+      "callee": "dec_hpk",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 200,
+        "spelling": "dec_hpk"
+      }
+    },
+    {
+      "caller": "dec_hpk",
+      "callee": "dec_U",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 188,
+        "spelling": "dec_U"
+      }
+    },
+    {
+      "caller": "dec_U",
+      "callee": "zuckerman_ingredients",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 48,
+        "spelling": "zuckerman_ingredients"
+      }
+    },
+    {
+      "caller": "dec_U",
+      "callee": "injV",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 59,
+        "spelling": "injV"
+      }
+    },
+    {
+      "caller": "dec_U",
+      "callee": "zuckerman_library_bounds",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 59,
+        "spelling": "zuckerman_library_bounds"
+      }
+    },
+    {
+      "caller": "dec_U",
+      "callee": "decReg",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 63,
+        "spelling": "decReg"
+      }
+    },
+    {
+      "caller": "dec_U",
+      "callee": "shift_inj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 65,
+        "spelling": "shift_inj"
+      }
+    },
+    {
+      "caller": "decReg",
+      "callee": "injV",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 31,
+        "spelling": "injV"
+      }
+    },
+    {
+      "caller": "decReg",
+      "callee": "iso_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 35,
+        "spelling": "iso_of"
+      }
+    },
+    {
+      "caller": "decReg",
+      "callee": "shift_inj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 23,
+        "spelling": "shift_inj"
+      }
+    },
+    {
+      "caller": "fdeg_gap",
+      "callee": "fdCons_muG",
+      "callsite": {
+        "path": "src/Development/WeilBound/HeckeVectors/HeckeDoubleCosets/HeckeCoefficientDegrees/DegreeHcOfGoodPresentFamily.lean",
+        "line": 25,
+        "spelling": "fdCons_muG"
+      }
+    },
+    {
+      "caller": "fdeg_shift",
+      "callee": "fdeg_of_isHCParam_sub_single_ne",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean",
+        "line": 205,
+        "spelling": "fdeg_of_isHCParam_sub_single_ne"
+      }
+    },
+    {
+      "caller": "comatrix_word_bound",
+      "callee": "comat_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+        "line": 6,
+        "spelling": "comat_of"
+      }
+    },
+    {
+      "caller": "comatrix_word_bound",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+        "line": 6,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "cap_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 64,
+        "spelling": "cap_of"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "root_of_ne",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 92,
+        "spelling": "root_of_ne"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "th_proj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 114,
+        "spelling": "th_proj"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "one_le_diff",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 106,
+        "spelling": "one_le_diff"
+      }
+    },
+    {
+      "caller": "comat_of",
+      "callee": "exists_norm_le_one_p_eq_smul_Th",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 141,
+        "spelling": "exists_norm_le_one_p_eq_smul_Th"
+      }
+    },
+    {
+      "caller": "comat_of",
+      "callee": "qminor_bd",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 193,
+        "spelling": "qminor_bd"
+      }
+    },
+    {
+      "caller": "comat_of",
+      "callee": "th_single",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 164,
+        "spelling": "th_single"
+      }
+    },
+    {
+      "caller": "comat_of",
+      "callee": "spread",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 143,
+        "spelling": "spread"
+      }
+    },
+    {
+      "caller": "momentHeA_of",
+      "callee": "fdeg_gap",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 52,
+        "spelling": "CompanionTheory.D.Upq.Coef.fdeg_gap"
+      }
+    },
+    {
+      "caller": "momentHeA_of",
+      "callee": "schur_abs",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 65,
+        "spelling": "Formalism.MainNotions.BridgeLemma.schur_abs"
+      }
+    },
+    {
+      "caller": "momentHeA_of",
+      "callee": "idem_avg",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 75,
+        "spelling": "idem_avg"
+      }
+    },
+    {
+      "caller": "momentHeA_of",
+      "callee": "fdeg_shift",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 139,
+        "spelling": "fdeg_shift"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "momentHeA_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "momentHeA_of"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "unitary_decomposition_exists",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "DecB.unitary_decomposition_exists"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "comatrix_word_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "Com.comatrix_word_bound"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "STM-01",
+      "STM-02"
+    ],
+    [
+      "STM-01",
+      "STM-03"
+    ],
+    [
+      "STM-02",
+      "STM-03"
+    ],
+    [
+      "STM-03",
+      "BPP-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "G. Zuckerman, Tensor products of finite and infinite dimensional representations of semisimple Lie groups, Annals of Mathematics 106 (1977), 295–308",
+      "url": "https://doi.org/10.2307/1971097"
+    },
+    {
+      "title": "M. F. Atiyah and W. Schmid, A geometric construction of the discrete series for semisimple Lie groups, §5, p. 25 following (5.15)",
+      "url": "https://www.math.utah.edu/~ptrapa/math-library/schmid/atiyah-schmid.pdf"
+    },
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, J. Functional Analysis 21 (1976), 209–243",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    }
+  ],
+  "outstanding": [
+    "Regular translation, its multiplicity-one input, the invariant form scalar, the type A formal-degree formula, the quantum determinant identities and the elementary-matrix differential word bound are cited or stated. Their full independent representation-theoretic proofs remain upstream.",
+    "The smooth vector coefficient projection and the convolution identity for the smaller model are hypotheses to the averaging argument. The calculation does not bound the tensor projectors on a Hilbert completion."
+  ]
+}

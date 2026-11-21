@@ -1,0 +1,745 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "UQC-01",
+      "chapter": "lifts",
+      "anchor": "lifts-unitary-quotient-lattices",
+      "title": "Finite adelic lattice classes and their rational stabilizers",
+      "statement": "For H=U(h) there is a compact open K in its finite adelic group for which the rational double classes are finite. The rational isometries preserving the slice tK are exactly those preserving the lattice L(t).",
+      "hypotheses": "A nondegenerate finite-dimensional Hermitian space over the CM extension E/F, its rational unitary group, and integral cores in fixed finite coordinates. Bounded dual index, bounded-basis reduction and reduction adapted to an isotropic line are used.",
+      "dependencies": [],
+      "equations": [
+        "lifts-unitary-quotient-lattice-action",
+        "lifts-unitary-quotient-stabilizer"
+      ],
+      "sources": [
+        {
+          "label": "The integral lattice, its Hermitian dual and the index bound",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Objects.lean",
+          "lines": [
+            129,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Objects.lean#L129-L160",
+          "declaration": "IsLattice",
+          "declaration_lines": {
+            "IsLattice": 129,
+            "dualLattice": 137,
+            "IsIntegralOn": 149,
+            "IsDIntegral": 152
+          },
+          "related_declarations": [
+            "dualLattice",
+            "IsIntegralOn",
+            "IsDIntegral"
+          ]
+        },
+        {
+          "label": "The closure of rational vectors recovers the translated finite lattice and its coset",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/CoreLatticeEqOfMemCoreStabilizer.lean",
+          "lines": [
+            305,
+            368
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/CoreLatticeEqOfMemCoreStabilizer.lean#L305-L368",
+          "declaration": "closure_image_coreLattice",
+          "declaration_lines": {
+            "closure_image_coreLattice": 314,
+            "coreLattice_eq_iff": 366
+          },
+          "related_declarations": [
+            "coreLattice_eq_iff"
+          ]
+        },
+        {
+          "label": "Uniform denominators for the pairing and for the inverse dual inclusion",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/IsIntegralVecCoordsOfMemAdelicLatticeOne.lean",
+          "lines": [
+            120,
+            171
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/IsIntegralVecCoordsOfMemAdelicLatticeOne.lean#L120-L171",
+          "declaration": "exists_int_isIntegral_pairE",
+          "declaration_lines": {
+            "exists_int_isIntegral_pairE": 120,
+            "exists_int_smul_mem_coreLattice_of_dual": 141
+          },
+          "related_declarations": [
+            "exists_int_smul_mem_coreLattice_of_dual"
+          ]
+        },
+        {
+          "label": "Scaling the core, recovering its coset and transporting by a rational isometry",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/RelIndexNeZeroAndLeOfNsmulMem.lean",
+          "lines": [
+            118,
+            159
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/RelIndexNeZeroAndLeOfNsmulMem.lean#L118-L159",
+          "declaration": "dictLattice",
+          "declaration_lines": {
+            "dictLattice": 118,
+            "dictLattice_eq_iff": 128,
+            "dictLattice_diagonal_mul": 145
+          },
+          "related_declarations": [
+            "dictLattice_eq_iff",
+            "dictLattice_diagonal_mul"
+          ]
+        },
+        {
+          "label": "The dual index of each scaled lattice is bounded uniformly",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+          "lines": [
+            68,
+            190
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean#L68-L190",
+          "declaration": "isDIntegral_dictLattice",
+          "declaration_lines": {
+            "isDIntegral_dictLattice": 68
+          }
+        },
+        {
+          "label": "The compact open stabilizer and its arithmetic lattice dictionary",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+          "lines": [
+            194,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean#L194-L206",
+          "declaration": "AdelicLatticeDictionary.proof",
+          "declaration_lines": {
+            "AdelicLatticeDictionary.proof": 194
+          }
+        },
+        {
+          "label": "Mahler reduction and the finite list of bounded integral Gram matrices",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PMahlerCompactness.lean",
+          "lines": [
+            44,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PMahlerCompactness.lean#L44-L96",
+          "declaration": "MahlerCompactness.proof",
+          "declaration_lines": {
+            "MahlerCompactness.proof": 44
+          }
+        },
+        {
+          "label": "The lower-dimensional complement and the finite list of intermediate lattices",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PLinePairOrbitsFinite.lean",
+          "lines": [
+            92,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PLinePairOrbitsFinite.lean#L92-L133",
+          "declaration": "LinePairOrbitsFinite.proof",
+          "declaration_lines": {
+            "LinePairOrbitsFinite.proof": 92
+          }
+        },
+        {
+          "label": "The two cases in finiteness of rational lattice orbits",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PLatticeOrbitsFinite.lean",
+          "lines": [
+            25,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PLatticeOrbitsFinite.lean#L25-L43",
+          "declaration": "LatticeOrbitsFinite.proof",
+          "declaration_lines": {
+            "LatticeOrbitsFinite.proof": 25
+          }
+        },
+        {
+          "label": "The equivalence of the slice group with the lattice stabilizer and the finite double classes",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicCovolumeFinite.lean",
+          "lines": [
+            73,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicCovolumeFinite.lean#L73-L113",
+          "declaration": "AdelicCovolumeFinite.proof",
+          "declaration_lines": {
+            "AdelicCovolumeFinite.proof": 44
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "UQC-02",
+      "chapter": "lifts",
+      "anchor": "lifts-unitary-quotient-slices",
+      "title": "Finite archimedean domains assemble into one adelic domain",
+      "statement": "For representatives t of the finitely many double classes, the union of rectangles D_t × tK is an adelic fundamental domain, with product-Haar measure μ_f(K) times the sum of the archimedean domain measures.",
+      "hypotheses": "The countable diagonal subgroup acts faithfully through its archimedean projection. Each archimedean slice stabilizer has a finite-measure fundamental domain. K is compact and open and Haar measures are left invariant.",
+      "dependencies": [
+        "UQC-01"
+      ],
+      "equations": [
+        "lifts-unitary-quotient-domain",
+        "lifts-unitary-quotient-volume"
+      ],
+      "sources": [
+        {
+          "label": "The pushforward of Haar measure restricted to a compact open finite slice",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+          "lines": [
+            45,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean#L45-L99",
+          "declaration": "sliceMeasure",
+          "declaration_lines": {
+            "sliceMeasure": 45,
+            "sliceMeasure_eq_smul_haar": 95
+          },
+          "related_declarations": [
+            "sliceMeasure_eq_smul_haar"
+          ]
+        },
+        {
+          "label": "Archimedean null sets and finite measures transfer to rectangles",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+          "lines": [
+            101,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean#L101-L126",
+          "declaration": "quasiMeasurePreserving_fst_comp",
+          "declaration_lines": {
+            "quasiMeasurePreserving_fst_comp": 101,
+            "measure_preimage_prod_null": 109,
+            "measure_preimage_prod_lt_top": 121
+          },
+          "related_declarations": [
+            "measure_preimage_prod_null",
+            "measure_preimage_prod_lt_top"
+          ]
+        },
+        {
+          "label": "The fundamental domain formed from one rectangle per double class",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+          "lines": [
+            130,
+            265
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean#L130-L265",
+          "declaration": "DoubleCosetCovolume.proof",
+          "declaration_lines": {
+            "DoubleCosetCovolume.proof": 130
+          }
+        },
+        {
+          "label": "Supplying the finite lattice orbits and the double-class domain",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+          "lines": [
+            120,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean#L120-L124",
+          "declaration": "AdelicCovolumeFinite.of_covolume",
+          "declaration_lines": {
+            "AdelicCovolumeFinite.of_covolume": 120
+          }
+        },
+        {
+          "label": "The arithmetic assembly for any Haar measure on the adelic group",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicCovolumeFinite.lean",
+          "lines": [
+            44,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicCovolumeFinite.lean#L44-L115",
+          "declaration": "AdelicCovolumeFinite.proof",
+          "declaration_lines": {
+            "AdelicCovolumeFinite.proof": 44
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "classical_references": [
+        {
+          "title": "A. Weil, Mesure de Haar, §§4–7",
+          "url": "https://proceedings.centre-mersenne.org/articles/10.5802/mbk.21/"
+        }
+      ]
+    },
+    {
+      "id": "UQC-03",
+      "chapter": "lifts",
+      "anchor": "lifts-unitary-quotient-covolume",
+      "title": "Finite positive covolume of the orthogonal complement in the isotropic shell",
+      "statement": "For any Haar measure every fundamental domain of the rational isometries of the complement in its adelic unitary group has finite positive mass. The shell bound uses this as a fixed factor in dimension M−2.",
+      "hypotheses": "A nondegenerate CM Hermitian form, rational isometries acting by left translation, and a hyperbolic plane in the ambient Hermitian space of dimension M≥3 for the stated application. The archimedean proof by short vectors uses the bounded-index isotropic scaling law in lower-dimensional reduction.",
+      "dependencies": [
+        "UQC-02"
+      ],
+      "equations": [
+        "lifts-unitary-quotient-volume"
+      ],
+      "sources": [
+        {
+          "label": "An integral vector of length below one is isotropic",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PShortVectorIsotropic.lean",
+          "lines": [
+            14,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PShortVectorIsotropic.lean#L14-L36",
+          "declaration": "ShortVectorIsotropic.proof",
+          "declaration_lines": {
+            "ShortVectorIsotropic.proof": 14
+          }
+        },
+        {
+          "label": "The line index of a shortest vector is bounded in terms of the field",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PShortestVectorIndex.lean",
+          "lines": [
+            16,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PShortestVectorIndex.lean#L16-L56",
+          "declaration": "ShortestVectorIndex.proof",
+          "declaration_lines": {
+            "ShortestVectorIndex.proof": 16
+          }
+        },
+        {
+          "label": "Finitely many vector orbits and the scaling law for their integrated counts",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PScalingLaw.lean",
+          "lines": [
+            113,
+            224
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PScalingLaw.lean#L113-L224",
+          "declaration": "ScalingLaw.proof",
+          "declaration_lines": {
+            "ScalingLaw.proof": 113
+          }
+        },
+        {
+          "label": "The thin volume is bounded by the mass of short isotropic vectors and the thick part by a compact set",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PArithmeticCovolumeFinite.lean",
+          "lines": [
+            25,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PArithmeticCovolumeFinite.lean#L25-L130",
+          "declaration": "ArithmeticCovolumeFinite.proof",
+          "declaration_lines": {
+            "ArithmeticCovolumeFinite.proof": 25
+          }
+        },
+        {
+          "label": "The arithmetic induction supplies the scaling law and compactness inputs",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+          "lines": [
+            288,
+            303
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean#L288-L303",
+          "declaration": "ArithmeticCovolumeFinite.step_of",
+          "declaration_lines": {
+            "ArithmeticCovolumeFinite.step_of": 288
+          }
+        },
+        {
+          "label": "Passing from the archimedean arithmetic covolume to the adelic theorem",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+          "lines": [
+            203,
+            215
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean#L203-L215",
+          "declaration": "ArithmeticCovolumeFinite.of_open",
+          "declaration_lines": {
+            "ArithmeticCovolumeFinite.of_open": 203,
+            "AdelicCovolumeFinite.of_open": 212
+          },
+          "related_declarations": [
+            "AdelicCovolumeFinite.of_open"
+          ]
+        },
+        {
+          "label": "Supplying the parabolic and smaller-stabilizer inputs",
+          "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/MainOf.lean",
+          "lines": [
+            99,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/MainOf.lean#L99-L113",
+          "declaration": "AdelicCovolumeFinite.of_remaining",
+          "declaration_lines": {
+            "AdelicCovolumeFinite.of_remaining": 99
+          }
+        },
+        {
+          "label": "The unitary covolume theorem supplies the remaining hypotheses",
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/AdelicCovolumeFinite.lean",
+          "lines": [
+            52,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/AdelicCovolumeFinite.lean#L52-L58",
+          "declaration": "adelicCovolumeFinite",
+          "declaration_lines": {
+            "adelicCovolumeFinite": 52
+          }
+        },
+        {
+          "label": "Equality of the masses of all fundamental domains for a fixed Haar measure",
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean",
+          "lines": [
+            10,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean#L10-L17",
+          "declaration": "allSome_of",
+          "declaration_lines": {
+            "allSome_of": 10
+          }
+        },
+        {
+          "label": "Transport from Gram coordinates to the rational matrix subgroup",
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean",
+          "lines": [
+            62,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean#L62-L104",
+          "declaration": "finite_volume_unitary_adelic",
+          "declaration_lines": {
+            "finite_volume_unitary_adelic": 62,
+            "finVol_of": 81
+          },
+          "related_declarations": [
+            "finVol_of"
+          ]
+        },
+        {
+          "label": "Supplying the finite volume statement for a CM Hermitian matrix",
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean",
+          "lines": [
+            8,
+            10
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean#L8-L10",
+          "declaration": "finVol",
+          "declaration_lines": {
+            "finVol": 8
+          }
+        },
+        {
+          "label": "The unitary quotient volume used in the vector count",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryGroupFiniteVolume.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryGroupFiniteVolume.lean#L8-L9",
+          "declaration": "finVol_unitaryGroup",
+          "declaration_lines": {
+            "finVol_unitaryGroup": 8
+          }
+        },
+        {
+          "label": "The hyperbolic split passes the theorem in dimension M minus two",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+          "lines": [
+            82,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean#L82-L116",
+          "declaration": "mean_isotropic_box",
+          "declaration_lines": {
+            "mean_isotropic_box": 82
+          }
+        },
+        {
+          "label": "The smaller quotient enters as a finite factor in shell mass",
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+          "lines": [
+            94,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean#L94-L101",
+          "declaration": "nu",
+          "declaration_lines": {
+            "nu": 24
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "classical_references": [
+        {
+          "title": "A. Borel and Harish-Chandra, Arithmetic Subgroups of Algebraic Groups, theorem 9.4, p. 522",
+          "url": "https://www.mathi.uni-heidelberg.de/~wienhard/retreat10/references/borel_harishchandra_2.pdf#page=39"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.exists_int_isIntegral_pairE",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+        "line": 197,
+        "spelling": "exists_int_isIntegral_pairE"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.exists_int_smul_mem_coreLattice_of_dual",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+        "line": 198,
+        "spelling": "exists_int_smul_mem_coreLattice_of_dual"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.isDIntegral_dictLattice",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+        "line": 204,
+        "spelling": "isDIntegral_dictLattice"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.dictLattice_diagonal_mul",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+        "line": 205,
+        "spelling": "dictLattice_diagonal_mul"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.dictLattice_eq_iff",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PAdelicLatticeDictionary.lean",
+        "line": 206,
+        "spelling": "dictLattice_eq_iff"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicLatticeDictionary.proof",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 75,
+        "spelling": "AdelicLatticeDictionary.proof"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.LatticeOrbitsFinite.step_of",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 98,
+        "spelling": "LatticeOrbitsFinite.step_of"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.LatticeOrbitsFinite.proof",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+        "line": 248,
+        "spelling": "LatticeOrbitsFinite.proof"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.LinePairOrbitsFinite.full_of",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+        "line": 250,
+        "spelling": "LinePairOrbitsFinite.full_of"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.sliceMeasure_eq_smul_haar",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+        "line": 106,
+        "spelling": "sliceMeasure_eq_smul_haar"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.sliceMeasure_eq_smul_haar",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+        "line": 124,
+        "spelling": "sliceMeasure_eq_smul_haar"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.measure_preimage_prod_lt_top",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/PDoubleCosetCovolume.lean",
+        "line": 263,
+        "spelling": "measure_preimage_prod_lt_top"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicCovolumeFinite.proof",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+        "line": 345,
+        "spelling": "AdelicCovolumeFinite.proof"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicCovolumeFinite.full_of",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 123,
+        "spelling": "AdelicCovolumeFinite.full_of"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.LatticeOrbitsFinite.full",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 123,
+        "spelling": "LatticeOrbitsFinite.full"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicLatticeDictionary.full",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 124,
+        "spelling": "AdelicLatticeDictionary.full"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.DoubleCosetCovolume.proof",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 124,
+        "spelling": "DoubleCosetCovolume.proof"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.ArithmeticCovolumeFinite.proof",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+        "line": 298,
+        "spelling": "ArithmeticCovolumeFinite.proof"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.ScalingLaw.full_of",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/Assembly.lean",
+        "line": 299,
+        "spelling": "ScalingLaw.full_of"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.ArithmeticCovolumeFinite.step_of",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 205,
+        "spelling": "ArithmeticCovolumeFinite.step_of"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicCovolumeFinite.of_covolume",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 213,
+        "spelling": "AdelicCovolumeFinite.of_covolume"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.ArithmeticCovolumeFinite.of_open",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/OfUnfolding.lean",
+        "line": 214,
+        "spelling": "ArithmeticCovolumeFinite.of_open"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicCovolumeFinite.of_open",
+      "callsite": {
+        "path": "src/GroundTheory/HeightsAndTheta/Heights/FiniteCovolume/MainOf.lean",
+        "line": 100,
+        "spelling": "AdelicCovolumeFinite.of_open"
+      }
+    },
+    {
+      "callee": "GroundTheory.Heights₂.Heights.FiniteCovolume.AdelicCovolumeFinite.of_remaining",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/AdelicCovolumeFinite.lean",
+        "line": 54,
+        "spelling": "AdelicCovolumeFinite.of_remaining"
+      }
+    },
+    {
+      "callee": "CompanionTheory.SWFin.allSome_of",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean",
+        "line": 79,
+        "spelling": "allSome_of"
+      }
+    },
+    {
+      "callee": "CompanionTheory.SWFin.finite_volume_unitary_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/Bridge.lean",
+        "line": 104,
+        "spelling": "finite_volume_unitary_adelic"
+      }
+    },
+    {
+      "callee": "CompanionTheory.SWFin.finVol_of",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean",
+        "line": 10,
+        "spelling": "finVol_of"
+      }
+    },
+    {
+      "callee": "CompanionTheory.SWFin.adelicCovolumeFinite",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean",
+        "line": 10,
+        "spelling": "adelicCovolumeFinite"
+      }
+    },
+    {
+      "callee": "CompanionTheory.SWFin.finVol",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryGroupFiniteVolume.lean",
+        "line": 9,
+        "spelling": "CompanionTheory.SWFin.finVol"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 116,
+        "spelling": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "UQC-01",
+      "UQC-02"
+    ],
+    [
+      "UQC-02",
+      "UQC-03"
+    ],
+    [
+      "UQC-03",
+      "HVO-01"
+    ]
+  ],
+  "outstanding": [
+    "The geometric argument uses bounded-basis and adapted reduction and the arithmetic isotropic-orbit scaling law. Their exact statements and sources are identified here. The archimedean covolume also follows from Borel–Harish-Chandra after the rational-character computation. The argument does not assign a canonical adelic volume or calculate the other shell factors."
+  ]
+}

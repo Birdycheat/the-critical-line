@@ -1,0 +1,584 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "MSC-01",
+      "chapter": "normalization",
+      "anchor": "normalization-one-slot-types",
+      "title": "The raising and lowering parts in one noncompact derivative",
+      "statement": "For an irreducible compact type S of highest weight Λ and one complexified noncompact direction, the occurring highest weights in 𝔭ℂ⊗S are of the form Λ+e_a−e_b with opposite signs. The isotypic sums for a<b and b<a give an orthogonal decomposition.",
+      "hypotheses": "K=U(p)×U(s), signs kept in the decreasing Harish-Chandra parameter order, S finite dimensional and unitary. The group acts on 𝔭ℂ by conjugation and on the coefficients in S by its given representation.",
+      "correspondence": "The proof takes a nonzero array coefficient with maximal index difference. Its diagonal weight is shifted back by the row-minus-column root and all its putative correction terms for compact raising operators have larger difference, hence vanish. Compact highest-weight uniqueness and orthogonal isotypic splitting give the result. Candidate labels need not all occur.",
+      "dependencies": [],
+      "equations": [
+        "normalization-one-slot-action"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.REAL.arr_operator_one_apply",
+          "declaration_lines": {
+            "Formalism.REAL.arr_operator_one_apply": 31
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            31,
+            54
+          ],
+          "label": "Row and column contributions to a derivative array",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L31-L54"
+        },
+        {
+          "declaration": "Formalism.REAL.hVCoeff_of",
+          "declaration_lines": {
+            "Formalism.REAL.hVCoeff_of": 92
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            92,
+            119
+          ],
+          "label": "Choose a nonzero entry of maximal row minus column",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L92-L119"
+        },
+        {
+          "declaration": "Formalism.REAL.hVCoeff_of",
+          "declaration_lines": {
+            "Formalism.REAL.hVCoeff_of": 92
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            119,
+            168
+          ],
+          "label": "The selected coefficient has the original highest weight",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L119-L168"
+        },
+        {
+          "declaration": "Formalism.REAL.typesSplit_of",
+          "declaration_lines": {
+            "Formalism.REAL.typesSplit_of": 285
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            285,
+            316
+          ],
+          "label": "The two orthogonal parts and exhaustion of the one-direction space",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L285-L316"
+        },
+        {
+          "declaration": "Formalism.REAL.typesSplit",
+          "declaration_lines": {
+            "Formalism.REAL.typesSplit": 42
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+          "lines": [
+            39,
+            43
+          ],
+          "label": "Assembly of the one-direction splitting",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean#L39-L43"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "MSC-02",
+      "chapter": "normalization",
+      "anchor": "normalization-mixed-casimir-value",
+      "title": "The scalar of the mixed compact Casimir on one summand",
+      "statement": "For the ordered-pair convention κ(η)=‖η+ρ_c‖²−‖ρ_c‖², the position Casimir is m on opposite-sign directions. On a compact summand of weight μ=Λ+e_a−e_b, Ω=ΣP_cd D_dc acts by (κ(μ)−m−κ(Λ))/2.",
+      "hypotheses": "The compact generator sum includes all ordered equal-sign pairs including equal indices. There is one noncompact tensor position. The direction action is the commutator, and the independent action on S is the differential of the compact representation.",
+      "correspondence": "The text evaluates diagonal and raising/lowering Casimir contributions on a highest vector and uses trace-pairing invariance to extend the scalar to its span. The double commutator calculation counts the p+s indices in the two opposite sign blocks. This yields the same one-slot identity as the source Casimir expansion.",
+      "dependencies": [
+        "MSC-01"
+      ],
+      "equations": [
+        "normalization-compact-casimir-scalar",
+        "normalization-mixed-casimir-scalar"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.REAL.compact_casimir_highest_weight",
+          "declaration_lines": {
+            "Formalism.REAL.compact_casimir_highest_weight": 359
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/CompactCasimirHighestWeight.lean",
+          "lines": [
+            308,
+            370
+          ],
+          "label": "Compact Casimir from ordered pairs on a highest vector",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/CompactCasimirHighestWeight.lean#L308-L370"
+        },
+        {
+          "declaration": "Formalism.REAL.compact_casimir_span_holds",
+          "declaration_lines": {
+            "Formalism.REAL.compact_casimir_span_holds": 374
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/CompactCasimirHighestWeight.lean",
+          "lines": [
+            374,
+            384
+          ],
+          "label": "The scalar on the generated compact type",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/CompactCasimirHighestWeight.lean#L374-L384"
+        },
+        {
+          "declaration": "Formalism.REAL.compactCasimir_add",
+          "declaration_lines": {
+            "Formalism.REAL.compactCasimir_add": 140
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+          "lines": [
+            131,
+            166
+          ],
+          "label": "Two equal mixed terms in the Casimir expansion",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean#L131-L166"
+        },
+        {
+          "declaration": "Formalism.REAL.casArr_of",
+          "declaration_lines": {
+            "Formalism.REAL.casArr_of": 224
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+          "lines": [
+            224,
+            256
+          ],
+          "label": "The Casimir acting on an array",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean#L224-L256"
+        },
+        {
+          "declaration": "Formalism.REAL.compact_casimir_positions_one",
+          "declaration_lines": {
+            "Formalism.REAL.compact_casimir_positions_one": 341
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            341,
+            366
+          ],
+          "label": "Position Casimir on an opposite-sign matrix unit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L341-L366"
+        },
+        {
+          "declaration": "Formalism.REAL.compact_casimir_positions_one",
+          "declaration_lines": {
+            "Formalism.REAL.compact_casimir_positions_one": 341
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            364,
+            402
+          ],
+          "label": "Counting the two sign blocks",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L364-L402"
+        },
+        {
+          "declaration": "Formalism.REAL.omega_eigenvalue_on_span",
+          "declaration_lines": {
+            "Formalism.REAL.omega_eigenvalue_on_span": 415
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            415,
+            431
+          ],
+          "label": "The exact mixed eigenvalue on a highest-weight summand",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L415-L431"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "MSC-03",
+      "chapter": "normalization",
+      "anchor": "normalization-raising-casimir-gap",
+      "title": "The opposite-sign gap bounds the mixed term on the raising part",
+      "statement": "For Λ=λ+ρ_n−ρ_c, the mixed eigenvalue for a<b of opposite signs is (λ_a+ρ_n,a)−(λ_b+ρ_n,b)+1−m/2. If λ_a−λ_b≥γ for all such pairs, the real quadratic form of Ω on the raising part is bounded below by (γ−2m) times squared norm. Symmetric derivatives of positive order j then have mixed Casimir contribution at least 2j(γ−2m) times squared norm when their slices lie in the raising part.",
+      "hypotheses": "λ is in decreasing parameter order. Strict positivity in the jet application requires γ>2m, while the arithmetic lower bound itself uses only the weak pairwise gap. Each symmetric one-position slice must belong to the raising subspace.",
+      "correspondence": "Expanding the difference of two Casimir scalars produces the stated eigenvalue. Each coordinate of ρ_n is between −m/2 and m/2. Orthogonality of distinct highest weights extends the lower bound to their sum. The symmetric-array result uses the sum of the squared slice norms and the two identical cross terms, followed by the separate nonnegative position Casimir.",
+      "dependencies": [
+        "MSC-01",
+        "MSC-02"
+      ],
+      "equations": [
+        "normalization-raising-shift"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.REAL.rho_rhoN_bound",
+          "declaration_lines": {
+            "Formalism.REAL.rho_rhoN_bound": 14
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean",
+          "lines": [
+            9,
+            22
+          ],
+          "label": "Counting opposite signs before and after a coordinate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean#L9-L22"
+        },
+        {
+          "declaration": "Formalism.REAL.omega_eigenvalue_holds",
+          "declaration_lines": {
+            "Formalism.REAL.omega_eigenvalue_holds": 65
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean",
+          "lines": [
+            51,
+            71
+          ],
+          "label": "The norm change on adding a root",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean#L51-L71"
+        },
+        {
+          "declaration": "Formalism.REAL.unitary_spectral_gap",
+          "declaration_lines": {
+            "Formalism.REAL.unitary_spectral_gap": 73
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean",
+          "lines": [
+            73,
+            78
+          ],
+          "label": "The uniform loss from the noncompact half-sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean#L73-L78"
+        },
+        {
+          "declaration": "Formalism.REAL.OmEigen",
+          "declaration_lines": {
+            "Formalism.REAL.OmEigen": 134
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/StatementA.lean",
+          "lines": [
+            134,
+            143
+          ],
+          "label": "The two scalar statements with their constants",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/StatementA.lean#L134-L143"
+        },
+        {
+          "declaration": "Formalism.REAL.omPlus_of",
+          "declaration_lines": {
+            "Formalism.REAL.omPlus_of": 433
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            433,
+            464
+          ],
+          "label": "The gap on each raising summand",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L433-L464"
+        },
+        {
+          "declaration": "Formalism.REAL.omPlus_of",
+          "declaration_lines": {
+            "Formalism.REAL.omPlus_of": 433
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+          "lines": [
+            464,
+            534
+          ],
+          "label": "Orthogonality and the lower bound on an arbitrary raising array",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean#L464-L534"
+        },
+        {
+          "declaration": "Formalism.REAL.nPos_of",
+          "declaration_lines": {
+            "Formalism.REAL.nPos_of": 517
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+          "lines": [
+            517,
+            546
+          ],
+          "label": "The contribution from all slots in a symmetric derivative",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean#L517-L546"
+        },
+        {
+          "declaration": "Formalism.REAL.nPos",
+          "declaration_lines": {
+            "Formalism.REAL.nPos": 47
+          },
+          "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+          "lines": [
+            43,
+            47
+          ],
+          "label": "One raising array supplies the symmetric-array estimate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean#L43-L47"
+        },
+        {
+          "declaration": "GlobalTheory.Jet.jet_map_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.Jet.jet_map_eq_zero": 114
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SymmetricKMapEqZeroOfVminusSlices.lean",
+          "lines": [
+            180,
+            213
+          ],
+          "label": "Strict gap in the proof that every jet vanishes",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SymmetricKMapEqZeroOfVminusSlices.lean#L180-L213"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.REAL.hVCoeff_of",
+      "callee": "Formalism.REAL.compact_highest_weight_unique",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 166,
+        "spelling": "compact_highest_weight_unique"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.hVCoeff_of",
+      "callee": "Formalism.REAL.arr_operator_one_apply",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 153,
+        "spelling": "arr_operator_one_apply"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.hVCoeff",
+      "callee": "Formalism.REAL.hVCoeff_of",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 41,
+        "spelling": "hVCoeff_of"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.typesSplit",
+      "callee": "Formalism.REAL.typesSplit_of",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 42,
+        "spelling": "typesSplit_of"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.typesSplit",
+      "callee": "Formalism.REAL.hVCoeff",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 42,
+        "spelling": "hVCoeff"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.typesSplit",
+      "callee": "Formalism.REAL.kIsoSplit",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 42,
+        "spelling": "kIsoSplit"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.typesSplit",
+      "callee": "Formalism.REAL.arrModule",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 42,
+        "spelling": "arrModule"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.kCasSpan",
+      "callee": "Formalism.REAL.compact_casimir_span_holds",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 28,
+        "spelling": "compact_casimir_span_holds"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.compact_casimir_span_holds",
+      "callee": "Formalism.REAL.compact_casimir_highest_weight",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/CompactCasimirHighestWeight.lean",
+        "line": 378,
+        "spelling": "compact_casimir_highest_weight"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.casArr_of",
+      "callee": "Formalism.REAL.compactCasimir_add",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+        "line": 230,
+        "spelling": "compactCasimir_add"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.casArr_of",
+      "callee": "Formalism.REAL.sum_positionMixedCasimir",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+        "line": 230,
+        "spelling": "sum_positionMixedCasimir"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omega_eigenvalue_on_span",
+      "callee": "Formalism.REAL.compact_casimir_positions_one",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 424,
+        "spelling": "compact_casimir_positions_one"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omPlus_of",
+      "callee": "Formalism.REAL.omEigen",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 446,
+        "spelling": "omEigen"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omPlus_of",
+      "callee": "Formalism.REAL.uGap",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 447,
+        "spelling": "uGap"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omPlus_of",
+      "callee": "Formalism.REAL.omega_eigenvalue_on_span",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/NoncompactArrFiniteDimensional.lean",
+        "line": 459,
+        "spelling": "omega_eigenvalue_on_span"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omEigen",
+      "callee": "Formalism.REAL.omega_eigenvalue_holds",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/ThirdArithmeticHolds.lean",
+        "line": 63,
+        "spelling": "omega_eigenvalue_holds"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.uGap",
+      "callee": "Formalism.REAL.unitary_spectral_gap",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/ThirdArithmeticHolds.lean",
+        "line": 64,
+        "spelling": "unitary_spectral_gap"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omega_eigenvalue_holds",
+      "callee": "Formalism.REAL.rho_nsq_root",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean",
+        "line": 69,
+        "spelling": "rho_nsq_root"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.unitary_spectral_gap",
+      "callee": "Formalism.REAL.rho_rhoN_bound",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/HalfSumRootsStandard.lean",
+        "line": 75,
+        "spelling": "rho_rhoN_bound"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.omPlus",
+      "callee": "Formalism.REAL.omPlus_of",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 46,
+        "spelling": "omPlus_of"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.nPos",
+      "callee": "Formalism.REAL.nPos_of",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 47,
+        "spelling": "nPos_of"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.nPos",
+      "callee": "Formalism.REAL.omPlus",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/QuotientSettingHolds.lean",
+        "line": 47,
+        "spelling": "omPlus"
+      }
+    },
+    {
+      "caller": "Formalism.REAL.nPos_of",
+      "callee": "Formalism.REAL.norm_sq_eq_sum_firstPositionSlice",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/FirstSlotSliceSlotMixedCasimirZero.lean",
+        "line": 532,
+        "spelling": "norm_sq_eq_sum_firstPositionSlice"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Jet.jet_map_eq_zero",
+      "callee": "Formalism.REAL.typesSplit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SymmetricKMapEqZeroOfVminusSlices.lean",
+        "line": 116,
+        "spelling": "typesSplit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Jet.jet_map_eq_zero",
+      "callee": "Formalism.REAL.nPos",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SymmetricKMapEqZeroOfVminusSlices.lean",
+        "line": 205,
+        "spelling": "nPos"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "MSC-01",
+      "MSC-02"
+    ],
+    [
+      "MSC-01",
+      "MSC-03"
+    ],
+    [
+      "MSC-02",
+      "MSC-03"
+    ],
+    [
+      "MSC-03",
+      "CTI-01"
+    ]
+  ],
+  "outstanding": [
+    "The lowest compact type, highest-weight theory for a finite-dimensional irreducible compact representation, and the lowering equation for the difference of the two proposed operators are inputs from their respective arguments. The gap on a one-direction raising component by itself does not imply jet uniqueness."
+  ]
+}
