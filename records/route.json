@@ -353,13 +353,13 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean#L11-L35"
         },
         {
-          "declaration": "UpperTheory.Top.shapeWin",
-          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean",
+          "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
           "lines": [
-            27,
-            49
+            33,
+            55
           ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean#L27-L49"
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L33-L55"
         },
         {
           "declaration": "UpperTheory.Top.topDesWin",
@@ -387,6 +387,15 @@
             30
           ],
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/PrimitiveCosets/LevelGmLeOnFamilyScales.lean#L28-L30"
+        },
+        {
+          "declaration": "UpperTheory.Top.zero_free_all_of_green_v_win",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
+          "lines": [
+            12,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean#L12-L15"
         }
       ],
       "dependencies": [
@@ -401,7 +410,7 @@
         "ErrWindows"
       ],
       "status": "mathematical proof reconstructed",
-      "correspondence": "The conditional normalization, discard bound and cost absorption are reconstructed. Transport of the realized geometric inputs into CoreAtH is partial.",
+      "correspondence": "The conditional normalization, discard bound and cost absorption are reconstructed. Transport of the realized geometric inputs into CoreAtH is partial. The third-place TopPlug calls shape_closed_link_n_of_green. Its call to topDesWin passes exponents 2 and 0.",
       "review": "Lead integration review pending."
     },
     {
@@ -1149,7 +1158,8 @@
         }
       ],
       "dependencies": [
-        "INP-04"
+        "INP-04",
+        "PRP-03"
       ],
       "definitions": [
         "PageN",
@@ -1374,7 +1384,10 @@
         }
       ],
       "dependencies": [
-        "INP-08"
+        "INP-08",
+        "MIN-06",
+        "CPL-04",
+        "CPL-05"
       ],
       "definitions": [
         "JointWin",
@@ -1385,7 +1398,7 @@
         "C,K fixed before the threshold"
       ],
       "status": "mathematical proof reconstructed",
-      "correspondence": "Conditional window assembly. INP-10 through INP-12 reconstruct the role of the generator bound in the tower supplier. The remaining representation counts and independent cohomological estimates are inputs.",
+      "correspondence": "One common interval supplies all three summands. The Bernoulli, character-count and tower estimates, including the common-field specialization, are reconstructed in the subsequent sections.",
       "review": "No external mathematical review."
     },
     {
@@ -1756,7 +1769,11 @@
       ],
       "dependencies": [
         "INP-10",
-        "INP-11"
+        "INP-11",
+        "INP-15",
+        "INP-17",
+        "inputs.degree-two.statement",
+        "INP-18"
       ],
       "definitions": [
         "IsTower",
@@ -1767,8 +1784,54 @@
         "Good"
       ],
       "status": "mathematical proof reconstructed",
-      "correspondence": "Conditional assembly reconstructed at the cohomological interface. Generator bounds, descent, arithmetic duality, LemmaK and the separate plus-window representation counts retain explicit supplier boundaries.",
+      "correspondence": "Descent identifies the obstruction; global and local duality bound the exceptional base-layer length. The uniform tower, complementary degree-two estimate and marked-window selection have dedicated proofs. The tower input remains conditional on its stated arithmetic hypotheses.",
       "review": "No external mathematical review."
+    },
+    {
+      "id": "INP-18",
+      "title": "Choosing a common interval around the marked twists",
+      "statement": "For 0<α≤β, X>1 and a finite set of at most R natural twists, there is Y with X^(1/J)≤Y≤Y²≤X, J=2^(R+2)(β/α)^R, such that at every x in [Y,Y²] every marked e≤x^β also has e≤x^α.",
+      "chapter": "inputs",
+      "anchor": "inputs-choose-window",
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Win.window1",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean",
+          "lines": [
+            6,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean#L6-L58"
+        },
+        {
+          "declaration": "UpperTheory.V.Win.window",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window.lean",
+          "lines": [
+            7,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window.lean#L7-L43"
+        },
+        {
+          "declaration": "UpperTheory.V.Win.thmBab_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOf.lean",
+          "lines": [
+            75,
+            103
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOf.lean#L75-L103"
+        }
+      ],
+      "dependencies": [],
+      "definitions": [
+        "Good",
+        "InRange",
+        "logarithmic coordinate"
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The induction removes one obstructing endpoint in log coordinates. The application uses the union over the dyadic and fixed odd tower sets. The interactive finite model uses base two, an independent coordinate choice.",
+      "review": "Separate reader checked the strict endpoints, uniform constant and the fixed union."
     }
   ],
   "declarations": {
@@ -1962,13 +2025,13 @@
       "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean#L59-L66"
     },
     "spec": {
-      "declaration": "UpperTheory.Top.shapeWin",
-      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean",
+      "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
       "lines": [
-        27,
-        49
+        33,
+        55
       ],
-      "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean#L27-L49"
+      "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L33-L55"
     },
     "des": {
       "declaration": "UpperTheory.Top.topDesWin",
@@ -3608,13 +3671,17 @@
     {
       "from": "towerStep",
       "to": "towerMod"
+    },
+    {
+      "from": "prim",
+      "to": "spec"
     }
   ],
   "open_interfaces": [
-    "The normalized host theta expansion and the correction-radius optimization have dedicated chapters. Continue inside the integral host, global construction and nonvanishing consumed by these bounded arguments across all prime classes.",
-    "Prove the deep ingredients behind the uniform frame and counting inputs for all realized data, including the estimates behind the archimedean frame and all finite-place divisibility contributions. The main-term algebra and its signs are reconstructed.",
-    "LFT-09 and LFT-10 derive propagation of rank, nonvanishing from the normalized doubling formula, the endpoint and surjectivity of the downward composite. Reconstruct the local zeta factors and the doubling identity used in these arguments.",
-    "INP-10 through INP-12 explain the tower length increment, exceptional twist count and transfer to the window. Reconstruct the arithmetic supply of generator bounds from Ferrero–Washington, the descent identification, the independent degree-two estimate in LemmaK, the separate representation counts for the plus window, and compatibility of the auxiliary fields.",
-    "Check written proof edges against actual elaborated direct dependencies when a compatible compiled solution environment is available, and arrange external specialist review."
+    "Extend the integral host theta expansion and all-prime evaluation-map nonvanishing beyond the inert/signal calculation.",
+    "In the selected third-place assembly the metric normalization enters the column rows and link_gl supplies an independent global comparison. Reconstruct the CM class sum, relative ideal-index theorem, global frame, uniform rank tail and the estimates behind Count5.",
+    "The normalized theta identity, local quotients, restricted finite-place projection, archimedean pairing and continuation have been reconstructed. Remaining foundations include the general Siegel–Weil, Fock projection and lattice transfer inputs.",
+    "The tower/descent, degree-two estimate, case counts, same-field specialization, minus Selmer generator estimate and two-stage prime choice have dedicated derivations. Further inputs include arithmetic detection via K-theory, orbit and stabilizer bounds, reciprocity, and progression, zero-density and mean-square bounds used at the auxiliary primes.",
+    "Check written proof edges against elaborated direct dependencies with a compatible compiled solution and obtain external specialist review."
   ]
 }

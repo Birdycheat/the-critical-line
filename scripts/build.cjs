@@ -123,15 +123,42 @@ function figure(id) {
   );
 }
 const refList = [];
+// Keep links that carry part of a sentence in the prose. Only shorten a
+// trailing list of source citations after a complete sentence.
+function markCitationGroups(html) {
+  return html.replace(/<p\b[^>]*>([\s\S]*?)<\/p>/g, (paragraph, body) => {
+    const links = [...body.matchAll(/<a href="https:\/\/github\.com\/[^"]+\/blob\/[^"]+"[^>]*>[\s\S]*?<\/a>/g)];
+    if (!links.length) return paragraph;
+    const last = links[links.length - 1];
+    if (!/^[\s.]*$/.test(body.slice(last.index + last[0].length))) return paragraph;
+    let i = links.length - 1;
+    while (i > 0) {
+      const previous = links[i - 1];
+      const gap = body.slice(previous.index + previous[0].length, links[i].index);
+      if (!/^\s*[,·]?\s*(?:and\s*)?$/.test(gap)) break;
+      i--;
+    }
+    const start = links[i].index;
+    if (!/[.!?]\s*$/.test(body.slice(0, start))) return paragraph;
+    const group = links.slice(i).map(m => m[0].replace('<a href=', '<a data-citation href=')).join(' ');
+    return paragraph.slice(0, paragraph.indexOf('>') + 1) + body.slice(0, start) + group + '</p>';
+  });
+}
 function numberSources(html) {
-  return html.replace(
-    /<a href="(https?:[^"]+)"([^>]*)>([\s\S]*?)<\/a>/g,
-    (_, u, a, label) => {
+  return markCitationGroups(html).replace(
+    /<a (data-citation )?href="(https?:[^"]+)"([^>]*)>([\s\S]*?)<\/a>/g,
+    (_, citation, u, a, label) => {
       label = label.replace(/^\[\d+\]\s*/, "");
       let n = refList.findIndex((v) => v.u === u) + 1;
       if (!n) {
         refList.push({ u, label });
         n = refList.length;
+      }
+      if (citation) {
+        const name = esc(label.replace(/<[^>]*>/g, ""));
+        return '<span class="source-citation"><a class="source-title" href="' + u + '">' +
+          label + '</a><sup class="refno"><a href="#ref-' + n + '" title="' + name +
+          '" aria-label="Reference ' + n + '. ' + name + '">[' + n + ']</a></sup></span>';
       }
       return (
         '<a href="' +
@@ -151,11 +178,15 @@ function numberSources(html) {
     },
   );
 }
+function includeFragments(html, parents = []) {
+  return html.replace(/<!--INCLUDE:([a-z-]+)-->/g, (_, name) => {
+    if (parents.includes(name))
+      throw Error("Recursive chapter fragment: " + [...parents, name].join(" / "));
+    return includeFragments(read("content/" + name + ".fragment.html").trim(), [...parents, name]);
+  });
+}
 function sectionContent(id) {
-  let html = read("content/" + id + ".html")
-    .trim()
-    .replace("<!--INCLUDE:radii-->", () => read("content/radii.fragment.html"))
-    .replaceAll("SOURCE:", blob);
+  let html = includeFragments(read("content/" + id + ".html").trim()).replaceAll("SOURCE:", blob);
   if (html.startsWith("<article")) {
     html = html
       .replace(/^<article[^>]*>/, "")
@@ -236,7 +267,7 @@ const footnotes =
   "</ol></section>";
 const bookHead = articleHead(
   "The Riemann Hypothesis",
-  'The continuous reading edition. Each chapter links its proof steps to the pinned formal source. <a href="print.html">Print edition</a>.',
+  'Read the proof from the statement about zeros to the estimates on prime sums, or start with the <a href="#how-to-read">proof outline</a>. Numbered notes lead to the formal sources. <button class="text-button" id="source-mode" type="button" aria-pressed="false" hidden>Show source titles</button> · <a href="print.html">Print edition</a>.',
   chapters.map(([id, t], i) => [i + 1 + ". " + t, "#" + id]),
 );
 save(
@@ -420,6 +451,11 @@ function claimLi(c) {
   const ss = c.sources || c.declarations || [],
     id = c.id || c.claim_id,
     anchor = c.anchor || c.section || c.chapter;
+  const equations = (c.equation_anchors || c.equations || []).map((target, i) => {
+    const label = c.equation_anchors ? "Equation " + c.equations[i] : target
+      .replace(/^[^-]+-/, "").replaceAll("-", " ");
+    return linked(label, "book.html#" + target);
+  });
   return (
     '<li data-search id="claim-' +
     esc(id) +
@@ -445,6 +481,7 @@ function claimLi(c) {
       ? "<p><b>Formal type.</b> <code>" + esc(c.type) + "</code></p>"
       : "") +
     (c.review ? "<p><b>Review.</b> " + esc(c.review) + "</p>" : "") +
+    (equations.length ? "<p><b>Formulas in the book.</b> " + equations.join(" · ") + "</p>" : "") +
     claimLinks("Uses in this exposition", c.dependencies || []) +
     claimLinks(
       "Used by",
@@ -568,7 +605,7 @@ save(
       pin +
       "</code> · Lean v4.33.1 · Mathlib <code>0df444a360eaa60ab8c11dca51a86af692955474</code>. " +
       linked("Corpus lock", "records/corpus.json") +
-      '</p><h2 id="reconstruction">Reconstruction record</h2><p>The pilot chapter and one-sided analytic closure have received a separate source-based reading. The geometric chapters identify which hypotheses enter each derivation. The normalization chapter reconstructs an integral theta expansion at the selected primes. The local chapter derives the correction radii for mixed rows. Open steps include the remaining finite places, uniform rank and counting estimates, arithmetic hypotheses for the long theta chain, cohomological length bounds and an end-to-end dependency review. ' +
+      '</p><h2 id="reconstruction">Reconstruction record</h2><p>The analytic chapters follow a possible zero from its residue to the one-sided window estimate and reflection. The theta chapters reconstruct an integral expansion at the selected primes, the local zeta quotients and the continued norm formula. The arithmetic chapter derives the marked-window selection, degree-two estimate and separate character counts. Each chapter records its remaining inputs. Open work includes the other prime classes, uniform geometric bounds and the arithmetic detection and reciprocity theorems described in the chapter. An end-to-end review of the exposition is still in progress. ' +
       linked("Current project state", "STATE.md") +
       '</p><p><a href="#source-graph">Explore individual declarations and their callers</a></p><h2 id="ledger">Claim ledger</h2>' +
       filters("Claim, theorem, or mathematical term") +

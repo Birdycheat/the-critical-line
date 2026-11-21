@@ -281,7 +281,7 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean#L175-L197"
         }
       ],
-      "correspondence": "Exact statement, side conditions and downstream use inspected. Frame inequality proof pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "correspondence": "The inequality and its application conditions were inspected. The layer-cake passage is reconstructed in global.layer. The earlier matrix estimate for the target rank deficit is a separate input.",
       "status": "statement and definitions inspected",
       "definitions": [
         "SlopeIneq, H, δ, η, e, uF"
@@ -294,7 +294,7 @@
     {
       "id": "global.uniform",
       "chapter": "global",
-      "statement": "linkCore takes family-level hypotheses and yields constants K,cHH,eK,CL,x0 preceding every x≥x0 in Fm.Win. In its specialization the constant K is max(Cd,0)+Cc+Cs+C1+Cl+6. CountF and LinkDIV quantify their constants before x and the family index; FrameF allows its two caps to depend on x with (η̄+4√ē)x^CH≤6.",
+      "statement": "linkCore takes family-level hypotheses and yields constants K,cHH,eK,CL,x0 preceding every x≥x0 in Fm.Win. In its specialization the constant K is max(Cd,0)+Cc+Cs+C1+Cl+6. CountF and LinkDIV quantify their constants before x and the family index; FrameF allows its two caps to depend on x with (η̄+4√ē)x^CH≤6. On the chosen every-character route, ThirdPlaceSeries/TopShape takes its global estimate from link_gl and its divisibility estimate from the separate construction of rows. They are combined in topDesWin.",
       "hypotheses": "linkCore requires Cabs,CH,eL nonnegative, c6 positive, CountF, SlopesMF, SlopesNF, LatF, NodesF, FrameF, LossFS, CharF, WinF, ChosenTT, ChosenQD, ChosenThin, LinkIRR and LinkDIV. Nonempty choices on a good window are supplied using a loss witness and a cover (lines 86–92).",
       "title": "Uniform constants before the scale varies",
       "anchor": "global-suppliers",
@@ -339,22 +339,78 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L169-L211"
         },
         {
-          "declaration": "Formalism.MainNotions.linkGLOBAL7_pk",
-          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "declaration": "UpperTheory.Top.zero_free_all_of_green_v_win",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
           "lines": [
-            468,
-            511
+            12,
+            18
           ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L468-L511"
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean#L12-L18"
+        },
+        {
+          "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+          "lines": [
+            33,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L33-L47"
+        },
+        {
+          "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+          "lines": [
+            50,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L50-L55"
+        },
+        {
+          "declaration": "GlobalTheory.Top.link_gl",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean",
+          "lines": [
+            14,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean#L14-L30"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Wire.FamGLmin.link8",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean",
+          "lines": [
+            60,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean#L60-L75"
+        },
+        {
+          "declaration": "Formalism.MainNotions.linkGLOBAL7_items",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            709,
+            721
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L709-L721"
+        },
+        {
+          "declaration": "UpperTheory.Top.topDesWin",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean",
+          "lines": [
+            18,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean#L18-L31"
         }
       ],
-      "correspondence": "Source applications and quantifier order inspected. Uniform geometric input proofs pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "correspondence": "The quantifiers and constants of linkCore and its use from LinkMin are inspected. ThirdPlaceSeries/TopPlug dispatches TopShape, which calls link_gl and the row-based divisibility supplier. GPM-04 traces where the period enters the definite-side rows. The JointsF implication with OmLink is a separate conditional result.",
       "status": "statement and definitions inspected",
       "definitions": [
         "LinkDIV, CountF, FrameF, Win"
       ],
-      "dependencies": [],
-      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+      "dependencies": [
+        "GPM-04"
+      ],
+      "review": "The selected global versus period route was independently checked against TopShape and LinkGl. The remaining uniform constants have the chapter author’s source check."
     },
     {
       "chapter": "global",
@@ -485,7 +541,7 @@
         }
       ],
       "status": "mathematical proof reconstructed",
-      "correspondence": "The numerical cap is reconstructed conditional on the exhibited real frame and scale quantifiers. The global construction of the real frame remains a separate obligation."
+      "correspondence": "The numerical cap is reconstructed conditional on the real-frame estimates. The selected call producing FrameF is identified in LinkMin 717–719, with the underlying rank and deviation estimates used as inputs here."
     }
   ],
   "derivation_edges": [
@@ -526,8 +582,8 @@
     ]
   ],
   "outstanding": [
-    "Derive the period of the normalized theta object, including the discriminant twelfth root and metric compatibility.",
-    "Reconstruct the uniform input LinkDIV for the actual family and trace the construction of maps, period, finite-place gain and archimedean size.",
-    "Reconstruct the torus counts, family uniformity, and actual rank and frame estimates."
+    "Derive the CM ideal-class evaluation, the construction of the common family with unit discriminant and the relative ideal-index calculation used by the period mean.",
+    "Reconstruct the remaining evaluated-map norm estimates, row comparisons, finite-place gains and their uniform constants in the realized LinkDIV.",
+    "Reconstruct the torus counts, family uniformity and underlying rank and matrix-deviation estimates used by FrameF."
   ]
 }

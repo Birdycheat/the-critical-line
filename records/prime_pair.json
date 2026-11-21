@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned original declarations and written proof bodies. Selected named callsites checked. No local elaborated proof trace. The small congruence example is an independent teaching example.",
+  "claims": [
+    {
+      "id": "PRP-01",
+      "chapter": "inputs",
+      "title": "Two progressions and their host quantifiers",
+      "anchor": "inputs-prime-pair",
+      "statement": "For each M>0, 0<ε<1/52 and A≥1, all sufficiently large Y admit q,d in the prescribed logarithmic ranges and congruence classes. In the host proof M=ψ.N and A=J. The same pair must pass every indicated analytic test.",
+      "hypotheses": "Both stages have a nonempty population with the common thresholds described below. The congruence product is odd and q is an odd prime.",
+      "definitions": [
+        "quadratic Jacobi twist",
+        "primitive inducing character",
+        "zero-free box",
+        "Chinese remainder theorem"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "correspondence": "With z=Y^(ε/5), z′=z(log Y)^2, take q≡3 mod 8 and d≡7 mod 16, d≡−1 mod q∏_{3≤p≤z}p. The second modulus describes one reduced residue class. Example z=3,q=11,d=263 is solely a check of the congruences.",
+      "sources": [
+        {
+          "declaration": "supplyOfAdmOf",
+          "path": "src/Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean",
+          "lines": [
+            23,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean#L23-L36"
+        },
+        {
+          "declaration": "winPairs",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/WinPairs.lean",
+          "lines": [
+            9,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/WinPairs.lean#L9-L34"
+        },
+        {
+          "declaration": "tw, ZeroBox and PairEx",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/PairGood.lean",
+          "lines": [
+            9,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/PairGood.lean#L9-L30"
+        },
+        {
+          "declaration": "Box, GoodQ, GoodD and Rows",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+          "lines": [
+            29,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean#L29-L65"
+        },
+        {
+          "declaration": "exists_coprime_primePairSetSecond_eq_PPset",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/ExistsCoprimePrimePairSetSecondEqPPset.lean",
+          "lines": [
+            14,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/ExistsCoprimePrimePairSetSecondEqPPset.lean#L14-L66"
+        },
+        {
+          "declaration": "rows_of_mem",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/RowsOfMem.lean",
+          "lines": [
+            7,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/RowsOfMem.lean#L7-L38"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "written theorem and proof-body audit"
+    },
+    {
+      "id": "PRP-02",
+      "chapter": "inputs",
+      "title": "A uniform exception bound from zero density and mean square",
+      "anchor": "inputs-prime-bad",
+      "statement": "For suitable prime progression P in (√U,U] with |P|≥U^(9/10) and ≤R primitive base characters of conductor ≤F≤√U, the primes failing at some twist or height in [Y,Y^K] occupy ≤η|P| past a common threshold.",
+      "hypotheses": "General stage: 0<ε≤1/4, τ>0, K≥1, η>0, positive modulus divisible by 8, primitive reduced class, log-modulus and upper and lower height limits of admitted; each prime divisor of the modulus is ≤Y^(ε/5) or >(Y^K)^400.",
+      "definitions": [
+        "primitive twist conductors",
+        "prime-dependent bad height",
+        "partial derivative of a clipped weight",
+        "dyadic intervals",
+        "mean square",
+        "relative prime count"
+      ],
+      "equations": [
+        "inputs-prime-density"
+      ],
+      "dependencies": [],
+      "correspondence": "A prime failure injects into a bad primitive character since fp=f′p′ and f′≤F<p forces p=p′. The ratio of the zero-density exception count to the population is O(U^(−21/40)). For a witness height depending on p, control the derivative by the same quadratic mean square with coefficients restricted to n>y. Cauchy–Schwarz and integration give 4CV log(2V)|P| on each dyadic block. Markov and summation give (32C/τ)Y^(−τ)/(1−2^(−τ)). Sum the latter over ≤R characters with allocation η/(2(R+1)); add the η/2 zero-density allowance. Outside both sets the explicit formula estimates the centered sum.",
+      "sources": [
+        {
+          "declaration": "S and MeanSq",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+          "lines": [
+            13,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean#L13-L27"
+        },
+        {
+          "declaration": "cN",
+          "path": "src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean",
+          "lines": [
+            21,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean#L21-L24"
+        },
+        {
+          "declaration": "stage",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+          "lines": [
+            41,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean#L41-L61"
+        },
+        {
+          "declaration": "stage",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+          "lines": [
+            95,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean#L95-L139"
+        },
+        {
+          "declaration": "stage",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+          "lines": [
+            140,
+            170
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean#L140-L170"
+        },
+        {
+          "declaration": "count_bad_core",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean",
+          "lines": [
+            18,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean#L18-L58"
+        },
+        {
+          "declaration": "count_bad",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBad.lean",
+          "lines": [
+            9,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBad.lean#L9-L16"
+        },
+        {
+          "declaration": "zero_density_box",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean#L13-L15"
+        },
+        {
+          "declaration": "count_a",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean",
+          "lines": [
+            346,
+            352
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean#L346-L352"
+        },
+        {
+          "declaration": "pnt_progressions_relative_weak_holds",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+          "lines": [
+            22,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean#L22-L24"
+        },
+        {
+          "declaration": "meanSqK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            50,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L50-L64"
+        },
+        {
+          "declaration": "bs_hasDeriv_S, bs_S_sub_S and bs_mul_D_eq_S",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            62,
+            89
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L62-L89"
+        },
+        {
+          "declaration": "bs_sum_D_le and bs_block",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            146,
+            171
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L146-L171"
+        },
+        {
+          "declaration": "bs_markov",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            207,
+            241
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L207-L241"
+        },
+        {
+          "declaration": "bad_share",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            251,
+            272
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L251-L272"
+        },
+        {
+          "declaration": "bad_share",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            286,
+            318
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L286-L318"
+        },
+        {
+          "declaration": "box_of_S",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+          "lines": [
+            28,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean#L28-L60"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "written theorem and proof-body audit"
+    },
+    {
+      "id": "PRP-03",
+      "chapter": "inputs",
+      "title": "Choosing both primes and obtaining the coefficient four",
+      "anchor": "inputs-prime-choice",
+      "statement": "Both prime progressions have surviving proportion at least 1/2. The first controls the q twist. The second controls the d and qd twists for every surviving q with a threshold independent of q. Final outputs are the centered sum bound y^(1/2+ε/2), derivative bound 4log y and the height-specific zero-free box.",
+      "hypotheses": "First N₀=8M. For stage two use primitivizations of ξ(·)(·/q)^i for i=0,1 with ≤2#characters(N₀) choices and conductor ≤N₀ q. For the rectangle use real primitive ρ with ρ.N|8M. For the analytic estimates use all base characters modulo M and primitive inducing characters, with (i,j) nonzero.",
+      "definitions": [
+        "uniform family size",
+        "conditional selection of the second prime",
+        "logarithmic derivative at one",
+        "stage-two modulus admissibility"
+      ],
+      "equations": [],
+      "dependencies": [
+        "PRP-01",
+        "PRP-02"
+      ],
+      "correspondence": "With τ=ε/2 and η=1/2, form both thresholds before the first prime choice. The first and second conductor budgets are 8M and 8M exp z respectively. Change level at base characters and distinguish the j=0 and j=1 cases. Coefficient 4 follows from the log-log estimate and 1000ε/5≤50/13<4, with lower order terms absorbed by enlarging Y.",
+      "sources": [
+        {
+          "declaration": "stage1",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean",
+          "lines": [
+            36,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean#L36-L55"
+        },
+        {
+          "declaration": "stage1",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean",
+          "lines": [
+            69,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean#L69-L95"
+        },
+        {
+          "declaration": "stage2",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean",
+          "lines": [
+            112,
+            154
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean#L112-L154"
+        },
+        {
+          "declaration": "stage2",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean",
+          "lines": [
+            175,
+            210
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean#L175-L210"
+        },
+        {
+          "declaration": "share_of_bad and pair_share",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+          "lines": [
+            16,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean#L16-L52"
+        },
+        {
+          "declaration": "pair_exists",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean",
+          "lines": [
+            9,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean#L9-L48"
+        },
+        {
+          "declaration": "pairEx_box",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+          "lines": [
+            17,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean#L17-L59"
+        },
+        {
+          "declaration": "log_exp_product_bounds",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+          "lines": [
+            79,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean#L79-L109"
+        },
+        {
+          "declaration": "pairEx",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+          "lines": [
+            112,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean#L112-L151"
+        },
+        {
+          "declaration": "pairEx",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+          "lines": [
+            152,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean#L152-L169"
+        },
+        {
+          "declaration": "kappa4",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean",
+          "lines": [
+            126,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean#L126-L153"
+        },
+        {
+          "declaration": "kappa4_loglog",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean",
+          "lines": [
+            44,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean#L44-L52"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "written theorem and proof-body audit"
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PRP-01",
+      "PRP-03"
+    ],
+    [
+      "PRP-02",
+      "PRP-03"
+    ]
+  ],
+  "outstanding": [
+    "The underlying relative progression prime-number theorem plus exceptional-zero estimate, primitive-character zero-density inequality and quadratic-twist mean square have pinned proof suppliers. Their full proofs are outside the selection argument.",
+    "The contour tail and the Mertens bound in the log-log estimate are used with their source normalizations. The archimedean kernel, zero-density machinery and elementary character conductor lemmas are identified proof inputs."
+  ],
+  "written_source_calls": [
+    {
+      "caller": "supplyOfAdmOf",
+      "callee": "QH.pairEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "supplyOfAdmOf",
+      "callee": "winPairs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "pair_exists",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 115
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "kappa4",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 117
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "pairEx_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 153
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "pairEx_g",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 159
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "log_exp_product_bounds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 161
+      }
+    },
+    {
+      "caller": "pairEx",
+      "callee": "pairEx_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 166
+      }
+    },
+    {
+      "caller": "pairEx_box",
+      "callee": "ind_drop",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+        "line": 48
+      }
+    },
+    {
+      "caller": "pair_exists",
+      "callee": "pair_share",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "pair_exists",
+      "callee": "rows_of_mem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "pair_share",
+      "callee": "stage1",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "pair_share",
+      "callee": "stage2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "pair_share",
+      "callee": "share_of_bad",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+        "line": 43
+      }
+    },
+    {
+      "caller": "pair_share",
+      "callee": "share_of_bad",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+        "line": 50
+      }
+    },
+    {
+      "caller": "stage1",
+      "callee": "stage",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "stage2",
+      "callee": "exists_coprime_primePairSetSecond_eq_PPset",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean",
+        "line": 120
+      }
+    },
+    {
+      "caller": "stage2",
+      "callee": "char_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CharOf.lean",
+        "line": 183
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "box_of_S",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "meanSqK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 50
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "count_bad",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 51
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "bad_share",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "count_a",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "pnt_progressions_relative_weak_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "excBound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "twist_prim",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 117
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "ind_unique",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 136
+      }
+    },
+    {
+      "caller": "count_bad",
+      "callee": "count_bad_core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBad.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "count_bad_core",
+      "callee": "zero_density_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean",
+        "line": 24
+      }
+    },
+    {
+      "caller": "bs_markov",
+      "callee": "bs_block",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+        "line": 221
+      }
+    },
+    {
+      "caller": "bad_share",
+      "callee": "bs_markov",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+        "line": 293
+      }
+    },
+    {
+      "caller": "box_of_S",
+      "callee": "tailK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "box_of_S",
+      "callee": "finite_splitting_of_group",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "kappa4",
+      "callee": "kappa4_loglog",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean",
+        "line": 130
+      }
+    },
+    {
+      "caller": "kappa4_loglog",
+      "callee": "tail_contour",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/Kappa4Loglog.lean",
+        "line": 46
+      }
+    }
+  ],
+  "review_scope": "Actual caller, zero-density injection, passage from one-height estimates to uniform-in-height exceptions, two nested selections, CRT, derivative coefficient and quantifier order."
+}

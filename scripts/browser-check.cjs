@@ -42,6 +42,20 @@ async function run() {
     await page.screenshot({ path: path.join(output, "home.png") });
     await page.getByRole("link", { name: "Begin reading" }).click();
     assert.ok(page.url().endsWith("book.html#target"));
+    assert.equal(await page.locator("#how-to-read").count(), 1);
+    const mode = page.locator("#source-mode");
+    const sourceTitle = page.locator(".source-citation .source-title").first();
+    assert.equal(await sourceTitle.isVisible(), false);
+    await mode.press("Enter");
+    assert.equal(await sourceTitle.isVisible(), true);
+    assert.equal(await mode.getAttribute("aria-pressed"), "true");
+    await mode.press("Enter");
+    assert.equal(await sourceTitle.isVisible(), false);
+    const firstNote = page.locator(".source-citation .refno a").first();
+    const noteTarget = await firstNote.getAttribute("href");
+    await firstNote.click();
+    assert.equal(new URL(page.url()).hash, noteTarget);
+    assert.ok(await page.locator(noteTarget).isVisible());
     const ids = await page
       .locator("[data-lab]")
       .evaluateAll((els) => els.map((el) => el.dataset.lab));
@@ -167,6 +181,8 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    assert.equal(await plain.locator("#source-mode").isVisible(), false);
+    assert.ok(await plain.locator(".source-citation .source-title").first().isVisible());
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
     assert.equal(await plain.locator("[data-result] svg").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);

@@ -16,6 +16,30 @@
     value,
   });
   const configs = {
+    marks: {
+      title: "Find an interval between marked twists",
+      kind: "Window selection",
+      section: "inputs",
+      params: [
+        range("first", "First twist exponent k", 0, 16, 1, 2),
+        range("second", "Second twist exponent k", 0, 16, 1, 8),
+      ],
+      caption: "The dotted segment in row 1 and the dashed segment in row 2 are the forbidden ranges for the two marked twists. The solid segment in row 3 is the interval chosen for the whole sum. At k=0 the twist is 1 and forbids no points.",
+      method: "Take X=2¹⁶, α=½ and β=2. The sliders mark actual twists e=2ᵏ. In u=log₂ x the forbidden interval is [k/2,2k). Begin with U=16. While an obstruction k/2 lies in (U/8,U], erase it and replace U by U/8. Choose [U/2,U] in the resulting u-coordinate. The plot uses log₂ u so every doubling interval has the same width. Each forbidden segment includes its left endpoint and excludes its right endpoint. The selection uses binary-exact comparisons.",
+    },
+    euler: {
+      title: "Split one place or keep it inert",
+      kind: "Unramified Euler factors",
+      section: "lifts",
+      params: [
+        choose("q", "Base residue size q", [2, 3, 5, 7].map(q => [String(q), String(q)]), "3"),
+        range("s", "Real argument s", 0.5, 4, 0.1, 1.5),
+      ],
+      caption:
+        "The solid curve gives the split quotient. The dashed curve gives the inert quotient. Both use the same base residue size, the same normalizer and one trivial Euler parameter at each place above it. The dots mark the chosen argument.",
+      method:
+        "Set the two ranks a=1 and b=8 and the inverse twisting character equal to 1. Write x=q^(−s−½). Two places of norm q give a numerator (1−x)⁻². One place of norm q² gives (1−x²)⁻¹. Since b is even, the single normalizing factor is (1−x²)⁻¹ in both cases. This finite algebra example illustrates the local formula without specifying a global representation. Curves join 141 samples, with no infinite series or tail to approximate.",
+    },
     ramp: {
       title: "Weigh the prime powers",
       kind: "Finite sum",
@@ -320,6 +344,20 @@
       Math.exp(max) * values.reduce((sum, x) => sum + Math.exp(x - max), 0),
     );
   }
+  function eulerQuotients(q, s) {
+    const x = q ** (-s - 0.5);
+    return { split: (1 + x) / (1 - x), inert: 1, normalizer: 1 / (1 - x * x) };
+  }
+  function selectWindow(exponents) {
+    const marks = [...new Set(exponents.map(k => k / 2))];
+    let upper = 16;
+    while (true) {
+      const obstruction = marks.findIndex(a => upper / 8 < a && a <= upper);
+      if (obstruction === -1) return [upper / 2, upper];
+      marks.splice(obstruction, 1);
+      upper /= 8;
+    }
+  }
   function chart({
     equal = false,
     xMin = 0,
@@ -389,6 +427,52 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "marks") {
+      const exponents = [v.first, v.second];
+      const [lower, upper] = selectWindow(exponents);
+      const log = Math.log2;
+      return chart({
+        xMin: -3, xMax: 5, yMin: 0, yMax: 4,
+        xt: "log₂(log₂ x)", yt: "row",
+        title: "Two forbidden ranges and a window entirely clear of both",
+        paint: (X, Y, line) => {
+          const segments = exponents.map((k, i) => {
+            if (k === 0) return "";
+            const a = log(k / 2), b = log(2 * k), row = i + 1;
+            return line([[a, row], [b, row]], i === 0 ? "faint" : "dash") +
+              '<circle fill="currentColor" cx="' + X(a) + '" cy="' + Y(row) + '" r="3"/>' +
+              '<circle cx="' + X(b) + '" cy="' + Y(row) + '" r="3" fill="white" stroke="currentColor"/>';
+          });
+          return segments.join("") + line([[log(lower), 3], [log(upper), 3]]);
+        },
+      }) + metrics([
+        ["Marked twists", exponents.map(k => fmt(2 ** k, 7)).join(", ")],
+        ["Chosen log₂ x interval", "[" + fmt(lower) + ", " + fmt(upper) + "]"],
+        ["Chosen x interval", "[" + fmt(2 ** lower, 5) + ", " + fmt(2 ** upper, 5) + "]"],
+      ]);
+    }
+    if (id === "euler") {
+      const q = Number(v.q);
+      const selected = eulerQuotients(q, v.s);
+      const split = Array.from({ length: 141 }, (_, i) => {
+        const s = 0.5 + i / 40;
+        return [s, eulerQuotients(q, s).split];
+      });
+      return chart({
+        xMin: 0.5, xMax: 4, yMin: 0.92, yMax: split[0][1] + 0.08,
+        xt: "real argument s", yt: "local quotient",
+        title: "Split and inert local zeta quotients with one trivial parameter above each place",
+        paint: (X, Y, line) =>
+          line(split) + line([[0.5, 1], [4, 1]], "dash") +
+          [selected.split, selected.inert].map(value =>
+            `<circle class="dots" cx="${X(v.s)}" cy="${Y(value)}" r="4"/>`
+          ).join(""),
+      }) + metrics([
+        ["Split · solid", fmt(selected.split, 6)],
+        ["Inert · dashed", "1"],
+        ["Normalizer", fmt(selected.normalizer, 6)],
+      ]);
+    }
     if (id === "ramp") {
       const rows = contributions(v.x, v.chi),
         sum = rows.reduce((s, r) => s + r.y, 0);
@@ -1041,6 +1125,8 @@
     factorial,
     profile,
     upperTail,
+    eulerQuotients,
+    selectWindow,
     centeringRatio,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;

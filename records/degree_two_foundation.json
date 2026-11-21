@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the original pinned statements and proof bodies. Written source names checked at their callsites. No locally elaborated proof trace. The three-relation ℤ³ example is an independent specialization.",
+  "claims": [
+    {
+      "id": "HOM-01",
+      "title": "Torsion in an integral lattice presentation",
+      "chapter": "inputs",
+      "anchor": "inputs-degree-two-determinant",
+      "statement": "If the rank r of the ambient free abelian group is at most A and each integral relation has ℓ¹ norm at most b, the cokernel has finite torsion of order at most b^A.",
+      "hypotheses": "Finite rank r, arbitrary set of relations in ℤ^r, integer b≥1. The quotient may have a free part. The short vectors can be completed over ℚ, irrespective of independence over ℤ of the entire relation set.",
+      "definitions": [
+        "determinant index",
+        "integer span",
+        "rational basis",
+        "quotient torsion",
+        "chosen representative"
+      ],
+      "dependencies": [],
+      "equations": [
+        "inputs-degree-two-cokernel"
+      ],
+      "sources": [
+        {
+          "declaration": "det_natAbs_le_prod_l1_norms",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/DetNatAbsLeProdL1Norms.lean",
+          "lines": [
+            5,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/DetNatAbsLeProdL1Norms.lean#L5-L29"
+        },
+        {
+          "declaration": "indexLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/IndexLe.lean",
+          "lines": [
+            6,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/IndexLe.lean#L6-L33"
+        },
+        {
+          "declaration": "cokerTors",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean",
+          "lines": [
+            10,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean#L10-L38"
+        },
+        {
+          "declaration": "maxIndep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/MaxIndep.lean",
+          "lines": [
+            5,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/MaxIndep.lean#L5-L26"
+        },
+        {
+          "declaration": "fullEnum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FullEnum.lean",
+          "lines": [
+            5,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FullEnum.lean#L5-L42"
+        },
+        {
+          "declaration": "torsSat_coeff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean",
+          "lines": [
+            6,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean#L6-L25"
+        },
+        {
+          "declaration": "torsSat",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean",
+          "lines": [
+            41,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean#L41-L68"
+        }
+      ],
+      "correspondence": "Bound each determinant by the product of row sums via absolute values of the permutation expansion, followed by summation over all row choices. Complete a maximal independent set of relations with unit vectors, and compare the torsion classes to the resulting finite-index quotient via chosen lifts. The argument uses integral coordinates in that completed sublattice and rational independence of the added directions.",
+      "status": "mathematical proof reconstructed",
+      "review": "checked exact rank, order of the torsion, determinant bound, degree indices, and where the field-change exponent enters"
+    },
+    {
+      "id": "HOM-02",
+      "title": "Degree shift for a group acting on an exact face complex",
+      "chapter": "inputs",
+      "anchor": "inputs-degree-two-stabilizers",
+      "statement": "For an exact augmented permutation face complex through degree m, with at most A orbits and stabilizers of order ≤s in degrees through m, |tors H_m(G,ℤ)|≤(m+2)^A s^(mA s^m). At GL_N(O_L) this yields the homological ingredient of K_24 and the later witness 141 for the locally trivial group.",
+      "hypotheses": "Group action with equivariant faces and exact augmented chain complex (surjective augmentation). s≥1. For the number-field application L totally complex, n=[L:ℚ], e≥1, 1≤N≤4e+6 and m≤2e+1. The geometric orbit-count and stabilizer theorems are separate inputs.",
+      "definitions": [
+        "coinvariants",
+        "permutation module",
+        "stabilizer",
+        "group homology",
+        "short exact sequence",
+        "bar chains"
+      ],
+      "dependencies": [
+        "HOM-01"
+      ],
+      "equations": [
+        "inputs-degree-two-homology"
+      ],
+      "sources": [
+        {
+          "declaration": "base",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean",
+          "lines": [
+            9,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean#L9-L34"
+        },
+        {
+          "declaration": "hZero",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/QuotientsEquivOfKerEq.lean",
+          "lines": [
+            65,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/QuotientsEquivOfKerEq.lean#L65-L97"
+        },
+        {
+          "declaration": "shift",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            14,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L14-L47"
+        },
+        {
+          "declaration": "main and mainFace",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            49,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L49-L66"
+        },
+        {
+          "declaration": "bound",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FaceDSingle.lean",
+          "lines": [
+            105,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FaceDSingle.lean#L105-L107"
+        },
+        {
+          "declaration": "permTrans",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+          "lines": [
+            8,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean#L8-L24"
+        },
+        {
+          "declaration": "finGroup",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+          "lines": [
+            7,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean#L7-L19"
+        },
+        {
+          "declaration": "torsStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsStep.lean",
+          "lines": [
+            6,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsStep.lean#L6-L9"
+        },
+        {
+          "declaration": "permCard",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+          "lines": [
+            12,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean#L12-L42"
+        },
+        {
+          "declaration": "TorsLe.log_le and TorsLe.log_le_exp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            78,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L78-L95"
+        },
+        {
+          "declaration": "sx_exact and tors_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+          "lines": [
+            14,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean#L14-L30"
+        },
+        {
+          "declaration": "torsAll",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+          "lines": [
+            70,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean#L70-L109"
+        },
+        {
+          "declaration": "torsAll and sTors",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+          "lines": [
+            109,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean#L109-L125"
+        },
+        {
+          "declaration": "sNum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            210,
+            221
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L210-L221"
+        },
+        {
+          "declaration": "num_down",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            78,
+            89
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L78-L89"
+        }
+      ],
+      "correspondence": "Use degree-zero coinvariants on orbit generators and norm-decreasing projection of a boundary, then use the determinant estimate. The short exact sequence of the first module and its image shifts positive degree. Over one orbit use Shapiro and the finite stabilizer bar-complex exponent bound. With ≤A orbits, positive degree j costs at most s^(As^j). Sum these exponents over the m shifts. Logarithmic majorization on the chosen arithmetic group gives 24; a distinct field-change and character bound yields 141.",
+      "status": "mathematical proof reconstructed",
+      "review": "checked exact rank, order of the torsion, determinant bound, degree indices, and where the field-change exponent enters"
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HOM-01",
+      "HOM-02"
+    ]
+  ],
+  "outstanding": [
+    "The augmented complex exactness, orbit count and arithmetic stabilizer bounds are identified for the GL_N(O_L) specialization.",
+    "The long exact group homology sequence, Shapiro identification, and annihilation of finite-group homology by group order are named inputs; their proofs are not reproduced.",
+    "The cohomological character-detection construction and change of field are treated in the surrounding degree-two section."
+  ],
+  "written_source_calls": [
+    {
+      "caller": "indexLe",
+      "callee": "det_natAbs_le_prod_l1_norms",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/IndexLe.lean",
+        "line": 24
+      }
+    },
+    {
+      "caller": "cokerTors",
+      "callee": "maxIndep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "cokerTors",
+      "callee": "fullEnum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean",
+        "line": 22
+      }
+    },
+    {
+      "caller": "cokerTors",
+      "callee": "indexLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "cokerTors",
+      "callee": "torsSat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/CokerTors.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "torsSat",
+      "callee": "torsSat_tors",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean",
+        "line": 59
+      }
+    },
+    {
+      "caller": "torsSat",
+      "callee": "torsSat_mult",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean",
+        "line": 60
+      }
+    },
+    {
+      "caller": "torsSat",
+      "callee": "torsSat_coeff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsSat.lean",
+        "line": 62
+      }
+    },
+    {
+      "caller": "base",
+      "callee": "hZero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "base",
+      "callee": "l1_mapDomain_le_and_l1_faceD_single_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "base",
+      "callee": "cokerTors",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "shift",
+      "callee": "base",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "shift",
+      "callee": "imageRep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "shift",
+      "callee": "permCard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 39
+      }
+    },
+    {
+      "caller": "shift",
+      "callee": "les",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 40
+      }
+    },
+    {
+      "caller": "shift",
+      "callee": "torsStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "main",
+      "callee": "shift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "mainFace",
+      "callee": "main",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 65
+      }
+    },
+    {
+      "caller": "mainFace",
+      "callee": "l1_mapDomain_le_and_l1_faceD_single_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 66
+      }
+    },
+    {
+      "caller": "permTrans",
+      "callee": "shapiro",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "permTrans",
+      "callee": "finGroup",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "finGroup",
+      "callee": "subquot",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "finGroup",
+      "callee": "kill",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "permCard",
+      "callee": "permTrans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 37
+      }
+    },
+    {
+      "caller": "tors_le",
+      "callee": "mainFace",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+        "line": 27
+      }
+    },
+    {
+      "caller": "tors_le",
+      "callee": "sx_exact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "tors_le",
+      "callee": "orbBound_mono",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "tors_le",
+      "callee": "stab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "torsAll",
+      "callee": "tors_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 78
+      }
+    },
+    {
+      "caller": "torsAll",
+      "callee": "orbnum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 83
+      }
+    },
+    {
+      "caller": "torsAll",
+      "callee": "log_le_exp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 109
+      }
+    },
+    {
+      "caller": "torsAll",
+      "callee": "exponent_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 113
+      }
+    },
+    {
+      "caller": "sTors",
+      "callee": "torsAll",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 124
+      }
+    }
+  ],
+  "review_scope": "Elementary determinant proof, rank-deficient lattice and torsion injection, shifted homology and its arithmetic application."
+}

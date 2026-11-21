@@ -28,8 +28,8 @@
     ],
     [
       "lifts",
-      "Two theta lifts and a Galois input",
-      "Read the rank and nonvanishing requirements of the paired construction."
+      "Theta lifts, local factors and the Galois input",
+      "Follow the pair used for the Galois construction and compute the local factors that keep an iterated lift nonzero."
     ],
     [
       "balance",
@@ -39,7 +39,7 @@
     [
       "inputs",
       "Supplying the arithmetic hypotheses",
-      "The row condition, auxiliary fields, and cohomological windows."
+      "How class groups, cyclotomic descent and signed character estimates supply one arithmetic window."
     ],
     [
       "windows",
@@ -53,6 +53,11 @@
     ]
   ],
   "glossary": [
+    [
+      "Adeles",
+      "A compatible list of local entries, one in each completion of a number field, integral at all but finitely many finite places. The diagonal embedding sends one field element to its value in every completion.",
+      "lifts-language"
+    ],
     [
       "Analytic continuation",
       "An extension agreeing with a given analytic function on its original domain. Agreement on an open subset determines the continuation on a connected domain.",
@@ -69,9 +74,24 @@
       "local-chain"
     ],
     [
+      "Bernoulli value of a character",
+      "A weighted finite sum of Bernoulli polynomial values at fractions of the conductor. The minus estimate clears its denominators and uses the same algebraic integer at every coefficient prime.",
+      "inputs-minus-denominator"
+    ],
+    [
       "Character / χ",
       "A homomorphism from a finite group to nonzero complex numbers. A Dirichlet character extends by zero off the units modulo N.",
       "ramp"
+    ],
+    [
+      "Class group / Cl(K)",
+      "Fractional ideals of the number field K modulo principal fractional ideals. The quotient Cl(K)/ℓCl(K) measures the number of independent characters of order ℓ.",
+      "inputs-descent-class"
+    ],
+    [
+      "Cocycle",
+      "A function c satisfying c(gh)=c(g)+g·c(h). Its class in degree one identifies functions differing by g↦g·a−a. Local conditions impose restrictions on these classes.",
+      "inputs-cohomology"
     ],
     [
       "Conductor / f",
@@ -89,6 +109,21 @@
       "target-exact"
     ],
     [
+      "Cyclotomic layer",
+      "A stage in a tower formed by adjoining roots of unity. In the ℓ-adic tower here, layer m has relative degree ℓᵐ over the chosen base field.",
+      "inputs-descent-cokernel"
+    ],
+    [
+      "Discrete valuation ring",
+      "A ring in which each nonzero element has the form uπⁿ for a unit u, a fixed uniformizer π and a nonnegative integer n. This exponent measures divisibility. For ℤℓ one can take π=ℓ.",
+      "inputs-cohomology"
+    ],
+    [
+      "Doubling integral",
+      "An integral obtained by placing two copies of a unitary group in a larger group and pairing a section there with matrix coefficients on the original copies. Its local factors determine the partial L-function in the theta norm.",
+      "lifts-factors-global"
+    ],
+    [
       "Euler’s constant / γ",
       "The limit of 1+1/2+⋯+1/n − log n; it is the constant Laurent coefficient of ζ at 1.",
       "centering"
@@ -104,14 +139,34 @@
       "balance-exact"
     ],
     [
+      "Haar measure",
+      "A translation-invariant measure on a locally compact group. Its normalization matters when comparing the two sides of the Petersson identity.",
+      "lifts-factors-global"
+    ],
+    [
+      "Matrix coefficient",
+      "The scalar formed by translating one vector by a group element and pairing it with a second vector. When the vectors coincide, its value at the identity is their squared norm.",
+      "lifts-factors"
+    ],
+    [
       "Mellin transform",
       "Here the integral from 1 to infinity against x^(−s−1) dx. Under x=eᵘ it becomes a Laplace transform.",
       "mellin"
     ],
     [
+      "Module length",
+      "Number of simple quotients in a composition series. For a finite ℤℓ-module of order ℓᵈ the length is d. Its minimum number of generators can be smaller.",
+      "inputs-cohomology"
+    ],
+    [
       "Multiplicity / m",
       "At an isolated zero ρ, the integer m≥1 such that L(s)=(s−ρ)ᵐh(s) with h holomorphic and h(ρ)≠0. The balance chapter also uses m for a chain length.",
       "pilot-residues"
+    ],
+    [
+      "Petersson pairing",
+      "The integral of the product of an automorphic function and the complex conjugate of another on the automorphic quotient, with the chosen measure. On the diagonal it gives a squared norm.",
+      "lifts-factors"
     ],
     [
       "Pole and residue",
@@ -129,6 +184,21 @@
       "global-suppliers"
     ],
     [
+      "Residue degree",
+      "The degree of an extension of residue fields. In an unramified quadratic extension, a split base prime has two primes of residue degree one. An inert prime has one of degree two.",
+      "lifts-factors-good"
+    ],
+    [
+      "Saturation of a lattice",
+      "The saturation of Λ in E is the set of x in E such that kx lies in Λ for some nonzero integer k. Modulo Λ it gives exactly the torsion subgroup of E/Λ.",
+      "inputs-degree-two-determinant"
+    ],
+    [
+      "Semisimple representation",
+      "A direct sum of irreducible representations. One can compare multiplicities constituent by constituent once an isomorphism of the global representations has been established.",
+      "lifts-subtract"
+    ],
+    [
       "Sha-type local kernel",
       "The subgroup of degree-one Galois cohomology classes whose restrictions at the specified places vanish. Its module length enters the cohomological window bound.",
       "inputs-vv"
@@ -137,6 +207,16 @@
       "Slope",
       "For a Euclidean lattice of positive rank, its Arakelov slope is the negative log of its covolume divided by its rank. Extremal slopes measure sublattices and quotients.",
       "local-lattice"
+    ],
+    [
+      "Spherical data",
+      "At a good finite place the vectors are fixed by the specified maximal compact subgroup. This invariance permits the local integral to be evaluated by Hecke eigenvalues.",
+      "lifts-factors-good"
+    ],
+    [
+      "Stickelberger element",
+      "An element of a group ring acting on ideal classes in cyclotomic arithmetic. Its annihilation property supplies a relation on a quotient of the class group in the tower argument.",
+      "inputs-descent-class"
     ],
     [
       "Tate twist",
@@ -162,6 +242,11 @@
       "Window / Y, U, δ",
       "An interval [Y,Y¹⁺ᵟ] with δ>0; in logarithmic coordinates its endpoints are U=log Y and (1+δ)U.",
       "window-statement"
+    ],
+    [
+      "Witt index",
+      "Largest dimension of a subspace on which the entire Hermitian pairing vanishes. It determines which convergence hypothesis is required for the doubled theta integral.",
+      "lifts-factors-global"
     ]
   ],
   "references": [
@@ -199,6 +284,11 @@
       "NIST Digital Library of Mathematical Functions",
       "T. M. Apostol, Chapter 25, §25.15(i). Continuation, the principal character and the primitive functional equation for Dirichlet L-functions.",
       "https://dlmf.nist.gov/25.15.i"
+    ],
+    [
+      "W. T. Gan, Y. Qiu and S. Takeda, The regularized Siegel–Weil formula (the second term identity) and the Rallis inner product formula",
+      "§11.6 and equation (11.3) explain the local normalization. Theorem 11.4 concerns first-occurrence cuspidal lifts in its stated dimension range. The chain chapter uses the Haar measures and dimension hypotheses of its pinned Lean declarations.",
+      "https://arxiv.org/pdf/1207.4709v3"
     ]
   ]
 }

@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GPM-01",
+      "title": "An index makes the logarithmic metric independent of the chosen section",
+      "chapter": "global",
+      "anchor": "global-period-line",
+      "statement": "For the τ-coordinate module in a compatible number field M, Ω̄τ = (2 log [ℓτ:𝒪_M s] − Σρ log(π|ρ(s)|²/Aρ))/[M:ℚ]. When ℓτ=𝒪_M a, this is the mean of −log(π|ρ(a)|²/Aρ).",
+      "hypotheses": "Nonzero curve ideal prime to 2d, twelfth root of its elliptic-lattice discriminant, all torus embeddings and g₂,g₃ contained in M; s is a nonzero element of ℓτ. The generator form uses a spanning generator.",
+      "equations": [
+        "global-period-index"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.TaylorLogMetric.IsDiscriminantTwelfthRootOfIdealLattice",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean",
+          "lines": [
+            48,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean#L48-L60"
+        },
+        {
+          "declaration": "Formalism.MainNotions.TaylorLogMetric.DataIn",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean",
+          "lines": [
+            125,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean#L125-L137"
+        },
+        {
+          "declaration": "Formalism.MainNotions.TaylorLogMetric.meanLogOm",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean",
+          "lines": [
+            148,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/IsDiscriminantTwelfthRootOfIdealLattice.lean#L148-L165"
+        },
+        {
+          "declaration": "GlobalTheory.Glob.logMet_mul",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            189,
+            203
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L189-L203"
+        },
+        {
+          "declaration": "GlobalTheory.Glob.meanLogOm_eq_of_gen",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            225,
+            251
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L225-L251"
+        },
+        {
+          "declaration": "GlobalTheory.MeanPeriodGenerator.mean_logMet_eq",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogMetricGeneratorEqMeanPeriod.lean",
+          "lines": [
+            45,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogMetricGeneratorEqMeanPeriod.lean#L45-L57"
+        }
+      ],
+      "correspondence": "The finite index of ca in the free line and the product of its archimedean conjugates are the same absolute norm. The Gaussian example checks the factor 2 independently.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked in the pinned period, different, generator, kernel mean and selected-supplier source passages. No local Lean elaboration was run for this correspondence."
+    },
+    {
+      "id": "GPM-02",
+      "title": "The quadratic CM period and the correction from the relative different",
+      "chapter": "global",
+      "anchor": "global-period-scalar",
+      "statement": "For every compatible M and τ, Ω̄τ equals the mean of log(Aρ/π) minus (2/[E:ℚ])log b, where b is the absolute norm of the product of the host fractional ideal and the relative different. This equals γ + log(2π/rd E) − Re(L′(1,χ)/L(1,χ)).",
+      "hypotheses": "Host conditions of D7 for the imaginary quadratic field K₀ of discriminant −d, its host extension E and relative half-different data; admissible curve ideal, discriminant twelfth root and compatible number field.",
+      "equations": [
+        "global-period-areas",
+        "global-period-omega"
+      ],
+      "dependencies": [
+        "GPM-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.L2.GlobalTheoryTheory.IntegralLatticeDensity.B5.br_brN_eq",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean",
+          "lines": [
+            14,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean#L14-L24"
+        },
+        {
+          "declaration": "Formalism.L2.GlobalTheoryTheory.IntegralLatticeDensity.B5.br_meanLogOm_eq",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean",
+          "lines": [
+            39,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean#L39-L69"
+        },
+        {
+          "declaration": "Formalism.L2.GlobalTheoryTheory.IntegralLatticeDensity.B5.br_meanLogOm_eq",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean",
+          "lines": [
+            75,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL3/CubicFields/PeriodRelations/Period.lean#L75-L93"
+        },
+        {
+          "declaration": "GlobalTheory.MeanPeriodClosed.two_log_brN",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogPeriodChowlaSelberg.lean",
+          "lines": [
+            17,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogPeriodChowlaSelberg.lean#L17-L56"
+        },
+        {
+          "declaration": "GlobalTheory.PeriodMean.mean_log_area",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean",
+          "lines": [
+            141,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean#L141-L165"
+        },
+        {
+          "declaration": "GlobalTheory.PeriodMean.mean_log_area",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean",
+          "lines": [
+            165,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean#L165-L191"
+        },
+        {
+          "declaration": "GlobalTheory.PeriodMean.mean_log_period",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean",
+          "lines": [
+            202,
+            229
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean#L202-L229"
+        },
+        {
+          "declaration": "GlobalTheory.MeanPeriodClosed.meanPeriodAt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogPeriodChowlaSelberg.lean",
+          "lines": [
+            58,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogPeriodChowlaSelberg.lean#L58-L85"
+        },
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.MeanPeriodLogarithms.logOmVal_eq",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/GlobalSignature/MeanPeriodLogarithms.lean",
+          "lines": [
+            11,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/GlobalSignature/MeanPeriodLogarithms.lean#L11-L25"
+        }
+      ],
+      "correspondence": "The logarithm of the section norm cancels by the index identity. The unit discriminant correction vanishes in the CM-family area average; b² equals the norm of the relative different. The CM class-sum evaluation, CM family existence, and index theorem are cited here.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked in the pinned period, different, generator, kernel mean and selected-supplier source passages. No local Lean elaboration was run for this correspondence."
+    },
+    {
+      "id": "GPM-03",
+      "title": "How a metric at coefficient embeddings gives the mean period for kernel columns",
+      "chapter": "global",
+      "anchor": "global-period-frame",
+      "statement": "After choosing a coefficient field and the compatible differential generators, the local period is pτ(w)=Σρ Wwρ(−mρ(aτ)). For every τ, its average over the infinite places w is Ωlog because mean_w Wwρ=1/[M:ℚ] for each ρ. Coupled matrix norms use these period values and a separately bounded mean logarithmic theta norm.",
+      "hypotheses": "Nonnegative compatible place weights with row sums one; trivial character tuple and sharp local datum on the kernel branch, compatible analytic and character data, identified weights, sizes, field of definition and the remaining kerSide_chainS hypotheses.",
+      "equations": [
+        "global-period-frame-mean"
+      ],
+      "dependencies": [
+        "GPM-02"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.MeanPeriodGenerator.mean_logMet_eq",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogMetricGeneratorEqMeanPeriod.lean",
+          "lines": [
+            45,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MeanLogMetricGeneratorEqMeanPeriod.lean#L45-L57"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_chainS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            219,
+            234
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L219-L234"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_chainS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            274,
+            283
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L274-L283"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_of_meansS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            104,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L104-L115"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_of_meansS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            135,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L135-L145"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_of_meansS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            160,
+            170
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L160-L170"
+        },
+        {
+          "declaration": "GlobalTheory.KernelHalfS.kerSide_chainS",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean",
+          "lines": [
+            315,
+            329
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KernelHalfChainNumbersAnyLevelPrime.lean#L315-L329"
+        },
+        {
+          "declaration": "GlobalTheory.ColRowsTopS.rowsBody_colFace",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ColumnsMemberRowsOfLogLevelLe.lean",
+          "lines": [
+            25,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ColumnsMemberRowsOfLogLevelLe.lean#L25-L51"
+        }
+      ],
+      "correspondence": "Interchanging the finite sums gives exactly the period equality required by kerSide_of_meansS. The kernel number bounds and the separate evaluation-side estimate produce the framed rows. Individual normalized theta norm and coupled matrix-factor estimates remain supplied.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked in the pinned period, different, generator, kernel mean and selected-supplier source passages. No local Lean elaboration was run for this correspondence."
+    },
+    {
+      "id": "GPM-04",
+      "title": "The definite-side row construction and the independent global family estimate",
+      "chapter": "global",
+      "anchor": "global-period-frame",
+      "statement": "The selected every-character application uses TopShape and TopPlug in ThirdPlaceSeries. Its definite-side row condition uses the bounds on the kernel column factors. The family proof produces divisibility from the rows and takes LinkGLOBAL from link_gl. DesWin applies LinkGLOBAL to a tuple containing the realized divisibility estimate and the derived slope input. The per22/OmLink implication in Joints is a separate assembly.",
+      "hypotheses": "ThirdPlaceSeries hypothesis package and TopShape hypotheses, including the real-place and mass conditions for link_gl and the distinct row, admissibility and growth hypotheses. The OmLink comparison follows from compatible generators and its own hypotheses.",
+      "equations": [],
+      "dependencies": [
+        "GPM-03"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.ColRows.rowsBody_of_kerTies",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MemberRowsOfKernelDatumSizes.lean",
+          "lines": [
+            12,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MemberRowsOfKernelDatumSizes.lean#L12-L38"
+        },
+        {
+          "declaration": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/RowsUOfColPins.lean",
+          "lines": [
+            18,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/RowsUOfColPins.lean#L18-L21"
+        },
+        {
+          "declaration": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/RowsUOfColPins.lean",
+          "lines": [
+            73,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/RowsUOfColPins.lean#L73-L84"
+        },
+        {
+          "declaration": "GlobalTheory.Fc.RL.DefSide.definiteSideCondition_of_nprimeDef_of_nuFull",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointEvaluationSide.lean",
+          "lines": [
+            49,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointEvaluationSide.lean#L49-L68"
+        },
+        {
+          "declaration": "GlobalTheory.Fc.RL.linkedAt_prmR_df_of_cuspRapidDecay",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointEvaluationSide.lean",
+          "lines": [
+            75,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointEvaluationSide.lean#L75-L88"
+        },
+        {
+          "declaration": "GlobalTheory.Fc.S0.Open0ProofU.open_orbit_of_unramified_exponents_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OpenOrbitOfUnramifiedExponents.lean",
+          "lines": [
+            63,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OpenOrbitOfUnramifiedExponents.lean#L63-L76"
+        },
+        {
+          "declaration": "GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean",
+          "lines": [
+            44,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean#L44-L61"
+        },
+        {
+          "declaration": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean",
+          "lines": [
+            65,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L65-L73"
+        },
+        {
+          "declaration": "UpperTheory.Top.zero_free_all_of_green_v_win",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
+          "lines": [
+            12,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean#L12-L18"
+        },
+        {
+          "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+          "lines": [
+            33,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L33-L47"
+        },
+        {
+          "declaration": "UpperTheory.Top.shape_closed_link_n_of_green",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+          "lines": [
+            50,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean#L50-L55"
+        },
+        {
+          "declaration": "UpperTheory.Top.topDesWin",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean",
+          "lines": [
+            18,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean#L18-L31"
+        },
+        {
+          "declaration": "GlobalTheory.Top.link_gl",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean",
+          "lines": [
+            14,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean#L14-L30"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Wire.FamGLmin.link8",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean",
+          "lines": [
+            60,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean#L60-L75"
+        },
+        {
+          "declaration": "Formalism.MainNotions.linkGLOBAL7_items",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            709,
+            721
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L709-L721"
+        },
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.OmLink",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/Joints.lean",
+          "lines": [
+            545,
+            557
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/Joints.lean#L545-L557"
+        },
+        {
+          "declaration": "Formalism.MainNotions.TaylorLogMetric.per22",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TaylorLogMetric.lean",
+          "lines": [
+            18,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TaylorLogMetric.lean#L18-L20"
+        },
+        {
+          "declaration": "GlobalTheory.Glob.ExtraTie.logOmMean_eq",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            355,
+            372
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L355-L372"
+        },
+        {
+          "declaration": "Formalism.MainNotions.flipTwoThree.theta_norm_family_of_linked",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsF.lean",
+          "lines": [
+            102,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsF.lean#L102-L113"
+        }
+      ],
+      "correspondence": "Direct applications traced from the selected third-place row and global suppliers. The common real-place rank-and-count construction reaches linkCore. The conditional JointsF theorem does not supply link_gl.",
+      "status": "statement and proof inspected",
+      "review": "Independently checked in the pinned period, different, generator, kernel mean and selected-supplier source passages. No local Lean elaboration was run for this correspondence."
+    }
+  ]
+}

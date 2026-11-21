@@ -1,0 +1,1248 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from the original pinned written source. The selected callsites are explicit occurrences in proof bodies. No elaborated local solution trace was collected. The algebraic rank-one sign check and filtration presentation of the nilpotent index bound are explanatory specializations.",
+  "claims": [
+    {
+      "id": "INP-13",
+      "chapter": "inputs",
+      "title": "Uniform ℓ-class ranks in the cyclotomic tower",
+      "anchor": "inputs-descent-class",
+      "equations": [
+        "inputs-descent-class-bound"
+      ],
+      "statement": "For abelian K over ℚ containing the required roots, one r bounds |Cl(K(μ_{ℓⁿ}))/ℓCl(K(μ_{ℓⁿ}))| by ℓ^r for all n. The window assembly uses a proved witness FW.ferreroWashington.",
+      "hypotheses": "ℓ prime, finite abelian number field K, primitive root of order ℓ (4 at ℓ=2) in the published formulation. Full-cyclotomic argument fixes f>1 prime to ℓ.",
+      "definitions": [
+        "class group modulo ℓ",
+        "conjugation J",
+        "difference subgroup (1−J)C",
+        "smoothed thetaH",
+        "nilpotent filtration",
+        "restriction kernel and image"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Published.FerreroWashington",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PublishedTheorems/FerreroWashington.lean",
+          "lines": [
+            7,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PublishedTheorems/FerreroWashington.lean#L7-L11"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.ferreroWashington",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            104,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L104-L119"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.cyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            18,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L18-L102"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.memZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+          "lines": [
+            13,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean#L13-L37"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.ambCyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AmbCyc.lean",
+          "lines": [
+            9,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AmbCyc.lean#L9-L50"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.stickH",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+          "lines": [
+            8,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean#L8-L44"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.core",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean",
+          "lines": [
+            64,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean#L64-L105"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.nilCard",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/NilCard.lean",
+          "lines": [
+            26,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/NilCard.lean#L26-L91"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.reflOdd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ReflOdd.lean",
+          "lines": [
+            30,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ReflOdd.lean#L30-L50"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.pOdd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/POddRelIndexLe.lean",
+          "lines": [
+            30,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/POddRelIndexLe.lean#L30-L51"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.pTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean",
+          "lines": [
+            5,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean#L5-L40"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sgnCyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+          "lines": [
+            13,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean#L13-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.embed",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EmbedDeg.lean",
+          "lines": [
+            16,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EmbedDeg.lean#L16-L78"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+          "lines": [
+            10,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean#L10-L94"
+        },
+        {
+          "declaration": "UpperTheory.V.HV.Core.of_four_alt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean",
+          "lines": [
+            18,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean#L18-L22"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The nilpotent filtration, the two index products and the degree-uniform transfer are reconstructed. Arithmetic inputs include Stickelberger annihilation, the uniform mod-ℓ group-ring relation, the ambiguous-class bound, reflection and the two-primary sign estimate. They are proved suppliers in the corpus whose underlying constructions are cited here.",
+      "review": "Pinned written proof bodies and source coordinates checked. External mathematical review outstanding."
+    },
+    {
+      "id": "INP-14",
+      "chapter": "inputs",
+      "title": "A bounded infinite character space bounds the number of dual generators",
+      "anchor": "inputs-descent-generators",
+      "equations": [],
+      "statement": "Each D_s consists of ℓ-primary torsion; finite-layer class-character bounds give |D_s[ℓ]|≤ℓ^r and X_s=Hom(D_s,ℚℓ/ℤℓ) admits a surjection ℤℓ^r→X_s.",
+      "hypotheses": "Same abelian base and roots hypothesis, closed absolute Galois group, s≥1. The argument for the algebraic dual applies to any ℓ-primary torsion ℤℓ-module with bounded order-ℓ subgroup.",
+      "definitions": [
+        "XDual",
+        "inertia and decomposition conditions",
+        "Dinf",
+        "Xinf",
+        "extension of an injective module",
+        "scalar endomorphisms of ℚℓ/ℤℓ"
+      ],
+      "dependencies": [
+        "INP-13"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Kum.XDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            90,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L90-L99"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.Dinf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            195,
+            195
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L195-L195"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.Xinf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            197,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L197-L197"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.fwRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            37,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L37-L43"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.levelRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+          "lines": [
+            10,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean#L10-L27"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.cardClDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CardClDual.lean",
+          "lines": [
+            62,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CardClDual.lean#L62-L65"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.infRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevUAnti.lean",
+          "lines": [
+            9,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevUAnti.lean#L9-L47"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.xdualExt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/XdualExt.lean",
+          "lines": [
+            82,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/XdualExt.lean#L82-L117"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.XRk.of_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean",
+          "lines": [
+            89,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean#L89-L93"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.genOfRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/GenOfRk.lean",
+          "lines": [
+            10,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/GenOfRk.lean#L10-L81"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.embedQZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/EmbedQZ.lean",
+          "lines": [
+            62,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/EmbedQZ.lean#L62-L126"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.dualGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DualGen.lean",
+          "lines": [
+            10,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DualGen.lean#L10-L30"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.qzEnd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QzEnd.lean",
+          "lines": [
+            8,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QzEnd.lean#L8-L93"
+        },
+        {
+          "declaration": "UpperTheory.V.PropA.qzInj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/QzInj.lean",
+          "lines": [
+            8,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/QzInj.lean#L8-L26"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Reconstructed the nested-union argument, torsion subgroup embedding, proof that the extension remains injective, and dual generation. Artin reciprocity and extension of finite-level locally constant homomorphisms are identified inputs.",
+      "review": "Pinned written proof bodies and source coordinates checked. External mathematical review outstanding."
+    },
+    {
+      "id": "INP-15",
+      "chapter": "inputs",
+      "title": "Uniformity in the varying two-primary base",
+      "anchor": "inputs-descent-two",
+      "equations": [
+        "inputs-descent-rank-two"
+      ],
+      "statement": "For each fixed abelian datum M of degree b there is a bound R₂=4(g+6b), where g is chosen over M(i) before q,d. Both the N=1 and N=2 tower modules over base2(M,q,d) have at most R₂ generators. For a fixed odd-prime datum A one can take max(1,r).",
+      "hypotheses": "Prime q≡3 mod 8, prime d≡7 mod 16, gcd(qd,M.m)=1. At an odd ℓ the datum A contains the requisite roots. All realizations of each field datum are admitted.",
+      "definitions": [
+        "withI",
+        "base2",
+        "orbit representatives over q and d",
+        "mod-2 tame characters",
+        "index-two conjugation"
+      ],
+      "dependencies": [
+        "INP-14"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Two.abRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            49,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L49-L61"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.genLE_of_abRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            63,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L63-L67"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.towerTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            87,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L87-L96"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.towerFixed",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            98,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L98-L110"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.baseRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            69,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L69-L85"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            29,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L29-L108"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.orbTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+          "lines": [
+            11,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean#L11-L42"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.invTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/InvTwo.lean",
+          "lines": [
+            44,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/InvTwo.lean#L44-L117"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.idxTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean",
+          "lines": [
+            80,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean#L80-L102"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.quadStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+          "lines": [
+            11,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean#L11-L50"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.fixedIn",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            139,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L139-L141"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.twoIn",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            133,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L133-L137"
+        },
+        {
+          "declaration": "UpperTheory.V.Win.thmBab_of_lemmaK",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOfLemmaK.lean",
+          "lines": [
+            9,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOfLemmaK.lean#L9-L12"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Reconstructed the two increments in the exponent and the two index-two squarings. The numerical orbit bounds, tame inertia generators and field transport are arithmetic suppliers, separately anchored.",
+      "review": "Pinned written proof bodies and source coordinates checked. External mathematical review outstanding."
+    },
+    {
+      "id": "INP-16",
+      "chapter": "inputs",
+      "title": "Restriction identifies Sha with invariant characters on the cyclotomic kernel",
+      "anchor": "inputs-descent-restrict",
+      "equations": [
+        "inputs-descent-extension"
+      ],
+      "statement": "On a field in the tower, restriction identifies Sha¹(F,ℚℓ/ℤℓ(−e)) with the equivariant characters of the infinite cyclotomic kernel, unramified everywhere and trivial on decomposition groups above ℓ.",
+      "hypotheses": "e is a nonzero integer. The cyclotomic image is procyclic under the roots hypothesis, including μ₄ at 2. Ramification is allowed in the prescribed set over ℓ and places above those primes are fixed.",
+      "definitions": [
+        "resInf",
+        "equivariant additive character",
+        "inertia/decomposition local conditions",
+        "closure of a lift of a cyclotomic generator",
+        "coboundary"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Tower.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean",
+          "lines": [
+            10,
+            147
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean#L10-L147"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.resInfInj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ResInfInj.lean",
+          "lines": [
+            58,
+            171
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ResInfInj.lean#L58-L171"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.resInfOnto",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ResInfOnto.lean",
+          "lines": [
+            102,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ResInfOnto.lean#L102-L166"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.extCocycle",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ExtCocycle.lean",
+          "lines": [
+            77,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ExtCocycle.lean#L77-L155"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.vanishCyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/VanishCyc.lean",
+          "lines": [
+            85,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/VanishCyc.lean#L85-L163"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.XDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            90,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L90-L99"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.dTw",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean",
+          "lines": [
+            56,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean#L56-L56"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The two directions were checked separately. Reconstructed the cocycle extension on a product of closed subgroups, global and local coboundary adjustment and the required local conditions. The pro-ℓ description of the intersection explains the source’s congruence argument for vanishCyc.",
+      "review": "Pinned written proof bodies and source coordinates checked. External mathematical review outstanding."
+    },
+    {
+      "id": "INP-17",
+      "chapter": "inputs",
+      "title": "The sign and power in the layer cokernel",
+      "anchor": "inputs-descent-cokernel",
+      "equations": [
+        "inputs-descent-equality"
+      ],
+      "statement": "For e≠0 and a degree-ℓ^m cyclotomic layer, the locally trivial degree-one length equals the cokernel length of (χ(γ)^e x₀(γ))^(ℓ^m)−1. Degrees and twists refer to a common tower generator. At the reference layer its length is bounded by the full H² with twist e+1 using finite-level Poitou–Tate and local inputs.",
+      "hypotheses": "Arithmetic generator chosen from a base with HasMuQ. Total complexity gives the PTCase required at ℓ=2 for the later degree-two comparison. No finite-length assumption is needed for the equality.",
+      "definitions": [
+        "ShaD",
+        "contragredient action",
+        "inverse group element",
+        "degree-two coefficient twist",
+        "length in ℕ∞",
+        "reference-layer comparison"
+      ],
+      "dependencies": [
+        "INP-16"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.PropA.genLevel",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/GenLevel.lean",
+          "lines": [
+            11,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/GenLevel.lean#L11-L31"
+        },
+        {
+          "declaration": "UpperTheory.V.PropA.descends",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/Descends.lean",
+          "lines": [
+            8,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/Descends.lean#L8-L15"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean",
+          "lines": [
+            10,
+            147
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean#L10-L147"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.step0",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+          "lines": [
+            26,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean#L26-L46"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.layerUniq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LayerUniq.lean",
+          "lines": [
+            25,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LayerUniq.lean#L25-L43"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.layerGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LayerGen.lean",
+          "lines": [
+            10,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LayerGen.lean#L10-L39"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.dTw",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean",
+          "lines": [
+            56,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean#L56-L56"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.xTw",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean",
+          "lines": [
+            58,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean#L58-L58"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.xTw_apply_apply",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean",
+          "lines": [
+            66,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/XTwApplyApply.lean#L66-L69"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.shaDGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ShaDGen.lean",
+          "lines": [
+            9,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ShaDGen.lean#L9-L59"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.cokerDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/CokerDual.lean",
+          "lines": [
+            8,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/CokerDual.lean#L8-L19"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.dualKer",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/DualKer.lean",
+          "lines": [
+            7,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/DualKer.lean#L7-L40"
+        },
+        {
+          "declaration": "UpperTheory.V.Tower.lenDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LenDual.lean",
+          "lines": [
+            111,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/LenDual.lean#L111-L137"
+        },
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.shaLen_eq_shaInv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/ShaLenEqShaInv.lean",
+          "lines": [
+            58,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/ShaLenEqShaInv.lean#L58-L60"
+        },
+        {
+          "declaration": "UpperTheory.V.PropA.aBound_of_isTower",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfIsTower.lean",
+          "lines": [
+            7,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfIsTower.lean#L7-L11"
+        },
+        {
+          "declaration": "UpperTheory.V.PropA.aBound_of_descends",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfDescends.lean",
+          "lines": [
+            36,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfDescends.lean#L36-L55"
+        },
+        {
+          "declaration": "UpperTheory.V.PropA.shaLeV",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ShaLeV.lean",
+          "lines": [
+            7,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ShaLeV.lean#L7-L16"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.finite_level",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            517,
+            525
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L517-L525"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.ptShaAt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            462,
+            513
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L462-L513"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Descent, density of the cyclotomic generator and the exact dual cokernel calculation are reconstructed. The separate finite-level duality comparison is described through the indicated length filtrations. The rank-one sign example is an algebraic check. The independent size estimate on full H² is outside this claim.",
+      "review": "Pinned written proof bodies and source coordinates checked. External mathematical review outstanding."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "INP-13",
+      "INP-14",
+      "Uniformly bounds each finite-level class character count."
+    ],
+    [
+      "INP-14",
+      "INP-15",
+      "Supplies generators over M(i) and over each fixed odd-prime datum."
+    ],
+    [
+      "INP-15",
+      "INP-10",
+      "Supplies the generator hypothesis in the arithmetic applications of the layer-growth theorem."
+    ],
+    [
+      "INP-16",
+      "INP-17",
+      "Restriction identifies the group to which dualization is applied."
+    ],
+    [
+      "INP-17",
+      "INP-12",
+      "Identifies the arithmetic length and explains the cohomological comparison at j₀."
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.HV.Core.of_four_alt",
+      "callee": "UpperTheory.V.FW.ferreroWashington",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "UpperTheory.V.HV.Core.of_four_alt",
+      "callee": "UpperTheory.V.Win.thmBab_of_lemmaK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Win.thmBab_of_lemmaK",
+      "callee": "UpperTheory.V.PropA.aBound_of_isTower",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOfLemmaK.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Win.thmBab_of_lemmaK",
+      "callee": "UpperTheory.V.Two.twoIn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOfLemmaK.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Win.thmBab_of_lemmaK",
+      "callee": "UpperTheory.V.Two.fixedIn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/ThmBabOfLemmaK.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.ferreroWashington",
+      "callee": "UpperTheory.V.FW.embed",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 107
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.ferreroWashington",
+      "callee": "UpperTheory.V.FW.cyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 108
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.ferreroWashington",
+      "callee": "UpperTheory.V.FW.desc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 113
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.memZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.ambCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.stickH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 50
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.sgnCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.pTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 63
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.reflOdd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 99
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.pOdd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 101
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.fwRk",
+      "callee": "UpperTheory.V.Two.levelRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 43
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.fwRk",
+      "callee": "UpperTheory.V.Two.infRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.levelRk",
+      "callee": "UpperTheory.V.Two.cardClDual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.infRk",
+      "callee": "UpperTheory.V.Kum.xdualExt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevUAnti.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.genOfRk",
+      "callee": "UpperTheory.V.Two.dualGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/GenOfRk.lean",
+        "line": 81
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.dualGen",
+      "callee": "UpperTheory.V.Two.embedQZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DualGen.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.dualGen",
+      "callee": "UpperTheory.V.Two.qzEnd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DualGen.lean",
+        "line": 20
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.dualGen",
+      "callee": "UpperTheory.V.PropA.qzInj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DualGen.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.abRk",
+      "callee": "UpperTheory.V.Two.fwRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.genLE_of_abRk",
+      "callee": "UpperTheory.V.Two.genOfRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 67
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.towerFixed",
+      "callee": "UpperTheory.V.Two.abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 105
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.towerFixed",
+      "callee": "UpperTheory.V.Two.genLE_of_abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 109
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.towerTwo",
+      "callee": "UpperTheory.V.Two.abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 90
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.towerTwo",
+      "callee": "UpperTheory.V.Two.baseRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 93
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.towerTwo",
+      "callee": "UpperTheory.V.Two.genLE_of_abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 96
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.baseRk",
+      "callee": "UpperTheory.V.Two.charStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 76
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.baseRk",
+      "callee": "UpperTheory.V.Two.orbTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 76
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.baseRk",
+      "callee": "UpperTheory.V.Two.quadStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 80
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.quadStep",
+      "callee": "UpperTheory.V.Two.idxTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.idxTwo",
+      "callee": "UpperTheory.V.Two.invTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean",
+        "line": 96
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.fixedIn",
+      "callee": "UpperTheory.V.Two.towerFixed",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 140
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Two.twoIn",
+      "callee": "UpperTheory.V.Two.towerTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 134
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.aBound_of_isTower",
+      "callee": "UpperTheory.V.PropA.genLevel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfIsTower.lean",
+        "line": 10
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.aBound_of_isTower",
+      "callee": "UpperTheory.V.PropA.descends",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfIsTower.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.aBound_of_isTower",
+      "callee": "UpperTheory.V.PropA.aBound_of_descends",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfIsTower.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.descends",
+      "callee": "UpperTheory.V.Tower.step0",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/Descends.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.desc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.layerUniq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 40
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.layerGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.shaDGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 44
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.cokerDual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.Tower.xTw_apply_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.step0",
+      "callee": "UpperTheory.V.LDataCardLeFinrank.shaLen_eq_shaInv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/ExistsDescends.lean",
+        "line": 44
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.desc",
+      "callee": "UpperTheory.V.Kum.resInfInj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean",
+        "line": 133
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.desc",
+      "callee": "UpperTheory.V.Kum.resInfOnto",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/Imports.lean",
+        "line": 118
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Kum.resInfOnto",
+      "callee": "UpperTheory.V.Kum.extCocycle",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ResInfOnto.lean",
+        "line": 122
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Kum.extCocycle",
+      "callee": "UpperTheory.V.Kum.vanishCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ExtCocycle.lean",
+        "line": 154
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.cokerDual",
+      "callee": "UpperTheory.V.Tower.dualKer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/CokerDual.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Tower.cokerDual",
+      "callee": "UpperTheory.V.Tower.lenDual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/NumberFieldTowers/CokerDual.lean",
+        "line": 17
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.aBound_of_descends",
+      "callee": "UpperTheory.V.PropA.shaLeV",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ABoundOfDescends.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.shaLeV",
+      "callee": "GlobalTheory.TateLimit.finite_level",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ShaLeV.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "UpperTheory.V.PropA.shaLeV",
+      "callee": "GlobalTheory.TateLimit.ptShaAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AdditiveValuationNorms/ShaLeV.lean",
+        "line": 13
+      }
+    }
+  ],
+  "outstanding": [
+    "The Stickelberger relation and its mod-ℓ nonvanishing input, the ambiguous-class index, reflection and the 2-primary sign estimate are established upstream by the formal source and enter the reconstructed cyclotomic index argument as stated inputs.",
+    "Artin reciprocity for the class-group pullback, the numerical inertia orbit bounds and arithmetic properties of the auxiliary field realizations have cited suppliers.",
+    "The source finite-level duality input and localization-control lemmas are used in the passage to equal lengths. The independent full degree-two size estimate (LemmaK) and the separate plus-window representation counts are not implied by these generator or descent arguments."
+  ],
+  "review_scope": "Read the original arithmetic and cohomological suppliers through their displayed callers. Separately checked sign conventions, all-prime branches, integer exponents, edge references and the unrestricted extended-length conclusion. Independent cross-review pending."
+}

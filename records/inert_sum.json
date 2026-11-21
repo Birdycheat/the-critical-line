@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "IZS-01",
+      "title": "Row and corner classes in an inert Iwasawa cell",
+      "statement": "For n=m+2 with IsUnramInv, fix the signed outer valuation a and a rank-m integral-stabilizer coset with length h. Radical cosets have length at least H=|a|+h, and the count through H+j equals q^{2h+(2m+2)max(a,0)} q^{2m floor(j/2)+j}.",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-cells",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.UG.IsUnramInv",
+          "path": "src/Formalism/SatakeDualWeyl/StatementF.lean",
+          "lines": [
+            14,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SatakeDualWeyl/StatementF.lean#L14-L19"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.len_mat_mul",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            70,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L70-L96"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.hasLen_of_latLen",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            115,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L115-L123"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.IsLeviElt and Small",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            199,
+            214
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L199-L214"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.Pointwise, LatIndex, TraceIndex, SmallCorner and Count",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            282,
+            310
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L282-L310"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.count_of_heis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean",
+          "lines": [
+            81,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean#L81-L114"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.count_of_heis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean",
+          "lines": [
+            191,
+            226
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean#L191-L226"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.constTerm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            15,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L15-L46"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.bijective_cells",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            48,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L48-L80"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The cumulative cardinality is obtained by substituting e=a₊+floor(j/2), f=2a₊+j in the product of the row index and trace-zero corner index. The proof of the count takes row lifting and invariance under integral radical elements as explicit hypotheses. Underlying pointwise length and index theorems are linked inputs. Right multiplication by k transports the enlarged row lattice; it induces an isomorphism on the quotient by the standard lattice and preserves length.",
+      "review": "Author checked coordinates, actual theorem calls and the row/corner quotient construction against the indexed original archive."
+    },
+    {
+      "id": "IZS-02",
+      "title": "Exact shell series at fixed diagonal labels",
+      "statement": "For |y|<1, y=q^{m+1}X, the sum of X to the lattice length over the radical quotient equals c X^H (1−X)(1+qX)/(1−y²).",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-shells",
+      "dependencies": [
+        "IZS-01"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.InertZeta.genFun_counts_hasSum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean",
+          "lines": [
+            10,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean#L10-L37"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.genFun_diff_hasSum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean",
+          "lines": [
+            39,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean#L39-L59"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.genFun_holds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean",
+          "lines": [
+            75,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean#L75-L99"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.genFun_holds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean",
+          "lines": [
+            100,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LengthCountGeneratingSeriesFormula.lean#L100-L123"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.constTerm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            15,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L15-L46"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "Even and odd cumulative levels are geometric series of ratio y². Subtracting the shifted cumulative series gives shells. The same real argument at |X| proves summability before rearranging. The rank-three numerical example illustrates this fixed-cell result.",
+      "review": "Second reader independently checked the parity split, first differences and exact example 65/54 against the original proof bodies."
+    },
+    {
+      "id": "IZS-03",
+      "title": "The bilateral sum and rank-two reduction",
+      "statement": "With β≠0, |y|<1, |yβ|<1 and |y/β|<1, the normalized induced spherical coset sum in rank m+2 acquires (1−X)(1+qX)/((1−yβ)(1−y/β)) times the rank-m sum with argument q²X. The hypotheses on all remaining parameters persist in the smaller sum.",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-levi",
+      "dependencies": [
+        "IZS-02"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.InertZeta.LeviSum.int_geom and q_pow",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryLeviSummationGeometricSeries.lean",
+          "lines": [
+            8,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryLeviSummationGeometricSeries.lean#L8-L30"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.LeviSum.core",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryLeviSummationGeometricSeries.lean",
+          "lines": [
+            32,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryLeviSummationGeometricSeries.lean#L32-L75"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.zVal_succ",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            82,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L82-L96"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.hasSum_spherical",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            150,
+            180
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L150-L180"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.hasSum_spherical",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            181,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L181-L206"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The induction factor yields β^a q^{-a(m+1)}. The count supplies the complementary q power. Summing in negative and nonnegative valuations cancels 1−y². Induction and summability in the lower rank complete the rearrangement.",
+      "review": "Second reader independently checked the bilateral sum and its cancellation against the original generating-series, Levi and rank-reduction proofs."
+    },
+    {
+      "id": "IZS-04",
+      "title": "The inert normalizer in the actual doubling integral",
+      "statement": "For a complete local coefficient field with IsUnramInv, Haar volume one on the integral group, an unramified normalized spherical section, a normalized zonal coefficient and the parameter domain, the inert integral has the closed form. If ε=(-1)^b it equals the twisted standard factor at s+1/2 divided by the rank-n normalizer d_v(s). The arithmetic coefficient restores its value at the identity.",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-normalization",
+      "dependencies": [
+        "IZS-03"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.SphericalSectionVariables.UnramDoublingInert",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/TwistedDiscreteSeries/GaussianBinomialClosedForm.lean",
+          "lines": [
+            28,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/TwistedDiscreteSeries/GaussianBinomialClosedForm.lean#L28-L65"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.closedForm_eq",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean",
+          "lines": [
+            84,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean#L84-L108"
+        },
+        {
+          "declaration": "GlobalTheory.InertZeta.unramDoublingInert",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean",
+          "lines": [
+            109,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean#L109-L139"
+        },
+        {
+          "declaration": "GlobalTheory.LocZetaInertAd.domain_of_bound",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean",
+          "lines": [
+            21,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean#L21-L47"
+        },
+        {
+          "declaration": "GlobalTheory.LocZetaInertAd.localZetaOn_inert",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean",
+          "lines": [
+            81,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean#L81-L98"
+        },
+        {
+          "declaration": "GlobalTheory.LocZetaInertAd.localZetaOn_inert",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean",
+          "lines": [
+            109,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralInertAdelic.lean#L109-L116"
+        },
+        {
+          "declaration": "GlobalTheory.Core.Rk.IP.eulerRight_of_unramifiedDoubling",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingEulerProductFarRightOfRapidDecayUnramifi.lean",
+          "lines": [
+            29,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingEulerProductFarRightOfRapidDecayUnramifi.lean#L29-L44"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "Inspection follows the actual nonsplit branch into the original unitary integral theorem. The rank-odd unpaired eigenvalue is 1; the extension norm supplies q² while the normalizing factors use q. Normalized spherical induction and the zonal function have matching double-coset sums. The split GL input, the underlying Satake identity and the proofs of individual geometric indices are outside this layer.",
+      "review": "Author checked the original normalizer equality, integral-to-coset replacement, Satake substitution, adelic comparison and the actual caller. The independent review of IZS-02 and IZS-03 covers the summation inside this integral."
+    }
+  ]
+}

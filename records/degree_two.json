@@ -1,0 +1,567 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Direct inspection of the original archive and source calls at the pinned mirror. Numerical constants are witnesses extracted from the written proofs, not an explicit parameter appearing in the exported target statement. The valuation example is an independent specialization.",
+  "claims": [
+    {
+      "id": "inputs.degree-two.statement",
+      "chapter": "inputs",
+      "title": "A uniform degree-two estimate",
+      "anchor": "inputs-degree-two",
+      "statement": "One C works for every prime ℓ, every totally complex number field L containing a primitive root of order ℓ (4 at ℓ=2), every algebraic closure and compatible LData, and every natural e≥1. H²(G_S,ℤ_ℓ(e+1)) is finite and its logarithmic order is ≤ exp((2e[L:ℚ])^C log(2|disc L|)).",
+      "hypotheses": "S is the full set of finite primes over ℓ. The compatible character descends the cyclotomic character to the unramified-outside-S quotient. The selected supplier invokes the odd-degree rank bound, Poitou–Tate duality, local finiteness and local Tate duality.",
+      "definitions": [
+        "finite length",
+        "absolute discriminant",
+        "cyclotomic twist",
+        "primitive fourth root at ℓ=2"
+      ],
+      "dependencies": [
+        "inputs.degree-two.local"
+      ],
+      "correspondence": "WindowBoundOfLiteratureLevel obtains the witness from lemmaK_litN_alt; KFinal supplies bOdd and lemmaK_of_litN_alt passes the three cohomological hypotheses to the ClassCounting proof. The window applies the result at its exceptional layer.",
+      "status": "source correspondence established",
+      "review": "Independently checked the cohomological twist signs and the distinction between the numerical witness and the existential theorem. The author checked the routing against the named source calls.",
+      "equations": [
+        "inputs-degree-two-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.GaloisCohomology.LData / qzTw / zlTw",
+          "path": "src/Formalism/GaloisCohomology/Statement.lean",
+          "lines": [
+            50,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaloisCohomology/Statement.lean#L50-L90"
+        },
+        {
+          "declaration": "UpperTheory.V.LemmaK",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GeneratorCountTuples/LemmaK.lean",
+          "lines": [
+            9,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GeneratorCountTuples/LemmaK.lean#L9-L17"
+        },
+        {
+          "declaration": "UpperTheory.V.HV.DescentVanishingReductions.vwin_of_hypotheses_H_E_alt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean",
+          "lines": [
+            25,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean#L25-L34"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.lemmaK_litN_alt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KFinal.lean",
+          "lines": [
+            9,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KFinal.lean#L9-L12"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.lemmaK_of_litN_alt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/LemmaKOfLitN.lean",
+          "lines": [
+            11,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/LemmaKOfLitN.lean#L11-L13"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.lemmaK",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean",
+          "lines": [
+            26,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean#L26-L31"
+        },
+        {
+          "declaration": "UpperTheory.V.HV.Core.of_four_alt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean",
+          "lines": [
+            18,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean#L18-L22"
+        },
+        {
+          "declaration": "UpperTheory.V.Win.partB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/PartB.lean",
+          "lines": [
+            50,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/PartB.lean#L50-L70"
+        }
+      ]
+    },
+    {
+      "id": "inputs.degree-two.layer",
+      "chapter": "inputs",
+      "title": "Cyclotomic enlargement and its discriminant cost",
+      "anchor": "inputs-degree-two-layer",
+      "statement": "There is an auxiliary totally complex cyclotomic layer of degree d≤(n+1)(4e+4), with n′=dn and maximal root depth c. Both r₂(L′) and ℓ^c exceed 2e+1; ℓ^c≤2n′, Δ′≤Δ^d(ℓ^c)^n′, and shaInv(L)≤shaInv(L′).",
+      "hypotheses": "Root and positive twist assumptions of LemmaK. Monotonicity uses the tower descent description of the locally trivial group.",
+      "definitions": [
+        "local conditions on decomposition and inertia",
+        "relative different",
+        "maximal depth of roots of unity"
+      ],
+      "dependencies": [],
+      "correspondence": "The relative degree is ℓ^m, m the least exponent reaching 4e+4. Differentiating a cyclotomic relation gives divisibility of the norm of the different; factorization of g^{ℓ^m}−1 gives the quotient surjection on the descent side.",
+      "status": "mathematical proof reconstructed",
+      "review": "Author compared the formula and proof with the listed original source bodies. Independent review of this full subargument remains open.",
+      "equations": [
+        "inputs-degree-two-layer-cost"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.ShaAbs / shaInv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/LevelInertiaLeLevelDec.lean",
+          "lines": [
+            41,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/LevelInertiaLeLevelDec.lean#L41-L71"
+        },
+        {
+          "declaration": "LateralTheory.Q.SLayerCut.disc_cyc / sha_le",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SLayerCut.lean",
+          "lines": [
+            11,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SLayerCut.lean#L11-L53"
+        },
+        {
+          "declaration": "LateralTheory.Q.SLayerCut.goal_of",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SLayerCut.lean",
+          "lines": [
+            55,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SLayerCut.lean#L55-L106"
+        }
+      ]
+    },
+    {
+      "id": "inputs.degree-two.count",
+      "chapter": "inputs",
+      "title": "A depth-independent bound for the locally trivial group",
+      "anchor": "inputs-degree-two-count",
+      "statement": "In the auxiliary field, for all eligible depths ν, the number of class characters satisfying φ(γ⁻¹P)=aφ(P) is bounded by T_(2e) T_(2e+1) ℓ^X with a=(1+ℓ^c)^e, X=(b+vℓ(e))g+c+vℓ(e). The same bound holds for ℓ raised to the local-triviality length.",
+      "hypotheses": "The auxiliary field has r₂,ℓ^c>2e+1 and c≥2 when ℓ=2. The cycle construction, local-to-global power detection, primitive evaluation bound and the Selmer comparison are used.",
+      "definitions": [
+        "T_j=|tors H_j(GL_(4e+6)(𝒪_L′),ℤ)|",
+        "b=2e+(2e+1)(c+2e+1)",
+        "g=2n′+⌊log₂ h(L′)⌋+2",
+        "q=ℓ^ν"
+      ],
+      "dependencies": [
+        "inputs.degree-two.layer"
+      ],
+      "correspondence": "SFew contributes q^r₂T_(2e)T_(2e+1); SCount places q^r₂ on the left. Cancel before taking the depth-uniform bound. Any finite set of restricted locally trivial classes is detected at a common level, which proves the cardinal bound for the whole subgroup.",
+      "status": "conditional mathematical proof reconstructed",
+      "review": "Author compared the formula and proof with the listed original source bodies. Independent review of this full subargument remains open.",
+      "equations": [
+        "inputs-degree-two-cancel"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.Lay / EqHom",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean",
+          "lines": [
+            120,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean#L120-L139"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Few / SCount / SFew",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean",
+          "lines": [
+            117,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean#L117-L138"
+        },
+        {
+          "declaration": "LateralTheory.Q.SFewOfCut.sFewOf",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SFewOfCut.lean",
+          "lines": [
+            153,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SFewOfCut.lean#L153-L168"
+        },
+        {
+          "declaration": "LateralTheory.Q.SFewOfCut.sFewOf",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SFewOfCut.lean",
+          "lines": [
+            197,
+            211
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SFewOfCut.lean#L197-L211"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            16,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L16-L55"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            55,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L55-L90"
+        },
+        {
+          "declaration": "card_tors (private)",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean",
+          "lines": [
+            5,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean#L5-L25"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sNum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            223,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L223-L258"
+        },
+        {
+          "declaration": "PositivityTheory.QuaternionShaBounds.ShaAsm_holds",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/RingEquivalences/OrderOfOneAddPrimePowZmodPrimePow.lean",
+          "lines": [
+            454,
+            486
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/RingEquivalences/OrderOfOneAddPrimePowZmodPrimePow.lean#L454-L486"
+        }
+      ]
+    },
+    {
+      "id": "inputs.degree-two.sha",
+      "chapter": "inputs",
+      "title": "An exponent of 141 for the locally trivial length",
+      "anchor": "inputs-degree-two-exponent",
+      "statement": "s(L) log ℓ≤K_141(e,n,Δ). The elementary absorption first gives exponent 26 over L′ and the discriminant descent replaces it by 5·26+11.",
+      "hypotheses": "Bounds for the two torsion groups and Selmer counting error, together with the extension degree and discriminant inequalities.",
+      "definitions": [
+        "u=2en′",
+        "Y=log(2Δ′)",
+        "x=2en"
+      ],
+      "dependencies": [
+        "inputs.degree-two.count",
+        "HOM-02"
+      ],
+      "correspondence": "torsAll chooses 24 and sTors specializes the rank. sNum chooses 5(max(C0,9)+2)+11. Its local error satisfies X log ℓ≤u^9 Y, and num_down uses u≤x^5 and Y≤x^11 log(2Δ).",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the numerical witness chain 24 → 141 → 150 and the degree-two and dual twist signs against the pinned declarations and proof bodies. The comparison does not extend to an independent proof of the homological and duality inputs.",
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KT.tors_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean",
+          "lines": [
+            14,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Assembly.lean#L14-L30"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.torsAll",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+          "lines": [
+            70,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean#L70-L84"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sTors",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+          "lines": [
+            109,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean#L109-L125"
+        },
+        {
+          "declaration": "num_down (private)",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            78,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L78-L92"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sNum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            210,
+            222
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L210-L222"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sNum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            353,
+            378
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L353-L378"
+        }
+      ]
+    },
+    {
+      "id": "inputs.degree-two.local",
+      "chapter": "inputs",
+      "title": "The local contribution and a sufficient degree-two exponent",
+      "anchor": "inputs-degree-two-local",
+      "statement": "length H²≤s(L)+n(2+⌊log_ℓ n⌋+e). Finiteness follows; log cardinality equals length times log ℓ. The local correction is absorbed by replacing 141 by 150.",
+      "hypotheses": "Poitou–Tate and local Tate duality with local finiteness, the index bound for the local cyclotomic image, root hypothesis and e≥1.",
+      "definitions": [
+        "local dual coefficients (ℚ_ℓ/ℤ_ℓ)(−e)",
+        "U=cyclotomic image of the local decomposition group",
+        "h=[ℤ_ℓ^×:U]≤n"
+      ],
+      "dependencies": [
+        "inputs.degree-two.sha"
+      ],
+      "correspondence": "VLen≤shaLen+sumLocalH0TwistLength. Testing (1+ℓ²)^h bounds the local invariant length by 2+vℓ(h)+vℓ(e). The residue field of ℤ_ℓ has ℓ elements. numFin(C) selects max(C,0)+9. The example v₃(10⁶−1)=3 illustrates the valuation identity.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the numerical witness chain 24 → 141 → 150 and the degree-two and dual twist signs against the pinned declarations and proof bodies. The comparison does not extend to an independent proof of the homological and duality inputs.",
+      "equations": [
+        "inputs-degree-two-length"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.vFormula_of_classicalTheorems / VLen_le_shaLen_add",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+          "lines": [
+            15,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean#L15-L32"
+        },
+        {
+          "declaration": "sf_nu / sf_loc (private)",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+          "lines": [
+            34,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean#L34-L98"
+        },
+        {
+          "declaration": "sf_card (private)",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+          "lines": [
+            10,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean#L10-L32"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sFinal",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+          "lines": [
+            100,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean#L100-L142"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sFinal",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+          "lines": [
+            137,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean#L137-L163"
+        },
+        {
+          "declaration": "UpperTheory.V.K.numFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GeneratorCountTuples/NumFin.lean",
+          "lines": [
+            5,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GeneratorCountTuples/NumFin.lean#L5-L14"
+        }
+      ]
+    }
+  ],
+  "derivation_edges": [
+    [
+      "inputs.degree-two.local",
+      "inputs.degree-two.statement",
+      "An ingredient of the displayed source-based derivation."
+    ],
+    [
+      "inputs.degree-two.layer",
+      "inputs.degree-two.count",
+      "An ingredient of the displayed source-based derivation."
+    ],
+    [
+      "inputs.degree-two.count",
+      "inputs.degree-two.sha",
+      "An ingredient of the displayed source-based derivation."
+    ],
+    [
+      "inputs.degree-two.sha",
+      "inputs.degree-two.local",
+      "An ingredient of the displayed source-based derivation."
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.HV.DescentVanishingReductions.vwin_of_hypotheses_H_E_alt",
+      "callee": "UpperTheory.V.ZK.lemmaK_litN_alt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean",
+        "line": 26
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK_litN_alt",
+      "callee": "UpperTheory.V.ZK.lemmaK_of_litN_alt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KFinal.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK_of_litN_alt",
+      "callee": "UpperTheory.V.ZK.lemmaK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/LemmaKOfLitN.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK",
+      "callee": "UpperTheory.V.ZK.lemmaK_of_steps",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK",
+      "callee": "UpperTheory.V.ZK.sCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean",
+        "line": 31
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK",
+      "callee": "UpperTheory.V.ZK.sNum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean",
+        "line": 31
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.lemmaK",
+      "callee": "UpperTheory.V.ZK.sFinal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfLitN.lean",
+        "line": 31
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sTors",
+      "callee": "UpperTheory.V.ZK.torsAll",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExponentLe.lean",
+        "line": 124
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sNum",
+      "callee": "hFew",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 231
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sNum",
+      "callee": "hCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 232
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sNum",
+      "callee": "hSha",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 241
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sNum",
+      "callee": "num_down",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 372
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sFinal",
+      "callee": "UpperTheory.V.K.numFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 104
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sFinal",
+      "callee": "UpperTheory.V.LDataCardLeFinrank.VLen_le_shaLen_add",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 111
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sFinal",
+      "callee": "sf_loc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 113
+      }
+    }
+  ],
+  "outstanding": [
+    "Class-cycle construction, primitivity and residue detection used in the injection into the rank-and-torsion bound.",
+    "Proof of the odd-degree integral homology rank bound and the geometric orbit/stabilizer estimates used in torsAll.",
+    "Full underlying Kummer restriction and class group transport, tower descent, and the global and local duality theorems."
+  ],
+  "review_scope": "An independent source read checked twist signs, cardinality versus length, and all three numerical witnesses. Cyclotomic field construction and character counting were checked by the author against written source. No project solution proof term was independently exported here."
+}

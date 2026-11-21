@@ -116,10 +116,44 @@ for (const [sigma, t, r, i] of [
   close(z[1], i, 1e-8);
 }
 close(lib.upperTail(1, 1), 2 / Math.E, 1e-14);
+for (const q of [2, 3, 5, 7]) {
+  for (const s of [0.5, 1.5, 3.5, 4]) {
+    const factors = lib.eulerQuotients(q, s);
+    const splitNumerator = (1 - q ** (-s - 0.5)) ** -2;
+    const inertNumerator = (1 - (q * q) ** (-s - 0.5)) ** -1;
+    close(factors.normalizer, 1 / (1 - q ** (-2 * s - 1)), 1e-14);
+    close(factors.split, splitNumerator / factors.normalizer, 1e-14);
+    close(factors.inert, inertNumerator / factors.normalizer, 1e-14);
+  }
+}
 close(lib.upperTail(3, 0), 1, 0);
+for (let first = 0; first <= 16; first++) {
+  for (let second = 0; second <= 16; second++) {
+    const [left, right] = lib.selectWindow([first, second]);
+    assert.equal(right, 2 * left);
+    assert.ok(right <= 16 && left >= 16 / (2 ** 4 * 4 ** 2));
+    for (const k of [first, second])
+      assert.ok(left >= 2 * k || right < k / 2, "Selected a forbidden twist interval");
+  }
+}
+// Rank-three inert example. Enumerate fixed-label shells independently of
+// the closed generating function displayed in the chapter.
+let previousBall = 0;
+let shellSum = 0;
+for (let j = 0; j < 48; j++) {
+  const ball = 3 ** (4 * Math.floor(j / 2) + (j % 2));
+  shellSum += (ball - previousBall) / 27 ** j;
+  previousBall = ball;
+}
+close(shellSum, 65 / 54, 1e-14);
+// Recover the primitive and imprimitive cubic Bernoulli values from the
+// residue sums. The character has values +1 and -1 on the two units.
+const bernoulli3 = (x) => x * (x - 0.5) * (x - 1);
+close(9 * (bernoulli3(1 / 3) - bernoulli3(2 / 3)), 2 / 3, 1e-14);
+close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links, unique anchors, plotted boundary states, worked ramps, independent numerical integration, factorial valuations and zeta samples.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, inert shells, Bernoulli sums and all 289 marked-window states.",
 );

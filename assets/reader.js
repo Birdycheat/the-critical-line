@@ -1,5 +1,15 @@
 "use strict";
 document.documentElement.classList.add("js");
+const sourceMode = document.getElementById("source-mode");
+if (sourceMode) {
+  document.documentElement.classList.add("compact-citations");
+  sourceMode.hidden = false;
+  sourceMode.addEventListener("click", () => {
+    const compact = document.documentElement.classList.toggle("compact-citations");
+    sourceMode.setAttribute("aria-pressed", String(!compact));
+    sourceMode.textContent = compact ? "Show source titles" : "Hide source titles";
+  });
+}
 const filter = document.querySelector("[data-filter]");
 if (filter) {
   const items = [...document.querySelectorAll("[data-search]")],
