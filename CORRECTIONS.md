@@ -2,6 +2,8 @@
 
 ## 21 November 2026
 
+- At a good inert place, a surviving row must have a corner satisfying the exact trace relation. The level condition f≥2e gives such a corner for every row counted by the index. It is sharp for the displayed row 1/2 in the unramified extension of ℚ₂. The dyadic example concerns the local lemma. The chain requires every dyadic place outside its exceptional set to split.
+- Finiteness of the cusp cover concerns the chart labels. The common diagonal variables still range over an unbounded set. The determinant adjustment uses a finite list of unit classes and place-dependent scalar roots. Overlapping charts suffice because the integrand is nonnegative.
 - The window experiment formerly subtracted two upper tails close to one. At k = 160, σ = 3, δ = 0.1 the displayed envelope mass was zero. A positive Poisson sum gives 2.172022206886884 × 10⁻²⁸ percent. An independent 78-decimal calculation checked both masses for all 29,640 control settings.
 - The residue figure now uses equal horizontal and vertical scales. For β = 0.9 and τ = 0.25 the ray makes an angle of 52.7° with the real axis. The pilot also treats a singleton for which only the inverse character has a zero at the test point.
 - In the incidence step, 5/26 is the exact mean-zero norm for the projective plane over the field of order 25. The double-coset estimate gives 1/√26 and the arithmetic comparison uses 1/5. The three can be distinguished by averaging signed point values on the lines.

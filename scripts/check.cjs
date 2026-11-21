@@ -67,6 +67,33 @@ for (const [id, c] of Object.entries(lib.configs)) {
     }
   }
 }
+// Count corner residues by solving their trace equation. In both quadratic
+// residue fields take √2 as the trace-zero basis element.
+for (const q of [3, 5]) {
+  for (const a of [-1, 0, 1]) {
+    let previous = 0;
+    for (let j = 0; j <= 3; j++) {
+      const e = Math.max(a, 0) + Math.floor(j / 2), f = 2 * Math.max(a, 0) + j;
+      const modulus = q ** f, rowModulus = q ** e;
+      const realParts = Array(modulus).fill(0);
+      for (let c = 0; c < modulus; c++) realParts[(2 * c) % modulus]++;
+      let ball = 0;
+      for (let u = 0; u < rowModulus; u++) {
+        for (let v = 0; v < rowModulus; v++) {
+          const target = -(u*u - 2*v*v) * q ** (f - 2*e);
+          const residue = (target % modulus + modulus) % modulus;
+          ball += realParts[residue] * modulus; // Free imaginary digit string.
+        }
+      }
+      const output = lib.render("inert-cell", { q: String(q), diagonal: String(a), excess: j });
+      const rows = [...output.matchAll(/scope="row">(\d+)<\/th><td>(\d+)<\/td><td>(\d+)<\/td><td>(\d+)<\/td>/g)];
+      assert.equal(rows.length, j + 1);
+      assert.deepEqual(rows.at(-1).slice(1).map(Number), [Math.abs(a)+j, rowModulus**2, modulus, ball-previous]);
+      assert.ok(output.includes(" = " + ball + " cosets."));
+      previous = ball;
+    }
+  }
+}
 // Count lines through marked points geometrically, independently of enumeration.
 for (const q of [2, 3, 5, 25]) {
   const cases = {
@@ -413,5 +440,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all 12 flag-incidence distributions, positive gamma masses, complex residue angles, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

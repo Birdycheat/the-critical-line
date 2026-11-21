@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "inert-cell": {
+      title: "Count a cell of the inert Euler factor",
+      kind: "Unitary group in rank three",
+      section: "lifts",
+      params: [
+        choose("q", "Base residue size q", [["3", "3"], ["5", "5"]], "3"),
+        choose("diagonal", "Diagonal valuation a", [["0", "0"], ["1", "+1"], ["-1", "−1"]], "0"),
+        range("excess", "Excess length j", 0, 3, 1, 2),
+      ],
+      caption: "Fix the middle lattice to be the standard lattice. Increase the length cutoff by one. The corner gains a digit at every step. On alternate steps the row also gains a digit in the quadratic residue field.",
+      method: "The middle rank is one and its lattice length is zero. At excess j, put e=max(a,0)+⌊j/2⌋ and f=2 max(a,0)+j. Each of the q²ᵉ row classes admits a lift and has qᶠ possible corrected corners. Count them to find the ball of radius |a|+j, then subtract the preceding ball to obtain the number at exactly that length. The ball below |a| is empty. Every displayed integer is exact.",
+    },
     "flag-average": {
       title: "Average point values along projective lines",
       kind: "Finite flag incidence",
@@ -634,6 +646,28 @@
     return [...histogram].sort(([a], [b]) => a - b);
   }
   function render(id, v) {
+    if (id === "inert-cell") {
+      const q = Number(v.q), a = Number(v.diagonal), base = Math.max(a, 0);
+      let previous = 0, body = "", calculation = "";
+      for (let j = 0; j <= v.excess; j++) {
+        const e = base + Math.floor(j / 2), f = 2 * base + j;
+        const rows = (q*q) ** e, corners = q ** f, ball = rows * corners;
+        const length = Math.abs(a) + j, shell = ball - previous;
+        body += '<tr><th scope="row">' + length + "</th><td>" + rows + "</td><td>" + corners +
+          "</td><td>" + shell + "</td></tr>";
+        if (j === v.excess) {
+          calculation = "<p>At excess " + j + " the row level is " + e + " and the corner level is " + f +
+            ". The ball contains " + rows + " × " + corners + " = " + ball +
+            " cosets. Exactly " + shell + " have length " + length + ", since " + previous +
+            " already have smaller length.</p>";
+        }
+        previous = ball;
+      }
+      return '<table class="carry-table"><caption>One inert cell at q = ' + q + ', a = ' + fmt(a) +
+        '</caption><thead><tr><th scope="col">Length</th><th scope="col">Rows</th>' +
+        '<th scope="col">Corners per row</th><th scope="col">New cosets</th></tr></thead><tbody>' + body +
+        "</tbody></table>" + calculation;
+    }
     if (id === "flag-average") {
       const q = Number(v.q), counts = flagAverages(q, v.points);
       const pointSquares = v.points === "pair" ? 2 : 6;

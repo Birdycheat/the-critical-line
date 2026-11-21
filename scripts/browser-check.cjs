@@ -92,7 +92,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "flag-average") {
+        if (id === "inert-cell") {
+          assert.equal(await fig.locator("table caption").innerText(), "One inert cell at q = 3, a = 0");
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["9", "9", "78"]);
+        } else if (id === "flag-average") {
           assert.equal(await fig.locator("table caption").innerText(), "Line averages over 𝔽₂₅");
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["25", "−1/26", "601", "0", "25", "1/26"]);
         } else if (id === "jacobi-primes") {
@@ -138,6 +141,10 @@ async function run() {
     const flags = page.locator("#fig-flag-average.ready");
     assert.equal(await flags.locator("table caption").innerText(), "Line averages over 𝔽₂");
     assert.deepEqual(await flags.locator("tbody td").allInnerTexts(), ["1", "−2/3", "2", "−1/3", "1", "0", "2", "1/3", "1", "2/3"]);
+    await page.goto(base + "book.html?inert-cell.q=5&inert-cell.diagonal=-1&inert-cell.excess=3#fig-inert-cell");
+    const cell = page.locator("#fig-inert-cell.ready");
+    assert.equal(await cell.locator("table caption").innerText(), "One inert cell at q = 5, a = −1");
+    assert.deepEqual(await cell.locator("tbody tr").last().locator("td").allInnerTexts(), ["25", "125", "2500"]);
     await page.goto(base + "book.html?kernel.k=160&kernel.s=3&kernel.width=0.1#fig-kernel");
     assert.equal(await page.locator("#fig-kernel.ready .metrics dd").last().innerText(), "2.172e-28%");
     await page.goto(base + "book.html?ramp.x=30&ramp.chi=four#fig-ramp");

@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "IRW-01",
+      "title": "The row count is the determinant index of an inverse-image lattice",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-row",
+      "statement": "In the local unramified setting with residue cardinal q² and middle rank m, write h=v(det C) for the length of the middle unitary block and take an integer e≥0. For integral C of nonzero determinant, the row lattice Λ={r:rϖ^e C∈𝒪^m} contains 𝒪^m and [Λ:𝒪^m]=q^{2(h+me)}.",
+      "dependencies": [],
+      "equations": [
+        "lifts-inert-row-index"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean",
+          "lines": [
+            126,
+            131
+          ],
+          "declaration": "unramDoublingInert",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean#L126-L131"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            37,
+            43
+          ],
+          "declaration": "IsFrac, HasLen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L37-L43"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean",
+          "lines": [
+            91,
+            111
+          ],
+          "declaration": "count_of_heis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean#L91-L111"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ElementaryDivisorsExistDiscretelyValued.lean",
+          "lines": [
+            12,
+            32
+          ],
+          "declaration": "elementaryDivisors_exist_discretely_valued",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ElementaryDivisorsExistDiscretelyValued.lean#L12-L32"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean",
+          "lines": [
+            108,
+            117
+          ],
+          "declaration": "preLat_diagonal, latIndex_diagonal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean#L108-L117"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean",
+          "lines": [
+            56,
+            93
+          ],
+          "declaration": "relIndex_scaledInt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean#L56-L93"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean",
+          "lines": [
+            147,
+            184
+          ],
+          "declaration": "latIndex_of_smith",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/IntegralLatticeInverseIndexOfElementaryDivisors.lean#L147-L184"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The spherical integral explicitly supplies its row index from elementary divisors. Integral left and right changes of basis preserve the inverse-image index, hence diagonal exponents contribute independently. Their sum is h+me because v(ϖ)=1.",
+      "review": "A second reader compared the basis changes, the direction of the inverse-image index, and the determinant exponent with the pinned source."
+    },
+    {
+      "id": "IRW-02",
+      "title": "Hermitian duality lifts every admissible row when f≥2e",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-row-lift",
+      "statement": "For every admissible row r, the paired column b is its negative reversed conjugate. Set b₁=CVg b, b₂=CU b and use the Hermitian form H(x,y)=Σσ(xᵢ)y_rev(i). For any integral τ of trace one, c=r·b₁+τ(H(b₁,b₁)−H(b₂,b₂)) has trace r·b, and ϖ^f(c−r·b₁) is integral if f≥2e. These data give an element of the unitary radical with the prescribed row and corrected corner bound.",
+      "dependencies": [],
+      "equations": [
+        "lifts-inert-row-corner"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            37,
+            43
+          ],
+          "declaration": "IsFrac, HasLen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L37-L43"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/DualInterEqSum.lean",
+          "lines": [
+            64,
+            98
+          ],
+          "declaration": "dual_inter_eq_sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/DualInterEqSum.lean#L64-L98"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            80,
+            101
+          ],
+          "declaration": "smallCorner_of_heis_dual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L80-L101"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            154,
+            161
+          ],
+          "declaration": "exists_trace_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L154-L161"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            25,
+            35
+          ],
+          "declaration": "map_hermJ, dotProduct_eq_neg_hermJ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L25-L35"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            99,
+            117
+          ],
+          "declaration": "smallCorner_of_heis_dual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L99-L117"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHeisenbergRadicalCoordinates.lean",
+          "lines": [
+            158,
+            165
+          ],
+          "declaration": "Heisenberg₂",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHeisenbergRadicalCoordinates.lean#L158-L165"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            117,
+            139
+          ],
+          "declaration": "smallCorner_of_heis_dual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L117-L139"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            21,
+            34
+          ],
+          "declaration": "constTerm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L21-L34"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean",
+          "lines": [
+            126,
+            131
+          ],
+          "declaration": "unramDoublingInert",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean#L126-L131"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Duality gives integrality of ϖ^e b₁ and ϖ^e g b₂. Unitarity permits g b₂ in the second diagonal Hermitian value and each has denominator bounded by ϖ^{2e}. The trace-one choice proves the unitary equation in all residue characteristics.",
+      "review": "A second reader checked the expression for the corrected corner, the relative minus sign between the two diagonal values, the matrix g in the second integrality bound, and the threshold."
+    },
+    {
+      "id": "IRW-03",
+      "title": "A dyadic row attaining the quadratic denominator cost",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-row-example",
+      "statement": "For L=ℚ₂(ω), ω²+ω+1=0, the rank-one middle block with g=C=U=1,V=0 has four classes of rows at e=1. For r=1/2 the formula gives c=ω/4 with τ=−ω. The case a=1,j=0 supplies exactly f=2. With f=1 no corner can satisfy both the unitary trace and the denominator condition for this row.",
+      "dependencies": [
+        "IRW-01",
+        "IRW-02"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean",
+          "lines": [
+            91,
+            111
+          ],
+          "declaration": "count_of_heis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallRadicalCosetCountOfHeisenberg.lean#L91-L111"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            99,
+            117
+          ],
+          "declaration": "smallCorner_of_heis_dual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L99-L117"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean",
+          "lines": [
+            117,
+            139
+          ],
+          "declaration": "smallCorner_of_heis_dual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/SmallCornerOfHeisenbergDuality.lean#L117-L139"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            21,
+            34
+          ],
+          "declaration": "constTerm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L21-L34"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The numerical example applies the exact scalar matrices permitted by IsFrac, hence the correction term r·b₁ vanishes. The lower-level obstruction uses the integrality of the trace of every integral element.",
+      "review": "Independently verified Tr(−ω)=1, b=−1/2, τs=ω/4 and the contradiction Tr(2c)=−1/2 at the smaller hypothetical level."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "IRW-01",
+      "IZS-01"
+    ],
+    [
+      "IRW-02",
+      "IZS-01"
+    ]
+  ],
+  "outstanding": [
+    "The elementary-divisor existence theorem uses Cartan decomposition over the discrete valuation ring. The pointwise lattice-length criterion that identifies the two levels in a ball and the identification of the cell labels with unitary cosets are used through the surrounding section."
+  ]
+}

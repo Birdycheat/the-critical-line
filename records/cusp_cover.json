@@ -1,0 +1,657 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspected the selected SMom supplier and the actual GL and SL reduction proofs, the adelic finite extraction, local normalization and the Haar fundamental-domain argument. The two-by-two Gaussian-integer example is an independent calculation.",
+  "claims": [
+    {
+      "id": "CUP-01",
+      "title": "The finite chart labels and determinant correction",
+      "chapter": "inputs",
+      "anchor": "inputs-cusp-cover",
+      "statement": "For every totally complex L and N≥1 a fixed finite list of rational-up-to-placewise-scalar translates of one Siegel region meets every SL_N(𝒪_L)-orbit in the product of complex SL_N groups.",
+      "hypotheses": "Adelic reduction into a compact triangular factor, positive common diagonal and maximal compact subgroup; compactness of its finite projection, openness of integral finite GL, recovery of integral entries of a rational matrix from all finite integrality conditions, finite generation of the number-field units and N≥1.",
+      "definitions": [
+        "The finite-part map sends a rational matrix to its components at all finite places. Two rational matrices in the same left coset of integral finite GL differ, on the left by the inverse of the chosen representative, by an integral invertible matrix.",
+        "D(u)=diag(u,1,…,1), det δ=v^N u₀ with u₀ in the list built from torsion and reduced unit exponents.",
+        "The finite labels are (g,u₀) with g drawn from the inverse GL representative list. At w, the translate is z_w w(D(u₀⁻¹)g) of determinant one."
+      ],
+      "equations": [
+        "inputs-cusp-units"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "exists_siegelSet",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            208,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L208-L228"
+        },
+        {
+          "declaration": "exists_siegelSet",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            232,
+            247
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L232-L247"
+        },
+        {
+          "declaration": "exists_siegelSet",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            263,
+            281
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L263-L281"
+        },
+        {
+          "declaration": "sRedGL2",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+          "lines": [
+            209,
+            222
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean#L209-L222"
+        },
+        {
+          "declaration": "sRedGL2",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+          "lines": [
+            228,
+            250
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean#L228-L250"
+        },
+        {
+          "declaration": "exists_finset_cosets",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+          "lines": [
+            116,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean#L116-L136"
+        },
+        {
+          "declaration": "exists_finset_cosets",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+          "lines": [
+            137,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean#L137-L153"
+        },
+        {
+          "declaration": "exists_gm_of_fin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+          "lines": [
+            58,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean#L58-L84"
+        },
+        {
+          "declaration": "exists_gm_of_fin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+          "lines": [
+            94,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean#L94-L114"
+        },
+        {
+          "declaration": "sRedGL2",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+          "lines": [
+            251,
+            268
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean#L251-L268"
+        },
+        {
+          "declaration": "units_fin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean",
+          "lines": [
+            75,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean#L75-L95"
+        },
+        {
+          "declaration": "dd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean",
+          "lines": [
+            9,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean#L9-L15"
+        },
+        {
+          "declaration": "det_dd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean",
+          "lines": [
+            31,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean#L31-L35"
+        },
+        {
+          "declaration": "sRed_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+          "lines": [
+            12,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean#L12-L38"
+        },
+        {
+          "declaration": "sRed_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+          "lines": [
+            39,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean#L39-L56"
+        },
+        {
+          "declaration": "sRed_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+          "lines": [
+            73,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean#L73-L86"
+        },
+        {
+          "declaration": "SRedGL, SRed",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean",
+          "lines": [
+            83,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean#L83-L95"
+        },
+        {
+          "declaration": "sMom_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+          "lines": [
+            10,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean#L10-L11"
+        }
+      ],
+      "correspondence": "Compactness reduces the finite cosets to a finite subcover. Lifting entries of both a⁻¹η and its inverse produces δ. Correcting its determinant uses at most |μ(L)|N^rank(𝒪_L×) extra unit labels. The Q(i) example calculates one correction and its local unipotent/unitary factors; it gives no count of distinct cusps.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the left coset orientation, GL-to-SL determinant correction, shared parameter bounds, sum of chart integrals and Gaussian-integer calculation against the written mathematical sources."
+    },
+    {
+      "id": "CUP-02",
+      "title": "Shared coordinates on all translated regions",
+      "chapter": "inputs",
+      "anchor": "inputs-cusp-parameters",
+      "statement": "The determinant-one normalization of a reduced factorization yields a common real diagonal exp(s), with zero sum of logs, sᵢ₊₁≤sᵢ+4log M−log t, triangular entry bound M⁴, diagonal lower bound M⁻⁴, and product of diagonal moduli one across the complex places.",
+      "hypotheses": "M,t>0, t rᵢ₊₁≤rᵢ, positive common rᵢ, bounded upper triangular complex factors with |B_ij|≤M and |B_ii|≥M⁻¹, and the determinant-one relation after applying the chart correction. These imply M≥1.",
+      "definitions": [
+        "A common value sᵢ is the log of rᵢ plus the average of log |α_w B_w,ii| over the complex places. The normalized factor moves the diagonal phases into a unitary matrix of determinant one."
+      ],
+      "equations": [
+        "inputs-cusp-average"
+      ],
+      "dependencies": [
+        "CUP-01"
+      ],
+      "sources": [
+        {
+          "declaration": "exists_bound_omega",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+          "lines": [
+            18,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean#L18-L42"
+        },
+        {
+          "declaration": "Om, dg, Sieg, IsRatS",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean",
+          "lines": [
+            38,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean#L38-L59"
+        },
+        {
+          "declaration": "local_decomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean",
+          "lines": [
+            9,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean#L9-L21"
+        },
+        {
+          "declaration": "local_decomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean",
+          "lines": [
+            55,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean#L55-L77"
+        },
+        {
+          "declaration": "local_decomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean",
+          "lines": [
+            88,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean#L88-L108"
+        },
+        {
+          "declaration": "local_decomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean",
+          "lines": [
+            119,
+            149
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean#L119-L149"
+        },
+        {
+          "declaration": "local_decomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean",
+          "lines": [
+            217,
+            253
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/LocalDecomp.lean#L217-L253"
+        },
+        {
+          "declaration": "sRed_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+          "lines": [
+            73,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean#L73-L86"
+        }
+      ],
+      "correspondence": "The determinant equation compares logarithms of scalars at two places. The arithmetic mean removes the residual average from every logarithmic diagonal entry, hence their product condition. Bounded entries and the log estimates then give M⁴; this is a cover for fixed L,N.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the left coset orientation, GL-to-SL determinant correction, shared parameter bounds, sum of chart integrals and Gaussian-integer calculation against the written mathematical sources."
+    },
+    {
+      "id": "CUP-03",
+      "title": "A finite cover bounds the quotient integral",
+      "chapter": "inputs",
+      "anchor": "inputs-cusp-integral",
+      "statement": "For a nonnegative Γ-invariant f, an arithmetic Haar fundamental domain F and the selected translates, ∫_F f ≤ ∑ⱼ∫_S f(cⱼy). For the height moment of order A each summand is finite if N≥A+2.",
+      "hypotheses": "Countable discrete arithmetic group; left-invariant Haar measure; the finite translates meet every arithmetic orbit; the normalized height is Γ-invariant; chartwise exponential height bound and single-region integrability with 2A<2(N−1).",
+      "definitions": [
+        "A change by an arithmetic element preserves the integrand; translating by cⱼ moves the argument to cⱼy. Chartwise constants may depend on j.",
+        "For A=0 the same estimate bounds the volume of the fundamental domain. For form coefficients the moment order is chosen for the square of the coefficient growth."
+      ],
+      "equations": [
+        "inputs-cusp-integral"
+      ],
+      "dependencies": [
+        "CUP-01",
+        "CUP-02"
+      ],
+      "sources": [
+        {
+          "declaration": "sMom_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+          "lines": [
+            10,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean#L10-L11"
+        },
+        {
+          "declaration": "sMom_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            68,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L68-L88"
+        },
+        {
+          "declaration": "lintegral_le_of_cover",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            15,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L15-L30"
+        },
+        {
+          "declaration": "setLIntegral_preimage_mul_left",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            32,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L32-L36"
+        },
+        {
+          "declaration": "sMom_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            88,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L88-L108"
+        },
+        {
+          "declaration": "sMom_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            109,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L109-L128"
+        },
+        {
+          "declaration": "sHtB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean",
+          "lines": [
+            151,
+            175
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean#L151-L175"
+        },
+        {
+          "declaration": "key",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            49,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L49-L84"
+        }
+      ],
+      "correspondence": "Countable subadditivity on arithmetic translates and the fundamental-domain integration formula dominate the domain by the chart union; finite subadditivity and Haar invariance finish. There is no disjointness or multiplicity bound required for the chart family.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the left coset orientation, GL-to-SL determinant correction, shared parameter bounds, sum of chart integrals and Gaussian-integer calculation against the written mathematical sources."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "sMom_of",
+      "callee": "sRed_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sRedGL2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sMom_of_parts",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sHtB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sIntB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hR",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 76
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "lintegral_le_of_cover",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 97
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "lintegral_iUnion_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 98
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "setLIntegral_preimage_mul_left",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 101
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 102
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hI",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 104
+      }
+    },
+    {
+      "caller": "lintegral_le_of_cover",
+      "callee": "setLIntegral_eq_tsum'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 27
+      }
+    },
+    {
+      "caller": "setLIntegral_preimage_mul_left",
+      "callee": "measurePreserving_mul_left",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "sRed_of",
+      "callee": "units_fin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "sRed_of",
+      "callee": "exists_root",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "sRed_of",
+      "callee": "det_dd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "sRed_of",
+      "callee": "local_decomp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SRedOf.lean",
+        "line": 77
+      }
+    },
+    {
+      "caller": "units_fin",
+      "callee": "exist_unique_eq_mul_prod",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/DdMemUnitary.lean",
+        "line": 81
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "exists_siegelSet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 212
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "exists_bound_omega",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 213
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "isCompact_maxCompact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 218
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "exists_finset_cosets",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 220
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "ph_borel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 247
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "ph_mem_unitary",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 250
+      }
+    },
+    {
+      "caller": "sRedGL2",
+      "callee": "ph_posIdele",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/PhMemUnitary.lean",
+        "line": 254
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_reduced",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 214
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_isCompact_add_mem",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 215
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_isCompact_normOneSubgroup",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 216
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_unitriangular_mul_mem",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 263
+      }
+    },
+    {
+      "caller": "exists_finset_cosets",
+      "callee": "elim_finite_subcover",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+        "line": 136
+      }
+    },
+    {
+      "caller": "exists_finset_cosets",
+      "callee": "exists_gm_of_fin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/ExistsFinsetCosets.lean",
+        "line": 147
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CUP-01",
+      "CUP-02"
+    ],
+    [
+      "CUP-01",
+      "CUP-03"
+    ],
+    [
+      "CUP-02",
+      "CUP-03"
+    ],
+    [
+      "CUP-03",
+      "HMT-02"
+    ]
+  ],
+  "outstanding": [
+    "The initial adelic reduced-basis theorem, compact representatives for additive adele classes and norm-one idele classes, and the Dirichlet-unit decomposition are used at the listed suppliers. Compactness gives a finite GL representative list without an effective cardinality formula.",
+    "The proof of decay of the single-region integral and the primal and dual height growth estimates enter the finite summation at the previously studied HMT-02. Distinct labels can represent overlapping regions or equivalent cusps."
+  ],
+  "review_scope": "Independent comparison with the pinned declaration bodies, including chart orientation, logarithmic normalization, the measure inequality and the illustrative determinant computation."
+}
