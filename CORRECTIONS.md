@@ -2,6 +2,10 @@
 
 ## 21 November 2026
 
+- The polynomial detecting a failed test takes the value one at every failed tuple in the complex torus. Its smallness is an integral over the compact unit torus. The example with a zero at 2 verifies both assertions on their respective domains. [The polynomial test](book.html#lifts-hecke-small-polynomial)
+- The auxiliary character sum is unnormalized, so its error on the zero fibre is ℓ to the chosen power times the initial form. The abstract character estimate permits a nonsurjective label homomorphism. The local type used in its application has a surjection. Its proof constructs an element mapping to 1 in every conjugated radical, which also detects characters of smaller order. [Character sum](book.html#lifts-hecke-auxiliary-type) · [Cuspidality](book.html#lifts-hecke-cuspidal-type)
+- In the rationality argument, a degree bound comes from the archimedean translates of the original form. Conjugation permutes the embedding labels and preserves this degree. Evaluation at the finitely many class representatives then places all conjugate forms in one finite-dimensional space before eigenvalue multiplicities are considered. [The common space](book.html#lifts-hecke-conjugate-forms)
+
 - The dimension comparison formerly denoted the ambient rank by the same letter used for the length of a minor list. In the source, the Hermitian space has dimension k+m−1, the frames have length m/2−1, and the negative signature index is m/2. The [projection count](book.html#global-relative-count) and the [Gram error](book.html#global-gram-error) now use n=k+m−1 in the exponent −nf log(n)/16.
 
 - The earlier reading of the stability argument identified `SBig` as the field-transfer input for the cohomological bound. The pinned file `SBridgeAlt.lean` defines this alternate proposition. In the selected proof `NumThree.sNum` invokes the layer inequality from `SLayerCut.sha_le`. Its map is a surjection between two twisted coinvariant quotients, and it bounds the length at the base by the length at the layer. The [field-change section](book.html#inputs-field-cycle-transfer) follows the two uses of primitivity through the written calls.

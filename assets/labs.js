@@ -16,6 +16,16 @@
     value,
   });
   const configs = {
+    "hecke-four-point-approximation": {
+      title: "Which functions on four points attain the error bound?",
+      kind: "2-adic approximation on the cyclic group of order four",
+      section: "lifts",
+      params: [
+        choose("witness", "Function in P", [["character", "Character χ"], ["inverse", "Inverse character χ⁻¹"], ["combination", "Combination with values (1, 1, −1, −1)"]], "character"),
+      ],
+      caption: "The two characters reach the radius 1/√2 at the odd elements. Their displayed linear combination has error at most 1/2 on all four elements. All three functions belong to the same two-dimensional space.",
+      method: "Write C₄ additively and work in ℚ₂(i), with i² = −1 and |2|₂ = 1/2. The space P is spanned by χ(h) = iʰ and χ⁻¹(h) = i⁻ʰ. Translation multiplies each character by a scalar, so P is translation invariant and dim P = |C₄|/2. For the combination take ((1−i)/2)χ + ((1+i)/2)χ⁻¹. Compute the error at each h from |1±i|₂ = 1/√2, which follows by squaring 1±i. The largest of the four errors measures the distance of the displayed function from 1.",
+    },
     "rank-weight-projectors": {
       title: "How many eigenspaces does a four-dimensional operator have?",
       kind: "Spectral projectors and differences of weights",
@@ -1506,6 +1516,32 @@
   }
 
   function render(id, v) {
+    if (id === "hecke-four-point-approximation") {
+      const powers = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+      const normText = new Map([[0, "0"], [1/4, "1/2"], [1/2, "1/√2"]]);
+      let maxSquaredError = 0;
+      const rows = powers.map(([real, imaginary], h) => {
+        // If χ(h) = a + bi, the specified linear combination has value a + b.
+        let x = real, y = imaginary;
+        if (v.witness === "inverse") y = -imaginary;
+        if (v.witness === "combination") {
+          x = real + imaginary;
+          y = 0;
+        }
+        const fieldNorm = (1 - x) ** 2 + y ** 2;
+        // Here every nonzero field norm is a power of two, so |N|₂ = 1/N.
+        const squaredError = fieldNorm === 0 ? 0 : 1 / fieldNorm;
+        maxSquaredError = Math.max(maxSquaredError, squaredError);
+        return '<tr><th scope="row">' + h + '</th><td>' + complexFraction(x, y, 1) +
+          '</td><td>' + complexFraction(1 - x, -y, 1) + '</td><td>' + normText.get(squaredError) + '</td></tr>';
+      });
+      const table = '<table class="carry-table"><caption>Distance from 1 at each element of C₄</caption>' +
+        '<thead><tr><th scope="col"><var>h</var></th><th scope="col">φ(<var>h</var>)</th>' +
+        '<th scope="col">1 − φ(<var>h</var>)</th><th scope="col">|1 − φ(<var>h</var>)|₂</th></tr></thead><tbody>' +
+        rows.join("") + '</tbody></table>';
+      return table + metrics([["Largest 2-adic error", normText.get(maxSquaredError)], ["Radius of the closed ball", "1/√2"],
+        ["Comparison with the radius", maxSquaredError === 1/2 ? "Equal" : "Strictly smaller"]]);
+    }
     if (id === "rank-weight-projectors") {
       const weights = [0, 1, v.weights === "separated" ? 4 : 2];
       const repeated = {low: 0, middle: 1, high: 2}[v.repeated];

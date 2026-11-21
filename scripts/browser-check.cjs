@@ -124,7 +124,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "rank-weight-projectors") {
+        if (id === "hecke-four-point-approximation") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/√2", "1/√2", "Equal"]);
+          assert.deepEqual(await fig.locator("tbody tr").nth(1).locator("td").allInnerTexts(), ["i", "1 − i", "1/√2"]);
+        } else if (id === "rank-weight-projectors") {
           assert.equal(await fig.locator("caption").innerText(), "Projectors for D = diag(0, 1, 1, 4)");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "0 → 1", "2"]);
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["(1, 1, 1, 1)", "4"]);
@@ -328,6 +331,15 @@ async function run() {
         "book overflows " + width,
       );
     }
+    await openFigure(page, base + "book.html#fig-hecke-four-point-approximation");
+    const fourPoint = page.locator("#fig-hecke-four-point-approximation.ready");
+    await fourPoint.getByRole("combobox", {name: "Function in P"}).selectOption("combination");
+    const fourPointLink = await fourPoint.locator("[data-share]").getAttribute("href");
+    assert.equal(new URL(fourPointLink).searchParams.get("hecke-four-point-approximation.witness"), "combination");
+    await openFigure(page, fourPointLink);
+    assert.equal(await fourPoint.getByRole("combobox", {name: "Function in P"}).inputValue(), "combination");
+    assert.deepEqual(await fourPoint.locator(".metrics dd").allInnerTexts(), ["1/2", "1/√2", "Strictly smaller"]);
+    assert.deepEqual(await fourPoint.locator("tbody tr").first().locator("td").allInnerTexts(), ["1", "0", "0"]);
     await openFigure(page, base + "book.html?progression-difference.y=8&progression-difference.chi=quadratic#fig-progression-difference");
     const difference = page.locator("#fig-progression-difference.ready");
     assert.deepEqual(await difference.locator("tbody tr").nth(7).locator("td").allInnerTexts(), ["log 2", "−1", "1", "−log 2"]);

@@ -1,0 +1,2202 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HFT-01",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-group-determinant",
+      "title": "What does the rank of convolution say about the sum of its coefficients?",
+      "hypotheses": "H is a finite ℓ-group. The coefficients of the regular convolution matrix are bounded by one in an ultrametric field.",
+      "statement": "For N group elements and convolution rank r, the Nth power of the norm of the coefficient sum is bounded by |ℓ| to the power N−r.",
+      "equations": [
+        "lifts-hecke-group-rank-bound"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Fixed vectors on each nonzero quotient in characteristic ℓ",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FixVec.lean",
+          "lines": [
+            26,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FixVec.lean#L26-L45",
+          "declaration": "UpperTheory.Gal.Gen.fixVec_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.fixVec_pf": 6
+          }
+        },
+        {
+          "label": "Adjoining fixed vectors on the successive quotients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsInvariantFlagModL.lean",
+          "lines": [
+            18,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsInvariantFlagModL.lean#L18-L41"
+        },
+        {
+          "label": "Lifting both change-of-basis matrices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TriMat.lean",
+          "lines": [
+            22,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TriMat.lean#L22-L62",
+          "declaration": "UpperTheory.Gal.Gen.triMat_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.triMat_pf": 22
+          }
+        },
+        {
+          "label": "Convolution as a sum of regular translations",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDet.lean",
+          "lines": [
+            19,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDet.lean#L19-L50",
+          "declaration": "UpperTheory.Gal.Gen.groupDet_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.groupDet_pf": 19
+          }
+        },
+        {
+          "label": "Correcting the matrix to have constant diagonal",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDet.lean",
+          "lines": [
+            51,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDet.lean#L51-L92",
+          "declaration": "UpperTheory.Gal.Gen.groupDet_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.groupDet_pf": 19
+          }
+        },
+        {
+          "label": "Expanding the determinant by its corrected rows",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DetLow.lean",
+          "lines": [
+            38,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DetLow.lean#L38-L41"
+        },
+        {
+          "label": "Counting the factors from the small perturbation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DetLow.lean",
+          "lines": [
+            56,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DetLow.lean#L56-L81",
+          "declaration": "UpperTheory.Gal.Gen.detLow_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.detLow_pf": 56
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The matrices modulo ℓ are the integer permutation matrices. Arbitrary ℓ-adic coefficients are introduced after the coordinate matrices are lifted."
+    },
+    {
+      "id": "HFT-02",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-finite-separation",
+      "title": "How do bounds on linear tests produce one approximating function?",
+      "hypotheses": "P is a subspace of a finite coordinate space over an ultrametric field, with the maximum norm.",
+      "statement": "Bounds on all integral linear tests killing P give one approximant in P at the prescribed closed radius.",
+      "equations": [
+        "lifts-hecke-separating-tests"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Finite separation at the stated closed radius",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDetAlt.lean",
+          "lines": [
+            7,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDetAlt.lean#L7-L13"
+        },
+        {
+          "label": "The source eliminates a direction using a largest coordinate",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsCloseVectorUltrametric.lean",
+          "lines": [
+            29,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsCloseVectorUltrametric.lean#L29-L62"
+        },
+        {
+          "label": "Reducing the tests and obtaining the simultaneous witness",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsCloseVectorUltrametric.lean",
+          "lines": [
+            63,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ExistsCloseVectorUltrametric.lean#L63-L111",
+          "declaration": "UpperTheory.Gal.Gen.hB_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.hB_pf": 108
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The maximal nonzero coordinate minor constructs the point simultaneously. The correspondence records the alternative proof by successive pivot elimination."
+    },
+    {
+      "id": "HFT-03",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-finite-group-approximation",
+      "title": "Why does half the space suffice to approximate the constant function?",
+      "hypotheses": "A right-translation-stable subspace of functions on a finite ℓ-group has dimension at least half its order.",
+      "statement": "A function in the subspace has uniform ℓ-adic distance at most ℓ^(−1/2) from the constant one.",
+      "equations": [
+        "lifts-hecke-finite-group-radius"
+      ],
+      "dependencies": [
+        "HFT-01",
+        "HFT-02"
+      ],
+      "sources": [
+        {
+          "label": "The determinant inequality and the dimension threshold",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDetAlt.lean",
+          "lines": [
+            30,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GroupDetAlt.lean#L30-L38"
+        },
+        {
+          "label": "The transpose annihilates right translates of every function in the subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean",
+          "lines": [
+            13,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean#L13-L37",
+          "declaration": "UpperTheory.Gal.Gen.alg_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.alg_pf": 4
+          }
+        },
+        {
+          "label": "The power bound and a witness at the stated radius",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean",
+          "lines": [
+            38,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean#L38-L52",
+          "declaration": "UpperTheory.Gal.Gen.alg_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.alg_pf": 4
+          }
+        },
+        {
+          "label": "Transporting the complex subspace to ℓ-adic coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgCPf.lean",
+          "lines": [
+            9,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgCPf.lean#L9-L32",
+          "declaration": "UpperTheory.Gal.Gen.algC_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.algC_pf": 9
+          }
+        },
+        {
+          "label": "Dimension and the transported approximant",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgCPf.lean",
+          "lines": [
+            48,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgCPf.lean#L48-L62",
+          "declaration": "UpperTheory.Gal.Gen.algC_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.algC_pf": 9
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The transpose tests the right translate c(ig). A cyclic example compares two witnesses in the same space at the exact half-dimension threshold."
+    },
+    {
+      "id": "HFT-04",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-small-polynomial",
+      "title": "How can a polynomial equal one on all the bad parameters and have small mean square?",
+      "hypotheses": "The test is a nonzero polynomial in the ordered complex Satake coordinates. The torus has the product of its uniform probability measures.",
+      "statement": "Symmetric Laurent powers equal one on every bad tuple and have arbitrarily small complex mean square on the unit torus.",
+      "equations": [
+        "lifts-hecke-small-polynomial-power"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Symmetrizing by multiplication over every ordering",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SymExPf.lean",
+          "lines": [
+            8,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SymExPf.lean#L8-L28",
+          "declaration": "UpperTheory.Gal.Gen.symEx_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.symEx_pf": 6
+          }
+        },
+        {
+          "label": "Coefficient conjugation and reflection of the exponents",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StarEx.lean",
+          "lines": [
+            10,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StarEx.lean#L10-L26"
+        },
+        {
+          "label": "The zero set on the compact torus by slicing one variable at a time",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NullZero.lean",
+          "lines": [
+            42,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NullZero.lean#L42-L90",
+          "declaration": "UpperTheory.Gal.Gen.nullZero_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.nullZero_pf": 42
+          }
+        },
+        {
+          "label": "The normalization and the symmetric Laurent powers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmallPf.lean",
+          "lines": [
+            8,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmallPf.lean#L8-L36",
+          "declaration": "UpperTheory.Gal.Gen.small_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.small_pf": 5
+          }
+        },
+        {
+          "label": "The mean-square limit and the value one on every failed list",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmallPf.lean",
+          "lines": [
+            37,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmallPf.lean#L37-L70",
+          "declaration": "UpperTheory.Gal.Gen.small_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.small_pf": 5
+          }
+        },
+        {
+          "label": "The conversion to the small coefficient bound and the identity action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+          "lines": [
+            13,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean#L13-L38",
+          "declaration": "UpperTheory.Gal.Gen.neglAt_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.neglAt_pf": 8
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The adjoint equals the conjugate value on the torus. The identity on the failed complex tuples does not require a modulus condition."
+    },
+    {
+      "id": "HFT-05",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-local-detector",
+      "title": "Which local operator fixes the forms that fail the test?",
+      "hypotheses": "The tested place is split, with hyperspecial level. The test polynomial is nonzero. A failed local system has an occurring smooth irreducible realization with a tuple on its zero set.",
+      "statement": "The spherical transform supplies a finite sum of translations acting by one on all failing fixed vectors, with arbitrarily small sum of squared complex coefficients. At a different underlying prime the translations are trivial.",
+      "equations": [
+        "lifts-hecke-local-coset-weights",
+        "lifts-hecke-local-plancherel-density",
+        "lifts-hecke-local-coefficient-norm"
+      ],
+      "dependencies": [
+        "HFT-04"
+      ],
+      "sources": [
+        {
+          "label": "Representatives of the support and the volume of each coset",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RepsEx.lean",
+          "lines": [
+            12,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RepsEx.lean#L12-L38",
+          "declaration": "UpperTheory.Gal.Gen.repsEx_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.repsEx_pf": 5
+          }
+        },
+        {
+          "label": "The torus parameters and the type A density",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GammaConjAt.lean",
+          "lines": [
+            10,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GammaConjAt.lean#L10-L17",
+          "declaration": "UpperTheory.Gal.Gen.pt",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.pt": 10
+          }
+        },
+        {
+          "label": "Individual coefficients and their squared norm by spherical inversion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean",
+          "lines": [
+            26,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean#L26-L88"
+        },
+        {
+          "label": "The bounded density, the factorial and the hyperspecial volume",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean",
+          "lines": [
+            118,
+            144
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean#L118-L144",
+          "declaration": "UpperTheory.Gal.Gen.planch_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.planch_pf": 110
+          }
+        },
+        {
+          "label": "Realization by the Satake transform and action on spherical fixed vectors",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EigOfHasSat.lean",
+          "lines": [
+            48,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EigOfHasSat.lean#L48-L96",
+          "declaration": "UpperTheory.Gal.Gen.locOp_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.locOp_pf": 48
+          }
+        },
+        {
+          "label": "Embedding the translations and intertwining the local and global actions",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean",
+          "lines": [
+            48,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean#L48-L81",
+          "declaration": "GlobalTheory.Cong.opOf_locU_eq_smul",
+          "declaration_lines": {
+            "GlobalTheory.Cong.opOf_locU_eq_smul": 46
+          }
+        },
+        {
+          "label": "Averaging to transfer the scalar on the fixed subspace",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean",
+          "lines": [
+            82,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean#L82-L118",
+          "declaration": "GlobalTheory.Cong.opOf_locU_eq_smul",
+          "declaration_lines": {
+            "GlobalTheory.Cong.opOf_locU_eq_smul": 46
+          }
+        },
+        {
+          "label": "Hyperspecial level, preservation of coefficients and the realized local scalar",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GlobOp.lean",
+          "lines": [
+            39,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GlobOp.lean#L39-L71",
+          "declaration": "UpperTheory.Gal.Gen.globOp_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.globOp_pf": 18
+          }
+        },
+        {
+          "label": "A failed test provides the local tuple and the scalar one",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+          "lines": [
+            8,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean#L8-L38",
+          "declaration": "UpperTheory.Gal.Gen.neglAt_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.neglAt_pf": 8
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The Haar mass multiplies each value of the kernel. Each right translate of the compact level contributes once, including all q+1 terms in the rank-two example."
+    },
+    {
+      "id": "HFT-06",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-tower-labels",
+      "title": "How can each adelic point carry an equivariant label?",
+      "hypotheses": "The global group is definite at infinity, the auxiliary place is split above ℓ and a level away from it fixes the form.",
+      "statement": "Deep principal congruence subgroups give finite ℓ-group quotients and labels invariant on rational double classes and equivariant for auxiliary right translation.",
+      "equations": [
+        "lifts-hecke-tower-equivariance"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "A local neighbourhood stabilizing the form",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmoothAt.lean",
+          "lines": [
+            10,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmoothAt.lean#L10-L30",
+          "declaration": "UpperTheory.Gal.Gen.smoothAt_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.smoothAt_pf": 8
+          }
+        },
+        {
+          "label": "The congruence subgroups and their normality",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CongSub.lean",
+          "lines": [
+            177,
+            204
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CongSub.lean#L177-L204",
+          "declaration": "UpperTheory.Gal.Gen.congSub_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.congSub_pf": 177
+          }
+        },
+        {
+          "label": "Cofinality and the ℓth-power step",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CongSub.lean",
+          "lines": [
+            205,
+            223
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CongSub.lean#L205-L223",
+          "declaration": "UpperTheory.Gal.Gen.congSub_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.congSub_pf": 177
+          }
+        },
+        {
+          "label": "Torsion-freeness from depth two, including residue characteristic two",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean",
+          "lines": [
+            87,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean#L87-L110",
+          "declaration": "GlobalTheory.principalCongruence_torsionFree",
+          "declaration_lines": {
+            "GlobalTheory.principalCongruence_torsionFree": 87
+          }
+        },
+        {
+          "label": "Shifting the starting subgroup and iterating the power step",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TowerPf.lean",
+          "lines": [
+            8,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TowerPf.lean#L8-L29",
+          "declaration": "UpperTheory.Gal.Gen.tower_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.tower_pf": 8
+          }
+        },
+        {
+          "label": "The finite ℓ-group, its level kernel and the effect of torsion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepPf.lean",
+          "lines": [
+            14,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepPf.lean#L14-L57",
+          "declaration": "UpperTheory.Gal.Gen.step_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.step_pf": 8
+          }
+        },
+        {
+          "label": "Equality of labels for two decompositions of one point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllGrp.lean",
+          "lines": [
+            12,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllGrp.lean#L12-L22",
+          "declaration": "UpperTheory.Gal.Gen.ellGrp_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ellGrp_pf": 8
+          }
+        },
+        {
+          "label": "Labels on double classes and the right action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllGrp.lean",
+          "lines": [
+            41,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllGrp.lean#L41-L69",
+          "declaration": "UpperTheory.Gal.Gen.ellGrp_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ellGrp_pf": 8
+          }
+        },
+        {
+          "label": "The compact archimedean factor and the arithmetic stabilizers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllPf.lean",
+          "lines": [
+            22,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllPf.lean#L22-L49",
+          "declaration": "UpperTheory.Gal.Gen.ell_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ell_pf": 8
+          }
+        },
+        {
+          "label": "Local constancy and rational invariance of functions of the label",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllPf.lean",
+          "lines": [
+            50,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllPf.lean#L50-L79",
+          "declaration": "UpperTheory.Gal.Gen.ell_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ell_pf": 8
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The initial depth uses powers of the rational prime ℓ; at 2 the initial subgroup 1+4ℤ₂ gives the stated example."
+    },
+    {
+      "id": "HFT-07",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-tower-separation",
+      "title": "When do different Hecke translates give different points?",
+      "hypotheses": "The initial cover of rational double classes is finite. The translation set is fixed and finite with distinct cosets, trivial at the auxiliary place.",
+      "statement": "The lifted representatives cover at every depth. For sufficiently large depth the fixed test translations from each starting representative land in distinct double classes.",
+      "equations": [
+        "lifts-hecke-tower-separated-points"
+      ],
+      "dependencies": [
+        "HFT-06"
+      ],
+      "sources": [
+        {
+          "label": "Quantifiers for the finite cover and eventual separation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StGlob.lean",
+          "lines": [
+            120,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StGlob.lean#L120-L131"
+        },
+        {
+          "label": "Lifting each initial class through the finite local quotient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CoverPf.lean",
+          "lines": [
+            17,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CoverPf.lean#L17-L45",
+          "declaration": "UpperTheory.Gal.Gen.cover_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.cover_pf": 8
+          }
+        },
+        {
+          "label": "Rational matrices in compact sets and injectivity at one place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RatFin.lean",
+          "lines": [
+            12,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RatFin.lean#L12-L44",
+          "declaration": "UpperTheory.Gal.Gen.ratFin_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ratFin_pf": 8
+          }
+        },
+        {
+          "label": "A finite set of possible rational collisions and a uniform depth",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EqOneOfFinInf.lean",
+          "lines": [
+            46,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EqOneOfFinInf.lean#L46-L74",
+          "declaration": "UpperTheory.Gal.Gen.sep_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.sep_pf": 37
+          }
+        },
+        {
+          "label": "Removing the rational and archimedean factors and returning to the original level",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EqOneOfFinInf.lean",
+          "lines": [
+            85,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EqOneOfFinInf.lean#L85-L121",
+          "declaration": "UpperTheory.Gal.Gen.sep_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.sep_pf": 37
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Compactness bounds the possible rational stabilizers before any choice of final depth."
+    },
+    {
+      "id": "HFT-08",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-tower-count",
+      "title": "How many forms can fail one Satake test?",
+      "hypotheses": "The local test satisfies the small coefficient estimate, the archimedean weight is fixed and the auxiliary tower has its covering and separation properties.",
+      "statement": "For every ε>0 the dimension of failing forms at each sufficiently deep level is at most ε times the index of the auxiliary level.",
+      "equations": [
+        "lifts-hecke-one-place-dimension",
+        "lifts-hecke-cover-matrix",
+        "lifts-hecke-cover-hilbert-schmidt"
+      ],
+      "dependencies": [
+        "HFT-05",
+        "HFT-06",
+        "HFT-07"
+      ],
+      "sources": [
+        {
+          "label": "Support, coset separation, complex coefficient bound and identity action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GenDataEmpty.lean",
+          "lines": [
+            44,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GenDataEmpty.lean#L44-L49"
+        },
+        {
+          "label": "The local operator for the failed polynomial test at the tested place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+          "lines": [
+            8,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean#L8-L38",
+          "declaration": "UpperTheory.Gal.Gen.neglAt_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.neglAt_pf": 8
+          }
+        },
+        {
+          "label": "Compactness bound for the complex weight matrices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/WBound.lean",
+          "lines": [
+            87,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/WBound.lean#L87-L96",
+          "declaration": "UpperTheory.Gal.Gen.wBound_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.wBound_pf": 87
+          }
+        },
+        {
+          "label": "The entries, separated sums and Hilbert–Schmidt upper bound",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountCore.lean",
+          "lines": [
+            18,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountCore.lean#L18-L63"
+        },
+        {
+          "label": "Faithful evaluation and the fixed-space argument",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountCore.lean",
+          "lines": [
+            86,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountCore.lean#L86-L131",
+          "declaration": "UpperTheory.Gal.Gen.countCore_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.countCore_pf": 86
+          }
+        },
+        {
+          "label": "Bounding the dimension of a pointwise fixed subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/HSPf.lean",
+          "lines": [
+            29,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/HSPf.lean#L29-L52",
+          "declaration": "UpperTheory.Gal.Gen.hS_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.hS_pf": 8
+          }
+        },
+        {
+          "label": "Choosing the operator before the depth and obtaining the normalized count",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/OpOfFinsetSum.lean",
+          "lines": [
+            31,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/OpOfFinsetSum.lean#L31-L66",
+          "declaration": "UpperTheory.Gal.Gen.count_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.count_pf": 31
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The Hilbert–Schmidt matrix fixes the failing space. The basis size and coefficient bound are fixed before the local operator and its separation depth are chosen."
+    },
+    {
+      "id": "HFT-09",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-auxiliary-type",
+      "title": "How does a cyclic character impose a local type?",
+      "hypotheses": "At a torsion-free compact open auxiliary level a form is fixed by translation. The level has a homomorphism to a cyclic group of order ℓ^m.",
+      "statement": "A negative sum over nontrivial quotient characters has relative error ℓ^m times the indicator of the zero label. A surjective local type quotient with the stated cuspidality property delivers the required application.",
+      "equations": [
+        "lifts-hecke-type-residual"
+      ],
+      "dependencies": [
+        "HFT-06",
+        "HFT-12"
+      ],
+      "sources": [
+        {
+          "label": "The fixed-weight estimate, the transformation law and the cyclic character sum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundAlt.lean",
+          "lines": [
+            123,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundAlt.lean#L123-L141",
+          "declaration": "UpperTheory.Gal.Gen.TyStep",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.TyStep": 123
+          }
+        },
+        {
+          "label": "The derivative of the power map and its local inverse",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/PowNhds.lean",
+          "lines": [
+            12,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/PowNhds.lean#L12-L25"
+        },
+        {
+          "label": "An open kernel for a homomorphism to a finite group",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/KerOpen.lean",
+          "lines": [
+            7,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/KerOpen.lean#L7-L18",
+          "declaration": "UpperTheory.Gal.Gen.kerOpen_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.kerOpen_pf": 7
+          }
+        },
+        {
+          "label": "A smooth label at the auxiliary place and multiplication by its characters",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TyStep.lean",
+          "lines": [
+            13,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TyStep.lean#L13-L35",
+          "declaration": "UpperTheory.Gal.Gen.tyStep_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.tyStep_pf": 9
+          }
+        },
+        {
+          "label": "The characters of a cyclic group from a primitive root of unity",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean",
+          "lines": [
+            13,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean#L13-L26",
+          "declaration": "UpperTheory.Gal.Gen.charSum_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.charSum_pf": 9
+          }
+        },
+        {
+          "label": "The two values of the full character sum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean",
+          "lines": [
+            46,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean#L46-L60",
+          "declaration": "UpperTheory.Gal.Gen.charSum_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.charSum_pf": 9
+          }
+        },
+        {
+          "label": "Finite automorphic decomposition preserving the character",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenFormEqFiniteSumAutRepEigenForms.lean",
+          "lines": [
+            193,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenFormEqFiniteSumAutRepEigenForms.lean#L193-L218",
+          "declaration": "GlobalTheory.EigenDecomp.eigen_decomp",
+          "declaration_lines": {
+            "GlobalTheory.EigenDecomp.eigen_decomp": 193
+          }
+        },
+        {
+          "label": "Extracting a nonzero local character vector from each summand",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TwistPart.lean",
+          "lines": [
+            11,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TwistPart.lean#L11-L33",
+          "declaration": "UpperTheory.Gal.Gen.twistPart_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.twistPart_pf": 8
+          }
+        },
+        {
+          "label": "The negative sum of the nontrivial characters and the pointwise relative error",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TyStep.lean",
+          "lines": [
+            37,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TyStep.lean#L37-L59",
+          "declaration": "UpperTheory.Gal.Gen.tyStep_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.tyStep_pf": 9
+          }
+        },
+        {
+          "label": "The separate local cuspidal type theorem with a surjective cyclic quotient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean",
+          "lines": [
+            15,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean#L15-L22",
+          "declaration": "UpperTheory.Gal.Int.Cong.exists_ellType",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.exists_ellType": 15
+          }
+        },
+        {
+          "label": "Applying the character estimate after the change of weight at the other place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            76,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L76-L102",
+          "declaration": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.stepSt_of_ex": 76
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The weights stay fixed during this construction. Surjectivity is needed where nontriviality of the pulled-back character is used."
+    },
+    {
+      "id": "HFT-10",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-weight-variation",
+      "title": "How can the filtration jumps be separated while the Hecke evaluations stay close?",
+      "hypotheses": "The two auxiliary places lie over distinct real-subfield primes above ℓ. The finite Hecke translations are trivial at both, and the family, projection and weight control results apply.",
+      "statement": "Choosing the target weight after the family degree yields large gaps in every retained weight while simultaneously approximating the specified Hecke coordinates.",
+      "equations": [
+        "lifts-hecke-varying-weight-congruence",
+        "lifts-hecke-weight-family-sum"
+      ],
+      "dependencies": [
+        "HIF-01",
+        "HFT-13"
+      ],
+      "sources": [
+        {
+          "label": "The polynomial, highest-weight coefficient and translated form in each summand",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOfApply.lean",
+          "lines": [
+            76,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOfApply.lean#L76-L83"
+        },
+        {
+          "label": "Quantifiers, levels, localization of the change and the weighted polynomial conclusion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/WtDefs.lean",
+          "lines": [
+            13,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/WtDefs.lean#L13-L32",
+          "declaration": "UpperTheory.Gal.Int.Cong.WtTo",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.WtTo": 13
+          }
+        },
+        {
+          "label": "The error radius and evaluation matrices precede the choice of dominant target",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean",
+          "lines": [
+            175,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean#L175-L185",
+          "declaration": "UpperTheory.Gal.Wt.FamEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.FamEx": 175
+          }
+        },
+        {
+          "label": "Uniform integral-matrix congruence for the normalized weight coefficient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNearH.lean",
+          "lines": [
+            25,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNearH.lean#L25-L77",
+          "declaration": "UpperTheory.Gal.Wt.deltaNear_h",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.deltaNear_h": 25
+          }
+        },
+        {
+          "label": "Matrix transport, local pieces and the ultrametric bound on their weighted sum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamExOf.lean",
+          "lines": [
+            16,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamExOf.lean#L16-L79",
+          "declaration": "UpperTheory.Gal.Wt.famEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.famEx_of": 13
+          }
+        },
+        {
+          "label": "Finite spectral families, weights away from the chosen archimedean place and partial sums",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean",
+          "lines": [
+            94,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean#L94-L118",
+          "declaration": "UpperTheory.Gal.Wt.FamProj",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.FamProj": 94
+          }
+        },
+        {
+          "label": "Consecutive partial sums bound the individual entries of a realized weight",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOffHolds.lean",
+          "lines": [
+            45,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOffHolds.lean#L45-L64",
+          "declaration": "UpperTheory.Gal.Wt.psum_succ",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.psum_succ": 45
+          }
+        },
+        {
+          "label": "The geometric progression of weights and strict inequalities for the jumps",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/LacunaryBaseWeightAntitone.lean",
+          "lines": [
+            43,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/LacunaryBaseWeightAntitone.lean#L43-L87",
+          "declaration": "UpperTheory.Gal.Int.Cong.mu0",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.mu0": 43
+          }
+        },
+        {
+          "label": "The frame, the order of choices and evaluation of the projected families",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+          "lines": [
+            19,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean#L19-L44",
+          "declaration": "UpperTheory.Gal.Wt.top_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.top_of": 16
+          }
+        },
+        {
+          "label": "Hecke eigenvalues, the polynomial approximation and its permitted weights",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+          "lines": [
+            59,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean#L59-L105",
+          "declaration": "UpperTheory.Gal.Wt.top_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.top_of": 16
+          }
+        },
+        {
+          "label": "The three inputs assembled into weight variation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/LadicWeightEmbeddingOverPlace.lean",
+          "lines": [
+            68,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/LadicWeightEmbeddingOverPlace.lean#L68-L73",
+          "declaration": "UpperTheory.Gal.Wt.famEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.famEx_holds": 68
+          }
+        },
+        {
+          "label": "Transport of placewise integrality and use before the auxiliary local-type step",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            61,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L61-L79",
+          "declaration": "UpperTheory.Gal.Int.Cong.intL_congr",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.intL_congr": 61
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "deduced under the stated automorphic family and weight estimates",
+      "review": "The bounded error in the integer weights is archimedean. The uniform polynomial approximation uses the ℓ-adic norm."
+    },
+    {
+      "id": "HFT-11",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-conjugate-forms",
+      "title": "Why do the conjugate forms fit in one finite-dimensional space?",
+      "hypotheses": "A nonzero algebraic automorphic form on the definite unitary group has fixed finite level and a finite-dimensional span of archimedean translates. The selected Hecke operators are rational.",
+      "statement": "The conjugates prescribed on the finite adelic group extend to continuous automorphic forms of the same finite level and bounded archimedean polynomial degree. Evaluation on h class representatives embeds their common space into h copies of the polynomials of degree at most D in b coordinates.",
+      "equations": [
+        "lifts-hecke-conjugate-space-bound",
+        "lifts-hecke-conjugate-expansion",
+        "lifts-hecke-conjugate-formula"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Coordinates of the archimedean translates and their polynomial expansion",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/AutFormDefiniteUnitaryEqSumPolynomialMulAutForm.lean",
+          "lines": [
+            81,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/AutFormDefiniteUnitaryEqSumPolynomialMulAutForm.lean#L81-L110",
+          "declaration": "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm",
+          "declaration_lines": {
+            "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm": 99
+          }
+        },
+        {
+          "label": "Complex conjugation and separation of points by the unitary entries",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/UnitaryCoordinateAlgebraDense.lean",
+          "lines": [
+            31,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/UnitaryCoordinateAlgebraDense.lean#L31-L64"
+        },
+        {
+          "label": "Annihilation against coordinate polynomials and the convolution calculation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/MemOfFiniteDimensionalSpanRightTranslates.lean",
+          "lines": [
+            38,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/MemOfFiniteDimensionalSpanRightTranslates.lean#L38-L113",
+          "declaration": "GlobalTheory.UnitaryBC.eq_zero_of_integral_mul_eq_zero_of_separating",
+          "declaration_lines": {
+            "GlobalTheory.UnitaryBC.eq_zero_of_integral_mul_eq_zero_of_separating": 38
+          }
+        },
+        {
+          "label": "Density of rational archimedean components and the adelic splitting",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/DefiniteUnitaryRealApproxAndFiniteInfiniteSplit.lean",
+          "lines": [
+            67,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/DefiniteUnitaryRealApproxAndFiniteInfiniteSplit.lean#L67-L82",
+          "declaration": "GlobalTheory.UnitarySplit.dense_and_split",
+          "declaration_lines": {
+            "GlobalTheory.UnitarySplit.dense_and_split": 77
+          }
+        },
+        {
+          "label": "The continuous automorphic conjugate and its agreement at finite points",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjIsAutFormU.lean",
+          "lines": [
+            12,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjIsAutFormU.lean#L12-L47",
+          "declaration": "GlobalTheory.UnitaryBC.exists_conj_isAutFormU",
+          "declaration_lines": {
+            "GlobalTheory.UnitaryBC.exists_conj_isAutFormU": 12
+          }
+        },
+        {
+          "label": "Finite span of words in the unitary coordinates of bounded length",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+          "lines": [
+            23,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean#L23-L35",
+          "declaration": "GlobalTheory.ConjSpan.gen",
+          "declaration_lines": {
+            "GlobalTheory.ConjSpan.gen": 23
+          }
+        },
+        {
+          "label": "Conjugating coefficients and embedding labels preserves the degree",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+          "lines": [
+            83,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean#L83-L114",
+          "declaration": "GlobalTheory.ConjSpan.conjIdx",
+          "declaration_lines": {
+            "GlobalTheory.ConjSpan.conjIdx": 83
+          }
+        },
+        {
+          "label": "Choice of finite representatives and injection of the common space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+          "lines": [
+            116,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean#L116-L161",
+          "declaration": "GlobalTheory.ConjSpan.conj_span_finite",
+          "declaration_lines": {
+            "GlobalTheory.ConjSpan.conj_span_finite": 116
+          }
+        },
+        {
+          "label": "The conjugated forms retain the level and satisfy the polynomial bound",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+          "lines": [
+            163,
+            192
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean#L163-L192",
+          "declaration": "GlobalTheory.ConjSpan.conj_span_finite",
+          "declaration_lines": {
+            "GlobalTheory.ConjSpan.conj_span_finite": 116
+          }
+        },
+        {
+          "label": "Rational Hecke operators on finite adelic values and uniqueness",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/DefiniteUnitaryRationalHeckeCommuteComplexAutomo.lean",
+          "lines": [
+            17,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/DefiniteUnitaryRationalHeckeCommuteComplexAutomo.lean#L17-L53",
+          "declaration": "GlobalTheory.EigenConj.opOf_conj",
+          "declaration_lines": {
+            "GlobalTheory.EigenConj.opOf_conj": 17
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Conjugation permutes the complex embeddings on the coordinate functions. The field of the eigenvalues is deduced only after the dimension bound."
+    },
+    {
+      "id": "HFT-12",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-cuspidal-type",
+      "title": "Why does each nontrivial character force cuspidality?",
+      "hypotheses": "The local group is GL of positive rank over a finite extension of the ℓ-adic field. An identity neighbourhood and a lower bound on the exponent are prescribed.",
+      "statement": "There is a torsion-free compact open subgroup in the neighbourhood with a surjection onto a cyclic quotient of the prescribed minimum order. Every smooth irreducible complex representation containing a nonzero vector of any nontrivial character pulled back from this quotient is cuspidal.",
+      "equations": [
+        "lifts-hecke-cuspidal-trace",
+        "lifts-hecke-cuspidal-radical"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The local type theorem, the two ranks and the value of an arbitrary character at the generator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean",
+          "lines": [
+            15,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean#L15-L50",
+          "declaration": "UpperTheory.Gal.Int.Cong.exists_ellType",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.exists_ellType": 15
+          }
+        },
+        {
+          "label": "The chosen congruence level and the data for the trace character",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+          "lines": [
+            168,
+            222
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean#L168-L222",
+          "declaration": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+          "declaration_lines": {
+            "GlobalTheory.CongW.TypeExists.exists_type_surj": 168
+          }
+        },
+        {
+          "label": "Compact open congruence subgroups in every identity neighbourhood",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdicCompletionCongruenceSubgroupsOpenCompactSmal.lean",
+          "lines": [
+            238,
+            268
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdicCompletionCongruenceSubgroupsOpenCompactSmal.lean#L238-L268",
+          "declaration": "GlobalTheory.CongOpenSmall.congruence_open_compact_small",
+          "declaration_lines": {
+            "GlobalTheory.CongOpenSmall.congruence_open_compact_small": 242
+          }
+        },
+        {
+          "label": "Torsion-freeness for levels divisible by the square of the rational prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean",
+          "lines": [
+            57,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean#L57-L116",
+          "declaration": "GlobalTheory.CongTorsion.pow_dvd_entries_of_pow_eq_one",
+          "declaration_lines": {
+            "GlobalTheory.CongTorsion.pow_dvd_entries_of_pow_eq_one": 57
+          }
+        },
+        {
+          "label": "The additive retraction obtained by extending a character into the circle",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsAddHomZmodPrimePowOneOfNotIsUnit.lean",
+          "lines": [
+            38,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsAddHomZmodPrimePowOneOfNotIsUnit.lean#L38-L96",
+          "declaration": "GlobalTheory.exists_addHom_zmod_pow_one_of_not_isUnit",
+          "declaration_lines": {
+            "GlobalTheory.exists_addHom_zmod_pow_one_of_not_isUnit": 38
+          }
+        },
+        {
+          "label": "Multiplication by a finite-field generator",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsMatrixNoInvariantSubspaceFiniteField.lean",
+          "lines": [
+            7,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsMatrixNoInvariantSubspaceFiniteField.lean#L7-L55",
+          "declaration": "GlobalTheory.exists_matrix_no_invariant_subspace",
+          "declaration_lines": {
+            "GlobalTheory.exists_matrix_no_invariant_subspace": 7
+          }
+        },
+        {
+          "label": "The trace character and its product formula",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsCongruenceKernelTraceCharacter.lean",
+          "lines": [
+            38,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsCongruenceKernelTraceCharacter.lean#L38-L81",
+          "declaration": "GlobalTheory.CongChar.one_add_smul_mul",
+          "declaration_lines": {
+            "GlobalTheory.CongChar.one_add_smul_mul": 38
+          }
+        },
+        {
+          "label": "The flag step and the criterion for membership in the radical",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/UnipotentRadicalFlagStabilizer.lean",
+          "lines": [
+            17,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/UnipotentRadicalFlagStabilizer.lean#L17-L76",
+          "declaration": "GlobalTheory.UnipFlag.exists_sub",
+          "declaration_lines": {
+            "GlobalTheory.UnipFlag.exists_sub": 17
+          }
+        },
+        {
+          "label": "The saturated lattice, its reduction and the functional with a unit pairing",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIntegralUnitPairingOfIrreducibleReductionA.lean",
+          "lines": [
+            63,
+            213
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIntegralUnitPairingOfIrreducibleReductionA.lean#L63-L213",
+          "declaration": "GlobalTheory.Cong.UnitPairing.main",
+          "declaration_lines": {
+            "GlobalTheory.Cong.UnitPairing.main": 63
+          }
+        },
+        {
+          "label": "The normalized rank-one element for each conjugate of a unipotent radical",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+          "lines": [
+            275,
+            354
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean#L275-L354",
+          "declaration": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+          "declaration_lines": {
+            "GlobalTheory.CongW.TypeExists.exists_type_surj": 168
+          }
+        },
+        {
+          "label": "The character relation on each translate and the vanishing of its Jacquet module",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacquetModuleCoinvariantsSubsingletonOfCharConj.lean",
+          "lines": [
+            9,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacquetModuleCoinvariantsSubsingletonOfCharConj.lean#L9-L60",
+          "declaration": "GlobalTheory.jacquet_subsingleton_of_char_nontrivial_on_conj",
+          "declaration_lines": {
+            "GlobalTheory.jacquet_subsingleton_of_char_nontrivial_on_conj": 9
+          }
+        },
+        {
+          "label": "The cyclic quotient with prescribed exponent used in rank one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+          "lines": [
+            75,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean#L75-L166",
+          "declaration": "GlobalTheory.CongW.TypeExists.exists_congruence_surj",
+          "declaration_lines": {
+            "GlobalTheory.CongW.TypeExists.exists_congruence_surj": 75
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "A trace-one integral rank-one operator supplies a generator in each conjugated radical, including over a ramified field. Nonfaithful characters detect this generator as well. In rank one there are no proper parabolics."
+    },
+    {
+      "id": "HFT-13",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-polynomial-pieces",
+      "title": "How do polynomials distinguish the local pieces of a weight family?",
+      "hypotheses": "Two disjoint compact subsets of a finite-dimensional coordinate space over an ultrametric field are given. For the group application the matrices and their inverses are integral, their entries continuous, and the open subgroup contains the kernel of the representation.",
+      "statement": "Coordinate polynomials approximate the indicators of the finitely many left cosets uniformly. Their maximum total degree plus a fixed initial weight bound is chosen before the dominant weight varies.",
+      "equations": [
+        "lifts-hecke-piece-separator",
+        "lifts-hecke-piece-degree"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The scalar, multivariate and compact-group versions of the approximation statement",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean",
+          "lines": [
+            149,
+            173
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean#L149-L173",
+          "declaration": "UpperTheory.Gal.Wt.Kapl",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.Kapl": 149
+          }
+        },
+        {
+          "label": "Powers close to one and the coefficient bound used to choose the exponent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplFin.lean",
+          "lines": [
+            26,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplFin.lean#L26-L53"
+        },
+        {
+          "label": "The finite-centre induction and the estimates on three regions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplFin.lean",
+          "lines": [
+            58,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplFin.lean#L58-L121",
+          "declaration": "UpperTheory.Gal.Wt.kaplFin_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.kaplFin_of": 58
+          }
+        },
+        {
+          "label": "Covering the part of a compact set away from zero by finitely many balls",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplOf.lean",
+          "lines": [
+            8,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplOf.lean#L8-L28",
+          "declaration": "UpperTheory.Gal.Wt.kapl_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.kapl_of": 8
+          }
+        },
+        {
+          "label": "Separation of the compact sets, the product of coordinate polynomials and the estimate on the first set",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/SepPoly.lean",
+          "lines": [
+            45,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/SepPoly.lean#L45-L97",
+          "declaration": "UpperTheory.Gal.Wt.sepPoly_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.sepPoly_of": 45
+          }
+        },
+        {
+          "label": "The small coordinate factor on the second set and the final product estimate",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/SepPoly.lean",
+          "lines": [
+            98,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/SepPoly.lean#L98-L126",
+          "declaration": "UpperTheory.Gal.Wt.sepPoly_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.sepPoly_of": 45
+          }
+        },
+        {
+          "label": "The subgroup close to the identity and the use of integrality under products and inversion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/NearSub.lean",
+          "lines": [
+            18,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/NearSub.lean#L18-L75",
+          "declaration": "UpperTheory.Gal.Wt.nearSub_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.nearSub_of": 18
+          }
+        },
+        {
+          "label": "The finite set of left cosets, disjoint matrix images and the transport of the polynomial coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/Pieces.lean",
+          "lines": [
+            24,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/Pieces.lean#L24-L81",
+          "declaration": "UpperTheory.Gal.Wt.pieces_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.pieces_of": 24
+          }
+        },
+        {
+          "label": "Choosing the approximation radius from the uniform bound on the translated original forms",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamExOf.lean",
+          "lines": [
+            16,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamExOf.lean#L16-L29",
+          "declaration": "UpperTheory.Gal.Wt.famEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Wt.famEx_of": 13
+          }
+        },
+        {
+          "label": "Uniform bounds for the circle exponents of the initial weight",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/WExpH.lean",
+          "lines": [
+            10,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/WExpH.lean#L10-L60"
+        },
+        {
+          "label": "The exponent bounds for evaluating a polynomial of given total degree",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/PevExp.lean",
+          "lines": [
+            91,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/PevExp.lean#L91-L118"
+        },
+        {
+          "label": "The maximum total degree and its contribution to the bounds on the family",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOfOf.lean",
+          "lines": [
+            9,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/FamOfOf.lean#L9-L60"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The one-variable factors are added in order of increasing centre norm. In several coordinates the inner product detects a ball and the outer product selects their union. Two degree-one polynomials on the 3-adic units give the two cosets modulo 3."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Gen.nullZero_pf",
+      "callee": "UpperTheory.Gal.Gen.pt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NullZero.lean",
+        "line": 62,
+        "spelling": "pt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.small_pf",
+      "callee": "UpperTheory.Gal.Gen.pt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/SmallPf.lean",
+        "line": 16,
+        "spelling": "pt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.neglAt_pf",
+      "callee": "UpperTheory.Gal.Gen.pt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+        "line": 23,
+        "spelling": "pt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.planch_pf",
+      "callee": "UpperTheory.Gal.Gen.pt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean",
+        "line": 131,
+        "spelling": "pt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.planch_pf",
+      "callee": "UpperTheory.Gal.Gen.dens",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Planch.lean",
+        "line": 132,
+        "spelling": "dens"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.locOp_pf",
+      "callee": "UpperTheory.Gal.Gen.RepsEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EigOfHasSat.lean",
+        "line": 49,
+        "spelling": "UpperTheory.Gal.Gen.RepsEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.locOp_pf",
+      "callee": "UpperTheory.Gal.Gen.Planch",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EigOfHasSat.lean",
+        "line": 49,
+        "spelling": "UpperTheory.Gal.Gen.Planch"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.opOf_locU_eq_smul",
+      "callee": "GlobalTheory.LocOpAct.opOf_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean",
+        "line": 80,
+        "spelling": "GlobalTheory.LocOpAct.opOf_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.opOf_locU_eq_smul",
+      "callee": "GlobalTheory.LocOpAct.cosetSum_mem_fixed",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean",
+        "line": 94,
+        "spelling": "GlobalTheory.LocOpAct.cosetSum_mem_fixed"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.opOf_locU_eq_smul",
+      "callee": "GlobalTheory.LocOpAct.opOf_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LocalOperatorActsByLocalComponentScalar.lean",
+        "line": 101,
+        "spelling": "GlobalTheory.LocOpAct.opOf_map"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.globOp_pf",
+      "callee": "GlobalTheory.T.localOperator_acts_by_localComponentScalar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GlobOp.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.T.localOperator_acts_by_localComponentScalar"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.neglAt_pf",
+      "callee": "UpperTheory.Gal.Gen.Small",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+        "line": 9,
+        "spelling": "UpperTheory.Gal.Gen.Small"
+      }
+    },
+    {
+      "caller": "GlobalTheory.principalCongruence_torsionFree",
+      "callee": "GlobalTheory.CongTorsion.one_add_smul_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean",
+        "line": 110,
+        "spelling": "one_add_smul_pow"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.ell_pf",
+      "callee": "GlobalTheory.T.isOfFinOrder_of_compact_conj_mem_unitaryRationalPoints",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/EllPf.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.isOfFinOrder_of_compact_conj_mem_unitaryRationalPoints"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.cover_pf",
+      "callee": "GlobalTheory.DefU.ClassFin.classSet_finite",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CoverPf.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.DefU.ClassFin.classSet_finite"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.TyStep",
+      "callee": "GlobalTheory.UnitaryBC.IsSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundAlt.lean",
+        "line": 125,
+        "spelling": "IsSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.kerOpen_pf",
+      "callee": "UpperTheory.Gal.Gen.PowNhds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/KerOpen.lean",
+        "line": 8,
+        "spelling": "UpperTheory.Gal.Gen.PowNhds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.charSum_pf",
+      "callee": "GlobalTheory.CongSc.zchar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.CongSc.zchar"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.charSum_pf",
+      "callee": "GlobalTheory.CongSc.sum_roots",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CharSum.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.CongSc.sum_roots"
+      }
+    },
+    {
+      "caller": "GlobalTheory.EigenDecomp.eigen_decomp",
+      "callee": "GlobalTheory.EigenDecomp.values_mem_sSup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenFormEqFiniteSumAutRepEigenForms.lean",
+        "line": 210,
+        "spelling": "values_mem_sSup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.EigenDecomp.eigen_decomp",
+      "callee": "GlobalTheory.EigenDecomp.exists_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenFormEqFiniteSumAutRepEigenForms.lean",
+        "line": 217,
+        "spelling": "exists_indep"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.twistPart_pf",
+      "callee": "GlobalTheory.T.eigenForm_eq_finite_sum_autRep_eigenForms",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/TwistPart.lean",
+        "line": 13,
+        "spelling": "GlobalTheory.T.eigenForm_eq_finite_sum_autRep_eigenForms"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+      "callee": "UpperTheory.Gal.Gen.combine_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 79,
+        "spelling": "combine_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+      "callee": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.WtTo",
+      "callee": "GlobalTheory.UnitaryBC.IsSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/WtDefs.lean",
+        "line": 15,
+        "spelling": "IsSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.WtTo",
+      "callee": "GlobalTheory.Cong.PolyApprox",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/WtDefs.lean",
+        "line": 24,
+        "spelling": "PolyApprox"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.FamEx",
+      "callee": "GlobalTheory.UnitaryBC.IsSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/DeltaNear.lean",
+        "line": 176,
+        "spelling": "IsSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.top_of",
+      "callee": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.top_of",
+      "callee": "UpperTheory.Gal.Gen.denomBdd_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+        "line": 21,
+        "spelling": "denomBdd_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.top_of",
+      "callee": "GlobalTheory.T.eigenvector_small_sub_finite_eigen_approx_inequality",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+        "line": 89,
+        "spelling": "GlobalTheory.T.eigenvector_small_sub_finite_eigen_approx_inequality"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.top_of",
+      "callee": "UpperTheory.Gal.Int.Cong.gapJ_of_near",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/TopOf.lean",
+        "line": 97,
+        "spelling": "gapJ_of_near"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.intL_congr",
+      "callee": "UpperTheory.Gal.Int.Cong.not_apart_of_overPair",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 72,
+        "spelling": "not_apart_of_overPair"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm",
+      "callee": "GlobalTheory.UnitaryBC.rightFinite_mem_poly",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/AutFormDefiniteUnitaryEqSumPolynomialMulAutForm.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.UnitaryBC.rightFinite_mem_poly"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm",
+      "callee": "GlobalTheory.UnitarySplit.dense_and_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/AutFormDefiniteUnitaryEqSumPolynomialMulAutForm.lean",
+        "line": 107,
+        "spelling": "GlobalTheory.UnitarySplit.dense_and_split"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnitaryBC.exists_conj_isAutFormU",
+      "callee": "GlobalTheory.T.autFormDefiniteUnitary_eq_sum_polynomial_mul_autForm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjIsAutFormU.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.T.autFormDefiniteUnitary_eq_sum_polynomial_mul_autForm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnitaryBC.exists_conj_isAutFormU",
+      "callee": "GlobalTheory.T.exists_conj_polynomial_definiteUnitary_rational",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjIsAutFormU.lean",
+        "line": 16,
+        "spelling": "GlobalTheory.T.exists_conj_polynomial_definiteUnitary_rational"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ConjSpan.conj_span_finite",
+      "callee": "GlobalTheory.UnitarySplit.dense_and_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.UnitarySplit.dense_and_split"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ConjSpan.conj_span_finite",
+      "callee": "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+        "line": 122,
+        "spelling": "GlobalTheory.UnitaryDecomp.exists_poly_mul_autForm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ConjSpan.conj_span_finite",
+      "callee": "GlobalTheory.ConjSpan.exists_conj_polys",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+        "line": 182,
+        "spelling": "exists_conj_polys"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ConjSpan.conj_span_finite",
+      "callee": "GlobalTheory.ConjSpan.polys",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ConjugatesAutomorphicFormSpanFiniteDimensional.lean",
+        "line": 183,
+        "spelling": "polys"
+      }
+    },
+    {
+      "caller": "GlobalTheory.EigenConj.opOf_conj",
+      "callee": "GlobalTheory.UnitarySplit.dense_and_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/DefiniteUnitaryRationalHeckeCommuteComplexAutomo.lean",
+        "line": 53,
+        "spelling": "GlobalTheory.UnitarySplit.dense_and_split"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.exists_ellType",
+      "callee": "GlobalTheory.CongW.TypeExists.exists_congruence_surj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean",
+        "line": 33,
+        "spelling": "TypeExists.exists_congruence_surj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.exists_ellType",
+      "callee": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsEllType.lean",
+        "line": 43,
+        "spelling": "TypeExists.exists_type_surj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+      "callee": "GlobalTheory.T.adicCompletion_congruenceSubgroups_open_compact_small",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 185,
+        "spelling": "GlobalTheory.T.adicCompletion_congruenceSubgroups_open_compact_small"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+      "callee": "GlobalTheory.T.exists_matrix_no_invariant_subspace_finite_field",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 200,
+        "spelling": "GlobalTheory.T.exists_matrix_no_invariant_subspace_finite_field"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongOpenSmall.congruence_open_compact_small",
+      "callee": "GlobalTheory.CongOpenSmall.isOpen_cong",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdicCompletionCongruenceSubgroupsOpenCompactSmal.lean",
+        "line": 265,
+        "spelling": "isOpen_cong"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongOpenSmall.congruence_open_compact_small",
+      "callee": "GlobalTheory.CongOpenSmall.isCompact_cong",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdicCompletionCongruenceSubgroupsOpenCompactSmal.lean",
+        "line": 265,
+        "spelling": "isCompact_cong"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongTorsion.pow_dvd_entries_of_pow_eq_one",
+      "callee": "GlobalTheory.CongTorsion.dvd_entries_of_pow_eq_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/PrincipalCongruencePrimePowTorsionFree.lean",
+        "line": 66,
+        "spelling": "dvd_entries_of_pow_eq_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.exists_addHom_zmod_pow_one_of_not_isUnit",
+      "callee": "GlobalTheory.natCast_dvd_of_pow_dvd_of_not_isUnit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsAddHomZmodPrimePowOneOfNotIsUnit.lean",
+        "line": 59,
+        "spelling": "natCast_dvd_of_pow_dvd_of_not_isUnit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnipFlag.exists_sub",
+      "callee": "GlobalTheory.UnipFlag.lowSpan",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/UnipotentRadicalFlagStabilizer.lean",
+        "line": 47,
+        "spelling": "lowSpan"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.UnitPairing.main",
+      "callee": "GlobalTheory.Cong.UnitPairing.intLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIntegralUnitPairingOfIrreducibleReductionA.lean",
+        "line": 77,
+        "spelling": "intLattice"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.UnitPairing.main",
+      "callee": "GlobalTheory.Cong.UnitPairing.mem_intLattice_of_smul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIntegralUnitPairingOfIrreducibleReductionA.lean",
+        "line": 85,
+        "spelling": "mem_intLattice_of_smul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+      "callee": "GlobalTheory.T.unipotent_radical_flag_stabilizer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 279,
+        "spelling": "GlobalTheory.T.unipotent_radical_flag_stabilizer"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_type_surj",
+      "callee": "GlobalTheory.T.jacquetModuleCoinvariants_subsingleton_of_char_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 280,
+        "spelling": "GlobalTheory.T.jacquetModuleCoinvariants_subsingleton_of_char_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_congruence_surj",
+      "callee": "GlobalTheory.CongOpenSmall.congruence_open_compact_small",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 90,
+        "spelling": "GlobalTheory.CongOpenSmall.congruence_open_compact_small"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongW.TypeExists.exists_congruence_surj",
+      "callee": "GlobalTheory.exists_addHom_zmod_pow_one_of_not_isUnit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsTorsionFreeSurjZmod.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.exists_addHom_zmod_pow_one_of_not_isUnit"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.kapl_of",
+      "callee": "UpperTheory.Gal.Wt.KaplFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/KaplOf.lean",
+        "line": 9,
+        "spelling": "UpperTheory.Gal.Wt.KaplFin"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Wt.sepPoly_of",
+      "callee": "UpperTheory.Gal.Wt.Kapl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/WeightCharacters/SepPoly.lean",
+        "line": 46,
+        "spelling": "UpperTheory.Gal.Wt.Kapl"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HFT-01",
+      "HFT-03"
+    ],
+    [
+      "HFT-02",
+      "HFT-03"
+    ],
+    [
+      "HFT-04",
+      "HFT-05"
+    ],
+    [
+      "HFT-06",
+      "HFT-07"
+    ],
+    [
+      "HFT-05",
+      "HFT-08"
+    ],
+    [
+      "HFT-06",
+      "HFT-08"
+    ],
+    [
+      "HFT-07",
+      "HFT-08"
+    ],
+    [
+      "HFT-06",
+      "HFT-09"
+    ],
+    [
+      "HIF-01",
+      "HFT-10"
+    ],
+    [
+      "HFT-03",
+      "HIF-02"
+    ],
+    [
+      "HFT-06",
+      "HIF-02"
+    ],
+    [
+      "HFT-08",
+      "HIF-02"
+    ],
+    [
+      "HFT-09",
+      "HPA-03"
+    ],
+    [
+      "HFT-10",
+      "HPA-03"
+    ],
+    [
+      "HFT-11",
+      "HPA-04"
+    ],
+    [
+      "HFT-12",
+      "HFT-09"
+    ],
+    [
+      "HFT-13",
+      "HFT-10"
+    ]
+  ],
+  "outstanding": [
+    "The common level, equivariant adelic transport and uniform bounds for the translated forms, the finite automorphic decomposition of the varying-weight family and the highest-weight partial-sum estimates remain to be derived. The geometric realizations and their local comparisons are required later."
+  ]
+}

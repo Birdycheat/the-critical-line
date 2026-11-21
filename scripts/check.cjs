@@ -141,6 +141,22 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// In the quadratic extension, (1 ± i)² = ±2i and |2|₂ = 1/2.
+for (const [witness, expected, largest] of [
+  ["character", ["1", "0", "0", "i", "1 − i", "1/√2", "−1", "2", "1/2", "−i", "1 + i", "1/√2"], "1/√2"],
+  ["inverse", ["1", "0", "0", "−i", "1 + i", "1/√2", "−1", "2", "1/2", "i", "1 − i", "1/√2"], "1/√2"],
+  ["combination", ["1", "0", "0", "1", "0", "0", "−1", "2", "1/2", "−1", "2", "1/2"], "1/2"],
+]) {
+  const display = lib.render("hecke-four-point-approximation", {witness});
+  assert.deepEqual([...display.matchAll(/<td>([^<]+)<\/td>/g)].map(m => m[1]), expected);
+  assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]),
+    [largest, "1/√2", witness === "combination" ? "Strictly smaller" : "Equal"]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-hecke-four-point-approximation"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("hecke-four-point-approximation", {witness: "character"})),
+    "Missing static four-point calculation in " + page);
+}
 // Each coordinate line selects a unique weight. Matrix units test the commutator independently.
 for (const [weights, high] of [["separated", 4], ["adjacent", 2]]) {
   for (const [index, repeated] of ["low", "middle", "high"].entries()) {
