@@ -2,6 +2,9 @@
 
 ## 21 November 2026
 
+- The quotient in the inert integral consists of cosets gK, obtained by multiplying on the right by K. A representative for each smaller coset is fixed before comparing radical coordinates. Diagonal matrices with outer valuations +1 and −1 can have the same length and the same double coset while giving distinct terms. Either of the two final columns can be the only one that detects a denominator.
+- A surface of smaller dimension can have zero ambient volume. The cohomological period estimate first averages the vertices of a closed cycle, then uses an ambient density bound. The local constant depends on the cycle and can be chosen before the form and the iteration. In cusp reduction the real diagonal parameter is the degree root of the idèle norm, as the Gaussian rational line of height 2 and real parameter √2 illustrates.
+
 - In the rank-four inert example every entry has the same valuation in both matrices. Eliminating the middle row leaves a corrected corner of 0 or i/3. The quotient has 9 or 81 elements, respectively. The rank-three value 65/54 elsewhere in the chapter is one diagonal cell; the Euler factor sums over all diagonal labels.
 - The Hecke estimate needs orthogonality to the common fixed space. A mean-zero coefficient has zero projection to that space because its members are constant almost everywhere. The coefficient itself can have positive norm.
 - In the height-two normalization the torsion product gives an upper bound on the degree of the first unit. Exact degree p² uses the inert CM action. The translated theta factor divides by F(t), which is its value at the translating point before translation.

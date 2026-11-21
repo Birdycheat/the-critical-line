@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed the rank-two approximation, projective minimum, last-adjacent-pair induction and positive idèle extraction from the proof bodies. The worked example uses a primitive Gaussian integer row at finite level one.",
+  "claims": [
+    {
+      "id": "CRD-01",
+      "title": "A two-coordinate competitor from simultaneous approximation",
+      "chapter": "inputs",
+      "anchor": "inputs-cusp-reduction",
+      "statement": "For each number field L there is C≥1 such that every adelic upper triangular two-by-two block with invertible diagonal α,β has a nonzero L-rational row whose image has adelic height at most C√(|α|𝔸|β|𝔸).",
+      "hypotheses": "Both diagonal entries are idèles, the upper right entry is any adèle, the archimedean norms have multiplicities 1 or 2 and finite vector norms are supremum norms.",
+      "definitions": [
+        "the box in the mixed archimedean lattice",
+        "normalized positive idèle",
+        "the scaling s=(|α/β|𝔸)^(1/(2d)) with d=[L:ℚ]"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "adelicNorm",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionHeight.lean",
+          "lines": [
+            116,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionHeight.lean#L116-L125"
+        },
+        {
+          "declaration": "exists_dirichlet_box, simultaneous approximation and candidate multiples",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+          "lines": [
+            62,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean#L62-L97"
+        },
+        {
+          "declaration": "exists_dirichlet_box, collision in the finite partition",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+          "lines": [
+            97,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean#L97-L109"
+        },
+        {
+          "declaration": "exists_adelicNorm_vecMul_le, field constant and easier ratio",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+          "lines": [
+            335,
+            363
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean#L335-L363"
+        },
+        {
+          "declaration": "exists_adelicNorm_vecMul_le, normalization and rational competitor",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+          "lines": [
+            368,
+            394
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean#L368-L394"
+        },
+        {
+          "declaration": "exists_adelicNorm_vecMul_le, balancing and finite-place bound",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+          "lines": [
+            461,
+            495
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean#L461-L495"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Checked independently against the actual use of the two-coordinate estimate inside the induction and the rational rescaling at the finite and infinite places."
+    },
+    {
+      "id": "CRD-02",
+      "title": "From the shortest row to a real cusp parameter",
+      "chapter": "inputs",
+      "anchor": "inputs-cusp-reduction",
+      "statement": "The bottom diagonal norm B of the reduced upper triangular matrix is the height of its minimizing last row. A two-coordinate competitor yields B≤C√(AB) and hence B≤C²A for the preceding diagonal norm A. Induction gives all adjacent ratios. In real positive parameters the bound is C^(−2/d)r_(i+1)≤r_i.",
+      "hypotheses": "Fix a number field L of degree d, rank N≥1 and an invertible adelic matrix. Rational row height is finite, invariant under rational scalar multiplication and right maximal compact factors. Compact representatives exist modulo L in the additive adèles and modulo L× in the norm-one idèles.",
+      "definitions": [
+        "projective adelic row height",
+        "global idèle norm of a singleton diagonal entry",
+        "the norm-one and common positive parts of the diagonal"
+      ],
+      "dependencies": [
+        "CRD-01"
+      ],
+      "equations": [
+        "inputs-cusp-reduction-ratio"
+      ],
+      "sources": [
+        {
+          "declaration": "height, height_smul and height_diagonal_mul",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionHeight.lean",
+          "lines": [
+            251,
+            275
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionHeight.lean#L251-L275"
+        },
+        {
+          "declaration": "exists_height_min",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionFinite.lean",
+          "lines": [
+            385,
+            405
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionFinite.lean#L385-L405"
+        },
+        {
+          "declaration": "height_mul_maxCompact",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionIwasawa.lean",
+          "lines": [
+            311,
+            324
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionIwasawa.lean#L311-L324"
+        },
+        {
+          "declaration": "exists_reduced_of, last row minimizing height",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+          "lines": [
+            225,
+            249
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionCore.lean#L225-L249"
+        },
+        {
+          "declaration": "exists_reduced_of, preserving the last row by block enlargement",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+          "lines": [
+            293,
+            319
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionCore.lean#L293-L319"
+        },
+        {
+          "declaration": "exists_reduced_of, two-coordinate competitor",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+          "lines": [
+            339,
+            358
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionCore.lean#L339-L358"
+        },
+        {
+          "declaration": "exists_reduced_of, comparing the bottom adjacent pair",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+          "lines": [
+            387,
+            407
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionCore.lean#L387-L407"
+        },
+        {
+          "declaration": "exists_reduced",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+          "lines": [
+            409,
+            420
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionCore.lean#L409-L420"
+        },
+        {
+          "declaration": "exists_unitriangular_mul_mem",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            109,
+            140
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L109-L140"
+        },
+        {
+          "declaration": "exists_siegelSet, compact factors and uniform parameter",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            208,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L208-L228"
+        },
+        {
+          "declaration": "exists_siegelSet, separating the positive idèle",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            232,
+            247
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L232-L247"
+        },
+        {
+          "declaration": "exists_siegelSet, adjacent real positive diagonal ratios",
+          "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+          "lines": [
+            291,
+            308
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/AutomorphicForms/ReductionSiegel.lean#L291-L308"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Independent inspection verified the two sides and exponents in the bound. Over ℚ(i), the minimizing row (1,−1) has height 2 and the adjacent idèle norms 9/2 and 2 give real diagonal parameters 3/√2 and √2."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "exists_adelicNorm_vecMul_le",
+      "callee": "exists_dirichlet_box",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionDirichlet.lean",
+        "line": 341
+      }
+    },
+    {
+      "caller": "exists_reduced_of",
+      "callee": "exists_height_min",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+        "line": 242
+      }
+    },
+    {
+      "caller": "exists_reduced_of",
+      "callee": "exists_lastRow_eq",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+        "line": 243
+      }
+    },
+    {
+      "caller": "exists_reduced",
+      "callee": "exists_adelicNorm_vecMul_le",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+        "line": 414
+      }
+    },
+    {
+      "caller": "exists_reduced",
+      "callee": "exists_reduced_of",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionCore.lean",
+        "line": 417
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_reduced",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 214
+      }
+    },
+    {
+      "caller": "exists_siegelSet",
+      "callee": "exists_unitriangular_mul_mem",
+      "callsite": {
+        "path": "src/GroundTheory/AutomorphicForms/ReductionSiegel.lean",
+        "line": 263
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CRD-01",
+      "CRD-02"
+    ],
+    [
+      "CRD-02",
+      "CUP-01"
+    ]
+  ],
+  "outstanding": [
+    "The compactness of the norm-one idèle class group, additive compact representatives, height finiteness and adelic Iwasawa decomposition enter through the cited results. The constant is uniform in the matrix and the diagonal ratio is uniform in rank for fixed field. No effective cardinality of the final cusp chart list is asserted."
+  ]
+}
