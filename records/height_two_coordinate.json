@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "HTC-01",
+      "chapter": "normalization",
+      "title": "The CM action forces two Frobenius descents of multiplication by p",
+      "anchor": "normalization-height-two-coordinate",
+      "statement": "For every permitted CM lattice, target inert prime p≥5 with p∤d, chosen complex-to-p-adic embedding and good curve equation over the unramified integers, the reduction of e=[p] has shape H(T^q) with q=p² and H₁ a unit. Thus the first unit coefficient of e has degree q.",
+      "dependencies": [
+        "CIM-02",
+        "CFR-03"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/CMGoodModels/Statement.lean",
+          "lines": [
+            38,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/CMGoodModels/Statement.lean#L38-L55",
+          "declaration": "CM3"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/KurDefs.lean",
+          "lines": [
+            22,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/KurDefs.lean#L22-L36",
+          "declaration": "FrobField, ResClosed"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            25,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L25-L68",
+          "declaration": "cm3"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SubstOfLog.lean",
+          "lines": [
+            57,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SubstOfLog.lean#L57-L86",
+          "declaration": "mulL_homCls, mulL_deriv"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SubstOfLog.lean",
+          "lines": [
+            88,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SubstOfLog.lean#L88-L135",
+          "declaration": "hon_shape, hon_level"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgLevel.lean",
+          "lines": [
+            41,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgLevel.lean#L41-L87",
+          "declaration": "level_le"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The inverse of the unit invariant differential shows e′ is p-divisible. Descent of the endomorphism through T^p twists its CM action, and the conjugates of the CM scalar have unit difference. A second differentiation and descent force the q-power shape. The separately proved torsion bound locates some unit at degree ≤q.",
+      "review": "A second reader checked both descents, the bounded-degree witness and the inference that q is the first unit coefficient."
+    },
+    {
+      "id": "HTC-02",
+      "chapter": "normalization",
+      "title": "The Frobenius equation gives the exact denominator at pure q-powers",
+      "anchor": "normalization-height-two-denominators",
+      "statement": "With W the valuation ring, τ=σ² and 𝒮F=(τF)(T^q), there is a unit c with λ−(c/p)𝒮λ in W[[T]]. In particular for every positive n, v(λₙ)≥−max{j:q^j|n}, with equality at n=q^m for all m≥0, under v(p)=1 and v(0)=+∞.",
+      "dependencies": [
+        "HTC-01"
+      ],
+      "equations": [
+        "normalization-height-two-recurrence"
+      ],
+      "sources": [
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonF.lean",
+          "lines": [
+            166,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonF.lean#L166-L191",
+          "declaration": "hon_series"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonG.lean",
+          "lines": [
+            63,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonG.lean#L63-L87",
+          "declaration": "twisted_division"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean",
+          "lines": [
+            15,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean#L15-L19",
+          "declaration": "hon_regroup"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean",
+          "lines": [
+            220,
+            256
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean#L220-L256",
+          "declaration": "hon_main"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Iterating removal of the linear term gives integral a_i, with a₀ a unit. Twisted triangular division gives bounded t_i. Summing the shifted congruences leaves c=a₀−p t₁. The valuation statements are derived coefficient by coefficient from the displayed source equation.",
+      "review": "A second reader checked the corrected unit, the weak bound away from pure q-powers, and the strict difference of valuations that gives equality at q^m."
+    },
+    {
+      "id": "HTC-03",
+      "chapter": "normalization",
+      "title": "Lifting the normalizing unit and comparing the two logarithms integrally",
+      "anchor": "normalization-height-two-comparison",
+      "statement": "There exists a unit ε in W with ε=cτ(ε). For the standard logarithm ℓ=∑_{j≥0}T^{q^j}/p^j, the series Θ=λ⁻¹(εℓ) belongs to W[[T]], has linear coefficient ε, and has an inverse in W[[T]]. The coordinate used downstream satisfies ℓ∘Θ⁻¹=λ/ε.",
+      "dependencies": [
+        "HTC-02"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean",
+          "lines": [
+            76,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean#L76-L106",
+          "declaration": "lang_semilinear"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean",
+          "lines": [
+            107,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean#L107-L160",
+          "declaration": "lang_semilinear"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+          "lines": [
+            14,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean#L14-L25",
+          "declaration": "ltLog_sub_eq_X"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+          "lines": [
+            115,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean#L115-L166",
+          "declaration": "fin_integral"
+        },
+        {
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean",
+          "lines": [
+            110,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean#L110-L117",
+          "declaration": "FunEqHom_of'"
+        },
+        {
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean",
+          "lines": [
+            124,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean#L124-L129",
+          "declaration": "funEqLowCoeff"
+        },
+        {
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean",
+          "lines": [
+            208,
+            234
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean#L208-L234",
+          "declaration": "invIntegralOfClass"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+          "lines": [
+            165,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean#L165-L178",
+          "declaration": "fin_integral"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            79,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L79-L91",
+          "declaration": "cm3"
+        },
+        {
+          "path": "src/Formalism/LocalToGlobal/GroupLattices/PendingLemmas/ExistsCoprimePowEqOne.lean",
+          "lines": [
+            254,
+            283
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GroupLattices/PendingLemmas/ExistsCoprimePowEqOne.lean#L254-L283",
+          "declaration": "ltIso_of"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Residue-field roots correct the residual error one power of p at a time. After scaling output and input, the normalized series has linear coefficient one and the same functional equation type as ℓ. Stability under integral substitution and comparison with successive integral truncations give an integral solution to f(h)=ℓ. Undoing the input scale gives Θ=εh.",
+      "review": "A second reader checked the signs of the semilinear equation, the two scales, the coefficient induction, and the direction of formal inversion."
+    },
+    {
+      "id": "HTC-04",
+      "chapter": "normalization",
+      "title": "A genuine j=0 curve requires a residue extension beyond the quadratic field",
+      "anchor": "normalization-height-two-example",
+      "statement": "At d=3 and p=5, take the j=0 model y²=x³−1/4. For its standard parameter T=−x/y and normalized curve logarithm, λ₇=−3/28, λ₁₃=15/208, and λ₂₅=99/1280. Consequently 5λ₂₅≡−1 mod 5 and every unit normalizing this functional equation has residue satisfying ε̄²⁴=−1. No such residue lies in 𝔽₂₅.",
+      "dependencies": [
+        "HTC-02",
+        "HTC-03"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/RedModel.lean",
+          "lines": [
+            149,
+            162
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/RedModel.lean#L149-L162",
+          "declaration": "model_of_valDiv"
+        },
+        {
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/EisensteinS2LimitFormula.lean",
+          "lines": [
+            14,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/EisensteinS2LimitFormula.lean#L14-L37",
+          "declaration": "shortW, USerLattice, USerExp"
+        },
+        {
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/CMGoodModels/Statement.lean",
+          "lines": [
+            17,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/CMGoodModels/Statement.lean#L17-L36",
+          "declaration": "cW, wpNum, wpDen, uSer, ltLog"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean",
+          "lines": [
+            220,
+            256
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgHonH.lean#L220-L256",
+          "declaration": "hon_main"
+        },
+        {
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean",
+          "lines": [
+            76,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/SemilinNormPowSubPow.lean#L76-L106",
+          "declaration": "lang_semilinear"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The explicit coefficients are independently derived here by Lagrange inversion from the good-model branch. As a separate check one can invert uSer from the exact cW, wpNum and wpDen definitions at G₂=0,G₃=1. The small discriminant illustrates the local theorem.",
+      "review": "A second reader independently computed the coefficient-extraction identity, all three fractions, the residue sign and the obstruction in 𝔽₂₅. Exact rational series expansion from the source recurrence also recovered the three fractions."
+    }
+  ],
+  "outstanding": [
+    "The integral elliptic formal group and its CM endomorphism, the elliptic torsion estimate placing a unit coefficient in degree at most p², and stability of functional-equation type under arbitrary integral substitution enter through the cited suppliers. The argument here uses the furnished Frobenius lift and algebraically closed residue field of the complete unramified field.",
+    "The coordinate is one input to the curve-to-theta comparison. The torsion translations, tensor operations and expansion in the prescribed frame use additional theorems. The worked local example determines the reduction constraint on ε and does not select a unique unit."
+  ]
+}

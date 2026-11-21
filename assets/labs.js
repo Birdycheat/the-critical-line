@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "flag-average": {
+      title: "Average point values along projective lines",
+      kind: "Finite flag incidence",
+      section: "inputs",
+      params: [
+        choose("q", "Field size q", [2, 3, 5, 25].map(q => [String(q), String(q)]), "25"),
+        choose("points", "Marked points", [["pair", "Opposite pair"], ["collinear", "Three on one line"], ["triangle", "Three in a triangle"]], "pair"),
+      ],
+      caption: "Compare the two three-point configurations. Which new line sums appear when the third point moves off the line? What happens to the squared norm?",
+      method: "In homogeneous coordinates take A=(1:0:0), B=(0:1:0). The pair has weights +1 and −1. For a triple give A and B weight +1 and C weight −2. Use C=(1:1:0) on the line AB or C=(0:0:1) off it. Every line aX+bY+cZ=0 has a unique representative (1,b,c), (0,1,c) or (0,0,1). Enumerate those representatives, summing the marked values at their incident points. For q=25 write each coefficient as u+vt in 𝔽₅[t]/(t²−3), encoded by u+5v. The line test for the collinear third point needs only b=−a. Moving the third point off the common line produces one line of sum +2 and two of sum −1. In both three-point configurations the squared line sums add to 6q.",
+    },
     "jacobi-primes": {
       title: "Test a cubic Jacobi sum at both primes",
       kind: "Cyclotomic character lift",
@@ -154,7 +165,7 @@
         range("a", "Second weight a", 0.25, 3, 0.25, 1),
       ],
       caption:
-        "Both arrows lie on the ray determined by −1/[ρ(ρ−1)]. At τ = 0 this ray points along the positive real axis. Solid and dashed segments mark the two contributions.",
+        "The solid segment starts at the origin. The dashed segment adds the second contribution along the same ray, determined by −1/[ρ(ρ−1)]. At τ = 0 this ray points along the positive real axis. Both axes use the same scale.",
       method:
         "Model two local factors at the same hypothetical zero ρ = β+iτ with multiplicities m and 1, and positive weights 1 and a. Complex division uses the conjugate formula. The plot rescales to the vector length. An inverse-character half-sum uses the same rule after the multiplicities are averaged.",
     },
@@ -350,7 +361,7 @@
   configs.kernel.caption +=
     " The shaded window is centered on the solid peak in logarithmic coordinates. The two percentages record its normalized mass under the kernel and under the envelope.";
   configs.kernel.method +=
-    " For this illustration U=(k/σ)/(1+δ/2). At a boundary v the normalized upper tail is exp(−av) times the sum of (av)ʲ/j! for j=0,…,k. We add these positive terms in log scale and difference the two tails. The proof chooses σ as a function of δ before selecting the window and k.";
+    " For this illustration U=(k/σ)/(1+δ/2) and V=(1+δ)U. Each percentage is the integral of the unit-mass density a·exp(−au)(au)ᵏ/k! from U to V. To evaluate even the smallest percentages, count arrivals in a unit-rate Poisson process. Its (k+1)st arrival lies in (aU,aV] exactly when at most k arrivals occur by aU and enough further arrivals occur by aV. The two counts are independent Poisson variables of means aU and a(V−U). We add their positive probabilities in binary64. The proof chooses σ as a function of δ before selecting the window and k.";
   const fmt = (x, d = 4) =>
     Number(x.toPrecision(d)).toString().replace(/^-/, "−");
   function primeBase(n) {
@@ -402,15 +413,26 @@
   function profile(k, a, u) {
     return u === 0 ? 0 : Math.exp(k * Math.log((u * a) / k) - a * u + k);
   }
-  function upperTail(k, v) {
-    if (v === 0) return 1;
-    const values = [-v];
-    for (let j = 1; j <= k; j++) values.push(values[j - 1] + Math.log(v / j));
-    const max = Math.max(...values);
-    return Math.min(
-      1,
-      Math.exp(max) * values.reduce((sum, x) => sum + Math.exp(x - max), 0),
-    );
+  function gammaWindowMass(k, start, width) {
+    if (width === 0) return 0;
+    const added = [Math.exp(-width)];
+    for (let n = 1; n <= k + 1; n++) added.push(added[n - 1] * width / n);
+    // With no prior arrivals we need at least k+1 new ones. Bound the
+    // omitted tail by a geometric series once the ratios are below one.
+    let term = added[k + 1], enough = term;
+    for (let n = k + 2; ; n++) {
+      const ratio = width / n;
+      term *= ratio;
+      if (ratio < 1 && term <= Number.EPSILON * enough * (1 - ratio)) break;
+      enough += term;
+    }
+    let prior = Math.exp(-start), mass = prior * enough;
+    for (let j = 1; j <= k; j++) {
+      prior *= start / j;
+      enough += added[k + 1 - j];
+      mass += prior * enough;
+    }
+    return mass;
   }
   function eulerQuotients(q, s) {
     const x = q ** (-s - 0.5);
@@ -595,7 +617,41 @@
       .map(([k, v]) => "<div><dt>" + k + "</dt><dd>" + v + "</dd></div>")
       .join("") +
     "</dl>";
+  function flagAverages(q, points) {
+    const histogram = new Map();
+    const characteristic = q === 25 ? 5 : q;
+    function visitLine(a, b, c) {
+      const atA = Number(a === 0), atB = Number(b === 0);
+      const atC = points === "triangle" ? c === 0 : b === (characteristic - a) % characteristic;
+      const sum = points === "pair" ? atA - atB : atA + atB - 2 * Number(atC);
+      histogram.set(sum, (histogram.get(sum) || 0) + 1);
+    }
+    for (let b = 0; b < q; b++) {
+      for (let c = 0; c < q; c++) visitLine(1, b, c);
+    }
+    for (let c = 0; c < q; c++) visitLine(0, 1, c);
+    visitLine(0, 0, 1);
+    return [...histogram].sort(([a], [b]) => a - b);
+  }
   function render(id, v) {
+    if (id === "flag-average") {
+      const q = Number(v.q), counts = flagAverages(q, v.points);
+      const pointSquares = v.points === "pair" ? 2 : 6;
+      const lineSquares = counts.reduce((total, [sum, n]) => total + n * sum * sum, 0);
+      const body = counts.map(([sum, n]) => '<tr><th scope="row">' + fmt(sum) + '</th><td>' + n +
+        '</td><td>' + (sum === 0 ? "0" : fmt(sum) + "/" + (q + 1)) + '</td></tr>').join("");
+      const setup = { pair: "Two points carry +1 and −1.", collinear: "Three points on one line carry +1, +1 and −2.",
+        triangle: "The vertices of a triangle carry +1, +1 and −2." }[v.points];
+      return "<p>" + setup + " Every other point carries 0. Each line averages its " + (q + 1) + " points.</p>" +
+        '<table class="carry-table"><caption>Line averages over 𝔽' +
+        ({2:"₂",3:"₃",5:"₅",25:"₂₅"})[q] + '</caption><thead><tr><th scope="col">Line sum</th>' +
+        '<th scope="col">Lines</th><th scope="col">Average</th></tr></thead><tbody>' + body + '</tbody></table>' +
+        "<p>The squared point values sum to " + pointSquares + ". The squared line averages sum to " +
+        lineSquares + "/" + (q + 1) ** 2 + ". Dividing and taking the square root gives a norm ratio of " +
+        (q === 25 ? "5/26" : "√" + q + "/" + (q + 1)) + " ≈ " + fmt(Math.sqrt(q)/(q + 1)) + ".</p>" +
+        (q === 25 ? "<p>At this field size the Hecke estimate uses 1/5.</p>" :
+          "<p>This small plane illustrates the count. The Hecke estimate uses fields of size at least 25.</p>");
+    }
     if (id === "jacobi-primes") {
       const p = Number(v.p);
       const { root, h, counts, a, b, partner, norm, reductions } = cubicJacobi(p, v.root);
@@ -984,8 +1040,7 @@
         stop = (2 * k) / (s - 2),
         U = k / s / (1 + width / 2),
         V = (1 + width) * U;
-      const mass = (a) =>
-        Math.max(0, upperTail(k, a * U) - upperTail(k, a * V));
+      const mass = (a) => gammaWindowMass(k, a * U, a * (V - U));
       return (
         chart({
           xMax: stop,
@@ -1086,17 +1141,21 @@
         y = im / norm,
         Xt = (m + a) * x,
         Yt = (m + a) * y,
-        L = Math.hypot(Xt, Yt);
+        ySpan = 1.35 * Math.max(Math.abs(Yt), Xt * 122 / 482),
+        xSpan = ySpan * 482 / 122;
+      const xMin = (Xt - xSpan) / 2, xMax = (Xt + xSpan) / 2,
+        yMin = (Yt - ySpan) / 2, yMax = (Yt + ySpan) / 2;
+      const markerRadius = Math.min(4, 0.2 * Math.min(m, a) * Math.hypot(x, y) * 122 / ySpan);
       return (
         chart({
-          xMin: -0.1 * L,
-          xMax: 1.12 * L,
-          yMin: -1.05 * L,
-          yMax: 1.05 * L,
+          xMin, xMax, yMin, yMax,
+          equal: true,
           xt: "real part",
           yt: "imaginary part",
           title: "Two positively weighted residues on the same ray",
           paint: (X, Y, line) =>
+            line([[xMin, 0], [xMax, 0]], "axis") +
+            line([[0, yMin], [0, yMax]], "axis") +
             line([
               [0, 0],
               [m * x, m * y],
@@ -1115,7 +1174,7 @@
                   X(q * x) +
                   '" cy="' +
                   Y(q * y) +
-                  '" r="4" fill="#116c65"/>',
+                  '" r="' + markerRadius + '" fill="#116c65"/>',
               )
               .join(""),
         }) +
@@ -1404,7 +1463,7 @@
     mellin,
     factorial,
     profile,
-    upperTail,
+    gammaWindowMass,
     eulerQuotients,
     rankGrid,
     splitEndpointCoefficients,

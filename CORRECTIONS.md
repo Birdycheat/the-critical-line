@@ -2,6 +2,10 @@
 
 ## 21 November 2026
 
+- The window experiment formerly subtracted two upper tails close to one. At k = 160, σ = 3, δ = 0.1 the displayed envelope mass was zero. A positive Poisson sum gives 2.172022206886884 × 10⁻²⁸ percent. An independent 78-decimal calculation checked both masses for all 29,640 control settings.
+- The residue figure now uses equal horizontal and vertical scales. For β = 0.9 and τ = 0.25 the ray makes an angle of 52.7° with the real axis. The pilot also treats a singleton for which only the inverse character has a zero at the test point.
+- In the incidence step, 5/26 is the exact mean-zero norm for the projective plane over the field of order 25. The double-coset estimate gives 1/√26 and the arithmetic comparison uses 1/5. The three can be distinguished by averaging signed point values on the lines.
+
 - In the CM model the congruence for the singular modulus is at an auxiliary degree-one principal prime. Frobenius at the inert target exchanges the two CM roots. The example keeps the primes 59 and 5 distinct.
 - For an integral character, the residue prime helps determine the lift. In the level-five example, switching the image of ζ from 3 to 9 at 11 changes χ(2) from ζ⁴ to ζ². The absolute order of the character remains five.
 - The moment for the moving differential-form coefficients has order 2am after squaring. The sufficient inequality A<N−1 in the cusp estimate does not decide boundary convergence. The Hilbert-space angle gives 2/5, which the selected period estimate relaxes to 3/5.

@@ -67,6 +67,24 @@ for (const [id, c] of Object.entries(lib.configs)) {
     }
   }
 }
+// Count lines through marked points geometrically, independently of enumeration.
+for (const q of [2, 3, 5, 25]) {
+  const cases = {
+    pair: [[-1, q], [0, q*q - q + 1], [1, q]],
+    collinear: [[-2, q], [0, (q - 1)**2], [1, 2*q]],
+    triangle: [[-2, q-1], [-1, 2], [0, (q - 1)**2], [1, 2*(q-1)], [2, 1]],
+  };
+  for (const [points, expected] of Object.entries(cases)) {
+    const output = lib.render("flag-average", { q: String(q), points });
+    const rows = [...output.matchAll(/scope="row">([^<]+)<\/th><td>(\d+)<\/td><td>([^<]+)<\/td>/g)]
+      .map(([, sum, count, average]) => [Number(sum.replace("−", "-")), Number(count), average.replace("−", "-")]);
+    assert.deepEqual(rows, expected.map(([s,n]) => [s, n, s === 0 ? "0" : s + "/" + (q+1)]));
+    const pointSquares = points === "pair" ? 2 : 6;
+    const lineSquares = expected.reduce((a,[s,n]) => a + s*s*n, 0);
+    assert.equal(lineSquares, q * pointSquares);
+    assert.ok(output.includes("sum to " + lineSquares + "/" + (q+1)**2));
+  }
+}
 function checkSplitEndpoint() {
   for (const q of [2, 3, 4, 5]) {
     for (let degree = 0; degree <= 6; degree++) {
@@ -247,7 +265,36 @@ for (const [sigma, t, r, i] of [
   close(z[0], r, 1e-8);
   close(z[1], i, 1e-8);
 }
-close(lib.upperTail(1, 1), 2 / Math.E, 1e-14);
+// Reference values from the finite gamma survival sums in 100-digit arithmetic.
+for (const [k, s, width, kernel, envelope] of [
+  [5, 3, 0.1, 0.08339816067891856, 0.0032203205676938716],
+  [40, 6, 0.5, 0.7910264271950411, 0.0705607204312009],
+  [80, 3, 0.1, 0.32948243130744614, 2.637981370587153e-16],
+  [160, 3, 0.1, 0.4527989293313142, 2.172022206886884e-30],
+  [160, 12, 1, 0.9999186169230049, 0.9040537071884589],
+]) {
+  const start = k / s / (1 + width / 2);
+  const output = lib.render("kernel", { k, s, width });
+  const percentages = [...output.matchAll(/<dd>([^<]+)%<\/dd>/g)].map(m => Number(m[1]));
+  assert.equal(percentages.length, 2);
+  for (const [i, expected] of [kernel, envelope].entries()) {
+    const rate = s - 2 * i;
+    close(lib.gammaWindowMass(k, rate * start, rate * width * start) / expected, 1, 2e-13);
+    close(percentages[i] / (100 * expected), 1, 5e-4);
+  }
+}
+// Compare plotted displacements with the argument of the complex reciprocal.
+for (const b of [0.1, 0.5, 0.9]) {
+  for (const t of [0, 0.25, 1, 4]) {
+    const output = lib.render("residue", { b, t, m: 2, a: 1.25 });
+    const points = [...output.matchAll(/<circle cx="([^"]+)" cy="([^"]+)"/g)];
+    assert.equal(points.length, 3);
+    const dx = Number(points[2][1]) - Number(points[0][1]);
+    const dy = Number(points[0][2]) - Number(points[2][2]);
+    close(Math.atan2(dy, dx), Math.atan2((2*b - 1)*t, b*(1 - b) + t*t), 1e-13);
+    close((Number(points[1][1]) - Number(points[0][1])) / dx, 2/3.25, 1e-13);
+  }
+}
 for (const q of [2, 3, 5, 7]) {
   for (const s of [0.5, 1.5, 3.5, 4]) {
     const factors = lib.eulerQuotients(q, s);
@@ -258,7 +305,7 @@ for (const q of [2, 3, 5, 7]) {
     close(factors.inert, inertNumerator / factors.normalizer, 1e-14);
   }
 }
-close(lib.upperTail(3, 0), 1, 0);
+close(lib.gammaWindowMass(3, 2, 0), 0, 0);
 const residues = [2, 3, 4, 1];
 const distinctGridStates = new Set();
 for (const a of [2, 3, 4]) {
@@ -363,9 +410,8 @@ assert.equal(lib.bernoulliCarries(1, 2).cleared, 240);
 const bernoulli3 = (x) => x * (x - 0.5) * (x - 1);
 close(9 * (bernoulli3(1 / 3) - bernoulli3(2 / 3)), 2 / 3, 1e-14);
 close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
-assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all 12 flag-incidence distributions, positive gamma masses, complex residue angles, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

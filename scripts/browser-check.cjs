@@ -92,7 +92,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "jacobi-primes") {
+        if (id === "flag-average") {
+          assert.equal(await fig.locator("table caption").innerText(), "Line averages over 𝔽₂₅");
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["25", "−1/26", "601", "0", "25", "1/26"]);
+        } else if (id === "jacobi-primes") {
           assert.equal(await fig.locator("table caption").innerText(), "Two primes above 7");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "0", "3"]);
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
@@ -131,6 +134,12 @@ async function run() {
         "book overflows " + width,
       );
     }
+    await page.goto(base + "book.html?flag-average.q=2&flag-average.points=triangle#fig-flag-average");
+    const flags = page.locator("#fig-flag-average.ready");
+    assert.equal(await flags.locator("table caption").innerText(), "Line averages over 𝔽₂");
+    assert.deepEqual(await flags.locator("tbody td").allInnerTexts(), ["1", "−2/3", "2", "−1/3", "1", "0", "2", "1/3", "1", "2/3"]);
+    await page.goto(base + "book.html?kernel.k=160&kernel.s=3&kernel.width=0.1#fig-kernel");
+    assert.equal(await page.locator("#fig-kernel.ready .metrics dd").last().innerText(), "2.172e-28%");
     await page.goto(base + "book.html?ramp.x=30&ramp.chi=four#fig-ramp");
     await page.locator("#fig-ramp.ready").waitFor();
     assert.equal(await page.locator("#field-ramp-x").inputValue(), "30");
