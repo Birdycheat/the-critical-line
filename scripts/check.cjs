@@ -112,6 +112,29 @@ for (const q of [2, 3, 5, 25]) {
     assert.ok(output.includes("sum to " + lineSquares + "/" + (q+1)**2));
   }
 }
+function checkInertLength() {
+  // Enumerate the row image of the scaled matrix itself over F3[i], i² = −1.
+  const mod = n => ((n % 3) + 3) % 3;
+  const add = ([x, y], [u, v]) => [mod(x + u), mod(y + v)];
+  const mul = ([x, y], [u, v]) => [mod(x * u - y * v), mod(x * v + y * u)];
+  const label = ([x, y]) => ["0", "1", "2", "i", "1 + i", "2 + i", "2i", "1 + 2i", "2 + 2i"][x + 3 * y];
+  const field = Array.from({ length: 9 }, (_, k) => [k % 3, Math.floor(k / 3)]);
+  for (const s of [1, 2]) for (const t of [0, 1, 2]) {
+    const scaled = [[3, 3, s, [-s, t]], [0, 9, 0, -3*s], [0, 0, 1, -1], [0, 0, 0, 3]];
+    const rows = scaled.map(row => row.map(z => add([0, 0], Array.isArray(z) ? z : [z, 0])));
+    for (const i of [1, 3]) assert.ok(rows[i].every(z => label(z) === "0"));
+    const combine = (a, b) => rows[0].map((z, j) => add(mul(a, z), mul(b, rows[2][j])));
+    const image = new Set(field.flatMap(a => field.map(b => JSON.stringify(combine(a, b)))));
+    const rank = {9: 1, 81: 2}[image.size];
+    assert.ok(rank, "Unexpected number of images in the row span");
+    const result = lib.render("inert-length", {s: String(s), t: String(t)});
+    const values = [...result.matchAll(/<td>([^<]+)<\/td>/g)].map(match => match[1]);
+    assert.deepEqual(values, [...rows[0], ...rows[2], ...combine([1, 0], [-s, 0])].map(label));
+    const metrics = [...result.matchAll(/<dd>(\d+)<\/dd>/g)].map(match => Number(match[1]));
+    assert.deepEqual(metrics, [rank, rank, image.size]);
+  }
+}
+checkInertLength();
 function checkSplitEndpoint() {
   for (const q of [2, 3, 4, 5]) {
     for (let degree = 0; degree <= 6; degree++) {
@@ -282,6 +305,40 @@ for (const p of [2, 3, 5, 7, 11])
       v,
     );
   }
+// A learner can use the printed bounds literally, even when the denominator is 12.
+for (const p of [2, 3, 5, 7, 11]) {
+  let valuation = 0;
+  for (let d = 1; d <= 160; d++) {
+    for (let n = d; n % p === 0; n /= p) valuation++;
+    const result = lib.render("padic", { p: String(p), d });
+    const values = [...result.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => {
+      const [n, den = "1"] = m[1].replace("−", "-").split("/");
+      return [Number(n), Number(den)];
+    });
+    assert.deepEqual(values[0], [valuation, 1]);
+    const den = p*p - 1;
+    for (const [i, n] of [d - 1, den * valuation - (d - 1)].entries()) {
+      assert.equal(den * values[i + 1][0], n * values[i + 1][1]);
+      assert.ok(values[i + 1][1] > 0);
+    }
+  }
+}
+for (const b of [0.52, 0.76, 0.98]) {
+  for (const side of ["left", "right"]) {
+    const start = Number((side === "left" ? 1-b : b).toFixed(2));
+    const image = Number((1-start).toFixed(2));
+    const result = lib.render("reflection", {b, side, fraction:0.5, epsfrac:0.5});
+    assert.ok(result.includes("The starting zero of ψ is at " + start + " + i."));
+    assert.ok(result.includes("a zero of ψ⁻¹ at " + image + " − i."));
+    assert.ok(result.includes("a zero of ψ at " + image + " + i."));
+    const [solid, open] = [...result.matchAll(/<circle cx="([^"]+)" cy="([^"]+)"/g)];
+    const square = result.match(/<rect x="([^"]+)" y="([^"]+)" width="8" height="8"/);
+    close(Number(open[1]), Number(square[1])+4, 1e-10);
+    close(Number(open[2]), Number(solid[2]), 1e-10);
+    assert.ok(Number(square[2])+4 > Number(open[2]));
+    assert.equal(Number(solid[1]) < Number(open[1]), side === "left");
+  }
+}
 close(lib.profile(60, 6, 10), 1, 1e-14);
 for (const [sigma, t, r, i] of [
   [2, 0, Math.PI ** 2 / 6, 0],
@@ -362,6 +419,8 @@ for (const a of [2, 3, 4]) {
 }
 assert.equal(distinctGridStates.size, 9);
 for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes(lib.render("inert-length", lib.defaults("inert-length"))),
+    "Missing complete default inert lattice experiment in " + name);
   assert.ok(html[name].includes(lib.render("jacobi-primes", lib.defaults("jacobi-primes"))),
     "Missing complete default cubic Jacobi experiment in " + name);
   assert.ok(html[name].includes('<caption>Endpoint coefficients through degree 7 in X (q = 2)</caption>'),
@@ -440,5 +499,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

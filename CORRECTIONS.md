@@ -2,6 +2,12 @@
 
 ## 21 November 2026
 
+- In the rank-four inert example every entry has the same valuation in both matrices. Eliminating the middle row leaves a corrected corner of 0 or i/3. The quotient has 9 or 81 elements, respectively. The rank-three value 65/54 elsewhere in the chapter is one diagonal cell; the Euler factor sums over all diagonal labels.
+- The Hecke estimate needs orthogonality to the common fixed space. A mean-zero coefficient has zero projection to that space because its members are constant almost everywhere. The coefficient itself can have positive norm.
+- In the height-two normalization the torsion product gives an upper bound on the degree of the first unit. Exact degree p² uses the inert CM action. The translated theta factor divides by F(t), which is its value at the translating point before translation.
+- At p = 5 and derivative order 27 the p-adic figure now displays exactly 13/12 for the allowed loss and 59/12 for the guaranteed gain. Decimal rounding could put the displayed loss below its upper bound or the displayed gain above its lower bound. The reflection figure identifies the starting character, its inverse at 1−s and the conjugate return to the original character.
+- Following a link to a proof could scroll to a closed disclosure. A direct address, the outline and a repeated click on the current address now open the requested proof including its enclosing disclosures.
+
 - At a good inert place, a surviving row must have a corner satisfying the exact trace relation. The level condition f≥2e gives such a corner for every row counted by the index. It is sharp for the displayed row 1/2 in the unramified extension of ℚ₂. The dyadic example concerns the local lemma. The chain requires every dyadic place outside its exceptional set to split.
 - Finiteness of the cusp cover concerns the chart labels. The common diagonal variables still range over an unbounded set. The determinant adjustment uses a finite list of unit classes and place-dependent scalar roots. Overlapping charts suffice because the integrand is nonnegative.
 - The window experiment formerly subtracted two upper tails close to one. At k = 160, σ = 3, δ = 0.1 the displayed envelope mass was zero. A positive Poisson sum gives 2.172022206886884 × 10⁻²⁸ percent. An independent 78-decimal calculation checked both masses for all 29,640 control settings.

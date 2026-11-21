@@ -95,6 +95,10 @@ async function run() {
         if (id === "inert-cell") {
           assert.equal(await fig.locator("table caption").innerText(), "One inert cell at q = 3, a = 0");
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["9", "9", "78"]);
+        } else if (id === "inert-length") {
+          assert.equal(await fig.locator("table caption").innerText(), "Rows of 3G modulo 3 at s = 1, t = 0");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "1", "9"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["0", "0", "0", "0"]);
         } else if (id === "flag-average") {
           assert.equal(await fig.locator("table caption").innerText(), "Line averages over 𝔽₂₅");
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["25", "−1/26", "601", "0", "25", "1/26"]);
@@ -141,6 +145,20 @@ async function run() {
     const flags = page.locator("#fig-flag-average.ready");
     assert.equal(await flags.locator("table caption").innerText(), "Line averages over 𝔽₂");
     assert.deepEqual(await flags.locator("tbody td").allInnerTexts(), ["1", "−2/3", "2", "−1/3", "1", "0", "2", "1/3", "1", "2/3"]);
+    await page.goto(base + "book.html?inert-length.s=2&inert-length.t=2#fig-inert-length");
+    const inertLength = page.locator("#fig-inert-length.ready");
+    assert.deepEqual(await inertLength.locator(".metrics dd").allInnerTexts(), ["2", "2", "81"]);
+    assert.deepEqual(await inertLength.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "0", "2", "1 + 2i"]);
+    assert.equal(await inertLength.locator("tbody tr").last().locator("th").innerText(), "R₁ − 2R₃");
+    assert.deepEqual(await inertLength.locator("tbody tr").last().locator("td").allInnerTexts(), ["0", "0", "0", "2i"]);
+    await inertLength.getByRole("combobox", {name: "Imaginary coefficient t"}).press("Home");
+    assert.deepEqual(await inertLength.locator(".metrics dd").allInnerTexts(), ["1", "1", "9"]);
+    const inertShare = new URL(await inertLength.locator("[data-share]").getAttribute("href"));
+    assert.equal(inertShare.hash, "#fig-inert-length");
+    assert.equal(inertShare.searchParams.get("inert-length.s"), "2");
+    assert.equal(inertShare.searchParams.has("inert-length.t"), false);
+    await page.goto(inertShare.href);
+    assert.equal(await inertLength.locator("table caption").innerText(), "Rows of 3G modulo 3 at s = 2, t = 0");
     await page.goto(base + "book.html?inert-cell.q=5&inert-cell.diagonal=-1&inert-cell.excess=3#fig-inert-cell");
     const cell = page.locator("#fig-inert-cell.ready");
     assert.equal(await cell.locator("table caption").innerText(), "One inert cell at q = 5, a = −1");
@@ -148,6 +166,22 @@ async function run() {
     await page.goto(base + "book.html?kernel.k=160&kernel.s=3&kernel.width=0.1#fig-kernel");
     assert.equal(await page.locator("#fig-kernel.ready .metrics dd").last().innerText(), "2.172e-28%");
     await page.goto(base + "book.html?ramp.x=30&ramp.chi=four#fig-ramp");
+    const proofPage = await context.newPage();
+    await proofPage.goto(base + "book.html#inputs-flag-gap");
+    const proof = proofPage.locator("#inputs-flag-gap");
+    assert.ok(await proof.locator("p").first().isVisible(), "Direct link must open the proof");
+    await proof.locator("summary").click();
+    await proofPage.locator("#outline-local-counts").evaluate(e => { e.open = true; });
+    await proofPage.locator('#outline-local-counts a[href="#inputs-flag-gap"]').click();
+    assert.ok(await proof.locator("p").first().isVisible(), "Repeated link must reopen its proof");
+    await proofPage.goto(base + "book.html?reflection.side=left#fig-reflection");
+    const reflection = proofPage.locator("#fig-reflection.ready");
+    assert.ok((await reflection.locator("[data-result]").innerText()).includes("a zero of ψ⁻¹ at 0.76 − i"));
+    await reflection.getByRole("combobox", {name:"Starting zero of ψ"}).press("Home");
+    assert.ok((await reflection.locator("[data-result]").innerText()).includes("a zero of ψ⁻¹ at 0.24 − i"));
+    await proofPage.goto(base + "book.html?padic.d=27#fig-padic");
+    assert.deepEqual(await proofPage.locator("#fig-padic.ready .metrics dd").allInnerTexts(), ["6","13/12","59/12"]);
+    await proofPage.close();
     await page.locator("#fig-ramp.ready").waitFor();
     assert.equal(await page.locator("#field-ramp-x").inputValue(), "30");
     assert.equal(await page.locator("#field-ramp-chi").inputValue(), "four");
@@ -276,6 +310,8 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    assert.ok(await page.locator("#fig-inert-length table").isVisible());
+    assert.deepEqual(await page.locator("#fig-inert-length .metrics dd").allInnerTexts(), ["1", "1", "9"]);
     assert.equal(await page.locator(".site-header").isVisible(), false);
     assert.ok(await page.locator("#fig-jacobi-primes table").isVisible());
     assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
@@ -297,6 +333,8 @@ async function run() {
     assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
     const staticJacobi = plain.locator("#fig-jacobi-primes");
+    assert.deepEqual(await plain.locator("#fig-inert-length .metrics dd").allInnerTexts(), ["1", "1", "9"]);
+    assert.equal(await plain.locator("#fig-inert-length tbody tr").count(), 3);
     assert.equal(await staticJacobi.locator("caption").innerText(), "Two primes above 7");
     assert.deepEqual(await staticJacobi.locator(".metrics dd").allInnerTexts(), ["2", "0", "3"]);
     assert.deepEqual(await staticJacobi.locator("tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);

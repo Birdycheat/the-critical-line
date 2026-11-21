@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "ILT-01",
+      "title": "The exact excess length and the two thresholds",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-length",
+      "statement": "For every unramified unitary cell with signed outer valuation a and middle block g of length h, use an integral fraction U,V,C for g with v(det C)=h. For each radical representative (r,b,c), put α=max(a,0), R=d(rC), S=d(c−r·CVgb) and t=max(0,R−α), where d is the least nonnegative denominator exponent. The full length is |a|+h+max(2t,S−2α). The ball through |a|+h+j is therefore defined by R≤α+floor(j/2) and S≤2α+j, for all integers j≥0.",
+      "dependencies": [
+        "ILT-02"
+      ],
+      "equations": [
+        "lifts-inert-length-test"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean",
+          "lines": [
+            126,
+            131
+          ],
+          "declaration": "unramDoublingInert",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnramifiedDoublingIntegralInertPlace.lean#L126-L131"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean",
+          "lines": [
+            21,
+            34
+          ],
+          "declaration": "constTerm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasSumSpherical.lean#L21-L34"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            115,
+            123
+          ],
+          "declaration": "LatLen, hasLen_of_latLen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L115-L123"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            37,
+            43
+          ],
+          "declaration": "IsFrac, HasLen, len",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L37-L43"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            58,
+            65
+          ],
+          "declaration": "leviElt_mul_rad_entries",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L58-L65"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            282,
+            287
+          ],
+          "declaration": "Pointwise",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L282-L287"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            99,
+            119
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L99-L119"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            146,
+            172
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L146-L172"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            174,
+            213
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L174-L213"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The published source states the equivalent pointwise inequalities. Its proof computes length as |a|+h+t+t′, with t′ the least nonnegative integer at least t clearing the final coefficient. Substitution yields the maximum formula in additive valuations for either sign of a.",
+      "review": "A second reader checked the minimizing exponents, the sign convention for the determinant and the equivalent levels, including all-zero rows."
+    },
+    {
+      "id": "ILT-02",
+      "title": "The triangular span and the cost of one extra row",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-length-derivation",
+      "statement": "Mixed middle rows (0,C⁻¹,Vgb) produce a last-coordinate generator y=ϖ^{−α−t}. Use the first standard row when a≥0 and the first row of the cell matrix when a<0 to form the triangular block matrix P. The full lattice is generated by the rows of P and one additional row with coordinates ρ=(0,ϖ^α rC,ϖ^α(c−r·CVgb)/y). Since −v(det P)=|a|+h+t, replacing a row at the largest denominator exponent t′=max(t,S−2α−t) computes the full length.",
+      "dependencies": [],
+      "equations": [
+        "lifts-inert-length-extra"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            10,
+            25
+          ],
+          "declaration": "rowM, rowM_mid, rowM_last",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L10-L25"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            40,
+            63
+          ],
+          "declaration": "rowsP, det_rowsP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L40-L63"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            99,
+            119
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L99-L119"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            122,
+            145
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L122-L145"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            282,
+            301
+          ],
+          "declaration": "spanEq_holds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L282-L301"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            185,
+            201
+          ],
+          "declaration": "spanEq_holds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L185-L201"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            210,
+            224
+          ],
+          "declaration": "spanEq_holds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L210-L224"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean",
+          "lines": [
+            155,
+            163
+          ],
+          "declaration": "rho_mul",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BlockTriangularRowLatticeTriangularBasis.lean#L155-L163"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            146,
+            172
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L146-L172"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LatticeAddVectorDetValuation.lean",
+          "lines": [
+            15,
+            43
+          ],
+          "declaration": "addVec",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LatticeAddVectorDetValuation.lean#L15-L43"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            174,
+            213
+          ],
+          "declaration": "pointwise_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L174-L213"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            115,
+            123
+          ],
+          "declaration": "LatLen, hasLen_of_latLen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L115-L123"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The duality equivalence bounds both pure final-column contributions by the same row test. The triangular calculation is signed before the extra row is adjoined. Row replacement increases the determinant denominator by exactly t′ and preserves the enlarged lattice.",
+      "review": "A second reader checked the actual operations in both sign cases, the denominator y, the extra row and the pivot argument."
+    },
+    {
+      "id": "ILT-03",
+      "title": "Identical entry valuations can give distinct inert lengths",
+      "chapter": "lifts",
+      "anchor": "lifts-inert-length-example",
+      "statement": "Over ℚ₃(i), the middle block diag(3,1/3), outer exponent zero, row (1,1/3) and paired column (−1/3,−1) admit corners −1/3 and (−1+i)/3. The two matrices have entrywise identical valuations and lengths respectively 1 and 2, because the corrected corners are 0 and i/3.",
+      "dependencies": [
+        "ILT-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean",
+          "lines": [
+            58,
+            65
+          ],
+          "declaration": "leviElt_mul_rad_entries",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeviRadicalProductLengthOfLatticeSteps.lean#L58-L65"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHeisenbergRadicalCoordinates.lean",
+          "lines": [
+            158,
+            165
+          ],
+          "declaration": "Heisenberg₂",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHeisenbergRadicalCoordinates.lean#L158-L165"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            37,
+            43
+          ],
+          "declaration": "IsFrac, HasLen, len",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L37-L43"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean",
+          "lines": [
+            115,
+            123
+          ],
+          "declaration": "LatLen, hasLen_of_latLen",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/HasLenOfLatLen.lean#L115-L123"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "This independent local specialization verifies the hypotheses for the chosen C,U,V, and checks the length by reducing the explicit rows modulo the standard lattice. The two quotients have residue-field dimensions 1 and 2.",
+      "review": "A second reader verified the trace, the matrix entries, the subtraction giving c+1/3, and both lengths and cardinalities."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "ILT-01",
+      "IZS-01"
+    ]
+  ],
+  "outstanding": [
+    "The unitary block coordinates and the duality identity for the row and the two columns enter through their cited suppliers. The next two pieces count admissible rows, construct their lifts and count the corners in each fiber."
+  ]
+}

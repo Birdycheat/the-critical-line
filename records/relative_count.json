@@ -1,0 +1,644 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the written kernel expansion and orthonormal trace proof, the near/far/deep error split, the scalar absorption, the concrete count-constant supplier, and the chosen family comparison. The example uses a two-point rank-one orthogonal projection.",
+  "claims": [
+    {
+      "id": "RPC-01",
+      "chapter": "global",
+      "title": "One projector gives the integer and the reference mass",
+      "anchor": "global-relative-trace",
+      "statement": "The finite-dimensional e-selected archimedean multiplicity D is the integral over the fundamental domain of the real diagonal of the geometric kernel. The rational identity contributes c₀ times the quotient volume, which is the main term M.",
+      "hypotheses": "Tensor product discrete series, chosen lowest unit vectors with their formal degrees for the specified Haar measures, admissible finite-place idempotent, Haar fundamental domain, finite-dimensional multiplicity space, and the convergence and representative hypotheses of kernelB.",
+      "definitions": [
+        "D=finrankℂ eHom, the image after postcomposition by R_e of continuous archimedean intertwiners into automorphic L².",
+        "K(x,z)=Σ_{γ∈G(F)} φ(x⁻¹γz). The φ factor is the product of formal degrees times the conjugated product of matrix coefficients times e at the finite component.",
+        "c₀=(∏_v d_v) Re e(1), V=μ(F), M=c₀V. Here F in μ(F) denotes the fundamental domain, while G(F) uses the underlying number field."
+      ],
+      "equations": [
+        "global-relative-diagonal"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "HomS, eHom, Dcount, vol, Dstar",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/GlobAut.lean",
+          "lines": [
+            174,
+            206
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/GlobAut.lean#L174-L206"
+        },
+        {
+          "declaration": "kern, IsDSData, ph, phe, mainTerm",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            74,
+            95
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L74-L95"
+        },
+        {
+          "declaration": "kernelB: orthogonal projection and continuous basis representatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean",
+          "lines": [
+            166,
+            187
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean#L166-L187"
+        },
+        {
+          "declaration": "kernelB: equality of the kernels and trace",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean",
+          "lines": [
+            188,
+            217
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean#L188-L217"
+        },
+        {
+          "declaration": "GlobalTheory.T.kernelB'",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePhStatement.lean",
+          "lines": [
+            9,
+            10
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePhStatement.lean#L9-L10"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds: selected kernel and main term",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            79,
+            92
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L79-L92"
+        },
+        {
+          "declaration": "nearAbs_measurable_and_split: remove identity in the summable series",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearAbsMeasurableAndSplit.lean",
+          "lines": [
+            79,
+            104
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearAbsMeasurableAndSplit.lean#L79-L104"
+        }
+      ],
+      "correspondence": "The two expressions for the projected operator agree on compactly supported inputs. Pairing gives an almost-everywhere identity, and uniqueness of continuous automorphic representatives gives pointwise equality. Integrating the D squared basis-vector moduli gives D. The signed deviation comes from subtracting the constant identity contribution.",
+      "status": "mathematical proof reconstructed",
+      "review": "A separate reader traced the kernel expansion, error terms, thresholds, signature, signed example and one-sided family consumer against the pinned source."
+    },
+    {
+      "id": "RPC-02",
+      "chapter": "global",
+      "title": "Four error contributions on a quotient of positive negative index",
+      "anchor": "global-relative-error",
+      "statement": "With U=n f log n, α=exp(−U/4), δ=exp(−n² f), the indefinite unitary count satisfies |D−M|≤(2α+δ)M+δD.",
+      "hypotheses": "Fix A≥0 before choosing n₀. CountHyp requires uniform signature (p,q), q²≤n, n≥n₀(A), log rd≤exp(n), log f≤√n, b≥2, log b≤exp(U/16), |λ_{v,i}|≤b², 1≤g≤b^A, and a completely split auxiliary prime g₀>4n. The required opposite-sign spectral gap is at least 8·10^14(A+4)n^19 f^5 log(b rd). The tensor, Haar and admissible-projector data also enter. The indefinite branch requires q≥1; the definite q=0 branch invokes an exact count.",
+      "definitions": [
+        "U=n f log n, α=e^(−U/4) and δ=e^(−n²f).",
+        "Moderate means least(x)≥(n f rd g b)^(−11q). Least(x) is the infimum of normalized sizes of nonzero sublattices. Deep is the complement in the fundamental domain.",
+        "Near means a nonzero rational term satisfies the archimedean test at all places with epN=10^(−6)n^(−8)f^(−2). Only near nonidentity terms enter nearAbs."
+      ],
+      "equations": [
+        "global-relative-four"
+      ],
+      "dependencies": [
+        "RPC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "size and leastSize",
+          "path": "src/Formalism/HarderNarasimhan/StatementPl.lean",
+          "lines": [
+            33,
+            45
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/StatementPl.lean#L33-L45"
+        },
+        {
+          "declaration": "IsNear, epN, tauStar, CountHyp",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            99,
+            115
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L99-L115"
+        },
+        {
+          "declaration": "moderate, nearNe, nearAbs, nearBound, NearModerate",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean",
+          "lines": [
+            15,
+            29
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean#L15-L29"
+        },
+        {
+          "declaration": "farSet, farSum and FarModerate",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/FarTermSum.lean",
+          "lines": [
+            15,
+            28
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/FarTermSum.lean#L15-L28"
+        },
+        {
+          "declaration": "FlagRare",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/RareFlags.lean",
+          "lines": [
+            10,
+            14
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/RareFlags.lean#L10-L14"
+        },
+        {
+          "declaration": "deepSet and DeepBound",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/DeepSetBound.lean",
+          "lines": [
+            12,
+            19
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/DeepSetBound.lean#L12-L19"
+        },
+        {
+          "declaration": "abs_integral_sub_const_mul_le_of_split: decomposition",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsIntegralSubConstMulLeOfSplit.lean",
+          "lines": [
+            7,
+            19
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsIntegralSubConstMulLeOfSplit.lean#L7-L19"
+        },
+        {
+          "declaration": "abs_integral_sub_const_mul_le_of_split: absolute-value estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsIntegralSubConstMulLeOfSplit.lean",
+          "lines": [
+            32,
+            46
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsIntegralSubConstMulLeOfSplit.lean#L32-L46"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds: thresholds and definite branch",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            34,
+            61
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L34-L61"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds: pointwise split and three integrated estimates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            79,
+            114
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L79-L114"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds: rare flags and trace identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            115,
+            142
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L115-L142"
+        },
+        {
+          "declaration": "countingTheorem_of_volumeStep: four selected independent suppliers",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+          "lines": [
+            37,
+            49
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean#L37-L49"
+        },
+        {
+          "declaration": "discreteSeries_counting_of_finite_and_bounds statement wrapper",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBoundsStatement.lean",
+          "lines": [
+            16,
+            18
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBoundsStatement.lean#L16-L18"
+        }
+      ],
+      "correspondence": "On the moderate set subtract the identity before summing the near and far moduli. On the deep set positivity bounds the signed integral difference by the sum of kernel mass δD and the missing identity mass αM. The rare-flag estimate at size 1/2 applies because the deep threshold is smaller. This yields the four costs αM, δM, αM and δD.",
+      "status": "mathematical proof reconstructed",
+      "review": "A separate reader traced the kernel expansion, error terms, thresholds, signature, signed example and one-sided family consumer against the pinned source."
+    },
+    {
+      "id": "RPC-03",
+      "chapter": "global",
+      "title": "Absorption of the true rank and the upper half used by the frame",
+      "anchor": "global-relative-absorb",
+      "statement": "For n≥exp(15), f≥1, the four-term bound implies |D−M|≤exp(−nf log n/16)M. The family comparison gives the same bilateral estimate for (Dall,Dstar), with n=r. The frame takes Dall≤(1+exp(−rf log r/16))Dstar.",
+      "hypotheses": "Use the previous estimate, D,M≥0 and the rank threshold. Before the tied family data vary, the uniform theorem chooses its n₀(A) and gap constant C₀(A); all n₁≥n₀ and C≥C₀ are allowed. The chosen signature has q=rS+1=m/2≥1 and the concrete count supplied from the convergent unitary Siegel–Weil interface has exponent 1/16.",
+      "definitions": [
+        "If X=|D−M| then D≤M+X, and (1−δ)X≤(2α+2δ)M.",
+        "Under the threshold, α and δ are each at most exp(−U/16)/8 and δ≤1/2.",
+        "The tie identifies the dimension, main term, unitary rank, number of places, and root discriminant of the model and the family member."
+      ],
+      "equations": [
+        "global-relative-four"
+      ],
+      "dependencies": [
+        "RPC-02"
+      ],
+      "sources": [
+        {
+          "declaration": "abs_sub_le_exp_neg_sixteenth_mul",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsSubLeExpNegSixteenthMul.lean",
+          "lines": [
+            7,
+            43
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsSubLeExpNegSixteenthMul.lean#L7-L43"
+        },
+        {
+          "declaration": "unitaryAutomorphicCounting_unbundled: choices and formal degrees",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingUnbundled.lean",
+          "lines": [
+            40,
+            55
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingUnbundled.lean#L40-L55"
+        },
+        {
+          "declaration": "unitaryAutomorphicCounting_unbundled: hypotheses and exponent",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingUnbundled.lean",
+          "lines": [
+            61,
+            74
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingUnbundled.lean#L61-L74"
+        },
+        {
+          "declaration": "count_typed_of_volumeStep",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountTypedOfVolumeStep.lean",
+          "lines": [
+            12,
+            19
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountTypedOfVolumeStep.lean#L12-L19"
+        },
+        {
+          "declaration": "unitaryAutomorphicCounting_of_compactDualVolumeRatio",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRatStatement.lean",
+          "lines": [
+            17,
+            19
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRatStatement.lean#L17-L19"
+        },
+        {
+          "declaration": "count_constants_of_siegelWeil",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountConstantsOfSiegelWeil.lean",
+          "lines": [
+            11,
+            24
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountConstantsOfSiegelWeil.lean#L11-L24"
+        },
+        {
+          "declaration": "row_counts_of_ties",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RowCountsOfLinkedTies.lean",
+          "lines": [
+            14,
+            23
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RowCountsOfLinkedTies.lean#L14-L23"
+        },
+        {
+          "declaration": "epsS_false_iff and card_epsS_false",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/HaarTransversals/UnitaryHaarProducts/InHHDef.lean",
+          "lines": [
+            171,
+            195
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/HaarTransversals/UnitaryHaarProducts/InHHDef.lean#L171-L195"
+        },
+        {
+          "declaration": "admissibility_ten_of_rows_class: row signature and hypotheses",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BridgeCountE.lean",
+          "lines": [
+            126,
+            160
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BridgeCountE.lean#L126-L160"
+        },
+        {
+          "declaration": "count_rows_class_of_count_class: transfer D, Dstar and exponents",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BridgeCountE.lean",
+          "lines": [
+            164,
+            181
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BridgeCountE.lean#L164-L181"
+        },
+        {
+          "declaration": "theoremS_link_of_evaluation",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+          "lines": [
+            97,
+            106
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean#L97-L106"
+        },
+        {
+          "declaration": "linkS_concl: upper half of the absolute error",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            186,
+            204
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L186-L204"
+        }
+      ],
+      "correspondence": "Move δX to the left and use δ≤1/2. The absolute bound holds even when M=0. In the chosen family the tie rewrites the comparison, then linkS_concl takes the second component returned by abs_le. The two-point projection illustrates the trace and the signed difference alone.",
+      "status": "mathematical proof reconstructed",
+      "review": "A separate reader traced the kernel expansion, error terms, thresholds, signature, signed example and one-sided family consumer against the pinned source."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "row_counts_of_ties",
+      "callee": "count_constants_of_siegelWeil",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RowCountsOfLinkedTies.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "count_constants_of_siegelWeil",
+      "callee": "count_typed_of_volumeStep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountConstantsOfSiegelWeil.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "count_constants_of_siegelWeil",
+      "callee": "volumeStep_of_siegelWeil",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountConstantsOfSiegelWeil.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "count_constants_of_siegelWeil",
+      "callee": "count_class_of_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountConstantsOfSiegelWeil.lean",
+        "line": 24
+      }
+    },
+    {
+      "caller": "count_typed_of_volumeStep",
+      "callee": "unitaryAutomorphicCounting_of_compactDualVolumeRatio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountTypedOfVolumeStep.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "count_typed_of_volumeStep",
+      "callee": "unitaryAutomorphicCounting_unbundled",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountTypedOfVolumeStep.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "unitaryAutomorphicCounting_of_compactDualVolumeRatio",
+      "callee": "countingTheorem_of_volumeStep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRatStatement.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "countingTheorem_of_volumeStep",
+      "callee": "nearModerate",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "countingTheorem_of_volumeStep",
+      "callee": "farTermsModerateRegion_of_flagBound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "countingTheorem_of_volumeStep",
+      "callee": "flagRare_of_nonzeroFlagBound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "countingTheorem_of_volumeStep",
+      "callee": "deepRegion_kernelDiagonal_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 48
+      }
+    },
+    {
+      "caller": "countingTheorem_of_volumeStep",
+      "callee": "discreteSeries_counting_of_finite_and_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "discreteSeries_counting_of_finite_and_bounds",
+      "callee": "countingTheorem_of_finite_of_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBoundsStatement.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "countingTheorem_of_finite_of_bounds",
+      "callee": "kernelB'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+        "line": 80
+      }
+    },
+    {
+      "caller": "kernelB'",
+      "callee": "kernelB",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePhStatement.lean",
+        "line": 10
+      }
+    },
+    {
+      "caller": "kernelB",
+      "callee": "globalConvolutionOrthogonalProjector_proof",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean",
+        "line": 172
+      }
+    },
+    {
+      "caller": "kernelB",
+      "callee": "exists_orthonormal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean",
+        "line": 176
+      }
+    },
+    {
+      "caller": "kernelB",
+      "callee": "ae_eq_of_pairing",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IntegrablePh.lean",
+        "line": 193
+      }
+    },
+    {
+      "caller": "countingTheorem_of_finite_of_bounds",
+      "callee": "nearAbs_measurable_and_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+        "line": 82
+      }
+    },
+    {
+      "caller": "countingTheorem_of_finite_of_bounds",
+      "callee": "abs_integral_sub_const_mul_le_of_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+        "line": 97
+      }
+    },
+    {
+      "caller": "countingTheorem_of_finite_of_bounds",
+      "callee": "abs_sub_le_exp_neg_sixteenth_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+        "line": 135
+      }
+    },
+    {
+      "caller": "theoremS_link_of_evaluation",
+      "callee": "count_rows_class_of_count_class",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+        "line": 104
+      }
+    },
+    {
+      "caller": "theoremS_link_of_evaluation",
+      "callee": "countOwn_of_rowsPEv",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "linkS_concl",
+      "callee": "abs_le",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 201
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RPC-01",
+      "RPC-02"
+    ],
+    [
+      "RPC-02",
+      "RPC-03"
+    ],
+    [
+      "RPC-03",
+      "GRM-02"
+    ]
+  ],
+  "outstanding": [
+    "The deeper near-unipotent and far estimates, rare isotropic-flag probability, deep point-kernel bound, finite-dimensionality, compactly tested convergence/projector identities and convergent unitary Siegel–Weil volume step are used from the displayed suppliers. The separate diagonal and different-word Gram estimates are inputs to the frame alongside the rank bound."
+  ],
+  "review_scope": "Written pinned declarations and calls. No Lean build or inspection of elaborated terms. Separate reader confirmed the trace, signs, rates, signature, explicit uniformity, example and consumed inequality."
+}

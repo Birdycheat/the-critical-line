@@ -1,6 +1,27 @@
 "use strict";
 document.documentElement.classList.add("js");
 const sourceMode = document.getElementById("source-mode");
+function revealProof(hash, align) {
+  const target = document.getElementById(hash.slice(1));
+  if (!target?.closest(".chapter")) return;
+  let opened = false;
+  for (let panel = target.closest("details"); panel; panel = panel.parentElement?.closest("details")) {
+    if (!panel.open) {
+      panel.open = true;
+      opened = true;
+    }
+  }
+  if (align && opened) target.scrollIntoView();
+}
+if (document.querySelector(".chapter")) {
+  revealProof(location.hash, true);
+  window.addEventListener("hashchange", () => revealProof(location.hash, true));
+  document.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (link && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
+      revealProof(link.hash, false);
+  });
+}
 if (sourceMode) {
   document.documentElement.classList.add("compact-citations");
   sourceMode.hidden = false;

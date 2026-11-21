@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "The comparison of separately embedded cyclotomic fields, the selected absolute Galois product, the relative prime norm and the use of the chosen power in the lax system were traced in the pinned archive.",
+  "claims": [
+    {
+      "id": "CTN-01",
+      "chapter": "inputs",
+      "title": "Counting all the conjugates of a cyclotomic layer",
+      "anchor": "inputs-tower-norm",
+      "statement": "For positive N and prime q coprime to N, the embedded cyclotomic fields K_N⊂K_qN admit a unique inclusion compatible with their maps to one algebraic closure. An automorphism fixing μ_N and acting as a generator on μ_q restricts to a generator of Gal(K_qN/K_N). Its q−1 powers in the norm operator give the ordinary relative field norm.",
+      "hypotheses": "Both fields are cyclotomic over ℚ. On the ambient field τ fixes all Nth roots of unity and acts on qth roots by a generator of (ℤ/qℤ)×.",
+      "definitions": [
+        "compatible cyclotomic field embeddings",
+        "the relative field norm",
+        "the generator norm nrm q τ"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "tower",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            79,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L79-L101"
+        },
+        {
+          "declaration": "Pows, GenAt and nrm",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean",
+          "lines": [
+            32,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean#L32-L44"
+        },
+        {
+          "declaration": "card_gal and norm_cyclotomic_prime_layer_eq_nrm_generator",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean",
+          "lines": [
+            24,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean#L24-L49"
+        },
+        {
+          "declaration": "norm_cyclotomic_prime_layer_eq_nrm_generator, Chinese-remainder exponent",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean",
+          "lines": [
+            54,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean#L54-L77"
+        },
+        {
+          "declaration": "norm_cyclotomic_prime_layer_eq_nrm_generator, action on the embedded field",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean",
+          "lines": [
+            90,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean#L90-L109"
+        },
+        {
+          "declaration": "norm_cyclotomic_prime_layer_eq_nrm_generator, distinct powers and product",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean",
+          "lines": [
+            121,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NormCyclotomicPrimeLayerEqNrmGenerator.lean#L121-L145"
+        },
+        {
+          "declaration": "xo_pair, specializing the field-norm product",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            160,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L160-L174"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked the field embeddings and the q−1 conjugates in the norm supplier, and recomputed Norm(1−ζ₁₃)=Φ₁₃(1)=13 over K₂₁."
+    },
+    {
+      "id": "CTN-02",
+      "chapter": "inputs",
+      "title": "The relative ideal norm and the prime-to-ℓ exponent in both identities",
+      "anchor": "inputs-tower-norm-degree",
+      "statement": "At the compatible primes over r∤qN, the relative ideal norm raises the lower prime to s=ord_qN(r)/ord_N(r). In the selected family this is prime to ℓ. The element X_d^s solves the signed ideal and conjugation conditions for that ideal and is used in both the norm relation and the congruence at all primes over q.",
+      "hypotheses": "N=Fd, q prime, q and d coprime, qd squarefree, r prime and r≡1 modulo F. Each auxiliary prime p dividing qd is 1 modulo F, differs from r and has ℓ∤ord_p(r). The element comparison uses 0≤b<F and a common choice of place above r. The generic relative-norm supplier assumes only the upper field is cyclotomic and states a divisibility result. The displayed ratio uses cyclotomicity of both the lower and upper fields in this application.",
+      "definitions": [
+        "relative ideal norm",
+        "relative and absolute residue degrees",
+        "multiplicative order",
+        "admissible auxiliary primes"
+      ],
+      "equations": [
+        "inputs-tower-norm-degree"
+      ],
+      "dependencies": [
+        "CTN-01",
+        "CYE-02",
+        "CYE-03"
+      ],
+      "sources": [
+        {
+          "declaration": "relNorm_cyclotomic_prime_eq_pow_dvd_orderOf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RelNormCyclotomicPrimeEqPowDvdOrderOf.lean",
+          "lines": [
+            8,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RelNormCyclotomicPrimeEqPowDvdOrderOf.lean#L8-L29"
+        },
+        {
+          "declaration": "AdmP, admitted and AdmL",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean",
+          "lines": [
+            20,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean#L20-L24"
+        },
+        {
+          "declaration": "admissible_prime_not_dvd_orderOf_and_not_dvd_level, orders and coprimality",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean",
+          "lines": [
+            6,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean#L6-L23"
+        },
+        {
+          "declaration": "admissible_prime_not_dvd_orderOf_and_not_dvd_level, assembling the modulus",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean",
+          "lines": [
+            24,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean#L24-L48"
+        },
+        {
+          "declaration": "xo_pair, prime norm and power of the lower generator",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            150,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L150-L174"
+        },
+        {
+          "declaration": "xo_pair, common lower power in the residue formula",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            175,
+            187
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L175-L187"
+        },
+        {
+          "declaration": "laxEx, selecting the exponent for the admitted layers",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            208,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L208-L228"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the distinction between the divisibility in the general supplier and the exact quotient in the cyclotomic tower. At r=307 the residue degrees at levels 21 and 273 are 2 and 4. Thus s=2 is a 3-adic unit although the relative extension degree is 12."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CTN-01",
+      "CTN-02"
+    ],
+    [
+      "CYE-02",
+      "CTN-02"
+    ],
+    [
+      "CYE-03",
+      "CTN-02"
+    ],
+    [
+      "CTN-02",
+      "CYE-04"
+    ]
+  ],
+  "outstanding": [
+    "The general identities for norms of prime ideals, multiplicativity of residue degrees in towers and the cyclotomic residue-degree formula are used as in the pinned Mathlib imports."
+  ]
+}
