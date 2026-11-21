@@ -97,7 +97,11 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "minimum-scale") {
+        if (id === "fourier-rank") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 · invertible", "9, 9, 9", "0"]);
+        } else if (id === "shear-rounding") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["(2/5, 2/5)", "4/5", "1/5"]);
+        } else if (id === "minimum-scale") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
           assert.ok((await fig.locator("[data-result]").innerText()).includes("7/180"));
           assert.ok(await fig.locator("svg").isVisible());

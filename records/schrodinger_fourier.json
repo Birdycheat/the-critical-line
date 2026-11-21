@@ -1,0 +1,807 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SCF-01",
+      "chapter": "lifts",
+      "title": "The theta Fourier coefficient selects a Gram fibre",
+      "anchor": "lifts-schrodinger-fourier",
+      "statement": "For a nonsingular rational Hermitian index β, the Fourier coefficient of the normalized theta mean is the target mean of the sum of the translated Schwartz function over rational tuples of full column rank and Gram matrix β.",
+      "hypotheses": "The standard Schrödinger data over E/F include the specified additive and Hecke characters, Weil action, lattice and Haar measures, height, and a test function in the global Fock subspace. Write n for the source rank, m for the target rank. Assume n<m≤2n and n+WittIndex(V)<m. Use the covolume-one Hermitian fundamental region and det β≠0.",
+      "equations": [
+        "lifts-schrodinger-projection"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean",
+          "lines": [
+            21,
+            25
+          ],
+          "declaration": "PositivityTheory.PfSWUS.fc",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean#L21-L25"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean",
+          "lines": [
+            35,
+            55
+          ],
+          "declaration": "PositivityTheory.PfSWUS.InRange",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean#L35-L55"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+          "lines": [
+            139,
+            156
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.ThetaCoefND.rank_of_gramQ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean#L139-L156"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+          "lines": [
+            239,
+            249
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.ThetaCoefND.theta_mul_nb",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean#L239-L249"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+          "lines": [
+            269,
+            292
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.ThetaCoefND.thetaCoef",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean#L269-L292"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+          "lines": [
+            310,
+            343
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.ThetaCoefND.thetaCoef",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean#L310-L343"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean",
+          "lines": [
+            74,
+            90
+          ],
+          "declaration": "PositivityTheory.PfSWUS.CoefND",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean#L74-L90"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The unipotent Weil phase depends only on the rational Gram matrix; absolute convergence yields a summable expansion of fibre means. Pairing with the inverse character selects one fibre by orthogonality. Invertibility of its Gram matrix implies full column rank.",
+      "review": "Verified the Fourier sign, volume-one normalization, rank inequality, and the exchange of integral and series in the pinned text."
+    },
+    {
+      "id": "SCF-02",
+      "chapter": "lifts",
+      "title": "The open Weyl cell gives the nondegenerate Eisenstein coefficient",
+      "anchor": "lifts-schrodinger-whittaker",
+      "statement": "For det β≠0 and Re z>n/2 the coefficient unfolds to an integral over all adelic Hermitian matrices. The Weil action at zero identifies it with the Whittaker family; its continued value at (m−n)/2 is the full-rank fibre mean.",
+      "hypotheses": "Use SCF-01 data, including the factor H(wu(b)g)^(z−s₀), an upper unipotent coordinate map and the Weyl matrix with blocks (0,1;−1,0). Absolute convergence controls unfolding on the strict half-plane. The compact-input Whittaker comparison uses the density identity and local factors.",
+      "equations": [
+        "lifts-schrodinger-open-cell"
+      ],
+      "dependencies": [
+        "SCF-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean",
+          "lines": [
+            74,
+            90
+          ],
+          "declaration": "PositivityTheory.PfSWUS.CoefND",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/CoefDataExists.lean#L74-L90"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean",
+          "lines": [
+            152,
+            176
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SwUnf.unfold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean#L152-L176"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean",
+          "lines": [
+            187,
+            210
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SwUnf.unfold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean#L187-L210"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean",
+          "lines": [
+            21,
+            34
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SWGlue.weil_cell_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean#L21-L34"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitNDgOfLocalOfSteps.lean",
+          "lines": [
+            18,
+            22
+          ],
+          "declaration": "PositivityTheory.PfSWUS.whitAt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitNDgOfLocalOfSteps.lean#L18-L22"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean",
+          "lines": [
+            29,
+            47
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.IwaAd.whitKAOfGenLt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean#L29-L47"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerNondegenerateOfIwasawa.lean",
+          "lines": [
+            124,
+            130
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.IwaAd.iwaRedA",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerNondegenerateOfIwasawa.lean#L124-L130"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+          "lines": [
+            9,
+            15
+          ],
+          "declaration": "PositivityTheory.PfSWUS.whitGenLt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean#L9-L15"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean",
+          "lines": [
+            36,
+            46
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SWGlue.ndOfWhit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean#L36-L46"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+          "lines": [
+            13,
+            17
+          ],
+          "declaration": "PositivityTheory.SiegelWeilCoefficients.coefND",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean#L13-L17"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Unfolding combines a summable majorant, the rational parametrization of the open cell, and character translation on every other cell. The two families agree sufficiently far to the right. The identity of holomorphic values then follows from the identified Whittaker provider and the theta coefficient computation.",
+      "review": "Verified where det β≠0 and Re z>n/2 enter, and traced the written bodies through compact arguments and Iwasawa decomposition."
+    },
+    {
+      "id": "SCF-03",
+      "chapter": "lifts",
+      "title": "A real-place operator turns full-rank coefficient matching into a pointwise value",
+      "anchor": "lifts-schrodinger-singular",
+      "statement": "A real-place convolution suppresses singular Fourier frequencies. Its compact average acts with nonzero scalar at the target point on the vacuum, forcing the regularized Eisenstein numerator to vanish to the order of its denominator and its continued value to equal the theta mean. Cyclic generation and a finite decomposition extend the identity to polynomial Fock data at every g.",
+      "hypotheses": "Use the lower-range standard data and full-rank coefficient identities of SCF-02. The argument uses a good archimedean signature, continuous automorphic families, all-frequency Fourier uniqueness for the convolved function, a local operator with nonzero eigenvalue on the vacuum, and a common polynomial denominator for the Eisenstein continuation.",
+      "equations": [
+        "lifts-schrodinger-value"
+      ],
+      "dependencies": [
+        "SCF-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/IsSingTest.lean",
+          "lines": [
+            30,
+            44
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.IsSingTest",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/IsSingTest.lean#L30-L44"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/SigOKOf.lean",
+          "lines": [
+            18,
+            38
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.sigOK_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/SigOKOf.lean#L18-L38"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean",
+          "lines": [
+            249,
+            264
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.gLsing_core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean#L249-L264"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean",
+          "lines": [
+            318,
+            330
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.gLsing_core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean#L318-L330"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/LocOpC.lean",
+          "lines": [
+            95,
+            111
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.locOp",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/LocOpC.lean#L95-L111"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean",
+          "lines": [
+            49,
+            80
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.vacOut_of'",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean#L49-L80"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean",
+          "lines": [
+            175,
+            191
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.Vac.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean#L175-L191"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean",
+          "lines": [
+            193,
+            212
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.Vac.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean#L193-L212"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean",
+          "lines": [
+            115,
+            126
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.vacOut_of'",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean#L115-L126"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean",
+          "lines": [
+            80,
+            92
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.perPsi",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean#L80-L92"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean",
+          "lines": [
+            19,
+            24
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.AbsSt.absThm_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean#L19-L24"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean",
+          "lines": [
+            94,
+            124
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean#L94-L124"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean",
+          "lines": [
+            135,
+            152
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.Glob.main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean#L135-L152"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+          "lines": [
+            19,
+            25
+          ],
+          "declaration": "PositivityTheory.SiegelWeilCoefficients.lit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean#L19-L25"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/SiegelWeilSchrodinger/Bridge.lean",
+          "lines": [
+            21,
+            32
+          ],
+          "declaration": "PositivityTheory.Lit1.SWUS.siegelWeilUnitarySchrodinger_of_lit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/PublishedTheorems/SiegelWeilSchrodinger/Bridge.lean#L21-L32"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+          "lines": [
+            8,
+            15
+          ],
+          "declaration": "UpperTheory.Lit.Sw47.convergent",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean#L8-L15"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Every singular rational index has a singular associated local matrix, on which the transform of the test vanishes. On each invertible one the Fourier coefficient of the discrepancy vanishes. All-frequency uniqueness kills the convolution. The local eigenvalue c(0) and the leftover denominator d₁(s₀) are separately nonzero. The induction removes every power (z−s₀), then evaluates the final difference. The finite symmetric-matrix example is an independently worked illustration.",
+      "review": "Compared the determinant split and the denominator induction with the archive. Independent cross-checks covered the convolution versus the original function, the two nonzero factors, the vacuum restriction, and the global Fock hypothesis. The finite example was checked by exact enumeration."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.StdUnn.sw_doubled_of_std",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "PositivityTheory.SiegelWeilCoefficients.field",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "siegelWeilUnitarySchrodinger_of_lit",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "lit",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "wtc",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "top7",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "coefND",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "gIdil_gen",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "nondegenerate_of_whittaker",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "unfolding_holds",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "theta_coefficient_of_convergence",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "whittaker_nondegenerate_of_iwasawa",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "whittaker_maximal_compact_general",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "whitGenLt",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "anisotropy_of_range",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "ndOfWhit",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittakerStatement.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "thetaCoef",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergenceStatement.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "unfold",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHoldsStatement.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "iwaRedA",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerNondegenerateOfIwasawaStatement.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "whitKAOfGenLt",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneralStatement.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "theta_mul_nb",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+        "line": 288
+      }
+    },
+    {
+      "callee": "hasSum_integral_of_summable_integral_norm",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+        "line": 320
+      }
+    },
+    {
+      "callee": "setIntegral_pairH",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+        "line": 333
+      }
+    },
+    {
+      "callee": "fibreMean_eq_IfrB",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaCoefficientOfConvergence.lean",
+        "line": 343
+      }
+    },
+    {
+      "callee": "big_cell_cosets_hermitian_param",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean",
+        "line": 162
+      }
+    },
+    {
+      "callee": "fundamental_domain_fourier_unfolding",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean",
+        "line": 187
+      }
+    },
+    {
+      "callee": "nondegenerate_character_cell_factorization",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnfoldingHolds.lean",
+        "line": 205
+      }
+    },
+    {
+      "callee": "weil_cell_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean",
+        "line": 46
+      }
+    },
+    {
+      "callee": "exists_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerNondegenerateOfIwasawa.lean",
+        "line": 126
+      }
+    },
+    {
+      "callee": "whit_step",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerNondegenerateOfIwasawa.lean",
+        "line": 130
+      }
+    },
+    {
+      "callee": "locFin2",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "unrWhit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "realWhit_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "factorX",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "top6",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/Top7.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "top5",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/Top6.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "top3",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/Top4.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "top2",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop2.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "top",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop2.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "absThm",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop2.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "absThm_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop2.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "main",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "gLsing",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "twoSided'",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "denseTau",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/VanishTop.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "gLsing_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamTop.lean",
+        "line": 140
+      }
+    },
+    {
+      "callee": "fourierZeroN",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamTop.lean",
+        "line": 140
+      }
+    },
+    {
+      "callee": "gLsing_core",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamTop.lean",
+        "line": 138
+      }
+    },
+    {
+      "callee": "hFZ",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean",
+        "line": 264
+      }
+    },
+    {
+      "callee": "hTS",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/LamSing.lean",
+        "line": 324
+      }
+    },
+    {
+      "callee": "vacOut_of'",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "locOp",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "absThm_of'",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "cycSec_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/GenCoreTop.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "top_sing",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/CompactUnitaryT2Space.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "vanish",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean",
+        "line": 186
+      }
+    },
+    {
+      "callee": "step",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/AbsoluteConvergence/VacCore.lean",
+        "line": 187
+      }
+    },
+    {
+      "callee": "perPsi",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean",
+        "line": 123
+      }
+    },
+    {
+      "callee": "holValueAt_finsum",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/GlobalGaussLaws/PhiSVal.lean",
+        "line": 152
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SCF-01",
+      "SCF-02"
+    ],
+    [
+      "SCF-02",
+      "SCF-03"
+    ],
+    [
+      "SCF-03",
+      "SWF-01"
+    ]
+  ],
+  "outstanding": [
+    "Further upstream inputs include the low-rank density identity, the finite and real Whittaker calculations, the local construction of a test with nonzero scalar for a good signature, and cyclic generation of the polynomial Fock sections. Their occurrence and use are identified here. The arithmetic finite-fibre estimate for height labels in SWF-03 is a different problem."
+  ]
+}

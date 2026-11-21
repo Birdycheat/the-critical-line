@@ -63,6 +63,34 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Orthogonality characterizes each frequency independently of its phase count.
+let invertibleFrequencies = 0;
+for (let a = 0; a < 3; a++) {
+  for (let b = 0; b < 3; b++) {
+    for (let c = 0; c < 3; c++) {
+      if ((a * c - b * b) % 3) invertibleFrequencies++;
+      const supported = a === 1 && b === 0 && c === 0;
+      assert.deepEqual(lib.fourierRank(a,b,c), supported ? [27, 0, 0] : [9, 9, 9]);
+    }
+  }
+}
+assert.equal(invertibleFrequencies, 18);
+// Enumerate nearby Gaussian integers directly in physical coordinates.
+for (let first = 0; first <= 5; first++) {
+  for (let second = 0; second <= 5; second++) {
+    let best = Infinity;
+    for (let real = -1; real <= 3; real++) {
+      for (let imag = -1; imag <= 2; imag++) {
+        best = Math.min(best, (first + second - 5 * real) ** 2 + (second - 5 * imag) ** 2);
+      }
+    }
+    const picked = lib.shearRounding(first, second);
+    assert.equal(picked.corrected.squaredNumerator, best);
+    assert.ok(picked.direct.squaredNumerator >= best);
+  }
+}
+assert.equal(lib.shearRounding(2, 2).direct.squaredNumerator, 20);
+assert.equal(lib.shearRounding(2, 2).corrected.squaredNumerator, 5);
 // Slice the disk by integer real part. Count permitted imaginary parts
 // directly with a square root, including the full-weight boundary.
 for (const d of [1, 4, 16]) {
@@ -691,5 +719,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

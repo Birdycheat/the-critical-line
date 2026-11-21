@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the pinned determinant, integer covering and arithmetic trace arguments, checked their written calls against the archive, and independently recomputed the worked Gaussian example.",
+  "claims": [
+    {
+      "id": "LTR-01",
+      "chapter": "inputs",
+      "title": "A lower bound for the dual gives a short primitive direction",
+      "anchor": "inputs-transference-short",
+      "statement": "A positive definite symmetric real Gram matrix G of size d≥1 with Q_(G⁻¹)(c)≥δ>0 on every nonzero integral covector has a primitive integer vector v with Q_G(v)≤2(4d)²/δ.",
+      "hypotheses": "The lattice is ℤᵈ. Its covectors have integral coordinates in the dual basis. A unimodular change of basis acts on covectors by the inverse transpose.",
+      "definitions": [
+        "Q_G(x)=xᵀGx is the squared length.",
+        "The threshold ℓ in the determinant bound is positive.",
+        "A primitive column has greatest common divisor of its coordinates equal to one."
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "PIW.AdelClassFin.hmk_box",
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean",
+          "lines": [
+            31,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean#L31-L65"
+        },
+        {
+          "declaration": "PIW.AdelClassFin.hmk_box",
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean",
+          "lines": [
+            67,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean#L67-L99"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramlow_fin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+          "lines": [
+            12,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean#L12-L41"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.isHermitian_real_smul_add_real_smul",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+          "lines": [
+            9,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean#L9-L20"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.v_sub_one_add_le_v_pow_l_sub_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+          "lines": [
+            22,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean#L22-L46"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.complete",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            85,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L85-L112"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.uni_dual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            49,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L49-L80"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Factor G as BᵀB. The box pulled back by B has volume 4ᵈ, greater than the Minkowski threshold 2ᵈ. The nonzero lattice vector inside gives ℓᵈ≤(4d)ᵈ det G. Applying this to G and G⁻¹ under the contrary assumption and multiplying gives 2ᵈ≤1. Smith normal form supplies a first primitive basis vector dividing the resulting short vector.",
+      "review": "Checked the strict volume threshold, positivity of d, the cancellation of the two determinants and division by a nonzero integer whose square is at least one."
+    },
+    {
+      "id": "LTR-02",
+      "chapter": "inputs",
+      "title": "The Schur complement lifts a covering bound through one coordinate",
+      "anchor": "inputs-transference-round",
+      "statement": "In real dimension d≥0 one may choose C₀=1, C_d=C_(d−1)+8d². A dual squared lower bound δ>0 implies that every target p has an integral c with Q_G(p−c)≤C_d/δ.",
+      "hypotheses": "G is positive definite on a finite real coordinate set, with the full integer coordinate lattice. The dual quadratic bound holds for every nonzero integer covector.",
+      "definitions": [
+        "With first diagonal entry a and lower block D, the Schur complement is S=D−bbᵀ/a.",
+        "The squared costs add after completing the square.",
+        "C_d=1+8∑_{k=1}^d k² is an explicit witness for the existential constant."
+      ],
+      "equations": [
+        "inputs-transference-square",
+        "inputs-transference-cost"
+      ],
+      "dependencies": [
+        "LTR-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.sch_id",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            126,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L126-L145"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.sch_dual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            183,
+            226
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L183-L226"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.sch_cov",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            228,
+            253
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L228-L253"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.core",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            289,
+            309
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L289-L309"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TZ.core",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+          "lines": [
+            319,
+            344
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean#L319-L344"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_TransZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+          "lines": [
+            48,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean#L48-L52"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TransZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            60,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L60-L67"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The lower-right block of G⁻¹ acts on covectors supported on the remaining coordinates with the quadratic form S⁻¹. Preserve the same δ, round the remaining target by induction, and round p₀+bᵀy/a for its residual y. The first coordinate costs at most a/4, hence at most 8d²/δ. Transport back by the integral basis change and reindex for arbitrary finite coordinate sets.",
+      "review": "An independent reading checked the recurrence against TZ.core. On the Gaussian lattice with integral basis (1,1+i), shifted rounding at (2/5,2/5) gives squared cost 1/5; coordinatewise rounding gives 4/5."
+    },
+    {
+      "id": "LTR-03",
+      "chapter": "inputs",
+      "title": "The trace discriminant converts arithmetic and integer dual minima",
+      "anchor": "inputs-transference-trace",
+      "statement": "For a totally complex number field L of discriminant Δ and rank N, put d=N[L:ℚ]. Every archimedean target z has v∈𝒪_Lᴺ with q_h(z−v)≤C_d Δ²/(4 λ∨(h)).",
+      "hypotheses": "N≥1, and the Hermitian matrix h_w is positive definite at each infinite place. There is one embedding representative per complex conjugate pair. The arithmetic dual uses the transposes of the inverse Hermitian matrices and the integral lattice.",
+      "definitions": [
+        "The integral trace matrix T of an integral basis has determinant Δ and adj(T)T=ΔI.",
+        "Multiplying an integral covector by the trace adjugate produces a nonzero integral vector f.",
+        "λ∨(h) is the minimum of the arithmetic dual squared length over nonzero integral vectors."
+      ],
+      "equations": [
+        "inputs-transference-arithmetic"
+      ],
+      "dependencies": [
+        "LTR-02"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.tr_eq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            13,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L13-L30"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.exists_f",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            55,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L55-L79"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.realsurj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Realsurj.lean",
+          "lines": [
+            7,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Realsurj.lean#L7-L28"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.real_cs",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            33,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L33-L53"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTrans",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            97,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L97-L112"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTrans",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            124,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L124-L145"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.TransZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            60,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L60-L67"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sPU_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+          "lines": [
+            23,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean#L23-L30"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRDual.lean",
+          "lines": [
+            167,
+            179
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRDual.lean#L167-L179"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GThick",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            355,
+            375
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L355-L375"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For x representing h_w⁻¹ conjugate(f_w) and s=q_(h∨)(f), Q_G(x)=s and Δcᵀx=2s. Complete the square Q_G(tx−G⁻¹c) with t=2/Δ to obtain Q_(G⁻¹)(c)≥4s/Δ²≥4λ∨(h)/Δ². Substitute in the integer covering theorem. The resulting constant C_T is used in both the dual test and the thick-representative construction.",
+      "review": "An independent reading checked the sign allowed for Δ, the real dimension, the one-per-pair trace normalization and the inverse conjugation. With L=ℚ(i), h=1 and c=(0,1) in the basis (1,1+i), Δ=−4 and f=2i give 4|f|²/Δ²=1=Q_(G⁻¹)(c)."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "hmk_int",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean",
+        "line": 86
+      }
+    },
+    {
+      "callee": "hmk_factor",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "hmk_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "gramlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "isHermitian_real_smul_add_real_smul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "isHermitian_real_smul_add_real_smul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "smithNormalForm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 89
+      }
+    },
+    {
+      "callee": "sch_pd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 185
+      }
+    },
+    {
+      "callee": "hC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 231
+      }
+    },
+    {
+      "callee": "round",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 235
+      }
+    },
+    {
+      "callee": "sch_id",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 242
+      }
+    },
+    {
+      "callee": "abs_sub_round",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 246
+      }
+    },
+    {
+      "callee": "SV",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 305
+      }
+    },
+    {
+      "callee": "complete",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 306
+      }
+    },
+    {
+      "callee": "uni_pd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 307
+      }
+    },
+    {
+      "callee": "uni_dual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 308
+      }
+    },
+    {
+      "callee": "sch_pd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 337
+      }
+    },
+    {
+      "callee": "sch_dual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 337
+      }
+    },
+    {
+      "callee": "sch_cov",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 337
+      }
+    },
+    {
+      "callee": "uni_cov",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/MzMulEqOne.lean",
+        "line": 338
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 50
+      }
+    },
+    {
+      "callee": "v_sub_one_add_le_v_pow_l_sub_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 51
+      }
+    },
+    {
+      "callee": "reidx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+        "line": 52
+      }
+    },
+    {
+      "callee": "tr_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 77
+      }
+    },
+    {
+      "callee": "gramq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 112
+      }
+    },
+    {
+      "callee": "grampd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 117
+      }
+    },
+    {
+      "callee": "realsurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 124
+      }
+    },
+    {
+      "callee": "hT",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 125
+      }
+    },
+    {
+      "callee": "exists_f",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 126
+      }
+    },
+    {
+      "callee": "realsurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 127
+      }
+    },
+    {
+      "callee": "dual_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 130
+      }
+    },
+    {
+      "callee": "pair",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 133
+      }
+    },
+    {
+      "callee": "real_cs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 134
+      }
+    },
+    {
+      "callee": "num",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+        "line": 136
+      }
+    },
+    {
+      "callee": "pf_TransZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "pf_GTrans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "htr'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRDual.lean",
+        "line": 175
+      }
+    },
+    {
+      "callee": "hTr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 373
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LTR-01",
+      "LTR-02"
+    ],
+    [
+      "LTR-02",
+      "LTR-03"
+    ]
+  ],
+  "outstanding": [
+    "Minkowski’s convex-body theorem and Smith normal form enter as the general lattice inputs. Field-basis and Gram-realization lemmas supply real coordinates for the arithmetic step."
+  ]
+}

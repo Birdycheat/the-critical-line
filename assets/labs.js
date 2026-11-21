@@ -16,6 +16,29 @@
     value,
   });
   const configs = {
+    "fourier-rank": {
+      title: "Can every invertible frequency miss a nonzero function?",
+      kind: "Fourier transform on 27 matrices",
+      section: "lifts",
+      params: [
+        range("a", "Upper-left entry a", 0, 2, 1, 1),
+        range("b", "Off-diagonal entry b", 0, 2, 1, 0),
+        range("c", "Lower-right entry c", 0, 2, 1, 1),
+      ],
+      caption: "Each panel fixes b. Columns give a and rows give c. A filled circle marks an invertible frequency and an open one a singular frequency. The square marks your selection. Look for the only frequency whose average is nonzero.",
+      method: "For the function F(B) = ζᴮ¹¹ and ζ³ = 1, enumerate the 27 symmetric matrices B over the field of order 3. The trace exponent is (1−a)B₁₁−2bB₁₂−cB₂₂. Count the terms of phases 1, ζ and ζ² before applying 1+ζ+ζ²=0. The finite group illustrates the information lost when the singular frequencies are omitted.",
+    },
+    "shear-rounding": {
+      title: "Which lattice point is nearest after a shear?",
+      kind: "Exact two-dimensional lattice",
+      section: "inputs",
+      params: [
+        range("first", "First coordinate in fifths", 0, 5, 1, 2),
+        range("second", "Second coordinate in fifths", 0, 5, 1, 2),
+      ],
+      caption: "The two controls give the coordinates of p in the basis (1, 1+i). The plot shows its image in the complex plane. Compare the square obtained by rounding both coordinates with the ring obtained after correcting the shear. The cross marks p.",
+      method: "In basis coordinates G[x,y] = (x+y)²+y². With p = (x,y), first choose n nearest to y and then m nearest to x+y−n. Since (m+n,n) ranges over all integer pairs, this choice is a nearest Gaussian integer for this form. Distances in the readout are squared lengths, computed with denominator 25.",
+    },
     "minimum-scale": {
       title: "Which short vectors can change a chosen direction?",
       kind: "Gaussian lattice count",
@@ -729,6 +752,28 @@
     return remainder === 1 ? sign : -sign;
   }
 
+  function fourierRank(a, b, c) {
+    const counts = [0, 0, 0];
+    for (let x = 0; x < 3; x++) {
+      for (let y = 0; y < 3; y++) {
+        for (let z = 0; z < 3; z++) {
+          const exponent = (1 - a) * x - 2 * b * y - c * z;
+          counts[(exponent % 3 + 3) % 3]++;
+        }
+      }
+    }
+    return counts;
+  }
+  function shearRounding(first, second) {
+    const nearest = fifths => Math.floor((fifths + 2) / 5);
+    const n = nearest(second);
+    const make = m => {
+      const horizontal = first + second - 5 * (m + n);
+      const vertical = second - 5 * n;
+      return { m, n, squaredNumerator: horizontal * horizontal + vertical * vertical };
+    };
+    return { direct: make(nearest(first)), corrected: make(nearest(first + second - 5 * n)) };
+  }
   function minimumScale(d) {
     const points = [];
     const radius = Math.ceil(Math.sqrt(4 * d));
@@ -810,6 +855,63 @@
   }
 
   function render(id, v) {
+    if (id === "fourier-rank") {
+      const a = Number(v.a), b = Number(v.b), c = Number(v.c);
+      const counts = fourierRank(a, b, c);
+      const x = (panel, column) => 35 + 110 * panel + 26 * column;
+      const y = row => 54 + 26 * row;
+      const panels = [0, 1, 2].map(panel => {
+        const markers = [0, 1, 2].map(row => [0, 1, 2].map(column => {
+          const isFull = (column * row - panel * panel) % 3 !== 0;
+          return '<circle cx="' + x(panel, column) + '" cy="' + y(row) + '" r="4.2" stroke="#12685f" fill="' +
+            (isFull ? '#12685f' : 'none') + '"/>';
+        }).join("")).join("");
+        const ticks = [0, 1, 2].map(i => '<text x="' + x(panel, i) + '" y="133" text-anchor="middle">' +
+          i + '</text><text x="' + (x(panel, 0) - 13) + '" y="' + (y(i) + 4) + '" text-anchor="end">' + i + '</text>').join("");
+        return '<text x="' + x(panel, 1) + '" y="24" text-anchor="middle">b = ' + panel + '</text>' + markers + ticks;
+      }).join("");
+      const determinant = ((a * c - b * b) % 3 + 3) % 3;
+      const average = reducedFraction(counts[0] - counts[1], 27);
+      const svg = '<svg class="plot" viewBox="0 0 342 147" role="img" aria-label="Frequency grid for all 27 symmetric matrices">' +
+        '<title>Invertible and singular frequencies over the field of three elements</title>' + panels +
+        '<rect x="' + (x(b, a) - 8) + '" y="' + (y(c) - 8) + '" width="16" height="16" fill="none" stroke="#9b4427" stroke-width="2"/></svg>';
+      return svg + metrics([["det β mod 3", determinant + (determinant ? " · invertible" : " · singular")],
+        ["Terms of phase 1, ζ, ζ²", counts.join(", ")], ["Normalized coefficient", average]]) +
+        '<p>At (a,b,c) = (' + [a,b,c].join(",") + '), ' +
+        (average === '0' ? 'the three phases cancel exactly.' : 'all 27 terms have phase 1, so their average is 1.') + '</p>';
+    }
+    if (id === "shear-rounding") {
+      const first = Number(v.first), second = Number(v.second);
+      const { direct, corrected } = shearRounding(first, second);
+      const column = value => 58 + 112 * value;
+      const row = value => 157 - 112 * value;
+      const point = [column((first + second) / 5), row(second / 5)];
+      const xy = item => [column(item.m + item.n), row(item.n)];
+      const [dx, dy] = xy(direct), [cx, cy] = xy(corrected);
+      const grid = [0, 1, 2].map(i =>
+        '<path class="grid" d="M' + column(i) + ' 28 V171"/><text x="' + column(i) +
+        '" y="191" text-anchor="middle">' + i + '</text>').join("") +
+        [0, 1].map(j => '<path class="grid" d="M43 ' + row(j) + ' H299"/><text x="36" y="' +
+          (row(j) + 4) + '" text-anchor="end">' + j + '</text>').join("");
+      const dots = [0, 1, 2].flatMap(i => [0, 1].map(j =>
+        '<circle cx="' + column(i) + '" cy="' + row(j) + '" r="2.8" fill="currentColor"/>')).join("");
+      const coord = item => '(' + item.m + ', ' + item.n + ')';
+      const basisPoint = '(' + reducedFraction(first, 5) + ', ' + reducedFraction(second, 5) + ')';
+      const label = 'Target p with basis coordinates ' + basisPoint;
+      const svg = '<svg class="plot" viewBox="0 0 348 219" role="img" aria-label="' + label +
+        '"><title>' + label + '</title><text x="43" y="19">Imaginary part</text>' + grid + dots +
+        '<text x="299" y="211" text-anchor="end">Real part</text>' +
+        '<path d="M' + dx + ' ' + dy + ' L' + point.join(" ") + ' L' + cx + ' ' + cy +
+        '" fill="none" stroke="#5d6264" stroke-dasharray="3 3"/>' +
+        '<rect x="' + (dx - 8) + '" y="' + (dy - 8) + '" width="16" height="16" fill="none" stroke="#9b4427" stroke-width="2"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="5.5" fill="none" stroke="#12685f" stroke-width="2.2"/>' +
+        '<path d="M' + (point[0] - 3) + ' ' + (point[1] - 3) + ' l6 6 m0 -6 l-6 6" stroke="#111" stroke-width="2"/></svg>';
+      return svg + metrics([["Target p in basis coordinates", basisPoint],
+        ["Direct rounding " + coord(direct), reducedFraction(direct.squaredNumerator, 25)],
+        ["Corrected rounding " + coord(corrected), reducedFraction(corrected.squaredNumerator, 25)]]) +
+        '<p>The last two readings give squared distances. ' + (direct.m === corrected.m
+          ? 'Both choices pick the same lattice point.' : 'Correcting the first coordinate gives a shorter vector from p to the lattice.') + '</p>';
+    }
     if (id === "minimum-scale") {
       const d = Number(v.scale), radius = Math.sqrt(4 * d);
       const { points, fullWeight, numerator } = minimumScale(d);
@@ -1812,6 +1914,8 @@
     centralPeriod,
     kernelOrder,
     minimumScale,
+    shearRounding,
+    fourierRank,
     render,
     defaults,
     normal,

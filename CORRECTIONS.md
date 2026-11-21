@@ -2,6 +2,10 @@
 
 ## 21 November 2026
 
+- Equality of the invertible Fourier coefficients alone leaves singular frequencies undetected. In the lower Siegel–Weil range the vanishing argument acts first on a convolution. Recovering the original Fock value uses a test with nonzero scalar on the vacuum.
+- The two coordinate roundings for a positive lattice form are coupled through the off-diagonal entries. In the basis (1,1+i) of ℤ[i], ignoring the shear at (2/5,2/5) gives squared distance 4/5. Correcting for it gives 1/5.
+- For a realized minor label the maximum defining its size includes its terminal nonzero minor. The positive terminal sizes multiply to the square root of the normalized ideal norm. In the orbital bound the unipotent covolume belongs to the word and the stabilizer volume belongs to the term.
+
 - At b=2a the geometric majorant for the Eisenstein series has ratio 1 at the special point. The smaller-rank branch of Siegel–Weil supplies the holomorphic value under the Witt-index condition. Absolute integrability for exchanging the three quotient integrations is established separately from the square-integrable diagonal slices.
 - The inner cutoff of a corrected lattice form vanishes at squared length 4d. In the Gaussian example at d=16, all the vectors with nonzero second coordinate have zero weight. The positive fractions on the first coordinate are lower bounds. The affine-block comparison gives a boundary at the existing size; the lower bound on size in stable homology belongs to a subsequent argument.
 

@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the exact coordinate induction, prism homotopy and invariant primitive in the original archive index. Traced the explicitly supplied generation theorem and its use on the matrix translation lattice.",
+  "claims": [
+    {
+      "id": "ACP-01",
+      "chapter": "inputs",
+      "title": "Ordered products of edge characters are invariant real cocycles",
+      "anchor": "inputs-additive-cups",
+      "statement": "For a free abelian group A of finite rank, the homogeneous j-cochain Cα evaluates j real additive characters on successive edge increments and multiplies the resulting scalars, with no factorial. It is invariant and closed.",
+      "hypotheses": "Trivial real coefficients. The affine application uses positive degree j=q+1. Each j-cochain takes j+1 vertices; simultaneous translation of all vertices preserves its value.",
+      "definitions": [
+        "δ omits vertex i with sign (−1)^i, starting at i=0. All tuples of vertices are allowed.",
+        "Cα(y₀,…,yⱼ)=∏ᵢ₌₁ʲ αᵢ(yᵢ−yᵢ₋₁).",
+        "For a leading character ℓ and any homogeneous cochain e, δ(ℓ∪e)=−ℓ∪δe."
+      ],
+      "equations": [
+        "inputs-additive-cup-word"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.dc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/Transfer.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/Transfer.lean#L9-L13"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.cupH",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/Transfer.lean",
+          "lines": [
+            43,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/Transfer.lean#L43-L50"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.dc_tcup",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean",
+          "lines": [
+            54,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean#L54-L64"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.tcup_inv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean",
+          "lines": [
+            66,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean#L66-L74"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.tcup_cupH",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean",
+          "lines": [
+            85,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanCup.lean#L85-L88"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "The Z² calculation uses the signed bar cycle [u|v]−[v|u] and obtains evaluations +1 and −1 for the two orders.",
+      "correspondence": "The archive writes group increments multiplicatively. Its Additive.ofMul of yᵢ⁻¹ yᵢ₊₁ is the additive increment yᵢ₊₁−yᵢ used here."
+    },
+    {
+      "id": "ACP-02",
+      "chapter": "inputs",
+      "title": "Every positive-degree cocycle on the free lattice has a finite cup decomposition",
+      "anchor": "inputs-additive-prism",
+      "statement": "For any j≥1 and any invariant closed c in the real homogeneous complex of a finite-rank free abelian group, c is exactly a finite real linear combination of ordered j-fold cups plus δe for an invariant (j−1)-cochain e.",
+      "hypotheses": "The induction splits P=ℤ×G by prepending a coordinate and uses the full homogeneous tuple complex. A finite integral basis identifies the translation lattice with such a coordinate lattice.",
+      "definitions": [
+        "ι(g)=(0,g), ρ(h,g)=g, ℓ(h,g)=h, ψ(h,g)=(−1,g).",
+        "With U=ρ*ι*c, use b=ι*Kψ(U−c), retaining the prism of U. The restricted prism of ℓ∪ρ*b is −b.",
+        "For R=c−U−ℓ∪ρ*b the primitive starts from x=KιρR with δx=−R. The finite signed sum W corrects x to an invariant primitive −x+δW in degrees at least two.",
+        "The existence statement does not specify a basis of cohomology or uniqueness of the expression."
+      ],
+      "equations": [
+        "inputs-additive-two-pieces"
+      ],
+      "dependencies": [
+        "ACP-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.spanFor_subsingleton",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+          "lines": [
+            22,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean#L22-L43"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.zdata",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+          "lines": [
+            65,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean#L65-L94"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.prism",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanPrism.lean",
+          "lines": [
+            13,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanPrism.lean#L13-L20"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.prism_dc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanPrism.lean",
+          "lines": [
+            65,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanPrism.lean#L65-L74"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.wData_prism_ps_tcup_lR_iota_eq_neg",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+          "lines": [
+            94,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean#L94-L123"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.WData.step'",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+          "lines": [
+            142,
+            229
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean#L142-L229"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.WData.inj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanInj.lean",
+          "lines": [
+            76,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanInj.lean#L76-L169"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.levSum_spec",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanLevel.lean",
+          "lines": [
+            11,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanLevel.lean#L11-L17"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.PrismSpan.WData.tdecomp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+          "lines": [
+            42,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean#L42-L73"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.span",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+          "lines": [
+            92,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean#L92-L106"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader recomputed b, the sign of the restricted cup prism, the primitive −x+δW, and the +1/−1 bar pairing against the written proofs.",
+      "correspondence": "The written proof starts with a subsingleton, applies the one-coordinate step to Fin N→ℤ, and uses Module.finBasis and spanFor_equiv to return to A. The equality is an identity before taking the cohomology quotient."
+    },
+    {
+      "id": "ACP-03",
+      "chapter": "inputs",
+      "title": "The cup decomposition extends a polynomial annihilator to every translation class",
+      "anchor": "inputs-additive-action",
+      "statement": "On the additive group of rectangular integral matrices, if a polynomial Fⱼ(v*) kills the cup words as cochains, applying it to the cup decomposition gives Fⱼ(v*)c=δ(Fⱼ(v*)e).",
+      "hypotheses": "Here v* is pullback by entrywise multiplication by v with the operator in the degree on which it acts. The affine application has a totally complex field and 1≤j≤m<r₂. The concrete Fⱼ(1)≠0 and its vanishing on words are separate arithmetic and eigenvalue inputs.",
+      "definitions": [
+        "Pullback acts on c using q+2 vertices and on e using q+1 vertices.",
+        "The unit and polynomial hypotheses enter the application after generation has been established in all positive degrees."
+      ],
+      "equations": [],
+      "dependencies": [
+        "ACP-02"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.sAff_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOf.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOf.lean#L9-L13"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.aPoly_mulV_of_unit_place_monomials_ne_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean",
+          "lines": [
+            108,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean#L108-L129"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SplitAffineSpectral.sAff_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean",
+          "lines": [
+            190,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean#L190-L198"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Verified the actual call to hSpan after the two finite-free typeclass instances, the action on the invariant primitive, and the written use of the annihilator for every summand.",
+      "correspondence": "The affine assembly supplies the proved Span. Its call in SAffOfParts sends all cups to zero and commutes polynomial pullback past dc to produce an invariant primitive."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "spanFor_pi",
+      "callee": "spanFor_subsingleton",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+        "line": 93
+      }
+    },
+    {
+      "caller": "spanFor_pi",
+      "callee": "step'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+        "line": 94
+      }
+    },
+    {
+      "caller": "span",
+      "callee": "spanFor_equiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "span",
+      "callee": "spanFor_pi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanForSubsingleton.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "WData.step'",
+      "callee": "wData_prism_ps_tcup_lR_iota_eq_neg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+        "line": 199
+      }
+    },
+    {
+      "caller": "WData.step'",
+      "callee": "inj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+        "line": 202
+      }
+    },
+    {
+      "caller": "WData.step'",
+      "callee": "tdecomp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanStep.lean",
+        "line": 204
+      }
+    },
+    {
+      "caller": "WData.inj",
+      "callee": "prism_dc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanInj.lean",
+        "line": 87
+      }
+    },
+    {
+      "caller": "WData.inj",
+      "callee": "levSum_spec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SpanInj.lean",
+        "line": 152
+      }
+    },
+    {
+      "caller": "sAff_of",
+      "callee": "SplitAffineSpectral.span",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOf.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "aPoly_mulV_of_unit_place_monomials_ne_one",
+      "callee": "hSpan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean",
+        "line": 121
+      }
+    },
+    {
+      "caller": "aPoly_mulV_of_unit_place_monomials_ne_one",
+      "callee": "aeval_mapOp_dc_comm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean",
+        "line": 129
+      }
+    },
+    {
+      "caller": "sAff_of_parts",
+      "callee": "aPoly_mulV_of_unit_place_monomials_ne_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/AffineSplittingSpan/SAffOfParts.lean",
+        "line": 197
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "ACP-01",
+      "ACP-02"
+    ],
+    [
+      "ACP-02",
+      "ACP-03"
+    ],
+    [
+      "ACP-03",
+      "AFB-01"
+    ]
+  ],
+  "outstanding": [
+    "This generation statement concerns trivial real coefficients on a finite-rank free abelian group. The affine transfer also needs the construction of the unit, a polynomial killing the words, and subsequent group and homology comparisons."
+  ]
+}
