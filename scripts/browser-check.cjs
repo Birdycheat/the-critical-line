@@ -97,7 +97,13 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "one-vector-density") {
+        if (id === "binary-lattice-limit") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["135/8192", "1/81"]);
+          assert.equal(await fig.locator("svg circle").count(), 13);
+        } else if (id === "stickelberger-fibres") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["24", "2"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["5", "1", "9", "1"]);
+        } else if (id === "one-vector-density") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2044/2187", "2044/27"]);
           assert.equal(await fig.locator("tbody tr").count(), 2);
         } else if (id === "quadratic-character") {

@@ -63,6 +63,60 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Evaluate the four tent weights directly on their lattice supports, including the endpoints.
+for (let n = 3; n <= 15; n++) {
+  function coordinateWeight(center, residue) {
+    let total = 0;
+    for (let x = center*n-n; x <= center*n+n; x++) {
+      if (((x % 3) + 3) % 3 === residue) total += n - Math.abs(x - center*n);
+    }
+    return total;
+  }
+  const expected = coordinateWeight(2, 1) * coordinateWeight(0, 0) ** 3;
+  const actual = lib.binaryLatticeBox(n);
+  assert.equal(actual.numerator, expected);
+  assert.equal(actual.denominator, n ** 8);
+  if (n % 3 === 0) assert.equal(81 * expected, n ** 8);
+}
+// Sum over s directly using the inverse of 13; compare every fibre, before and after reduction.
+for (const prime of [2, 3]) for (const level of [3, 4]) for (const depth of [2, 3]) {
+  const target = prime ** depth, modulus = (prime === 2 ? 3 : 2) * prime ** level;
+  const inv = Array.from({length:modulus}, (_, i) => i).find(i => 13*i % modulus === 1);
+  const actual = lib.stickelbergerFibres(prime, depth, level);
+  const expected = [];
+  for (let rep = 1; rep * 2 < target; rep++) {
+    if (rep % prime === 0) continue;
+    let sum = 0;
+    for (let s = 1; 2*s < modulus; s++) {
+      if (s % 2 === 0 || s % 3 === 0 || (s % target !== rep && s % target !== target-rep)) continue;
+      const g = Math.floor(13 * ((inv*s) % modulus) / modulus) - 6;
+      sum += (prime === 3 && s % 3 === 2 ? -1 : 1) * g;
+    }
+    expected.push({rep, sum, reduced:((sum % prime)+prime)%prime});
+  }
+  assert.deepEqual(actual, {modulus, target, rows:expected});
+}
+// The depth-seven example compares the two fibres of the pushed difference.
+const pushedWeight = (s) => Math.floor(13 * ((325*s) % 384) / 384) - 6;
+assert.equal((325*13) % 384, 1);
+assert.deepEqual([1, 257, 179, 307].map(pushedWeight), [5, 0, 0, 4]);
+// Multiply in F₂[C₈] in the group basis. Projection to C₄ folds the two halves.
+function cyclicProduct(a, b, order) {
+  let out = 0;
+  for (let i = 0; i < order; i++) for (let j = 0; j < order; j++) {
+    if (((a >> i) & 1) && ((b >> j) & 1)) out ^= 1 << ((i+j) % order);
+  }
+  return out;
+}
+const augmentation = 3; // [1] + [γ] as a bit mask
+const squareT = cyclicProduct(augmentation, augmentation, 8);
+const cubeT = cyclicProduct(squareT, augmentation, 8);
+const fourthT = cyclicProduct(squareT, squareT, 8);
+const phiCyclic = cyclicProduct(cubeT, 2, 8);
+assert.notEqual((phiCyclic & 15) ^ (phiCyclic >> 4), 0);
+assert.equal(cyclicProduct(phiCyclic, cyclicProduct(augmentation, 128, 8), 8), fourthT);
+assert.notEqual(fourthT, 0);
+assert.equal(cyclicProduct(fourthT, fourthT, 8), 0);
 // Count six rational squares directly at two resolutions for every dilation in the norm example.
 for (const k of [0, 1, 2]) {
   const target = 9 ** k;
@@ -982,5 +1036,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

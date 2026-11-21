@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "STP-01",
+      "chapter": "inputs",
+      "title": "A surviving cyclic twist divides a uniform power of the augmentation variable",
+      "anchor": "inputs-stickelberger-power",
+      "statement": "A twist whose shallow image survives divides T^(ℓ^d), where T=[γ]−1.",
+      "hypotheses": "Work in characteristic ℓ with the cyclic structure map p; πp=π, γ has ℓ-power order and (πγ)^(ℓ^d)=1.",
+      "equations": [
+        "inputs-stickelberger-nilpotent-example"
+      ],
+      "dependencies": [
+        "SNV-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Struct.lean",
+          "lines": [
+            27,
+            29
+          ],
+          "declaration": "UpperTheory.V.FW.struct",
+          "label": "The cyclic direction and its complement",
+          "declaration_lines": {
+            "UpperTheory.V.FW.struct": 27
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Struct.lean#L27-L29"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+          "lines": [
+            54,
+            77
+          ],
+          "declaration": "UpperTheory.V.FW.phiDvd",
+          "label": "The cyclic twist is a polynomial in a nilpotent variable",
+          "declaration_lines": {
+            "UpperTheory.V.FW.phiDvd": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean#L54-L77"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+          "lines": [
+            78,
+            89
+          ],
+          "declaration": "UpperTheory.V.FW.phiDvd",
+          "label": "The shallow projection kills the specified power",
+          "declaration_lines": {
+            "UpperTheory.V.FW.phiDvd": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean#L78-L89"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+          "lines": [
+            12,
+            38
+          ],
+          "declaration": "UpperTheory.V.FW.phiDvd_nil",
+          "label": "A polynomial with nonzero constant term gives a unit",
+          "declaration_lines": {
+            "UpperTheory.V.FW.phiDvd_nil": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean#L12-L38"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+          "lines": [
+            39,
+            52
+          ],
+          "declaration": "UpperTheory.V.FW.phiDvd_nil",
+          "label": "The direction of divisibility",
+          "declaration_lines": {
+            "UpperTheory.V.FW.phiDvd_nil": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean#L39-L52"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "A polynomial in T has shape T^r times a unit. Detection implies r<ℓ^d. The cyclic example exhibits divisibility by a nonunit.",
+      "review": "A separate mathematical reader checked divisibility, Frobenius on the eigenvector, the cyclic example and the coefficient retraction against the application in memZ."
+    },
+    {
+      "id": "STP-02",
+      "chapter": "inputs",
+      "title": "Character components turn twist divisibility into ideal membership",
+      "anchor": "inputs-stickelberger-eigenvectors",
+      "statement": "Over the algebraic closure of 𝔽ℓ, T^(ℓ^(d+a)) belongs to the ideal (Θ,1+[J]).",
+      "hypotheses": "Write φ(fℓᵉ)=ℓᵃm with ℓ∤m. The range of g↦(g/p(g))^(ℓᵃ) is a finite abelian group of order prime to ℓ.",
+      "equations": [],
+      "dependencies": [
+        "STP-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+          "lines": [
+            12,
+            41
+          ],
+          "declaration": "UpperTheory.V.FW.algK",
+          "label": "Removing the remaining ℓ-part from the complement",
+          "declaration_lines": {
+            "UpperTheory.V.FW.algK": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean#L12-L41"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+          "lines": [
+            42,
+            66
+          ],
+          "declaration": "UpperTheory.V.FW.algK",
+          "label": "Eigenvectors and inverse Frobenius",
+          "declaration_lines": {
+            "UpperTheory.V.FW.algK": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean#L42-L66"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FrobEig.lean",
+          "lines": [
+            5,
+            30
+          ],
+          "declaration": "UpperTheory.V.FW.frobEig",
+          "label": "Frobenius on a twisted coefficient sum",
+          "declaration_lines": {
+            "UpperTheory.V.FW.frobEig": 5
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FrobEig.lean#L5-L30"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+          "lines": [
+            65,
+            84
+          ],
+          "declaration": "UpperTheory.V.FW.algK",
+          "label": "The odd character and the extra ℓ-power",
+          "declaration_lines": {
+            "UpperTheory.V.FW.algK": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean#L65-L84"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SepChar.lean",
+          "lines": [
+            22,
+            57
+          ],
+          "declaration": "UpperTheory.V.FW.sepChar",
+          "label": "The character sums recover a multiple of the identity",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sepChar": 5
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SepChar.lean#L22-L57"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Frobenius identifies two actions on each eigenvector. The unnormalized character projectors sum to an invertible multiple of the identity.",
+      "review": "A separate mathematical reader checked divisibility, Frobenius on the eigenvector, the cyclic example and the coefficient retraction against the application in memZ."
+    },
+    {
+      "id": "STP-03",
+      "chapter": "inputs",
+      "title": "The relation descends to the integral group algebra with a uniform exponent",
+      "anchor": "inputs-stickelberger-integral",
+      "statement": "For every n≥d, ([γ]−1)^(ℓ^(d+a)) ∈ (Θ,1+[J],ℓ) in the integral group algebra of the units modulo fℓⁿ.",
+      "hypotheses": "ℓ prime, f coprime to ℓ, c>1 odd and coprime to fℓ. Both the detection depth d and a=vℓ(φ(fℓᵉ)) precede n.",
+      "equations": [
+        "inputs-stickelberger-power-equation"
+      ],
+      "dependencies": [
+        "STP-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+          "lines": [
+            5,
+            28
+          ],
+          "declaration": "UpperTheory.V.FW.descZ_retr",
+          "label": "A linear retraction of the coefficient field",
+          "declaration_lines": {
+            "UpperTheory.V.FW.descZ_retr": 5,
+            "UpperTheory.V.FW.descZ_mul": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean#L5-L28",
+          "related_declarations": [
+            "UpperTheory.V.FW.descZ_mul"
+          ]
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+          "lines": [
+            30,
+            41
+          ],
+          "declaration": "UpperTheory.V.FW.descZ_ker",
+          "label": "Dividing coefficients in the kernel of reduction",
+          "declaration_lines": {
+            "UpperTheory.V.FW.descZ_ker": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean#L30-L41"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+          "lines": [
+            43,
+            61
+          ],
+          "declaration": "UpperTheory.V.FW.descZ",
+          "label": "Lifting the relation with an ℓ multiple",
+          "declaration_lines": {
+            "UpperTheory.V.FW.descZ": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean#L43-L61"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+          "lines": [
+            23,
+            37
+          ],
+          "declaration": "UpperTheory.V.FW.memZ",
+          "label": "One exponent for every later layer",
+          "declaration_lines": {
+            "UpperTheory.V.FW.memZ": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean#L23-L37"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Apply a coefficientwise linear retraction fixing 1 to the two multipliers, lift their coefficients integrally and divide the remaining difference coefficientwise by ℓ.",
+      "review": "A separate mathematical reader checked divisibility, Frobenius on the eigenvector, the cyclic example and the coefficient retraction against the application in memZ."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_eq_pow_rootMultiplicity_mul_and_not_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "mul_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "rootMultiplicity",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "unit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "phiDvd_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "phiDvd_nil",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 77
+      }
+    },
+    {
+      "callee": "tw_single",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 83
+      }
+    },
+    {
+      "callee": "phiDvd_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "exists_prime_orderOf_dvd_card'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 28
+      }
+    },
+    {
+      "callee": "sepChar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 54
+      }
+    },
+    {
+      "callee": "iterateFrobeniusEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "frobEig",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 66
+      }
+    },
+    {
+      "callee": "iterateFrobeniusEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 80
+      }
+    },
+    {
+      "callee": "phiDvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 83
+      }
+    },
+    {
+      "callee": "smul_eq_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SepChar.lean",
+        "line": 57
+      }
+    },
+    {
+      "callee": "exists_leftInverse_of_injective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "descZ_retr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+        "line": 46
+      }
+    },
+    {
+      "callee": "descZ_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+        "line": 50
+      }
+    },
+    {
+      "callee": "descZ_ker",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/DescZRetr.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "nonvan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "struct",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "descZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "algK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 33
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SNV-01",
+      "STP-01"
+    ],
+    [
+      "STP-01",
+      "STP-02"
+    ],
+    [
+      "STP-02",
+      "STP-03"
+    ],
+    [
+      "STP-03",
+      "ACI-02"
+    ]
+  ],
+  "outstanding": [
+    "The integral annihilator on ideal classes, reflection and the dyadic signature comparison are separate inputs."
+  ]
+}

@@ -16,6 +16,26 @@
     value,
   });
   const configs = {
+    "binary-lattice-limit": {
+      title: "What does a single residue box contribute?",
+      kind: "Equidistribution in a Hermitian plane",
+      section: "lifts",
+      params: [range("scale", "Lattice scale N", 3, 15, 1, 4)],
+      caption: "Each dot is the normalized sum on one congruence class of the four integer coordinates of ℤ[i]². The horizontal line is its volume 1/81. Change N to read the exact sum at that scale.",
+      method: "Use ε = 1/N and h(t) = max(1−|t|,0). Center the first tent at 2 and the other three at zero. Select x ≡ (1,0,0,0) modulo 3. For 0 ≤ u,v < N the multiplicity of u−v=j is N−|j| when |j|<N. Counting pairs with each prescribed residue therefore evaluates all four tent sums in integer arithmetic. This is the vector count at the identity translate. The proof also averages translates.",
+    },
+    "stickelberger-fibres": {
+      title: "Can a projection hide the nonzero coefficient?",
+      kind: "Stickelberger coefficients modulo ℓ",
+      section: "inputs",
+      params: [
+        choose("prime", "Prime ℓ", [["2","2"],["3","3"]], "2"),
+        range("level", "Source depth n", 3, 4, 1, 3),
+        range("depth", "Projection depth d", 2, 3, 1, 3),
+      ],
+      caption: "Keep one representative from each pair of opposite units at the source. The table groups their weighted coefficients by the target pairs. A coarse projection can make every row zero. Increasing d changes which terms are added together.",
+      method: "Use M=fℓⁿ, f=3 at ℓ=2 and f=2 at ℓ=3, with c=13 in both cases. For every source unit 2s<M, take u between 0 and M−1 with 13u ≡ s (mod M), then form ⌊13u/M⌋−6. Use the trivial character at 2 and the sign modulo 3 at 3. Group by ±s modulo ℓᵈ and reduce the weighted sums modulo ℓ. Here the roots of unity in the local unit group are exactly ±1.",
+    },
     "one-vector-density": {
       title: "How much mass comes from vectors divisible by 3?",
       kind: "A single Hermitian norm at an inert prime",
@@ -1023,6 +1043,33 @@
     return { original, originalExact, mean, meanExact, equal: change === 0 };
   }
 
+  function binaryLatticeBox(n) {
+    const pairs = [0, 0, 0];
+    for (let u = 0; u < n; u++) {
+      for (let v = 0; v < n; v++) pairs[(u - v + 3*n) % 3]++;
+    }
+    const first = pairs[(1 + n) % 3]; // 1−2N is congruent to 1+N modulo 3.
+    const numerator = first * pairs[0] ** 3, denominator = n ** 8;
+    return {numerator, denominator, value:numerator / denominator};
+  }
+
+  function stickelbergerFibres(prime, depth, level) {
+    const target = prime ** depth, modulus = (prime === 2 ? 3 : 2) * prime ** level;
+    const sums = new Map();
+    // Running through u makes s = 13u mod M and avoids modular division.
+    for (let u = 1; u < modulus; u++) {
+      const s = 13 * u % modulus;
+      if (s % 2 === 0 || s % 3 === 0 || 2*s >= modulus) continue;
+      const rep = Math.min(s % target, target - s % target);
+      const character = prime === 3 && s % 3 === 2 ? -1 : 1;
+      const weight = Math.floor(13 * u / modulus) - 6;
+      sums.set(rep, (sums.get(rep) || 0) + character * weight);
+    }
+    const rows = [...sums.entries()].sort(([a], [b]) => a-b).map(([rep, sum]) =>
+      ({rep, sum, reduced:((sum % prime) + prime) % prime}));
+    return {modulus, target, rows};
+  }
+
   function realWhittakerCutoff(shift, quarter) {
     const frequency = quarter / 4, angle = 2 * Math.PI * frequency;
     const density = Math.PI * Math.exp(-angle) / 4;
@@ -1148,6 +1195,33 @@
   }
 
   function render(id, v) {
+    if (id === "binary-lattice-limit") {
+      const n = Number(v.scale), selected = binaryLatticeBox(n);
+      const points = Array.from({length:13}, (_, i) => [i+3, binaryLatticeBox(i+3).value]);
+      const graph = chart({
+        xMin:3, xMax:15, yMin:.01, yMax:.018, xt:"Scale N", yt:"Normalized sum",
+        title:"Lattice sums for scales 3 to 15, with the limiting volume and the selected scale",
+        paint: (X, Y, line) => line([[3,1/81],[15,1/81]], "dash") +
+          points.map(([k, mass]) => '<circle cx="' + X(k) + '" cy="' + Y(mass) +
+            '" r="' + (k === n ? '6' : '3') + '" fill="' + (k === n ? '#9b4427' : 'currentColor') + '"/>').join(""),
+      });
+      return graph + metrics([["Sum at N = " + n, reducedFraction(selected.numerator, selected.denominator)], ["Volume", "1/81"]]);
+    }
+    if (id === "stickelberger-fibres") {
+      const prime = Number(v.prime);
+      const {modulus, target, rows} = stickelbergerFibres(prime, Number(v.depth), Number(v.level));
+      const nonzero = rows.filter(row => row.reduced !== 0).length;
+      const body = rows.map(row => '<tr><th scope="row">±' + row.rep + '</th><td>' +
+        String(row.sum).replace('-', '−') + '</td><td>' + row.reduced + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Projection to unit pairs modulo ' + target +
+        '</caption><thead><tr><th scope="col">Pair</th><th scope="col">Weighted sum</th><th scope="col">Mod ' +
+        prime + '</th></tr></thead><tbody>' + body + '</tbody></table>' +
+        metrics([["Source modulus", modulus], ["Nonzero coefficients", nonzero]]) +
+        (prime === 2 && nonzero === 2 ?
+          '<p>The image is 1 + [3] in the group algebra of a group of order two. Its square is zero in characteristic two, although both coefficients are one.</p>' :
+          nonzero ? '<p>One nonzero row suffices to detect this projected element.</p>' :
+          '<p>The projection vanishes at this depth. Increase d to separate the two target pairs.</p>');
+    }
     if (id === "one-vector-density") {
       const k = Number(v.depth), commonDenominator = 243 * 81 ** k;
       let total = 0;
@@ -2354,6 +2428,8 @@
     mellin,
     factorial,
     profile,
+    binaryLatticeBox,
+    stickelbergerFibres,
     realWhittakerCutoff,
     frobeniusOrbits,
     localizationKernel,

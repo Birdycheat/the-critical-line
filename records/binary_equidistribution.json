@@ -1,0 +1,899 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BEQ-01",
+      "chapter": "lifts",
+      "title": "A congruence lattice Riemann sum tends to the product of the local integrals",
+      "anchor": "lifts-binary-equidistribution",
+      "statement": "For m coordinates over a totally real field F of degree d, the sum over S-integers against continuous compactly supported real and S-local tests, multiplied by ε^(dm), tends to the product of their Haar integrals as ε tends to zero from above. In the inductive translated-ideal version the additional constant is N(I)^(−m).",
+      "hypotheses": "S is finite, the real diagonal scaling comes from a continuous ring map ℝ→F∞, the standard real Haar measure gives the integers covolume one, and each local integer ring has volume one. In the inductive claim, I is a nonzero integral ideal coprime to the places under consideration.",
+      "equations": [
+        "lifts-binary-lattice-sum"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean",
+          "lines": [
+            18,
+            27
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.Equi",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean#L18-L27",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.Equi": 18
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LatticeCosetScaledRiemannSum.lean",
+          "lines": [
+            92,
+            123
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Equi.lat_sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LatticeCosetScaledRiemannSum.lean#L92-L123",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Equi.lat_sum": 83
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocallyConstantBoxApproximation.lean",
+          "lines": [
+            182,
+            209
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Equi.LocApprox.loc_approx",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocallyConstantBoxApproximation.lean#L182-L209",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Equi.LocApprox.loc_approx": 182
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+          "lines": [
+            169,
+            183
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Equi.claim_insert",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean#L169-L183",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Equi.claim_insert": 157
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+          "lines": [
+            202,
+            228
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Equi.claim_insert",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean#L202-L228",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Equi.claim_insert": 157
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+          "lines": [
+            244,
+            253
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Equi.equi",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean#L244-L253",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Equi.equi": 244
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "At the empty set of places use a tiling by translated ideal fundamental cells. At a new place approximate the continuous factor to precision u on disjoint residue boxes of radius 𝔭ᵏ. A congruence refinement identifies each restriction with one translated ideal of modulus I𝔭ᵏ and relative mass q^(−km). The finite approximation and the accompanying absolute-value sum both converge. The uniform bound on the combined volume of the boxes gives error O(u) after passing to their limits.",
+      "review": "Verified the original finite-set induction, all measure normalizations, the absolute majorant and the translated ideal hypothesis against the pinned source."
+    },
+    {
+      "id": "BEQ-02",
+      "chapter": "lifts",
+      "title": "Unitary translates of the vector count have a common integrable bound",
+      "anchor": "lifts-binary-vector-limit",
+      "statement": "In an anisotropic binary Hermitian space, the ε^(4d)-weighted genus integral over nonzero vectors tends to V, the ambient archimedean integral times the product of the exceptional finite coordinate volumes.",
+      "hypotheses": "Use a nondegenerate Hermitian form on E² over a CM extension E/F, the standard Haar coordinate measures, a Haar measure on the unitary group and a fundamental domain of finite positive volume. The archimedean test is continuous, nonnegative and compactly supported on the regular Gram locus. The finitely many exceptional sets are compact open within the regular locus. The remaining sets are the standard vector lattices.",
+      "equations": [],
+      "dependencies": [
+        "BEQ-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+          "lines": [
+            19,
+            27
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.e1",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean#L19-L27",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.e1": 19
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean",
+          "lines": [
+            77,
+            80
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.IsTest",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean#L77-L80",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.IsTest": 77
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+          "lines": [
+            264,
+            279
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.LS.pointwise",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean#L264-L279",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LS.pointwise": 217
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+          "lines": [
+            575,
+            595
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.LS.domination",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean#L575-L595",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LS.domination": 572
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+          "lines": [
+            756,
+            787
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.LS.lside",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean#L756-L787",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LS.lside": 707
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Rewrite a fixed unitary translate with four F-coordinates and enlarge the exceptional set to include its finitely many nonintegral places. Local unitary transformations preserve the ambient Haar measures. A common finite denominator and compact real box dominate all the translates belonging to a compact set of representatives. A real continuous majorant and the lattice limit bound their scaled counts. Rational invariance and dominated convergence give the normalized average.",
+      "review": "At F=ℚ, E=ℚ(i), J=I₂, the identity translate and the residue box (1,0,0,0) mod 3 with a regular product of real tents give exactly 135/8192 at N=4 and 1/81 whenever 3 divides N. The finite sums agree with the ordered-difference formula for all tested N."
+    },
+    {
+      "id": "BEQ-03",
+      "chapter": "lifts",
+      "title": "Averaging ideal divisibility controls the product tail uniformly in the real scale",
+      "anchor": "lifts-binary-scalar-average",
+      "statement": "Write the scaled scalar average as δ^d times a sum over β∈F× of G(δβ)∏gᵥ(β). For each η>0 one can choose a finite T₀ containing S such that every finite T⊇T₀ gives a truncated normalized sum within η of the full one for all δ>0. Each fixed truncation tends to (∫G)∏_{v∈S}∫gᵥ.",
+      "hypotheses": "G is nonnegative, continuous and compactly supported. Factors in S are also nonnegative, continuous and compactly supported. Good factors are nonnegative, continuous away from zero, supported on the local integer ring and have integral one. At nonzero integral arguments they differ from one by at most C/q, and on units by at most C/q², with C chosen nonnegative. The truncated sum requires β integral outside T.",
+      "equations": [
+        "lifts-binary-product-tail"
+      ],
+      "dependencies": [
+        "BEQ-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+          "lines": [
+            53,
+            72
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.MeanV.truncSum_tendsto",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean#L53-L72",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.MeanV.truncSum_tendsto": 53
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+          "lines": [
+            101,
+            118
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.MeanV.truncSum_tendsto",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean#L101-L118",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.MeanV.truncSum_tendsto": 53
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+          "lines": [
+            22,
+            48
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean#L22-L48",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside": 16
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NormThetaMul.lean",
+          "lines": [
+            44,
+            68
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.MassCount.countBd",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NormThetaMul.lean#L44-L68",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.MassCount.countBd": 37
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/GaloisBoundSecond.lean",
+          "lines": [
+            101,
+            185
+          ],
+          "declaration": "UpperTheory.Reformulated.B.GaloisBoundSecond.main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/GaloisBoundSecond.lean#L101-L185",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.GaloisBoundSecond.main": 167
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean",
+          "lines": [
+            123,
+            150
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.SumDev.sum_bounded_prod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean#L123-L150",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.SumDev.sum_bounded_prod": 99
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TailSumOverPlacesSmall.lean",
+          "lines": [
+            22,
+            49
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.MeanV.tail_sum_finset_prod_two_mul_div_sq",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TailSumOverPlacesSmall.lean#L22-L49",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.MeanV.tail_sum_finset_prod_two_mul_div_sq": 10
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+          "lines": [
+            177,
+            202
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.MeanV.err_bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean#L177-L202",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.MeanV.err_bound": 177
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+          "lines": [
+            373,
+            384
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.MeanV.meanVal_of_equi_countBd",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean#L373-L384",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.MeanV.meanVal_of_equi_countBd": 362
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Bracket each added local factor at all nonzero arguments by continuous compactly supported tests of integrals arbitrarily close to one. For the infinite product expand in local deviations. After clearing a fixed denominator H, any subset of specified nonunit conditions forces Hβ into the product of those prime ideals. Separated real embedding boxes bound their scaled number by a constant times the inverse ideal norm. Summing the 2^|D| branches bounds the averaged product of deviations by C′∏_{v∈D}2C/qᵥ². Square-norm summability makes the contribution of sets meeting the omitted places small uniformly in δ. Fix the tail before invoking the lattice limit at that finite truncation.",
+      "review": "Checked the exclusion of the zero scalar, the two different local error estimates, the extra inverse norm only after averaging, the full uniform quantifier and the order of the two approximations. The count of nonzero lengths in a box scaled by δ has an explicit upper constant (4RH)^d."
+    },
+    {
+      "id": "BEQ-04",
+      "chapter": "lifts",
+      "title": "Binary fibre scaling and the positive-volume limit force the common scalar to one",
+      "anchor": "lifts-binary-common-volume",
+      "statement": "If the nonzero length fibres have one common Euler-product scalar κ, the weighted vector and scalar counts are exactly proportional by κ for each ε>0. In a binary Hermitian plane their normalized limits give V=κV, hence κ=1 for the positive finite test.",
+      "hypotheses": "Take the finite exceptional set supplied by the scalar side before choosing the regular test. Use the stated disintegrations at infinity and finite places, anisotropy to partition nonzero vectors by nonzero scalar length, and the same positive-volume test on both sides.",
+      "equations": [],
+      "dependencies": [
+        "BEQ-02",
+        "BEQ-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanBinaryGramIntegral.lean",
+          "lines": [
+            100,
+            108
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.BinaryDil.dilation_inf_binary",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanBinaryGramIntegral.lean#L100-L108",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.BinaryDil.dilation_inf_binary": 100
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+          "lines": [
+            50,
+            61
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean#L50-L61",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside": 16
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+          "lines": [
+            126,
+            145
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.RgMass.cnt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean#L126-L145",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgMass.cnt": 91
+          }
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassTest.exists_unit_vector",
+          "label": "A rational vector in the regular locus",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassTest.exists_unit_vector": 59
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+          "lines": [
+            59,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean#L59-L64"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassTest.testEx",
+          "label": "A positive finite product of local test volumes",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassTest.testEx": 131
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+          "lines": [
+            131,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean#L131-L157"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Gram dilation changes the target by ε². The ratio of source and target scaling Jacobians is ε^(2d), so ε^(4d) times the dilated test integral on the fibre at β equals (ε²)^d G(ε²β). Apply the scalar limit at δ=ε² and use the local pushforwards to recover the coordinate test volume. The exact fibrewise measure identity and the two limits force κ to be one.",
+      "review": "Checked the Jacobian powers, exceptional-set choice, positivity and finiteness for cancellation, and the precise consumer in the binary case of the one-vector mass formula. A separate reader checked the exceptional-prime cost, uniform truncation, dilation powers and positivity of the cancelling volume. The tail inequality now explicitly excludes zero."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.one_vector_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.vector_length_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.counting_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.test_function_exists",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.left_side_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.equidistribution",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.cocompactness",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.mean_value_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.equidistribution",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.counting_bound_alt",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_mass_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "e1",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.Equi.equi",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EquidistributionStatement.lean",
+        "line": 7
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.coset_empty_places_lattice",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lattice_coset_scaled_riemann_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 74
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.locally_constant_box_approximation",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 169
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.coset_congruence_refinement",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 172
+      }
+    },
+    {
+      "callee": "est",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 179
+      }
+    },
+    {
+      "callee": "squeeze_of_approx",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 203
+      }
+    },
+    {
+      "callee": "claim_empty",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 248
+      }
+    },
+    {
+      "callee": "claim_insert",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 249
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.coset_unit_ideal_integral",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Equidistribution.lean",
+        "line": 251
+      }
+    },
+    {
+      "callee": "hEq",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 268
+      }
+    },
+    {
+      "callee": "hEq",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 422
+      }
+    },
+    {
+      "callee": "dom_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 581
+      }
+    },
+    {
+      "callee": "count",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 590
+      }
+    },
+    {
+      "callee": "PositivityTheory.PlacePermOperatorBicommutantSpan.theta_lint",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 748
+      }
+    },
+    {
+      "callee": "domination",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 756
+      }
+    },
+    {
+      "callee": "sum_inv",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 760
+      }
+    },
+    {
+      "callee": "pointwise",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 774
+      }
+    },
+    {
+      "callee": "tendsto_lintegral_filter_of_dominated_convergence",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LeftSideFormula.lean",
+        "line": 779
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_factor_sandwich_approx",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.adelic_sandwich_approximation",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 117
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.adelic_sandwich_approximation",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 118
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_integral_multiple_bounded_places",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 188
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.euler_product_convergence_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 189
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.tail_sum_over_places_small",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 201
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.multipliable_local_factors",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 214
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.finite_product_difference_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 258
+      }
+    },
+    {
+      "callee": "hcount",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 289
+      }
+    },
+    {
+      "callee": "le_of_tendsto",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 321
+      }
+    },
+    {
+      "callee": "err_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 376
+      }
+    },
+    {
+      "callee": "truncSum_tendsto",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MeanValueFormula.lean",
+        "line": 378
+      }
+    },
+    {
+      "callee": "UpperTheory.Reformulated.B.GaloisBoundSecond.main",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NormThetaMul.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "norm_theta_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NormThetaMul.lean",
+        "line": 54
+      }
+    },
+    {
+      "callee": "count_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NormThetaMul.lean",
+        "line": 57
+      }
+    },
+    {
+      "callee": "hC0",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean",
+        "line": 115
+      }
+    },
+    {
+      "callee": "mem_prod_asIdeal",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean",
+        "line": 123
+      }
+    },
+    {
+      "callee": "sum_prod_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean",
+        "line": 143
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.Primes.summable_one_div_absNorm_sq",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TailSumOverPlacesSmall.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.archimedean_binary_gram_density",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "hMV",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_binary_gram_integral",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_binary_gram_density",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_binary_gram_integral",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 48
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.archimedean_binary_gram_integral",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 60
+      }
+    },
+    {
+      "callee": "hR",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "hTE",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 95
+      }
+    },
+    {
+      "callee": "hL",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 97
+      }
+    },
+    {
+      "callee": "thetaMeas_ne",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 131
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.euler_product_measure_integral",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 135
+      }
+    },
+    {
+      "callee": "tendsto_nhds_unique",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 141
+      }
+    },
+    {
+      "callee": "ENNReal.mul_left_inj",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 144
+      }
+    },
+    {
+      "callee": "gramR_ratTup_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+        "line": 63
+      }
+    },
+    {
+      "callee": "exists_test_fun",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+        "line": 135
+      }
+    },
+    {
+      "callee": "exists_test_set",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+        "line": 140
+      }
+    },
+    {
+      "callee": "prod_ne_zero_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+        "line": 155
+      }
+    },
+    {
+      "callee": "prod_ne_top",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TestFunctionExists.lean",
+        "line": 157
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "BEQ-01",
+      "BEQ-02"
+    ],
+    [
+      "BEQ-01",
+      "BEQ-03"
+    ],
+    [
+      "BEQ-02",
+      "BEQ-04"
+    ],
+    [
+      "BEQ-03",
+      "BEQ-04"
+    ],
+    [
+      "BEQ-04",
+      "GGD-02"
+    ]
+  ],
+  "outstanding": [
+    "The binary application assumes cocompactness with positive finite Haar quotient volume, Gram-fibre measures and their local mass estimates, the local topology of the regular test and a common scalar on nonzero lengths. The regular local density formulas, the arithmetic construction of rational congruence representatives, and the general lattice scaling theorem are used in the component arguments. A numerical rate for the full scalar average is not supplied by this proof."
+  ]
+}

@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Original written proof bodies in the pinned FerreroWashingtonIndex subtree. Source-head metadata is checked against the original archive index and Lean text. The explicit depth seven at ℓ=2,f=3,c=13 follows directly from the written identities and is a teaching specialization.",
+  "claims": [
+    {
+      "id": "SNV-01",
+      "chapter": "inputs",
+      "title": "One depth for every higher-level character",
+      "anchor": "inputs-stickelberger-nonvanishing",
+      "statement": "For any prime ℓ, f coprime to ℓ and odd c>1 coprime to fℓ, there is d≥2 such that for every n≥d, field k of characteristic ℓ, and χ:(ℤ/fℓⁿℤ)×→k× with χ(−1)=−1, the reduction of Θ weighted by χ and pushed to Q_d is nonzero. Here Q_d=(ℤ/ℓᵈℤ)×/red(W), W=μ_{φ(ℓ^e)}(ℤℓ), with e=1 for odd ℓ and e=2 for ℓ=2.",
+      "hypotheses": "The original theorem takes a divisibility witness ℓᵈ∣fℓⁿ, available for n≥d. Nonvanishing as a group-ring element says at least one quotient coefficient is nonzero. A common nonzero coefficient across all χ or n is not asserted. The cyclotomic application takes f>1 and c=2fℓ+1.",
+      "definitions": [
+        "weighted projection to Q_d",
+        "integral half Stickelberger element",
+        "torsion-unit representatives"
+      ],
+      "equations": [
+        "inputs-stickelberger-half"
+      ],
+      "dependencies": [
+        "SNV-02",
+        "SNV-03"
+      ],
+      "correspondence": "The floor coefficient is g(s)=floor(c·least(c⁻¹s mod M)/M)−(c−1)/2 and Θ sums g(s)[s] for units 2·least(s)<M. The action on [s] is χ(s)[π_d(s)]. The chosen d is the maximum of 2 and the depth separating the exponents in the Sinnott calculation.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.FW.ee",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            7,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L7-L19",
+          "label": "The finite quotient and its depth",
+          "related_declarations": [
+            "UpperTheory.V.FW.WW",
+            "UpperTheory.V.FW.redU",
+            "UpperTheory.V.FW.QQ",
+            "UpperTheory.V.FW.piQ"
+          ],
+          "declaration_lines": {
+            "UpperTheory.V.FW.ee": 7,
+            "UpperTheory.V.FW.WW": 13,
+            "UpperTheory.V.FW.redU": 15,
+            "UpperTheory.V.FW.QQ": 17,
+            "UpperTheory.V.FW.piQ": 19
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.tw",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            23,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L23-L35",
+          "label": "How a character weights a basis element",
+          "related_declarations": [
+            "UpperTheory.V.FW.tw_single",
+            "UpperTheory.V.FW.toK"
+          ],
+          "declaration_lines": {
+            "UpperTheory.V.FW.tw": 23,
+            "UpperTheory.V.FW.tw_single": 30,
+            "UpperTheory.V.FW.toK": 34
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.thetaH",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            42,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L42-L48",
+          "label": "Integral coefficients, half representatives and fibre sums",
+          "related_declarations": [
+            "UpperTheory.V.FW.gc",
+            "UpperTheory.V.FW.push"
+          ],
+          "declaration_lines": {
+            "UpperTheory.V.FW.thetaH": 44,
+            "UpperTheory.V.FW.gc": 42,
+            "UpperTheory.V.FW.push": 47
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.nonvan",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+          "lines": [
+            12,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean#L12-L29",
+          "label": "The uniform nonvanishing statement",
+          "declaration_lines": {
+            "UpperTheory.V.FW.nonvan": 12
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.cyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            18,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L18-L33",
+          "label": "The smoothing integer used in the class-rank estimate",
+          "declaration_lines": {
+            "UpperTheory.V.FW.cyc": 18
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Verified the nested quantifiers, the coefficient formula and the fixed target of the projection directly in the pinned text. An independent reader checked that the fixed depth is chosen before the coefficient ring and function in the core separation argument."
+    },
+    {
+      "id": "SNV-02",
+      "chapter": "inputs",
+      "title": "A character-weighted finite difference with a unit coefficient",
+      "anchor": "inputs-stickelberger-difference",
+      "statement": "Set B=cfℓ. If the twisted projection were zero, the pushforward α(y)=Σ_{s↦y} g(s)Ψ(s), where Ψ is χ extended by zero on nonunits, would satisfy Σ_{r∈R} α(r⁻¹y)=0. Its translation by B satisfies α(y)−α(y−B)=Σ_{0≤j<B, j≡y (mod ℓᵈ)}P(j), with P(j)=Ψ(j)(1−c·1_{c|j}) and P(1)=1.",
+      "hypotheses": "Above assumptions; R consists of one representative of each pair {r,−r} in W, and reduction is faithful on W for d≥2. Characteristic ℓ and the field hypothesis ensure χ kills ℓ-power order units.",
+      "definitions": [
+        "sum over an additive reduction fibre",
+        "invariance under change of sign",
+        "period fℓ",
+        "finite difference of the centered floor"
+      ],
+      "equations": [
+        "inputs-stickelberger-pulse"
+      ],
+      "dependencies": [],
+      "correspondence": "Since g and χ have matching signs on units their product is even. Two sections of the sign-pairs give the same sum without dividing by two. Translating a unit by fℓ changes it by a multiplicative ℓ-power order element. The step-c floor difference counts a block, with −c at the wraparound. Summing fℓ blocks shifts by B. Pushing differences commutes with the translation.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.FW.reps",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EvenTot.lean",
+          "lines": [
+            24,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EvenTot.lean#L24-L53",
+          "label": "One representative for each pair of roots",
+          "declaration_lines": {
+            "UpperTheory.V.FW.reps": 24
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.twCoef",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean",
+          "lines": [
+            94,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean#L94-L111",
+          "label": "Extracting a quotient coefficient",
+          "declaration_lines": {
+            "UpperTheory.V.FW.twCoef": 60
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.twCoef",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean",
+          "lines": [
+            147,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean#L147-L165",
+          "label": "Changing half representatives without division",
+          "declaration_lines": {
+            "UpperTheory.V.FW.twCoef": 60
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.charPer",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CharPer.lean",
+          "lines": [
+            22,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CharPer.lean#L22-L53",
+          "label": "Why the character has period fℓ",
+          "declaration_lines": {
+            "UpperTheory.V.FW.charPer": 5
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.gcDiff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcDiff.lean",
+          "lines": [
+            25,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcDiff.lean#L25-L49",
+          "label": "A floor difference counts crossings",
+          "declaration_lines": {
+            "UpperTheory.V.FW.gcDiff": 25
+          }
+        },
+        {
+          "declaration": "gauss_count_shift_eq_sum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean",
+          "lines": [
+            6,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean#L6-L19",
+          "label": "Summing the one-step differences",
+          "declaration_lines": {
+            "gauss_count_shift_eq_sum": 6
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.gcShift",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean",
+          "lines": [
+            46,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean#L46-L62",
+          "label": "The difference of the weighted coefficients",
+          "declaration_lines": {
+            "UpperTheory.V.FW.gcShift": 46
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.pushDiff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PushDiff.lean",
+          "lines": [
+            5,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PushDiff.lean#L5-L28",
+          "label": "Pushing a translated difference through the fibres",
+          "declaration_lines": {
+            "UpperTheory.V.FW.pushDiff": 5
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.nonvan",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+          "lines": [
+            37,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean#L37-L60",
+          "label": "The contradiction at the coefficient indexed by one",
+          "declaration_lines": {
+            "UpperTheory.V.FW.nonvan": 12
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "The representation subtleties, the inverse r in the coefficient fibre and the signs in P were traced through the explicit finite sums."
+    },
+    {
+      "id": "SNV-03",
+      "chapter": "inputs",
+      "title": "Sinnott separation of finitely many translation exponents",
+      "anchor": "inputs-stickelberger-sinnott",
+      "statement": "For finitely many nonempty, pairwise rationally noncollinear ℓ-adic unit directions R and B>0, a depth uniform in the coefficient ring, forcing terms P and function α makes the hypothesized average-zero and difference equations imply all P(j)=0 for 0≤j<B. This contradicts the chosen P(1)=1.",
+      "hypotheses": "The abstract finite-depth theorem works over any commutative coefficient ring. It requires a fixed finite nonempty family with ar=bu for distinct r,u and integers a,b only when a=0. The chosen directions from W meet this by their finite order and choice up to sign.",
+      "definitions": [
+        "translation group algebra",
+        "support separated modulo ℓᵈ",
+        "quotient by ℤ·Br₀",
+        "injectivity of a difference in an infinite-order direction"
+      ],
+      "equations": [
+        "inputs-stickelberger-separation"
+      ],
+      "dependencies": [],
+      "correspondence": "Put A_r=Σ_yα(y)X^{ry}, P_r=Σ_jP(j)X^{jr}. The finite equality P_r=(1−X^{Br})A_r and Σ A_r=0 give Σ_r P_r Π_{u≠r}(1−X^{Bu})=0. Its possible exponents depend only on R and B. At a common separating depth the equality lifts to k[ℤℓ] for the additive group. Taking exponents modulo the algebraic subgroup ℤ·Br₀ kills all other summands. Each remaining translation by Bu has infinite order in that quotient and repeated equality of a coefficient is incompatible with finite nonempty support. After cancellation, 0≤j<B are distinct on the r₀ direction.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.FW.reps",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EvenTot.lean",
+          "lines": [
+            57,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EvenTot.lean#L57-L86",
+          "label": "Distinct directions and faithful reduction",
+          "declaration_lines": {
+            "UpperTheory.V.FW.reps": 24
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinE",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            37,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L37-L40",
+          "label": "The polynomial in translation operators",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinE": 37
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinFin.lean",
+          "lines": [
+            17,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinFin.lean#L17-L34",
+          "label": "Translation matrices in the finite group algebra",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinFin": 5
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinFin.lean",
+          "lines": [
+            48,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinFin.lean#L48-L64",
+          "label": "Vanishing after clearing the differences",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinFin": 5
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinSupp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinSupp.lean",
+          "lines": [
+            24,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinSupp.lean#L24-L35",
+          "label": "A finite support bound before choosing coefficients",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinSupp": 24
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SepPair.lean",
+          "lines": [
+            18,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SepPair.lean#L18-L25",
+          "label": "Separating a finite set by one depth",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sep": 18
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinnott",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+          "lines": [
+            10,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean#L10-L36",
+          "label": "From the finite quotient back to the ℓ-adic integers",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinnott": 10
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinLem",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean",
+          "lines": [
+            18,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean#L18-L48",
+          "label": "Isolating one direction in the additive quotient",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinLem": 18
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.sinLem",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean",
+          "lines": [
+            49,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean#L49-L76",
+          "label": "Distinct remaining exponents and zero factors",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sinLem": 18
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.nzd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nzd.lean",
+          "lines": [
+            5,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nzd.lean#L5-L24",
+          "label": "An infinite-order translation cannot fix finite support",
+          "declaration_lines": {
+            "UpperTheory.V.FW.nzd": 5
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the cleared identity, finite support argument, depth quantifier and quotient cancellation from their original bodies. An independent reader checked Sinnott and SinLem, including the order of the two quotients, the infinite-order translations and extraction of every P(j) for 0≤j<B."
+    },
+    {
+      "id": "SNV-04",
+      "chapter": "inputs",
+      "title": "Dyadic cancellation at depth two and a sufficient depth seven",
+      "anchor": "inputs-stickelberger-dyadic",
+      "statement": "At ℓ=2,f=3,c=13 the trivial character at n=d=2 gives a zero quotient coefficient. At the fixed depth d=7 the image is nonzero for all input levels n≥7 and all allowed characteristic-two fields and characters. The uniform projected nonvanishing supplies the analytic input to the memZ relation.",
+      "hypotheses": "In characteristic two the sign condition reads χ(−1)=1. W={1,−1} in ℤ₂×, and its two members are distinguished modulo four. The new explicit sufficient depth seven exploits that there is only one direction R={1}; minimality is not claimed.",
+      "definitions": [
+        "dyadic test character",
+        "singleton direction",
+        "finite difference at y=1",
+        "passage to the group-ring ideal"
+      ],
+      "equations": [],
+      "dependencies": [
+        "SNV-01",
+        "SNV-02"
+      ],
+      "correspondence": "For M=12 the two lower units 1,5 have weights −5,−1 and share the only quotient basis element, giving 0 mod 2. For d=7, 2⁷>78, so a zero projected element would force α=0, contradicting α(1)−α(51)=1. At n=7 the unit lifts of 1 are 1,257 with g=5,0 and those of 51 are 179,307 with g=0,4. In general memZ chooses the exponent ℓ^{d+vℓ(φ(fℓ^e))}.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.FW.teich",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToZModPowOneEqZeroIff.lean",
+          "lines": [
+            53,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToZModPowOneEqZeroIff.lean#L53-L74",
+          "label": "The two dyadic roots and reduction modulo four",
+          "declaration_lines": {
+            "UpperTheory.V.FW.teich": 53
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.thetaH",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            42,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L42-L48",
+          "label": "Integral coefficients, half representatives and fibre sums",
+          "related_declarations": [
+            "UpperTheory.V.FW.gc",
+            "UpperTheory.V.FW.push"
+          ],
+          "declaration_lines": {
+            "UpperTheory.V.FW.thetaH": 44,
+            "UpperTheory.V.FW.gc": 42,
+            "UpperTheory.V.FW.push": 47
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.nonvan",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+          "lines": [
+            37,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean#L37-L60",
+          "label": "The contradiction at the coefficient indexed by one",
+          "declaration_lines": {
+            "UpperTheory.V.FW.nonvan": 12
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.memZ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+          "lines": [
+            23,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean#L23-L37",
+          "label": "The uniform power in the integral ideal",
+          "declaration_lines": {
+            "UpperTheory.V.FW.memZ": 13
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.phiDvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean",
+          "lines": [
+            54,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PhiDvd.lean#L54-L56",
+          "label": "Divisibility supplied by the projected test",
+          "declaration_lines": {
+            "UpperTheory.V.FW.phiDvd": 54
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.FW.cyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            18,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L18-L33",
+          "label": "The smoothing integer used in the class-rank estimate",
+          "declaration_lines": {
+            "UpperTheory.V.FW.cyc": 18
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Enumerated the lower-half coefficients at M=12 and checked both fibres at M=384 from the integer floor formula. The larger-depth claim follows by the finite-difference argument for all n≥7. An independent reader recomputed all four weights at M=384 and verified the contrast at M=12."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "UpperTheory.V.FW.memZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.memZ",
+      "callee": "UpperTheory.V.FW.nonvan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.memZ",
+      "callee": "UpperTheory.V.FW.algK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.reps",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.sinnott",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.gcNeg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 39
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.twCoef",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 40
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.charPer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 44
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.gcShift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.nonvan",
+      "callee": "UpperTheory.V.FW.pushDiff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Nonvan.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.twCoef",
+      "callee": "UpperTheory.V.FW.tw_single",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean",
+        "line": 102
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.twCoef",
+      "callee": "UpperTheory.V.FW.halfSum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwCoef.lean",
+        "line": 156
+      }
+    },
+    {
+      "caller": "gauss_count_shift_eq_sum",
+      "callee": "UpperTheory.V.FW.gcDiff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.gcShift",
+      "callee": "gauss_count_shift_eq_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcShift.lean",
+        "line": 57
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinnott",
+      "callee": "UpperTheory.V.FW.sinSupp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinnott",
+      "callee": "UpperTheory.V.FW.sep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinnott",
+      "callee": "UpperTheory.V.FW.sinFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinnott",
+      "callee": "UpperTheory.V.FW.sinMap",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+        "line": 20
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinnott",
+      "callee": "UpperTheory.V.FW.sinLem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Sinnott.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.sinLem",
+      "callee": "cancel_prod",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "cancel_prod",
+      "callee": "UpperTheory.V.FW.nzd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.reps",
+      "callee": "UpperTheory.V.FW.teich",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/EvenTot.lean",
+        "line": 86
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.algK",
+      "callee": "UpperTheory.V.FW.phiDvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/AlgK.lean",
+        "line": 83
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SNV-02",
+      "SNV-01"
+    ],
+    [
+      "SNV-03",
+      "SNV-01"
+    ],
+    [
+      "SNV-01",
+      "SNV-04"
+    ],
+    [
+      "SNV-01",
+      "ACI-02"
+    ]
+  ],
+  "outstanding": [
+    "The separate reflection and dyadic signature inequalities, the integral Stickelberger annihilation of the class group and the ambiguous-class bound are used after this nonvanishing argument. The link to the integral ideal calls character separation, Frobenius, cyclic divisibility and descent; its proof is in the companion passage on the group-ring power."
+  ],
+  "review_scope": "Primary-archive textual proof reconstruction with a direct finite numerical check. Source labels describe the mathematical use; declaration and declaration_lines identify the written Lean heads."
+}
