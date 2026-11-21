@@ -97,7 +97,15 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "central-period") {
+        if (id === "minimum-scale") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
+          assert.ok((await fig.locator("[data-result]").innerText()).includes("7/180"));
+          assert.ok(await fig.locator("svg").isVisible());
+        } else if (id === "kernel-order") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["2", "1 + i", "0", "1 − i"]);
+          assert.equal(await fig.locator("[data-result] strong").innerText(), "12");
+        } else if (id === "central-period") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
           assert.ok(await fig.locator("svg").isVisible());
           assert.ok(await fig.locator("svg path.ink").isVisible());
@@ -178,6 +186,24 @@ async function run() {
         "book overflows " + width,
       );
     }
+    await openFigure(page, base + "book.html?minimum-scale.scale=16&minimum-scale.direction=dual#fig-minimum-scale");
+    const minimum = page.locator("#fig-minimum-scale.ready");
+    assert.deepEqual(await minimum.locator(".metrics dd").allInnerTexts(), ["193", "49", "e₂ / 64"]);
+    await minimum.getByRole("combobox", {name: "Test direction"}).press("Home");
+    assert.ok((await minimum.locator("[data-result]").innerText()).includes("3/386"));
+    const minimumLink = new URL(await minimum.locator("[data-share]").getAttribute("href"));
+    assert.equal(minimumLink.searchParams.get("minimum-scale.scale"), "16");
+    await openFigure(page, minimumLink.href);
+    assert.deepEqual(await minimum.locator(".metrics dd").allInnerTexts(), ["193", "49", "e₁"]);
+    await openFigure(page, base + "book.html?kernel-order.cutoff=3&kernel-order.phase=i#fig-kernel-order");
+    const order = page.locator("#fig-kernel-order.ready");
+    assert.deepEqual(await order.locator(".metrics dd").allInnerTexts(), ["7/16 − i", "7/16 − i"]);
+    await order.getByRole("combobox").press("Home");
+    assert.deepEqual(await order.locator(".metrics dd").allInnerTexts(), ["65/16", "65/16"]);
+    const orderLink = new URL(await order.locator("[data-share]").getAttribute("href"));
+    assert.equal(orderLink.searchParams.get("kernel-order.phase"), "one");
+    await openFigure(page, orderLink.href);
+    assert.equal(await order.locator("[data-result] strong").innerText(), "135/16");
     await openFigure(page, base + "book.html?central-period.start=0&central-period.length=0.25#fig-central-period");
     const central = page.locator("#fig-central-period.ready");
     assert.deepEqual(await central.locator(".metrics dd").allInnerTexts(), ["[0, 1/4]", "1/2 + 1/(2π) ≈ 0.6592", "1/2"]);
@@ -373,6 +399,8 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    assert.deepEqual(await page.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
+    assert.deepEqual(await page.locator("#fig-minimum-scale .metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
     assert.ok(await page.locator("#fig-central-period svg").isVisible());
     assert.deepEqual(await page.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
     assert.ok(await page.locator("#fig-inert-length table").isVisible());
@@ -395,6 +423,8 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    assert.deepEqual(await plain.locator("#fig-minimum-scale .metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
+    assert.deepEqual(await plain.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
     assert.ok(await plain.locator("#fig-central-period svg").isVisible());
     assert.deepEqual(await plain.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
     assert.equal(await plain.locator("#source-mode").isVisible(), false);

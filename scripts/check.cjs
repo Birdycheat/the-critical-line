@@ -63,6 +63,74 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Slice the disk by integer real part. Count permitted imaginary parts
+// directly with a square root, including the full-weight boundary.
+for (const d of [1, 4, 16]) {
+  const stats = lib.minimumScale(d);
+  function slicedDisk(limit) {
+    let count = 0, moment = 0;
+    for (let a = -Math.floor(Math.sqrt(limit)); a <= Math.sqrt(limit); a++) {
+      const b = Math.floor(Math.sqrt(limit - a * a));
+      count += 2 * b + 1;
+      moment += (2 * b + 1) * a * a + b * (b + 1) * (2 * b + 1) / 3;
+    }
+    return { count, moment };
+  }
+  assert.equal(stats.points.length, slicedDisk(4 * d - 1).count);
+  assert.equal(stats.fullWeight, slicedDisk(d).count);
+  assert.equal(stats.numerator, slicedDisk(d).moment);
+  assert.equal(new Set(stats.points.map(p => p.a + "," + p.b)).size, stats.points.length);
+  for (const direction of ["primal", "dual"]) {
+    const rendered = lib.render("minimum-scale", {scale: String(d), direction});
+    assert.equal((rendered.match(/r="2.7"/g) || []).length, stats.fullWeight);
+    assert.equal((rendered.match(/-2.6 -2.6Z/g) || []).length, stats.points.length - stats.fullWeight);
+    if (direction === "dual") assert.ok(rendered.includes("T<sub>d</sub>[e₂ / 64] = 0"));
+  }
+}
+// A derivative of a finite geometric series gives an independent sum
+// at each target point. These dyadic inputs are exactly representable.
+function gaussianMultiply([a, b], [c, d]) { return [a * c - b * d, a * d + b * c]; }
+function gaussianDivide([a, b], [c, d]) {
+  const norm = c * c + d * d;
+  return [(a * c + b * d) / norm, (b * c - a * d) / norm];
+}
+function geometricDerivative(last, ratio) {
+  let power = [1, 0];
+  for (let j = 0; j < last; j++) power = gaussianMultiply(power, ratio);
+  const next = gaussianMultiply(power, ratio);
+  const numerator = [1 - (last + 1) * power[0] + last * next[0],
+    -(last + 1) * power[1] + last * next[1]];
+  const difference = [1 - ratio[0], -ratio[1]];
+  return gaussianDivide(numerator, gaussianMultiply(difference, difference));
+}
+for (const [phase, z] of Object.entries({one: [1, 0], minus: [-1, 0], i: [0, 1]})) {
+  for (let cutoff = 1; cutoff <= 8; cutoff++) {
+    const state = lib.kernelOrder(cutoff, phase);
+    let real = 0, imag = 0, limitReal = 0, limitImag = 0;
+    for (const row of state.lifts) {
+      const r = row.y / 2;
+      const a = geometricDerivative(cutoff, [r, 0])[0];
+      const [b, c] = geometricDerivative(cutoff, [r * z[0], r * z[1]]);
+      close(row.first / state.denominator, a, 2e-14);
+      close(row.real / state.denominator, b, 2e-14);
+      close(row.imag / state.denominator, c, 2e-14);
+      real += a * b / 2;
+      imag -= a * c / 2;
+      const v = [1 - r * z[0], -r * z[1]];
+      const [br, bi] = gaussianDivide([1, 0], gaussianMultiply(v, v));
+      limitReal += br / (2 * (1 - r) ** 2);
+      limitImag -= bi / (2 * (1 - r) ** 2);
+    }
+    const square = state.denominator ** 2;
+    close(state.targetReal / (2 * square), real, 2e-13);
+    close(state.targetImag / (2 * square), imag, 2e-13);
+    assert.equal(state.targetReal, 2 * state.sourceReal);
+    assert.equal(state.targetImag, 2 * state.sourceImag);
+    const truncatedMass = 4 - (2 * cutoff + 4) / 2 ** cutoff;
+    assert.equal(state.tail / square, 16 - truncatedMass ** 2);
+    assert.ok(Math.hypot(limitReal - real, limitImag - imag) <= state.tail / square + 2e-13);
+  }
+}
 // Composite Simpson quadrature of the original coefficient gives a check
 // independent of the eighth-turn antiderivative used by the figure.
 {
@@ -537,6 +605,8 @@ for (const a of [2, 3, 4]) {
 }
 assert.equal(distinctGridStates.size, 9);
 for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes(lib.render("minimum-scale", lib.defaults("minimum-scale"))));
+  assert.ok(html[name].includes(lib.render("kernel-order", lib.defaults("kernel-order"))));
   assert.ok(html[name].includes(lib.render("central-period", lib.defaults("central-period"))),
     "Missing complete default central period figure in " + name);
   assert.ok(html[name].includes(lib.render("inert-length", lib.defaults("inert-length"))),
@@ -621,5 +691,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

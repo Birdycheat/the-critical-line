@@ -16,6 +16,28 @@
     value,
   });
   const configs = {
+    "minimum-scale": {
+      title: "Which short vectors can change a chosen direction?",
+      kind: "Gaussian lattice count",
+      section: "inputs",
+      params: [
+        choose("scale", "Correction scale d", [["1", "1"], ["4", "4"], ["16", "16"]], "4"),
+        choose("direction", "Test direction", [["primal", "e₁"], ["dual", "e₂ / 64"]], "primal"),
+      ],
+      caption: "The points are the possible first coordinates z of a contributing vector (z,0). Filled disks have weight 1. Open diamonds lie in the transition region. Switch the test direction to see why all of their contributions can vanish.",
+      method: "For h = diag(1,64), the inner cutoff is zero at squared length 4d and above. Since 4d ≤ 64, a contributing vector has second coordinate zero. Enumerate a² + b² < 4d for z = a + bi. Summing a² + b² over the full-weight disk gives a lower bound for the e₁ numerator. The number of candidates bounds the denominator Z from above. In the other direction each rank-one value is zero. The outer cutoff equals one at all three scales because μ ≤ 1/16.",
+    },
+    "kernel-order": {
+      title: "Pair the lifts before or after summing the source terms",
+      kind: "Exact countable kernel model",
+      section: "lifts",
+      params: [
+        range("cutoff", "Source cutoff M", 1, 8, 1, 2),
+        choose("phase", "Phase z of the second input", [["one", "1"], ["i", "i"], ["minus", "−1"]], "i"),
+      ],
+      caption: "Each target point has mass ½. Multiply the first lift by the conjugate of the second, then average the two rows. In the other order, only pairs of source indices with the same parity contribute.",
+      method: "The kernel is n yⁿ⁻¹ for y = ±1; the source weights are (1/2)ⁿ⁻¹ and (z/2)ⁿ⁻¹. Each value is computed as a Gaussian integer divided by a power of two. The second calculation sums all equal-parity pairs independently. With Sₘ = ∑ₙ₌₁ᴹ n/2ⁿ⁻¹ and S∞ = 4, the absolute contribution of all omitted pairs is at most 16 − Sₘ². The bound applies to the infinite series before cancellation.",
+    },
     "central-period": {
       title: "Which intervals keep their integral under central averaging?",
       kind: "Periods of a differential form",
@@ -707,6 +729,65 @@
     return remainder === 1 ? sign : -sign;
   }
 
+  function minimumScale(d) {
+    const points = [];
+    const radius = Math.ceil(Math.sqrt(4 * d));
+    let fullWeight = 0, numerator = 0;
+    for (let a = -radius; a <= radius; a++) {
+      for (let b = -radius; b <= radius; b++) {
+        const norm = a * a + b * b;
+        if (norm >= 4 * d) continue;
+        const full = norm <= d;
+        points.push({ a, b, full });
+        if (full) {
+          fullWeight++;
+          numerator += norm;
+        }
+      }
+    }
+    return { points, fullWeight, numerator };
+  }
+  function kernelOrder(cutoff, phase) {
+    const denominator = 2 ** (cutoff - 1);
+    const terms = Array.from({ length: cutoff }, (_, index) => {
+      const n = index + 1;
+      const weight = n * 2 ** (cutoff - n);
+      const turn = phase === "i" ? index % 4 : phase === "minus" ? 2 * (index % 2) : 0;
+      return { n, weight, real: weight * [1, 0, -1, 0][turn], imag: weight * [0, 1, 0, -1][turn] };
+    });
+    const lifts = [1, -1].map(y => {
+      let first = 0, real = 0, imag = 0;
+      for (const t of terms) {
+        const kernelSign = y ** (t.n - 1);
+        first += kernelSign * t.weight;
+        real += kernelSign * t.real;
+        imag += kernelSign * t.imag;
+      }
+      return { y, first, real, imag };
+    });
+    const targetReal = lifts.reduce((total, t) => total + t.first * t.real, 0);
+    const targetImag = lifts.reduce((total, t) => total - t.first * t.imag, 0);
+    let sourceReal = 0, sourceImag = 0;
+    for (const a of terms) {
+      for (const b of terms) {
+        if ((a.n + b.n) % 2 === 0) {
+          sourceReal += a.weight * b.real;
+          sourceImag -= a.weight * b.imag;
+        }
+      }
+    }
+    const weightSum = lifts[0].first;
+    const tail = 16 * denominator ** 2 - weightSum ** 2;
+    return { denominator, lifts, targetReal, targetImag, sourceReal, sourceImag, tail };
+  }
+  function complexFraction(real, imag, denominator) {
+    const x = reducedFraction(real, denominator);
+    if (imag === 0) return x;
+    const abs = Math.abs(imag);
+    const y = (abs === denominator ? "" : reducedFraction(abs, denominator)) + "i";
+    if (real === 0) return (imag < 0 ? "−" : "") + y;
+    return x + (imag < 0 ? " − " : " + ") + y;
+  }
   function centralPeriod(start, length) {
     const first = Math.round(8 * start);
     const span = Math.round(8 * length);
@@ -729,6 +810,48 @@
   }
 
   function render(id, v) {
+    if (id === "minimum-scale") {
+      const d = Number(v.scale), radius = Math.sqrt(4 * d);
+      const { points, fullWeight, numerator } = minimumScale(d);
+      const spacing = 84 / radius;
+      const cx = 174, cy = 105;
+      const dots = points.map(({ a, b, full }) => {
+        const x = cx + spacing * a, y = cy - spacing * b;
+        if (full) return '<circle cx="' + x + '" cy="' + y + '" r="2.7" fill="#12685f"/>';
+        return '<path d="M' + x + ' ' + (y - 2.6) + 'l2.6 2.6 -2.6 2.6 -2.6 -2.6Z" fill="none" stroke="#9b4427" stroke-width="1"/>';
+      }).join("");
+      const boundary = '<circle cx="' + cx + '" cy="' + cy + '" r="84" fill="none" class="dash"/>';
+      const ticks = [-radius, 0, radius].map(a => '<text x="' + (cx + spacing * a) +
+        '" y="214" text-anchor="middle">' + fmt(a) + '</text>').join("");
+      const vertical = [-radius, 0, radius].map(b => '<text x="75" y="' + (cy - spacing * b + 4) +
+        '" text-anchor="end">' + fmt(b) + '</text>').join("");
+      const svg = '<svg class="plot" viewBox="0 0 348 243" role="img" aria-label="Gaussian integers in the open disk of squared radius ' +
+        (4 * d) + '"><title>Short Gaussian integers at scale ' + d +
+        '</title><desc>' + fullWeight + ' full-weight points among ' + points.length + ' candidates. The second coordinate is zero throughout.</desc>' +
+        '<path class="grid" d="M90 105H258 M174 21V189"/>' + boundary + dots + ticks + vertical +
+        '<text x="174" y="238" text-anchor="middle">Real part of z</text>' +
+        '<text transform="translate(39 105) rotate(-90)" text-anchor="middle">Imaginary part of z</text></svg>';
+      const isDual = v.direction === "dual";
+      const result = isDual ? "T<sub>d</sub>[e₂ / 64] = 0. The vector pairs only with the second coordinate, which vanishes at every plotted point." :
+        "T<sub>d</sub>[e₁] ≥ " + reducedFraction(numerator, d * d * points.length) +
+        ". The full-weight points contribute " + numerator + " to the numerator. Each remaining term is nonnegative.";
+      return svg + metrics([["Possible vectors", points.length], ["Full weight", fullWeight], ["Test direction", isDual ? "e₂ / 64" : "e₁"]]) +
+        "<p>" + result + "</p>";
+    }
+    if (id === "kernel-order") {
+      const result = kernelOrder(v.cutoff, v.phase);
+      const d = result.denominator;
+      const rows = result.lifts.map(t =>
+        '<tr><th scope="row">' + (t.y === 1 ? "+1" : "−1") + "</th><td>" +
+        reducedFraction(t.first, d) + "</td><td>" + complexFraction(t.real, t.imag, d) + "</td></tr>"
+      ).join("");
+      return '<table class="carry-table"><caption>Two target points at M = ' + v.cutoff +
+        '</caption><thead><tr><th scope="col">y</th><th scope="col">First lift</th><th scope="col">Second lift</th></tr></thead><tbody>' +
+        rows + "</tbody></table>" +
+        metrics([["Pair on the target", complexFraction(result.targetReal, result.targetImag, 2 * d ** 2)],
+          ["Sum over source pairs", complexFraction(result.sourceReal, result.sourceImag, d ** 2)]]) +
+        "<p>Absolute error from truncating the infinite pairing ≤ <strong>" + reducedFraction(result.tail, d ** 2) + "</strong>.</p>";
+    }
     if (id === "central-period") {
       const start = Number(v.start), length = Number(v.length);
       const result = centralPeriod(start, length);
@@ -1687,6 +1810,8 @@
   const api = {
     configs,
     centralPeriod,
+    kernelOrder,
+    minimumScale,
     render,
     defaults,
     normal,

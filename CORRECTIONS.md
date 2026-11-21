@@ -2,6 +2,9 @@
 
 ## 21 November 2026
 
+- At b=2a the geometric majorant for the Eisenstein series has ratio 1 at the special point. The smaller-rank branch of Siegel–Weil supplies the holomorphic value under the Witt-index condition. Absolute integrability for exchanging the three quotient integrations is established separately from the square-integrable diagonal slices.
+- The inner cutoff of a corrected lattice form vanishes at squared length 4d. In the Gaussian example at d=16, all the vectors with nonzero second coordinate have zero weight. The positive fractions on the first coordinate are lower bounds. The affine-block comparison gives a boundary at the existing size; the lower bound on size in stable homology belongs to a subsequent argument.
+
 - The formal degree, the rescaling of the joint polynomial and the pushforward of Haar measure all affect the value of the real-place factor. Strict positivity also needs the separate argument on the shared compact type.
 - A stabilizer can fix a Hermitian form while contributing several labels to a partition. For the Gaussian units there are four equal weights. In the Hecke transfer, the primitive for an orbit representative is defined on tuples in the entire smaller group and invariant under the stabilizer; this allows it to be translated to all labels in the orbit.
 - In odd degree only one real part or imaginary part of the cyclic trace can survive at one place. The degree-three trace on three tangent vectors demonstrates the sign and scaling. Establishing a period then requires integration on an arithmetic cycle.

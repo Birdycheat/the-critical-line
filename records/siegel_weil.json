@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SWF-01",
+      "chapter": "lifts",
+      "title": "Siegel–Weil supplies an integrable theta kernel and an Eisenstein value",
+      "anchor": "lifts-siegel-weil",
+      "statement": "For every doubled group argument, the target theta kernel is integrable and its normalized mean is the holomorphic value at s₀=(b−a)/2 of the flat Eisenstein family. For b>2a this is an actual convergent series value; for a<b≤2a the convergent-range theorem supplies the continued value.",
+      "hypotheses": "Hermitian spaces from the chain with source rank 1≤a<b, w=WittIndex(B) and w=0 or a+w<b. Use the compatible Weil datum (1,χ_B), Cartan involutions and compact subgroup, the self-dual frame Iwasawa data, the covolume-one measure for the Weyl datum, target Haar measure, and a Fock vector.",
+      "equations": [
+        "lifts-siegel-weil-mean"
+      ],
+      "dependencies": [
+        "SWF-02",
+        "SWF-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/SiegelWeilFock.lean",
+          "lines": [
+            16,
+            29
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.SiegelWeilFock",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/SiegelWeilFock.lean#L16-L29"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/SiegelWeilAnisotropicUnitary.lean",
+          "lines": [
+            19,
+            21
+          ],
+          "declaration": "GlobalTheory.ThetaMean.thetaMean",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/SiegelWeilAnisotropicUnitary.lean#L19-L21"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+          "lines": [
+            21,
+            46
+          ],
+          "declaration": "GlobalTheory.Eis.EisValueAt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean#L21-L46"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+          "lines": [
+            49,
+            63
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.siegelWeilAll_of_hypotheses",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean#L49-L63"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+          "lines": [
+            64,
+            84
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.siegelWeilAll_of_hypotheses",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean#L64-L84"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+          "lines": [
+            33,
+            53
+          ],
+          "declaration": "GlobalTheory.StdUnn.sw_doubled_of_std",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean#L33-L53"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+          "lines": [
+            54,
+            78
+          ],
+          "declaration": "GlobalTheory.StdUnn.sw_doubled_of_std",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean#L54-L78"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+          "lines": [
+            10,
+            15
+          ],
+          "declaration": "UpperTheory.Lit.Sw47.weilUnitary",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean#L10-L15"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+          "lines": [
+            13,
+            25
+          ],
+          "declaration": "PositivityTheory.SiegelWeilCoefficients.field",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean#L13-L25"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+          "lines": [
+            41,
+            52
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.globalFormAt_frameLat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean#L41-L52"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The geometric half-plane is strict and the endpoint is handled by the transported standard-model result. In the upper range the pointwise sum from the Weil–Siegel formula is the Eisenstein series because its section is exactly swSec. The lower-range provider converts the standard mean and series to the doubled model.",
+      "review": "Checked directly in the pinned text, including the endpoint inequalities, the shift in the section exponent and the probability normalization of the target mean."
+    },
+    {
+      "id": "SWF-02",
+      "chapter": "lifts",
+      "title": "Parabolic equivariance and the parameter of the flat Siegel section",
+      "anchor": "lifts-siegel-weil-section",
+      "statement": "At the reference point s₀, the section transforms on a Levi block M by χ_B⁻¹(det M)|det M|^(b/2) and is invariant under its unipotent radical. The compact translates span a finite-dimensional space, and the flat deformation multiplies the reference section by h(g)^(s−s₀).",
+      "hypotheses": "A valid Weil datum and theta vector, with Haar measure and fundamental region of covolume one on the rational lattice and compact-finite vector for the finite-dimensional claim. The standard chart preserves the rational groups and translates the compact subgroup.",
+      "equations": [
+        "lifts-siegel-weil-mean"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.SphericalZero.swSec",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/TwistedDiscreteSeries/SphericalZero.lean",
+          "lines": [
+            22,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/TwistedDiscreteSeries/SphericalZero.lean#L22-L36"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean",
+          "lines": [
+            23,
+            38
+          ],
+          "declaration": "GlobalTheory.Core.Rk.SWLaw.scalar_eq",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean#L23-L38"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean",
+          "lines": [
+            46,
+            63
+          ],
+          "declaration": "GlobalTheory.Core.Rk.SWLaw.swSec_law",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean#L46-L63"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingSiegelWeilSectionMemDegeneratePrincipalS.lean",
+          "lines": [
+            51,
+            64
+          ],
+          "declaration": "GlobalTheory.SwSecMem.swSec_mem_degPS",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingSiegelWeilSectionMemDegeneratePrincipalS.lean#L51-L64"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+          "lines": [
+            264,
+            282
+          ],
+          "declaration": "GlobalTheory.Eis.SphConv.isEisFamily_flat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean#L264-L282"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+          "lines": [
+            33,
+            53
+          ],
+          "declaration": "GlobalTheory.StdUnn.sw_doubled_of_std",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean#L33-L53"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+          "lines": [
+            54,
+            78
+          ],
+          "declaration": "GlobalTheory.StdUnn.sw_doubled_of_std",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean#L54-L78"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "At coordinate zero the unipotent character is trivial. The mixed-model Levi scalar and the equality s₀+a/2=b/2 give the weight. A linear map sends the finite compact orbit span to the section orbit span. The change of chart contributes the entire factor D^(s₀−s), equal to one at s₀.",
+      "review": "Checked directly in the pinned text, including the endpoint inequalities, the shift in the section exponent and the probability normalization of the target mean."
+    },
+    {
+      "id": "SWF-03",
+      "chapter": "lifts",
+      "title": "The spherical majorant in the strict convergence half-plane",
+      "anchor": "lifts-siegel-weil-majorant",
+      "statement": "For T=Re(s)+a/2>a, the positive spherical height powers are summable over the rational Siegel cosets. A label j∈ℕ^a contributes at most C^(1+T)(B^(a−T))^(Σj). This suffices for the convergence and holomorphy of the flat family in Re(s)>a/2.",
+      "hypotheses": "The CM doubled Hermitian datum with nondegenerate form, compact Iwasawa subgroup and unitary Hecke character; cosets represented by rational group elements, with distinct cosets distinguished by their parabolic relation. The reduction supplies positive base B>1 and its height and counting bounds.",
+      "equations": [
+        "lifts-siegel-weil-geometric"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean",
+          "lines": [
+            235,
+            250
+          ],
+          "declaration": "GlobalTheory.Eis.Conv.summable_hgt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean#L235-L250"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean",
+          "lines": [
+            252,
+            277
+          ],
+          "declaration": "GlobalTheory.Eis.Conv.summable_hgt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean#L252-L277"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean",
+          "lines": [
+            289,
+            299
+          ],
+          "declaration": "GlobalTheory.Eis.sphConv",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean#L289-L299"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/SummableRpowOfFibreCardLe.lean",
+          "lines": [
+            24,
+            51
+          ],
+          "declaration": "GlobalTheory.SummCount.summable_rpow_of_fibre_card_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/SummableRpowOfFibreCardLe.lean#L24-L51"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/SummableRpowOfFibreCardLe.lean",
+          "lines": [
+            48,
+            62
+          ],
+          "declaration": "GlobalTheory.SummCount.summable_rpow_of_fibre_card_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/SummableRpowOfFibreCardLe.lean#L48-L62"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+          "lines": [
+            238,
+            252
+          ],
+          "declaration": "GlobalTheory.Eis.SphConv.isEisFamily",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean#L238-L252"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+          "lines": [
+            217,
+            219
+          ],
+          "declaration": "GlobalTheory.Eis.IsEisFamily.analyticOnNhd_flat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean#L217-L219"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+          "lines": [
+            284,
+            292
+          ],
+          "declaration": "GlobalTheory.Eis.SphConv.eisValueAt_flat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean#L284-L292"
+        },
+        {
+          "declaration": "GlobalTheory.Eis.analyticOnNhd_tsum_npow",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/AnalyticOnNhdTsumNpow.lean",
+          "lines": [
+            115,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/AnalyticOnNhdTsumNpow.lean#L115-L125"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Group finite subsums by a nonnegative tuple. The spherical height loss beats the growth of the finite fibers exactly under the strict inequality T>a in this majorant. Summability of the positive comparison and the transformation law supply absolute convergence and then a holomorphic value of the flat family in the open half-plane.",
+      "review": "An independent reading checked both examples, the factor D^(s₀−z), the geometric exponent and the two-edge majorant needed to pass from pointwise convergence to holomorphy."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "doublingSeesawTensorMap_polynomial_fock_vector",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+        "line": 48
+      }
+    },
+    {
+      "callee": "hSW",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+        "line": 49
+      }
+    },
+    {
+      "callee": "fock_vector_finite_under_compact_commuting_cartan",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 53
+      }
+    },
+    {
+      "callee": "adelicIwasawa_doubledGroup_selfDualLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "hIch",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 63
+      }
+    },
+    {
+      "callee": "hWeil",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "hser",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "doublingSiegelWeilSection_mem_degeneratePrincipalSeries",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "eisValueAt_flat",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "sphConv",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "swSection_eq_swSec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilFockDoubledPairOfWeilAndIchino.lean",
+        "line": 81
+      }
+    },
+    {
+      "callee": "exists_standardUnitaryChart_doubledSpace",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "schroedingerFunction_fockVector_polynomial_gaussian",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 48
+      }
+    },
+    {
+      "callee": "hP",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "doubledFlatSection_eq_translate_standardSection",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 57
+      }
+    },
+    {
+      "callee": "thetaKernel_eq_tsum_schrodingerFunction",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 60
+      }
+    },
+    {
+      "callee": "cosetSum_along_mulEquiv_subgroups",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 66
+      }
+    },
+    {
+      "callee": "holomorphicContinuationValue_nnrealPow_factor",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilDoubledSpaceOfStandardUnitary.lean",
+        "line": 72
+      }
+    },
+    {
+      "callee": "sw_doubled_of_std",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "weilSiegelFormulaUnitary_of_two",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/FockAnisoFree.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "nondegenerate_of_whittaker",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "top7",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "siegelWeilUnitarySchrodinger_of_lit",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "siegel_decomp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean",
+        "line": 49
+      }
+    },
+    {
+      "callee": "mixedModelFormulasWittSource_proof",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "scalar_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SiegelWeilSectionDegeneratePrincipalSeriesLaw.lean",
+        "line": 63
+      }
+    },
+    {
+      "callee": "siegelWeilSection_degeneratePrincipalSeries_law",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingSiegelWeilSectionMemDegeneratePrincipalS.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "swSec_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/DoublingSiegelWeilSectionMemDegeneratePrincipalS.lean",
+        "line": 64
+      }
+    },
+    {
+      "callee": "summable_hgt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean",
+        "line": 296
+      }
+    },
+    {
+      "callee": "summable_rpow_of_fibre_card_le'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DetGramSmul.lean",
+        "line": 275
+      }
+    },
+    {
+      "callee": "summable_prod_fin_tuple",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/SummableRpowOfFibreCardLe.lean",
+        "line": 43
+      }
+    },
+    {
+      "callee": "cosetConv_of_spherical",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+        "line": 252
+      }
+    },
+    {
+      "callee": "analyticOnNhd_tsum_npow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+        "line": 219
+      }
+    },
+    {
+      "callee": "isEisFamily_flat",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/EisValueAtIffEisPoleLE.lean",
+        "line": 291
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SWF-02",
+      "SWF-01"
+    ],
+    [
+      "SWF-03",
+      "SWF-01"
+    ]
+  ],
+  "outstanding": [
+    "The comparison of Fourier coefficients of the standard Schrödinger theta integral and Eisenstein family, and the arithmetic reduction furnishing height labels and fiber bounds, remain upstream inputs. This passage reconstructs the branch selection, chart transport, section weight and summability argument."
+  ]
+}

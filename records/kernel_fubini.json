@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "KFB-01",
+      "chapter": "lifts",
+      "title": "A diagonal doubled kernel controls each target slice",
+      "anchor": "lifts-kernel-slice",
+      "statement": "For the Fock polynomial of a chain step a target slice is square-integrable, and its squared norm is bounded by a constant times a power of the source quotient height.",
+      "hypotheses": "Use the Weil pair, the Fock vector, the rank and Witt condition, the Siegel–Weil integrability and Eisenstein value for its self-pair, the regularity estimate, the height bound for the doubled embedding, and the specified Haar measures.",
+      "equations": [
+        "lifts-kernel-majorant"
+      ],
+      "dependencies": [
+        "SWF-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+          "lines": [
+            28,
+            54
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.normSq_theta_modGrowth",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean#L28-L54"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+          "lines": [
+            55,
+            74
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.normSq_theta_modGrowth",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean#L55-L74"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+          "lines": [
+            85,
+            98
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.normSq_theta_modGrowth",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean#L85-L98"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+          "lines": [
+            103,
+            129
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.normSq_theta_modGrowth",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean#L103-L129"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+          "lines": [
+            106,
+            125
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.globalFormAt_frameLat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean#L106-L125"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            58,
+            84
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.lintegral_slice_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L58-L84"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Doubling Φ with itself identifies its absolute square on the diagonal with the norm of the doubled kernel. The target mean is a regular Eisenstein value; pulling its height estimate back to the diagonal and restoring the volume bounds the squared slice norm.",
+      "review": "Compared the hypotheses, slice bound, placement of conjugation and denominator of the target averaging measure against the source bodies. A second source reading checked the diagonal input, the factor ν(Y), the mixed conjugation and the two integration orders."
+    },
+    {
+      "id": "KFB-02",
+      "chapter": "lifts",
+      "title": "The absolute triple-integral bound permits the seesaw exchange",
+      "anchor": "lifts-kernel-swap",
+      "statement": "Let Nᵢ dominate the target L² norm of each source slice and let ∫Nᵢ|uᵢ|=Mᵢ<∞. The integral of |K₁u₁ K₂u₂| over the two source copies and the target is at most M₁M₂. With pointwise integrability of each lift, the lifts are in L² and their pairing equals the double source integral of the kernel pairing times u₁ conjugate(u₂).",
+      "hypotheses": "Jointly measurable kernels and σ-finite measure spaces. In the arithmetic application the source has finite volume, the cusp inputs are rapidly decreasing, kernels have moderate growth at each fixed target and their squared target norms have moderate growth. The arithmetic action gives descent to the quotients.",
+      "equations": [
+        "lifts-kernel-majorant",
+        "lifts-kernel-pair"
+      ],
+      "dependencies": [
+        "KFB-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+          "lines": [
+            106,
+            125
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.globalFormAt_frameLat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean#L106-L125"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            21,
+            41
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.measurable_kernel_out",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L21-L41"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            43,
+            56
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.integrable_lift_integrand",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L43-L56"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            58,
+            84
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.lintegral_slice_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L58-L84"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegrableUnitaryQuotientHeightPowMulRapidlyDecr.lean",
+          "lines": [
+            20,
+            42
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.integrable_quotHeight_pow_mul_norm_of_rapidDec",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegrableUnitaryQuotientHeightPowMulRapidlyDecr.lean#L20-L42"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            86,
+            104
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.weight_data",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L86-L104"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+          "lines": [
+            30,
+            49
+          ],
+          "declaration": "GlobalTheory.AbsFubini.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean#L30-L49"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+          "lines": [
+            58,
+            78
+          ],
+          "declaration": "GlobalTheory.AbsFubini.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean#L58-L78"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+          "lines": [
+            80,
+            99
+          ],
+          "declaration": "GlobalTheory.AbsFubini.memLp_lift",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean#L80-L99"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+          "lines": [
+            123,
+            152
+          ],
+          "declaration": "GlobalTheory.AbsFubini.abstract_fubini_two_lifts",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean#L123-L152"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+          "lines": [
+            107,
+            134
+          ],
+          "declaration": "GlobalTheory.Core.Rk.Seesaw.seesaw_fubini",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean#L107-L134"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+          "lines": [
+            130,
+            156
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.globalFormAt_frameLat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean#L130-L156"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernelsStatement.lean",
+          "lines": [
+            14,
+            16
+          ],
+          "declaration": "GlobalTheory.T.seesaw_fubini_two_lifts_moderate_growth_kernels",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernelsStatement.lean#L14-L16"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Tonelli for the positive majorant and Cauchy–Schwarz in the shared target variable precede the complex Fubini exchange. In the arithmetic application the second kernel and second cusp form are conjugated and the mixed mean contributes the target volume once.",
+      "review": "Compared the hypotheses, slice bound, placement of conjugation and denominator of the target averaging measure against the source bodies. A second source reading checked the diagonal input, the factor ν(Y), the mixed conjugation and the two integration orders."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "thetaClause",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "hSW",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "hint",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "of_eisValueAt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftWittIndexVanishing.lean",
+        "line": 97
+      }
+    },
+    {
+      "callee": "integrable_unitaryQuotientHeight_pow_mul_rapidlyDecreasing",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+        "line": 52
+      }
+    },
+    {
+      "callee": "integrable_lift_integrand",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+        "line": 110
+      }
+    },
+    {
+      "callee": "lintegral_slice_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+        "line": 114
+      }
+    },
+    {
+      "callee": "weight_data",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+        "line": 116
+      }
+    },
+    {
+      "callee": "integral_kernel_lifts_fubini_sigmaFinite",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernels.lean",
+        "line": 120
+      }
+    },
+    {
+      "callee": "lintegral_mul_le_sqrt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "memLp_lift",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+        "line": 113
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+        "line": 125
+      }
+    },
+    {
+      "callee": "integral_integral_swap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/IntegralKernelLiftsFubiniSigmaFinite.lean",
+        "line": 145
+      }
+    },
+    {
+      "callee": "theta_lift_witt_index_vanishing",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+        "line": 113
+      }
+    },
+    {
+      "callee": "theta_kernel_moderate_growth_both_variables",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+        "line": 119
+      }
+    },
+    {
+      "callee": "seesaw_fubini_two_lifts_moderate_growth_kernels",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/GlobalFormFrameLattice.lean",
+        "line": 122
+      }
+    },
+    {
+      "callee": "seesaw_fubini",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SeesawFubiniTwoLiftsModerateGrowthKernelsStatement.lean",
+        "line": 16
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "KFB-01",
+      "KFB-02"
+    ]
+  ],
+  "outstanding": [
+    "The quotient-height estimate uses finite volume and rapid decay. The regularity and polynomial growth of the Eisenstein family and the growth estimate under the doubled embedding are separate inputs. The nonnegative-integral argument controls the interchange of quotient integrations here."
+  ]
+}
