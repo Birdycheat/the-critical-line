@@ -105,7 +105,9 @@
         "inputs-jacobi-product"
       ],
       "dependencies": [
-        "JAC-01"
+        "JAC-01",
+        "CRL-01",
+        "CRL-02"
       ],
       "sources": [
         {
@@ -356,11 +358,19 @@
     [
       "CYE-01",
       "CYE-02"
+    ],
+    [
+      "CRL-01",
+      "JAC-02"
+    ],
+    [
+      "CRL-02",
+      "JAC-02"
     ]
   ],
   "outstanding": [
     "Finite-field character orthogonality and existence of a primitive additive character after adjoining roots of unity are library inputs; the proof here opens the two character sum manipulations that use them.",
-    "The integral character lift, complete splitting and distinction of the primes over p, explicit residue carry test, and existence of degree-one primes in chosen ideal classes are separate inputs in the cyclotomic-element construction. CYE-01–04 describe their uses.",
+    "CRL-01–02 reconstruct the integral character lift and complete splitting at the chosen degree-one prime. The explicit residue carry test and ideal class change appear in CYE-01–04. Existence of a degree-one prime in a prescribed ideal class uses a separate theorem.",
     "The divisibility supplies one local exponent calculation in the reciprocity argument. Character-component length bounds also use the primitive-character arithmetic and Poitou–Tate reciprocity of REC-01–03/MIN-02. The Bernoulli denominator clearing in MBF-01 is independent."
   ],
   "review_scope": "In-archive applications and the directly called, pinned Mathlib proof. Arithmetic examples illustrate a single Jacobi factor, separate from the subsequent Bernoulli denominator or Kummer length statements."

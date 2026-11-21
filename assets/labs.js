@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "jacobi-primes": {
+      title: "Test a cubic Jacobi sum at both primes",
+      kind: "Cyclotomic character lift",
+      section: "inputs",
+      params: [
+        choose("p", "Rational prime p", [["7", "7"], ["13", "13"], ["19", "19"]], "7"),
+        choose("root", "Root defining χ", [["lower", "Smaller root"], ["upper", "Larger root"]], "lower"),
+      ],
+      caption: "Choose the reduction of ω that defines the character χ. Then reduce the same algebraic integer J at each of the two primes above p.",
+      method: "Let ω² + ω + 1 = 0. With r the chosen root modulo p and h = (p−1)/3, lift each nonzero x by finding k in {0,1,2} such that rᵏ ≡ xʰ and setting χ(x) = ωᵏ. Set χ(0) = 0. Count the values of χ(x)χ(1−x) and use ω² = −1−ω to write their sum as A+Bω. The inverse-character partner is its conjugate under ω ↦ ω². Both calculations are exact in ℤ[ω].",
+    },
     "split-endpoint": {
       title: "Count the paths to one split lattice",
       kind: "Split Euler factor",
@@ -424,6 +435,33 @@
     return { level, groups, sum, cleared, valuation };
   }
   const residueUnits = [2, 3, 4, 1];
+  function cubicJacobi(p, rootChoice) {
+    const roots = [];
+    for (let r = 0; r < p; r++) {
+      if ((r * r + r + 1) % p === 0) roots.push(r);
+    }
+    const root = roots[rootChoice === "lower" ? 0 : 1];
+    const powers = [1, root, (root * root) % p];
+    const h = (p - 1) / 3;
+    function characterExponent(x) {
+      let power = 1;
+      for (let j = 0; j < h; j++) power = (power * x) % p;
+      return powers.indexOf(power);
+    }
+    const counts = [0, 0, 0];
+    for (let x = 2; x < p; x++) {
+      const exponent = characterExponent(x) + characterExponent(p + 1 - x);
+      counts[exponent % 3]++;
+    }
+    const a = counts[0] - counts[2], b = counts[1] - counts[2];
+    const partner = [a - b, -b];
+    const reductions = roots.map(r => {
+      const reduce = (u, v) => ((u + v * r) % p + p) % p;
+      const value = reduce(a, b), conjugate = reduce(...partner);
+      return { root: r, value, conjugate, order: Number(value === 0), partnerOrder: Number(conjugate === 0) };
+    });
+    return { root, h, counts, a, b, partner, norm: a * a - a * b + b * b, reductions };
+  }
   function splitEndpointCoefficients(q, degree) {
     const rows = [];
     let previous = 0, twoBack = 0;
@@ -558,6 +596,26 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "jacobi-primes") {
+      const p = Number(v.p);
+      const { root, h, counts, a, b, partner, norm, reductions } = cubicJacobi(p, v.root);
+      const integer = n => String(n).replace("-", "−");
+      const element = (u, v) => integer(u) + (v < 0 ? " − " : " + ") + Math.abs(v) + "ω";
+      const rows = reductions.map(test =>
+        '<tr><th scope="row">ω ↦ ' + test.root + "</th><td>" + test.value + "</td><td>" +
+        test.conjugate + "</td><td>" + test.order + ", " + test.partnerOrder + "</td></tr>"
+      ).join("");
+      return "<p>The reduction ω ↦ " + root + " defines χ. Here h = " + h +
+        ", so χ(x) reduces to x<sup>" + h + "</sup> modulo " + p + ". The terms at x = 0 and 1 vanish.</p>" +
+        metrics([["Terms equal to 1", counts[0]], ["Terms equal to ω", counts[1]], ["Terms equal to ω²", counts[2]]]) +
+        "<p>J = <strong>" + element(a, b) + "</strong>. Its inverse-character partner is J̄ = <strong>" +
+        element(...partner) + "</strong>. Their product is the norm A² − AB + B² = (" + integer(a) + ")² − (" +
+        integer(a) + ")(" + integer(b) + ") + (" + integer(b) + ")² = <strong>" + norm + "</strong>.</p>" +
+        '<table class="carry-table"><caption>Two primes above ' + p + '</caption><thead><tr>' +
+        '<th scope="col">Test root</th><th scope="col">J mod p</th><th scope="col">J̄ mod p</th>' +
+        '<th scope="col">Orders (J, J̄)</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        "<p>At each prime the orders of J and J̄ add to one, the order of p there. A zero residue picks the factor of order one.</p>";
+    }
     if (id === "split-endpoint") {
       const q = Number(v.q), degree = Number(v.degree);
       const rows = splitEndpointCoefficients(q, degree);
@@ -1350,6 +1408,7 @@
     eulerQuotients,
     rankGrid,
     splitEndpointCoefficients,
+    cubicJacobi,
     gramPair,
     bernoulliCarries,
     prismInsertions,

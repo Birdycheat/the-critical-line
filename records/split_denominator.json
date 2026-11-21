@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Verified against the original archived source and its selected callers.",
+  "claims": [
+    {
+      "id": "SDN-01",
+      "chapter": "inputs",
+      "title": "One scaled trace-dual basis for all residue maps",
+      "anchor": "inputs-split-denominator",
+      "statement": "For finite Galois F/L′, some nonzero b₀∈𝒪_L′ works simultaneously for every finite field k and every r:𝒪_F→k with surjective base restriction r₀ and r₀(b₀)≠0. The conjugate reductions induce 𝒪_F/(ker r₀)𝒪_F≃∏_(σ∈Gal(F/L′))k.",
+      "hypotheses": "Number fields with F/L′ finite Galois. Field trace is taken down to L′. Both the basis and its trace dual are cleared by one integer. The displayed isomorphism restates the surjectivity and kernel clauses of Split.",
+      "definitions": [
+        "trace-dual basis",
+        "linear independence of automorphisms",
+        "extended ideal",
+        "residue field"
+      ],
+      "equations": [
+        "inputs-split-trace",
+        "inputs-split-residue-ring"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.Split",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean",
+          "lines": [
+            57,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean#L57-L69"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.CSplit",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBlockValAlt.lean",
+          "lines": [
+            64,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBlockValAlt.lean#L64-L70"
+        },
+        {
+          "declaration": "dualFam",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+          "lines": [
+            5,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean#L5-L22"
+        },
+        {
+          "declaration": "orth",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+          "lines": [
+            24,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean#L24-L42"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cSplit",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+          "lines": [
+            44,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean#L44-L70"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cSplit",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+          "lines": [
+            71,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean#L71-L92"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            99,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L99-L114"
+        }
+      ],
+      "correspondence": "The trace expansion gives orthogonality of the two evaluation matrices, scaled by b₀. Choose preimages for the base coefficients, obtaining every tuple. All-zero tuples have trace coefficients in the base kernel and b₀ is invertible in the quotient.",
+      "status": "mathematical proof reconstructed",
+      "review": "Separate reading of both source directions and enumeration of all 25 Gaussian classes at 5."
+    },
+    {
+      "id": "SDN-02",
+      "chapter": "inputs",
+      "title": "Enlarging the denominator to include the divisor support",
+      "anchor": "inputs-split-support",
+      "statement": "For a finite divisor 𝔡 the choice B=b₀∏Norm(P) over its support is nonzero, divisible by b₀ and belongs to every prime in that support. A map between two corresponding finite-coordinate lattices preserves their common localization after inverting B. Conjugate residue tuples therefore apply at all admissible tests away from B.",
+      "hypotheses": "Finite support, integral B, finitely many coordinates. Powers of B clearing a vector may depend on that vector. For the split tests require r₀ onto and r₀(B)≠0.",
+      "definitions": [
+        "divisor support",
+        "localized lattice",
+        "integral gluing map"
+      ],
+      "equations": [],
+      "dependencies": [
+        "SDN-01",
+        "GLU-02"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.CSupp and CLatLoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBlockValAlt.lean",
+          "lines": [
+            68,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBlockValAlt.lean#L68-L76"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cSupp",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSupp.lean",
+          "lines": [
+            5,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSupp.lean#L5-L22"
+        },
+        {
+          "declaration": "inLoc_of_inLat_pow_smul and converse",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean#L32-L48"
+        },
+        {
+          "declaration": "exists_inLat_pow_smul_of_inLoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean",
+          "lines": [
+            57,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean#L57-L86"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cLatLoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean",
+          "lines": [
+            87,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CLatLoc.lean#L87-L102"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            13,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L13-L37"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            99,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L99-L114"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            129,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L129-L141"
+        }
+      ],
+      "correspondence": "Away from B all twists disappear. Where B is not a unit its order is at least one. A finite sum of the positive coordinate deficits bounds a clearing power, and applying the same argument to the inverse gives equality of localized lattices.",
+      "status": "mathematical proof reconstructed",
+      "review": "The independent reader checked that one denominator works across the maps and tests, while the clearing exponent is chosen per vector."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.ZK.sClassOf",
+      "callee": "cSplit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SClassOf.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sClassOf",
+      "callee": "cSupp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SClassOf.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.sClassOf",
+      "callee": "cLatLoc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SClassOf.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cSplit",
+      "callee": "dualFam",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+        "line": 48
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cSplit",
+      "callee": "orth",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CSplit.lean",
+        "line": 58
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hSplit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hSupp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 16
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hLatLoc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 37
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hsplit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 112
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hMu",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 113
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ZK.Cl.cJoin",
+      "callee": "hαI",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 132
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SDN-01",
+      "SDN-02"
+    ],
+    [
+      "GLU-02",
+      "SDN-02"
+    ]
+  ],
+  "outstanding": [
+    "Existence of enough detecting degree-one primes is a separate arithmetic theorem. The determinant interpolation, homological stability and transfer enter elsewhere."
+  ],
+  "review_scope": "Inspection of the original source bodies and independent checks with ℤ[i] at 5 and 2."
+}

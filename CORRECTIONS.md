@@ -2,6 +2,12 @@
 
 ## 21 November 2026
 
+- In the CM model the congruence for the singular modulus is at an auxiliary degree-one principal prime. Frobenius at the inert target exchanges the two CM roots. The example keeps the primes 59 and 5 distinct.
+- For an integral character, the residue prime helps determine the lift. In the level-five example, switching the image of ζ from 3 to 9 at 11 changes χ(2) from ζ⁴ to ζ². The absolute order of the character remains five.
+- The moment for the moving differential-form coefficients has order 2am after squaring. The sufficient inequality A<N−1 in the cusp estimate does not decide boundary convergence. The Hilbert-space angle gives 2/5, which the selected period estimate relaxes to 3/5.
+- The exact off-diagonal vanishing is for the specified zero-label nonidentity part of the geometric kernel. A different theorem bounds the full cross-word correlation. Central characters alone need not distinguish two types of the same unitary group.
+- Following a dependency in a filtered atlas previously left the destination hidden. The atlas keeps the query and reveals the requested entry across navigation.
+
 - The constant spherical coefficient at a split prime of residue size three in rank two has Satake parameters √3 and 1/√3. Its series starts 1+8X+38X². The two-move Euler correction instead counts paths to one fixed lattice, and its rank-two example uses residue size two.
 - A ramified theta entry may have a denominator. The scalar that clears its readings locally has order ⌈eB⌉. After the stabilizer-weighted sum and final period, a floor controls a negative-power shift of the input lattice for the integral dual pairing.
 - A nondegenerate Jacobi sum divides the rational prime p. Its explicit quotient is its inverse-character partner. The earlier phrase about divisibility by p reversed this implication. The F₇ example identifies each partner at the two primes above 7.

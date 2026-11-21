@@ -87,6 +87,57 @@ function checkSplitEndpoint() {
   }
 }
 checkSplitEndpoint();
+function checkCubicJacobi() {
+  // Enumerate powers of a generator; form both sums from discrete logs.
+  for (const [p, generator, roots] of [[7, 3, [2, 4]], [13, 2, [3, 9]], [19, 2, [7, 11]]]) {
+    const powers = [1];
+    for (let k = 1; k < p - 1; k++) powers.push((powers[k - 1] * generator) % p);
+    assert.equal(new Set(powers).size, p - 1);
+    const h = (p - 1) / 3;
+    for (const [index, choice] of ["lower", "upper"].entries()) {
+      const r = roots[index], step = powers[h] === r ? 1 : 2;
+      assert.equal((r ** step) % p, powers[h]);
+      const counts = [0, 0, 0], partnerCounts = [0, 0, 0];
+      const residues = roots.map(() => [0, 0]);
+      for (const x of powers) {
+        if (x === 1) continue;
+        const k = step * (powers.indexOf(x) + powers.indexOf(p + 1 - x)) % 3;
+        const inverse = (3 - k) % 3;
+        counts[k]++;
+        partnerCounts[inverse]++;
+        for (const [i, root] of roots.entries()) {
+          residues[i][0] = (residues[i][0] + root ** k) % p;
+          residues[i][1] = (residues[i][1] + root ** inverse) % p;
+        }
+      }
+      const [a, b] = [counts[0] - counts[2], counts[1] - counts[2]];
+      const [c, d] = [partnerCounts[0] - partnerCounts[2], partnerCounts[1] - partnerCounts[2]];
+      // Multiply (a+bω)(c+dω), using only the integral relation ω²=−1−ω.
+      assert.deepEqual([a * c - b * d, a * d + b * c - b * d], [p, 0]);
+      const actual = lib.cubicJacobi(p, choice);
+      assert.deepEqual([actual.root, actual.h, actual.a, actual.b, actual.norm], [r, h, a, b, p]);
+      assert.deepEqual(actual.counts, counts);
+      assert.deepEqual(actual.partner, [c, d]);
+      assert.equal(counts.reduce((u, v) => u + v, 0), p - 2);
+      const rendered = lib.render("jacobi-primes", { p: String(p), root: choice });
+      assert.deepEqual([...rendered.matchAll(/<dd>(\d+)<\/dd>/g)].map(m => Number(m[1])), counts);
+      const show = (x, y) => (x < 0 ? "−" : "") + Math.abs(x) + (y < 0 ? " − " : " + ") + Math.abs(y) + "ω";
+      assert.ok(rendered.includes("J = <strong>" + show(a, b) + "</strong>"));
+      assert.ok(rendered.includes("J̄ = <strong>" + show(c, d) + "</strong>"));
+      assert.ok(rendered.includes("= <strong>" + p + "</strong>"));
+      for (const [i, root] of roots.entries()) {
+        const [value, conjugate] = residues[i];
+        const order = Number(i === index), partnerOrder = 1 - order;
+        assert.equal(Number(value === 0), order);
+        assert.equal(Number(conjugate === 0), partnerOrder);
+        assert.deepEqual(actual.reductions[i], { root, value, conjugate, order, partnerOrder });
+        assert.ok(rendered.includes('<th scope="row">ω ↦ ' + root + "</th><td>" + value + "</td><td>" +
+          conjugate + "</td><td>" + order + ", " + partnerOrder + "</td>"));
+      }
+    }
+  }
+}
+checkCubicJacobi();
 function checkGramPair() {
   for (const a of [0.5, 1, 1.5]) {
     for (const h of [0, 0.6, 1]) {
@@ -237,6 +288,8 @@ for (const a of [2, 3, 4]) {
 }
 assert.equal(distinctGridStates.size, 9);
 for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes(lib.render("jacobi-primes", lib.defaults("jacobi-primes"))),
+    "Missing complete default cubic Jacobi experiment in " + name);
   assert.ok(html[name].includes('<caption>Endpoint coefficients through degree 7 in X (q = 2)</caption>'),
     "Missing default split Euler table in " + name);
   assert.ok(html[name].includes('<caption>Squared Gram errors with first columns retained</caption>'),
@@ -314,5 +367,5 @@ assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

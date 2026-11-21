@@ -92,7 +92,11 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "split-endpoint") {
+        if (id === "jacobi-primes") {
+          assert.equal(await fig.locator("table caption").innerText(), "Two primes above 7");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "0", "3"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
+        } else if (id === "split-endpoint") {
           assert.equal(await fig.locator("table caption").innerText(), "Endpoint coefficients through degree 7 in X (q = 2)");
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["7", "7", "0"]);
         } else if (id === "prism") {
@@ -131,6 +135,26 @@ async function run() {
     await page.locator("#fig-ramp.ready").waitFor();
     assert.equal(await page.locator("#field-ramp-x").inputValue(), "30");
     assert.equal(await page.locator("#field-ramp-chi").inputValue(), "four");
+    await page.goto(base + "book.html?jacobi-primes.p=19&jacobi-primes.root=upper#fig-jacobi-primes");
+    const jacobi = page.locator("#fig-jacobi-primes.ready");
+    assert.equal(await jacobi.getByRole("combobox", { name: "Rational prime p" }).inputValue(), "19");
+    const definingRoot = jacobi.getByRole("combobox", { name: "Root defining χ" });
+    assert.equal(await definingRoot.inputValue(), "upper");
+    assert.deepEqual(await jacobi.locator("tbody td").allInnerTexts(), ["7", "0", "0, 1", "0", "7", "1, 0"]);
+    const upperLink = await jacobi.locator("[data-share]").getAttribute("href");
+    await definingRoot.press("Home");
+    assert.deepEqual(await jacobi.locator(".metrics dd").allInnerTexts(), ["8", "3", "6"]);
+    assert.deepEqual(await jacobi.locator("tbody td").allInnerTexts(), ["0", "7", "1, 0", "7", "0", "0, 1"]);
+    const lowerLink = new URL(await jacobi.locator("[data-share]").getAttribute("href"));
+    assert.equal(lowerLink.hash, "#fig-jacobi-primes");
+    assert.equal(lowerLink.searchParams.get("jacobi-primes.p"), "19");
+    assert.equal(lowerLink.searchParams.has("jacobi-primes.root"), false);
+    const sharedJacobi = await context.newPage();
+    await sharedJacobi.goto(upperLink);
+    const restored = sharedJacobi.locator("#fig-jacobi-primes.ready");
+    assert.equal(await restored.getByRole("combobox", { name: "Root defining χ" }).inputValue(), "upper");
+    assert.deepEqual(await restored.locator(".metrics dd").allInnerTexts(), ["8", "6", "3"]);
+    await sharedJacobi.close();
     await page.goto(base + "book.html?split-endpoint.q=4&split-endpoint.degree=3#fig-split-endpoint");
     const endpoint = page.locator("#fig-split-endpoint.ready");
     const endpointDegree = endpoint.getByRole("slider", { name: "Degree k in T = X²" });
@@ -179,6 +203,19 @@ async function run() {
     await page.goto(base + "atlas.html");
     await page.locator("[data-filter]").fill("mellin");
     assert.ok((await page.locator("[data-search]:visible").count()) > 0);
+    const atlasSearch = page.locator("[data-filter]");
+    const referencedClaim = page.locator('[id="claim-CNT-01"]');
+    await atlasSearch.fill("1337/90");
+    assert.equal(await referencedClaim.isVisible(), false);
+    const wordBound = page.locator('[id="claim-WUP-01"]');
+    await wordBound.locator("summary").click();
+    await wordBound.locator('a[href="#claim-CNT-01"]').click();
+    await referencedClaim.waitFor({ state: "visible" });
+    assert.equal(await atlasSearch.inputValue(), "1337/90");
+    assert.match(await page.locator("[data-count]").innerText(), /1 linked entry/);
+    await page.goBack();
+    await referencedClaim.waitFor({ state: "hidden" });
+    assert.ok(await wordBound.isVisible());
     await page.goto(base + "book.html#eq-pilot-chi-transform");
     await page.screenshot({ path: path.join(output, "equation.png") });
     assert.ok((await page.locator("math mfrac").count()) > 0);
@@ -224,6 +261,8 @@ async function run() {
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
     assert.equal(await page.locator(".site-header").isVisible(), false);
+    assert.ok(await page.locator("#fig-jacobi-primes table").isVisible());
+    assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
       format: "A4",
@@ -241,6 +280,10 @@ async function run() {
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
     assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
+    const staticJacobi = plain.locator("#fig-jacobi-primes");
+    assert.equal(await staticJacobi.locator("caption").innerText(), "Two primes above 7");
+    assert.deepEqual(await staticJacobi.locator(".metrics dd").allInnerTexts(), ["2", "0", "3"]);
+    assert.deepEqual(await staticJacobi.locator("tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
     await plain.locator("#pilot details summary").first().click();
     assert.equal(await plain.locator("#pilot details[open]").count(), 1);
     assert.deepEqual(errors, []);

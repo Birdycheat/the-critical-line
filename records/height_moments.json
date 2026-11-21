@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Written declarations and proof bodies in the pinned Lean archive. Human derivations restate the cone estimate, box summation and Hilbert space argument; they do not claim elaborated kernel-term dependency extraction.",
+  "claims": [
+    {
+      "id": "HMT-01",
+      "title": "Matrix size sufficient for a height moment",
+      "chapter": "inputs",
+      "anchor": "inputs-height-moments",
+      "statement": "Each natural moment A is integrable on a finite-volume Haar fundamental domain for the arithmetic special linear group of each totally complex field, at every size N≥A+2. The form comparison uses A=2am with a selected for the field before N and m the degree. The proof then squares the coefficient bound and uses u≤u²+1 on this domain to take the mean.",
+      "hypotheses": "The moment estimate requires a totally complex number field L′. Its use in the stable comparison additionally requires 1≤m<r₂(L′), a prime element π, the prescribed starting size, N≥3 and the threshold from the comparison of Hecke periods. A+2 is sufficient for the moment alone. Constants in chart/partition bounds and the integral may depend on field, size and data.",
+      "definitions": [
+        "height from primal/dual Hermitian minima on the integral lattice",
+        "one complex matrix factor per infinite place",
+        "partition growth exponent uniform in N",
+        "moment exponent vs form degree vs matrix size"
+      ],
+      "equations": [],
+      "dependencies": [
+        "HMT-02"
+      ],
+      "sources": [
+        {
+          "declaration": "Sp, ofS, latS",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean",
+          "lines": [
+            75,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean#L75-L91"
+        },
+        {
+          "declaration": "fr, lam, dualH, ht",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean",
+          "lines": [
+            132,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean#L132-L146"
+        },
+        {
+          "declaration": "SPU, SMom",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            88,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L88-L94"
+        },
+        {
+          "declaration": "sPU, sMom",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+          "lines": [
+            31,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean#L31-L36"
+        },
+        {
+          "declaration": "sMom_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+          "lines": [
+            8,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean#L8-L11"
+        },
+        {
+          "declaration": "sMom_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            68,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L68-L108"
+        },
+        {
+          "declaration": "sMom_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+          "lines": [
+            109,
+            140
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean#L109-L140"
+        },
+        {
+          "declaration": "key",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            49,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L49-L84"
+        },
+        {
+          "declaration": "assemble",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean",
+          "lines": [
+            240,
+            254
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean#L240-L254"
+        }
+      ],
+      "correspondence": "The written body sMom_of_parts fixes A+2. Taking n=0 and n=A gives finite volume and integrability on the same domain. LemForm.key selects the size before the cocycle and invokes the L² and L¹ bounds for its moving-frame coefficient.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "The quantifier order and explicit size were checked against both the moment supplier and the caller."
+    },
+    {
+      "id": "HMT-02",
+      "title": "Decay of the integral in logarithmic cusp boxes",
+      "chapter": "inputs",
+      "anchor": "inputs-height-cusp",
+      "statement": "On each of finitely many charts the height is at most C exp(2W). A unit logarithmic box has measure at most K exp(−2Φ(s)) throughout its allowed parameters. For A<N−1 the cone bound gives 2AW−2Φ≤C′−δ∑|sᵢ| with δ=2(N−1−A)/N>0. Summation over integer boxes is finite.",
+      "hypotheses": "On the translated chart the triangular entries are bounded, the diagonal logs sum to zero and satisfy sᵢ₊₁≤sᵢ+T, and the remaining factor is unitary. The translating element is an L′-rational GL matrix up to place-dependent scalars, so a common denominator exists for its inverse and transpose. The packing needs at least one complex matrix factor and a Haar measure.",
+      "definitions": [
+        "W, sum of absolute differences of adjacent logs",
+        "Φ, sum of signed differences over pairs in order",
+        "unit logarithmic box and Haar packing",
+        "geometric series over ℤᴺ"
+      ],
+      "equations": [
+        "inputs-height-cone"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Sieg, IsRatS",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean",
+          "lines": [
+            50,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean#L50-L60"
+        },
+        {
+          "declaration": "SRed",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean",
+          "lines": [
+            92,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/InstLCSL.lean#L92-L95"
+        },
+        {
+          "declaration": "Cone, W, Phi, Sg, Xb",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/OmG.lean",
+          "lines": [
+            17,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/OmG.lean#L17-L41"
+        },
+        {
+          "declaration": "sHtB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean",
+          "lines": [
+            125,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean#L125-L155"
+        },
+        {
+          "declaration": "sHtB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean",
+          "lines": [
+            155,
+            175
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean#L155-L175"
+        },
+        {
+          "declaration": "pack",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/MtInvUpper.lean",
+          "lines": [
+            62,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/MtInvUpper.lean#L62-L94"
+        },
+        {
+          "declaration": "ineqN",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/AbsLeA.lean",
+          "lines": [
+            107,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/UnitaryConeEstimates/AbsLeA.lean#L107-L145"
+        },
+        {
+          "declaration": "main_of_pack",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SetLIntegralLeOfMul.lean",
+          "lines": [
+            37,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SetLIntegralLeOfMul.lean#L37-L58"
+        },
+        {
+          "declaration": "main_of_pack",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SetLIntegralLeOfMul.lean",
+          "lines": [
+            69,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SetLIntegralLeOfMul.lean#L69-L95"
+        },
+        {
+          "declaration": "sIntB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SIntB.lean",
+          "lines": [
+            11,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SIntB.lean#L11-L14"
+        }
+      ],
+      "correspondence": "On the exactly ordered cone the gap at the j-th cut occurs j(N−j) times; the pin handles a bounded ordering error and gives the stated positive δ. SetLIntegralLeOfMul replaces ∑|sᵢ| by ∑|⌊sᵢ⌋| at additive cost N. In N=4, the ray (3t,−t,−t,−t) gives W=4t and Φ=12t. At A=3 the envelope is constant along this ray; this is silent about divergence of the integral.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "The cone coefficients, finite-cover packing and endpoint example were independently checked at the concrete lemma bodies."
+    },
+    {
+      "id": "HMT-03",
+      "title": "From an invariant-subspace angle to the iterated Hecke norm bound",
+      "chapter": "inputs",
+      "anchor": "inputs-height-spectral",
+      "statement": "A finite coset average v of the translate w satisfies ⟨v,w⟩=‖v‖² on the common cover. The arithmetic angle estimate gives ‖v‖≤(2/5)‖w‖. The two squared norms carry the same positive index. The selected conclusion weakens the norm ratio to 3/5, preserves mean zero, and iterates.",
+      "hypotheses": "Prime element π with Norm((π))≥25, N≥3, totally complex L′, continuous arithmetic- and center-invariant real f of finite L² norm and zero mean on the fundamental domain. The three subspaces are closed, the relevant finite subgroup indices and angular bounds are supplied by arithmetic at the chosen prime, and common invariants reduce to constants by density.",
+      "definitions": [
+        "finite coset average and its common cover",
+        "orthogonal projections onto invariants of the pairwise intersections",
+        "coercive bound on the complements of three projections",
+        "squared norm vs norm contraction"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Lz, SGap",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            114,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L114-L123"
+        },
+        {
+          "declaration": "gapAbs_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean",
+          "lines": [
+            12,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean#L12-L30"
+        },
+        {
+          "declaration": "angle",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAng.lean",
+          "lines": [
+            98,
+            103
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAng.lean#L98-L103"
+        },
+        {
+          "declaration": "upper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean",
+          "lines": [
+            173,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean#L173-L191"
+        },
+        {
+          "declaration": "upper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean",
+          "lines": [
+            193,
+            223
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean#L193-L223"
+        },
+        {
+          "declaration": "hilb_holds",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean",
+          "lines": [
+            247,
+            287
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean#L247-L287"
+        },
+        {
+          "declaration": "gapAbs_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean",
+          "lines": [
+            156,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean#L156-L178"
+        },
+        {
+          "declaration": "gapAbs_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean",
+          "lines": [
+            179,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean#L179-L197"
+        },
+        {
+          "declaration": "sGap_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean",
+          "lines": [
+            12,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean#L12-L14"
+        },
+        {
+          "declaration": "sGap_of_parts",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOfParts.lean",
+          "lines": [
+            162,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOfParts.lean#L162-L169"
+        },
+        {
+          "declaration": "lem_gap",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemBound.lean",
+          "lines": [
+            37,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemBound.lean#L37-L48"
+        },
+        {
+          "declaration": "assemble",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean",
+          "lines": [
+            240,
+            254
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean#L240-L254"
+        }
+      ],
+      "correspondence": "On the orthogonal complement of the common intersection choose unit vectors u in W₁∩W₂ and z in W₁∩W₃ with nonnegative inner product t by a sign choice. For y=u+z the three complementary projection squared norms sum to at most 2(1−t²). The lower bound (3/5)‖y‖² gives t≤2/5. Closing the subspace estimate and unfolding the common finite cover produce the contraction for the Hecke coefficient. The later 4/5 lower bound concerns the stabilized cycle periods.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "Independent review checked the projection identity and cancellation as well as the distinction between the sharper intermediate bound and the iterated published statement."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "sMom",
+      "callee": "TwSMInt2.sMom_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sMom_of_parts",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sHtB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sIntB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sRed_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of",
+      "callee": "sRedGL2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SMomOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hR",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 76
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 102
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "hI",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 104
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "key 0",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 127
+      }
+    },
+    {
+      "caller": "sMom_of_parts",
+      "callee": "key A",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MomentEntryBounds/SetLIntegralPreimageMulLeft.lean",
+        "line": 140
+      }
+    },
+    {
+      "caller": "sIntB",
+      "callee": "main_of_pack",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SIntB.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "sIntB",
+      "callee": "pack μ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SIntB.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "main_of_pack",
+      "callee": "ineq hN",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/SetLIntegralLeOfMul.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "pack",
+      "callee": "count s0",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/MtInvUpper.lean",
+        "line": 74
+      }
+    },
+    {
+      "caller": "pack",
+      "callee": "sum_meas_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/MtInvUpper.lean",
+        "line": 83
+      }
+    },
+    {
+      "caller": "sHtB",
+      "callee": "primal_y",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean",
+        "line": 153
+      }
+    },
+    {
+      "caller": "sHtB",
+      "callee": "dual_y",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IntegralMomentReduction/PrimalY.lean",
+        "line": 154
+      }
+    },
+    {
+      "caller": "key",
+      "callee": "hPU",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 53
+      }
+    },
+    {
+      "caller": "key",
+      "callee": "hHecke",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "key",
+      "callee": "hMom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "key",
+      "callee": "lem_form",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 65
+      }
+    },
+    {
+      "caller": "key",
+      "callee": "hMean",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 80
+      }
+    },
+    {
+      "caller": "sGap_of",
+      "callee": "sGap_of_parts",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "sGap_of",
+      "callee": "gapAbs_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "sGap_of",
+      "callee": "hilb_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "sGap_of",
+      "callee": "design_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/SGapOf.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "gapAbs_of",
+      "callee": "hH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean",
+        "line": 159
+      }
+    },
+    {
+      "caller": "gapAbs_of",
+      "callee": "u_int_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PGapAbs.lean",
+        "line": 169
+      }
+    },
+    {
+      "caller": "hilb_holds",
+      "callee": "closure_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean",
+        "line": 270
+      }
+    },
+    {
+      "caller": "hilb_holds",
+      "callee": "upper",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/ClosureBound.lean",
+        "line": 282
+      }
+    },
+    {
+      "caller": "lem_gap",
+      "callee": "hGap",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemBound.lean",
+        "line": 45
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HMT-02",
+      "HMT-01"
+    ],
+    [
+      "HMT-01",
+      "IVR-02"
+    ],
+    [
+      "HMT-03",
+      "IVR-01"
+    ]
+  ],
+  "outstanding": [
+    "The construction of the finite reduction-theoretic cusp cover, the denominator and product-formula bounds in each place, and discreteness of the arithmetic group are used through their selected suppliers. The threshold is sufficient; the endpoint moment is not decided by this estimate.",
+    "The local flag incidence and index calculations, the proof that common invariants are constant, and the pairwise angle-to-coercivity estimate are inputs to the final Hilbert angle comparison. The partition of unity, central averaging and local evaluation of the periods remain in their own suppliers."
+  ],
+  "review_scope": "Compared the moment and common-cover gap calculations to the pinned source, with an independent review of the formulas, quantified matrix size, worked ray and cover-index cancellation. The source and example describe analytic inputs to the odd-dimensional rank argument."
+}

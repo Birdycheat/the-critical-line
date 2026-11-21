@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Written source bodies in the pinned Lean archive, including the auxiliary CM congruence, modular product computation and Frobenius sign. The determinant-59 sample is an explanatory instance of the stated hypotheses; root separation for an unrelated prescribed inertia element is not claimed for 59.",
+  "claims": [
+    {
+      "id": "CFR-01",
+      "title": "Why the good model needs a congruence at an auxiliary principal prime",
+      "chapter": "normalization",
+      "anchor": "normalization-inert-frobenius",
+      "statement": "A prescribed inertia element at the target agrees on the roots of an integral monic polynomial for J and in the Artin class quotient with an arithmetic Frobenius φ at a degree-one auxiliary prime ideal 𝔮. The trivial Artin class of inertia makes 𝔮 principal. At 𝔮, φ(J)≡J^q≡J. Avoiding the finite exceptional set where roots collide then forces equality in characteristic zero and hence inertia fixes J.",
+      "hypotheses": "d squarefree, d≡3 mod 4, the complex period pair has CM by the quadratic generator and J is its j-invariant realized in the algebraic closure of K=ℚ(√−d) inside ℂ. The chosen auxiliary 𝔮 has prime residue cardinal q, avoids the separation set, and admits an arithmetic Frobenius in the required joint coset. Good-model use fixes an inert rational p≥5, p∤d, and an embedding.",
+      "definitions": [
+        "auxiliary prime ideal of norm q",
+        "joint stabilizer of the roots and Artin kernel",
+        "tested inertia element at the target place",
+        "root separation outside a finite set"
+      ],
+      "equations": [],
+      "dependencies": [
+        "CFR-02"
+      ],
+      "sources": [
+        {
+          "declaration": "cmGoodModel_of_globalArtinReciprocity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/CmGoodModelOfGlobalArtinReciprocity.lean",
+          "lines": [
+            8,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/CmGoodModelOfGlobalArtinReciprocity.lean#L8-L12"
+        },
+        {
+          "declaration": "inertia_fixes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+          "lines": [
+            14,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean#L14-L34"
+        },
+        {
+          "declaration": "inertia_fixes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+          "lines": [
+            35,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean#L35-L62"
+        },
+        {
+          "declaration": "frobCong",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean#L32-L48"
+        },
+        {
+          "declaration": "frobCong",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+          "lines": [
+            48,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean#L48-L70"
+        },
+        {
+          "declaration": "good_model",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+          "lines": [
+            64,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean#L64-L69"
+        }
+      ],
+      "correspondence": "The source intersects the Artin kernel and pointwise stabilizer of a finite root set, then applies the stated Chebotarev input in this finite quotient. It adds the two maximal-ideal differences φJ−J^q and J^q−J and applies separation. Inertia acts on the same root by the quotient comparison.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "Independent review checked the two distinct primes, Frobenius convention and the need for the auxiliary root-separation condition."
+    },
+    {
+      "id": "CFR-02",
+      "title": "The repeated Fourier factors produce a square at a CM point",
+      "chapter": "normalization",
+      "anchor": "normalization-inert-frobenius-congruence",
+      "statement": "For any principal prime ideal 𝔮 of the quadratic field with prime norm q, the CM endomorphism of determinant q fixes the period point. A factor of G_q vanishes. At that point (J^q−J)^2=(1−ζ_q)r with r integral, and (J^q−J)^(2q)=q r₀ r^q with r₀ integral. Thus J^q−J reduces to zero at every place over 𝔮.",
+      "hypotheses": "Same CM and squarefree discriminant hypotheses as CFR-01; for this congruence q is prime and 𝔮 has trivial ideal class. No root separation or choice of Frobenius is needed for this one congruence. The example d=23, α=5+2ω, basis (τ,1) with τ=ω gives rows (7,−12),(2,5) and determinant 59.",
+      "definitions": [
+        "norm form a²+ab+((d+1)/4)b²",
+        "upper-half-plane parameter",
+        "index-q representatives",
+        "Fourier series of E₄³ and Δ",
+        "cyclotomic coefficient ring ℤ[ζ_q]"
+      ],
+      "equations": [
+        "normalization-inert-frobenius-j"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "frobCong",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean#L32-L48"
+        },
+        {
+          "declaration": "princ_form",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModPrincNorm.lean",
+          "lines": [
+            83,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModPrincNorm.lean#L83-L90"
+        },
+        {
+          "declaration": "cmPoint",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModCMPoint.lean",
+          "lines": [
+            40,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModCMPoint.lean#L40-L69"
+        },
+        {
+          "declaration": "cmPoint",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModCMPoint.lean",
+          "lines": [
+            103,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModCMPoint.lean#L103-L106"
+        },
+        {
+          "declaration": "DD, AA, jT, Tm, pt, fac, Gm, Rm",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModDefs.lean",
+          "lines": [
+            10,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModDefs.lean#L10-L33"
+        },
+        {
+          "declaration": "Gm_vanish",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean",
+          "lines": [
+            88,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean#L88-L95"
+        },
+        {
+          "declaration": "Gm_vanish",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean",
+          "lines": [
+            139,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean#L139-L153"
+        },
+        {
+          "declaration": "Tm_prime, card_Tm_prime",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+          "lines": [
+            129,
+            162
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean#L129-L162"
+        },
+        {
+          "declaration": "facSer_Cg_a",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+          "lines": [
+            164,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean#L164-L178"
+        },
+        {
+          "declaration": "facSer_Cg_b, pow_Cg",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+          "lines": [
+            183,
+            214
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean#L183-L214"
+        },
+        {
+          "declaration": "kronSer",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+          "lines": [
+            216,
+            232
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean#L216-L232"
+        },
+        {
+          "declaration": "kronFun_div",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+          "lines": [
+            60,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean#L60-L77"
+        },
+        {
+          "declaration": "kronFun_poly",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+          "lines": [
+            79,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean#L79-L107"
+        },
+        {
+          "declaration": "kronPt",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+          "lines": [
+            109,
+            127
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean#L109-L127"
+        },
+        {
+          "declaration": "one_sub_zeta_pow",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobSer.lean",
+          "lines": [
+            89,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobSer.lean#L89-L109"
+        },
+        {
+          "declaration": "frobCong",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+          "lines": [
+            48,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean#L48-L70"
+        }
+      ],
+      "correspondence": "Reduction at 1−ζ_q identifies the q shifts in the expanded Fourier variable y and replaces substitution y↦y^q by the qth power for integer series. The q shifted factors contribute −B(y^q), while the isolated factor contributes B(y^q). The q-expansion argument divides the sum of the product and the square by 1−ζ_q and expresses it as a discriminant power times a polynomial over the cyclotomic integer ring. Evaluation, cancellation and the qth power produce the integral divisibility actually used.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "Independent review computed the determinant and checked all signs and powers in the full correspondence product, including both occurrences of q+1 in the total discriminant exponent."
+    },
+    {
+      "id": "CFR-03",
+      "title": "Why the inert Frobenius has to choose the negative square root",
+      "chapter": "normalization",
+      "anchor": "normalization-inert-frobenius-sign",
+      "statement": "For δ=1−2ω, δ²=−d and p inert, Euler's criterion gives δ^p≡−δ. In the completed unramified field an arithmetic Frobenius lift fixes δ² and must carry δ to one of ±δ. Their reductions differ by the unit 2δ, so σδ=−δ, σω=1−ω, σω−ω is a unit and σ²ω=ω.",
+      "hypotheses": "p≥5 in the application (the quadratic lemma requires p prime and odd), p∤d, −d is nonsquare in 𝔽_p, d≡3 mod 4, and the chosen ω solves the indicated integral quadratic in ℂ_p. FrobField means that σ lifts the p-power on the residue field, with the stronger norm inequality from the source.",
+      "definitions": [
+        "coefficient Frobenius on the completed unramified field",
+        "the unit discriminant square root",
+        "arithmetic Frobenius on the residue field",
+        "integral CM action in the height-two logarithm comparison"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "kq_euler, kq_pow_l",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            57,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L57-L92"
+        },
+        {
+          "declaration": "kq_mem",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            116,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L116-L132"
+        },
+        {
+          "declaration": "kq_mem",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            145,
+            173
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L145-L173"
+        },
+        {
+          "declaration": "kur_quad",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            177,
+            195
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L177-L195"
+        },
+        {
+          "declaration": "kur_quad",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            217,
+            239
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L217-L239"
+        },
+        {
+          "declaration": "kur_quad",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+          "lines": [
+            245,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean#L245-L258"
+        },
+        {
+          "declaration": "cm3",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            25,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L25-L60"
+        },
+        {
+          "declaration": "cm3",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            61,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L61-L82"
+        }
+      ],
+      "correspondence": "The proof first constructs unramified membership using a nearby lift of the degree-two residue root and Hensel's lemma; any lift of δ²=−d is ±δ. It then uses the norm bound for δ^p+δ to rule out σδ=δ. FgClose.cm3 supplies the unit-difference and σ²-fixed fields of the formal-law datum, alongside the integral CM endomorphism.",
+      "status": "reconstructed and independently cross-reviewed",
+      "review": "At d=23, target p=5 gives δ²≡2 and δ⁵≡−δ. Independent review checked the strict unit argument and its separation from the auxiliary 59 example."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "cmGoodModel_of_globalArtinReciprocity",
+      "callee": "cmLattice_good_model_unramified",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/CmGoodModelOfGlobalArtinReciprocity.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "cmGoodModel_of_globalArtinReciprocity",
+      "callee": "chebotarev_degreeOne_valuationSubrings",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/CmGoodModelOfGlobalArtinReciprocity.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "good_model",
+      "callee": "inertia_fixes",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 69
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "hC",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "hfrob",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 51
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "frobCong",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 53
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "hφ.2",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "fixJ_nonunits_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "inertia_fixes",
+      "callee": "key A",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CmLatticeGoodModelUnramified.lean",
+        "line": 58
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "latTau",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 39
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "princ_form",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "cmPoint",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "Gm_vanish",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 44
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "kronPt",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 48
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "one_sub_zeta_pow",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "frobCong",
+      "callee": "natCard_mem",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModFrobCong.lean",
+        "line": 61
+      }
+    },
+    {
+      "caller": "princ_form",
+      "callee": "quadInt",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModPrincNorm.lean",
+        "line": 88
+      }
+    },
+    {
+      "caller": "princ_form",
+      "callee": "absNorm_span",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModPrincNorm.lean",
+        "line": 90
+      }
+    },
+    {
+      "caller": "Gm_vanish",
+      "callee": "exists_SL2_mul_eq_Tmat_of_det_eq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean",
+        "line": 90
+      }
+    },
+    {
+      "caller": "Gm_vanish",
+      "callee": "fac_eq_zero_of_smul",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModVanish.lean",
+        "line": 152
+      }
+    },
+    {
+      "caller": "kronPt",
+      "callee": "kronFun_poly",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+        "line": 111
+      }
+    },
+    {
+      "caller": "kronPt",
+      "callee": "jT_isIntegral",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+        "line": 114
+      }
+    },
+    {
+      "caller": "kronFun_poly",
+      "callee": "kronFun_div",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+        "line": 82
+      }
+    },
+    {
+      "caller": "kronFun_poly",
+      "callee": "qPrin",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+        "line": 103
+      }
+    },
+    {
+      "caller": "kronFun_div",
+      "callee": "kronSer",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronPt.lean",
+        "line": 62
+      }
+    },
+    {
+      "caller": "kronSer",
+      "callee": "Tm_prime hp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+        "line": 221
+      }
+    },
+    {
+      "caller": "kronSer",
+      "callee": "facSer_Cg_b",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+        "line": 225
+      }
+    },
+    {
+      "caller": "kronSer",
+      "callee": "facSer_Cg_a",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+        "line": 227
+      }
+    },
+    {
+      "caller": "kronSer",
+      "callee": "pow_Cg",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ModKronSer.lean",
+        "line": 227
+      }
+    },
+    {
+      "caller": "cm3",
+      "callee": "kurFrob",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "cm3",
+      "callee": "kur_quad",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "cm3",
+      "callee": "end_integral",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "cm3",
+      "callee": "hon_main",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 79
+      }
+    },
+    {
+      "caller": "kur_quad",
+      "callee": "kq_mem",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+        "line": 209
+      }
+    },
+    {
+      "caller": "kur_quad",
+      "callee": "kq_pow_l",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+        "line": 236
+      }
+    },
+    {
+      "caller": "kq_mem",
+      "callee": "tch_near",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+        "line": 119
+      }
+    },
+    {
+      "caller": "kq_pow_l",
+      "callee": "kq_euler",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/NormSqrtNegPowPrimeSqSub.lean",
+        "line": 91
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CFR-02",
+      "CFR-01"
+    ],
+    [
+      "CFR-01",
+      "CIM-02"
+    ],
+    [
+      "CFR-03",
+      "CIM-03"
+    ]
+  ],
+  "outstanding": [
+    "Global Artin reciprocity and the prescribed finite-quotient degree-one Chebotarev theorem are selected inputs to CFR-01. The modular-form expansion theorem, integral Fourier expansions of E₄³ and Δ, classification of determinant-q matrices and integrality of the singular modulus are used through their named suppliers. The residue congruence itself is derived in the archive.",
+    "The complete unramified field, its arithmetic Frobenius lift, the preliminary residue-field lift and Hensel approximation are invoked at the indicated lemmas. The integrality of the curve endomorphism and the height-two formal functional equation require additional arguments beyond choosing the Frobenius sign."
+  ],
+  "review_scope": "Independent reader checked the written source for the auxiliary place, the cyclotomic factor and sign, the formal Fourier product, the exponent 2(q+1), the inert sign, and the example."
+}

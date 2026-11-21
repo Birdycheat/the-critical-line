@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Verified against the original archived source and its selected callers.",
+  "claims": [
+    {
+      "id": "CRL-01",
+      "chapter": "inputs",
+      "title": "Lifting the power character to cyclotomic integers",
+      "anchor": "inputs-character-lift",
+      "statement": "At a degree-one prime above p prime to M, reducing a primitive Mth root preserves its order; M divides p−1. For h=(p−1)/M there is a multiplicative character, zero at zero, of exact order M, with χ(x)^M=1 and πχ(x)=x^h on the units.",
+      "hypotheses": "K=ℚ(ζ_M); chosen prime ideal of absolute norm p, p prime, M≥1, gcd(p,M)=1. In the more general character lemma only an integral domain and primitive roots on both sides of π are used.",
+      "definitions": [
+        "cyclotomic polynomial",
+        "absolute norm of a prime ideal",
+        "multiplicative character",
+        "order of a root of unity"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Stick.red",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsBis.lean",
+          "lines": [
+            6,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsBis.lean#L6-L29"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.redRoot",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/RedRoot.lean",
+          "lines": [
+            6,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/RedRoot.lean#L6-L25"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.teich",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean",
+          "lines": [
+            6,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean#L6-L37"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.teich",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean",
+          "lines": [
+            38,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean#L38-L74"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.teich",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean",
+          "lines": [
+            75,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsTer.lean#L75-L91"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+          "lines": [
+            20,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean#L20-L35"
+        }
+      ],
+      "correspondence": "After reducing the cyclotomic polynomial in characteristic prime to M, uniqueness among powers of ζ lifts each x^h. It forces multiplicativity. An element generating the residue units has order Mh and proves the reverse divisibility for the order of χ.",
+      "status": "mathematical proof reconstructed",
+      "review": "A separate reader recovered the change from χ(2)=ζ⁴ to χ′(2)=ζ² when πζ changes from 3 to 9 at 11."
+    },
+    {
+      "id": "CRL-02",
+      "chapter": "inputs",
+      "title": "A full set of distinct primes detected by reduction",
+      "anchor": "inputs-character-split",
+      "statement": "For P_t=ker(π∘σ_t), the ideals P_t for t in the units modulo M are distinct of norm p and their product is (p). If a nondegenerate Jacobi sum J divides p, its order at P_t is exactly one if π(σ_t J)=0, zero otherwise.",
+      "hypotheses": "Same cyclotomic and prime-norm setting; squarefree ideal factorization; for the final application J∣p from the inverse-character Jacobi identity.",
+      "definitions": [
+        "inverse image of an ideal",
+        "absolute norm",
+        "squarefree ideal",
+        "cyclotomic automorphism"
+      ],
+      "equations": [],
+      "dependencies": [
+        "CRL-01",
+        "JAC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Stick.splitInj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitInj.lean",
+          "lines": [
+            7,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitInj.lean#L7-L25"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.red",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsBis.lean",
+          "lines": [
+            25,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsBis.lean#L25-L35"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.splitProd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean",
+          "lines": [
+            8,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean#L8-L30"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.splitProd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean",
+          "lines": [
+            31,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean#L31-L48"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.sqfree",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Sqfree.lean",
+          "lines": [
+            33,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Sqfree.lean#L33-L50"
+        },
+        {
+          "declaration": "xJac_span",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            104,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L104-L114"
+        }
+      ],
+      "correspondence": "Apply the two residue maps to an integer representative to show that equal kernels would imply equal maps. Distinct powers of a primitive root distinguish them. Norm of their product already equals p^φ(M); an ideal divisor of (p) now has only exponents 0 or 1.",
+      "status": "mathematical proof reconstructed",
+      "review": "Separate source check of kernel orientation, norms and the four maps ζ↦3,9,5,4 at 11."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.ML.xEx",
+      "callee": "red K",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.xEx",
+      "callee": "redRoot",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.xEx",
+      "callee": "teich",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.xEx",
+      "callee": "xJac",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.splitInj",
+      "callee": "redRoot",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitInj.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.splitProd",
+      "callee": "splitInj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean",
+        "line": 21
+      }
+    },
+    {
+      "caller": "xJac_span",
+      "callee": "splitProd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 108
+      }
+    },
+    {
+      "caller": "xJac_span",
+      "callee": "sqfree",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 109
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CRL-01",
+      "CRL-02"
+    ],
+    [
+      "JAC-01",
+      "CRL-02"
+    ]
+  ],
+  "outstanding": [
+    "The initial selection of a degree-one prime in an inverse ideal class and comparisons in a relative change of level use separate results."
+  ],
+  "review_scope": "Checked directly from source plus a second reading, including the dependence of the lift on the chosen prime."
+}

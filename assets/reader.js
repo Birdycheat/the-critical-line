@@ -15,17 +15,34 @@ if (filter) {
   const items = [...document.querySelectorAll("[data-search]")],
     count = document.querySelector("[data-count]");
   filter.closest(".filters").hidden = false;
-  const update = () => {
+  const update = (linkedItem = null) => {
     const needle = filter.value.toLowerCase().trim();
     let n = 0;
+    let extra = false;
     for (const item of items) {
-      item.hidden =
-        needle !== "" && !item.textContent.toLowerCase().includes(needle);
-      if (!item.hidden) n++;
+      const matches = !needle || item.textContent.toLowerCase().includes(needle);
+      item.hidden = !matches && item !== linkedItem;
+      if (matches) n++;
+      else if (item === linkedItem) extra = true;
     }
     count.textContent = n + " " + (n === 1 ? "entry" : "entries");
+    if (extra) count.textContent += " + 1 linked entry";
   };
-  filter.addEventListener("input", update);
+  const itemAt = hash => document.getElementById(hash.slice(1))?.closest("[data-search]");
+  filter.addEventListener("input", () => update());
+  document.addEventListener("click", event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (link && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+      const target = itemAt(link.hash);
+      if (target?.hidden) update(target);
+    }
+  });
+  window.addEventListener("hashchange", () => {
+    const target = itemAt(location.hash);
+    const needsScroll = target?.hidden;
+    update(target);
+    if (needsScroll) target.scrollIntoView();
+  });
   update();
 }
 const labs = [...document.querySelectorAll("[data-lab]")];
