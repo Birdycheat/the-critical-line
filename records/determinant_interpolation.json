@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the original polynomial, divisor, determinant and Galois-sum proof bodies. The calls to hS, hVal and similar names are to the local hypotheses as written in the displayed theorem bodies.",
+  "claims": [
+    {
+      "id": "DIP-01",
+      "title": "Projecting integer weights onto one selected slope",
+      "chapter": "inputs",
+      "anchor": "inputs-determinant-interpolation",
+      "equations": [
+        "inputs-determinant-projections"
+      ],
+      "dependencies": [
+        "CYC-02"
+      ],
+      "statement": "There is an integer-valued multiplicity function on (ℤ/q)² whose projections along all m other slopes vanish and whose projection at t₀ is Σᵢ pᵢ[κⁱ], where pᵢ are the integer coefficients of P(T)=∏_{j<m}(T−κʲ).",
+      "hypotheses": "q=ℓ^ν, ℓ prime, c≤ν, m=2e+1<ℓ^c, e≥1, κ=1+ℓ^c and t₀ among 0,…,m. The application has a unit coefficient at t₀. The weights are integers and the labels are residues.",
+      "definitions": [
+        "integer group algebra",
+        "fiber sum",
+        "substitution on polynomials"
+      ],
+      "correspondence": "The polynomial substitution raises the multiplicity of X^(ℓ^c)−1 at each stage after subtraction of the corresponding scalar. Replacing X by the point mass [1] lets the product of the m differences at t₀ divide the target. All other projections contain a zero factor.",
+      "sources": [
+        {
+          "declaration": "exp_step, exp_pow, exp_dvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+          "lines": [
+            19,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean#L19-L43"
+        },
+        {
+          "declaration": "exp_dvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+          "lines": [
+            44,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean#L44-L64"
+        },
+        {
+          "declaration": "sgl_dvd, alg_dvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+          "lines": [
+            94,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean#L94-L109"
+        },
+        {
+          "declaration": "sEta",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+          "lines": [
+            141,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean#L141-L158"
+        },
+        {
+          "declaration": "sEta",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+          "lines": [
+            159,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean#L159-L182"
+        },
+        {
+          "declaration": "cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            15,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L15-L33"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A second reader verified ExpStep at the projected integer group algebra, the inverse-conjugate divisor computation and the reindexing in CBetaVal against the original source. The modulus-125 example was independently recalculated."
+    },
+    {
+      "id": "DIP-02",
+      "title": "Realizing the retained determinant on weight one",
+      "chapter": "inputs",
+      "anchor": "inputs-determinant-blocks",
+      "equations": [],
+      "dependencies": [
+        "DIP-01"
+      ],
+      "statement": "Writing a=κ^e and P_e=P/(T−a), the product β=∏ᵢγ^(−i)(α)^{[Tⁱ]P_e} realizes the divisor prescribed in the single weight-one block at t₀. The gluing maps carry determinant one on every other block and slope.",
+      "hypotheses": "Work with the cyclic layer and allowed divisor of DET-01. The supplied Steinitz lattice isomorphism theorem is applied fiber by fiber after the Galois relabeling for t₀. In weight one the coordinate (1,0) gives a nonempty fiber.",
+      "definitions": [
+        "twisted principal divisor",
+        "Galois action on primes",
+        "block determinant",
+        "Steinitz isomorphism"
+      ],
+      "correspondence": "Inverse conjugation on α yields a positive shift on the divisor index. Convolution with T−a turns the coefficients of P_e into the coefficients of P. The same γ^(−i) identifies weight κⁱ with 1 before the blocks are assembled.",
+      "sources": [
+        {
+          "declaration": "pol, polE, polAct, Carries",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean",
+          "lines": [
+            74,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean#L74-L86"
+        },
+        {
+          "declaration": "Lay, DivDel, nrm, Res",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean",
+          "lines": [
+            120,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean#L120-L136"
+        },
+        {
+          "declaration": "cBetaDiv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaDiv.lean",
+          "lines": [
+            33,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaDiv.lean#L33-L62"
+        },
+        {
+          "declaration": "cGtNe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CGtNe.lean",
+          "lines": [
+            11,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CGtNe.lean#L11-L27"
+        },
+        {
+          "declaration": "cGtEq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean",
+          "lines": [
+            54,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean#L54-L76"
+        },
+        {
+          "declaration": "cGtEq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean",
+          "lines": [
+            77,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean#L77-L105"
+        },
+        {
+          "declaration": "cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            15,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L15-L33"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A second reader verified ExpStep at the projected integer group algebra, the inverse-conjugate divisor computation and the reindexing in CBetaVal against the original source. The modulus-125 example was independently recalculated."
+    },
+    {
+      "id": "DIP-03",
+      "title": "Why the surviving index is multiplied by P_e(κ^e)",
+      "chapter": "inputs",
+      "anchor": "inputs-determinant-translates",
+      "equations": [
+        "inputs-determinant-evaluation"
+      ],
+      "dependencies": [
+        "DIP-02",
+        "CYC-04"
+      ],
+      "statement": "After normalization by n_{t₀}^{−1}, the conjugate block contributions give P_e(a) times the residue index of N_a(α).",
+      "hypotheses": "At a tested degree-one prime 𝔭 of F away from ℓB, k=𝒪_F/𝔭 and f(z)=v(z mod 𝔭). Its domain here is the Galois-stable subgroup of z∈F× with order zero at every finite prime of F not dividing B𝒪_F, for the chosen B∈𝒪_{L′}∖{0}. All scalar identities are in ℤ/q.",
+      "definitions": [
+        "cyclotomic action on μ_q",
+        "residue index",
+        "twisted norm"
+      ],
+      "correspondence": "For S(z)=Σσχ(σ)^e f(σz), the bijection σ=τγⁱ gives S(γ^(−i)α)=aⁱS(α). Enumerating the powers of the cyclic generator gives S(α)=f(N_a(α)). Summing with the coefficients of P_e yields the signed product D_e. The separate inverse of n_{t₀} only cancels the scalar from the homology relation.",
+      "sources": [
+        {
+          "declaration": "Lay, DivDel, nrm, Res",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean",
+          "lines": [
+            120,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean#L120-L136"
+        },
+        {
+          "declaration": "pol, polE, polAct, Carries",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean",
+          "lines": [
+            74,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean#L74-L86"
+        },
+        {
+          "declaration": "cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            112,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L112-L131"
+        },
+        {
+          "declaration": "cBetaVal",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaVal.lean",
+          "lines": [
+            83,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaVal.lean#L83-L102"
+        },
+        {
+          "declaration": "cBetaVal",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaVal.lean",
+          "lines": [
+            103,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaVal.lean#L103-L122"
+        },
+        {
+          "declaration": "cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            155,
+            187
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L155-L187"
+        },
+        {
+          "declaration": "IsBU",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean",
+          "lines": [
+            67,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/DiagApply.lean#L67-L79"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A second reader verified ExpStep at the projected integer group algebra, the inverse-conjugate divisor computation and the reindexing in CBetaVal against the original source. The modulus-125 example was independently recalculated."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "exp_dvd",
+      "callee": "exp_step",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+        "line": 60
+      }
+    },
+    {
+      "caller": "alg_dvd",
+      "callee": "exp_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "sEta",
+      "callee": "alg_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+        "line": 121
+      }
+    },
+    {
+      "caller": "sEta",
+      "callee": "diff_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/ExpStep.lean",
+        "line": 146
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "sEta",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hBetaDiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hGtEq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hGtNe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "cBetaDiv",
+      "callee": "shift_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaDiv.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "cGtNe",
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CGtNe.lean",
+        "line": 21
+      }
+    },
+    {
+      "caller": "cGtEq",
+      "callee": "gtEq_act",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean",
+        "line": 69
+      }
+    },
+    {
+      "caller": "cGtEq",
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean",
+        "line": 96
+      }
+    },
+    {
+      "caller": "cGtEq",
+      "callee": "cBlock",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/GtEqZeta.lean",
+        "line": 103
+      }
+    },
+    {
+      "caller": "cBetaVal",
+      "callee": "sum_eq_sum_range_pow_of_cyclic_generator",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CBetaVal.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hVal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 162
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hBetaVal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 180
+      }
+    }
+  ],
+  "outstanding": [
+    "The lattice isomorphism theorem furnishing the prescribed determinant from the block divisor equality is used as an input. The subsequent valuation bound for D_e and detection of global powers are handled separately in DET-02 and DET-03."
+  ]
+}

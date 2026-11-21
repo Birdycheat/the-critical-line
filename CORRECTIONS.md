@@ -2,6 +2,12 @@
 
 ## 21 November 2026
 
+- At an inert unramified place, equality of finite double-coset sums passes to the infinite sum because the original coefficient is constant on each double coset. Its sum of absolute values on that block is bounded by the corresponding sum for the induced spherical model.
+- Positive rank at the base tuple supplies a coordinate to lift. Period separation uses a single archimedean pair across the lines, with finite tests chosen for each line. Both properties enter the proof that the common coefficient scalar is nonzero.
+- In the finite cyclic construction the lower word has degree 2e for the positive twist e. Remove common powers of ℓ from a relation in a free abelian cover before projecting to finite homology. The determinant interpolation acts on α by inverse conjugates; reindexing its evaluation produces positive powers of κᵉ.
+- In the primitive-character length argument the witness to the unit-difference branch and the parity element for fixing cocycles serve distinct purposes. At a conductor prime away from ℓ an inertia element acting by a unit difference extends one coboundary witness to the full decomposition group.
+- The mass increment assumes that the CM extension is unramified at all finite places. The row formal degree on the selected Haar measure equals a normalized Vandermonde at large gap. Count5 invokes its weaker lower bound with tolerance one third. The progression count used to choose primes allows an exceptional real zero in its relative main term.
+
 - Count5 bounds the prime level Tᵤ attached to each word. The cardinality of the word set enters the slope penalty. The prime sum in the fifth clause of IdentU and its matched main term agree separately across sampled indices and stages.
 - The exponent in the cohomological allowance belongs to the raw measurement scale b. At fixed x, exp(x^ε/2) is √b and can be absorbed before normalizing the combined measurements. Carrying the same [Z,Z^(3/2)] interval into logarithmic coordinates makes the positive-part majorant explicit.
 - In the primitive-character evaluation the signed carry is 2⌊bu/F⌋−(b−1). Reindexing by b gives the factor χ(b)b^k−1. The ℓ-adic norm conclusion needs that factor to be a unit and a strict depth bound. The calculation underlying the ideal generator uses different root-of-unity ambiguities for the field norm and the simultaneous residue congruence.

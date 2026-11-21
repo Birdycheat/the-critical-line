@@ -92,7 +92,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "floor-sum") {
+        if (id === "prism") {
+          assert.equal(await fig.locator("table caption").innerText(), "Insertion sums in degree 3");
+          assert.equal(await fig.locator(".metrics dd").last().innerText(), "1");
+        } else if (id === "floor-sum") {
           assert.equal(await fig.locator("table caption").innerText(), "Signed contributions at level 5");
         } else if (id === "rank-grid") {
           assert.equal(await fig.locator("table caption").innerText(), "Basis vector at (2, 3)");
@@ -118,6 +121,10 @@ async function run() {
     assert.equal(await grid.locator("caption").innerText(), "Basis vector at (4, 2)");
     const selectedRow = grid.getByRole("rowheader", { name: "4", exact: true }).locator("..");
     assert.deepEqual(await selectedRow.locator("td").allInnerTexts(), ["+1", "0", "0", "−1", "0"]);
+    await page.goto(base + "book.html?prism.twist=2&prism.weight=2&prism.gluing=3#fig-prism");
+    const prism = page.locator("#fig-prism.ready");
+    assert.equal(await prism.locator(".metrics dd").last().innerText(), "2");
+    assert.equal(await prism.locator("tbody tr").count(), 5);
     await page.goto(base + "book.html?floor-sum.depth=3&floor-sum.multiplier=4#fig-floor-sum");
     const floorSum = page.locator("#fig-floor-sum.ready");
     assert.equal(await floorSum.locator("table caption").innerText(), "Signed contributions at level 125");

@@ -1,0 +1,655 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspected original source definitions, proof bodies and downstream applications. Names of private results use their written namespace. Edges below describe written proof calls.",
+  "claims": [
+    {
+      "id": "CYC-01",
+      "title": "A closed cyclic word in degree twice the twist",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclic-filling",
+      "equations": [
+        "inputs-cyclic-word"
+      ],
+      "dependencies": [],
+      "statement": "In the bar chains of C=ℤ/q with ℤ/q coefficients, the sum of words [j₁|1|…|jₑ|1] over all e-tuples is a cycle in degree 2e.",
+      "hypotheses": "q>0 and e≥1. The application has q=ℓ^ν. Each group entry is written additively. Lean uses zc q (e−1).",
+      "definitions": [
+        "bar chain",
+        "boundary",
+        "cyclic group"
+      ],
+      "correspondence": "The dropped initial entry sums to q copies of a word. Successive contractions agree after shifting one or two summation indices and have opposite signs.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.bd, Cyc, Bd, zc, dt",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean",
+          "lines": [
+            15,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean#L15-L43"
+        },
+        {
+          "declaration": "LateralTheory.Q.SZcT.tail_sum, sh, contract_eq",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean",
+          "lines": [
+            61,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean#L61-L82"
+        },
+        {
+          "declaration": "LateralTheory.Q.SZcT.SZc_of",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean",
+          "lines": [
+            109,
+            120
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean#L109-L120"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.SZc, SRel",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean",
+          "lines": [
+            38,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean#L38-L42"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A separate reader checked the actual source, the degree and sign conventions, the scope of the homology generator count and the matrix transfer, and independently evaluated both twists of the example."
+    },
+    {
+      "id": "CYC-02",
+      "title": "A homology relation with an invertible coefficient",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclic-relation",
+      "equations": [
+        "inputs-cyclic-boundary"
+      ],
+      "dependencies": [
+        "CYC-01"
+      ],
+      "statement": "For the maps dₜ(a)=(a,ta) into C², some ℤ/q linear combination of the 2e+2 images of the cyclic word is a boundary with a unit among its coefficients.",
+      "hypotheses": "As in CYC-01 with q a power of the prime ℓ, t=0,…,2e+1. The generator bound applies to homology with trivial coefficients, as an abelian group.",
+      "definitions": [
+        "finite free integer cover",
+        "long exact sequence",
+        "permutation module",
+        "Shapiro isomorphism",
+        "cycle modulo boundaries"
+      ],
+      "correspondence": "Two short exact sequences from the cyclic difference map give at most 2e+1 generators in degree 2e. Lifting the classes to a free abelian group permits cancelling the common prime factors before projection. After projection to homology the vanishing combination is represented by a boundary in the bar complex.",
+      "sources": [
+        {
+          "declaration": "LateralTheory.Q.SRelT.Gen, Gen.surj",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            9,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L9-L16"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.Gen.rel",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            50,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L50-L83"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.exists_prim",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            85,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L85-L101"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.four",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            125,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L125-L145"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.gen_tr, step",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            182,
+            202
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L182-L202"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.step",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            217,
+            233
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L217-L233"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.gen_cyc, gen_two",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            237,
+            268
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L237-L268"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.rel_bd",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            279,
+            303
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L279-L303"
+        },
+        {
+          "declaration": "LateralTheory.Q.SRelT.SRel_of",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+          "lines": [
+            304,
+            314
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean#L304-L314"
+        },
+        {
+          "declaration": "LateralTheory.Fin.SRel.relation_statement_holds",
+          "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/FinSRel.lean",
+          "lines": [
+            3,
+            6
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/CyclotomicDiscriminants/FinSRel.lean#L3-L6"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            15,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L15-L23"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            87,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L87-L101"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A separate reader checked the actual source, the degree and sign conventions, the scope of the homology generator count and the matrix transfer, and independently evaluated both twists of the example."
+    },
+    {
+      "id": "CYC-03",
+      "title": "The scalar residue functional and its prism value",
+      "chapter": "inputs",
+      "anchor": "inputs-residue-prism",
+      "equations": [
+        "inputs-residue-carry"
+      ],
+      "dependencies": [
+        "CYC-01"
+      ],
+      "statement": "On k× the degree-(2e+1) cocycle built from e logarithmic carries and v takes the prism of the weight-x cyclic word and g to xᵉv(g) in ℤ/q.",
+      "hypotheses": "k a finite field, ζ∈k× of order q>0, e≥1, x a natural number, v:k×→ℤ/q an additive index and g∈k×. The construction works for any such homomorphism v.",
+      "definitions": [
+        "normalized logarithm",
+        "carry",
+        "bar cocycle",
+        "scalar prism"
+      ],
+      "correspondence": "The logarithm has a prescribed residue at ζ and its integer carry satisfies the cocycle identity. Cyclic shifts telescope to x. Symmetric carries cancel neighboring prism insertions, leaving e independent factors and the index of the gluing element.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.Coc.F, F_coc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            11,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L11-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Coc.F_coc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            32,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L32-L47"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Coc.F_ins, F_prod",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            49,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L49-L70"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Coc.ex_log",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            72,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L72-L96"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sCoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            101,
+            120
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L101-L120"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sCoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+          "lines": [
+            121,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean#L121-L145"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.SCoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean",
+          "lines": [
+            49,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean#L49-L53"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A separate reader checked the actual source, the degree and sign conventions, the scope of the homology generator count and the matrix transfer, and independently evaluated both twists of the example."
+    },
+    {
+      "id": "CYC-04",
+      "title": "The projective-line transfer reads the determinant",
+      "chapter": "inputs",
+      "anchor": "inputs-projective-transfer",
+      "equations": [
+        "inputs-residue-block"
+      ],
+      "dependencies": [
+        "CYC-03"
+      ],
+      "statement": "For a finite k-vector space V and a gluing automorphism g on a pure scalar weight-x block, the transferred functional evaluates its prism to xᵉv(det g) in ℤ/q.",
+      "hypotheses": "Under the assumptions of CYC-03. The finite field has |k|≡1 modulo q because ζ has order q. The source separately handles q=1.",
+      "definitions": [
+        "projectivization",
+        "coefficient transfer",
+        "direct sum",
+        "elementary shear",
+        "determinant"
+      ],
+      "correspondence": "Line ratios along successive inverse actions define a transfer commuting with boundaries. The two projective fibers in V⊕W have cardinalities |W| and 1, equal modulo q. The prism law gives a homomorphism, and elementary shears have trivial image. Direct sums and the scalar case then determine its value on a diagonal and hence on every invertible matrix.",
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.term, tr, IsCoc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            16,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L16-L25"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.IsCoc.tr_bd, IsCoc.tr_Bd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            82,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L82-L95"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.la, lc, isCoc, indep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            190,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L190-L218"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.theta, theta_cm",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            228,
+            238
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L228-L238"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.theta_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            274,
+            290
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L274-L290"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.card_inl, card_inr",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            330,
+            351
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L330-L351"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Trans.theta_add",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            363,
+            378
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L363-L378"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sTrans",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+          "lines": [
+            397,
+            413
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean#L397-L413"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.gl_hom_transvection_eq_one_of_ne_zero_of_ne_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+          "lines": [
+            19,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean#L19-L33"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.gl_det",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+          "lines": [
+            59,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean#L59-L84"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sThetaOf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+          "lines": [
+            195,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean#L195-L218"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sThetaOf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+          "lines": [
+            228,
+            249
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean#L228-L249"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sThetaOf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+          "lines": [
+            258,
+            273
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean#L258-L273"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.Cl.cJoin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+          "lines": [
+            155,
+            187
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean#L155-L187"
+        }
+      ],
+      "status": "independently reviewed",
+      "review": "A separate reader checked the actual source, the degree and sign conventions, the scope of the homology generator count and the matrix transfer, and independently evaluated both twists of the example."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "SZc_of",
+      "callee": "tail_sum",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean",
+        "line": 114
+      }
+    },
+    {
+      "caller": "SZc_of",
+      "callee": "Equiv.addRight",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean",
+        "line": 118
+      }
+    },
+    {
+      "caller": "SZc_of",
+      "callee": "contract_eq",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SZcTPf.lean",
+        "line": 119
+      }
+    },
+    {
+      "caller": "step",
+      "callee": "exists_prim",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 230
+      }
+    },
+    {
+      "caller": "gen_cyc",
+      "callee": "step",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 249
+      }
+    },
+    {
+      "caller": "gen_two",
+      "callee": "gen_cyc",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 268
+      }
+    },
+    {
+      "caller": "rel_bd",
+      "callee": "h.rel",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 286
+      }
+    },
+    {
+      "caller": "SRel_of",
+      "callee": "rel_bd",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 306
+      }
+    },
+    {
+      "caller": "SRel_of",
+      "callee": "gen_two",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 307
+      }
+    },
+    {
+      "caller": "SRel_of",
+      "callee": "SZc_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/SRelTPf.lean",
+        "line": 309
+      }
+    },
+    {
+      "caller": "relation_statement_holds",
+      "callee": "SRel_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/CyclotomicDiscriminants/FinSRel.lean",
+        "line": 5
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "sRel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 17
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "hChain",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 87
+      }
+    },
+    {
+      "caller": "cJoin",
+      "callee": "sZc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LatticeBlockClasses/CJoin.lean",
+        "line": 89
+      }
+    },
+    {
+      "caller": "sCoc",
+      "callee": "ex_log",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+        "line": 103
+      }
+    },
+    {
+      "caller": "sCoc",
+      "callee": "F_coc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+        "line": 117
+      }
+    },
+    {
+      "caller": "sCoc",
+      "callee": "F_ins",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+        "line": 140
+      }
+    },
+    {
+      "caller": "sCoc",
+      "callee": "F_prod",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/FProd.lean",
+        "line": 144
+      }
+    },
+    {
+      "caller": "theta_cm",
+      "callee": "indep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+        "line": 234
+      }
+    },
+    {
+      "caller": "theta_add",
+      "callee": "theta_cm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+        "line": 376
+      }
+    },
+    {
+      "caller": "theta_add",
+      "callee": "card_inl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+        "line": 399
+      }
+    },
+    {
+      "caller": "theta_add",
+      "callee": "card_inr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+        "line": 401
+      }
+    },
+    {
+      "caller": "main",
+      "callee": "theta_add",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/STrans.lean",
+        "line": 405
+      }
+    },
+    {
+      "caller": "sThetaOf",
+      "callee": "h6",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+        "line": 194
+      }
+    },
+    {
+      "caller": "sThetaOf",
+      "callee": "h5",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+        "line": 203
+      }
+    },
+    {
+      "caller": "sThetaOf",
+      "callee": "fam_det",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SThetaOf.lean",
+        "line": 248
+      }
+    }
+  ],
+  "outstanding": [
+    "DIP-01–03 explain the integral interpolation prescribing the required determinants and their weighted sum. Realizing the global gluing isomorphisms and comparing stable homology with invariant forms are further suppliers."
+  ]
+}

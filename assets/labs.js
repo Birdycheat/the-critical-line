@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    prism: {
+      title: "Insert the gluing element into the cyclic word",
+      kind: "Finite-field calculation",
+      section: "inputs",
+      params: [
+        choose("twist", "Twist e", [["1", "1"], ["2", "2"]], "1"),
+        range("weight", "Character weight x", 0, 4, 1, 2),
+        choose("gluing", "Gluing element g", [["3", "8"], ["1", "2"], ["5", "10"]], "3"),
+      ],
+      caption: "Each row inserts g at one position in every word, evaluates the scalar functional and adds the integer representatives. Opposite signs cancel the paired rows. The last insertion gives the prism value modulo 5.",
+      method: "Work in the multiplicative group of the field with eleven elements. Use base 2 for logarithms, ζ = 4 for the root of order five, and v(g) = log₂(g) modulo 5. Represent each logarithm by its residue from 0 to 9. For each adjacent pair its carry is the floor of the sum of those representatives divided by 10. For each of the 5ᵉ words multiply the e carries by v of the last entry. Signs come from the insertion position, counted from zero.",
+    },
     "floor-sum": {
       title: "Read a Bernoulli value from the carries",
       kind: "Exact finite sum",
@@ -395,6 +407,28 @@
       residueUnits.map(k => difference(h, row) * difference(k, column) || 0),
     );
   }
+  function prismInsertions(twist, weight, gluingLog) {
+    const positions = Array(2 * twist + 1).fill(0);
+    for (let wordIndex = 0; wordIndex < 5 ** twist; wordIndex++) {
+      const word = [];
+      let digits = wordIndex;
+      for (let pair = 0; pair < twist; pair++) {
+        const j = digits % 5;
+        digits = Math.floor(digits / 5);
+        word.push((2 * weight * j) % 10, (2 * weight) % 10);
+      }
+      for (let position = 0; position < positions.length; position++) {
+        const entries = [...word];
+        entries.splice(position, 0, gluingLog);
+        let value = entries[2 * twist] % 5;
+        for (let pair = 0; pair < twist; pair++) {
+          value *= Math.floor((entries[2 * pair] + entries[2 * pair + 1]) / 10);
+        }
+        positions[position] += value;
+      }
+    }
+    return positions;
+  }
   function selectWindow(exponents) {
     const marks = [...new Set(exponents.map(k => k / 2))];
     let upper = 16;
@@ -474,6 +508,23 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "prism") {
+      const twist = Number(v.twist), weight = Number(v.weight), gluingLog = Number(v.gluing);
+      const positions = prismInsertions(twist, weight, gluingLog);
+      let total = 0;
+      const rows = positions.map((sum, i) => {
+        total += (i % 2 === 0 ? sum : -sum);
+        return '<tr><th scope="row">' + i + '</th><td>' + (i % 2 === 0 ? "+" : "−") + '</td><td>' + sum + '</td></tr>';
+      }).join("");
+      const carries = [0, 1, 2, 3, 4].map(j => Math.floor(((2 * weight * j) % 10 + (2 * weight) % 10) / 10));
+      return '<p>For j = 0, 1, 2, 3, 4 the five carries are ' + carries.join(", ") + '.</p>' +
+        '<table class="carry-table"><caption>Insertion sums in degree ' + (2 * twist + 1) + '</caption>' +
+        '<thead><tr><th scope="col">Position</th><th scope="col">Sign</th><th scope="col">Sum before sign</th></tr></thead><tbody>' +
+        rows + '</tbody></table>' + metrics([["Words evaluated", 5 ** twist], ["Signed sum", total],
+          ["Residue modulo 5", total % 5]]) +
+        "<p>The block formula gives " + weight + "<sup>" + twist + "</sup> × " + (gluingLog % 5) + " ≡ " +
+        ((weight ** twist * gluingLog) % 5) + " modulo 5.</p>";
+    }
     if (id === "floor-sum") {
       const multiplier = Number(v.multiplier);
       const { level, groups, sum, cleared, valuation } = bernoulliCarries(Number(v.depth), multiplier);
@@ -1211,6 +1262,7 @@
     eulerQuotients,
     rankGrid,
     bernoulliCarries,
+    prismInsertions,
     selectWindow,
     centeringRatio,
   };

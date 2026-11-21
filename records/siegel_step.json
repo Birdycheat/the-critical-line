@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned definitions and selected written bodies for the measure normalization, class weighting, two rank asymptotics, consecutive mass ratios and signed induction. The S₃ and size-two-residue computations are explicit illustrations of these formulas. No locally extracted elaborated proof terms.",
+  "claims": [
+    {
+      "id": "SIE-01",
+      "chapter": "global",
+      "title": "Rank-two volume and the level-index normalization",
+      "anchor": "global-siegel-volume",
+      "statement": "In the definite rank-two comparison, the normalized stabilizer K has measure one, the quotient fundamental domain has measure ∑ᵢ 1/|Γ∩gᵢKgᵢ⁻¹|, and the class and genus identifications make this the standard rank-two mass. The restricted-level subgroup has index [K:K′] and the word ratio uses row index / column index.",
+      "hypotheses": "Countable rational unitary Γ, left-invariant normalized measure, measurable K, finite disjoint double-coset classes and finite stabilizers, and a Γ-fundamental domain. For the application: positive definite constant signature, volume tie, finite class representatives, stabilizer/automorphism correspondence and genus mass identified with standard mass at rank two.",
+      "definitions": [
+        "genus",
+        "inverse automorphism weight",
+        "adelic unitary group",
+        "normalized lattice stabilizer",
+        "double-coset class",
+        "finite level index"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.Top.link_gl",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean",
+          "lines": [
+            14,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean#L14-L30"
+        },
+        {
+          "declaration": "Wire.famGLmin_of_realPlaceSecondLayer",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+          "lines": [
+            14,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean#L14-L20"
+        },
+        {
+          "declaration": "IsVolMeas / VolTie / Conclusion2",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean",
+          "lines": [
+            249,
+            273
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean#L249-L273"
+        },
+        {
+          "declaration": "measure_KSub",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+          "lines": [
+            299,
+            311
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean#L299-L311"
+        },
+        {
+          "declaration": "hit_empty / hitEquiv",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+          "lines": [
+            18,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean#L18-L42"
+        },
+        {
+          "declaration": "measure_fd_eq_sum",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+          "lines": [
+            46,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean#L46-L71"
+        },
+        {
+          "declaration": "measure_fd_eq_sum / measure_fd_toReal",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+          "lines": [
+            99,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean#L99-L125"
+        },
+        {
+          "declaration": "volume_mass_of_class_data",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+          "lines": [
+            145,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean#L145-L169"
+        },
+        {
+          "declaration": "volume_mass_of_genus_rank",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/PacketStatementOfIndependence.lean",
+          "lines": [
+            10,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/PacketStatementOfIndependence.lean#L10-L23"
+        },
+        {
+          "declaration": "genusMassAt_two",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/GenusMassAtTwo.lean",
+          "lines": [
+            5,
+            8
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/GenusMassAtTwo.lean#L5-L8"
+        },
+        {
+          "declaration": "idxPi / idxSig / duStarP / DstarP / logXu",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean",
+          "lines": [
+            71,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean#L71-L90"
+        },
+        {
+          "declaration": "family_of_global_statements",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            68,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L68-L95"
+        }
+      ],
+      "correspondence": "For x∈Γg_iK, the translations into g_iK form a torsor for Γ∩g_iKg_i⁻¹. After division by the stabilizer order the periodized indicator is identically one on that class. Integration gives the reciprocal order for μ(K)=1. Any finite-index subgroup K′ has μ(K′)=1/[K:K′], explaining the larger factor on normalizing a deeper level to volume one. duStarP and DstarP multiply by idxPi and idxSig separately.",
+      "status": "mathematical proof reconstructed",
+      "review": "Finite S₃ model with Γ=K=⟨(12)⟩ gives stabilizers 2 and 1, two double cosets of sizes 2 and 4 and volume 3/2 under μ(K)=1. Independent source review checked the normalization and that the rank-two definite input is the chosen base case."
+    },
+    {
+      "id": "SIE-02",
+      "chapter": "global",
+      "title": "The Siegel increment from two limits and transfer to the indefinite row",
+      "anchor": "global-siegel-increment",
+      "statement": "For the chosen standard orthonormal lattices, the quotient mass_M/mass_(M−1) is {[(M−1)!(v/π)^M]^f/√((2v)^f)} Lη(M) for M≥3. The positive rank-one mass normalization cancels. The same normalized ratio for unit-vector complements propagates the definite rank-two identity to all constant signatures (P,Q) with P≥2 and hence to Y₀, whose dimension is r; the Count5 scale uses exactly k<M≤r.",
+      "hypotheses": "E is an unramified CM field with fixed real field in the sense IsCMUnram, f=#infinite places=[E:ℚ]/2, v=|disc E|^(1/(2f))/2. In the mass recursion the Hermitian lattice is integral, totally positive definite, and spans a finite-dimensional E-space. The rank increment comparing orthonormal models is used at M≥3. The representation estimate invokes the binary Hermitian representation result and the pinned local density identity. For the indefinite transfer P≥2, the volume/measure tie and a signed norm-one orthogonal-complement volume formula hold. Thresholds and constants in other Count5 estimates are unchanged by this pointwise identity.",
+      "definitions": [
+        "representation mass",
+        "lattice discriminant norm",
+        "local lattice correction",
+        "rank-one mass constant",
+        "Euler factor",
+        "real and complex places"
+      ],
+      "equations": [
+        "global-siegel-limits",
+        "global-siegel-ratio"
+      ],
+      "dependencies": [
+        "SIE-01"
+      ],
+      "sources": [
+        {
+          "declaration": "ballCount / boxSet / MassConst",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LocalDensityRatio.lean",
+          "lines": [
+            106,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LocalDensityRatio.lean#L106-L119"
+        },
+        {
+          "declaration": "sum_ballCount_eq",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/BoxInterEqEmpty.lean",
+          "lines": [
+            16,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/BoxInterEqEmpty.lean#L16-L22"
+        },
+        {
+          "declaration": "mass / IsOrthoLattice",
+          "path": "src/Formalism/HermitianLattices/StatementMass.lean",
+          "lines": [
+            11,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianLattices/StatementMass.lean#L11-L23"
+        },
+        {
+          "declaration": "fDeg / vInv / eulerFac / lValEta / massRatioRightSide / IsCMUnram",
+          "path": "src/Formalism/HermitianLattices/StatementMass.lean",
+          "lines": [
+            25,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianLattices/StatementMass.lean#L25-L48"
+        },
+        {
+          "declaration": "Step.tendsto_left",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+          "lines": [
+            51,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean#L51-L70"
+        },
+        {
+          "declaration": "Step.tendsto_right",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+          "lines": [
+            72,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean#L72-L95"
+        },
+        {
+          "declaration": "repMass_eq_prod_psi",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/RepMassEqProdPsi.lean",
+          "lines": [
+            17,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/RepMassEqProdPsi.lean#L17-L22"
+        },
+        {
+          "declaration": "massConst_succ",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+          "lines": [
+            99,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean#L99-L131"
+        },
+        {
+          "declaration": "massRatio_eq_lvalue",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassRatioEqLvalue.lean",
+          "lines": [
+            23,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassRatioEqLvalue.lean#L23-L31"
+        },
+        {
+          "declaration": "lamG_eq_one_of_ortho",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LamGEqOneOfOrtho.lean",
+          "lines": [
+            50,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LamGEqOneOfOrtho.lean#L50-L70"
+        },
+        {
+          "declaration": "massConst_all / siegelMassRatio_of_LI",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+          "lines": [
+            13,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean#L13-L55"
+        },
+        {
+          "declaration": "siegelMassRatio",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+          "lines": [
+            57,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean#L57-L59"
+        },
+        {
+          "declaration": "siegel_mass_ratio",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/MassUpperBoundClosed.lean",
+          "lines": [
+            9,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/MassUpperBoundClosed.lean#L9-L12"
+        },
+        {
+          "declaration": "liStat_of / liStat",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LiStatOf.lean",
+          "lines": [
+            11,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/LiStatOf.lean#L11-L24"
+        },
+        {
+          "declaration": "HermRepUnram",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassLandSt.lean",
+          "lines": [
+            17,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassLandSt.lean#L17-L20"
+        },
+        {
+          "declaration": "standardLattice_aux2b / siegel_mass_ratio_family",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+          "lines": [
+            16,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean#L16-L24"
+        },
+        {
+          "declaration": "IsVolMeas / VolTie / Conclusion2",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean",
+          "lines": [
+            249,
+            273
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean#L249-L273"
+        },
+        {
+          "declaration": "siegel_mass_rank_one / mass_ratio_under_volume",
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelUnitTheory/VolumeSignatureIndependent.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelUnitTheory/VolumeSignatureIndependent.lean#L9-L13"
+        },
+        {
+          "declaration": "volumeRatio",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/VolumeRatio.lean",
+          "lines": [
+            14,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/VolumeRatio.lean#L14-L18"
+        },
+        {
+          "declaration": "volumeMass_of_unfolding",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            2342,
+            2352
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L2342-L2352"
+        },
+        {
+          "declaration": "volume_mass_succ / volume_mass_ge_two",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+          "lines": [
+            29,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean#L29-L53"
+        },
+        {
+          "declaration": "vol_indef",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+          "lines": [
+            57,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean#L57-L84"
+        },
+        {
+          "declaration": "volume_eq_mass_rank_two",
+          "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+          "lines": [
+            102,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean#L102-L110"
+        },
+        {
+          "declaration": "mass_succ_eq_mul_ratio / mass_telescope",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            1813,
+            1832
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L1813-L1832"
+        },
+        {
+          "declaration": "family_of_global_statements",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            68,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L68-L95"
+        }
+      ],
+      "correspondence": "Normalize the weighted ball count at radius j by j^(2fM). Grouping nonzero vectors of the same length yields the representation mass sum, together with the zero-vector term. The lattice limit is μΛ(π^M/M!)^f/(v^(fM)δ). The local density limit is c_(M−1)λΛ M^(−f)Lη(M)/(δ√((2v)^f)). Cancel the nonzero δ and M^f in (M!)^f, obtaining the stated factorial and ratio. For an orthonormal lattice the λΛ-factors are all one. In the volume induction the complement of a norm +1 vector decreases P at Q=0, while a norm −1 vector decreases Q at fixed P≥2. For (P,Q)=sigY₀ their sum is r. The k-to-r telescope has m−1 increments.",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked both limiting coefficients, signs of the two inductions, f exponents and (M−1)! normalization. At M=3 and a finite prime of the real subfield with residue cardinality 2 the local Euler contribution is 8/9 in the inert case and 8/7 for a split pair. The two alternatives do not yield a numerical global mass."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.Top.link_gl",
+      "callee": "famGLmin_of_realPlaceSecondLayer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "famGLmin_of_realPlaceSecondLayer",
+      "callee": "siegel_mass_ratio_family",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+        "line": 17
+      }
+    },
+    {
+      "caller": "famGLmin_of_realPlaceSecondLayer",
+      "callee": "volume_eq_mass_rank_two",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "famGLmin_of_realPlaceSecondLayer",
+      "callee": "volume_mass_of_genus_rank",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "volume_mass_of_genus_rank",
+      "callee": "volume_mass_of_class_data",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/PacketStatementOfIndependence.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "volume_mass_of_class_data",
+      "callee": "measure_KSub",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 160
+      }
+    },
+    {
+      "caller": "volume_mass_of_class_data",
+      "callee": "measure_fd_toReal",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 167
+      }
+    },
+    {
+      "caller": "measure_fd_toReal",
+      "callee": "measure_fd_eq_sum",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+        "line": 125
+      }
+    },
+    {
+      "caller": "measure_fd_eq_sum",
+      "callee": "hitEquiv",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/FamilyMassVolumeIdentityOfClassDecomp.lean",
+        "line": 100
+      }
+    },
+    {
+      "caller": "siegel_mass_ratio_family",
+      "callee": "standardLattice_aux2b",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 24
+      }
+    },
+    {
+      "caller": "standardLattice_aux2b",
+      "callee": "siegel_mass_ratio",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "siegel_mass_ratio",
+      "callee": "siegelMassRatio",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/MassUpperBoundClosed.lean",
+        "line": 12
+      }
+    },
+    {
+      "caller": "siegelMassRatio",
+      "callee": "siegelMassRatio_of_LI",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+        "line": 59
+      }
+    },
+    {
+      "caller": "siegelMassRatio_of_LI",
+      "callee": "massConst_all",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+        "line": 38
+      }
+    },
+    {
+      "caller": "siegelMassRatio_of_LI",
+      "callee": "lamG_eq_one_of_ortho",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "massConst_all",
+      "callee": "massConst_succ",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/SiegelMassRatioOfLI.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "massConst_succ",
+      "callee": "Step.tendsto_left",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "massConst_succ",
+      "callee": "Step.tendsto_right",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 107
+      }
+    },
+    {
+      "caller": "massConst_succ",
+      "callee": "sum_ballCount_eq",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 113
+      }
+    },
+    {
+      "caller": "massConst_succ",
+      "callee": "tendsto_nhds_unique",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 115
+      }
+    },
+    {
+      "caller": "massConst_succ",
+      "callee": "massRatio_eq_lvalue",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 130
+      }
+    },
+    {
+      "caller": "Step.tendsto_left",
+      "callee": "tendsto_ballCount",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 65
+      }
+    },
+    {
+      "caller": "Step.tendsto_right",
+      "callee": "tendsto_singS_sum",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 86
+      }
+    },
+    {
+      "caller": "Step.tendsto_right",
+      "callee": "repMass_eq",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/UnimodularClassRepresentatives/MassConstSucc.lean",
+        "line": 91
+      }
+    },
+    {
+      "caller": "volumeMass_of_unfolding",
+      "callee": "global_arithmetic_identity",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 2347
+      }
+    },
+    {
+      "caller": "volume_mass_ge_two",
+      "callee": "volume_mass_succ",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 53
+      }
+    },
+    {
+      "caller": "vol_indef",
+      "callee": "volume_mass_ge_two",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 69
+      }
+    },
+    {
+      "caller": "volume_eq_mass_rank_two",
+      "callee": "vol_indef",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/GlobalTheory/GL5/DiscreteSeriesOfFormalDegree.lean",
+        "line": 105
+      }
+    },
+    {
+      "caller": "mass_telescope",
+      "callee": "mass_succ_eq_mul_ratio",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 1829
+      }
+    },
+    {
+      "caller": "family_of_global_statements",
+      "callee": "mass_telescope",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 73
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SIE-01",
+      "SIE-02"
+    ],
+    [
+      "SIE-01",
+      "CNT-02"
+    ],
+    [
+      "SIE-02",
+      "CNT-02"
+    ],
+    [
+      "SIE-02",
+      "MSF-02"
+    ]
+  ],
+  "outstanding": [
+    "The common positive rank-one mass constant is supplied by the rank-one theorem; its explicit absolute value is unnecessary for this ratio. The general weighted representation-density product, its asymptotic summation, local density identities and the binary Hermitian representation theorem are deeper arithmetic inputs.",
+    "The rank-two genus classification, the adelic/unit-vector unfolding for the indefinite ratio and its real and finite local densities are traced to their suppliers. Their entire constructions and proofs are outside these two claims. The row induction used here requires P≥2 and a constant signature; no indefinite rank-one assertion is needed.",
+    "The split and inert rank-three examples give local Euler factors conditional on splitting behaviour, and the finite S₃ quotient illustrates the measure identity. Neither computes the absolute genus mass of a selected host."
+  ],
+  "review_scope": "Independent readers reviewed the normalized double-coset formula, both limiting expressions for the common sequence, local Euler-factor example, positive/negative signature inductions and connection to Count5."
+}

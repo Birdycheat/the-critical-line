@@ -65,6 +65,18 @@ for (const [id, c] of Object.entries(lib.configs)) {
   }
 }
 assert.equal(lib.primeBase(1), 0);
+for (const twist of [1, 2]) {
+  for (const weight of [0, 1, 2, 3, 4]) {
+    for (const gluingLog of [1, 3, 5]) {
+      const entries = lib.prismInsertions(twist, weight, gluingLog);
+      assert.equal(entries.length, 2 * twist + 1);
+      for (let pair = 0; pair < twist; pair++) {
+        assert.equal(entries[2 * pair], entries[2 * pair + 1]);
+      }
+      assert.equal(entries[2 * twist], weight ** twist * (gluingLog % 5));
+    }
+  }
+}
 assert.equal(lib.primeBase(27), 3);
 assert.equal(lib.primeBase(36), 0);
 close(
@@ -229,5 +241,5 @@ assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums at all nine carry settings, nine signed rank grids and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums at all nine carry settings, nine signed rank grids, all 30 finite-prism settings and all 289 marked-window states.",
 );
