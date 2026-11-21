@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "EZS-01",
+      "chapter": "inputs",
+      "anchor": "inputs-exceptional-zero-saving",
+      "title": "Fixed-modulus density and the multiplicity of each zero strip",
+      "statement": "For the large-modulus explicit formula at T₀=m¹², let H=log(m(T₀+3)). The total multiplicity of the zeros in j<H(1−Re ρ)≤j+1 is bounded by 2C₁C exp(24(j+1))H¹¹. The logarithmic power from the local count accounts for close ordinates of the same character.",
+      "hypotheses": "8 divides the positive integer m. The finite zero lists come from the smoothed explicit formula for characters modulo this fixed m, at heights |Im ρ|≤T₀+1 and 1−κ<Re ρ<1 with κ≤1/20. Its unit-height multiplicity bound and the separated-ordinate density theorem hold.",
+      "dependencies": [
+        "FZD-03"
+      ],
+      "equations": [
+        "inputs-exceptional-strip-count"
+      ],
+      "sources": [
+        {
+          "declaration": "ExplicitS",
+          "label": "Near-one zero lists, local multiplicities and the smoothed explicit formula",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnM.lean",
+          "lines": [
+            53,
+            66
+          ],
+          "declaration_lines": {
+            "ExplicitS": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnM.lean#L53-L66"
+        },
+        {
+          "declaration": "LogDensityM",
+          "label": "Density at one modulus for ordinates separated within each character",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnM.lean",
+          "lines": [
+            77,
+            82
+          ],
+          "declaration_lines": {
+            "LogDensityM": 77
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/DeuringHeilbronnM.lean#L77-L82"
+        },
+        {
+          "declaration": "log_density_bound",
+          "label": "The progression density theorem with powers twenty-four and ten",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDens.lean",
+          "lines": [
+            19,
+            31
+          ],
+          "declaration_lines": {
+            "log_density_bound": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDens.lean#L19-L31"
+        },
+        {
+          "declaration": "density_norm",
+          "label": "Conversion from a real-part threshold to a bound on scaled distance",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumB.lean",
+          "lines": [
+            11,
+            37
+          ],
+          "declaration_lines": {
+            "density_norm": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumB.lean#L11-L37"
+        },
+        {
+          "declaration": "ell_bounds",
+          "label": "The logarithmic height is at most fourteen times log m at the chosen cutoff",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumB.lean",
+          "lines": [
+            73,
+            97
+          ],
+          "declaration_lines": {
+            "ell_bounds": 73
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumB.lean#L73-L97"
+        },
+        {
+          "declaration": "psi_relative_far_range",
+          "label": "The polynomial height selected for the large-modulus formula",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+          "lines": [
+            15,
+            51
+          ],
+          "declaration_lines": {
+            "psi_relative_far_range": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean#L15-L51"
+        },
+        {
+          "declaration": "sum_zero_multiplicity_le_two_mul_of_separated",
+          "label": "One representative per unit interval and the two parity classes",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            112,
+            237
+          ],
+          "declaration_lines": {
+            "sum_zero_multiplicity_le_two_mul_of_separated": 112
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L112-L237"
+        },
+        {
+          "declaration": "zeroSum_core",
+          "label": "Unit strips for the scaled distance from one",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            399,
+            421
+          ],
+          "declaration_lines": {
+            "zeroSum_core": 240
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L399-L421"
+        },
+        {
+          "declaration": "zeroSum_core",
+          "label": "From separated pairs and local ordinates to multiplicity in a strip",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            441,
+            486
+          ],
+          "declaration_lines": {
+            "zeroSum_core": 240
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L441-L486"
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "EZS-02",
+      "chapter": "inputs",
+      "anchor": "inputs-exceptional-zero-repulsion",
+      "title": "Quantitative survival of the exceptional factor in the weighted zero sum",
+      "statement": "If Y=log t≥K log(m) log(log(m)+2), the finite weighted zero sum after removal of the exceptional occurrence is at most Cη exp(−cY/log(m)), with η=min(1,(1−β)log(m)) or η=1 in its absence. The large-modulus branch of the weighted progression estimate retains this η.",
+      "hypotheses": "The explicit formula lists satisfy the preceding fixed-modulus count. Use the zero-free region with at most one simple real exceptional zero, the Deuring–Heilbronn inequality with a logarithmic power loss and adequately large fixed K. The transfer of the remaining explicit-formula error also uses the large-modulus condition log(m)>c_A√Y and the lower bound η≥c′/m.",
+      "dependencies": [
+        "EZS-01"
+      ],
+      "equations": [
+        "inputs-exceptional-repulsion-bound",
+        "inputs-exceptional-theta-comparison",
+        "inputs-exceptional-weighted-zero-sum"
+      ],
+      "sources": [
+        {
+          "declaration": "zero_in_region",
+          "label": "Identification of the unique simple exceptional zero",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTEOf.lean",
+          "lines": [
+            102,
+            117
+          ],
+          "declaration_lines": {
+            "zero_in_region": 102
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTEOf.lean#L102-L117"
+        },
+        {
+          "declaration": "zeroSum_core",
+          "label": "The ordinary zero-free gap and exact removal of the exceptional occurrence",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            304,
+            366
+          ],
+          "declaration_lines": {
+            "zeroSum_core": 240
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L304-L366"
+        },
+        {
+          "declaration": "DeuringHeilbronnMB",
+          "label": "Quantitative repulsion with a logarithmic power loss",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHBSt.lean",
+          "lines": [
+            11,
+            19
+          ],
+          "declaration_lines": {
+            "DeuringHeilbronnMB": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHBSt.lean#L11-L19"
+        },
+        {
+          "declaration": "deuring_heilbronn_lossy",
+          "label": "Power sums and positivity supplying the repulsion theorem",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration_lines": {
+            "deuring_heilbronn_lossy": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean#L13-L15"
+        },
+        {
+          "declaration": "zero_sum_bound_lossy",
+          "label": "Constants, normalization and the threshold for repulsion",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+          "lines": [
+            30,
+            57
+          ],
+          "declaration_lines": {
+            "zero_sum_bound_lossy": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean#L30-L57"
+        },
+        {
+          "declaration": "zero_sum_bound_lossy",
+          "label": "Choice of the repulsion parameter in every exceptional-pair case",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+          "lines": [
+            110,
+            193
+          ],
+          "declaration_lines": {
+            "zero_sum_bound_lossy": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean#L110-L193"
+        },
+        {
+          "declaration": "pow_mul_exp_neg_le_of_large_Y",
+          "label": "Paying for strip growth, powers of the height, repulsion and exponential decay",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            13,
+            105
+          ],
+          "declaration_lines": {
+            "pow_mul_exp_neg_le_of_large_Y": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L13-L105"
+        },
+        {
+          "declaration": "zeroSum_core",
+          "label": "The estimate on each zero in a given strip",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            418,
+            440
+          ],
+          "declaration_lines": {
+            "zeroSum_core": 240
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L418-L440"
+        },
+        {
+          "declaration": "zeroSum_core",
+          "label": "Cancellation against the strip count and the geometric series",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+          "lines": [
+            486,
+            565
+          ],
+          "declaration_lines": {
+            "zeroSum_core": 240
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean#L486-L565"
+        },
+        {
+          "declaration": "pow_absorb",
+          "label": "Absorbing the remaining power of log m",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+          "lines": [
+            12,
+            28
+          ],
+          "declaration_lines": {
+            "pow_absorb": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean#L12-L28"
+        },
+        {
+          "declaration": "zero_sum_bound_lossy",
+          "label": "Conversion from the repulsion parameter to the exceptional factor",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+          "lines": [
+            77,
+            109
+          ],
+          "declaration_lines": {
+            "zero_sum_bound_lossy": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean#L77-L109"
+        },
+        {
+          "declaration": "psi_relative_far_range",
+          "label": "Combining the weighted zero sum and the explicit-formula remainder",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+          "lines": [
+            128,
+            166
+          ],
+          "declaration_lines": {
+            "psi_relative_far_range": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean#L128-L166"
+        },
+        {
+          "declaration": "abs_psiAP_sub_le",
+          "label": "Character orthogonality and division by the residue group order",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean",
+          "lines": [
+            102,
+            111
+          ],
+          "declaration_lines": {
+            "abs_psiAP_sub_le": 102
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean#L102-L111"
+        },
+        {
+          "declaration": "pnt_progressions_relative_weak_holds",
+          "label": "Fixed-modulus density and repulsion used by the relative theorem",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+          "lines": [
+            16,
+            24
+          ],
+          "declaration_lines": {
+            "pnt_progressions_relative_weak_holds": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean#L16-L24"
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "log_density_bound",
+      "callee": "zero_count_first",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDens.lean",
+        "line": 21,
+        "spelling": "zero_count_first"
+      }
+    },
+    {
+      "caller": "log_density_bound",
+      "callee": "zero_count_second",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDens.lean",
+        "line": 22,
+        "spelling": "zero_count_second"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "density_norm",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 32,
+        "spelling": "density_norm"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "ell_bounds",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 63,
+        "spelling": "ell_bounds"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "pow_absorb",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 77,
+        "spelling": "pow_absorb"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "zeroSum_core",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 81,
+        "spelling": "zeroSum_core"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "etaOf_none",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 131,
+        "spelling": "etaOf_none"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "etaOf_some",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 148,
+        "spelling": "etaOf_some"
+      }
+    },
+    {
+      "caller": "zero_sum_bound_lossy",
+      "callee": "etaOf_far",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSumL.lean",
+        "line": 192,
+        "spelling": "etaOf_far"
+      }
+    },
+    {
+      "caller": "zeroSum_core",
+      "callee": "pow_mul_exp_neg_le_of_large_Y",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+        "line": 436,
+        "spelling": "pow_mul_exp_neg_le_of_large_Y"
+      }
+    },
+    {
+      "caller": "zeroSum_core",
+      "callee": "sum_zero_multiplicity_le_two_mul_of_separated",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+        "line": 485,
+        "spelling": "sum_zero_multiplicity_le_two_mul_of_separated"
+      }
+    },
+    {
+      "caller": "zeroSum_core",
+      "callee": "sum_geometric_two_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTZSum.lean",
+        "line": 565,
+        "spelling": "sum_geometric_two_le"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_finish_turan",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "deuring_heilbronn_finish_turan"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "turan_power_sum_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 14,
+        "spelling": "turan_power_sum_bound"
+      }
+    },
+    {
+      "caller": "deuring_heilbronn_lossy",
+      "callee": "deuring_heilbronn_prime_sum",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTDHB.lean",
+        "line": 15,
+        "spelling": "deuring_heilbronn_prime_sum"
+      }
+    },
+    {
+      "caller": "logDensityM_proof'",
+      "callee": "log_density_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 18,
+        "spelling": "Dens.log_density_bound"
+      }
+    },
+    {
+      "caller": "deuringHeilbronnMB_proof'",
+      "callee": "deuring_heilbronn_lossy",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 20,
+        "spelling": "deuring_heilbronn_lossy"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "zero_sum_bound_lossy",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "zero_sum_bound_lossy"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "psi_relative_far_range",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "psi_relative_far_range"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "logDensityM_proof'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "logDensityM_proof'"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "deuringHeilbronnMB_proof'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "deuringHeilbronnMB_proof'"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "glue_ranges",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 23,
+        "spelling": "glue_ranges"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "EZS-01",
+      "EZS-02"
+    ],
+    [
+      "EZS-02",
+      "PRE-01"
+    ]
+  ],
+  "outstanding": [
+    "The fixed-modulus separated density bound now has both finite-sum detectors and their common block estimate. The power-sum proof of quantitative zero repulsion and the small-modulus square-root exponential theorem remain upstream."
+  ]
+}

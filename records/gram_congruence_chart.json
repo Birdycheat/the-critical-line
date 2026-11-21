@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GCC-01",
+      "chapter": "lifts",
+      "anchor": "lifts-gram-congruence-chart",
+      "title": "Nonzero pivots give local triangular coordinates on Hermitian matrices",
+      "statement": "Over a completion R of the totally real base F of a CM extension E, write K=R⊗_F E with its standard involution. A nonsingular centre S has S=b*Db with diagonal D in (R×)^n. At D the repeated Schur complement gives continuous inverse coordinates on an open neighborhood for N*diag(p_i)N with N upper unitriangular.",
+      "hypotheses": "The field completion has characteristic zero. The finite étale quadratic algebra K may be split. Each pivot is nonzero in R. No prescribed basis is assumed to start with a nonzero leading pivot.",
+      "correspondence": "The source proves the diagonalization for its more general reduced Artinian base, then implements the continuous pivot shear and rank induction. The field case in this passage proves existence of a nonzero length using polarization.",
+      "dependencies": [],
+      "equations": [
+        "lifts-gram-congruence-pivot"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.UnitRep.exists_isUnit_hform",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.UnitRep.exists_isUnit_hform": 171
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianUnitFormRepresentsUnit.lean",
+          "lines": [
+            171,
+            181
+          ],
+          "label": "A nonsingular form represents a unit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianUnitFormRepresentsUnit.lean#L171-L181"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.RingDiag.diagonalise",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.RingDiag.diagonalise": 141
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianUnitFormDiagonalizes.lean",
+          "lines": [
+            141,
+            191
+          ],
+          "label": "Choosing a first vector of unit length and splitting off its line",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianUnitFormDiagonalizes.lean#L141-L191"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.hermR_unit_diagonalisable",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.hermR_unit_diagonalisable": 11
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalHermitianDiagonalizationUnits.lean",
+          "lines": [
+            11,
+            33
+          ],
+          "label": "The congruence S = b*Db with base-ring unit diagonal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalHermitianDiagonalizationUnits.lean#L11-L33"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LDL.gram",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LDL.gram_split"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LDL.gram": 69,
+            "GlobalTheory.CompanionTheory.SW.LDL.gram_split": 97
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+          "lines": [
+            69,
+            111
+          ],
+          "label": "Expanding the first row and column of the triangular coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean#L69-L111"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LDL.shear",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LDL.shear": 178
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+          "lines": [
+            178,
+            233
+          ],
+          "label": "Continuous inversion using the first pivot and its Schur complement",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean#L178-L233"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LDL.oH_isOpenEmbedding",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LDL.ldl_isOpenEmbedding"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LDL.oH_isOpenEmbedding": 285,
+            "GlobalTheory.CompanionTheory.SW.LDL.ldl_isOpenEmbedding": 316
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+          "lines": [
+            281,
+            361
+          ],
+          "label": "The open Hermitian chart, including the zero-dimensional base case",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean#L281-L361"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GCC-02",
+      "chapter": "lifts",
+      "anchor": "lifts-gram-congruence-section",
+      "title": "The diagonal square branch selects a continuous congruence section",
+      "statement": "There is a subgroup Q of GL_n(K) such that q↦q*Sq embeds Q homeomorphically onto an open neighborhood of S. In diagonal coordinates its image has p_i/d_i in U² for a base-unit subgroup U on which squaring is an open embedding. Its inverse selects q=1 at T=S.",
+      "hypotheses": "The parent Gram spaces use fixed conjugation and congruence by * on the left. For R a finite completion of F, 2 is a nonzero field element in every residue characteristic. At real places use the positive branch.",
+      "correspondence": "Relative to S=b*Db the subgroup is b⁻¹ L b with L upper triangular and prescribed diagonal group U. The fibre construction precomposes this congruence chart with inversion to define a left action. The explicit ball k>ord(2) illustrates the existential ultrametric neighborhood.",
+      "dependencies": [
+        "GCC-01"
+      ],
+      "equations": [
+        "lifts-gram-congruence-orbit"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Tri.nMat",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Tri.aMat"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Tri.nMat": 62,
+            "GlobalTheory.CompanionTheory.SW.Tri.aMat": 74
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+          "lines": [
+            62,
+            80
+          ],
+          "label": "Upper triangular matrices with chosen diagonal and unitriangular part",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean#L62-L80"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Tri.aMat_gram",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Tri.aMat_gram": 170
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+          "lines": [
+            170,
+            192
+          ],
+          "label": "How the diagonal squares enter the congruence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean#L170-L192"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Tri.triHomeo",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Tri.sq_open",
+            "GlobalTheory.CompanionTheory.SW.Tri.conj_case"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Tri.triHomeo": 232,
+            "GlobalTheory.CompanionTheory.SW.Tri.sq_open": 248,
+            "GlobalTheory.CompanionTheory.SW.Tri.conj_case": 255
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+          "lines": [
+            232,
+            300
+          ],
+          "label": "The triangular subgroup coordinates and change of basis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean#L232-L300"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_of_ultrametric",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_Fv"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_of_ultrametric": 21,
+            "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_Fv": 86
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CompletionIsLocalRing.lean",
+          "lines": [
+            21,
+            95
+          ],
+          "label": "The continuous square-root branch over any finite completion",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CompletionIsLocalRing.lean#L21-L95"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LocInf.posU",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LocInf.isOpenEmbedding_sq"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LocInf.posU": 10,
+            "GlobalTheory.CompanionTheory.SW.LocInf.isOpenEmbedding_sq": 32
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/InfiniteAdelesLocalRingTotallyReal.lean",
+          "lines": [
+            10,
+            65
+          ],
+          "label": "The positive branch of the square over the real coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/InfiniteAdelesLocalRingTotallyReal.lean#L10-L65"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.tri_slice",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.tri_slice": 326
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+          "lines": [
+            326,
+            388
+          ],
+          "label": "The congruence orbit is open at every nonsingular target",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean#L326-L388"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.exists_local_section",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.exists_local_section": 10
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianLocalContinuousCongruenceSection.lean",
+          "lines": [
+            10,
+            43
+          ],
+          "label": "The continuous section has value one at its centre",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianLocalContinuousCongruenceSection.lean#L10-L43"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.GramNear.exists_fibre_near",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.GramNear.exists_fibre_near": 34
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureDisintegrationFormula.lean",
+          "lines": [
+            34,
+            120
+          ],
+          "label": "Using the inverse change of basis for a left action",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureDisintegrationFormula.lean#L34-L120"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.RingDiag.diagonalise",
+      "callee": "schur_step",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianUnitFormDiagonalizes.lean",
+        "line": 166,
+        "spelling": "schur_step"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.hermR_unit_diagonalisable",
+      "callee": "GlobalTheory.T.hermitian_unit_form_represents_unit",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalHermitianDiagonalizationUnits.lean",
+        "line": 16,
+        "spelling": "GlobalTheory.T.hermitian_unit_form_represents_unit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.hermR_unit_diagonalisable",
+      "callee": "GlobalTheory.T.hermitian_unit_form_diagonalizes",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalHermitianDiagonalizationUnits.lean",
+        "line": 18,
+        "spelling": "GlobalTheory.T.hermitian_unit_form_diagonalizes"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LDL.oH_isOpenEmbedding",
+      "callee": "eH",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+        "line": 308,
+        "spelling": "eH"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LDL.oH_isOpenEmbedding",
+      "callee": "shear",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+        "line": 309,
+        "spelling": "shear"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LDL.ldl_isOpenEmbedding",
+      "callee": "oH_isOpenEmbedding",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOpenChartDiagonalUnipotent.lean",
+        "line": 356,
+        "spelling": "oH_isOpenEmbedding"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_of_ultrametric",
+      "callee": "hasStrictDerivAt_pow",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CompletionIsLocalRing.lean",
+        "line": 24,
+        "spelling": "hasStrictDerivAt_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LocFv.isLocR_Fv",
+      "callee": "isLocR_of_ultrametric",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CompletionIsLocalRing.lean",
+        "line": 95,
+        "spelling": "isLocR_of_ultrametric"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "GlobalTheory.T.hermitian_open_chart_diagonal_unipotent",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 341,
+        "spelling": "GlobalTheory.T.hermitian_open_chart_diagonal_unipotent"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "GlobalTheory.T.local_hermitian_diagonalization_units",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 342,
+        "spelling": "GlobalTheory.T.local_hermitian_diagonalization_units"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "half_trace_tmul",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 358,
+        "spelling": "half_trace_tmul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "triHomeo",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 360,
+        "spelling": "triHomeo"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "sq_open",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 361,
+        "spelling": "sq_open"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "aMat_gram",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 380,
+        "spelling": "aMat_gram"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.tri_slice",
+      "callee": "conj_case",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOrbitLocalSectionSubgroup.lean",
+        "line": 383,
+        "spelling": "conj_case"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.exists_local_section",
+      "callee": "GlobalTheory.T.hermitian_orbit_local_section_subgroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianLocalContinuousCongruenceSection.lean",
+        "line": 12,
+        "spelling": "GlobalTheory.T.hermitian_orbit_local_section_subgroup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GramNear.exists_fibre_near",
+      "callee": "GlobalTheory.T.hermitian_orbit_local_section_subgroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureDisintegrationFormula.lean",
+        "line": 43,
+        "spelling": "GlobalTheory.T.hermitian_orbit_local_section_subgroup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GramNear.exists_fibre_near",
+      "callee": "fibre_on_orbit",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasureDisintegrationFormula.lean",
+        "line": 118,
+        "spelling": "fibre_on_orbit"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GCC-01",
+      "GCC-02"
+    ],
+    [
+      "GCC-02",
+      "GFG-01"
+    ]
+  ],
+  "outstanding": [
+    "The source allows more general topological base rings. The published exposition specializes to the field completions used in this local calculation. The dyadic subgroup is an explicit example of the existence theorem, with its own precision-by-precision proof."
+  ]
+}

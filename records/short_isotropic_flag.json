@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SIF-01",
+      "chapter": "global",
+      "anchor": "global-short-isotropic-flag",
+      "title": "The least size and the finite list of canonical jumps below one half",
+      "equations": [],
+      "dependencies": [],
+      "hypotheses": "Positive rank self-dual Hermitian lattice over a CM field at an automorphic point, with the positive majorant frames. Use the size and saturation properties of its Harder–Narasimhan filtration.",
+      "statement": "A nonzero step occurs at its largest quotient size. Its open and closed steps differ at a jump, and rank rises strictly there. The jumps below 1/2 form a finite increasing flag from zero to the strict half step. If the least size is below 1/2 it is the first jump.",
+      "sources": [
+        {
+          "declaration": "steps",
+          "label": "The two size cuts, their saturation and their thresholds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+          "lines": [
+            104,
+            118
+          ],
+          "declaration_lines": {
+            "steps": 104
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean#L104-L118"
+        },
+        {
+          "declaration": "IsJump",
+          "label": "The exact size at a jump and its increase of rank",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+          "lines": [
+            117,
+            141
+          ],
+          "declaration_lines": {
+            "IsJump": 117,
+            "IsJump.large": 127,
+            "IsJump.sizeQ_eq": 132,
+            "IsJump.rkK_lt": 139
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean#L117-L141",
+          "related_declarations": [
+            "IsJump.large",
+            "IsJump.sizeQ_eq",
+            "IsJump.rkK_lt"
+          ]
+        },
+        {
+          "declaration": "exists_jump_le",
+          "label": "Finding the jump representing a nonzero step",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+          "lines": [
+            143,
+            156
+          ],
+          "declaration_lines": {
+            "exists_jump_le": 143,
+            "exists_jump_lt": 151
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean#L143-L156",
+          "related_declarations": [
+            "exists_jump_lt"
+          ]
+        },
+        {
+          "declaration": "finite_jumps",
+          "label": "Finite ordered listing of all jumps below one half",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+          "lines": [
+            161,
+            184
+          ],
+          "declaration_lines": {
+            "finite_jumps": 161,
+            "exists_flag": 169
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean#L161-L184",
+          "related_declarations": [
+            "exists_flag"
+          ]
+        },
+        {
+          "declaration": "flag_range",
+          "label": "The canonical list and the left limit at each jump",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+          "lines": [
+            236,
+            252
+          ],
+          "declaration_lines": {
+            "flag_range": 236,
+            "flag_castSucc": 249
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean#L236-L252",
+          "related_declarations": [
+            "flag_castSucc"
+          ]
+        },
+        {
+          "declaration": "flag_spec",
+          "label": "The first jump is the least normalized size",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+          "lines": [
+            289,
+            306
+          ],
+          "declaration_lines": {
+            "flag_spec": 289
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean#L289-L306"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SIF-02",
+      "chapter": "global",
+      "anchor": "global-short-isotropic-rank",
+      "title": "Perpendicular size cuts give an isotropic subspace of bounded local rank",
+      "equations": [
+        "global-short-isotropic-duality",
+        "global-short-isotropic-witt"
+      ],
+      "dependencies": [
+        "SIF-01"
+      ],
+      "hypotheses": "Use self-duality of the normalized Hermitian determinant metric, the orthogonal reciprocity for the two canonical filtration steps, and the local signature at every real place.",
+      "statement": "The perpendicular of the open half step is the closed step at two, so inclusion gives total isotropy. At every real place the two signature projections inject on this subspace, proving that its rational rank, and hence the number of jumps, is bounded by the local Witt index.",
+      "sources": [
+        {
+          "declaration": "perp_key",
+          "label": "Complementary ranks and determinant heights under self-duality",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            128,
+            141
+          ],
+          "declaration_lines": {
+            "perp_key": 128
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L128-L141"
+        },
+        {
+          "declaration": "main",
+          "label": "The reciprocal-cutoff identities for the two endpoint conventions",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            350,
+            365
+          ],
+          "declaration_lines": {
+            "main": 350
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L350-L365"
+        },
+        {
+          "declaration": "main",
+          "label": "Reversing saturation, rank and size along the filtration",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            403,
+            429
+          ],
+          "declaration_lines": {
+            "main": 350
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L403-L429"
+        },
+        {
+          "declaration": "main",
+          "label": "Double orthogonals and reciprocal quotient heights",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            503,
+            508
+          ],
+          "declaration_lines": {
+            "main": 350
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L503-L508"
+        },
+        {
+          "declaration": "flag_isotropic",
+          "label": "Isotropy of the strict half step by comparison with the closed step at two",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+          "lines": [
+            181,
+            193
+          ],
+          "declaration_lines": {
+            "flag_isotropic": 181
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean#L181-L193"
+        },
+        {
+          "declaration": "card_le_of_isotropic",
+          "label": "Projection onto each of the two signature components",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+          "lines": [
+            106,
+            132
+          ],
+          "declaration_lines": {
+            "card_le_of_isotropic": 106
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean#L106-L132"
+        },
+        {
+          "declaration": "rkK_le_rkR",
+          "label": "The rational rank after scalar extension at each real place",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+          "lines": [
+            136,
+            159
+          ],
+          "declaration_lines": {
+            "rkK_le_rkR": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean#L136-L159"
+        },
+        {
+          "declaration": "sizeIneq_of",
+          "label": "The distinct lower bound for a nonzero lattice morphism",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeIneq.lean",
+          "lines": [
+            147,
+            167
+          ],
+          "declaration_lines": {
+            "sizeIneq_of": 62
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeIneq.lean#L147-L167"
+        },
+        {
+          "declaration": "unipotent_orbit_cover",
+          "label": "Bounding the number of jumps in the orbit argument",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+          "lines": [
+            79,
+            98
+          ],
+          "declaration_lines": {
+            "unipotent_orbit_cover": 47
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean#L79-L98"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.canonicalLatticeFiltration_size_properties"
+      }
+    },
+    {
+      "callee": "GlobalTheory.PointFlag.rkK_lt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 140,
+        "spelling": "GlobalTheory.PointFlag.rkK_lt"
+      }
+    },
+    {
+      "callee": "isJump_of_large",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 149,
+        "spelling": "isJump_of_large"
+      }
+    },
+    {
+      "callee": "stepLe_le_stepLt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 167,
+        "spelling": "stepLe_le_stepLt"
+      }
+    },
+    {
+      "callee": "finite_jumps",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 172,
+        "spelling": "finite_jumps"
+      }
+    },
+    {
+      "callee": "flag_jump",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 292,
+        "spelling": "flag_jump"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 303,
+        "spelling": "GlobalTheory.T.canonicalLatticeFiltration_size_properties"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CountSteps.steps",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 414,
+        "spelling": "GlobalTheory.CountSteps.steps"
+      }
+    },
+    {
+      "callee": "le_of_slopes",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 419,
+        "spelling": "le_of_slopes"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+        "line": 183,
+        "spelling": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+        "line": 188,
+        "spelling": "GlobalTheory.T.canonicalLatticeFiltration_size_properties"
+      }
+    },
+    {
+      "callee": "rkK_le_rkR",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+        "line": 193,
+        "spelling": "rkK_le_rkR"
+      }
+    },
+    {
+      "callee": "card_le_of_isotropic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+        "line": 159,
+        "spelling": "card_le_of_isotropic"
+      }
+    },
+    {
+      "callee": "GlobalTheory.PointFlag.flag_spec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 50,
+        "spelling": "GlobalTheory.PointFlag.flag_spec"
+      }
+    },
+    {
+      "callee": "GlobalTheory.FlagIso.flag_isotropic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 89,
+        "spelling": "GlobalTheory.FlagIso.flag_isotropic"
+      }
+    },
+    {
+      "callee": "GlobalTheory.exists_consecutive_ratio_le_rpow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.exists_consecutive_ratio_le_rpow"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SIF-01",
+      "SIF-02"
+    ],
+    [
+      "SIF-02",
+      "UOC-01"
+    ]
+  ],
+  "outstanding": [
+    "The existence and size bounds of the Hermitian Harder–Narasimhan steps and duality of normalized determinant volumes are inputs. The argument derives the finite canonical flag, the endpoint conventions, its isotropy and the signature rank bound from them."
+  ]
+}

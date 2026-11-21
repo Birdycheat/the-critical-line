@@ -102,7 +102,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "cusp-trace-mass") {
+        if (id === "central-rounding") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "3/4", "1", "1/4"]);
+          assert.equal(await fig.locator("svg circle").count(), 5);
+        } else if (id === "cusp-trace-mass") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "16/31"]);
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["1/16", "256/31", "16/31"]);
         } else if (id === "minor-shells") {

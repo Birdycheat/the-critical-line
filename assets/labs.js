@@ -16,6 +16,19 @@
     value,
   });
   const configs = {
+    "central-rounding": {
+      title: "Where does rounding half a skew-adjoint matrix land?",
+      kind: "The center of a Gaussian Hermitian plane",
+      section: "global",
+      params: [
+        choose("quarters", "Coefficient t of the target ti", [
+          ["0", "0"], ["1", "1/4"], ["2", "1/2"], ["3", "3/4"], ["4", "1"],
+          ["5", "5/4"], ["6", "3/2"], ["7", "7/4"], ["8", "2"],
+        ], "5"),
+      ],
+      caption: "Use the hyperbolic plane with pairing matrix J = [[0,1],[1,0]] over the Gaussian integers. The target Z has coefficient ti in the upper-right corner and zeros elsewhere. Triangles mark t and circles mark the available coefficients. The upper segment shows the distance after rounding Z/2 and subtracting the adjoint. The lower segment gives the distance to the closest integral central coefficient.",
+      method: "In this plane the adjoint of zE₁₂ is its complex conjugate times E₁₂. The integral center permits every imaginary integer coefficient. Rounding ti/2 to ki and subtracting its adjoint gives 2ki. This covers the target with an explicitly bounded error. The example also lets you see when a nearer integral central matrix exists. At a tie the figure selects the larger coefficient.",
+    },
     "cusp-trace-mass": {
       title: "How much of a projection can lie in a small region?",
       kind: "Trace and volume on two points",
@@ -1265,6 +1278,37 @@
   }
 
   function render(id, v) {
+    if (id === "central-rounding") {
+      const quarters = Number(v.quarters);
+      const roundedHalf = Math.round(quarters / 8);
+      const constructed = 2 * roundedHalf;
+      const nearest = Math.round(quarters / 4);
+      const distance = (point) => reducedFraction(Math.abs(quarters - 4 * point), 4);
+      const pointX = (coefficient) => 85 + 165 * coefficient;
+      const targetX = pointX(quarters / 4);
+      const rows = [
+        { y: 50, label: "After subtracting the adjoint", allowed: [0, 2], chosen: constructed },
+        { y: 124, label: "All integral central coefficients", allowed: [0, 1, 2], chosen: nearest },
+      ];
+      const chart = rows.map(({ y, label, allowed, chosen }) => {
+        const markers = allowed.map(point => '<circle cx="' + pointX(point) + '" cy="' + y +
+          '" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="2"/>').join("");
+        return '<text x="12" y="' + (y - 20) + '">' + label + '</text>' +
+          '<path d="M85 ' + y + 'H415" stroke="currentColor" fill="none"/>' + markers +
+          '<path d="M' + targetX + ' ' + (y + 8) + 'v9H' + pointX(chosen) +
+          '" stroke="var(--copper)" stroke-width="2" fill="none"/>' +
+          '<path d="M' + (targetX - 4) + ' ' + (y - 10) + 'h8l-4 6z" fill="currentColor"/>';
+      }).join("");
+      const axis = [0, 1, 2].map(n => '<text x="' + pointX(n) + '" y="159" text-anchor="middle">' + n + '</text>').join("");
+      const target = reducedFraction(quarters, 4);
+      return '<svg class="chart" role="img" aria-label="The target coefficient ' + target +
+        ' with the constructed point ' + constructed + ' and the nearest central point ' + nearest +
+        '" viewBox="0 0 500 170"><title>Two choices of an integral central coefficient</title>' +
+        chart + axis + '</svg>' + metrics([
+          ["Constructed coefficient", String(constructed)], ["Its distance to t", distance(constructed)],
+          ["Closest coefficient", String(nearest)], ["Minimum distance", distance(nearest)],
+        ]);
+    }
     if (id === "cusp-trace-mass") {
       const denom = Number(v.denom);
       const [a,b] = {flat:[1,1], tilted:[1,4], deep:[0,1]}[v.profile];
