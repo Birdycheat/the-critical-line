@@ -127,6 +127,9 @@ async function run() {
         if (id === "hecke-four-point-approximation") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/√2", "1/√2", "Equal"]);
           assert.deepEqual(await fig.locator("tbody tr").nth(1).locator("td").allInnerTexts(), ["i", "1 − i", "1/√2"]);
+        } else if (id === "quadratic-place-restrictions") {
+          assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
         } else if (id === "weight-circle-spectrum") {
           assert.equal(await fig.locator("caption").innerText(), "Monomial coordinates of the selected vector");
           assert.deepEqual(await fig.locator("tbody tr td:first-of-type").allInnerTexts(), ["−1", "0", "1", "2"]);
@@ -632,6 +635,8 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    const staticPlaces = plain.locator("#fig-quadratic-place-restrictions");
+    assert.deepEqual(await staticPlaces.locator("tbody tr").last().locator("td").allInnerTexts(), ["15", "4", "6"]);
     const staticSpectrum = plain.locator("#fig-weight-circle-spectrum");
     assert.deepEqual(await staticSpectrum.locator("tbody tr td:first-of-type").allInnerTexts(), ["−1", "0", "1", "2"]);
     assert.deepEqual(await staticSpectrum.locator(".metrics dd").allInnerTexts(), ["{−1, 0, 1, 2}", "2", "2"]);

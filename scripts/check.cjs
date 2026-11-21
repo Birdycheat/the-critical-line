@@ -141,6 +141,20 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Compare restrictions using a direct inverse search in the field of 17 elements.
+const residues17 = Array.from({ length: 17 }, (_, n) => n);
+const eighthRoots = residues17.filter(x => x ** 4 % 17 === 16);
+assert.deepEqual(eighthRoots, [2, 8, 9, 15]);
+for (const root of eighthRoots) {
+  const inverse = residues17.find(y => root * y % 17 === 1);
+  const square = root * root % 17;
+  const real = (root + inverse) % 17;
+  const display = lib.render("quadratic-place-restrictions", {root: String(root)});
+  assert.deepEqual([...display.matchAll(/<td>([^<]+)<\/td>/g)].map(m => Number(m[1])),
+    [2, 4, 11, root, square, real]);
+  assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]),
+    [square === 4 ? "Same" : "Different", real === 11 ? "Same" : "Different", root === 15 ? "Satisfied" : "Fail"]);
+}
 // In det⁻¹ ⊗ Sym³, the four diagonal weights are (j−1, 2−j) in increasing order of j.
 for (const [circle, rowExponents, upperBound] of [
   ["t1", ["−1", "0", "1", "2"], "2"],

@@ -1,0 +1,1792 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GQL-01",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-prime",
+      "title": "How can a prime avoid every prescribed place and still split the quadratic field?",
+      "hypotheses": "A positive integer d and a bound B are given. Applying the prime to a CM datum also uses a fixed positive defect integer and a finite exceptional set.",
+      "statement": "A prime larger than B and 2d admits a square root of −d in its local integers. It can avoid all tested residue characteristics, the support of the chosen form and the denominators of an evaluation point.",
+      "equations": [
+        "lifts-geometric-prime-square"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The square-root condition and the arithmetic datum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/AuxiliaryInertOddPrime.lean",
+          "lines": [
+            13,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/AuxiliaryInertOddPrime.lean#L13-L18",
+          "declaration": "UpperTheory.Gal.G1.AuxiliaryInertOddPrime",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.AuxiliaryInertOddPrime": 13
+          }
+        },
+        {
+          "label": "Lifting a simple quadratic root into the local field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PAuxPrime.lean",
+          "lines": [
+            6,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PAuxPrime.lean#L6-L30"
+        },
+        {
+          "label": "The factorial construction of a prime outside the prescribed range",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PAuxPrime.lean",
+          "lines": [
+            32,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PAuxPrime.lean#L32-L65",
+          "declaration": "UpperTheory.Gal.G1.exists_auxiliary_prime_cmDatum",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.exists_auxiliary_prime_cmDatum": 32
+          }
+        },
+        {
+          "label": "Choosing a good prime beyond the defect integer and the exclusion set",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean",
+          "lines": [
+            39,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean#L39-L52",
+          "declaration": "UpperTheory.Gal.G1.datEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.datEx_of": 39
+          }
+        },
+        {
+          "label": "The required nonzero evaluation with integral components over the auxiliary prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            132,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L132-L135",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Gen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Gen": 132
+          }
+        },
+        {
+          "label": "The level exceptions, evaluation point and residue characteristics excluded in the application",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            118,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L118-L135",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-02",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-place-sides",
+      "title": "How can one tell whether two test places choose the same quadratic root?",
+      "hypotheses": "An integral generator of a quadratic field has trace t, norm n and discriminant Δ. The prime q avoids Δ and the quadratic polynomial has a residue root.",
+      "statement": "A prime over q is classified on this quadratic field by the root that is the residue of the generator. For any integral y in that field, Δy has integer coordinates in the generator basis. Conjugation interchanges the two sides.",
+      "equations": [
+        "lifts-geometric-side-traces"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Equality of quadratic fields, the discriminant condition and the contraction test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean",
+          "lines": [
+            11,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean#L11-L37",
+          "declaration": "UpperTheory.Gal.G1.CjMem",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.CjMem": 11
+          }
+        },
+        {
+          "label": "Rational coordinates in the quadratic order",
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/DiscriminantMulIntegralMem.lean",
+          "lines": [
+            11,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/DiscriminantMulIntegralMem.lean#L11-L25",
+          "declaration": "UpperTheory.discriminant_mul_integral_mem",
+          "declaration_lines": {
+            "UpperTheory.discriminant_mul_integral_mem": 11
+          }
+        },
+        {
+          "label": "The two integral traces and the two numerator formulas",
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/DiscriminantMulIntegralMem.lean",
+          "lines": [
+            42,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/DiscriminantMulIntegralMem.lean#L42-L60",
+          "declaration": "UpperTheory.discriminant_mul_integral_mem",
+          "declaration_lines": {
+            "UpperTheory.discriminant_mul_integral_mem": 11
+          }
+        },
+        {
+          "label": "Testing all integral elements by a common residue of the generator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/MemIffDvd.lean",
+          "lines": [
+            25,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/MemIffDvd.lean#L25-L48",
+          "declaration": "UpperTheory.Gal.G1.pKeyK",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.pKeyK": 25
+          }
+        },
+        {
+          "label": "Choosing one of the two residues above a rational prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PRootAt.lean",
+          "lines": [
+            6,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PRootAt.lean#L6-L24",
+          "declaration": "UpperTheory.Gal.G1.pRootAt",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.pRootAt": 6
+          }
+        },
+        {
+          "label": "Conjugation exchanges the roots and the place splits over the real subfield",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PSides.lean",
+          "lines": [
+            30,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PSides.lean#L30-L61",
+          "declaration": "UpperTheory.Gal.G1.pSides",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.pSides": 6
+          }
+        },
+        {
+          "label": "Characterization of equality on the quadratic subfield",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PSides.lean",
+          "lines": [
+            62,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PSides.lean#L62-L91",
+          "declaration": "UpperTheory.Gal.G1.pSides",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.pSides": 6
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-03",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-stabilizer",
+      "title": "How deep must a level be to fix the chosen automorphic form?",
+      "hypotheses": "A finite adelic similitude comparison is given with its lattice coordinates and its prime-p kernel, together with a nonzero form transforming under an open level by a character of open kernel at the type place. Its support avoids p.",
+      "statement": "One depth at a finite set of places ensures that a level-one element satisfying the local congruences has a lift whose inverse transpose belongs to the level of the form and has trivial type character.",
+      "equations": [
+        "lifts-geometric-stabilizer-coordinates",
+        "lifts-geometric-stabilizer-depth",
+        "lifts-geometric-stabilizer-lift"
+      ],
+      "dependencies": [
+        "GQL-01"
+      ],
+      "sources": [
+        {
+          "label": "The local congruence, uniform depth and exact stabilizer criterion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/InIdBasic.lean",
+          "lines": [
+            17,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/InIdBasic.lean#L17-L27",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Near1",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Near1": 17
+          }
+        },
+        {
+          "label": "The kernel of the prime-to-p map and the lattice coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            23,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L23-L36",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Frame",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Frame": 23
+          }
+        },
+        {
+          "label": "The inverse-transpose operation, level data and meaning of stabilization",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            50,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L50-L90",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Vec",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Vec": 57
+          }
+        },
+        {
+          "label": "The chosen form, avoidance of its support and the auxiliary prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            118,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L118-L135",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        },
+        {
+          "label": "Right translation on the automorphic form by the local character",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/CentralEig2.lean",
+          "lines": [
+            48,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/CentralEig2.lean#L48-L54"
+        },
+        {
+          "label": "Testing integrality on coordinate columns",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean",
+          "lines": [
+            84,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean#L84-L108"
+        },
+        {
+          "label": "Level one tested in the lattice coordinates in both directions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean",
+          "lines": [
+            118,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean#L118-L135",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.dict_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.dict_holds": 118
+          }
+        },
+        {
+          "label": "The local ideal bound for a matrix and its inverse",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PNearNbhd.lean",
+          "lines": [
+            19,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PNearNbhd.lean#L19-L48"
+        },
+        {
+          "label": "Entrywise convergence and the neighbourhood criterion for units",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PNearNbhd.lean",
+          "lines": [
+            50,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PNearNbhd.lean#L50-L92",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.nearNbhd_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.nearNbhd_holds": 73
+          }
+        },
+        {
+          "label": "The finite exceptional set, character kernel and common depth",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean",
+          "lines": [
+            47,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean#L47-L70",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.stabOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.stabOf_of": 47
+          }
+        },
+        {
+          "label": "Cutting the matrix and its multiplier by a central idempotent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean",
+          "lines": [
+            19,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean#L19-L51",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.cutU",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.cutU": 19
+          }
+        },
+        {
+          "label": "The rational prime idempotent and its localizations over the CM field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean",
+          "lines": [
+            63,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean#L63-L90",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.primeProj_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.primeProj_holds": 63
+          }
+        },
+        {
+          "label": "The corrected lift, its inverse transpose and its trivial character",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean",
+          "lines": [
+            71,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean#L71-L99",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.stabOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.stabOf_of": 47
+          }
+        },
+        {
+          "label": "The multiplier and the three conditions for membership in the global level",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/CompLocOfApart.lean",
+          "lines": [
+            114,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/CompLocOfApart.lean#L114-L131"
+        },
+        {
+          "label": "Integrality and invertibility of the multiplier from the conjugate pair of local matrices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PIntSim.lean",
+          "lines": [
+            8,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PIntSim.lean#L8-L56"
+        },
+        {
+          "label": "Odd-rank frame, integral changes of basis and inverse transpose",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PFrameEx.lean",
+          "lines": [
+            54,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PFrameEx.lean#L54-L85",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.frameEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.frameEx_holds": 54
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-04",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-integer",
+      "title": "One integer level for all the prescribed places",
+      "hypotheses": "Use the stabilizer data, free test places over good primes different from p, and a prescribed positive divisor c coprime to p. Test places above a common rational prime agree on the quadratic subfield.",
+      "statement": "There is one integer level ≥3 divisible by c and every test prime and coprime to p. Its principal subgroup and the appropriate site subgroup at each test place stabilize the form. Each site ideal is prime to the tested place and retains the depths elsewhere.",
+      "equations": [
+        "lifts-geometric-integer-formula",
+        "lifts-geometric-site-ideal"
+      ],
+      "dependencies": [
+        "GQL-02",
+        "GQL-03"
+      ],
+      "sources": [
+        {
+          "label": "The quantified hypotheses, the prescribed divisor and compatibility at repeated rational primes",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            220,
+            225
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L220-L225",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.SiteEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.SiteEx": 220
+          }
+        },
+        {
+          "label": "The stabilizer and the components of a site",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            89,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L89-L110",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Stab",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Stab": 89
+          }
+        },
+        {
+          "label": "The free-place condition, the generated subfield and the condition at the auxiliary prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            119,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L119-L135",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Free",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Free": 119
+          }
+        },
+        {
+          "label": "Splitting and perfection at a good prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean",
+          "lines": [
+            73,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean#L73-L83"
+        },
+        {
+          "label": "The previous uniform depth and its finite support",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean",
+          "lines": [
+            47,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean#L47-L70",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.stabOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.stabOf_of": 47
+          }
+        },
+        {
+          "label": "The two sides, coordinate congruences and ideal-level subgroups",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            182,
+            200
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L182-L200",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Sides",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Sides": 182
+          }
+        },
+        {
+          "label": "The quadratic-side result used here",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PDatEx.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PDatEx.lean#L13-L15",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.datEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.datEx_holds": 13
+          }
+        },
+        {
+          "label": "Testing a lattice congruence in local matrix coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean",
+          "lines": [
+            135,
+            147
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/NsmulIntegIff.lean#L135-L147",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.dict_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.dict_holds": 118
+          }
+        },
+        {
+          "label": "Construction of the ideal-level subgroup and its agreement with the integer level",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PLevBasic.lean",
+          "lines": [
+            131,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PLevBasic.lean#L131-L146",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.levBasic_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.levBasic_holds": 131
+          }
+        },
+        {
+          "label": "The residue characteristic, the ideal product inequalities and their stabilizer consequence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+          "lines": [
+            15,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean#L15-L45",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.siteEx_of": 36
+          }
+        },
+        {
+          "label": "The common root, the explicit integer level and its prime divisors",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+          "lines": [
+            46,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean#L46-L70",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.siteEx_of": 36
+          }
+        },
+        {
+          "label": "The local pairing, side ideal and prime-to-place level conditions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/IntegOfMem.lean",
+          "lines": [
+            128,
+            152
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/IntegOfMem.lean#L128-L152"
+        },
+        {
+          "label": "The auxiliary ideal, the prime-to-q part and membership of the integer in the level ideal",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+          "lines": [
+            71,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean#L71-L98",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.siteEx_of": 36
+          }
+        },
+        {
+          "label": "The side power, preservation of the stabilizer at every place and compatibility",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+          "lines": [
+            99,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean#L99-L122",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.siteEx_of": 36
+          }
+        },
+        {
+          "label": "The local site conditions obtained from goodness and the chosen root",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PSiteTriv.lean",
+          "lines": [
+            15,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PSiteTriv.lean#L15-L21",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.atPrime_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.atPrime_of": 15
+          }
+        },
+        {
+          "label": "Use of the level construction for the two finite sets of geometric tests",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            127,
+            143
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L127-L143",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-05",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-spectral-test",
+      "title": "How can a Hecke trace detect a prescribed system of eigenvalues?",
+      "hypotheses": "Use the odd-rank group and type, transport of its common eigenvector, and the local idempotent, auxiliary convolution functions and regular-support results at an admissible level.",
+      "statement": "One test function and one polynomial multiplier detect every word polynomial with nonzero prescribed scalar evaluation. On the selected generalized eigenspace the definite trace is the scalar evaluation times a fixed nonzero power trace.",
+      "equations": [
+        "lifts-geometric-spectral-trace"
+      ],
+      "dependencies": [
+        "GQL-04",
+        "HIF-01"
+      ],
+      "sources": [
+        {
+          "label": "The spectral input to the level construction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpecTopHolds.lean",
+          "lines": [
+            7,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpecTopHolds.lean#L7-L9",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.specTop_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.specTop_holds": 7
+          }
+        },
+        {
+          "label": "The deck and spherical operators and their allowed scalars",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            119,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L119-L125",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Free",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Free": 119
+          }
+        },
+        {
+          "label": "Choosing an auxiliary prime before the level and the operator family",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecTopG.lean",
+          "lines": [
+            9,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecTopG.lean#L9-L21",
+          "declaration": "UpperTheory.Gal.Spc.specTopG",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specTopG": 9
+          }
+        },
+        {
+          "label": "The good auxiliary prime and the selected places above it",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AuxiliaryInertOddPrime.lean",
+          "lines": [
+            92,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AuxiliaryInertOddPrime.lean#L92-L129",
+          "declaration": "UpperTheory.Gal.Spc.auxiliary_prime_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.auxiliary_prime_holds": 92
+          }
+        },
+        {
+          "label": "Transport of the nonzero automorphic eigenvector and the type projection",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/FrameTh.lean",
+          "lines": [
+            52,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/FrameTh.lean#L52-L91"
+        },
+        {
+          "label": "Local Iwahori operators, their inverse in the type space and the integral scalar correction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/ExistsIdempotentHeckeOperatorWithRegularSupport.lean",
+          "lines": [
+            157,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/ExistsIdempotentHeckeOperatorWithRegularSupport.lean#L157-L185"
+        },
+        {
+          "label": "The type idempotent and the convolution relations on its image",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+          "lines": [
+            64,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean#L64-L94",
+          "declaration": "UpperTheory.Gal.Spc.specData",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specData": 64
+          }
+        },
+        {
+          "label": "Injection of each form space by evaluation on a finite double coset set",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            138,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L138-L165"
+        },
+        {
+          "label": "The finite set of classes, convolution action and common eigenvector",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            179,
+            209
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L179-L209",
+          "declaration": "UpperTheory.Gal.Spc.specOfF",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specOfF": 179
+          }
+        },
+        {
+          "label": "The Bézout projection onto one generalized eigenvalue",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PProjOne.lean",
+          "lines": [
+            26,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PProjOne.lean#L26-L50"
+        },
+        {
+          "label": "One word polynomial controlling all commuting generators",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PProjOne.lean",
+          "lines": [
+            52,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PProjOne.lean#L52-L132",
+          "declaration": "UpperTheory.Gal.CertificateRingHomMap.pProjOne_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.CertificateRingHomMap.pProjOne_holds": 52
+          }
+        },
+        {
+          "label": "The commuting operators on the image, the surviving eigenvector and the power selection",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean",
+          "lines": [
+            166,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean#L166-L228",
+          "declaration": "UpperTheory.Gal.Spc.specAlg",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specAlg": 166
+          }
+        },
+        {
+          "label": "The power-trace recurrence on the nonzero image",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PTracePow.lean",
+          "lines": [
+            35,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PTracePow.lean#L35-L80",
+          "declaration": "UpperTheory.Gal.CertificateRingHomMap.pTracePow_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.CertificateRingHomMap.pTracePow_holds": 8
+          }
+        },
+        {
+          "label": "Evaluation at the prescribed scalars times the surviving power trace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean",
+          "lines": [
+            226,
+            255
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean#L226-L255",
+          "declaration": "UpperTheory.Gal.Spc.specAlg",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specAlg": 166
+          }
+        },
+        {
+          "label": "Commutation on words and stability of their support",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/PolySupp.lean",
+          "lines": [
+            114,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/PolySupp.lean#L114-L121"
+        },
+        {
+          "label": "The orbital vanishing inputs and equality with the sum of ordinary traces",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            208,
+            227
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L208-L227",
+          "declaration": "UpperTheory.Gal.Spc.specOfF",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specOfF": 179
+          }
+        },
+        {
+          "label": "Cuspidality, regular support, inversion on the support and the final function",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+          "lines": [
+            113,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean#L113-L161",
+          "declaration": "UpperTheory.Gal.Spc.specData",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specData": 64
+          }
+        },
+        {
+          "label": "Ordered words, convolution on the test function and the spectral trace condition",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HeckeTraceSemi.lean",
+          "lines": [
+            18,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HeckeTraceSemi.lean#L18-L29",
+          "declaration": "UpperTheory.Gal.LocalSmoothExtension.wordFn",
+          "declaration_lines": {
+            "UpperTheory.Gal.LocalSmoothExtension.wordFn": 18
+          }
+        },
+        {
+          "label": "The field generator, excluded support, integral nonzero value and uniform quantifiers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            132,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L132-L156",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Gen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Gen": 132
+          }
+        },
+        {
+          "label": "The two kinds of orbital terms required to vanish",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/InvPol.lean",
+          "lines": [
+            62,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/InvPol.lean#L62-L67"
+        },
+        {
+          "label": "Finiteness of the definite Hermitian classes",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PadicUnitNormHolds.lean",
+          "lines": [
+            45,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PadicUnitNormHolds.lean#L45-L51",
+          "declaration": "UpperTheory.Gal.G1.FinCls_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.FinCls_holds": 51
+          }
+        },
+        {
+          "label": "Finiteness of the level double coset set for each class",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteDoubleCosetDefiniteHermitianFormLevelStatement.lean",
+          "lines": [
+            8,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteDoubleCosetDefiniteHermitianFormLevelStatement.lean#L8-L12"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "deduced under the local and geometric inputs stated in the section",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-06",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-tests",
+      "title": "How does one level carry all the requested spectral tests?",
+      "hypotheses": "The odd-rank unitary representation, its type at w₀, field assumptions and disjoint finite test sets meet the stated spherical, real-place separation and quadratic restriction hypotheses. The integral group datum, vector, comparison frame, spectral and group-side comparison inputs are supplied.",
+      "statement": "One level and one system of operators give the weight and good-reduction tests on H, polynomial congruences on C, and polynomial congruences at the remaining eligible spherical places off ℓ outside a finite set. The selected coefficients give a monic polynomial with roots equal to the twisted normalized Satake parameters.",
+      "equations": [
+        "lifts-geometric-site-coefficient"
+      ],
+      "dependencies": [
+        "GQL-01",
+        "GQL-02",
+        "GQL-04",
+        "GQL-05"
+      ],
+      "sources": [
+        {
+          "label": "Field and automorphic hypotheses",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LatticeDataThicknessBound.lean",
+          "lines": [
+            16,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LatticeDataThicknessBound.lean#L16-L31"
+        },
+        {
+          "label": "The cuspidal type at the distinguished place",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/GenOf.lean",
+          "lines": [
+            14,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/GenOf.lean#L14-L21"
+        },
+        {
+          "label": "Compatibility and choice of the sides supporting the automorphic vector",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            86,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L86-L124",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        },
+        {
+          "label": "The two primes, the sites, and the family eligible for the trace test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            125,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L125-L156",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        },
+        {
+          "label": "Sites, coset indices, and the two possible eigenvalue formulas",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+          "lines": [
+            98,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean#L98-L125",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.Site",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.Site": 98
+          }
+        },
+        {
+          "label": "The spectral trace test on polynomial words",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HeckeTraceSemi.lean",
+          "lines": [
+            18,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HeckeTraceSemi.lean#L18-L29",
+          "declaration": "UpperTheory.Gal.LocalSmoothExtension.wordFn",
+          "declaration_lines": {
+            "UpperTheory.Gal.LocalSmoothExtension.wordFn": 18
+          }
+        },
+        {
+          "label": "The polynomial coefficients and algebraic normalization",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            157,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L157-L177",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        },
+        {
+          "label": "The sign and residue power in the Hecke polynomial",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/GenericMulOfProd.lean",
+          "lines": [
+            15,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/GenericMulOfProd.lean#L15-L18"
+        },
+        {
+          "label": "Spherical eigenvalues as elementary symmetric polynomials",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/IsSatVecUOfIsSphericalU.lean",
+          "lines": [
+            86,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/IsSatVecUOfIsSphericalU.lean#L86-L87"
+        },
+        {
+          "label": "The group congruence from deck operators and indexed local Hecke values",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PCongOf.lean",
+          "lines": [
+            8,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PCongOf.lean#L8-L22",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.congOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.congOf_of": 8
+          }
+        },
+        {
+          "label": "Integral tests at a different compatible place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PGoodOf.lean",
+          "lines": [
+            101,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PGoodOf.lean#L101-L138",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.goodOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.goodOf_of": 101
+          }
+        },
+        {
+          "label": "The finite exceptional set and the explicit tests at the chosen places",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            175,
+            205
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L175-L205",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.master",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.master": 86
+          }
+        },
+        {
+          "label": "Finiteness of the places above the excluded characteristics",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            42,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L42-L64",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.exists_prime_mem",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.exists_prime_mem": 42
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "deduced under the local and geometric inputs stated in the section",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-07",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-level-witnesses",
+      "title": "Which places must be tested on the same geometric tower?",
+      "hypotheses": "The type place and the base weight place lie above ℓ, are separate over the real subfield, and agree on the imaginary quadratic subfield. Extra spherical places satisfy the conditions stated separately above and away from ℓ.",
+      "statement": "Every level choice retains the weight test at the base weight place. An extra eligible place away from ℓ receives a polynomial test on the same level. At a further compatible place above ℓ, separate constructions give the weight test and the polynomial test.",
+      "equations": [],
+      "dependencies": [
+        "GQL-06"
+      ],
+      "sources": [
+        {
+          "label": "Unramified and spherical hypotheses away from the exceptional places",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LatticeDataThicknessBound.lean",
+          "lines": [
+            23,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LatticeDataThicknessBound.lean#L23-L31"
+        },
+        {
+          "label": "The local conditions and the three existence statements",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+          "lines": [
+            70,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean#L70-L91",
+          "declaration": "UpperTheory.Gal.Int.Geo.Plan.ExpAt",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Plan.ExpAt": 70
+          }
+        },
+        {
+          "label": "The base choice and an extra polynomial place away from the coefficient prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            207,
+            235
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L207-L235",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.planEx_of": 207
+          }
+        },
+        {
+          "label": "Two applications at a place above the coefficient prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+          "lines": [
+            236,
+            245
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean#L236-L245",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pl.planEx_of": 207
+          }
+        },
+        {
+          "label": "One tower preserves all the tests of one level",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+          "lines": [
+            101,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean#L101-L125",
+          "declaration": "UpperTheory.Gal.Int.Geo.Plan.pack",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Plan.pack": 101
+          }
+        },
+        {
+          "label": "Transport of each existential witness",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+          "lines": [
+            127,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean#L127-L139",
+          "declaration": "UpperTheory.Gal.Int.Geo.packEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.packEx_of": 127
+          }
+        },
+        {
+          "label": "The weight gap in the representation theorem and the exact geometric package",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean",
+          "lines": [
+            79,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean#L79-L101",
+          "declaration": "UpperTheory.Gal.Int.Geo.PackEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.PackEx": 92
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The proof was checked against the cited ranges. The local arithmetic examples and the field restrictions have separate finite checks."
+    },
+    {
+      "id": "GQL-08",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-standard-base",
+      "title": "How do the field labels determine the base of the tower?",
+      "hypotheses": "The arithmetic datum has one field label and comes with a field isomorphism η from its coefficient field to E. Its integral element has the specified quadratic trace and norm.",
+      "statement": "The root η(ω) and the restriction of η to the integers give a standard base. Both label conditions required for the Hodge comparison follow from these equalities.",
+      "equations": [
+        "lifts-geometric-base-label"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The quadratic root, labelled maps and comaximality condition",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsGDatumOneOneOne.lean",
+          "lines": [
+            108,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsGDatumOneOneOne.lean#L108-L113",
+          "declaration": "GlobalTheory.UPel.HT.Gen.GBase",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.Gen.GBase": 108
+          }
+        },
+        {
+          "label": "The standard base obtained by transporting the quadratic equation",
+          "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/StandardDatumExists.lean",
+          "lines": [
+            6,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CommutativeAlgebra/StandardDatumExists.lean#L6-L23",
+          "declaration": "UpperTheory.standard_datum_exists",
+          "declaration_lines": {
+            "UpperTheory.standard_datum_exists": 6
+          }
+        },
+        {
+          "label": "The standard-base supplier used in the global comparison",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/CovMain.lean",
+          "lines": [
+            118,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/CovMain.lean#L118-L122",
+          "declaration": "UpperTheory.Gal.Int.Geo.CovMain.stdEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.CovMain.stdEx_of": 120
+          }
+        },
+        {
+          "label": "The order of base, power and tower choices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+          "lines": [
+            101,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean#L101-L107",
+          "declaration": "UpperTheory.Gal.Int.Geo.Plan.pack",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Plan.pack": 101
+          }
+        },
+        {
+          "label": "Using both base equalities at the chosen embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+          "lines": [
+            116,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean#L116-L125",
+          "declaration": "UpperTheory.Gal.Int.Geo.Plan.pack",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Plan.pack": 101
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The only-label hypothesis applies to field labels. The unitary rank can exceed one."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.G1.datEx_of",
+      "callee": "UpperTheory.Gal.G1.gen_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean",
+        "line": 46,
+        "spelling": "gen_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Free",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 119,
+        "spelling": "Free"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 123,
+        "spelling": "pr"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G1.pKeyK",
+      "callee": "UpperTheory.Gal.G1.DiscInt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/MemIffDvd.lean",
+        "line": 26,
+        "spelling": "DiscInt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.Near1",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.InId",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/InIdBasic.lean",
+        "line": 18,
+        "spelling": "InId"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_of_sameK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 123,
+        "spelling": "pr_of_sameK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_cj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 123,
+        "spelling": "pr_cj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.stabOf_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Near1",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PStabOf.lean",
+        "line": 53,
+        "spelling": "Near1"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.primeProj_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.nat_mem_cj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean",
+        "line": 84,
+        "spelling": "nat_mem_cj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.primeProj_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.sim_cut",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PPrimeProj.lean",
+        "line": 86,
+        "spelling": "sim_cut"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.SiteEx",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Vec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+        "line": 221,
+        "spelling": "Vec"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.SiteEx",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Gen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+        "line": 222,
+        "spelling": "Gen"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.Free",
+      "callee": "GlobalTheory.UnitaryBC.IsSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+        "line": 120,
+        "spelling": "IsSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.Sides",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Gen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+        "line": 183,
+        "spelling": "Gen"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.Sides",
+      "callee": "GlobalTheory.UnitaryBC.IsSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PrimeProj.lean",
+        "line": 184,
+        "spelling": "IsSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.levBasic_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.congOne_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PLevBasic.lean",
+        "line": 134,
+        "spelling": "congOne_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.levBasic_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.congOne_conj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PLevBasic.lean",
+        "line": 135,
+        "spelling": "congOne_conj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Stab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+        "line": 40,
+        "spelling": "Stab"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Site",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+        "line": 72,
+        "spelling": "Site"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.siteEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.atPrime_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SpanLePow.lean",
+        "line": 96,
+        "spelling": "atPrime_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Off",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 128,
+        "spelling": "Off"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 128,
+        "spelling": "pr_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specTopG",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.WtOf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecTopG.lean",
+        "line": 10,
+        "spelling": "UpperTheory.Gal.Int.Geo.Pl.WtOf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specTopG",
+      "callee": "UpperTheory.Gal.Spc.auxiliary_prime_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecTopG.lean",
+        "line": 12,
+        "spelling": "UpperTheory.Gal.Spc.auxiliary_prime_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.auxiliary_prime_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.sides_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AuxiliaryInertOddPrime.lean",
+        "line": 118,
+        "spelling": "Pl.sides_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.WtOf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 65,
+        "spelling": "UpperTheory.Gal.Int.Geo.Pl.WtOf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "UpperTheory.Gal.LocalSmoothExtension.polyFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 184,
+        "spelling": "polyFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "UpperTheory.Gal.Spc.specAlg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 201,
+        "spelling": "specAlg"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specAlg",
+      "callee": "UpperTheory.Gal.CertificateRingHomMap.pProjOne_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean",
+        "line": 190,
+        "spelling": "pProjOne_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specAlg",
+      "callee": "UpperTheory.Gal.CertificateRingHomMap.pTracePow_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecAlg.lean",
+        "line": 226,
+        "spelling": "pTracePow_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.CertificateRingHomMap.pTracePow_holds",
+      "callee": "UpperTheory.Gal.CertificateRingHomMap.pProjTrace_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ProjectiveAutomorphicHecke/PTracePow.lean",
+        "line": 43,
+        "spelling": "pProjTrace_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.SpecOfF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 145,
+        "spelling": "UpperTheory.Gal.Spc.SpecOfF"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.specOfF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 145,
+        "spelling": "UpperTheory.Gal.Spc.specOfF"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "GlobalTheory.CongL.UsPl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 90,
+        "spelling": "UsPl"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Plan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 91,
+        "spelling": "Plan"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_prime",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 134,
+        "spelling": "pr_prime"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_mem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 134,
+        "spelling": "pr_mem"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Site",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 157,
+        "spelling": "Site"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Stab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 157,
+        "spelling": "Stab"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.congOf_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.LevBasic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PCongOf.lean",
+        "line": 9,
+        "spelling": "LevBasic"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.congOf_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.TjOK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PCongOf.lean",
+        "line": 9,
+        "spelling": "TjOK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.goodOf_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.LevBasic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PGoodOf.lean",
+        "line": 102,
+        "spelling": "LevBasic"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.goodOf_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.TjOK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PGoodOf.lean",
+        "line": 102,
+        "spelling": "TjOK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.Vec.lam",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 176,
+        "spelling": "lam"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.master",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.All.spec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 177,
+        "spelling": "spec"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Plan.ExpAt",
+      "callee": "GlobalTheory.RoadWGeo.wtJumps",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+        "line": 72,
+        "spelling": "GlobalTheory.RoadWGeo.wtJumps"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+      "callee": "GlobalTheory.CongL.UsPl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 210,
+        "spelling": "UsPl"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.pr_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 212,
+        "spelling": "pr_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.sameK_symm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 238,
+        "spelling": "sameK_symm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.planEx_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pl.sameK_trans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/SameKTrans.lean",
+        "line": 239,
+        "spelling": "sameK_trans"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Plan.pack",
+      "callee": "UpperTheory.Gal.Int.Geo.Plan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+        "line": 102,
+        "spelling": "Plan"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Plan.pack",
+      "callee": "UpperTheory.Gal.Int.Geo.Pack",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+        "line": 103,
+        "spelling": "Pack"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.PackEx",
+      "callee": "UpperTheory.Gal.Int.Geo.OneK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean",
+        "line": 95,
+        "spelling": "OneK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.PackEx",
+      "callee": "UpperTheory.Gal.Int.Geo.Pack",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean",
+        "line": 98,
+        "spelling": "Pack"
+      }
+    },
+    {
+      "caller": "UpperTheory.standard_datum_exists",
+      "callee": "GlobalTheory.UPel.HT.Gen.GBase.ρ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/StandardDatumExists.lean",
+        "line": 19,
+        "spelling": "ρ"
+      }
+    },
+    {
+      "caller": "UpperTheory.standard_datum_exists",
+      "callee": "GlobalTheory.UPel.HT.Gen.GBase.t",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/StandardDatumExists.lean",
+        "line": 21,
+        "spelling": "t"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Plan.pack",
+      "callee": "UpperTheory.Gal.Int.Geo.CongP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PackExOf.lean",
+        "line": 107,
+        "spelling": "CongP"
+      }
+    }
+  ]
+}
