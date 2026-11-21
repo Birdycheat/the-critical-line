@@ -1,0 +1,603 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspected original definitions and written proof bodies. The exposition counts free entries by subtracting the k forbidden central-column positions from the whole strictly upper triangle; the formal proof adds the allowed sets. No locally extracted elaborated proof term.",
+  "claims": [
+    {
+      "id": "CNT-01",
+      "chapter": "global",
+      "title": "The two auxiliary-prime level indices",
+      "anchor": "global-count-five-index",
+      "statement": "At q, the ratio of row and column indices is q^[mk+m(m−1)/2] times the product of (1−q^(−j)) over k<j≤r, r=k+m−1. Its f repetitions at each of g₀,g₁ yield the normalized leading term [m+m(m−1)/(2k)]log(g₀g₁). The remaining contribution is between −2log(2)/k and zero.",
+      "hypotheses": "Finite prime fields, k≥1, even m≥2, exactly two type primes, and f>0. At the worked local example k=m=q=2 there is no claim of full family admissibility. The family has m≥44 eventually.",
+      "definitions": [
+        "row level",
+        "column level",
+        "local index",
+        "free matrix positions",
+        "finite general linear group"
+      ],
+      "equations": [
+        "global-count-five-ratio",
+        "global-count-five-normalized"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "linkGLOBAL7_min",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            723,
+            735
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L723-L735"
+        },
+        {
+          "declaration": "idxLoc",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean",
+          "lines": [
+            56,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean#L56-L76"
+        },
+        {
+          "declaration": "card_free_positions",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            256,
+            275
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L256-L275"
+        },
+        {
+          "declaration": "rowLevCard_holds",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            277,
+            302
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L277-L302"
+        },
+        {
+          "declaration": "local_index_at_place",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+          "lines": [
+            260,
+            285
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean#L260-L285"
+        },
+        {
+          "declaration": "local_index_formulas_and_bounds",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+          "lines": [
+            287,
+            322
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean#L287-L322"
+        },
+        {
+          "declaration": "indices_four_three_of_indices_four_two",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+          "lines": [
+            334,
+            350
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean#L334-L350"
+        },
+        {
+          "declaration": "IndexProductFormulasAndRatio",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            105,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L105-L113"
+        },
+        {
+          "declaration": "partial_product_bounds",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+          "lines": [
+            185,
+            204
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean#L185-L204"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            200,
+            226
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L200-L226"
+        }
+      ],
+      "correspondence": "Count GL by independent columns and divide by each subgroup. With s=m/2−1 the formal row count s(2k+1+2s)+k(k−1)/2 equals r(r−1)/2−k. Splitting Π_r/Π_k cancels the first k factors. LinkMin weakens log(1/2) to −1 per prime. Small example: 6/2=3, 168/2=84 and their ratio is 28.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independent reviewer checked the free-entry pattern and index exponents, the factor 7/8 and model ratio 28, and the two-prime logarithmic bounds."
+    },
+    {
+      "id": "CNT-02",
+      "chapter": "global",
+      "title": "The index term in the mass comparison for a word",
+      "anchor": "global-count-five-floor",
+      "statement": "X_u^(fk)=Dstar/dstar_u equals the positive mass ratio times the computed index ratio times the product over places of the formal degree divided by the column Weyl dimension. Successive mass factors change the factorial product from rank k to rank r. In the large family the sharp log X_u floor is S + m log(g₀g₁) − 11L; the prime window then costs at most 2 on the log scale at its lower end.",
+      "hypotheses": "Base volume equals genus mass at r; the positive Siegel mass ratio holds for the consecutive ranks; positive column dimensions and formal degrees. The sharp floor invokes DataA including separated weights, 44≤m≤k, π≤v, and scale/gap bounds. Γ>1 and log Γ/(fk)≤1 at the actual family point. The family threshold is chosen for fixed ε,C₀,C_Y before x,i,u.",
+      "definitions": [
+        "genus mass",
+        "formal degree",
+        "Weyl dimension",
+        "real scale X_u",
+        "auxiliary factor Γ"
+      ],
+      "equations": [
+        "global-count-five-normalized"
+      ],
+      "dependencies": [
+        "CNT-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Wire.famGLmin_of_realPlaceSecondLayer",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+          "lines": [
+            14,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean#L14-L20"
+        },
+        {
+          "declaration": "linkGLOBAL7_items",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            709,
+            721
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L709-L721"
+        },
+        {
+          "declaration": "logXu",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean",
+          "lines": [
+            82,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GapAtLeast.lean#L82-L90"
+        },
+        {
+          "declaration": "MassBasic",
+          "path": "src/Formalism/HermitianLattices/StatementMass.lean",
+          "lines": [
+            56,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianLattices/StatementMass.lean#L56-L65"
+        },
+        {
+          "declaration": "family_of_global_statements",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            68,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L68-L95"
+        },
+        {
+          "declaration": "mass_telescope",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            1813,
+            1832
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L1813-L1832"
+        },
+        {
+          "declaration": "ratioH",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            1795,
+            1803
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L1795-L1803"
+        },
+        {
+          "declaration": "log_mass_ratio_telescoping",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+          "lines": [
+            30,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean#L30-L55"
+        },
+        {
+          "declaration": "family_of_global_statements",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            110,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L110-L129"
+        },
+        {
+          "declaration": "LemmaFiveOneIdentity",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            126,
+            148
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L126-L148"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            169,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L169-L191"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            234,
+            249
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L234-L249"
+        },
+        {
+          "declaration": "log_X_lower_arithmetic",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+          "lines": [
+            147,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean#L147-L174"
+        },
+        {
+          "declaration": "log_X_upper_arithmetic",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean",
+          "lines": [
+            88,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean#L88-L94"
+        },
+        {
+          "declaration": "division_level_prime_family",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            425,
+            453
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L425-L453"
+        },
+        {
+          "declaration": "family_part_five_of_explicit_constants",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean",
+          "lines": [
+            483,
+            484
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean#L483-L484"
+        },
+        {
+          "declaration": "part_five_count_of_explicit",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            289,
+            326
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L289-L326"
+        },
+        {
+          "declaration": "part_five_family_of_explicit",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            338,
+            344
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L338-L344"
+        },
+        {
+          "declaration": "count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            59,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L59-L82"
+        },
+        {
+          "declaration": "count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            84,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L84-L90"
+        },
+        {
+          "declaration": "count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            91,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L91-L124"
+        },
+        {
+          "declaration": "countF_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            144,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L144-L163"
+        },
+        {
+          "declaration": "countF_fam",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            1152,
+            1155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L1152-L1155"
+        }
+      ],
+      "correspondence": "Separating mass, local indices and placewise dimensions leaves a triangular sum of factorial logarithms. Only the local index portion of the −11L proof is fully estimated here. The other bounds are stated with their uses, and JointsL uses the upper and lower components of TorusPairsWithVariant, independently of its extra bound on the rank ratio.",
+      "status": "identity and quantitative index contribution reconstructed",
+      "review": "Independent reviewer confirmed the f repetitions in the mass identity and the uniform Γ correction in the window."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "linkGLOBAL7_min",
+      "callee": "division_level_prime_family",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 734
+      }
+    },
+    {
+      "caller": "linkGLOBAL7_min",
+      "callee": "family_part_five_of_explicit_constants",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 734
+      }
+    },
+    {
+      "caller": "linkGLOBAL7_items",
+      "callee": "countF_fam",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 711
+      }
+    },
+    {
+      "caller": "family_part_five_of_explicit_constants",
+      "callee": "part_five_family_of_explicit",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean",
+        "line": 484
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "ramified_rank_lines_of_free",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 431
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "part_five_family_of_mass_volume",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 432
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "gapB_ev",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 433
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "part_five_explicit_of_propositions",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 453
+      }
+    },
+    {
+      "caller": "ramified_rank_lines_of_free",
+      "callee": "upper_weight_bound_eventually",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 316
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "local_index_formulas_and_bounds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 208
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "family_of_global_statements",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 267
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "log_X_lower_arithmetic",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 300
+      }
+    },
+    {
+      "caller": "family_of_global_statements",
+      "callee": "index_product_formulas_and_ratio",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 50
+      }
+    },
+    {
+      "caller": "family_of_global_statements",
+      "callee": "mass_telescope",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 73
+      }
+    },
+    {
+      "caller": "family_of_global_statements",
+      "callee": "log_mass_ratio_telescoping",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 146
+      }
+    },
+    {
+      "caller": "mass_telescope",
+      "callee": "mass_succ_eq_mul_ratio",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 1829
+      }
+    },
+    {
+      "caller": "index_product_formulas_and_ratio",
+      "callee": "indices_four_three_of_indices_four_two",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+        "line": 385
+      }
+    },
+    {
+      "caller": "index_product_formulas_and_ratio",
+      "callee": "local_index_formulas_and_bounds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+        "line": 385
+      }
+    },
+    {
+      "caller": "local_index_formulas_and_bounds",
+      "callee": "local_index_at_place",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+        "line": 292
+      }
+    },
+    {
+      "caller": "local_index_formulas_and_bounds",
+      "callee": "rowLevCard_holds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+        "line": 312
+      }
+    },
+    {
+      "caller": "local_index_formulas_and_bounds",
+      "callee": "partial_product_bounds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LemmaFiveOneOfTheoremTwo.lean",
+        "line": 326
+      }
+    },
+    {
+      "caller": "rowLevCard_holds",
+      "callee": "isLevel_iff_free_support",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 298
+      }
+    },
+    {
+      "caller": "rowLevCard_holds",
+      "callee": "card_free_positions",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 299
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "family_of_global_statements",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 329
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "place_dimension_upper_bound",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 409
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "log_X_upper_arithmetic",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 422
+      }
+    },
+    {
+      "caller": "countF_fam",
+      "callee": "countF_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 1153
+      }
+    },
+    {
+      "caller": "countF_of",
+      "callee": "count_at_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 162
+      }
+    },
+    {
+      "caller": "count_at_of",
+      "callee": "h5c",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 86
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CNT-01",
+      "CNT-02"
+    ]
+  ],
+  "outstanding": [
+    "Derive the underlying automorphic volume identification, Siegel mass ratio and formal-degree estimate from the underlying normalization hypotheses.",
+    "The remaining detailed termwise estimates for the placewise Weyl ratio and the Euler product enter the coefficient 11; this section establishes the finite index contribution in full."
+  ],
+  "review_scope": "Independent finite-matrix calculation plus checked caller-to-supplier text at the pinned revision. The numerical model is local, and the lower end of the window is separate from existence of the chosen prime."
+}

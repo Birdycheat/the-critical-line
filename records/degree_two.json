@@ -12,7 +12,7 @@
       "title": "A uniform degree-two estimate",
       "anchor": "inputs-degree-two",
       "statement": "One C works for every prime ℓ, every totally complex number field L containing a primitive root of order ℓ (4 at ℓ=2), every algebraic closure and compatible LData, and every natural e≥1. H²(G_S,ℤ_ℓ(e+1)) is finite and its logarithmic order is ≤ exp((2e[L:ℚ])^C log(2|disc L|)).",
-      "hypotheses": "S is the full set of finite primes over ℓ. The compatible character descends the cyclotomic character to the unramified-outside-S quotient. The selected supplier invokes the odd-degree rank bound, Poitou–Tate duality, local finiteness and local Tate duality.",
+      "hypotheses": "S is the full set of finite primes over ℓ. The compatible character descends the cyclotomic character to the unramified-outside-S quotient. The selected supplier invokes the rank bound on selected stabilized odd-degree classes, Poitou–Tate duality, local finiteness and local Tate duality.",
       "definitions": [
         "finite length",
         "absolute discriminant",
@@ -166,7 +166,8 @@
         "q=ℓ^ν"
       ],
       "dependencies": [
-        "inputs.degree-two.layer"
+        "inputs.degree-two.layer",
+        "DET-03"
       ],
       "correspondence": "SFew contributes q^r₂T_(2e)T_(2e+1); SCount places q^r₂ on the left. Cancel before taking the depth-uniform bound. Any finite set of restricted locally trivial classes is detected at a common level, which proves the cardinal bound for the whole subgroup.",
       "status": "conditional mathematical proof reconstructed",
@@ -272,7 +273,8 @@
       ],
       "dependencies": [
         "inputs.degree-two.count",
-        "HOM-02"
+        "HOM-02",
+        "HOB-04"
       ],
       "correspondence": "torsAll chooses 24 and sTors specializes the rank. sNum chooses 5(max(C0,9)+2)+11. Its local error satisfies X log ℓ≤u^9 Y, and num_down uses u≤x^5 and Y≤x^11 log(2Δ).",
       "status": "mathematical proof reconstructed",
@@ -559,9 +561,8 @@
     }
   ],
   "outstanding": [
-    "Class-cycle construction, primitivity and residue detection used in the injection into the rank-and-torsion bound.",
-    "Proof of the odd-degree integral homology rank bound and the geometric orbit/stabilizer estimates used in torsAll.",
-    "Full underlying Kummer restriction and class group transport, tower descent, and the global and local duality theorems."
+    "The finite-image construction, the paired homology torsion orders and the arithmetic face counts are reconstructed in DET-01–03 and HOB-01–04. Further source inputs include the finite cyclic-chain identities and transport of the selected cycles.",
+    "The Kummer restriction and class-group comparison in the independent Selmer count, and the global and local duality theorems, supply further arithmetic inputs."
   ],
   "review_scope": "An independent source read checked twist signs, cardinality versus length, and all three numerical witnesses. Cyclotomic field construction and character counting were checked by the author against written source. No project solution proof term was independently exported here."
 }

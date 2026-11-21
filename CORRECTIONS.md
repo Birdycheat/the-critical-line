@@ -1,5 +1,15 @@
 # Correction history
 
+## 21 November 2026
+
+- For the split local doubling integral, the twist records the signed sum of elementary divisors while decay records their absolute sum. Absolute convergence is justified by summing upper bounds for individual lattices. In the rank-two example the number of primitive maps must be divided by the number of units in the local quotient.
+- Distinguished the six prime classes from the separate condition that a place be free of the level. Rational lifting allows a zero target. The proof of a nonzero evaluation concerns the whole adjusted base-tuple map.
+- The free residue-group action supplies a rank deficit for the real frame. The two auxiliary local indices supply an absolute size contribution to Count5, and the normalized Vandermonde variation controls differences between words.
+- The detecting cycles see the finite image of powered twisted norms. The two torsion orders belong to integral group homology in consecutive degrees. The arithmetic face count uses an ordered tuple acted on by a single group element. The finite stabilizer contributes a separate factor.
+- In the primitive-character length bound the local inertia annihilator divides the next global annihilator. The quotient kills the image of Frobenius evaluation. The space for the empty list already vanishes over the base prime, whose separate cost cancels from the final bound.
+
+- The odd-degree rank bound applies to the filtered homology classes. The detecting functionals bound the dimension of their image through a quotient of the test image. In the dual arithmetic system, raising the cyclotomic elements at levels d and qd to different powers contributes the factor q, and inversion of Frobenius supplies the minus sign.
+
 ## 20 November 2026
 
 - Traced the public classical theorem through `rhOfAll`, `Formalism.VW.rh_of_every`, and `Formalism.VW.rh_of_right`. The other zeta proof in `Claim.zeta` has a separate caller.

@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "rank-grid": {
+      title: "Complete a zero-sum grid",
+      kind: "Ramified rank",
+      section: "global",
+      params: [
+        choose("row", "Basis row", [["2", "2"], ["3", "3"], ["4", "4"]], "2"),
+        choose("column", "Basis column", [["2", "2"], ["3", "3"], ["4", "4"]], "3"),
+      ],
+      caption: "The selected entry is +1 and the other eight free entries are zero. The zero-sum conditions force three more signs where its row and column meet the identity row and column. The margins sum the displayed entries.",
+      method: "Take one free orbit for two copies of the multiplicative group of residues modulo 5. In each coordinate the residues are ordered 2, 3, 4, 1. The entry at (h, k) is the product of the two differences of indicators, (1[h = a] − 1[h = 1])(1[k = b] − 1[k = 1]), for the selected basis pair (a, b). Every operation is exact integer arithmetic.",
+    },
     marks: {
       title: "Find an interval between marked twists",
       kind: "Window selection",
@@ -348,6 +359,13 @@
     const x = q ** (-s - 0.5);
     return { split: (1 + x) / (1 - x), inert: 1, normalizer: 1 / (1 - x * x) };
   }
+  const residueUnits = [2, 3, 4, 1];
+  function rankGrid(row, column) {
+    const difference = (unit, selected) => Number(unit === selected) - Number(unit === 1);
+    return residueUnits.map(h =>
+      residueUnits.map(k => difference(h, row) * difference(k, column) || 0),
+    );
+  }
   function selectWindow(exponents) {
     const marks = [...new Set(exponents.map(k => k / 2))];
     let upper = 16;
@@ -427,6 +445,26 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "rank-grid") {
+      const row = Number(v.row);
+      const column = Number(v.column);
+      const grid = rankGrid(row, column);
+      const sum = values => values.reduce((total, entry) => total + entry, 0);
+      const signed = ["−1", "0", "+1"];
+      const cellKind = ["negative", "zero", "positive"];
+      const rows = grid.map((entries, i) =>
+        '<tr><th scope="row">' + residueUnits[i] + '</th>' +
+        entries.map(value => '<td class="rank-' + cellKind[value + 1] + '">' + signed[value + 1] + '</td>').join('') +
+        '<td class="rank-sum">' + sum(entries) + '</td></tr>',
+      ).join('');
+      const columnSums = residueUnits.map((_, j) => sum(grid.map(entries => entries[j])));
+      return '<table class="rank-grid"><caption>Basis vector at (' + row + ', ' + column + ')</caption>' +
+        '<thead><tr><th scope="col">Residue</th>' + residueUnits.map(unit => '<th scope="col">' + unit + '</th>').join('') +
+        '<th scope="col" class="rank-sum">Row sum</th></tr></thead><tbody>' + rows + '</tbody>' +
+        '<tfoot><tr><th scope="row">Col. sum</th>' + columnSums.map(value => '<td>' + value + '</td>').join('') +
+        '<td class="rank-sum">' + sum(columnSums) + '</td></tr></tfoot></table>' +
+        metrics([["Full dimension", "16"], ["Retained dimension", "9"], ["Lost fraction", "7/16"]]);
+    }
     if (id === "marks") {
       const exponents = [v.first, v.second];
       const [lower, upper] = selectWindow(exponents);
@@ -1126,6 +1164,7 @@
     profile,
     upperTail,
     eulerQuotients,
+    rankGrid,
     selectWindow,
     centeringRatio,
   };

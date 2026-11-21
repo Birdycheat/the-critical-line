@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "THH-01",
+      "title": "The six prime classes and the two tests at a place",
+      "statement": "The host classifies primes by divisibility of QS, equality to q or d, the Jacobi symbol and finally the psAt test. The entry calculations at a place w impose three separate level exclusions.",
+      "chapter": "normalization",
+      "anchor": "normalization-primes",
+      "dependencies": [
+        "NORM-02"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.primeClass",
+          "path": "src/Formalism/LocalRingCardinality/DataHost.lean",
+          "lines": [
+            24,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataHost.lean#L24-L37"
+        },
+        {
+          "declaration": "HostRaw.mem_small_iff, two_mem_small",
+          "path": "src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/HostFacts.lean",
+          "lines": [
+            91,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/HostFacts.lean#L91-L107"
+        },
+        {
+          "declaration": "GlobalTheory.KerStd.HostInert.jacobi_of_class",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacobiOfClass.lean",
+          "lines": [
+            41,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacobiOfClass.lean#L41-L61"
+        },
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.EntGe and LevelFree",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            60,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L60-L69"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "ram2 covers the prime factors of QS including 2. The inert and signal classes exclude d and have symbol −1. The distinction between this classification and the conditions on the tuple at w is explicit.",
+      "review": "Second reader independently confirmed the small-prime set, excluded distinguished primes and the separation of the entry hypotheses."
+    },
+    {
+      "id": "THH-02",
+      "title": "One inert host and the three Frobenius-order cases",
+      "statement": "At p≥5 in either inert class one choice of curve data and a unit scalar works for all admitted lattice pairs and, after a local basis selection, all allowed series. Signal and ordinary inert even-order classes use the all-place expansion. For ordinary inert h=0 there is a signed two-variable correction on one label; nonzero h of odd order a uses corrections in 2a variables.",
+      "chapter": "normalization",
+      "anchor": "normalization-primes-host",
+      "dependencies": [
+        "THH-01",
+        "NORM-03",
+        "NORM-04"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.KerStd.CurveData, HostLog and HostAt",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/ExistsConstantCoeffOne.lean",
+          "lines": [
+            18,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/ExistsConstantCoeffOne.lean#L18-L44"
+        },
+        {
+          "declaration": "GlobalTheory.KerStd.HostInert.hostAt_inert",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacobiOfClass.lean",
+          "lines": [
+            63,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/JacobiOfClass.lean#L63-L81"
+        },
+        {
+          "declaration": "hP, HEv and IsCs",
+          "path": "src/Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean",
+          "lines": [
+            93,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean#L93-L112"
+        },
+        {
+          "declaration": "stepP and nP",
+          "path": "src/Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean",
+          "lines": [
+            160,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean#L160-L165"
+        },
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.ThetaExpansionAllPlaces, ThetaExpansionRealPlaces and EvenConditionsAllReal",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            186,
+            205
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L186-L205"
+        },
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.EvenConditionsInert and EvenConditionsAtC",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            297,
+            313
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L297-L313"
+        },
+        {
+          "declaration": "GlobalTheory.Ggeo.frobeniusConjugation_conditions_adaptedKernelDatum_alt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FrobeniusConjugationConditionsAdaptedKernelDatum.lean",
+          "lines": [
+            23,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FrobeniusConjugationConditionsAdaptedKernelDatum.lean#L23-L37"
+        },
+        {
+          "declaration": "GlobalTheory.Ggeo.frobeniusConjugation_conditions_adaptedKernelDatum_alt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FrobeniusConjugationConditionsAdaptedKernelDatum.lean",
+          "lines": [
+            47,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FrobeniusConjugationConditionsAdaptedKernelDatum.lean#L47-L62"
+        },
+        {
+          "declaration": "UpperTheory.G2.ShapeS and HasThetaProductForm",
+          "path": "src/Development/AutomorphicArithmetic/OrbitLabellings/ColDefs.lean",
+          "lines": [
+            28,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/OrbitLabellings/ColDefs.lean#L28-L38"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The actual host proof invokes genus-one model existence, a curve dictionary and the inert integral expansion. It transfers the period lattice and uses local orthonormal bases. The two ordinary inert branch formulas are the exact conclusions of the adapted-kernel theorem, with positive and negative signs permitted in the two-variable corrections.",
+      "review": "Author checked the definitions, host witnesses, Frobenius coordinate orders, circle lengths and actual adapted-frame branches against the original proof bodies."
+    },
+    {
+      "id": "THH-03",
+      "title": "Away from the discriminant prime the coefficient bound is on factorial-weighted jets",
+      "statement": "For every level-free place of residue p≠d, adjacent classes and an admissible step of even dimension product, the determinant entry has p-adic valuation at least zero. The sufficient integrality hypothesis is |α! [X^α]Θ|≤1. The analytic proof separates p=2, p=3 with d≡2 mod 3, and p≥5 away from d.",
+      "chapter": "normalization",
+      "anchor": "normalization-primes-jets",
+      "dependencies": [
+        "THH-01",
+        "NORM-05"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.JetIntegralityBis",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            339,
+            341
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L339-L341"
+        },
+        {
+          "declaration": "GlobalTheory.ThLoc.jetsIntegral_three",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaTranslatesAwayDisc.lean",
+          "lines": [
+            39,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaTranslatesAwayDisc.lean#L39-L55"
+        },
+        {
+          "declaration": "GlobalTheory.ThLoc.jetsIntegral_away_disc",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaTranslatesAwayDisc.lean",
+          "lines": [
+            58,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaTranslatesAwayDisc.lean#L58-L77"
+        },
+        {
+          "declaration": "jetsAll",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaCombinationsAwayD.lean",
+          "lines": [
+            194,
+            203
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IntegralJetsNormalisedThetaCombinationsAwayD.lean#L194-L203"
+        },
+        {
+          "declaration": "GlobalTheory.Ggeo.AdmEntInt.kernelDatum_entries_integral_away_from_d",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KernelDatumEntriesIntegralAwayFromD.lean",
+          "lines": [
+            25,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KernelDatumEntriesIntegralAwayFromD.lean#L25-L41"
+        },
+        {
+          "declaration": "kvalGe_zero",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KvalGeZeroOfIntegralJets.lean",
+          "lines": [
+            8,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KvalGeZeroOfIntegralJets.lean#L8-L23"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "At 3 the small-prime splitting hypothesis provides the residue condition. At every larger prime away from d, primality gives p∤d. The integral frame, bounded linear combination, and integer coefficients of the differential operator transport the estimate to the actual entry.",
+      "review": "Second reader independently checked the three analytic branches, extra hypothesis at 3, parity in the entry interface and passage from integral derivatives to KvalGe 0."
+    },
+    {
+      "id": "THH-04",
+      "title": "The paired exponential determines the ramified loss",
+      "statement": "At level-free places of class ramD, with p=d, the actual series is exp(−S Σ_t u_t Σ_ab X_{−,t,a,b}X_{+,t,a,b}) times a factorial-jet-integral series, |S|≤√p and |u_t|≤1. The ramified minor theorem gives the entry bound −(Σ_t ctD(u,i+1,t))/2.",
+      "chapter": "normalization",
+      "anchor": "normalization-primes-ramified",
+      "dependencies": [
+        "THH-01",
+        "NORM-05"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.ShapeD and ThetaKernelShapeAtD",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            343,
+            353
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L343-L353"
+        },
+        {
+          "declaration": "GlobalTheory.Ggeo.KerShapeD.thetaKernelShapeAtD_ofKer_of_hyp_adapted",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KernelDatumThetaSeriesShapeAtDAdaptedBases.lean",
+          "lines": [
+            20,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/KernelDatumThetaSeriesShapeAtDAdaptedBases.lean#L20-L42"
+        },
+        {
+          "declaration": "shapeComb",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ShapeNormalisedThetaCombinationsDualBasesAtD.lean",
+          "lines": [
+            209,
+            232
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ShapeNormalisedThetaCombinationsDualBasesAtD.lean#L209-L232"
+        },
+        {
+          "declaration": "ctD and EatD",
+          "path": "src/Formalism/LocalRingCardinality/DataErr.lean",
+          "lines": [
+            111,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataErr.lean#L111-L117"
+        },
+        {
+          "declaration": "jet_bound_ramified_prime",
+          "path": "src/Formalism/PeriodIntegrals/OrbitalBoundsConclusion/EntAtD.lean",
+          "lines": [
+            7,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/OrbitalBoundsConclusion/EntAtD.lean#L7-L13"
+        },
+        {
+          "declaration": "entry_divisor_bound_holds",
+          "path": "src/Formalism/SharpRestriction/Divisibility/ChainOperators/OrbitEntryBounds.lean",
+          "lines": [
+            33,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/ChainOperators/OrbitEntryBounds.lean#L33-L35"
+        },
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.EntriesAtDiscriminant",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            384,
+            386
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L384-L386"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The correction is common across the terms of the allowed combination. The entry shape is transferred using the generator norm and adapted dual bases. The displayed one-pair derivative explains the possible half-valuation; the general minor/contraction bound enters through the separately cited theorem.",
+      "review": "Second reader checked the sign, exponent pairing, norm bounds, hypotheses, and the one-pair example, including the surviving factor k!."
+    },
+    {
+      "id": "THH-05",
+      "title": "A nonzero evaluated base-tuple map from a positive-dimensional quotient",
+      "statement": "At a fitted point with the cited point, bundle and row hypotheses, the evaluated theta composite factors through a surjection P_t followed, at the base tuple, by injective iC after passage to complex coordinates. A preimage of a first unit vector gives a nonzero value. The separating readings force the common comparison scalar κ to be nonzero. Local rational liftability KmapRat has a different conclusion.",
+      "chapter": "normalization",
+      "anchor": "normalization-primes-evaluation",
+      "dependencies": [
+        "NORM-06"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.OrbitPlaces.KmapRat",
+          "path": "src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean",
+          "lines": [
+            1367,
+            1369
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/Divisibility/OrbitPlaces.lean#L1367-L1369"
+        },
+        {
+          "declaration": "GlobalTheory.PdvClose.at_of_true_columns",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AtOfTrueColumns.lean",
+          "lines": [
+            35,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AtOfTrueColumns.lean#L35-L46"
+        },
+        {
+          "declaration": "GlobalTheory.BigTop.Fun.theta_eV0_eq_iC_Pq_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ThetaEV0EqICPq.lean",
+          "lines": [
+            15,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ThetaEV0EqICPq.lean#L15-L30"
+        },
+        {
+          "declaration": "GlobalTheory.BigTop.Fun.iC_base_factor_of_rows_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ICBaseFactorOfRows.lean",
+          "lines": [
+            12,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ICBaseFactorOfRows.lean#L12-L24"
+        },
+        {
+          "declaration": "GlobalTheory.BigTop.Fun.exists_unit_root_ze_leafC_of_square_nonzero",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean",
+          "lines": [
+            21,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean#L21-L45"
+        },
+        {
+          "declaration": "GlobalTheory.BigTop.Fun.exists_unit_root_ze_leafC_of_square_nonzero",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean",
+          "lines": [
+            55,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean#L55-L73"
+        },
+        {
+          "declaration": "GlobalTheory.BigTop.Fun.oneMap_of_bundle_setAt_kernel_conditions",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean",
+          "lines": [
+            116,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRows.lean#L116-L133"
+        },
+        {
+          "declaration": "GlobalTheory.T.oneMap_of_bundle_setAt_lin_inj_const_formula",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRowsStatement.lean",
+          "lines": [
+            11,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OneMapOfRowsStatement.lean#L11-L12"
+        },
+        {
+          "declaration": "Fitted-point assembly using the common-map theorem",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/FittedFunctionAtZeroClose.lean",
+          "lines": [
+            59,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/FittedFunctionAtZeroClose.lean#L59-L65"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "A single base-tuple witness follows by composing a projection onto a positive-dimensional space with an injection. The proof of κ≠0 additionally uses root-of-unity factors, nonzero class-sum constants and jointly separating linear readings. No claim of nonzero individual local entries or each class-pair map is made.",
+      "review": "Second reader independently checked the orthogonal evaluation identity, first unit-vector argument and exact difference from KmapRat rational liftability."
+    }
+  ]
+}

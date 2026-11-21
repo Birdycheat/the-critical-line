@@ -213,7 +213,7 @@ function sectionContent(id) {
     insert('<h3 id="window-geometry"', "kernel");
     insert('<h3 id="window-epsilon"', "rates");
   }
-  return numberSources(html.replace(/<!--FIG:(\w+)-->/g, (_, k) => figure(k)));
+  return numberSources(html.replace(/<!--FIG:([a-z][a-z-]*)-->/g, (_, k) => figure(k)));
 }
 const book = chapters
   .map(([id, title], i) => {
@@ -291,7 +291,7 @@ const expanded = book
   .replace(/data-lab="/g, 'data-static="');
 const printFront = articleHead(
   "The Riemann Hypothesis",
-  'An independent reconstruction of the formalization by Levent Alpöge with Claude. Working edition, 20 November 2026. <button class="print text-button" type="button" onclick="window.print()">Print this volume</button>',
+  'An independent reconstruction of the formalization by Levent Alpöge with Claude. Working edition, 21 November 2026. <button class="print text-button" type="button" onclick="window.print()">Print this volume</button>',
 );
 function glossaryEntries(chapterPage) {
   return ed.glossary

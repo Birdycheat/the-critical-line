@@ -66,7 +66,7 @@ async function run() {
         const fig = page.locator("#fig-" + id);
         await fig.scrollIntoViewIfNeeded();
         await fig.locator("button.reset").waitFor({ state: "visible" });
-        const before = await fig.locator(".metrics").innerText();
+        const before = await fig.locator("[data-result]").innerText();
         const controls = fig.locator(
           "[data-controls] input, [data-controls] select",
         );
@@ -77,7 +77,7 @@ async function run() {
           else await field.press("End");
         }
         assert.notEqual(
-          await fig.locator(".metrics").innerText(),
+          await fig.locator("[data-result]").innerText(),
           before,
           id + " did not respond to keyboard",
         );
@@ -88,11 +88,15 @@ async function run() {
         assert.ok(share.searchParams.size > 0);
         await fig.locator("button.reset").click();
         assert.equal(
-          await fig.locator(".metrics").innerText(),
+          await fig.locator("[data-result]").innerText(),
           before,
           id + " reset",
         );
-        assert.ok(await fig.locator("svg").getAttribute("aria-label"));
+        if (id === "rank-grid") {
+          assert.equal(await fig.locator("table caption").innerText(), "Basis vector at (2, 3)");
+        } else {
+          assert.ok(await fig.locator("svg").getAttribute("aria-label"));
+        }
         if (width === 390)
           await fig.screenshot({ path: path.join(output, id + ".png") });
       }
@@ -107,6 +111,11 @@ async function run() {
     await page.locator("#fig-ramp.ready").waitFor();
     assert.equal(await page.locator("#field-ramp-x").inputValue(), "30");
     assert.equal(await page.locator("#field-ramp-chi").inputValue(), "four");
+    await page.goto(base + "book.html?rank-grid.row=4&rank-grid.column=2#fig-rank-grid");
+    const grid = page.locator("#fig-rank-grid.ready table");
+    assert.equal(await grid.locator("caption").innerText(), "Basis vector at (4, 2)");
+    const selectedRow = grid.getByRole("rowheader", { name: "4", exact: true }).locator("..");
+    assert.deepEqual(await selectedRow.locator("td").allInnerTexts(), ["+1", "0", "0", "−1", "0"]);
     await page.goto(base + "index.html");
     await page.locator(".mobile-menu-button").press("Enter");
     assert.equal(await page.locator("#book-menu").isVisible(), true);
@@ -184,7 +193,7 @@ async function run() {
     assert.equal(await plain.locator("#source-mode").isVisible(), false);
     assert.ok(await plain.locator(".source-citation .source-title").first().isVisible());
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
-    assert.equal(await plain.locator("[data-result] svg").count(), ids.length);
+    assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
     await plain.locator("#pilot details summary").first().click();
     assert.equal(await plain.locator("#pilot details[open]").count(), 1);

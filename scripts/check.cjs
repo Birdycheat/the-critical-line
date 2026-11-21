@@ -127,6 +127,38 @@ for (const q of [2, 3, 5, 7]) {
   }
 }
 close(lib.upperTail(3, 0), 1, 0);
+const residues = [2, 3, 4, 1];
+const distinctGridStates = new Set();
+for (const a of [2, 3, 4]) {
+  for (const b of [2, 3, 4]) {
+    const grid = lib.rankGrid(a, b);
+    assert.equal(grid.length, 4);
+    for (const [i, h] of residues.entries()) {
+      assert.equal(grid[i].length, 4);
+      for (const [j, k] of residues.entries()) {
+        let expected = 0;
+        if ((h === a && k === b) || (h === 1 && k === 1)) expected = 1;
+        if ((h === a && k === 1) || (h === 1 && k === b)) expected = -1;
+        assert.equal(grid[i][j], expected);
+      }
+      assert.equal(grid[i].reduce((sum, n) => sum + n, 0), 0);
+      assert.equal(grid.reduce((sum, row) => sum + row[i], 0), 0);
+    }
+    distinctGridStates.add(JSON.stringify(grid));
+    const table = lib.render("rank-grid", { row: String(a), column: String(b) });
+    assert.ok(table.includes("<caption>Basis vector at (" + a + ", " + b + ")</caption>"));
+    assert.equal((table.match(/class="rank-positive">\+1</g) || []).length, 2);
+    assert.equal((table.match(/class="rank-negative">−1</g) || []).length, 2);
+    assert.equal((table.match(/class="rank-zero">0</g) || []).length, 12);
+    assert.equal((table.match(/scope="row"/g) || []).length, 5);
+    assert.equal((table.match(/scope="col"/g) || []).length, 6);
+  }
+}
+assert.equal(distinctGridStates.size, 9);
+for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes('<table class="rank-grid"><caption>Basis vector at (2, 3)</caption>'),
+    "Missing readable default rank grid in " + name);
+}
 for (let first = 0; first <= 16; first++) {
   for (let second = 0; second <= 16; second++) {
     const [left, right] = lib.selectWindow([first, second]);
@@ -136,6 +168,27 @@ for (let first = 0; first <= 16; first++) {
       assert.ok(left >= 2 * k || right < k / 2, "Selected a forbidden twist interval");
   }
 }
+// Enumerate kernels of surjective linear forms over Z/3 and Z/9.
+// Their counts give the two distinct projective-line counts in the split example.
+function countPrimitiveKernels(modulus) {
+  const kernels = new Set();
+  for (let a = 0; a < modulus; a++) {
+    for (let b = 0; b < modulus; b++) {
+      if (a % 3 === 0 && b % 3 === 0) continue;
+      const points = [];
+      for (let x = 0; x < modulus; x++) {
+        for (let y = 0; y < modulus; y++) {
+          if ((a * x + b * y) % modulus === 0) points.push(x * modulus + y);
+        }
+      }
+      kernels.add(points.join(","));
+    }
+  }
+  return kernels.size;
+}
+assert.equal(2 * countPrimitiveKernels(3), 8);
+assert.equal(2 + 3 * countPrimitiveKernels(9), 38);
+
 // Rank-three inert example. Enumerate fixed-label shells independently of
 // the closed generating function displayed in the chapter.
 let previousBall = 0;
@@ -155,5 +208,5 @@ assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, inert shells, Bernoulli sums and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums, nine signed rank grids and all 289 marked-window states.",
 );

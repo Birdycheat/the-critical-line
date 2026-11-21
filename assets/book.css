@@ -248,6 +248,7 @@ thead th { border-bottom-color: var(--ink); }
 .chapter-guide a { display: inline-block; }
 .article .chapter .measure > h3, .article .chapter section h3 { margin: 1.7rem 0 .6rem; }
 .article .chapter .measure > h4 { margin: 1.3rem 0 .45rem; }
+.article .chapter .measure > h5 { margin: 1.15em 0 .35em; font: italic 1em/1.3 var(--font-text); }
 .article .reference-plate { width: min(100%, 46rem); margin: 1.25rem 0; }
 .reference-plate img { display: block; width: 100%; height: auto; }
 .site-header noscript { display: none; }
@@ -282,6 +283,17 @@ thead th { border-bottom-color: var(--ink); }
 .lab .method, .lab details { font-size: .86em; }
 .lab .tablewrap { max-height: 23rem; }
 .lab details { border-bottom: 0; padding-block: .45rem; margin-bottom: 0; }
+.lab .rank-grid { table-layout: fixed; width: min(100%, 29rem); margin: 1rem auto; font-variant-numeric: lining-nums tabular-nums; }
+.rank-grid caption { caption-side: top; margin-bottom: .4rem; text-align: center; font-style: italic; }
+.rank-grid :is(th, td) { padding: .35em .15em; text-align: center; vertical-align: middle; }
+.rank-grid tr > :first-child, .rank-grid tr > :last-child { width: 18%; }
+.rank-grid tbody td:not(.rank-sum) { border: 1px solid var(--line); font-size: 1.16em; }
+.rank-grid .rank-positive { color: var(--math-green); background: #edf3ee; font-weight: 700; }
+.rank-grid .rank-negative { color: var(--copper); background: #f7ede6; font-weight: 700; }
+.rank-grid .rank-zero, .rank-grid .rank-sum { color: var(--ink-soft); }
+.rank-grid tbody tr:last-child td:not(.rank-sum) { border-top-color: var(--ink); }
+.rank-grid tbody td:nth-child(5) { border-left-color: var(--ink); }
+.rank-grid tfoot :is(th, td) { border-top: 1px solid var(--ink); border-bottom: 0; }
 
 @media (max-width: 60rem) {
   .article .research-figure { grid-template-columns: minmax(0,1fr); }
@@ -330,7 +342,7 @@ thead th { border-bottom-color: var(--ink); }
   .article-section, .article .page-opener { padding: 0; margin: 0; }
   .chapter { break-before: page; margin: 0; border: 0; }
   .chapter:first-child { break-before: auto; }
-  h1, h2, h3, h4, summary { break-after: avoid-page; }
+  h1, h2, h3, h4, h5, summary { break-after: avoid-page; }
   figure, tr, .metrics, .equation, .eq, .formula, math { break-inside: avoid; }
   thead { display: table-header-group; }
   .chapter p { orphans: 3; widows: 3; }
