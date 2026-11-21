@@ -63,6 +63,58 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Generate whole orbits of normal lines using all 384 integral unitary matrices.
+const gaussianUnits = [[1,0],[0,1],[-1,0],[0,-1]];
+function gaussProduct([x,y], [a,b]) { return [x*a-y*b, x*b+y*a]; }
+function normalLineKey(vector) {
+  return gaussianUnits.map(u => vector.map(z => gaussProduct(z,u).join(',')).join('|')).sort()[0];
+}
+const normalTypes = [
+  [[[1,0],[0,0],[0,0]]],
+  [[[1,0],[1,0],[0,0]]],
+  [[[1,0],[1,0],[1,0]], [[1,1],[1,0],[0,0]]],
+  [[[1,1],[1,0],[1,0]]],
+];
+for (let norm = 1; norm <= 4; norm++) {
+  const expected = normalTypes[norm-1].map(vector => {
+    const orbit = new Set();
+    const original = normalLineKey(vector);
+    let fixing = 0;
+    for (let i=0; i<3; i++) for (let j=0; j<3; j++) {
+      if (i === j) continue;
+      const k = 3-i-j;
+      for (const u of gaussianUnits) for (const v of gaussianUnits) for (const w of gaussianUnits) {
+        const key = normalLineKey([gaussProduct(vector[i],u), gaussProduct(vector[j],v), gaussProduct(vector[k],w)]);
+        orbit.add(key);
+        if (key === original) fixing++;
+      }
+    }
+    const pattern = vector.map(([x,y]) => x*x+y*y).sort((a,b) => a-b).join(', ');
+    return {pattern, lines:orbit.size, stabilizer:fixing};
+  }).sort((a,b) => a.pattern.localeCompare(b.pattern));
+  assert.deepEqual(lib.primitiveHyperplanes(norm), expected);
+}
+// Evaluate the centered cyclotomic unit as a real sum of thirteen roots of unity.
+const signWords = new Set();
+for (const shift of [1,5,7,11]) for (const unit of [0,1]) for (const negative of [0,1]) {
+  const word = [1,5,7,11].map(t => {
+    let value = 1;
+    for (let j=1; j<=6; j++) value += 2*Math.cos(2*Math.PI*j*t*shift/24);
+    assert.ok(Math.abs(value) > 0.1);
+    return ((negative ? -1 : 1)*(unit ? value : 1) < 0) ? '1' : '0';
+  }).join('');
+  signWords.add(word);
+  assert.ok(lib.render("dyadic-unit-signs", {shift,unit,negative}).includes('<dt>Signature</dt><dd>'+word+'</dd>'));
+}
+assert.deepEqual([...signWords].sort(), ['0000','0011','1100','1111']);
+// The binary similitude doubles the length in four real coordinates and has index four on ℤ⁴.
+const parityImage = new Set();
+for (let a=0; a<2; a++) for (let b=0; b<2; b++) for (let c=0; c<2; c++) for (let d=0; d<2; d++) {
+  const image = [a-d, b+c, c-b, d+a]; // (z,w) ↦ (z+iw,iz+w)
+  assert.equal(image.reduce((s,x) => s+x*x,0), 2*(a*a+b*b+c*c+d*d));
+  parityImage.add(image.map(x => (x+2)%2).join(''));
+}
+assert.equal(parityImage.size,4); // γ*γ=2I puts 2ℤ⁴ in the image.
 // Evaluate the four tent weights directly on their lattice supports, including the endpoints.
 for (let n = 3; n <= 15; n++) {
   function coordinateWeight(center, residue) {
@@ -1036,5 +1088,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

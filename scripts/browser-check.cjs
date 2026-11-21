@@ -97,7 +97,13 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "binary-lattice-limit") {
+        if (id === "primitive-hyperplanes") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["40/384", "1/16 + 1/24"]);
+          assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["24", "16"]);
+        } else if (id === "dyadic-unit-signs") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["0011", "4 of 16"]);
+          assert.equal(await fig.locator("tbody tr").count(), 4);
+        } else if (id === "binary-lattice-limit") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["135/8192", "1/81"]);
           assert.equal(await fig.locator("svg circle").count(), 13);
         } else if (id === "stickelberger-fibres") {

@@ -1,0 +1,712 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "PGM-01",
+      "chapter": "global",
+      "anchor": "global-primitive-row-weights",
+      "title": "The count at an exact determinant is an invariant genus observable",
+      "statement": "Counting E-hyperplanes U with discriminant order d² on L∩U gives an isometry invariant. The weighted row sum times the positive genus mass equals the total row weight times the sum of these counts divided by automorphism orders.",
+      "hypotheses": "A valid frame, finite row representatives, the totally definite complement, and the designated completely split prime Tᵤ≥3. The empty family is treated separately.",
+      "correspondence": "Two applications of the row-weight identity, with the observable and with one, remove the common multiplicity.",
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.BridgeLemma₂.PrimitiveMeanCorankOne",
+          "label": "The exact determinant and the required row bound",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleFamilyOfSteps.lean",
+          "lines": [
+            32,
+            38
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.BridgeLemma₂.PrimitiveMeanCorankOne": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleFamilyOfSteps.lean#L32-L38"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.discN",
+          "label": "The order of the dual quotient",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/ChartGen.lean",
+          "lines": [
+            100,
+            105
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.discN": 104
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/ChartGen.lean#L100-L105"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.primSp",
+          "label": "Subspaces and their saturated intersections",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/ChartGen.lean",
+          "lines": [
+            117,
+            126
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.primSp": 125
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/ChartGen.lean#L117-L126"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+          "label": "Empty row family and transport of the counted observable",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            63,
+            88
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.main": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L63-L88"
+        },
+        {
+          "declaration": "GlobalTheory.MeanGenus.mean_rows_eq_mean_genus",
+          "label": "Applying the row formula to the count and to the constant function",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowLatticesMeanEqGenusMean.lean",
+          "lines": [
+            891,
+            907
+          ],
+          "declaration_lines": {
+            "GlobalTheory.MeanGenus.mean_rows_eq_mean_genus": 891
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowLatticesMeanEqGenusMean.lean#L891-L907"
+        }
+      ],
+      "status": "independently reviewed",
+      "dependencies": [],
+      "equations": [
+        "global-primitive-mean-equation"
+      ],
+      "review": "Checked the written proof and its use by GenericMean; the exact finite illustration separately enumerates the projective normal lines and their symmetry orbits. A separate reader checked the exact-discriminant convention, cyclicity over the integer ring, the 40 normal lines, the gluing allowance and the exponent after mass normalization."
+    },
+    {
+      "id": "PGM-02",
+      "chapter": "global",
+      "anchor": "global-primitive-gluing",
+      "title": "Marking the hyperplane first reduces the mass bound to a rank-j and a rank-one mass",
+      "statement": "For j=k−1 the unnormalized marked mass is at most MⱼM₁ d^(j+2+b) · t²d² · (dt)^(2+b), where b=log₂ f and t=Tᵤ^f.",
+      "hypotheses": "The row genus has dual quotient cyclic as an 𝒪_E-module with t² additive elements annihilated by Tᵤ, norm((Tᵤ))=t². The source uses the maximal mass estimate, positive definite Hermitian spaces, the orthonormal-lattice supplier and the line-gluing bound.",
+      "correspondence": "Count pairs of a lattice and a marked subspace, split into intersections in the hyperplane and orthogonal line, and bound the fibres of the gluing map. The finite Gaussian example checks orbit-stabilizer weights for a single lattice.",
+      "sources": [
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.main",
+          "label": "Exchanging the ambient lattice and the marked hyperplane",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            133,
+            148
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.main": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L133-L148"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.orbMass_stabilizer_le",
+          "label": "The hyperplane and its perpendicular line",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            17,
+            36
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.orbMass_stabilizer_le": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L17-L36"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.orbMass_stabilizer_le",
+          "label": "Fibre mass and the number of possible gluings",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            106,
+            130
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.orbMass_stabilizer_le": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L106-L130"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+          "label": "The cyclic discriminant module at the split prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            98,
+            130
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.main": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L98-L130"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.main",
+          "label": "The line-mass bound and collection of the three factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            158,
+            186
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.main": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L158-L186"
+        }
+      ],
+      "status": "independently reviewed",
+      "dependencies": [
+        "PGM-01"
+      ],
+      "equations": [
+        "global-primitive-gaussian",
+        "global-primitive-marked-mass"
+      ],
+      "review": "Checked the written proof and its use by GenericMean; the exact finite illustration separately enumerates the projective normal lines and their symmetry orbits. A separate reader checked the exact-discriminant convention, cyclicity over the integer ring, the 40 normal lines, the gluing allowance and the exponent after mass normalization."
+    },
+    {
+      "id": "PGM-03",
+      "chapter": "global",
+      "anchor": "global-primitive-numerical",
+      "title": "Dividing by the ambient genus mass gives the determinant-to-level factor",
+      "statement": "For d≥1 and H≥max(d,t) the row mean is bounded by (d/t)^(k−1)(eπ/(kv))^(kf)(2k√rd(E))^f h_E 2^f H^(11+3log₂ f), where v=rd(E)/2.",
+      "hypotheses": "The uniform common-frame hypotheses and the specialized Siegel mass ratio, with k≥3 and f=[E:ℚ]/2. The mean inequality is stated after multiplication by the total row weight.",
+      "correspondence": "Use the lower bound Mₖt^(k−1) on ambient mass, a consecutive-rank ratio, the rank-one mass bound and d,t≤H. The preliminary height cost is H^(10+3log₂ f). The annotated line at global-primitive-lean-call distinguishes the bound PrimMeanOne.main from the first proof argument MaxFormula.main on the same line.",
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.BridgeLemma₂.PrimitiveMeanCorankOne",
+          "label": "The exact determinant and the required row bound",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleFamilyOfSteps.lean",
+          "lines": [
+            32,
+            38
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.BridgeLemma₂.PrimitiveMeanCorankOne": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleFamilyOfSteps.lean#L32-L38"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+          "label": "The cyclic discriminant module at the split prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            98,
+            130
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.main": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L98-L130"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+          "label": "Comparison of standard masses in consecutive ranks",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            132,
+            154
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.main": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L132-L154"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.num",
+          "label": "The extracted factor and the spare power of the height",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            25,
+            54
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.num": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L25-L54"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+          "label": "Cancellation of the positive finite genus mass",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+          "lines": [
+            155,
+            166
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanCorankOne.main": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean#L155-L166"
+        },
+        {
+          "declaration": "Formalism.MainNotions.BridgeLemma₂.classWeightAlt",
+          "label": "The remaining class-number factor",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleAllConstants.lean",
+          "lines": [
+            54,
+            55
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.BridgeLemma₂.classWeightAlt": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/CayleyDegreeNondegeneracy/GenericAdmissibleAllConstants.lean#L54-L55"
+        },
+        {
+          "declaration": "GlobalTheory.MassRatioInvBound.mass_pred_le",
+          "label": "The consecutive-rank mass comparison",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeRatioMul.lean",
+          "lines": [
+            84,
+            92
+          ],
+          "declaration_lines": {
+            "GlobalTheory.MassRatioInvBound.mass_pred_le": 84
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeRatioMul.lean#L84-L92"
+        },
+        {
+          "declaration": "GlobalTheory.Mass.RowPerpMass.main",
+          "label": "The split-prime genus mass and its geometric sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassRowLatticeOrthogonalSplitPrime.lean",
+          "lines": [
+            36,
+            55
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mass.RowPerpMass.main": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassRowLatticeOrthogonalSplitPrime.lean#L36-L55"
+        }
+      ],
+      "status": "independently reviewed",
+      "dependencies": [
+        "PGM-02"
+      ],
+      "equations": [
+        "global-primitive-final-bound"
+      ],
+      "review": "Checked the written proof and its use by GenericMean; the exact finite illustration separately enumerates the projective normal lines and their symmetry orbits. A separate reader checked the exact-discriminant convention, cyclicity over the integer ring, the 40 normal lines, the gluing allowance and the exponent after mass normalization."
+    },
+    {
+      "id": "PGM-04",
+      "chapter": "global",
+      "anchor": "global-primitive-use",
+      "title": "The generic row count uses this mean one determinant at a time",
+      "statement": "In the generic single-flag bound, row averaging and the finite determinant sum may be interchanged. Use the primitive mean for each 1≤d≤floor(G), and then the divisor-sum estimate.",
+      "hypotheses": "The fixed-Gram label, valid row family, H≥max(G,t), and the fixed-witness and saturation estimates. For G<1 the sum is empty.",
+      "correspondence": "The uniform-counts assembly applies the corank-one supplier to GenericMean, while PairMean takes a separate supplier allowing other coranks.",
+      "sources": [
+        {
+          "declaration": "GlobalTheory.RowCounts.uniform_counts",
+          "label": "Where the generic row estimate consumes this mean",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+          "lines": [
+            32,
+            45
+          ],
+          "declaration_lines": {
+            "GlobalTheory.RowCounts.uniform_counts": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean#L32-L45"
+        },
+        {
+          "declaration": "GlobalTheory.T.mean_primitive_corank_one_sublattices_bound",
+          "label": "The named statement delegates to the mass argument",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBoundStatement.lean",
+          "lines": [
+            10,
+            11
+          ],
+          "declaration_lines": {
+            "GlobalTheory.T.mean_primitive_corank_one_sublattices_bound": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBoundStatement.lean#L10-L11"
+        },
+        {
+          "declaration": "GlobalTheory.LoopC.GenericMean.main",
+          "label": "Interchanging the row sum and the determinant sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            239,
+            252
+          ],
+          "declaration_lines": {
+            "GlobalTheory.LoopC.GenericMean.main": 178
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L239-L252"
+        },
+        {
+          "declaration": "GlobalTheory.LoopC.GenericMean.main",
+          "label": "Applying the mean at each exact determinant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            253,
+            268
+          ],
+          "declaration_lines": {
+            "GlobalTheory.LoopC.GenericMean.main": 178
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L253-L268"
+        }
+      ],
+      "status": "independently reviewed",
+      "dependencies": [
+        "PGM-03",
+        "GLC-02"
+      ],
+      "equations": [],
+      "review": "Checked the written proof and its use by GenericMean; the exact finite illustration separately enumerates the projective normal lines and their symmetry orbits. A separate reader checked the exact-discriminant convention, cyclicity over the integer ring, the 40 normal lines, the gluing allowance and the exponent after mass normalization."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.mean_count_primitive_sublattices_over_genus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.mean_count_primitive_sublattices_over_genus"
+      }
+    },
+    {
+      "callee": "GlobalTheory.LoopC.PairMean.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.LoopC.PairMean.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.LoopC.GenericMean.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 36,
+        "spelling": "GlobalTheory.LoopC.GenericMean.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.mean_primitive_corank_one_sublattices_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.T.mean_primitive_corank_one_sublattices_bound"
+      }
+    },
+    {
+      "callee": "Formalism.MainNotions.BridgeLemma.mass_ratio_of_siegel_cm_unramified",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 44,
+        "spelling": "Formalism.MainNotions.BridgeLemma.mass_ratio_of_siegel_cm_unramified"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.PrimMeanCorankOne.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBoundStatement.lean",
+        "line": 11,
+        "spelling": "GlobalTheory.Mass.PrimMeanCorankOne.main"
+      }
+    },
+    {
+      "callee": "rows_sum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowLatticesMeanEqGenusMean.lean",
+        "line": 895,
+        "spelling": "rows_sum"
+      }
+    },
+    {
+      "callee": "rows_sum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowLatticesMeanEqGenusMean.lean",
+        "line": 897,
+        "spelling": "rows_sum"
+      }
+    },
+    {
+      "callee": "Formalism.HermitianLatticesTheory.mass",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowLatticesMeanEqGenusMean.lean",
+        "line": 901,
+        "spelling": "Formalism.HermitianLatticesTheory.mass"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.RowPerp.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 70,
+        "spelling": "GlobalTheory.Mass.RowPerp.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.RowPerpMass.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 73,
+        "spelling": "GlobalTheory.Mass.RowPerpMass.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.MeanGenus.mean_rows_eq_mean_genus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 75,
+        "spelling": "GlobalTheory.MeanGenus.mean_rows_eq_mean_genus"
+      }
+    },
+    {
+      "callee": "final_massBasic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 77,
+        "spelling": "final_massBasic"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.PrimMove.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 80,
+        "spelling": "GlobalTheory.Mass.PrimMove.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.DetAgree.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.Mass.DetAgree.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.PrimMeanRow.disc_of_equiv",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.Mass.PrimMeanRow.disc_of_equiv"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.DetAgree.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 108,
+        "spelling": "GlobalTheory.Mass.DetAgree.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.PrimMeanOne.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 127,
+        "spelling": "GlobalTheory.Mass.PrimMeanOne.main"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.exists_orthoLattice_of_unimodular",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 128,
+        "spelling": "GlobalTheory.Mass.exists_orthoLattice_of_unimodular"
+      }
+    },
+    {
+      "callee": "GlobalTheory.MassRatioInvBound.mass_pred_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 139,
+        "spelling": "GlobalTheory.MassRatioInvBound.mass_pred_le"
+      }
+    },
+    {
+      "callee": "Formalism.MainNotions.BridgeLemVN.mass_std_one_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 143,
+        "spelling": "Formalism.MainNotions.BridgeLemVN.mass_std_one_le"
+      }
+    },
+    {
+      "callee": "num",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 147,
+        "spelling": "num"
+      }
+    },
+    {
+      "callee": "ENNReal.mul_le_mul_iff_left",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 166,
+        "spelling": "ENNReal.mul_le_mul_iff_left"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 136,
+        "spelling": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le"
+      }
+    },
+    {
+      "callee": "orbSum_encard_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 141,
+        "spelling": "orbSum_encard_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.primitive_sublattices_move_with_isometries",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 143,
+        "spelling": "GlobalTheory.T.primitive_sublattices_move_with_isometries"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.witt_extension_totally_definite_hermitian",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 154,
+        "spelling": "GlobalTheory.T.witt_extension_totally_definite_hermitian"
+      }
+    },
+    {
+      "callee": "orbMass_stabilizer_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 166,
+        "spelling": "orbMass_stabilizer_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.totalMass_integralLattices_bounded_det_line",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 167,
+        "spelling": "GlobalTheory.T.totalMass_integralLattices_bounded_det_line"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.definite_unitary_stabilizer_subspace_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 28,
+        "spelling": "GlobalTheory.T.definite_unitary_stabilizer_subspace_prod"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.orbitStabilizerMass_prod_eq_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 109,
+        "spelling": "GlobalTheory.T.orbitStabilizerMass_prod_eq_mul"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.card_hermitianLattices_glued_along_line",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.T.card_hermitianLattices_glued_along_line"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.count_terms_gramClass_over_sublattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 180,
+        "spelling": "GlobalTheory.T.count_terms_gramClass_over_sublattice"
+      }
+    },
+    {
+      "callee": "sub_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 239,
+        "spelling": "sub_count"
+      }
+    },
+    {
+      "callee": "Finset.sum_comm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 247,
+        "spelling": "Finset.sum_comm"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exponent_divisor_sum_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 257,
+        "spelling": "GlobalTheory.T.exponent_divisor_sum_le"
+      }
+    },
+    {
+      "callee": "hP",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 261,
+        "spelling": "hP"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.maximalHermitianLattice_massRatio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassRowLatticeOrthogonalSplitPrime.lean",
+        "line": 36,
+        "spelling": "GlobalTheory.T.maximalHermitianLattice_massRatio"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.MaxFormula.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeanPrimitiveCorankOneSublatticesBound.lean",
+        "line": 127,
+        "spelling": "GlobalTheory.Mass.MaxFormula.main"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PGM-01",
+      "PGM-02"
+    ],
+    [
+      "PGM-02",
+      "PGM-03"
+    ],
+    [
+      "PGM-03",
+      "PGM-04"
+    ],
+    [
+      "GLC-02",
+      "PGM-04"
+    ]
+  ],
+  "outstanding": [
+    "Further suppliers include the consecutive-rank Siegel mass formula, the hyperplane subspace-mass bound, the bound on all line masses and the lattice-gluing count. The higher-corank mean for ordered pairs uses a different estimate."
+  ]
+}

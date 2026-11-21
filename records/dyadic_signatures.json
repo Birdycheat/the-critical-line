@@ -1,0 +1,821 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspection of the pinned written proofs and an independent comparison of the ideal, signature, and index calculations. Calls refer to literal source lines.",
+  "claims": [
+    {
+      "id": "DSG-01",
+      "chapter": "inputs",
+      "title": "Injecting classes into signatures of real elements modulo unit signatures",
+      "anchor": "inputs-dyadic-signatures",
+      "statement": "For a cyclotomic CM layer L of conductor f·2ⁿ with f odd, f>1 and n≥2, write K=ker(1+J) and D=im(1−J) on its ordinary ideal class group, V for all conjugation-even bit patterns on embeddings, and S for signatures of J-fixed units. There is an injection of sets K/D → V/S.",
+      "hypotheses": "The abstract comparison takes a CM field unramified at every finite prime over its maximal real subfield, a surjection u↦u/Ju of units onto unit torsion, a finite surjective indexing of all complex embeddings, and an ambient V containing the signatures of real elements. The conductor conditions supply the first two hypotheses in the cyclotomic application.",
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            56,
+            68
+          ],
+          "declaration": "UpperTheory.V.FW.minK",
+          "label": "The two class subgroups",
+          "declaration_lines": {
+            "UpperTheory.V.FW.minK": 64
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L56-L68"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CycRepApply.lean",
+          "lines": [
+            26,
+            42
+          ],
+          "declaration": "UpperTheory.V.FW.sgnE",
+          "label": "Embedding labels, real-unit signatures and finite ramification",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnE": 36
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CycRepApply.lean#L26-L42"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/RealGen.lean",
+          "lines": [
+            38,
+            81
+          ],
+          "declaration": "UpperTheory.V.FW.realGen",
+          "label": "Adjusting a principal generator by a unit",
+          "declaration_lines": {
+            "UpperTheory.V.FW.realGen": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/RealGen.lean#L38-L81"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnrJPrime.lean",
+          "lines": [
+            45,
+            62
+          ],
+          "declaration": "UpperTheory.V.FW.unrJ",
+          "label": "Finite unramifiedness over the real subfield",
+          "declaration_lines": {
+            "UpperTheory.V.FW.unrJ": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnrJPrime.lean#L45-L62"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnitSurj.lean",
+          "lines": [
+            15,
+            42
+          ],
+          "declaration": "exists_finset_adjoin_laurent_preimage",
+          "label": "A cyclotomic unit giving a primitive torsion quotient",
+          "declaration_lines": {
+            "exists_finset_adjoin_laurent_preimage": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnitSurj.lean#L15-L42"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnitSurj.lean",
+          "lines": [
+            77,
+            95
+          ],
+          "declaration": "UpperTheory.V.FW.unitSurj",
+          "label": "Surjectivity of the unit-to-torsion map in this layer",
+          "declaration_lines": {
+            "UpperTheory.V.FW.unitSurj": 77
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnitSurj.lean#L77-L95"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+          "lines": [
+            135,
+            163
+          ],
+          "declaration": "UpperTheory.V.FW.hMinus",
+          "label": "Choosing coset representatives and comparing the two indices",
+          "declaration_lines": {
+            "UpperTheory.V.FW.hMinus": 135
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean#L135-L163"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+          "lines": [
+            95,
+            133
+          ],
+          "declaration": "classGroup_inv_mul_mem_difR_of_sign",
+          "label": "Equal sign cosets give a totally positive norm ideal",
+          "declaration_lines": {
+            "classGroup_inv_mul_mem_difR_of_sign": 95
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean#L95-L133"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean",
+          "lines": [
+            26,
+            63
+          ],
+          "declaration": "UpperTheory.V.FW.hasse",
+          "label": "The quadratic local-to-global norm step",
+          "declaration_lines": {
+            "UpperTheory.V.FW.hasse": 26
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean#L26-L63"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Real generators are obtained by adjusting by a unit. The source selects representatives of the source quotient. A difference of generators arising from an ideal representative or a conjugate ideal quotient explains the sign coset. If two sign cosets agree, a unit corrects the product to total positivity, and quadratic norm descent gives the same class modulo D.",
+      "review": "A second reader checked the direction of the injection, the conductor-24 signs and translation, and the two successive estimates for the signature quotient against the pinned sources. The class-group counts were also checked against pTwo and the dyadic branch of cyc."
+    },
+    {
+      "id": "DSG-02",
+      "chapter": "inputs",
+      "title": "A real cyclotomic unit realizes the mod-two coefficients of the half element",
+      "anchor": "inputs-dyadic-unit",
+      "statement": "For every t∈(ℤ/M)× the conjugation-even coefficient of Θ(1+[J]) mod 2 is the sign bit of the c⁻¹ translate of the real cyclotomic unit u_c corrected by the constant signature of (−1)^((c−1)/2). In particular this coefficient function belongs to S.",
+      "hypotheses": "M>2, c is odd and coprime to M, and L is a CM field cyclotomic of conductor M. The source chooses a reference embedding and compatible primitive root. The tower application uses c=4f+1.",
+      "equations": [
+        "inputs-dyadic-sine",
+        "inputs-dyadic-unit-example"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+          "lines": [
+            54,
+            88
+          ],
+          "declaration": "UpperTheory.V.FW.sgnUnit",
+          "label": "The real cyclotomic unit and its sine ratio",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnUnit": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean#L54-L88"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+          "lines": [
+            88,
+            111
+          ],
+          "declaration": "UpperTheory.V.FW.sgnUnit",
+          "label": "The sign bit is the parity of a floor",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnUnit": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean#L88-L111"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnStab.lean",
+          "lines": [
+            12,
+            51
+          ],
+          "declaration": "UpperTheory.V.FW.sgnStab",
+          "label": "Even signatures, stability and the constant pattern",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnStab": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnStab.lean#L12-L51"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ThetaFull.lean",
+          "lines": [
+            43,
+            65
+          ],
+          "declaration": "UpperTheory.V.FW.thetaFull",
+          "label": "The two products of the integral half element",
+          "declaration_lines": {
+            "UpperTheory.V.FW.thetaFull": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ThetaFull.lean#L43-L65"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+          "lines": [
+            8,
+            21
+          ],
+          "declaration": "UpperTheory.V.FW.stickH",
+          "label": "The integral annihilator on ideal classes",
+          "declaration_lines": {
+            "UpperTheory.V.FW.stickH": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean#L8-L21"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+          "lines": [
+            19,
+            37
+          ],
+          "declaration": "UpperTheory.V.FW.sgnCyc",
+          "label": "Translating the sign and correcting the constant bit",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnCyc": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean#L19-L37"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The conjugate at t of ζ^−((c−1)/2)∑_{j<c}ζʲ equals a real sine quotient with sign ⌊c·val(t)/M⌋ mod 2. The change t↦c⁻¹t and the constant correction identify this with the folded coefficient. At M=24 these bits are 1100 in the order ±1,±5,±7,±11.",
+      "review": "A second reader checked the direction of the injection, the conductor-24 signs and translation, and the two successive estimates for the signature quotient against the pinned sources. The class-group counts were also checked against pTwo and the dyadic branch of cyc."
+    },
+    {
+      "id": "DSG-03",
+      "chapter": "inputs",
+      "title": "The uniform Stickelberger exponent bounds the signature index",
+      "anchor": "inputs-dyadic-signature-index",
+      "statement": "If T=[γ]−1 has Tᴺ in (Θ,1+[J],2) in ℤ[G], then [V:S]≤(2^[G:⟨γ⟩])ᴺ. In the selected layer γ≡1+4f and [G:⟨γ⟩]=φ(4f), hence [K:D]≤(2^φ(4f))ᴺ.",
+      "hypotheses": "G is a finite abelian group, J is an involution unequal to 1, S is the translation-stable subgroup of real-unit signatures, and κ(Θ)∈S. For the uniform conclusion use the conductor hypotheses of DSG-01, the relation of STP-03 and n at least its fixed depth.",
+      "equations": [
+        "inputs-dyadic-index-bound"
+      ],
+      "dependencies": [
+        "DSG-01",
+        "DSG-02",
+        "STP-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+          "lines": [
+            31,
+            62
+          ],
+          "declaration": "kap_range",
+          "label": "The coefficient map reaches all even patterns",
+          "declaration_lines": {
+            "kap_range": 46
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean#L31-L62"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+          "lines": [
+            64,
+            100
+          ],
+          "declaration": "UpperTheory.V.FW.sgnAlg",
+          "label": "The inverse image of signatures contains the three generators",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnAlg": 64
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean#L64-L100"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+          "lines": [
+            101,
+            137
+          ],
+          "declaration": "UpperTheory.V.FW.sgnAlg",
+          "label": "The nilpotent operator and its cyclic cosets",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnAlg": 64
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean#L101-L137"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/NilCard.lean",
+          "lines": [
+            26,
+            45
+          ],
+          "declaration": "UpperTheory.V.FW.nilCard",
+          "label": "Counting successive images of a nilpotent operator",
+          "declaration_lines": {
+            "UpperTheory.V.FW.nilCard": 26
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/NilCard.lean#L26-L45"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+          "lines": [
+            13,
+            31
+          ],
+          "declaration": "UpperTheory.V.FW.memZ",
+          "label": "The generator index and the uniform exponent",
+          "declaration_lines": {
+            "UpperTheory.V.FW.memZ": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean#L13-L31"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+          "lines": [
+            19,
+            37
+          ],
+          "declaration": "UpperTheory.V.FW.sgnCyc",
+          "label": "Translating the sign and correcting the constant bit",
+          "declaration_lines": {
+            "UpperTheory.V.FW.sgnCyc": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean#L19-L37"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The additive coefficient map κ identifies the cardinality of V/S with the quotient by the ideal κ⁻¹(S). Its cokernel under multiplication by [γ]−1 has one binary generator per cyclic coset. The source counts successive images of the nilpotent operator. The text gives the equivalent surjections from W/TW onto the successive subquotients.",
+      "review": "A second reader checked the direction of the injection, the conductor-24 signs and translation, and the two successive estimates for the signature quotient against the pinned sources. The class-group counts were also checked against pTwo and the dyadic branch of cyc."
+    },
+    {
+      "id": "DSG-04",
+      "chapter": "inputs",
+      "title": "Where signatures enter the full dyadic class-rank estimate",
+      "anchor": "inputs-dyadic-class-bound",
+      "statement": "In the selected cyclotomic tower the class-group index |C/C²| is at most ((2^φ(4f))ᴺ B_Fᴺ)². The first factor bounds [ker(1+J):im(1−J)]. The second bounds |im(1−J)∩C[2]|.",
+      "hypotheses": "The finite class group carries the conjugation involution, f>1 is odd, c=4f+1, n is at least the uniform depth, N is the exponent of STP-03 and the coinvariant bound is B_F for F=ℚ(μ_{4f}). The class representation annihilates Θ(1−[J]).",
+      "equations": [
+        "inputs-dyadic-final"
+      ],
+      "dependencies": [
+        "DSG-03",
+        "ACI-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean",
+          "lines": [
+            24,
+            58
+          ],
+          "declaration": "UpperTheory.V.FW.pTwo",
+          "label": "The two maps on two-torsion",
+          "declaration_lines": {
+            "UpperTheory.V.FW.pTwo": 5
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean#L24-L58"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean",
+          "lines": [
+            70,
+            85
+          ],
+          "declaration": "UpperTheory.V.FW.pTwo",
+          "label": "The product estimate and its square",
+          "declaration_lines": {
+            "UpperTheory.V.FW.pTwo": 5
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean#L70-L85"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean",
+          "lines": [
+            64,
+            87
+          ],
+          "declaration": "UpperTheory.V.FW.core",
+          "label": "The other torsion factor from the integral annihilator",
+          "declaration_lines": {
+            "UpperTheory.V.FW.core": 64
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean#L64-L87"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+          "lines": [
+            8,
+            21
+          ],
+          "declaration": "UpperTheory.V.FW.stickH",
+          "label": "The integral annihilator on ideal classes",
+          "declaration_lines": {
+            "UpperTheory.V.FW.stickH": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean#L8-L21"
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            43,
+            64
+          ],
+          "declaration": "UpperTheory.V.FW.cyc",
+          "label": "Multiplying the two estimates at 2",
+          "declaration_lines": {
+            "UpperTheory.V.FW.cyc": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L43-L64"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "Squaring identifies the size of C/C² with the 2-torsion cardinality. Counting the map 1−J there and then mapping K∩C[2] to K/D gives r·h²≤(rh)² with r=[K:D] and h=|D∩C[2]|. The final dyadic branch pairs the separate sign and torsion bounds.",
+      "review": "A second reader checked the direction of the injection, the conductor-24 signs and translation, and the two successive estimates for the signature quotient against the pinned sources. The class-group counts were also checked against pTwo and the dyadic branch of cyc."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "kap_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 44,
+        "spelling": "kap_apply"
+      }
+    },
+    {
+      "callee": "kap_single_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 80,
+        "spelling": "kap_single_mul"
+      }
+    },
+    {
+      "callee": "Ideal.span_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 84,
+        "spelling": "Ideal.span_le"
+      }
+    },
+    {
+      "callee": "kap_range",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 99,
+        "spelling": "kap_range"
+      }
+    },
+    {
+      "callee": "gen2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 106,
+        "spelling": "gen2"
+      }
+    },
+    {
+      "callee": "nilCard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 114,
+        "spelling": "nilCard"
+      }
+    },
+    {
+      "callee": "gen2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnAlg.lean",
+        "line": 127,
+        "spelling": "gen2"
+      }
+    },
+    {
+      "callee": "sgnUnit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 19,
+        "spelling": "sgnUnit"
+      }
+    },
+    {
+      "callee": "sgnStab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 20,
+        "spelling": "sgnStab"
+      }
+    },
+    {
+      "callee": "hMinus",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 21,
+        "spelling": "hMinus"
+      }
+    },
+    {
+      "callee": "unrJ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 22,
+        "spelling": "unrJ"
+      }
+    },
+    {
+      "callee": "unitSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 22,
+        "spelling": "unitSurj"
+      }
+    },
+    {
+      "callee": "sgnAlg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 24,
+        "spelling": "sgnAlg"
+      }
+    },
+    {
+      "callee": "thetaFull",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnCyc.lean",
+        "line": 33,
+        "spelling": "thetaFull"
+      }
+    },
+    {
+      "callee": "exists_zeta",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+        "line": 59,
+        "spelling": "exists_zeta"
+      }
+    },
+    {
+      "callee": "hz.geom_sum_isUnit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+        "line": 63,
+        "spelling": "hz.geom_sum_isUnit"
+      }
+    },
+    {
+      "callee": "geom_sin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+        "line": 77,
+        "spelling": "geom_sin"
+      }
+    },
+    {
+      "callee": "sinSign",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SgnUnit.lean",
+        "line": 105,
+        "spelling": "sinSign"
+      }
+    },
+    {
+      "callee": "hMinus_unit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 102,
+        "spelling": "hMinus_unit"
+      }
+    },
+    {
+      "callee": "hMinus_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 115,
+        "spelling": "hMinus_mul"
+      }
+    },
+    {
+      "callee": "hMinus_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 120,
+        "spelling": "hMinus_pos"
+      }
+    },
+    {
+      "callee": "hasse",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 129,
+        "spelling": "hasse"
+      }
+    },
+    {
+      "callee": "realGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 141,
+        "spelling": "realGen"
+      }
+    },
+    {
+      "callee": "classGroup_inv_mul_mem_difR_of_sign",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 158,
+        "spelling": "classGroup_inv_mul_mem_difR_of_sign"
+      }
+    },
+    {
+      "callee": "Nat.card_le_card_of_injective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HMinus.lean",
+        "line": 163,
+        "spelling": "Nat.card_le_card_of_injective"
+      }
+    },
+    {
+      "callee": "ClassGroup.mk0_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/RealGen.lean",
+        "line": 20,
+        "spelling": "ClassGroup.mk0_surjective"
+      }
+    },
+    {
+      "callee": "hsurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/RealGen.lean",
+        "line": 64,
+        "spelling": "hsurj"
+      }
+    },
+    {
+      "callee": "IsCMField.unitsMulComplexConjInv_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/RealGen.lean",
+        "line": 67,
+        "spelling": "IsCMField.unitsMulComplexConjInv_apply"
+      }
+    },
+    {
+      "callee": "GroundTheory.Global.mem_range_norm_iff_forall_local_of_finrank_eq_two",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean",
+        "line": 38,
+        "spelling": "GroundTheory.Global.mem_range_norm_iff_forall_local_of_finrank_eq_two"
+      }
+    },
+    {
+      "callee": "locFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean",
+        "line": 40,
+        "spelling": "locFin"
+      }
+    },
+    {
+      "callee": "locInf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean",
+        "line": 40,
+        "spelling": "locInf"
+      }
+    },
+    {
+      "callee": "classGroup_div_mem_of_mul_conj_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/Mk0PrincipalEqOne.lean",
+        "line": 59,
+        "spelling": "classGroup_div_mem_of_mul_conj_eq"
+      }
+    },
+    {
+      "callee": "exists_finset_adjoin_laurent_preimage",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnitSurj.lean",
+        "line": 80,
+        "spelling": "exists_finset_adjoin_laurent_preimage"
+      }
+    },
+    {
+      "callee": "UpperTheory.V.CF.cycIne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnrJPrime.lean",
+        "line": 59,
+        "spelling": "UpperTheory.V.CF.cycIne"
+      }
+    },
+    {
+      "callee": "unrJ_arith",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/UnrJPrime.lean",
+        "line": 62,
+        "spelling": "unrJ_arith"
+      }
+    },
+    {
+      "callee": "card_le_card_ker_mul_card_map",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/NilCard.lean",
+        "line": 43,
+        "spelling": "card_le_card_ker_mul_card_map"
+      }
+    },
+    {
+      "callee": "hcard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean",
+        "line": 32,
+        "spelling": "hcard"
+      }
+    },
+    {
+      "callee": "hcard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/PTwo.lean",
+        "line": 56,
+        "spelling": "hcard"
+      }
+    },
+    {
+      "callee": "memZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 29,
+        "spelling": "memZ"
+      }
+    },
+    {
+      "callee": "ambCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 30,
+        "spelling": "ambCyc"
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 47,
+        "spelling": "core"
+      }
+    },
+    {
+      "callee": "stickH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 50,
+        "spelling": "stickH"
+      }
+    },
+    {
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 51,
+        "spelling": "hB"
+      }
+    },
+    {
+      "callee": "conjEq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 55,
+        "spelling": "conjEq"
+      }
+    },
+    {
+      "callee": "sgnCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 56,
+        "spelling": "sgnCyc"
+      }
+    },
+    {
+      "callee": "pTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 63,
+        "spelling": "pTwo"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DSG-01",
+      "DSG-03"
+    ],
+    [
+      "DSG-02",
+      "DSG-03"
+    ],
+    [
+      "STP-03",
+      "DSG-03"
+    ],
+    [
+      "DSG-03",
+      "DSG-04"
+    ],
+    [
+      "ACI-01",
+      "DSG-04"
+    ],
+    [
+      "DSG-04",
+      "ACI-02"
+    ]
+  ],
+  "outstanding": [
+    "The quadratic Hasse norm theorem and the integral class-group annihilation remain named inputs. The odd-prime reflection argument is separate."
+  ]
+}

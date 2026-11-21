@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Original binary one-vector theorem and the selected proof bodies for the rational change of frame, theta and local measure transport, the obstruction at a real place, and the zero branch. The example specializes their formulas to ℚ(i).",
+  "claims": [
+    {
+      "id": "BSM-01",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-similitudes",
+      "title": "Rational frames identify two represented nonzero lengths in a Hermitian plane",
+      "statement": "For x, x′ in E² of lengths β, β′ in F×, a rational similitude γ in GL₂(E) sends x to x′ and satisfies γ*Jγ=(β′/β)J. It gives a bijection of the whole rational spheres and pushes the normalized theta measure at β to that at β′.",
+      "hypotheses": "For a fixed CM extension E/F, the binary application uses a nondegenerate anisotropic Hermitian form, standard additive Haar measures in the chosen base-field coordinates, a Haar measure and fundamental domain for the adelic unitary quotient, and the normalized local Gram-fibre families. The frame identity itself uses only the involution, the Hermitian matrix and the nonzero displayed lengths.",
+      "definitions": [
+        "Hermitian length",
+        "rational sphere",
+        "similitude multiplier",
+        "normalized theta measure"
+      ],
+      "equations": [
+        "lifts-binary-frame-identity"
+      ],
+      "dependencies": [],
+      "correspondence": "Set Pₓ=[x, (−r₁,r₀)ᵗ] for (r₀,r₁)=x*J. Its determinant is β and its Gram matrix is β diag(1,det J). Take γ=Pₓ′Pₓ⁻¹. Reindex the rational sphere and conjugate the unitary variable h by γ; pulling back its Haar measure and fundamental domain together preserves the denominator. Independence of choices gives the assertion for the original choices.",
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean",
+          "lines": [
+            68,
+            75
+          ],
+          "label": "The rational sphere and its factorization",
+          "declaration": "PositivityTheory.Rg.Mass.EP",
+          "related_declarations": [
+            "PositivityTheory.Rg.Mass.sph"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.EP": 71,
+            "PositivityTheory.Rg.Mass.sph": 68
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/MeanVal.lean#L68-L75"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean",
+          "lines": [
+            15,
+            34
+          ],
+          "label": "Determinant and Gram matrix of the two columns",
+          "declaration": "GlobalTheory.CompanionTheory.SimilExists.frame",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SimilExists.frame_det",
+            "GlobalTheory.CompanionTheory.SimilExists.frame_gram"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SimilExists.frame": 15,
+            "GlobalTheory.CompanionTheory.SimilExists.frame_det": 18,
+            "GlobalTheory.CompanionTheory.SimilExists.frame_gram": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean#L15-L34"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean",
+          "lines": [
+            36,
+            86
+          ],
+          "label": "The change of frame over the CM field",
+          "declaration": "GlobalTheory.CompanionTheory.SimilExists.exists_similitude_of_vectors",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SimilExists.exists_similitude"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SimilExists.exists_similitude_of_vectors": 36,
+            "GlobalTheory.CompanionTheory.SimilExists.exists_similitude": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean#L36-L86"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaMeasureSimilitude.lean",
+          "lines": [
+            136,
+            180
+          ],
+          "label": "Reindexing the vectors and the unitary-group integral",
+          "declaration": "GlobalTheory.CompanionTheory.SW.SimTheta.theta_map",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.SimTheta.theta_map": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaMeasureSimilitude.lean#L136-L180"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+          "lines": [
+            30,
+            46
+          ],
+          "label": "The selected transport and independence of auxiliary choices",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassSimil.simil": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean#L30-L46"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Checked frame entries, both determinants, the direction of the rational-vector bijection and the conjugation of the averaging variable. The frame calculation was cross-checked independently."
+    },
+    {
+      "id": "BSM-02",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-similitude-jacobian",
+      "title": "Each fibre acquires the quotient of the two pushforward factors",
+      "statement": "Let aᵥ and bᵥ scale ambient Haar measure under γ and scalar Haar measure under multiplication by λ=β′/β. The local fibre transforms by aᵥ/bᵥ. The infinite-place quotient times the product of all finite-place quotients equals one. Consequently the represented length β′ has an Euler factorization with the same κ as β.",
+      "hypotheses": "For a fixed CM extension E/F, the binary application uses a nondegenerate anisotropic Hermitian form, standard additive Haar measures in the chosen base-field coordinates, a Haar measure and fundamental domain for the adelic unitary quotient, and the normalized local Gram-fibre families. Assume the two rational spheres are nonempty and EP(β,κ) holds for κ≥0. Include all exceptional finite places in the restricted test.",
+      "definitions": [
+        "ambient pushforward",
+        "length pushforward",
+        "Gram-fibre measure",
+        "restricted product test"
+      ],
+      "equations": [
+        "lifts-binary-fibre-jacobian"
+      ],
+      "dependencies": [
+        "BSM-01"
+      ],
+      "correspondence": "The Gram map commutes with γ on vectors and λ on lengths. Transport and uniqueness of the fibre family identify the quotient of moduli. Rational linear coordinates give the ambient product formula. Two scalar changes compose to congruence by the one-by-one matrix [λ], giving the target product formula by positive square roots. Almost-everywhere preservation of the standard lattice transports the Euler tests. For ℚ(i), J=I₂ and γ with rows (1,i),(i,1), the two nontrivial triples (ambient,target,fibre) are (1/4,1/2,1/2) at infinity and (4,2,2) at 2.",
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/GramFibreMeasureLocal.lean",
+          "lines": [
+            109,
+            150
+          ],
+          "label": "Transport, rescaling and uniqueness of the fibre measure",
+          "declaration": "GlobalTheory.CompanionTheory.SW.FibSim.fib_similitude",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FibSim.fib_similitude": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/GramFibreMeasureLocal.lean#L109-L150"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryActionEulerProduct.lean",
+          "lines": [
+            175,
+            195
+          ],
+          "label": "The ambient product formula in base-field coordinates",
+          "declaration": "GlobalTheory.CompanionTheory.SW.PfAct.product_formula_actTup",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PfAct.product_formula_actTup": 175
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryActionEulerProduct.lean#L175-L195"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeScalingHermitianMeasure.lean",
+          "lines": [
+            116,
+            128
+          ],
+          "label": "The positive square root for the length coordinate",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassSimil.ScalModule.scal_module",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassSimil.ScalModule.scal_module": 116
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeScalingHermitianMeasure.lean#L116-L128"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+          "lines": [
+            30,
+            46
+          ],
+          "label": "The selected transport and independence of auxiliary choices",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassSimil.simil": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean#L30-L46"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+          "lines": [
+            83,
+            101
+          ],
+          "label": "Transport on restricted product tests with the same scalar",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassSimil.simil": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean#L83-L101"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ScalHHermScal.lean",
+          "lines": [
+            38,
+            48
+          ],
+          "label": "Absorbing the common scalar into the infinite-place measure",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassSimil.euler_move_c",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassSimil.euler_move_c": 38
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ScalHHermScal.lean#L38-L48"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "The Haar pushforward signs, the norm determinant 4 and all place factors in the worked example were independently checked against the written transport theorem."
+    },
+    {
+      "id": "BSM-03",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-similitude-empty",
+      "title": "Null factors and missing lengths complete the hypothesis of the counting theorem",
+      "statement": "An initially vanishing local measure gives the normalized zero factorization at once. Otherwise a represented anchor exists, and the same κ works for every nonzero scalar length, including unrepresented ones. The separate counting theorem now identifies κ with one.",
+      "hypotheses": "For a fixed CM extension E/F, the binary application uses a nondegenerate anisotropic Hermitian form, standard additive Haar measures in the chosen base-field coordinates, a Haar measure and fundamental domain for the adelic unitary quotient, and the normalized local Gram-fibre families. For each individual fibre the prior mass theorem supplies finiteness of its standard finite lattice masses, summability of their absolute deviations from one, and a factorization with some nonnegative constant. The representation principle is for a binary Hermitian form and a nonzero length.",
+      "definitions": [
+        "represented length",
+        "empty rational fibre",
+        "archimedean signature obstruction"
+      ],
+      "equations": [],
+      "dependencies": [
+        "BSM-02",
+        "BEQ-04"
+      ],
+      "correspondence": "On the original length, a zero local measure implies zero theta measure; any prescribed coefficient then works by the zero-measure Euler lemma. Otherwise nonzero infinite fibre gives a rational point. For each other unrepresented length, the rational sum is empty and the infinite measure vanishes. The original factorization at that length supplies the two regularity hypotheses needed to use the common coefficient. The sign obstruction follows by comparing J to diag(t,t det J), with determinant quotient t² a norm, and applying the signature classification. Singular length zero is outside the one-vector statement.",
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean",
+          "lines": [
+            13,
+            29
+          ],
+          "label": "The initial zero-factor test and the represented branch",
+          "declaration": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean#L13-L29"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean",
+          "lines": [
+            26,
+            41
+          ],
+          "label": "Unrepresented lengths and the final normalization",
+          "declaration": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean#L26-L41"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/HassePrinciple.lean",
+          "lines": [
+            12,
+            44
+          ],
+          "label": "The archimedean obstruction and the support of the fibre",
+          "declaration": "GlobalTheory.CompanionTheory.SW.MassHasse.hasse",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MassHasse.hasse": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/HassePrinciple.lean#L12-L44"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SwMeasPlaneOfNotRepresented.lean",
+          "lines": [
+            145,
+            170
+          ],
+          "label": "Comparing the reference plane at the real places",
+          "declaration": "GlobalTheory.CompanionTheory.SW.Plane.exists_place",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Plane.exists_place": 126
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SwMeasPlaneOfNotRepresented.lean#L145-L170"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SwMeasPlaneOfNotRepresented.lean",
+          "lines": [
+            189,
+            210
+          ],
+          "label": "The norm witness and the rational first column",
+          "declaration": "GlobalTheory.CompanionTheory.SW.Plane.exists_place",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Plane.exists_place": 126
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SwMeasPlaneOfNotRepresented.lean#L189-L210"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/LandherrAndLandherrSt.lean",
+          "lines": [
+            19,
+            22
+          ],
+          "label": "The classification input from the quadratic norm theorem",
+          "declaration": "GlobalTheory.QNorm.landherr_and_landherrSt",
+          "declaration_lines": {
+            "GlobalTheory.QNorm.landherr_and_landherrSt": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/LandherrAndLandherrSt.lean#L19-L22"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureZero.lean",
+          "lines": [
+            90,
+            120
+          ],
+          "label": "What a zero local measure implies for the Euler product",
+          "declaration": "GlobalTheory.CompanionTheory.SW.EulerZero.euler_zero",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.EulerZero.euler_zero": 68
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureZero.lean#L90-L120"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+          "lines": [
+            19,
+            27
+          ],
+          "label": "The inputs to the binary one-vector formula",
+          "declaration": "PositivityTheory.Rg.Mass.e1",
+          "related_declarations": [
+            "PositivityTheory.Rg.Mass.oneVecBinary"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.Rg.Mass.e1": 19,
+            "PositivityTheory.Rg.Mass.oneVecBinary": 24
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean#L19-L27"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "Independently checked the distinction between an initially zero local measure, an empty rational sphere, and the excluded singular length against the source. The comparison of signatures and rational first column was read directly in the pinned supplier."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PositivityTheory.Rg.Mass.oneVecBinary",
+      "callee": "PositivityTheory.Rg.Mass.e1",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 27,
+        "spelling": "e1"
+      }
+    },
+    {
+      "caller": "PositivityTheory.Rg.Mass.e1",
+      "callee": "GlobalTheory.T.one_vector_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.one_vector_formula_of_parts"
+      }
+    },
+    {
+      "caller": "PositivityTheory.Rg.Mass.e1",
+      "callee": "GlobalTheory.T.vector_length_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.vector_length_formula_of_parts"
+      }
+    },
+    {
+      "caller": "PositivityTheory.Rg.Mass.e1",
+      "callee": "GlobalTheory.T.similitude_invariance",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.similitude_invariance"
+      }
+    },
+    {
+      "caller": "PositivityTheory.Rg.Mass.e1",
+      "callee": "GlobalTheory.T.hasse_principle",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.hasse_principle"
+      }
+    },
+    {
+      "caller": "PositivityTheory.Rg.Mass.e1",
+      "callee": "GlobalTheory.T.counting_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21,
+        "spelling": "GlobalTheory.T.counting_formula"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.one_vector_formula_of_parts",
+      "callee": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfPartsStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.similitude_invariance",
+      "callee": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvarianceStatement.lean",
+        "line": 7,
+        "spelling": "GlobalTheory.CompanionTheory.SW.MassSimil.simil"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SimilExists.exists_similitude",
+      "callee": "GlobalTheory.CompanionTheory.SimilExists.exists_similitude_of_vectors",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean",
+        "line": 86,
+        "spelling": "exists_similitude_of_vectors"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SimilExists.exists_similitude_of_vectors",
+      "callee": "GlobalTheory.CompanionTheory.SimilExists.frame_gram",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeBetweenNonemptySpheres.lean",
+        "line": 50,
+        "spelling": "frame_gram"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.similitude_between_nonempty_spheres",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.similitude_between_nonempty_spheres"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.theta_measure_similitude",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.theta_measure_similitude"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.theta_measure_independent_choices",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.T.theta_measure_independent_choices"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.haar_modulus_gl_action_product_formula",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.T.haar_modulus_gl_action_product_formula"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.similitude_scaling_hermitian_measure",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 45,
+        "spelling": "GlobalTheory.T.similitude_scaling_hermitian_measure"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "PositivityTheory.PlacePermOperatorBicommutantSpan.up_alg",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 46,
+        "spelling": "PositivityTheory.PlacePermOperatorBicommutantSpan.up_alg"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.T.gram_fibre_measure_local",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 60,
+        "spelling": "GlobalTheory.T.gram_fibre_measure_local"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.CompanionTheory.SW.MassSimil.euler_move_c",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 88,
+        "spelling": "euler_move_c"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.simil",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeInvariance.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FibSim.fib_similitude",
+      "callee": "GlobalTheory.CompanionTheory.SW.isFibreFamily_transport",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/GramFibreMeasureLocal.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.CompanionTheory.SW.isFibreFamily_transport"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FibSim.fib_similitude",
+      "callee": "GlobalTheory.CompanionTheory.SW.GramFib.fibre_unique",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/GramFibreMeasureLocal.lean",
+        "line": 147,
+        "spelling": "GlobalTheory.CompanionTheory.SW.GramFib.fibre_unique"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassSimil.ScalModule.scal_module",
+      "callee": "GlobalTheory.T.hermitian_matrix_euler_product",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SimilitudeScalingHermitianMeasure.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.T.hermitian_matrix_euler_product"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PfAct.product_formula_actTup",
+      "callee": "GlobalTheory.T.addHaar_map_mulVec_eq_smul_at_all_places",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitaryActionEulerProduct.lean",
+        "line": 179,
+        "spelling": "GlobalTheory.T.addHaar_map_mulVec_eq_smul_at_all_places"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.SimTheta.theta_simil",
+      "callee": "GlobalTheory.CompanionTheory.SW.SimTheta.theta_map",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ThetaMeasureSimilitude.lean",
+        "line": 209,
+        "spelling": "theta_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula",
+      "callee": "GlobalTheory.T.euler_product_measure_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.euler_product_measure_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MassHasse.hasse",
+      "callee": "GlobalTheory.CompanionTheory.SW.Plane.exists_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/HassePrinciple.lean",
+        "line": 19,
+        "spelling": "Plane.exists_place"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Plane.exists_place",
+      "callee": "GlobalTheory.QNorm.landherr_and_landherrSt",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SwMeasPlaneOfNotRepresented.lean",
+        "line": 194,
+        "spelling": "GlobalTheory.QNorm.landherr_and_landherrSt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.QNorm.landherr_and_landherrSt",
+      "callee": "GlobalTheory.QNorm.hasseNormSt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/LandherrAndLandherrSt.lean",
+        "line": 21,
+        "spelling": "_root_.GlobalTheory.QNorm.hasseNormSt"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "BSM-01",
+      "BSM-02"
+    ],
+    [
+      "BSM-02",
+      "BSM-03"
+    ],
+    [
+      "BSM-02",
+      "BEQ-04"
+    ],
+    [
+      "BEQ-04",
+      "BSM-03"
+    ],
+    [
+      "BSM-03",
+      "GGD-02"
+    ]
+  ],
+  "outstanding": [
+    "The individual fixed-length factorization uses cocompactness and a local mass theorem. The argument applies normalized Gram-fibre existence, uniqueness and disintegration, adelic Haar product formulas, the Hermitian classification supplied from a quadratic Hasse norm theorem, and the separate positive-volume counting result. The scalar example evaluates only the transport factors."
+  ]
+}

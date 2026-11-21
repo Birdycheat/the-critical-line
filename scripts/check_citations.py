@@ -65,6 +65,7 @@ def main():
     # A written name can be namespace-qualified in the ledger and unqualified
     # in Lean. Match its complete final identifier, including any trailing prime.
     primary = corpus['primary_mirror']['url'].removeprefix('https://github.com/').rstrip('/')
+    exact_spellings = 0
     for filename, call in written_calls:
         site = call['callsite']
         repo, pin = repos[site.get('repository', primary)]
@@ -75,6 +76,12 @@ def main():
         line = site['line']
         identifier = call['callee'].rsplit('.', 1)[-1]
         pattern = rf"(?<![\w']){re.escape(identifier)}(?![\w'])"
+        if 'spelling' in site:
+            spelling = site['spelling']
+            if spelling.rsplit('.', 1)[-1] != identifier:
+                errors.append(f"{filename}: {spelling} does not name {identifier}")
+            pattern = rf"(?<![\w'.]){re.escape(spelling)}(?![\w'])"
+            exact_spellings += 1
         if not 1 <= line <= len(source_lines) or not re.search(pattern, source_lines[line - 1]):
             errors.append(f"{filename}: {identifier} missing at {site['path']}:{line}")
     checked_heads = 0
@@ -94,5 +101,5 @@ def main():
                 errors.append(f"{filename}: declaration {name} missing at {source['path']}:{number}")
             checked_heads += 1
     if errors: raise ValueError('\n'.join(errors))
-    print(f'Checked {count} pinned URLs and their line ranges, and {len(written_calls)} written call names at the recorded source lines. Checked {checked_heads} recorded declaration locations.')
+    print(f'Checked {count} pinned URLs and their line ranges, and {len(written_calls)} written call names at the recorded source lines. Checked {exact_spellings} complete call-site spellings and {checked_heads} recorded declaration locations.')
 if __name__=='__main__':main()

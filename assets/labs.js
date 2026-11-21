@@ -16,6 +16,26 @@
     value,
   });
   const configs = {
+    "primitive-hyperplanes": {
+      title: "What changes when the marked hyperplane is counted first?",
+      kind: "An incidence mass in a Gaussian lattice",
+      section: "global",
+      params: [range("norm", "Squared length of the primitive normal", 1, 4, 1, 3)],
+      caption: "Work in the single lattice ℤ[i]³. Each hyperplane is marked by its primitive normal up to four units. The first mass divides its count by 384, the number of lattice symmetries. The second adds one reciprocal stabilizer order for each orbit.",
+      method: "Enumerate the three Gaussian coordinates with total squared length d. In this range a nonprimitive vector has every coordinate divisible by 1+i. Remove those vectors and identify the four common unit multiples. For coordinate norm at most four, all Gaussian integers of each occurring norm differ by a unit. Hence two surviving normal lines are in the same orbit precisely when their sorted coordinate norms agree.",
+    },
+    "dyadic-unit-signs": {
+      title: "Which real sign patterns do these units supply?",
+      kind: "Cyclotomic unit signatures at conductor 24",
+      section: "inputs",
+      params: [
+        choose("shift", "Translate by", [["1","±1"],["5","±5"],["7","±7"],["11","±11"]], "1"),
+        choose("unit", "Use the translated unit", [["0","No"],["1","Yes"]], "1"),
+        choose("negative", "Multiply by −1", [["0","No"],["1","Yes"]], "0"),
+      ],
+      caption: "The four entries of the signature vector record the embeddings up to complex conjugation. A one means a negative value. Conjugating the unit permutes the four places, and multiplication by −1 complements every bit.",
+      method: "For M=24 and c=13 the real cyclotomic unit has bit ⌊13t/24⌋ modulo two. Evaluate it at the translated unit residue, optionally omit the unit, and add the global sign modulo two. Replacing t by −t gives the same bit. These units generate four of the sixteen patterns. Other real units can enlarge this subgroup.",
+    },
     "binary-lattice-limit": {
       title: "What does a single residue box contribute?",
       kind: "Equidistribution in a Hermitian plane",
@@ -1043,6 +1063,22 @@
     return { original, originalExact, mean, meanExact, equal: change === 0 };
   }
 
+  function primitiveHyperplanes(norm) {
+    const coords = [];
+    for (let x = -2; x <= 2; x++) for (let y = -2; y <= 2; y++) {
+      const size = x*x + y*y;
+      if (size <= norm) coords.push({size, divisible:(x+y) % 2 === 0});
+    }
+    const types = new Map();
+    for (const a of coords) for (const b of coords) for (const c of coords) {
+      if (a.size + b.size + c.size !== norm || (a.divisible && b.divisible && c.divisible)) continue;
+      const pattern = [a.size, b.size, c.size].sort((x,y) => x-y).join(", ");
+      types.set(pattern, (types.get(pattern) || 0) + 1);
+    }
+    return [...types].sort(([a],[b]) => a.localeCompare(b)).map(([pattern, normals]) =>
+      ({pattern, lines:normals/4, stabilizer:384/(normals/4)}));
+  }
+
   function binaryLatticeBox(n) {
     const pairs = [0, 0, 0];
     for (let u = 0; u < n; u++) {
@@ -1195,6 +1231,31 @@
   }
 
   function render(id, v) {
+    if (id === "primitive-hyperplanes") {
+      const types = primitiveHyperplanes(Number(v.norm));
+      const total = types.reduce((sum, t) => sum+t.lines, 0);
+      const body = types.map(t => '<tr><th scope="row">' + t.pattern + '</th><td>' + t.lines +
+        '</td><td>' + t.stabilizer + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Normal lines grouped by lattice symmetries</caption>' +
+        '<thead><tr><th scope="col">Coordinate norms</th><th scope="col">Lines</th><th scope="col">Stabilizer order</th></tr></thead><tbody>' +
+        body + '</tbody></table>' + metrics([["By lines", total + '/384'], ["By orbits", types.map(t => '1/' + t.stabilizer).join(' + ')]]) +
+        '<p>Both counts give <strong>' + reducedFraction(total,384) + '</strong> for this lattice.</p>';
+    }
+    if (id === "dyadic-unit-signs") {
+      const shift = Number(v.shift), include = Number(v.unit), negative = Number(v.negative);
+      const places = [1, 5, 7, 11];
+      const values = places.map(t => {
+        const residue = t * shift % 24;
+        const translated = Math.floor(13 * residue / 24) % 2;
+        return {t, pair:Math.min(residue, 24-residue), bit:(include*translated+negative) % 2};
+      });
+      const word = values.map(x => x.bit).join("");
+      const body = values.map(x => '<tr><th scope="row">±' + x.t + '</th><td>±' + x.pair +
+        '</td><td>' + (x.bit ? '−' : '+') + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Signs at the four real embeddings</caption>' +
+        '<thead><tr><th scope="col">Place</th><th scope="col">Translated place</th><th scope="col">Sign</th></tr></thead><tbody>' +
+        body + '</tbody></table>' + metrics([["Signature", word], ["Patterns generated", "4 of 16"]]);
+    }
     if (id === "binary-lattice-limit") {
       const n = Number(v.scale), selected = binaryLatticeBox(n);
       const points = Array.from({length:13}, (_, i) => [i+3, binaryLatticeBox(i+3).value]);
@@ -2428,6 +2489,7 @@
     mellin,
     factorial,
     profile,
+    primitiveHyperplanes,
     binaryLatticeBox,
     stickelbergerFibres,
     realWhittakerCutoff,
