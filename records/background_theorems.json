@@ -1,0 +1,585 @@
+{
+  "theorems": [
+    {
+      "id": "zeta-pole",
+      "title": "The pole of the zeta function",
+      "statement": "The series for ζ(s) on Re s > 1 extends meromorphically to the plane. At its only pole the expansion begins ζ(s) = 1/(s−1) + γ + O(s−1), where γ is Euler’s constant.",
+      "use": "Taking the logarithmic derivative of this expansion specifies the two centering terms in the smoothed prime sum.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, §25.2(i) and (ii), especially (25.2.4).",
+      "url": "https://dlmf.nist.gov/25.2",
+      "passages": [
+        "target-zeta",
+        "centering"
+      ]
+    },
+    {
+      "id": "dirichlet-euler-product",
+      "title": "Euler product for a Dirichlet character",
+      "statement": "If χ is a Dirichlet character and Re s > 1, then L(s,χ) is the absolutely convergent product over primes p of (1−χ(p)p⁻ˢ)⁻¹. A prime dividing the modulus contributes the factor 1.",
+      "use": "Taking the logarithmic derivative turns each Euler factor into a sum over powers of its prime. That sum supplies the weights in the Mellin transform.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, (25.15.2).",
+      "url": "https://dlmf.nist.gov/25.15.E2",
+      "passages": [
+        "pilot-euler"
+      ]
+    },
+    {
+      "id": "nonvanishing-at-one",
+      "title": "Dirichlet nonvanishing at one",
+      "statement": "For every nonprincipal Dirichlet character χ the continuation of L(s,χ) is holomorphic at 1 and L(1,χ) is nonzero.",
+      "use": "This makes L′(1,χ)/L(1,χ) a finite centering constant. The principal character requires the separate pole calculation.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, §25.15(i) and (25.15.9).",
+      "url": "https://dlmf.nist.gov/25.15",
+      "passages": [
+        "centering",
+        "global-cm-at-one"
+      ]
+    },
+    {
+      "id": "primitive-change-of-level",
+      "title": "Removing Euler factors at a larger modulus",
+      "statement": "If χ modulo q is induced by χ₀ of conductor d, then L(s,χ) equals L(s,χ₀) times the product of 1−χ₀(p)p⁻ˢ for p dividing q. The identity holds meromorphically.",
+      "use": "At Re s > 0 every added factor is nonzero, so changing level preserves zeros there.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, (25.15.4).",
+      "url": "https://dlmf.nist.gov/25.15.E4",
+      "passages": [
+        "reflection-level"
+      ]
+    },
+    {
+      "id": "primitive-reflection",
+      "title": "Reflection for a primitive Dirichlet character",
+      "statement": "For primitive χ of conductor q, put a=0 or 1 according as χ(−1)=1 or −1. The completed function Λ(s,χ)=(q/π)^((s+a)/2)Γ((s+a)/2)L(s,χ) satisfies Λ(s,χ)=εχΛ(1−s,χ̄), where |εχ|=1.",
+      "use": "In the open critical strip the gamma factors are finite and nonzero. A zero on the left therefore gives a zero for the conjugate character on the right.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, §25.15(i), primitive functional equation (25.15.5)–(25.15.6).",
+      "url": "https://dlmf.nist.gov/25.15.i",
+      "passages": [
+        "reflection-dirichlet",
+        "global-cm-at-one"
+      ]
+    },
+    {
+      "id": "zeta-zero-regions",
+      "title": "The boundary of the critical strip",
+      "statement": "The only zeros of ζ outside 0 < Re s < 1 are the negative even integers. In particular there are no zeros on Re s = 1.",
+      "use": "Once both open halves of the strip have been handled, this identifies the exceptions in the classical statement about all zeros.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, §25.10(i).",
+      "url": "https://dlmf.nist.gov/25.10.i",
+      "passages": [
+        "target-exact",
+        "reflection-zeta"
+      ]
+    },
+    {
+      "id": "fubini-tonelli",
+      "title": "Changing the order of integration",
+      "statement": "On two σ-finite measure spaces a nonnegative measurable function has the same integral in either order, possibly infinite. For a complex measurable function, finiteness of the integral of its absolute value makes both iterated integrals exist almost everywhere and gives the same value. One may take the completed measures.",
+      "use": "In the Mellin identity one variable has counting measure. In the theta integral a majorant must first control two noncompact variables.",
+      "citation": "Terence Tao, An Introduction to Measure Theory, §1.7, Theorem 1.7.18 and Corollary 1.7.23.",
+      "url": "https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-126-tao5-measure-book.pdf#page=222",
+      "passages": [
+        "pilot-euler",
+        "lifts-kernel-swap"
+      ]
+    },
+    {
+      "id": "cauchy-bound",
+      "title": "Cauchy’s estimate for derivatives",
+      "statement": "Suppose g is holomorphic on a neighborhood of the closed disk of radius R about σ, with |g| ≤ M on the circle. For each k ≥ 0, |g⁽ᵏ⁾(σ)|/k! ≤ M/Rᵏ. This follows by bounding the integrand in Cauchy’s derivative formula and multiplying by the circumference.",
+      "use": "Subtracting the principal part of an isolated pole gives such a g. The estimate quantifies the advantage of the pole when its distance from σ is smaller than R.",
+      "citation": "NIST Digital Library of Mathematical Functions, §1.9, Cauchy’s integral formula for derivatives, (1.9.31).",
+      "url": "https://dlmf.nist.gov/1.9.E31",
+      "passages": [
+        "window-contradiction"
+      ]
+    },
+    {
+      "id": "analytic-identity",
+      "title": "Uniqueness of analytic continuation",
+      "statement": "Two holomorphic functions on a connected open set agree throughout it if they agree on a set having a limit point there. For meromorphic functions the same conclusion follows by removing their poles locally.",
+      "use": "This carries an equality from the half-plane where an integral converges into the region where the continued coefficients are evaluated.",
+      "citation": "NIST Digital Library of Mathematical Functions, §1.10(ii), Analytic Continuation.",
+      "url": "https://dlmf.nist.gov/1.10.ii",
+      "passages": [
+        "lifts-archimedean-continuation",
+        "reflection-level"
+      ]
+    },
+    {
+      "id": "factorial-valuation",
+      "title": "Legendre’s formula for a factorial",
+      "statement": "For a prime p and integer n ≥ 0, the exponent of p in n! is ∑ⱼ≥₁ ⌊n/pʲ⌋. Each integer from 1 to n contributes once for each power of p that divides it.",
+      "use": "This is the valuation gained when one passes from a Taylor coefficient to a derivative.",
+      "citation": "Gennady Eremin, Legendre’s formula and p-adic analysis, §1, formula (1).",
+      "url": "https://arxiv.org/pdf/1907.11902",
+      "passages": [
+        "local-gain"
+      ]
+    },
+    {
+      "id": "character-average",
+      "title": "Orthogonality of finite characters",
+      "statement": "On a finite abelian group the average of a character is 1 for the trivial character and 0 otherwise. Indeed, translating the sum by a group element multiplies it by the value of the character at that element.",
+      "use": "Applying the identity to a subgroup retains exactly the characters trivial on that subgroup in the arithmetic balance.",
+      "citation": "Keith Conrad, Characters of Finite Abelian Groups, Theorem 4.1 and Corollary 4.2.",
+      "url": "https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf",
+      "passages": [
+        "balance-average"
+      ]
+    },
+    {
+      "id": "orbit-stabilizer",
+      "title": "Orbit–stabilizer counting",
+      "statement": "When a finite group G acts on a set, the orbit of x is in bijection with the cosets of its stabilizer. In particular the orbit size divided by |G| equals 1/|Stab(x)|.",
+      "use": "The same pairs can be counted by first fixing a lattice or by first fixing a marked subspace. The reciprocal stabilizer order is the weight in the second count.",
+      "citation": "Keith Conrad, Group Actions, Theorem 3.16.",
+      "url": "https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf",
+      "passages": [
+        "global-primitive-row-weights",
+        "global-higher-mass-proofs"
+      ]
+    },
+    {
+      "id": "product-formula",
+      "title": "Product formula in a number field",
+      "statement": "For nonzero a in a number field, multiply |a|ᵥ over all places, using the normalized absolute values, with the complex modulus squared at a complex place. The product equals 1.",
+      "use": "The scalar and determinant in a rational similitude contribute cancelling local Jacobians over all places.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Theorem 7.15.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=114",
+      "passages": [
+        "lifts-binary-similitude-jacobian"
+      ]
+    },
+    {
+      "id": "hermitian-local-global",
+      "title": "Local classification determines a global Hermitian space",
+      "statement": "Let E/F be quadratic over number fields. Two nondegenerate Hermitian spaces over E of the same rank are isometric if their localizations are isometric everywhere. At nonsplit finite places the determinant modulo local norms distinguishes the two classes of a given positive rank. At real places becoming complex one uses the whole signature.",
+      "use": "To represent a given nonzero length in a plane, compare it with a diagonal plane whose first vector has the prescribed length. An isometry carries that vector into the given plane.",
+      "citation": "Benedict H. Gross, Incoherent definite spaces and Shimura varieties, §3, especially Theorem 3.1.",
+      "url": "https://abel.math.harvard.edu/~gross/preprints/incoherent.pdf",
+      "passages": [
+        "lifts-binary-similitude-empty"
+      ]
+    },
+    {
+      "id": "hasse-norm",
+      "title": "Hasse’s norm theorem",
+      "statement": "Let L/K be a cyclic extension of number fields. An element of K× that is a norm at every completion is the norm of an element of L×.",
+      "use": "In the dyadic argument the extension is quadratic. A choice of real signs supplies the norm condition at infinity and the ideal calculation supplies it at the finite places.",
+      "citation": "J. S. Milne, Class Field Theory, Chapter VIII, Theorem 3.1.",
+      "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf#page=243",
+      "passages": [
+        "inputs-dyadic-signatures",
+        "lifts-binary-similitude-empty"
+      ]
+    },
+    {
+      "id": "kronecker-units",
+      "title": "Kronecker’s criterion for a root of unity",
+      "statement": "A nonzero algebraic integer whose conjugates all have absolute value at most 1 is a root of unity. Its powers have bounded degree and bounded coefficients in their monic minimal polynomials, so two powers coincide.",
+      "use": "A quotient of conjugate generators is a unit. Checking its complex absolute values now restricts the ambiguity to roots of unity.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Proposition 5.5 and Corollary 5.6.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=89",
+      "passages": [
+        "inputs-dyadic-signatures",
+        "inputs-cyclotomic-elements"
+      ]
+    },
+    {
+      "id": "dirichlet-units",
+      "title": "The logarithmic lattice of units",
+      "statement": "In a number field with r real places and s complex places, the logarithms of the units form a full lattice of rank r+s−1 in the product-formula hyperplane. The kernel is the finite group of roots of unity.",
+      "use": "The lattice gives a compact torus when integrating along the center. Its rank also determines how many independent unit directions a determinant can measure.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Theorem 5.9 and the preceding description of the logarithmic map.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=90",
+      "passages": [
+        "inputs-central-average",
+        "inputs-affine-block",
+        "inputs-selmer-kernel"
+      ]
+    },
+    {
+      "id": "s-units",
+      "title": "The S-unit theorem",
+      "statement": "Let S be a finite set of places of a number field containing all its infinite places. The elements with valuation zero outside S form a finitely generated group. Modulo roots of unity it is free abelian of rank |S|−1.",
+      "use": "Allowing denominators at primes above ℓ adds one free direction for each such prime in the generator estimate.",
+      "citation": "Paul Fili and Zachary Miner, A generalization of Dirichlet’s S-unit theorem, §1, statement of the S-unit theorem.",
+      "url": "https://web.ma.utexas.edu/users/zminer/dirichlet-thm.pdf",
+      "passages": [
+        "inputs-minus-selmer"
+      ]
+    },
+    {
+      "id": "hilbert-ninety",
+      "title": "Hilbert’s Theorem 90",
+      "statement": "In a cyclic field extension F/K generated by γ, an element v of norm one has the form z/γ(z) for some z in F×.",
+      "use": "After two twisted-norm classes yield the same finite data, their ratio has norm one. Writing that ratio as a coboundary gives the descent used in the kernel count.",
+      "citation": "J. S. Milne, Class Field Theory, Chapter II, Corollary 1.23.",
+      "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf#page=76",
+      "passages": [
+        "inputs-selmer-kernel"
+      ]
+    },
+    {
+      "id": "artin-reciprocity",
+      "title": "Artin reciprocity and the existence of class fields",
+      "statement": "Fix a modulus 𝔪. Let I be the fractional ideals prime to 𝔪, and P the principal ideals whose generators satisfy its congruences and real sign conditions. For every subgroup H with P ⊆ H ⊆ I there is a class field L/K whose Artin map induces I/H ≃ Gal(L/K). A prime outside 𝔪 maps to arithmetic Frobenius.",
+      "use": "For the ordinary ideal class group this gives the Hilbert class field. Prime-ideal classes can therefore be prescribed by choosing Frobenius elements.",
+      "citation": "J. S. Milne, Class Field Theory, Chapter V, Theorems 3.5 and 3.6.",
+      "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf#page=167",
+      "passages": [
+        "inputs-artin-descent",
+        "inputs-class-prime"
+      ]
+    },
+    {
+      "id": "chebotarev",
+      "title": "Chebotarev’s density theorem",
+      "statement": "For a finite Galois extension L/K and a conjugacy class C in its group G, the unramified primes of K with Frobenius in C have density |C|/|G|. Excluding finitely many primes preserves this density.",
+      "use": "The argument chooses auxiliary primes with a prescribed action. Its extra conditions on residue degree are treated in the cited passages.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Theorem 8.31.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=149",
+      "passages": [
+        "inputs-class-prime",
+        "normalization-inert-frobenius",
+        "inputs-detecting-evaluation"
+      ]
+    },
+    {
+      "id": "chinese-remainder",
+      "title": "The Chinese remainder theorem",
+      "statement": "For pairwise comaximal ideals I₁,…,Iₙ in a commutative ring R, reduction identifies R/(I₁⋯Iₙ) with the product of the R/Iⱼ. Thus each compatible list of independent residues is attained.",
+      "use": "Coprime moduli let the prime selection impose several congruences at once. They also let an exponent act independently on different primary parts.",
+      "citation": "The Stacks Project, Lemma 10.15.4, tag 00DT.",
+      "url": "https://stacks.math.columbia.edu/tag/00DT",
+      "passages": [
+        "inputs-prime-pair",
+        "inputs-plus-in",
+        "inputs-tower-norm",
+        "global-higher-module-gluing"
+      ]
+    },
+    {
+      "id": "local-tate",
+      "title": "Local Tate duality with finite coefficients",
+      "statement": "For a finite extension K of ℚₚ, a finite continuous Galois module A and its dual Aᴰ=Hom(A,μ∞), cup product and the local invariant give perfect pairings between Hⁱ(K,A) and H²⁻ⁱ(K,Aᴰ), for 0 ≤ i ≤ 2.",
+      "use": "In degree two the local group order becomes the order of a dual invariant group. This is one of the factors in the localization calculation.",
+      "citation": "J. S. Milne, Arithmetic Duality Theorems, second edition, Part I, §2, Corollary 2.3.",
+      "url": "https://www.jmilne.org/math/Books/ADTnot.pdf#page=36",
+      "passages": [
+        "inputs-local-cohomology-balance",
+        "inputs-descent-equality"
+      ]
+    },
+    {
+      "id": "poitou-tate",
+      "title": "Poitou–Tate duality for localization",
+      "statement": "Let A be a finite Galois module over a number field, unramified outside a finite set S containing the archimedean places and the places dividing |A|. Localization in degree two has cokernel dual to H⁰(K,Aᴰ). At real places the sequence uses modified local cohomology. Write Shaⁱ(A) for the kernel of localization in degree i. There is also a perfect pairing of Sha²(A) with Sha¹(Aᴰ).",
+      "use": "For odd ℓ the archimedean corrections vanish for ℓ-primary coefficients. The cokernel gives the global invariant factor in the localization count. The kernel pairing gives equality of the orders of the two finite locally trivial groups in descent.",
+      "citation": "J. S. Milne, Arithmetic Duality Theorems, second edition, Part I, Theorem 4.10.",
+      "url": "https://www.jmilne.org/math/Books/ADTnot.pdf#page=65",
+      "passages": [
+        "inputs-local-cohomology-balance",
+        "inputs-descent-equality"
+      ]
+    },
+    {
+      "id": "chowla-selberg",
+      "title": "The Chowla–Selberg product over imaginary quadratic ideal classes",
+      "statement": "For an imaginary quadratic field of fundamental discriminant D<0, put F(z)=√Im(z) |η(z)|², h=|Cl(K)|, and w=|μ(K)|, the number of roots of unity. Write χᴰ for the quadratic character of D. The product of F over the CM points of the ideal classes equals (4π√|D|)^(−h/2) times the product of Γ(a/|D|)^(wχᴰ(a)/4) for 1 ≤ a ≤ |D|.",
+      "use": "Taking logarithms turns the product into a class mean. The period calculation specifies the additional scaling for lattices whose discriminant has been normalized to one.",
+      "citation": "A. Barquero-Sanchez et al., Faltings heights of CM elliptic curves and special Gamma values, §3, (3.2), and Theorem 5.1 at conductor one.",
+      "url": "https://doi.org/10.1007/s40993-017-0077-7",
+      "passages": [
+        "global-period-areas",
+        "global-cm-product-logarithm"
+      ]
+    },
+    {
+      "id": "cauchy-binet",
+      "title": "Cauchy–Binet for a Gram determinant",
+      "statement": "Let X be a complex m by r matrix, m ≥ r. The determinant of X*X is the sum of |det Xᵢ|² over all r-element sets of rows i, where Xᵢ is the corresponding square submatrix. This follows by applying the product formula for determinants of rectangular matrices to X* and X.",
+      "use": "For a basis of a Gaussian plane in four dimensions the six two-row minors therefore measure its determinant. The first two values can be counted exactly.",
+      "citation": "Andrew Putman, The Cauchy–Binet formula, Theorem 0.1.",
+      "url": "https://www3.nd.edu/~andyp/notes/CauchyBinet.pdf",
+      "passages": [
+        "global-higher-gaussian-planes"
+      ]
+    },
+    {
+      "id": "unitary-siegel-weil",
+      "title": "Siegel–Weil in the convergent unitary range",
+      "statement": "In the unitary dual pair over a quadratic extension of number fields, let the Hermitian target have dimension b and Witt index w, and let the doubled source have split rank a. When b−w>a, the theta integral of the standard Schwartz test converges absolutely. For the associated section of the Siegel induced representation the Eisenstein series is regular at (b−a)/2 and its value equals that integral with the measures of the formula.",
+      "use": "Here a<b, so a target of Witt index zero also lies in this range. Expressing the target integral with probability measure produces the explicit inverse volume in the chapter.",
+      "citation": "Shunsuke Yamana, The Siegel–Weil formula for unitary groups, Pacific J. Math. 264 (2013), pp. 236–237, convergence criterion and Theorem 2 in the case m−r>n.",
+      "url": "https://msp.org/pjm/2013/264-1/pjm-v264-n1-p11-p.pdf#page=4",
+      "passages": [
+        "lifts-siegel-weil",
+        "lifts-factors-global"
+      ]
+    },
+    {
+      "id": "rallis-product",
+      "title": "The Rallis inner product formula at first occurrence",
+      "statement": "In the unitary case of the cited theorem let n<m≤2n, and let the target have Witt index r≤n. Suppose π is irreducible cuspidal and its theta lifts to the smaller indices in this tower vanish. The pairing of two theta lifts is [E:F] times the value at s=(m−n)/2 of the product L(s+1/2,π×χ)Z*(s), with χ the splitting character attached to the target space V and Z* the normalized doubling integral for the chosen vectors.",
+      "use": "The factorization identifies the global L-value and the normalized local factors. The chapter supplies the formula for its own ranks and follows the measure and vector normalizations at each step of the chain.",
+      "citation": "W. T. Gan, Y. Qiu and S. Takeda, The regularized Siegel–Weil formula (the second term identity) and the Rallis inner product formula, §11.6, (11.3), and Theorem 11.4(i).",
+      "url": "https://arxiv.org/pdf/1207.4709v3#page=54",
+      "passages": [
+        "lifts-factors-global"
+      ]
+    },
+    {
+      "id": "unramified-norms",
+      "title": "Norms in an unramified local extension",
+      "statement": "If L/K is a finite unramified extension of nonarchimedean local fields, every unit of K is the norm of a unit of L. The valuation of a norm is a multiple of [L:K]. These two facts characterize the nonzero norms.",
+      "use": "At an inert place of the unramified quadratic extension, even valuation therefore suffices. At a split place the norm sends (x,y) to xy, which attains every nonzero scalar.",
+      "citation": "J. S. Milne, Class Field Theory, Chapter III, Proposition 1.2, with the norm of a uniformizer.",
+      "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf#page=107",
+      "passages": [
+        "inputs-dyadic-signatures"
+      ]
+    },
+    {
+      "id": "lagrange-inversion",
+      "title": "Lagrange inversion for formal power series",
+      "statement": "Over a characteristic-zero field let T(u) have constant coefficient zero and invertible linear coefficient. Write u(T) for its inverse. For any power series H and n≥1, n[Tⁿ]H(u(T))=[uⁿ⁻¹]H′(u)(u/T(u))ⁿ.",
+      "use": "Taking H to be the formal integral of the invariant differential gives λ₂₅=99/1280 on the curve at 5.",
+      "citation": "I. M. Gessel, Lagrange Inversion, Theorem 2.1.1, formula (2.1.1).",
+      "url": "https://people.brandeis.edu/~gessel/homepage/papers/Lagrange.pdf",
+      "passages": [
+        "normalization-height-two-example"
+      ]
+    },
+    {
+      "id": "bernoulli-denominators",
+      "title": "The von Staudt–Clausen denominator theorem",
+      "statement": "For even h≥2, adding 1/p to the Bernoulli number Bₕ for each prime p with p−1 dividing h gives an integer. Each such p occurs just once in the denominator.",
+      "use": "For h≤k, all these primes are at most k+1. A single product of primes therefore clears the denominators in the character sum.",
+      "citation": "K. Dilcher, NIST Digital Library of Mathematical Functions, §24.10(i), (24.10.1).",
+      "url": "https://dlmf.nist.gov/24.10.i",
+      "passages": [
+        "inputs-minus-denominator"
+      ]
+    },
+    {
+      "id": "bernoulli-fourier",
+      "title": "Fourier series of the Bernoulli polynomials",
+      "statement": "For integer k≥2 and real x in [0,1], the Fourier coefficient of Bₖ at nonzero integer m is −k!/(2πim)ᵏ. The constant coefficient vanishes and the series converges absolutely.",
+      "use": "Pairing the positive and negative frequencies bounds |Bₖ(x)| by 2k!ζ(k)/(2π)ᵏ at once for all x.",
+      "citation": "K. Dilcher, NIST Digital Library of Mathematical Functions, (24.8.3).",
+      "url": "https://dlmf.nist.gov/24.8.E3",
+      "passages": [
+        "inputs-minus-denominator"
+      ]
+    },
+    {
+      "id": "sum-reciprocal-squares",
+      "title": "Euler’s evaluation of ζ(2)",
+      "statement": "The series of reciprocal squares of the positive integers has sum π²/6.",
+      "use": "For k≥2 the sum of reciprocal kth powers is at most ζ(2). Both signs of the frequencies in the Bernoulli series therefore cost at most π²/3<4.",
+      "citation": "T. M. Apostol, NIST Digital Library of Mathematical Functions, (25.6.1).",
+      "url": "https://dlmf.nist.gov/25.6.E1",
+      "passages": [
+        "inputs-minus-denominator"
+      ]
+    },
+    {
+      "id": "primorial-bound",
+      "title": "An elementary upper bound for the product of small primes",
+      "statement": "For each integer N≥1 the product of the primes p≤N is at most 4ᴺ. For n≥2 the product over n<p≤2n divides the binomial coefficient (2n−1 choose n), which bounds the cost of doubling the cutoff.",
+      "use": "At N=k+1 this bounds the size of the same integer that clears the Bernoulli denominators.",
+      "citation": "A. Granville, The distribution of primes, Appendix E, Lemma E1.1 and Proposition E1.2.",
+      "url": "https://www.math.mcgill.ca/darmon/courses/10-11/nt/Granville-appendices.pdf",
+      "passages": [
+        "inputs-minus-denominator",
+        "inputs-minus-values"
+      ]
+    },
+    {
+      "id": "hensel-simple",
+      "title": "Hensel lifting of a simple root",
+      "statement": "For a complete discrete valuation ring R, a simple root of a monic polynomial modulo the maximal ideal lifts uniquely to a root in R with that residue.",
+      "use": "At the inert prime p, the derivative 2δ is a unit. The two residue roots of X²+d lift distinctly, which identifies the sign of Frobenius on δ.",
+      "citation": "The Stacks Project, Lemma 10.153.9 and the simple-root criterion in §10.153.",
+      "url": "https://stacks.math.columbia.edu/tag/04GM",
+      "passages": [
+        "normalization-inert-frobenius-sign"
+      ]
+    },
+    {
+      "id": "nakayama",
+      "title": "Nakayama’s lemma",
+      "statement": "If a finitely generated module M over a local ring with maximal ideal 𝔪 satisfies 𝔪M=M, then M is zero. In particular generators modulo 𝔪 lift to generators of M.",
+      "use": "Apply this with 𝔪=(ℓ) to the finite-module quotient in the cokernel comparison. This gives the asserted bound for one additional cyclotomic layer.",
+      "citation": "The Stacks Project, Lemma 10.20.1, tag 00DV.",
+      "url": "https://stacks.math.columbia.edu/tag/00DV",
+      "passages": [
+        "inputs-cokernel-growth"
+      ]
+    },
+    {
+      "id": "minkowski-ideal-bound",
+      "title": "Minkowski’s bound for an ideal class",
+      "statement": "For a number field of degree n and discriminant Δ with r₂ pairs of complex embeddings, every ideal class contains an integral ideal of norm at most (4/π)^(r₂)(n!/nⁿ)√|Δ|. Here the exponent r₂ counts conjugate pairs.",
+      "use": "For ℚ(√−5) only norms one and two need checking. For ℚ(ζ₉) the bound is less than 4.47 and gives a second short list of ideals.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Theorem 4.3.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT301.pdf",
+      "passages": [
+        "inputs-artin-example",
+        "inputs-ambiguous-class-example"
+      ]
+    },
+    {
+      "id": "minkowski-convex",
+      "title": "Minkowski’s convex body theorem",
+      "statement": "Let Λ be a full lattice in ℝⁿ with covolume V. A convex body symmetric about the origin of volume greater than 2ⁿV contains a nonzero point of Λ.",
+      "use": "The simultaneous bounds at the infinite places describe such a body in the real embedding space. Its volume grows with the denominator exponent, giving a nonzero field element small at every required embedding.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Theorem 4.19.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT301.pdf",
+      "passages": [
+        "inputs-common-transvections"
+      ]
+    },
+    {
+      "id": "shapiro-homology",
+      "title": "Shapiro’s lemma for group homology",
+      "statement": "For a subgroup H of G and a left ℤH-module M, Hⱼ(G, ℤG⊗ℤH M) is naturally isomorphic to Hⱼ(H,M) in every degree j≥0. The tensor product here is over the group ring of H.",
+      "use": "An orbit of chains gives an induced coefficient module. The lemma replaces its group homology by homology of the stabilizer, where the arithmetic estimates apply.",
+      "citation": "C. A. Weibel, An Introduction to Homological Algebra, Lemma 6.3.2.",
+      "url": "https://math.mit.edu/~hrm/palestine/weibel/06-group_homology_and_cohomology.pdf",
+      "passages": [
+        "inputs-degree-two-stabilizers",
+        "inputs-cyclic-relation",
+        "inputs-stable-split-sequences"
+      ]
+    },
+    {
+      "id": "ferrero-washington",
+      "title": "The Ferrero–Washington theorem",
+      "statement": "For every prime ℓ and abelian number field K, the cyclotomic ℤℓ-extension of K has Iwasawa μ-invariant zero.",
+      "use": "The monograph needs a uniform upper bound on the number of generators of the ℓ-class groups of its finite layers. The tower argument reconstructs the class-group consequence used here.",
+      "citation": "B. Ferrero and L. C. Washington, The Iwasawa invariant μₚ vanishes for abelian number fields, Annals of Mathematics 109 (1979), 377–395.",
+      "url": "https://annals.math.princeton.edu/1979/190-2/p05",
+      "passages": [
+        "inputs-descent-class",
+        "inputs-exp-ceiling"
+      ]
+    },
+    {
+      "id": "weyl-dimension",
+      "title": "Weyl’s dimension formula",
+      "statement": "For integral highest weight λ₁≥⋯≥λₙ, the dimension of the irreducible complex representation of U(n) is ∏_{i<j}(λᵢ−λⱼ+j−i)/(j−i). A common determinant twist leaves every difference unchanged.",
+      "use": "At the real places the product of weight differences can be compared term by term with the Vandermonde factors in the formal degree.",
+      "citation": "P. Etingof et al., Introduction to Representation Theory, §5.22, Theorem 5.22.1 and its dimension formula.",
+      "url": "https://math.mit.edu/~etingof/representationtheorybook.pdf",
+      "passages": [
+        "global-formal-constant",
+        "global-mass-vand",
+        "global-word-upper"
+      ]
+    },
+    {
+      "id": "schur-weyl",
+      "title": "Schur–Weyl duality on tensor powers",
+      "statement": "For a finite-dimensional complex vector space V, every endomorphism of V⊗ᵐ commuting with all g⊗ᵐ for g∈GL(V) is a linear combination of permutations of its m tensor factors.",
+      "use": "The permutations give the trace contractions of the invariant tensors. Their cycles determine the powers acquired under block repetition.",
+      "citation": "P. Etingof et al., Introduction to Representation Theory, §§5.18–5.19, the double centralizer and Schur–Weyl duality.",
+      "url": "https://math.mit.edu/~etingof/representationtheorybook.pdf",
+      "passages": [
+        "inputs-trace-commutant"
+      ]
+    },
+    {
+      "id": "hadamard-determinant",
+      "title": "Hadamard’s determinant inequality",
+      "statement": "The absolute determinant of a complex square matrix is at most the product of the Euclidean lengths of its columns. Applying this after taking a positive definite square root gives the corresponding Gram determinant bound.",
+      "use": "Multiplying the local determinant bounds over the complex embeddings controls the ideal index of a set of short vectors.",
+      "citation": "K. Lange, Hadamard’s Determinant Inequality, American Mathematical Monthly 121 (2014), 258–259.",
+      "url": "https://doi.org/10.4169/amer.math.monthly.121.03.258",
+      "passages": [
+        "inputs-compact-determinant",
+        "inputs-homology-orbits-frames",
+        "inputs-thick-spanning"
+      ]
+    },
+    {
+      "id": "stokes",
+      "title": "Stokes’ theorem on a simplex",
+      "statement": "On an oriented smooth p-simplex σ, the integral of a smooth (p−1)-form over the alternating boundary of σ equals the integral of its exterior derivative over σ.",
+      "use": "A closed form thus vanishes on boundaries when integrated over chains. Its period depends only on the homology class.",
+      "citation": "D. Calegari, Notes on Differential Forms, Theorem 2.1.",
+      "url": "https://math.uchicago.edu/~dannyc/courses/differential_topology_2016/differential_forms_notes.pdf",
+      "passages": [
+        "inputs-cocycle-height",
+        "inputs-invariant-derivative"
+      ]
+    },
+    {
+      "id": "cauchy-finite-groups",
+      "title": "Cauchy’s theorem for a finite group",
+      "statement": "For a prime ℓ dividing the order of a finite group, the group has an element of order ℓ.",
+      "use": "The exponent bound on the Galois quotient then forces every odd prime dividing its order to divide the fixed level order.",
+      "citation": "J. S. Milne, Group Theory, Theorem 4.13.",
+      "url": "https://www.jmilne.org/math/CourseNotes/GTe6.pdf",
+      "passages": [
+        "inputs-minus-degree"
+      ]
+    },
+    {
+      "id": "howe-local",
+      "title": "Howe duality for local unitary pairs",
+      "statement": "Over a nonarchimedean local field of characteristic different from two, the small theta lift of an irreducible smooth representation for a unitary dual pair is either zero or irreducible. Distinct representations with nonzero lifts have distinct partners.",
+      "use": "This gives the local uniqueness underlying the pairing condition. The row argument separately uses its global pairing hypothesis, positivity of the Gram operator and spanning of the target by orthogonal components.",
+      "citation": "W. T. Gan and S. Takeda, A proof of the Howe duality conjecture, Theorem 1.2.",
+      "url": "https://arxiv.org/abs/1407.1995",
+      "passages": [
+        "lifts-type"
+      ]
+    },
+    {
+      "id": "sinnott-independence",
+      "title": "Sinnott’s separation principle",
+      "statement": "Suppose Y₁,…,Yₘ are pairwise multiplicatively independent nontrivial Laurent monomials in independent variables over a field k. If ∑rⱼ(Yⱼ)=0 for rational functions rⱼ over k, every rⱼ is constant.",
+      "use": "This is the independence principle behind the separation argument. The finite group-algebra proof in the chapter supplies the required congruence depth and isolates an individual coefficient.",
+      "citation": "W. Sinnott, On a theorem of L. Washington, Astérisque 147–148 (1987), appendix restating Proposition 3.1 of his 1984 paper.",
+      "url": "https://www.numdam.org/article/AST_1987__147-148__209_0.pdf",
+      "passages": [
+        "inputs-stickelberger-sinnott"
+      ]
+    },
+    {
+      "id": "siegel-real-zero",
+      "title": "Siegel’s lower bound on a real exceptional zero",
+      "statement": "For every ε>0 there is c(ε)>0 such that a real zero β of a real nonprincipal Dirichlet character of modulus m satisfies 1−β≥c(ε)m⁻ᵋ. The constant is ineffective.",
+      "use": "The progression estimate needs a positive lower bound for the distance of the possible exceptional zero from one. Taking ε=1 gives the coarser scale c/m.",
+      "citation": "D. Koukoulopoulos, The Distribution of Prime Numbers, Theorem 12.10.",
+      "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf",
+      "passages": [
+        "inputs-exceptional-selection"
+      ]
+    },
+    {
+      "id": "perron-inversion",
+      "title": "Perron inversion for the ramp",
+      "statement": "For c>1 and t>0, the inverse Mellin integral of tˢ/[s(s−1)] along Re s=c, with measure ds/(2πi), is max(t−1,0). The two simple poles at 1 and 0 give the term t−1 for t>1.",
+      "use": "On a line where the Dirichlet series converges absolutely, take t=u/n and sum with coefficients Λ(n)χ(n). This gives the contour representation used to compare two endpoints.",
+      "citation": "D. Koukoulopoulos, The Distribution of Prime Numbers, Chapters 5 and 7 on Perron inversion. The stated ramp kernel follows by integrating the step kernel.",
+      "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf",
+      "passages": [
+        "inputs-twist-contour-residue"
+      ]
+    },
+    {
+      "id": "digamma-at-half",
+      "title": "Digamma values at one and one half",
+      "statement": "For ψ=Γ′/Γ, one has ψ(1)=−γ and ψ(1/2)=−γ−2 log 2, where γ is Euler’s constant.",
+      "use": "The logarithmic derivative of the completed odd quadratic L-function contains these two values when reflected between zero and one. Their mean determines the constant in the CM period identity.",
+      "citation": "NIST Digital Library of Mathematical Functions, §5.4(ii), (5.4.12) and (5.4.13).",
+      "url": "https://dlmf.nist.gov/5.4.ii",
+      "passages": [
+        "global-cm-at-one"
+      ]
+    }
+  ]
+}

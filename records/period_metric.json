@@ -82,13 +82,14 @@
       "chapter": "global",
       "anchor": "global-period-scalar",
       "statement": "For every compatible M and τ, Ω̄τ equals the mean of log(Aρ/π) minus (2/[E:ℚ])log b, where b is the absolute norm of the product of the host fractional ideal and the relative different. This equals γ + log(2π/rd E) − Re(L′(1,χ)/L(1,χ)).",
-      "hypotheses": "Host conditions of D7 for the imaginary quadratic field K₀ of discriminant −d, its host extension E and relative half-different data; admissible curve ideal, discriminant twelfth root and compatible number field.",
+      "hypotheses": "Arithmetic host conditions for the imaginary quadratic field K₀ of discriminant −d, its host extension E and relative half-different data; admissible curve ideal, discriminant twelfth root and compatible number field.",
       "equations": [
         "global-period-areas",
         "global-period-omega"
       ],
       "dependencies": [
-        "GPM-01"
+        "GPM-01",
+        "GPM-05"
       ],
       "sources": [
         {
@@ -183,7 +184,7 @@
       "chapter": "global",
       "anchor": "global-period-frame",
       "statement": "After choosing a coefficient field and the compatible differential generators, the local period is pτ(w)=Σρ Wwρ(−mρ(aτ)). For every τ, its average over the infinite places w is Ωlog because mean_w Wwρ=1/[M:ℚ] for each ρ. Coupled matrix norms use these period values and a separately bounded mean logarithmic theta norm.",
-      "hypotheses": "Nonnegative compatible place weights with row sums one; trivial character tuple and sharp local datum on the kernel branch, compatible analytic and character data, identified weights, sizes, field of definition and the remaining kerSide_chainS hypotheses.",
+      "hypotheses": "Nonnegative compatible place weights with row sums one; trivial character tuple and sharp local datum on the kernel branch, compatible analytic and character data, identified weights, sizes, field of definition and the kernel-column bounds of the chosen chain.",
       "equations": [
         "global-period-frame-mean"
       ],
@@ -273,8 +274,8 @@
       "title": "The definite-side row construction and the independent global family estimate",
       "chapter": "global",
       "anchor": "global-period-frame",
-      "statement": "The selected every-character application uses TopShape and TopPlug in ThirdPlaceSeries. Its definite-side row condition uses the bounds on the kernel column factors. The family proof produces divisibility from the rows and takes LinkGLOBAL from link_gl. DesWin applies LinkGLOBAL to a tuple containing the realized divisibility estimate and the derived slope input. The per22/OmLink implication in Joints is a separate assembly.",
-      "hypotheses": "ThirdPlaceSeries hypothesis package and TopShape hypotheses, including the real-place and mass conditions for link_gl and the distinct row, admissibility and growth hypotheses. The OmLink comparison follows from compatible generators and its own hypotheses.",
+      "statement": "At the chosen family, the period comparison bounds the kernel-column heights. The definite rows then give a divisibility estimate and its slope consequence. The global estimate obtained independently from real-place and mass bounds takes both as inputs.",
+      "hypotheses": "The real-place and mass bounds apply to the same family as the row, admissibility and growth conditions. Compatible differential generators and one common coefficient field give the comparison of period means.",
       "equations": [],
       "dependencies": [
         "GPM-03"
@@ -455,6 +456,86 @@
       "correspondence": "Direct applications traced from the selected third-place row and global suppliers. The common real-place rank-and-count construction reaches linkCore. The conditional JointsF theorem does not supply link_gl.",
       "status": "statement and proof inspected",
       "review": "Independently checked in the pinned period, different, generator, kernel mean and selected-supplier source passages. No local Lean elaboration was run for this correspondence."
+    },
+    {
+      "id": "GPM-05",
+      "title": "The class product gives the mean area of period lattices of discriminant one",
+      "chapter": "global",
+      "anchor": "global-cm-class-product",
+      "statement": "For an imaginary quadratic field of discriminant −d, the class mean of log(A/π) for the lattices of Weierstrass discriminant one equals γ + log(2π/√d) − L′(1,χ)/L(1,χ).",
+      "hypotheses": "The discriminant −d is fundamental, d > 4, χ is its primitive quadratic character, and one representative of every ideal class enters with weight 1/h.",
+      "equations": [
+        "global-cm-class-at-zero",
+        "global-cm-period-class-identity"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.latticeLogPeriod_eq",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean",
+          "lines": [
+            183,
+            208
+          ],
+          "declaration_lines": {
+            "GlobalTheory.latticeLogPeriod_eq": 198
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean#L183-L208"
+        },
+        {
+          "declaration": "GlobalTheory.chowla_selberg_eta",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean",
+          "lines": [
+            222,
+            241
+          ],
+          "declaration_lines": {
+            "GlobalTheory.chowla_selberg_eta": 222
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean#L222-L241"
+        },
+        {
+          "declaration": "GlobalTheory.PeriodMean.mean_log_area",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean",
+          "lines": [
+            179,
+            191
+          ],
+          "declaration_lines": {
+            "GlobalTheory.PeriodMean.mean_log_area": 141
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean#L179-L191"
+        }
+      ],
+      "correspondence": "The source derives the class mean by comparing two zeta expansions. The exposition derives the same normalized class identity using the published Chowla–Selberg product and the odd quadratic functional equation, then follows its use in the conjugate mean.",
+      "status": "mathematical proof reconstructed",
+      "review": "The scaling, local logarithmic derivative and finite source calls were checked against the identified passages. The independent check at discriminant −7 uses the eta product and the Hurwitz zeta expansion."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.covolume_lattice_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean",
+        "line": 204,
+        "spelling": "covolume_lattice_eq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.log_norm_lattice_discriminant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DedekindZetaEqSumRealEisenstein.lean",
+        "line": 204,
+        "spelling": "log_norm_lattice_discriminant"
+      }
+    },
+    {
+      "callee": "GlobalTheory.chowla_selberg_eta",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/MeanLogPeriodConjugatesEqChowlaSelberg.lean",
+        "line": 184,
+        "spelling": "chowla_selberg_eta"
+      }
     }
   ]
 }

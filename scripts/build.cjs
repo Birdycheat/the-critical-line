@@ -24,6 +24,29 @@ const chapters = ed.chapters.filter(([id]) =>
 );
 const num = (i) => String(i + 1).padStart(2, "0");
 const { page, articleHead, sectionHeading, home } = require("./template.cjs");
+const { readingPassages, formalUrl, printExamples, correspondence } = require("./reading-passages.cjs");
+const background = data("background_theorems").theorems;
+const sourceFiles = fs.readdirSync(path.join(root, "records"))
+  .filter(f => f.endsWith(".json") && !["corpus.json", "edition.json", "targets.json"].includes(f));
+const allClaims = [
+  ...tar.targets.map(c => ({ ...c, anchor: "target-exact" })),
+  ...sourceFiles.flatMap(f => data(f.slice(0, -5)).claims || []),
+];
+const claimsById = new Map(allClaims.map(c => [c.id, c]));
+const byPassage = new Map();
+function passageLink(anchor, entry) {
+  if (!byPassage.has(anchor)) byPassage.set(anchor, []);
+  byPassage.get(anchor).push(entry);
+}
+for (const c of allClaims) {
+  if (!c.title) throw Error("A mathematical result needs a reading title: " + c.id);
+  passageLink(c.anchor || c.section || c.chapter, { title: c.title, href: "atlas.html#claim-" + c.id });
+}
+for (const t of background) {
+  for (const anchor of t.passages) {
+    passageLink(anchor, { title: t.title, href: "reference.html#theorem-" + t.id, background: true });
+  }
+}
 const frontispiece = plate();
 save("assets/critical-strip.svg", frontispiece);
 save(
@@ -84,7 +107,7 @@ function figure(id) {
   figNumbers[id] = fn;
   const sourceClaims = data("figures")
     .figures[id].claim_ids.map(
-      (k) => '<a href="atlas.html#claim-' + k + '">' + k + "</a>",
+      (k) => linked(claimsById.get(k).title, "atlas.html#claim-" + k),
     )
     .join(" · ");
   return (
@@ -95,18 +118,18 @@ function figure(id) {
     '"><div class="labhead"><div><span class="sc figure-label">Fig. ' +
     fn +
     " &nbsp;/&nbsp; " +
-    c.kind +
+    esc(c.kind) +
     "</span><h4>" +
-    c.title +
+    esc(c.title) +
     '</h4></div><button type="button" class="reset">Reset</button></div><div class="controls" data-controls>' +
     params +
     "</div><div data-result>" +
     render(id, defaults(id)) +
     "</div><figcaption>" +
-    c.caption +
+    esc(c.caption) +
     "</figcaption><details><summary>Method and parameters</summary><p>" +
-    c.method +
-    "</p><p>Source claims " +
+    esc(c.method) +
+    "</p><p>Related results. " +
     sourceClaims +
     ".</p><p>Displayed defaults: " +
     c.params
@@ -123,60 +146,16 @@ function figure(id) {
   );
 }
 const refList = [];
-// Keep links that carry part of a sentence in the prose. Only shorten a
-// trailing list of source citations after a complete sentence.
-function markCitationGroups(html) {
-  return html.replace(/<p\b[^>]*>([\s\S]*?)<\/p>/g, (paragraph, body) => {
-    const links = [...body.matchAll(/<a href="https:\/\/github\.com\/[^"]+\/blob\/[^"]+"[^>]*>[\s\S]*?<\/a>/g)];
-    if (!links.length) return paragraph;
-    const last = links[links.length - 1];
-    if (!/^[\s.]*$/.test(body.slice(last.index + last[0].length))) return paragraph;
-    let i = links.length - 1;
-    while (i > 0) {
-      const previous = links[i - 1];
-      const gap = body.slice(previous.index + previous[0].length, links[i].index);
-      if (!/^\s*[,·]?\s*(?:and\s*)?$/.test(gap)) break;
-      i--;
-    }
-    const start = links[i].index;
-    if (!/[.!?]\s*$/.test(body.slice(0, start))) return paragraph;
-    const group = links.slice(i).map(m => m[0].replace('<a href=', '<a data-citation href=')).join(' ');
-    return paragraph.slice(0, paragraph.indexOf('>') + 1) + body.slice(0, start) + group + '</p>';
-  });
-}
 function numberSources(html) {
-  return markCitationGroups(html).replace(
-    /<a (data-citation )?href="(https?:[^"]+)"([^>]*)>([\s\S]*?)<\/a>/g,
-    (_, citation, u, a, label) => {
-      label = label.replace(/^\[\d+\]\s*/, "");
-      let n = refList.findIndex((v) => v.u === u) + 1;
-      if (!n) {
-        refList.push({ u, label });
-        n = refList.length;
-      }
-      if (citation) {
-        const name = esc(label.replace(/<[^>]*>/g, ""));
-        return '<span class="source-citation"><a class="source-title" href="' + u + '">' +
-          label + '</a><sup class="refno"><a href="#ref-' + n + '" title="' + name +
-          '" aria-label="Reference ' + n + '. ' + name + '">[' + n + ']</a></sup></span>';
-      }
-      return (
-        '<a href="' +
-        u +
-        '"' +
-        a +
-        ">" +
-        label +
-        '</a><sup class="refno"><a href="#ref-' +
-        n +
-        '" aria-label="Reference ' +
-        n +
-        '">[' +
-        n +
-        "]</a></sup>"
-      );
-    },
-  );
+  return html.replace(/<a href="(https?:[^"]+)"([^>]*)>([\s\S]*?)<\/a>/g, (link, url, attributes, label) => {
+    if (formalUrl(url)) return link;
+    label = label.replace(/^\[\d+\]\s*/, "");
+    let index = refList.findIndex(reference => reference.u === url);
+    if (index < 0) index = refList.push({ u: url, label }) - 1;
+    return '<a href="' + url + '"' + attributes + '>' + label +
+      '</a><sup class="refno"><a href="#ref-' + (index + 1) + '" aria-label="Reference ' +
+      (index + 1) + '">[' + (index + 1) + ']</a></sup>';
+  });
 }
 function includeFragments(html, parents = []) {
   return html.replace(/<!--INCLUDE:([a-z-]+)-->/g, (_, name) => {
@@ -213,7 +192,8 @@ function sectionContent(id) {
     insert('<h3 id="window-geometry"', "kernel");
     insert('<h3 id="window-epsilon"', "rates");
   }
-  return numberSources(html.replace(/<!--FIG:([a-z][a-z-]*)-->/g, (_, k) => figure(k)));
+  const manuscript = html.replace(/<!--FIG:([a-z][a-z-]*)-->/g, (_, k) => figure(k));
+  return numberSources(readingPassages(manuscript, id, byPassage, linked));
 }
 const book = chapters
   .map(([id, title], i) => {
@@ -267,7 +247,7 @@ const footnotes =
   "</ol></section>";
 const bookHead = articleHead(
   "The Riemann Hypothesis",
-  'Read the proof from the statement about zeros to the estimates on prime sums, or start with the <a href="#how-to-read">proof outline</a>. Numbered notes lead to the formal sources. <button class="text-button" id="source-mode" type="button" aria-pressed="false" hidden>Show source titles</button> · <a href="print.html">Print edition</a>.',
+  'Read the proof from the statement about zeros to the estimates on prime sums, or start with the <a href="#how-to-read">proof outline</a>. Each section links to its mathematical results and references. <a href="print.html">Print edition</a>.',
   chapters.map(([id, t], i) => [i + 1 + ". " + t, "#" + id]),
 );
 save(
@@ -282,20 +262,41 @@ save(
     "Read",
   ),
 );
-const expanded = book
-  .replace(/<details\b([^>]*)>/g, (_, attributes) => {
-    const id = attributes.match(/\s+id="[^"]*"/);
-    return '<section class="printed-detail"' + (id ? id[0] : "") + ">";
-  })
-  .replaceAll("</details>", "</section>")
-  .replace(/<summary>/g, "<h4>")
-  .replaceAll("</summary>", "</h4>")
+const expanded = printExamples(book)
+  .replaceAll('href="atlas.html#claim-', 'href="#claim-')
+  .replaceAll('href="reference.html#theorem-', 'href="#theorem-')
   .replace(/<button[^>]*>Reset<\/button>/g, "")
   .replace(/data-lab="/g, 'data-static="');
 const printFront = articleHead(
   "The Riemann Hypothesis",
-  'An independent reconstruction of the formalization by Levent Alpöge with Claude. Working edition, 21 November 2026. <button class="print text-button" type="button" onclick="window.print()">Print this volume</button>',
+  'An independent reconstruction of the argument by Levent Alpöge with Claude. Working edition, 21 November 2026. <button class="print text-button" type="button" onclick="window.print()">Print this volume</button>',
 );
+const passageNames = new Map(chapters.map(([id, title]) => [id, title]));
+let heading = "";
+function headingText(html) {
+  const entities = { amp: "&", lt: "<", gt: ">", quot: '"', nbsp: " " };
+  return html.replace(/<span class="section-number">[^<]*<\/span>|<[^>]+>/g, "")
+    .replace(/&(amp|lt|gt|quot|nbsp);/g, (_, key) => entities[key]).trim();
+}
+for (const m of book.matchAll(/<h[2-6]\b[^>]*>[\s\S]*?<\/h[2-6]>|<\w+\b[^>]*\bid="[^"]+"[^>]*>/g)) {
+  const id = m[0].match(/\bid="([^"]+)"/)?.[1];
+  if (/^<h[2-6]\b/.test(m[0])) heading = headingText(m[0]);
+  if (id && !passageNames.has(id)) passageNames.set(id, heading);
+}
+for (const m of book.matchAll(/<(?:section|p|details)\b[^>]*\bid="([^"]+)"[^>]*>\s*<(h[2-6]|strong|summary)\b[^>]*>([\s\S]*?)<\/\2>/g)) {
+  passageNames.set(m[1], headingText(m[3]));
+}
+function theoremEntries(print = false) {
+  const page = print ? "" : "book.html";
+  return '<ol class="records theorem-register">' + background.map(t =>
+    '<li id="theorem-' + esc(t.id) + '"><h4>' + esc(t.title) + '</h4><p>' + esc(t.statement) +
+    '</p><p>' + esc(t.use) + '</p><p>' + linked(t.citation, t.url) +
+    (print ? '<span class="print-only micro">' + esc(t.url) + '</span>' : '') +
+    '</p><p class="micro">Used in ' + t.passages.map(anchor => {
+      if (!passageNames.has(anchor)) throw Error("Unknown theorem passage " + anchor);
+      return linked(passageNames.get(anchor) || anchor, page + "#" + anchor);
+    }).join(" · ") + '</p></li>').join("") + '</ol>';
+}
 function glossaryEntries(chapterPage) {
   return ed.glossary
     .map(
@@ -305,26 +306,28 @@ function glossaryEntries(chapterPage) {
     .join("");
 }
 function bibliographyEntries(print = false) {
-  return ed.references
-    .map(
-      ([title, description, url]) =>
-        `<li><b>${esc(title)}</b>. ${esc(description)} ${linked("Source", url)}${print ? '<span class="print-only micro">' + esc(url) + "</span>" : ""}</li>`,
-    )
-    .join("");
+  const visible = [], technical = [];
+  for (const [title, description, url] of ed.references) {
+    const list = formalUrl(url) || url === corpus.external_report.url ? technical : visible;
+    list.push(`<li><b>${esc(title)}</b>. ${esc(description)} ${linked("Source", url)}${print ? '<span class="print-only micro">' + esc(url) + "</span>" : ""}</li>`);
+  }
+  return '<ol>' + visible.join("") + '</ol>' + (technical.length ? correspondence('<ol>' + technical.join("") + '</ol>') : '');
 }
 const printAppendix =
   '<section id="appendix" class="page-shell article-section textpage gloss"><h2>Notation and references</h2>' +
   "<dl>" +
   glossaryEntries("") +
-  "</dl><h3>Annotated bibliography</h3><ol>" +
+  '</dl><h3 id="theorems">Theorems used in the book</h3>' + theoremEntries(true) +
+  '<h3 id="results">Results in the proof</h3><ol class="records">' +
+  allClaims.map(c => claimLi(c, true)).join("") + '</ol><h3>Annotated bibliography</h3>' +
   bibliographyEntries(true) +
-  "</ol></section>";
+  "</section>";
 const printContents =
   '<div class="page-shell print-contents"><figure><img src="assets/critical-strip.svg" width="430" height="279" alt="Magnitude of zeta across the critical strip, with the critical-line section in copper."><figcaption class="figure-caption"><span class="sc">Fig. 1.</span> Sections of |ζ(σ+it)|. The copper curve has σ=½.</figcaption></figure><h2>Contents</h2><ol>' +
   chapters
     .map(([id, title]) => '<li><a href="#' + id + '">' + title + "</a></li>")
     .join("") +
-  '</ol><p class="small"><a href="#appendix">Notation and bibliography</a> · <a href="#book-references">Numbered chapter references</a></p></div>';
+  '</ol><p class="small"><a href="#appendix">Notation</a> · <a href="#theorems">Theorems used</a> · <a href="#results">Results in the proof</a> · <a href="#book-references">Chapter references</a></p></div>';
 save(
   "print.html",
   page(
@@ -383,6 +386,7 @@ save(
         "Definitions used in the book, with a route back to the proof.",
         [
           ["Glossary", "#glossary"],
+          ["Theorems", "#theorems"],
           ["Bibliography", "#bibliography"],
           ["Figure notes", "#plate"],
         ],
@@ -391,9 +395,10 @@ save(
       filters("Term or symbol") +
       "<dl>" +
       glossaryEntries("book.html") +
-      '</dl><h2 id="bibliography"><span class="section-number">2</span>Annotated bibliography</h2><ol>' +
+      '</dl><h2 id="theorems"><span class="section-number">2</span>Theorems used in the book</h2>' + theoremEntries() +
+      '<h2 id="bibliography"><span class="section-number">3</span>Annotated bibliography</h2>' +
       bibliographyEntries() +
-      '</ol><h2 id="plate"><span class="section-number">3</span>The critical strip, in section</h2><figure class="reference-plate"><img src="assets/critical-strip.svg" alt="Sampled sections of absolute zeta with the critical-line section in copper."></figure><p>The frontispiece plots |ζ(σ+it)| on 27 equally spaced sections 0≤σ≤1. Each section contains 169 samples, 8≤t≤32. The copper section on this page has σ=½. The opening figure allows other sampled sections to be selected. Height is linear in |ζ|. Smoothly joined sample values can miss a zero between mesh points.</p><p>The generator sums the first 95 Dirichlet terms, then applies Euler–Maclaurin at N=96 through B₆. The absolute remainder is bounded by |s(s+1)⋯(s+5)| N<sup>−σ−5</sup>/[30240(σ+5)] from the periodic Bernoulli remainder. This is less than 0.000002 across the plotted domain. Binary64 evaluation adds rounding error. <a href="https://dlmf.nist.gov/25.2.iii">Euler–Maclaurin representation</a> · <a href="scripts/plate.cjs">Figure source</a></p></div></main>',
+      '<h2 id="plate"><span class="section-number">4</span>The critical strip, in section</h2><figure class="reference-plate"><img src="assets/critical-strip.svg" alt="Sampled sections of absolute zeta with the critical-line section in copper."></figure><p>The frontispiece plots |ζ(σ+it)| on 27 equally spaced sections 0≤σ≤1. Each section contains 169 samples, 8≤t≤32. The copper section on this page has σ=½. The opening figure allows other sampled sections to be selected. Height is linear in |ζ|. Smoothly joined sample values can miss a zero between mesh points.</p><p>The generator sums the first 95 Dirichlet terms, then applies Euler–Maclaurin at N=96 through B₆. The absolute remainder is bounded by |s(s+1)⋯(s+5)| N<sup>−σ−5</sup>/[30240(σ+5)] from the periodic Bernoulli remainder. This is less than 0.000002 across the plotted domain. Binary64 evaluation adds rounding error. <a href="https://dlmf.nist.gov/25.2.iii">Euler–Maclaurin representation</a> · <a href="scripts/plate.cjs">Figure source</a></p></div></main>',
     "Glossary",
   ),
 );
@@ -436,80 +441,41 @@ const paths = tar.source_proof_applications
       '">Proof body</a></li>',
   )
   .join("");
-const sourceFiles = fs
-  .readdirSync(path.join(root, "records"))
-  .filter(
-    (f) =>
-      !["corpus.json", "edition.json", "targets.json"].includes(f) &&
-      f.endsWith(".json"),
-  );
 function linked(text, href) {
   return '<a href="' + esc(href) + '">' + esc(text) + "</a>";
 }
-function claimLinks(label, claims) {
-  if (!claims.length) return "";
-  return `<p><b>${label}.</b> ${claims.map((id) => linked(id, "#claim-" + id)).join(" · ")}</p>`;
+function claimLinks(label, ids) {
+  return ids.length ? '<p class="micro"><b>' + label + '.</b> ' +
+    ids.map(id => linked(claimsById.get(id).title, "#claim-" + id)).join(" · ") + '</p>' : "";
 }
-function claimLi(c) {
-  const ss = c.sources || c.declarations || [],
-    id = c.id || c.claim_id,
-    anchor = c.anchor || c.section || c.chapter;
-  const equations = (c.equation_anchors || c.equations || []).map((target, i) => {
-    const label = c.equation_anchors ? "Equation " + c.equations[i] : target
-      .replace(/^[^-]+-/, "").replaceAll("-", " ");
-    return linked(label, "book.html#" + target);
+function claimLi(c, print = false) {
+  const id = c.id, anchor = c.anchor || c.section || c.chapter;
+  const chapterPage = print ? "" : "book.html";
+  const formulas = (c.equation_anchors || c.equations || []).map((target, i) => {
+    const label = c.equation_anchors ? "Equation " + c.equations[i] :
+      target.replace(/^[^-]+-/, "").replaceAll("-", " ");
+    return linked(label, chapterPage + "#" + target);
   });
-  return (
-    '<li data-search id="claim-' +
-    esc(id) +
-    '"><span class="source-id">' +
-    esc(id) +
-    "</span><b>" +
-    esc(c.title || c.declaration || id) +
-    "</b><p>" +
-    esc(c.statement) +
-    '</p><div class="micro">' +
-    esc(c.status || c.reconstruction || "See record") +
-    "</div><details><summary>Declaration and correspondence</summary><p>" +
-    esc(
-      c.correspondence ||
-        c.evidence ||
-        "Consult the structured claim record for its hypotheses and evidence.",
-    ) +
-    "</p>" +
-    (c.hypotheses
-      ? "<p><b>Hypotheses.</b> " + esc(c.hypotheses) + "</p>"
-      : "") +
-    (c.type
-      ? "<p><b>Formal type.</b> <code>" + esc(c.type) + "</code></p>"
-      : "") +
-    (c.review ? "<p><b>Review.</b> " + esc(c.review) + "</p>" : "") +
-    (equations.length ? "<p><b>Formulas in the book.</b> " + equations.join(" · ") + "</p>" : "") +
-    claimLinks("Uses in this exposition", c.dependencies || []) +
-    claimLinks(
-      "Used by",
-      allClaims
-        .filter((other) => other.dependencies?.includes(id))
-        .map((other) => other.id),
-    ) +
-    ss
-      .map((s) =>
-        s.url ? linked(s.label ? s.label + " (" + s.declaration + ")" : s.declaration || s.name || s.path, s.url) : "",
-      )
-      .join(" · ") +
-    (c.source ? " " + linked(c.declaration || "Pinned source", c.source) : "") +
-    "</details>" +
-    (anchor ? linked("Read the proof step", "book.html#" + anchor) : "") +
-    "</li>"
-  );
+  const sourceLinks = (c.sources || c.declarations || []).filter(s => s.url).map(s =>
+    linked(s.label ? s.label + " (" + s.declaration + ")" : s.declaration || s.name || s.path, s.url));
+  if (c.source) sourceLinks.push(linked(c.declaration || "Pinned source", c.source));
+  const evidence = c.correspondence || c.evidence;
+  const status = c.status || c.reconstruction;
+  const technical = '<p class="source-id">' + esc(id) + '</p>' +
+    (status ? '<p>' + esc(status) + '</p>' : '') +
+    (evidence ? '<p>' + esc(evidence) + '</p>' : '') +
+    (c.type ? '<p><b>Formal type.</b> <code>' + esc(c.type) + '</code></p>' : '') +
+    (c.review ? '<p><b>Review.</b> ' + esc(c.review) + '</p>' : '') +
+    (sourceLinks.length ? '<p>' + sourceLinks.join(" · ") + '</p>' : '');
+  const assumptions = Array.isArray(c.hypotheses) ? c.hypotheses.join(" ") : c.hypotheses;
+  return '<li data-search id="claim-' + esc(id) + '"><b>' + esc(c.title) + '</b><p>' + esc(c.statement) +
+    '</p>' + (assumptions ? '<p><b>Hypotheses.</b> ' + esc(assumptions) + '</p>' : '') +
+    (formulas.length ? '<p class="micro"><b>Formulas.</b> ' + formulas.join(" · ") + '</p>' : '') +
+    claimLinks("Uses", c.dependencies || []) +
+    claimLinks("Used by", allClaims.filter(other => other.dependencies?.includes(id)).map(other => other.id)) +
+    (anchor ? linked("Read the proof step", chapterPage + "#" + anchor) : '') +
+    (print ? '' : correspondence(technical)) + '</li>';
 }
-const allClaims = [
-  ...tar.targets.map((c) => ({ ...c, anchor: "target-exact" })),
-  ...sourceFiles.flatMap((f) => {
-    const d = data(f.slice(0, -5));
-    return d.claims || [];
-  }),
-];
 const sourceClaims = new Map();
 for (const claim of allClaims) {
   for (const entry of claim.sources || []) {
@@ -572,16 +538,15 @@ save(
     '<main id="main" class="article">' +
       articleHead(
         "Source atlas",
-        "Trace a mathematical claim to its pinned declaration and the paragraph that explains it.",
+        "Read the hypotheses and conclusion of each result, then follow the results it uses or the passage that explains its proof.",
         [
           ["Verification", "#verification"],
           ["Reconstruction", "#reconstruction"],
-          ["Claims", "#ledger"],
-          ["Declaration index", "#declaration-index"],
-          ["Dependencies", "#source-graph"],
+          ["Results", "#ledger"],
+          ["Indexes", "#indexes"],
         ],
       ) +
-      '<div class="page-shell article-section textpage"><h2>Reading the dependency chain</h2><p>Start at the conclusion and follow the required inputs. This first diagram groups mathematical ideas. The individual proof applications below identify direct uses visible in the pinned source text.</p><div class="pathlist">' +
+      '<div class="page-shell article-section textpage"><h2>Reading the dependency chain</h2><p>Start at the conclusion and follow the required inputs. Each arrow points from an input toward the conclusion it supports.</p><div class="pathlist">' +
       [
         ["Classical RH", "target"],
         ["Nonvanishing", "reflection"],
@@ -591,9 +556,9 @@ save(
       ]
         .map(([t, id]) => linked(t, "book.html#" + id))
         .join("<span>←</span>") +
-      "</div><details><summary>Direct applications in the formal source</summary><ul>" +
+      '</div><details class="correspondence"><summary>Lean correspondence</summary><ul>' +
       paths +
-      '</ul><p>These entries follow written proof expressions. The transitive constant-dependency graph of the elaborated solution has not been extracted locally.</p></details><h2 id="verification">Verification record</h2><p>External checks are attributed to Andrew V. Sutherland and dated 20 November 2026 at 22:05 UTC. The source attribution is Levent Alpöge working with Claude. This edition is independently written. ' +
+      '</ul><p>These entries follow written proof expressions. The transitive constant-dependency graph of the elaborated solution has not been extracted locally.</p></details><h2 id="verification">Verification record</h2><details class="correspondence"><summary>Lean correspondence</summary><p>External checks are attributed to Andrew V. Sutherland and dated 20 November 2026 at 22:05 UTC. The source attribution is Levent Alpöge working with Claude. This edition is independently written. ' +
       linked("Published report", ver.url) +
       " · " +
       linked("Author’s announcement", corpus.attribution.announcement) +
@@ -610,20 +575,17 @@ save(
       pin +
       "</code> · Lean v4.33.1 · Mathlib <code>0df444a360eaa60ab8c11dca51a86af692955474</code>. " +
       linked("Corpus lock", "records/corpus.json") +
-      '</p><h2 id="reconstruction">Reconstruction record</h2><p>The analytic chapters follow a possible zero from its residue to the one-sided window estimate and reflection. The theta chapters reconstruct an integral expansion at the selected primes, the local zeta quotients, the <a href="book.html#lifts-siegel-weil">two Siegel–Weil ranges</a> and the <a href="book.html#lifts-kernel-majorant">absolute bound for pairing two lifts</a>. The arithmetic chapter derives the marked-window selection, degree-two estimate and separate character counts. Each chapter records its remaining inputs. The chapter on normalization follows the six prime classes and the nonzero base tuple. The arithmetic chapter constructs the finite cycles and their determinant evaluations. The book follows the <a href="book.html#lifts-inert-length">length of an inert lattice</a> into the local zeta sum. At a real place the <a href="book.html#lifts-fock-projection">projection of a joint polynomial</a> gives the positive factor. The <a href="book.html#lifts-schrodinger-fourier">Fourier comparison</a> recovers the lower-range value after treating singular frequencies. The <a href="book.html#lifts-height-fibres">count of rational classes at fixed height</a> supplies the convergence estimate. Counting <a href="book.html#lifts-whittaker-density">integral Hermitian frames</a> gives the full-rank Whittaker factor at the good finite places. At an <a href="book.html#lifts-exceptional-whittaker">exceptional place</a> shell cancellation supplies the continued value. At infinity <a href="book.html#lifts-archimedean-whittaker">determinant differentiation</a> continues the nonsingular coefficient and recovers its density. The <a href="book.html#lifts-global-gram-density">global Gram-fibre mean</a> explains how the local densities fit together. In cohomology, <a href="book.html#inputs-lattice-transference">transference</a> bounds the distance to the lattice, and <a href="book.html#inputs-additive-cups">products of translation classes</a> determine the weights in the stabilizer. The <a href="book.html#inputs-common-invariants">common invariant functions</a> explain why a spectral gap bounds the period of a mean-zero form. Averaging the vertices transfers that bound to the <a href="book.html#inputs-period-transfer">period of a fixed cycle</a>. A <a href="book.html#inputs-hecke-transfer">second Hecke estimate</a> forces the remaining periods to vanish, and <a href="book.html#inputs-invariant-forms">alternating traces</a> bound the number of independent tests. The <a href="book.html#inputs-split-connectivity">split-sequence calculation</a> supplies integral stability, while the <a href="book.html#inputs-field-cycle-quotient">cyclotomic quotient map</a> bounds the length at the base field. In the dyadic tower the <a href="book.html#inputs-inertia-orbits">indices of Frobenius subgroups</a> bound the number of inertia evaluations. The choice of primes uses a <a href="book.html#inputs-zero-density">count of characters with a zero</a> and a <a href="book.html#inputs-twist-mean-square">mean square for quadratic twists</a>. Further inputs include local representation densities and the volume estimates for the period maps. An end-to-end review of the exposition is still in progress. ' +
+      '</p></details><h2 id="reconstruction">Reconstruction record</h2><p>The analytic chapters follow a possible zero from its residue to the one-sided window estimate and reflection. The theta chapters reconstruct an integral expansion at the selected primes, the local zeta quotients, the <a href="book.html#lifts-siegel-weil">two Siegel–Weil ranges</a> and the <a href="book.html#lifts-kernel-majorant">absolute bound for pairing two lifts</a>. The arithmetic chapter derives the marked-window selection, degree-two estimate and separate character counts. Each chapter records its remaining inputs. The chapter on normalization follows the six prime classes and the nonzero base tuple. The arithmetic chapter constructs the finite cycles and their determinant evaluations. The book follows the <a href="book.html#lifts-inert-length">length of an inert lattice</a> into the local zeta sum. At a real place the <a href="book.html#lifts-fock-projection">projection of a joint polynomial</a> gives the positive factor. The <a href="book.html#lifts-schrodinger-fourier">Fourier comparison</a> recovers the lower-range value after treating singular frequencies. The <a href="book.html#lifts-height-fibres">count of rational classes at fixed height</a> supplies the convergence estimate. Counting <a href="book.html#lifts-whittaker-density">integral Hermitian frames</a> gives the full-rank Whittaker factor at the good finite places. At an <a href="book.html#lifts-exceptional-whittaker">exceptional place</a> shell cancellation supplies the continued value. At infinity <a href="book.html#lifts-archimedean-whittaker">determinant differentiation</a> continues the nonsingular coefficient and recovers its density. The <a href="book.html#lifts-global-gram-density">global Gram-fibre mean</a> explains how the local densities fit together. In cohomology, <a href="book.html#inputs-lattice-transference">transference</a> bounds the distance to the lattice, and <a href="book.html#inputs-additive-cups">products of translation classes</a> determine the weights in the stabilizer. The <a href="book.html#inputs-common-invariants">common invariant functions</a> explain why a spectral gap bounds the period of a mean-zero form. Averaging the vertices transfers that bound to the <a href="book.html#inputs-period-transfer">period of a fixed cycle</a>. A <a href="book.html#inputs-hecke-transfer">second Hecke estimate</a> forces the remaining periods to vanish, and <a href="book.html#inputs-invariant-forms">alternating traces</a> bound the number of independent tests. The <a href="book.html#inputs-split-connectivity">split-sequence calculation</a> supplies integral stability, while the <a href="book.html#inputs-field-cycle-quotient">cyclotomic quotient map</a> bounds the length at the base field. In the dyadic tower the <a href="book.html#inputs-inertia-orbits">indices of Frobenius subgroups</a> bound the number of inertia evaluations. The choice of primes uses a <a href="book.html#inputs-zero-density">count of characters with a zero</a> and a <a href="book.html#inputs-twist-mean-square">mean square for quadratic twists</a>. Further inputs include local representation densities and the volume estimates for the period maps. An end-to-end review of the exposition is still in progress. ' +
       linked("Current project state", "STATE.md") +
-      '</p><p><a href="#source-graph">Explore individual declarations and their callers</a></p><h2 id="ledger">Claim ledger</h2>' +
-      filters("Claim, theorem, or mathematical term") +
+      '</p><h2 id="ledger">Results in the proof</h2>' +
+      filters("Result, theorem, or mathematical term") +
       '<ol class="records">' +
-      allClaims.map(claimLi).join("") +
+      allClaims.map(c => claimLi(c)).join("") +
       "</ol>" +
-      '<h2 id="declaration-index">Declaration index</h2><details><summary>Find a passage by its Lean declaration</summary><dl class="declaration-index">' +
-      reverseIndex +
-      "</dl></details>" +
-      graph +
-      "<h2>Machine-readable records</h2><p>" +
-      auditLinks.join(" · ") +
-      "</p></div></main>",
+      '<h2 id="indexes">Source indexes</h2>' +
+      correspondence('<h3 id="declaration-index">Find a passage by declaration</h3><dl class="declaration-index">' +
+        reverseIndex + "</dl>" + graph + "<h3>Machine-readable records</h3><p>" + auditLinks.join(" · ") + "</p>") +
+      "</div></main>",
     "Source atlas",
   ),
 );
@@ -634,7 +596,9 @@ console.log(
     Object.keys(figNumbers).length +
     " experiments, " +
     allClaims.length +
-    " claims and " +
+    " mathematical results, " +
+    background.length +
+    " cited background theorems and " +
     refList.length +
-    " distinct chapter sources.",
+    " additional numbered chapter references.",
 );

@@ -63,7 +63,7 @@ function colophon() {
           <a href="index.html">The Riemann Hypothesis</a><a href="reference.html#bibliography">Bibliography</a><a href="print.html">Print edition</a>
         </nav>
       </div>
-      <div class="colophon-contact">Independent reconstruction of the formal proof by Levent Alpöge with Claude.<br><a href="atlas.html#verification">Sources and verification</a></div>
+      <div class="colophon-contact">Independent reconstruction of the argument by Levent Alpöge with Claude.<br><a href="atlas.html#verification">Sources and verification</a></div>
     </div></footer>`;
 }
 function page(title, body, current = "") {
@@ -180,7 +180,7 @@ function home(chapters, plot) {
     <section class="page-shell opening" aria-labelledby="hero-title">
       <div class="opening-hero">
         <div class="opening-title"><h1 id="hero-title">The Riemann Hypothesis</h1>
-          <p class="byline"><span class="sc">An independent reconstruction</span> · <i>From the Lean formalization</i></p>
+          <p class="byline"><span class="sc">An independent reconstruction</span></p>
           <p><a class="button" href="book.html#target">Begin reading</a></p>
         </div>
         ${plot.replace("<svg ", '<svg class="opening-figure" id="opening-plot" ')}

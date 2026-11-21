@@ -12,7 +12,7 @@ node scripts/check.cjs
 python -m http.server 8744 --bind 127.0.0.1
 ```
 
-Open [the local reading room](http://127.0.0.1:8744/). Direct-file reading uses the same pages. Browser printing from `print.html` includes default figure states, solutions, source panels, glossary, bibliography and numbered references.
+Open [the local reading room](http://127.0.0.1:8744/). Direct-file reading uses the same pages. Browser printing from `print.html` includes default figure states, worked solutions, mathematical statements, glossary and bibliography. On screen, technical source links appear in closed correspondence panels.
 
 ## Editorial template
 
@@ -20,7 +20,7 @@ The six pages use Andréa Gourion’s *L’article vivant* template, release 55.
 
 ## Source and content
 
-- `content/` contains the original chapter fragments. `records/edition.json` orders the chapters and supplies notation and bibliography.
+- `content/` contains the original chapter fragments. `records/edition.json` orders the chapters and supplies notation and bibliography. In `records/background_theorems.json`, each cited background theorem has a statement, an application, a source locator and links to its uses. Write proof-specific results with their hypotheses in the manuscript and result ledger. Keep all formal names, source links and code in correspondence disclosures.
 - `records/corpus.json` freezes the formal corpus, original archive, Mathlib, dependency lock and published evidence. Claim files and `records/route.json` document scopes, dependencies, source locations and reconstruction status.
 - `assets/labs.js` shares one computation between static rendering and live figures. `scripts/plate.cjs` generates the critical-strip frontispiece. Figure domains, methods, numerical error treatment and defaults are data, stored beside the mathematical routines.
 - `scripts/verify_sources.py` checks the original archive and both mirrors. `scripts/check_citations.py` verifies line ranges in pinned source. The inputs and local paths used for this edition are in [STATE.md](STATE.md).

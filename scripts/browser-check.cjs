@@ -47,16 +47,21 @@ async function run() {
     await page.getByRole("link", { name: "Begin reading" }).click();
     assert.ok(page.url().endsWith("book.html#target"));
     assert.equal(await page.locator("#how-to-read").count(), 1);
-    const mode = page.locator("#source-mode");
-    const sourceTitle = page.locator(".source-citation .source-title").first();
-    await mode.waitFor({ state: "visible" });
-    assert.equal(await sourceTitle.isVisible(), false);
-    await mode.press("Enter");
-    assert.equal(await sourceTitle.isVisible(), true);
-    assert.equal(await mode.getAttribute("aria-pressed"), "true");
-    await mode.press("Enter");
-    assert.equal(await sourceTitle.isVisible(), false);
-    const firstNote = page.locator(".source-citation .refno a").first();
+    const panel = page.locator("#global-higher-corank-correspondence");
+    const formalLink = panel.locator('a[href*=".lean#"]').first();
+    assert.equal(await formalLink.isVisible(), false);
+    await panel.locator("summary").press("Enter");
+    assert.ok(await formalLink.isVisible());
+    await panel.locator("summary").press("Space");
+    assert.equal(await formalLink.isVisible(), false);
+    const mathematicalLink = page.locator('a[href="reference.html#theorem-hasse-norm"]').first();
+    await mathematicalLink.click();
+    const normTheorem = page.locator("#theorem-hasse-norm");
+    assert.ok(await normTheorem.isVisible());
+    assert.ok(await normTheorem.getByRole("link", { name: /Milne/ }).isVisible());
+    await normTheorem.locator('a[href="book.html#inputs-dyadic-signatures"]').click();
+    assert.equal(new URL(page.url()).hash, "#inputs-dyadic-signatures");
+    const firstNote = page.locator(".refno a:visible").first();
     const noteTarget = await firstNote.getAttribute("href");
     await firstNote.click();
     assert.equal(new URL(page.url()).hash, noteTarget);
@@ -309,7 +314,7 @@ async function run() {
     await proofPage.goto(base + "book.html#inputs-flag-gap");
     const proof = proofPage.locator("#inputs-flag-gap");
     assert.ok(await proof.locator("p").first().isVisible(), "Direct link must open the proof");
-    await proof.locator("summary").click();
+    await proof.locator(":scope > summary").click();
     await proofPage.locator("#outline-local-counts").evaluate(e => { e.open = true; });
     await proofPage.locator('#outline-local-counts a[href="#inputs-flag-gap"]').click();
     assert.ok(await proof.locator("p").first().isVisible(), "Repeated link must reopen its proof");
@@ -397,7 +402,7 @@ async function run() {
     await atlasSearch.fill("1337/90");
     assert.equal(await referencedClaim.isVisible(), false);
     const wordBound = page.locator('[id="claim-WUP-01"]');
-    await wordBound.locator("summary").click();
+    assert.ok(await wordBound.locator('a[href="#claim-CNT-01"]').isVisible());
     await wordBound.locator('a[href="#claim-CNT-01"]').click();
     await referencedClaim.waitFor({ state: "visible" });
     assert.equal(await atlasSearch.inputValue(), "1337/90");
@@ -449,6 +454,10 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    assert.equal(await page.locator("details.correspondence:visible").count(), 0);
+    assert.ok(await page.locator("#global-higher-gaussian-planes").isVisible());
+    assert.ok(await page.locator("#claim-HCM-03").isVisible());
+    assert.ok(await page.locator("#theorem-hasse-norm").isVisible());
     const referenceLayout = await page.locator("#book-references ol").evaluate(list => {
       const sample = document.createElement("span");
       sample.textContent = list.children.length + ". ";
@@ -492,8 +501,13 @@ async function run() {
     assert.deepEqual(await plain.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
     assert.ok(await plain.locator("#fig-central-period svg").isVisible());
     assert.deepEqual(await plain.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
-    assert.equal(await plain.locator("#source-mode").isVisible(), false);
-    assert.ok(await plain.locator(".source-citation .source-title").first().isVisible());
+    const staticPanel = plain.locator("#global-higher-corank-correspondence");
+    const staticLink = staticPanel.locator('a[href*=".lean#"]').first();
+    assert.equal(await staticLink.isVisible(), false);
+    await staticPanel.locator("summary").click();
+    assert.ok(await staticLink.isVisible());
+    await staticPanel.locator("summary").click();
+    assert.ok(await plain.locator('a[href="reference.html#theorem-orbit-stabilizer"]').first().isVisible());
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
     assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);

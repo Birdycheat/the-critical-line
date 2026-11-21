@@ -66,8 +66,8 @@
     {
       "id": "global.count",
       "chapter": "global",
-      "statement": "Count5 gives λ ≤ log T_u ≤ cCount·m·L, and |log T_u−log T_u′| ≤ cCount log k, with λ = Σ_j mean_ρ log(w_jρ v/π) + m lg − cCount(La + m²La/k).",
-      "hypotheses": "At the application f>0, w,v>0, k>0 and words are a finite nonempty set. Uniform realization needs the hypotheses of count_at_of and the family conditions.",
+      "statement": "For each word, λ ≤ log T_u ≤ C·m·L, and |log T_u−log T_u′| ≤ C log k, with λ = Σ_j mean_ρ log(w_jρ v/π) + m lg − C(La + m²La/k).",
+      "hypotheses": "The place count is positive, all weights, periods and the parameter k are positive, and the word set is finite and nonempty. Uniformity also uses the torus-pair, real-place variation and auxiliary-factor bounds.",
       "title": "The uniform counting floor",
       "anchor": "global-count",
       "equations": [
@@ -127,8 +127,8 @@
     {
       "id": "global.algebra",
       "chapter": "global",
-      "statement": "For v>0, positive natural f, and all w_jρ>0, SDiv−A·λ+m·A·lg = Main + A·cCount·(La + m²La/k). A=Σ_t a_t, Ωlog=gam+log(π/v)−LpL, SDiv=mΣ_t[a_t log(a_t)−a_t−a_tΩlog].",
-      "hypotheses": "Positive v and weights allow logarithms to split. The nonnegative a_t used to turn Count5 into an upper bound is an application hypothesis, separate from the exact identity.",
+      "statement": "For v>0, positive natural f, and all w_jρ>0, S−A·λ+m·A·lg = Main + A·C·(La + m²La/k). A=Σ_t a_t, Ωlog=gam+log(π/v)−the mean logarithmic derivative, S=mΣ_t[a_t log(a_t)−a_t−a_tΩlog].",
+      "hypotheses": "Positive v and weights allow logarithms to split. The nonnegative a_t used to apply the counting floor to the main term is an application hypothesis, separate from the exact identity.",
       "title": "Matching the period with the counted main term",
       "anchor": "global-matching",
       "equations": [
@@ -183,8 +183,8 @@
     {
       "id": "global.reindex",
       "chapter": "global",
-      "statement": "Under IdentU and its top/place equivalences, Dd.Main(u) equals the sum of Re MAIN over top indices and lift stages. Together with the counted-value clause this identifies gapA with Dd.ASK−Dd.Main.",
-      "hypotheses": "Matching top and place indices, weights, gamma, log derivative and counted value; ch_top requires additional size, window, growth and normalization bounds.",
+      "statement": "Assume the top and place indices correspond bijectively, with matching weights, logarithmic derivatives and counted values. The geometric main term then equals the sum of real arithmetic main terms over top indices and lift stages. Subtracting it identifies the geometric residual with the arithmetic prime sum minus its main term.",
+      "hypotheses": "The top and place correspondences preserve weights, the gamma term, the logarithmic derivative and the counted value. The full estimate additionally requires the size, window, growth and normalization bounds.",
       "title": "Transport across the top and place indices",
       "anchor": "global-matching",
       "equations": [
@@ -241,8 +241,8 @@
     {
       "id": "global.slope",
       "chapter": "global",
-      "statement": "At a word family, given 0≤δ<1, η≥0, 0≤e≤1/4, 0<H and s−μmin(R∨)≤H, the slope lower bound is s−log|W|−[4uF log(1+H/uF)+(η+4√e)H]/(1−δ) ≤ μ(R∨).",
-      "hypotheses": "The application additionally needs HidaSetting, DIV, EComp5, HComp, Count5, Slopes, QuotientSlopeBoundsWith, HHBound and FParams as listed in Ga_bound5.",
+      "statement": "At a word family, given 0≤δ<1, η≥0, 0≤e≤1/4, 0<H and s−μmin(R∨)≤H, the slope lower bound is s−log|W|−[4u log(1+H/u)+(η+4√e)H]/(1−δ) ≤ μ(R∨).",
+      "hypotheses": "Applying the frame estimate requires the divisibility inequality, the exponent and height comparisons, the three word counts, the lattice slope and rank bounds, and the scale restrictions.",
       "title": "The frame estimate for the dual slope",
       "anchor": "global-slope",
       "equations": [
@@ -299,8 +299,8 @@
     {
       "id": "global.uniform",
       "chapter": "global",
-      "statement": "linkCore takes family-level hypotheses and yields constants K,cHH,eK,CL,x0 preceding every x≥x0 in Fm.Win. In its specialization the constant K is max(Cd,0)+Cc+Cs+C1+Cl+6. CountF and LinkDIV quantify their constants before x and the family index; FrameF allows its two caps to depend on x with (η̄+4√ē)x^CH≤6. On the chosen every-character route, ThirdPlaceSeries/TopShape takes its global estimate from link_gl and its divisibility estimate from the separate construction of rows. They are combined in topDesWin.",
-      "hypotheses": "linkCore requires Cabs,CH,eL nonnegative, c6 positive, CountF, SlopesMF, SlopesNF, LatF, NodesF, FrameF, LossFS, CharF, WinF, ChosenTT, ChosenQD, ChosenThin, LinkIRR and LinkDIV. Nonempty choices on a good window are supplied using a loss witness and a cover (lines 86–92).",
+      "statement": "There are constants K and x₀, chosen before the scale and the word, which give the global estimate at every x≥x₀ in the window. In this family one may take K=max(Cd,0)+Cc+Cs+C1+Cl+6. The frame caps may depend on x but satisfy (η̄+4√ē)x^CH≤6. The finite-place divisibility estimate and the global estimate on ranks and slopes both apply to the chosen family.",
+      "hypotheses": "Nonnegative growth exponents, positive comparison scale, uniform counts, lattice and slope bounds, row and frame estimates, loss and character bounds, compatible windows, auxiliary primes, irreducibility and divisibility. A loss witness and covering give an admissible choice at each point of a good window.",
       "title": "Uniform constants before the scale varies",
       "anchor": "global-suppliers",
       "equations": [

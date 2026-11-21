@@ -15,6 +15,9 @@ for (const name of fs
   );
   for (const c of record.claims || record.targets || []) {
     assert.ok(!ledger.has(c.id), "Duplicate claim " + c.id);
+    assert.ok(c.title?.trim() && c.statement?.trim(), "Missing mathematical statement for " + c.id);
+    const sources = [c.source, ...(c.sources || c.declarations || []).map(s => s.url)];
+    assert.ok(sources.some(u => u && /^https?:/.test(u)), "Missing primary source for " + c.id);
     ledger.set(c.id, c.dependencies || []);
   }
 }
@@ -46,6 +49,20 @@ for (const [n, s] of Object.entries(html)) {
   const all = [...s.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   ids[n] = new Set(all);
   assert.equal(all.length, ids[n].size, "Duplicate anchors in " + n);
+}
+for (const id of ledger.keys()) {
+  assert.ok(html["book.html"].includes('href="atlas.html#claim-' + id + '"'), "Result unreachable from the book: " + id);
+  assert.ok(ids["print.html"].has("claim-" + id), "Result missing in the print appendix: " + id);
+}
+const background = require("../records/background_theorems.json").theorems;
+for (const theorem of background) {
+  const anchor = "theorem-" + theorem.id;
+  assert.ok(theorem.title && theorem.statement && theorem.use && theorem.citation && /^https:\/\//.test(theorem.url),
+    "Incomplete mathematical reference: " + theorem.id);
+  assert.ok(ids["reference.html"].has(anchor) && ids["print.html"].has(anchor));
+  assert.ok(theorem.passages.length && theorem.passages.every(id => ids["book.html"].has(id)));
+  assert.ok(html["book.html"].includes('href="reference.html#' + anchor + '"'));
+  assert.ok(html["print.html"].includes('href="#' + anchor + '"'));
 }
 for (const match of html["book.html"].matchAll(/<details\b[^>]*\sid="([^"]+)"/g)) {
   assert.ok(ids["print.html"].has(match[1]), "Missing printed example anchor " + match[1]);

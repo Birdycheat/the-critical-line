@@ -14,8 +14,35 @@ class Links(HTMLParser):
     def __init__(self):
         super().__init__()
         self.links = set()
+        self.disclosures = []
+        self.silent = 0
+
     def handle_starttag(self, tag, attrs):
-        self.links.update(v for k,v in attrs if k == 'href' and v)
+        attributes = dict(attrs)
+        if tag in ("script", "style"):
+            self.silent += 1
+        if tag == "details":
+            technical = "correspondence" in attributes.get("class", "").split()
+            if technical and "open" in attributes:
+                raise ValueError("Formal correspondence opens by default")
+            self.disclosures.append(technical)
+        url = attributes.get("href", "")
+        if url:
+            self.links.add(url)
+        if not any(self.disclosures) and (tag == "code" or
+                re.search(r'github\.com/(Deicyde/riemann-hypothesis|leanprover-community/mathlib4)\b|\.lean(?:#|$)', url, re.I)):
+            raise ValueError(f"Formal source in ordinary reading at line {self.getpos()[0]}: {url or tag}")
+
+    def handle_data(self, text):
+        if not self.silent and not any(self.disclosures) and re.search(
+                r'\b(?:Lean|Mathlib|riemannHypothesis|GlobalTheory|Count5|CountV|VWin|Row0b|link_gl)\b', text):
+            raise ValueError(f"Formal vocabulary in ordinary reading at line {self.getpos()[0]}: {text[:170]}")
+
+    def handle_endtag(self, tag):
+        if tag in ("script", "style"):
+            self.silent -= 1
+        if tag == "details":
+            self.disclosures.pop()
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
@@ -29,7 +56,12 @@ def main():
         assert check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip()==rev
     links=Links()
     for page in ROOT.glob('*.html'):
-        links.feed(page.read_text('utf8'))
+        try:
+            links.feed(page.read_text('utf8'))
+            if links.disclosures:
+                raise ValueError("Unclosed disclosure")
+        except ValueError as error:
+            raise ValueError(f"{page.name}: {error}") from error
     written_calls = []
     declaration_sites = []
     for file in (ROOT/'records').glob('*.json'):

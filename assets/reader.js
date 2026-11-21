@@ -1,9 +1,8 @@
 "use strict";
 document.documentElement.classList.add("js");
-const sourceMode = document.getElementById("source-mode");
 function revealProof(hash, align) {
   const target = document.getElementById(hash.slice(1));
-  if (!target?.closest(".chapter")) return;
+  if (!target) return;
   let opened = false;
   for (let panel = target.closest("details"); panel; panel = panel.parentElement?.closest("details")) {
     if (!panel.open) {
@@ -13,22 +12,13 @@ function revealProof(hash, align) {
   }
   if (align && opened) target.scrollIntoView();
 }
-if (document.querySelector(".chapter")) {
+if (document.querySelector("details")) {
   revealProof(location.hash, true);
   window.addEventListener("hashchange", () => revealProof(location.hash, true));
   document.addEventListener("click", event => {
     const link = event.target.closest('a[href^="#"]');
     if (link && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
       revealProof(link.hash, false);
-  });
-}
-if (sourceMode) {
-  document.documentElement.classList.add("compact-citations");
-  sourceMode.hidden = false;
-  sourceMode.addEventListener("click", () => {
-    const compact = document.documentElement.classList.toggle("compact-citations");
-    sourceMode.setAttribute("aria-pressed", String(!compact));
-    sourceMode.textContent = compact ? "Show source titles" : "Hide source titles";
   });
 }
 const filter = document.querySelector("[data-filter]");
