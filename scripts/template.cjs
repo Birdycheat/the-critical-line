@@ -187,7 +187,7 @@ function home(chapters, plot) {
         <p class="opening-caption"><span class="sc">Fig. 1.</span> The height of |ζ(σ + <i>it</i>)| across the critical strip, for 8 ≤ <i>t</i> ≤ 32. In <span class="copper">copper</span>, the section at <span id="slice-label">σ = ½</span>.
         <span class="figure-actions"><span id="slice-controls" hidden><button type="button" id="slice-change" class="text-button">Change section</button> · <button type="button" id="slice-reset" class="text-button">Reset</button> · </span><a href="reference.html#plate">Figure notes</a></span></p>
       </div>
-      <div class="abstract" id="contents"><p><b>What does the proof establish?</b> Every nontrivial zero of the Riemann zeta function has real part one half. This book follows the argument of Levent Alpöge, working with Claude, from prime powers and Dirichlet characters through the arithmetic construction to the final zero-free region. <a href="atlas.html#reconstruction">Scope of this working edition</a>.</p>
+      <div class="abstract" id="contents"><p><b>Where do the zeros lie?</b> The proof published by Levent Alpöge, working with Claude, places every nontrivial zero of the Riemann zeta function on the line of real part one half. This book reconstructs the argument. Several estimates still need a written derivation. <a href="atlas.html#reconstruction">What remains to be explained</a>.</p>
         <nav aria-label="Parts of the monograph">${contents(summary)}</nav>
       </div>
     </section>${body}

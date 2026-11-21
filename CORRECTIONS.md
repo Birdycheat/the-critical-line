@@ -2,6 +2,8 @@
 
 ## 21 November 2026
 
+- The dimension comparison formerly denoted the ambient rank by the same letter used for the length of a minor list. In the source, the Hermitian space has dimension k+m−1, the frames have length m/2−1, and the negative signature index is m/2. The [projection count](book.html#global-relative-count) and the [Gram error](book.html#global-gram-error) now use n=k+m−1 in the exponent −nf log(n)/16.
+
 - The earlier reading of the stability argument identified `SBig` as the field-transfer input for the cohomological bound. The pinned file `SBridgeAlt.lean` defines this alternate proposition. In the selected proof `NumThree.sNum` invokes the layer inequality from `SLayerCut.sha_le`. Its map is a surjection between two twisted coinvariant quotients, and it bounds the length at the base by the length at the layer. The [field-change section](book.html#inputs-field-cycle-transfer) follows the two uses of primitivity through the written calls.
 
 - An A4 inspection found clipped leading digits on four-digit source numbers and the final address on a different page from its title. The source list now reserves space for its longest number and keeps each printed citation together.

@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SAA-01",
+      "chapter": "inputs",
+      "anchor": "inputs-stickelberger-annihilator",
+      "title": "The integral operator obtained from opposite residues",
+      "statement": "For a cyclotomic field of conductor parameter M and odd c coprime to M, the centered half-sum θ obeys θ(1−J)=[c e_c−(k+1)−kJ]ϑ with integral coefficients g(t), where k=(c−1)/2, e_t=σ_t⁻¹ and ϑ is the rational Stickelberger element.",
+      "hypotheses": "M>2, c positive and odd, gcd(c,M)=1. Each residue and its negative occur once as an unordered pair.",
+      "correspondence": "The coefficient proof uses Euclidean division after multiplication by c⁻¹. The degree-one representative does not enter the group-ring identity.",
+      "dependencies": [],
+      "equations": [
+        "inputs-stickelberger-integral-operator"
+      ],
+      "sources": [
+        {
+          "declaration": "sg",
+          "related_declarations": [
+            "theta",
+            "conjI"
+          ],
+          "declaration_lines": {
+            "sg": 43,
+            "theta": 54,
+            "conjI": 57
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/StickelbergerAt.lean",
+          "lines": [
+            43,
+            63
+          ],
+          "label": "The inverse Galois action and the rational element",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/StickelbergerAt.lean#L43-L63"
+        },
+        {
+          "declaration": "clA",
+          "related_declarations": [
+            "cycRep",
+            "cycRep_apply"
+          ],
+          "declaration_lines": {
+            "clA": 16,
+            "cycRep": 18,
+            "cycRep_apply": 21
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CycRepApply.lean",
+          "lines": [
+            16,
+            24
+          ],
+          "label": "Action of each residue unit on ideal classes",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CycRepApply.lean#L16-L24"
+        },
+        {
+          "declaration": "gc",
+          "related_declarations": [
+            "thetaH"
+          ],
+          "declaration_lines": {
+            "gc": 42,
+            "thetaH": 44
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean",
+          "lines": [
+            42,
+            46
+          ],
+          "label": "The centered floor coefficient and half-sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/TwSingle.lean#L42-L46"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.gcNeg",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.gcNeg": 28
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcNeg.lean",
+          "lines": [
+            28,
+            62
+          ],
+          "label": "Opposite residues give opposite coefficients",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/GcNeg.lean#L28-L62"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.thetaFull",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.thetaFull": 43
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ThetaFull.lean",
+          "lines": [
+            43,
+            58
+          ],
+          "label": "Restoring the full integral coefficient list",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ThetaFull.lean#L43-L58"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.stickH",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.stickH": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+          "lines": [
+            8,
+            44
+          ],
+          "label": "The three-term rational multiplier and its integral product",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean#L8-L44"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SAA-02",
+      "chapter": "inputs",
+      "anchor": "inputs-stickelberger-carry-classes",
+      "title": "Carries annihilate ideal classes in a cyclotomic field",
+      "statement": "For any ideal class x and residues a,b modulo M, the product of the inverse Galois translates of x at residues with a carry is the trivial ideal class. Summing the carries shows that the floor operator F_h kills x for every h≥0. In particular θ(1−J) kills the entire ideal class group.",
+      "hypotheses": "An ideal class in the full cyclotomic field. Choose a prime of rational prime norm outside M to represent it. The Jacobi sum divisibility and carry test apply when a,b,a+b are nonzero. The remaining cases are computed directly.",
+      "correspondence": "The exposition recovers the smoothed element directly from a translated floor operator and the sum of all translates. The source first proves a general integral coefficient criterion and specializes it to the same element.",
+      "dependencies": [
+        "SAA-01",
+        "JAC-01",
+        "CRL-01",
+        "CRL-02"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Stick.degOne",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.degOne": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean",
+          "lines": [
+            8,
+            21
+          ],
+          "label": "Choosing a degree-one prime in a specified class",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean#L8-L21"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.jacobi",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.jacobi": 18
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Jacobi.lean",
+          "lines": [
+            18,
+            77
+          ],
+          "label": "The Jacobi divisor on the primes where the two residues add without a carry",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Jacobi.lean#L18-L77"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.carryPrime",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.carryPrime": 10
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean",
+          "lines": [
+            10,
+            74
+          ],
+          "label": "The complementary carry product is principal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean#L10-L74"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.carryAll",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.carryAll": 9
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryAll.lean",
+          "lines": [
+            9,
+            30
+          ],
+          "label": "The carry relation for every ideal class",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryAll.lean#L9-L30"
+        },
+        {
+          "declaration": "combFloor_step",
+          "related_declarations": [
+            "UpperTheory.V.Stick.combFloor"
+          ],
+          "declaration_lines": {
+            "combFloor_step": 6,
+            "UpperTheory.V.Stick.combFloor": 22
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CombFloor.lean",
+          "lines": [
+            6,
+            31
+          ],
+          "label": "Summing the carries gives a floor exponent",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CombFloor.lean#L6-L31"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.comb",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.comb": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ZpowSumEqProd.lean",
+          "lines": [
+            6,
+            76
+          ],
+          "label": "Passing from floors to integral group-ring coefficients",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ZpowSumEqProd.lean#L6-L76"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.coef",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.Stick.coef": 9
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsAlt.lean",
+          "lines": [
+            9,
+            16
+          ],
+          "label": "The coefficient form of the annihilation theorem",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsAlt.lean#L9-L16"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SAA-03",
+      "chapter": "inputs",
+      "anchor": "inputs-stickelberger-class-action",
+      "title": "From integral annihilation to a nilpotent action on the class quotient",
+      "statement": "Let C=Cl(Q(ζ_M)) and E=(1−J)C. Then θE=0. Whenever (γ−1)^N belongs to (θ,1+J,ℓ), it sends E into ℓE, so its action on E/ℓE is zero.",
+      "hypotheses": "For the uniform cyclotomic application, M=fℓⁿ, f>1 coprime to the prime ℓ, c=2fℓ+1 and n sufficiently large. The exponent is independent of n.",
+      "correspondence": "The integral annihilation statement concerns the action on ideal classes, and the nonzero coefficient at a finite projection supplies the uniform group-ring membership. The image of 1−J works integrally at 2.",
+      "dependencies": [
+        "SAA-02",
+        "STP-03"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.FW.core",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.core": 64
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean",
+          "lines": [
+            64,
+            99
+          ],
+          "label": "How annihilation and ideal membership yield an index bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardRangeInfTorsionLeIndexPow.lean#L64-L99"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.memZ",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.memZ": 13
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean",
+          "lines": [
+            13,
+            37
+          ],
+          "label": "The separate integral power relation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/ToKOf.lean#L13-L37"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.cyc",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.V.FW.cyc": 18
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+          "lines": [
+            18,
+            89
+          ],
+          "label": "Using the annihilator in both prime characteristics",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean#L18-L89"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.FW.stickH",
+      "callee": "thetaFull",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+        "line": 11,
+        "spelling": "thetaFull"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.stickH",
+      "callee": "cycRep_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+        "line": 17,
+        "spelling": "cycRep_apply"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.stickH",
+      "callee": "Stick.coef",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/StickH.lean",
+        "line": 21,
+        "spelling": "Stick.coef"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.coef",
+      "callee": "combFloor",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsAlt.lean",
+        "line": 15,
+        "spelling": "combFloor"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.coef",
+      "callee": "carryAll",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsAlt.lean",
+        "line": 15,
+        "spelling": "carryAll"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.coef",
+      "callee": "comb",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/ImportsAlt.lean",
+        "line": 16,
+        "spelling": "comb"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryAll",
+      "callee": "degOne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryAll.lean",
+        "line": 18,
+        "spelling": "degOne"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryAll",
+      "callee": "carryPrime",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryAll.lean",
+        "line": 30,
+        "spelling": "carryPrime"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.degOne",
+      "callee": "GlobalTheory.Published.chebotarevDegreeOne'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean",
+        "line": 14,
+        "spelling": "GlobalTheory.Published.chebotarevDegreeOne'"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.degOne",
+      "callee": "GroundTheory.Global.hilbertClassFieldArtinEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean",
+        "line": 15,
+        "spelling": "GroundTheory.Global.hilbertClassFieldArtinEquiv"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryPrime",
+      "callee": "jacobi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean",
+        "line": 60,
+        "spelling": "jacobi"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryPrime",
+      "callee": "sqfree",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean",
+        "line": 61,
+        "spelling": "sqfree"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryPrime",
+      "callee": "splitInj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean",
+        "line": 61,
+        "spelling": "splitInj"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.carryPrime",
+      "callee": "splitProd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CarryPrime.lean",
+        "line": 62,
+        "spelling": "splitProd"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.jacobi",
+      "callee": "redRoot",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Jacobi.lean",
+        "line": 24,
+        "spelling": "redRoot"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.jacobi",
+      "callee": "teich",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Jacobi.lean",
+        "line": 26,
+        "spelling": "teich"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.jacobi",
+      "callee": "jacDvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/Jacobi.lean",
+        "line": 44,
+        "spelling": "jacDvd"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.combFloor",
+      "callee": "combFloor_step",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/CombFloor.lean",
+        "line": 30,
+        "spelling": "combFloor_step"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "memZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 29,
+        "spelling": "memZ"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 47,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "stickH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 50,
+        "spelling": "stickH"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 83,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.cyc",
+      "callee": "stickH",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean",
+        "line": 86,
+        "spelling": "stickH"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SAA-01",
+      "SAA-02"
+    ],
+    [
+      "JAC-01",
+      "SAA-02"
+    ],
+    [
+      "CRL-01",
+      "SAA-02"
+    ],
+    [
+      "CRL-02",
+      "SAA-02"
+    ],
+    [
+      "SAA-02",
+      "SAA-03"
+    ],
+    [
+      "STP-03",
+      "SAA-03"
+    ],
+    [
+      "SAA-03",
+      "INP-13"
+    ]
+  ],
+  "outstanding": [
+    "The degree-one prime in a given class is obtained from Chebotarev and the Hilbert class field. The local Jacobi divisibility and residue computations have their own passages. The odd-prime reflection inequality and the two-primary signature estimate enter the subsequent class-group bound separately."
+  ]
+}

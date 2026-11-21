@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "NOC-01",
+      "chapter": "global",
+      "anchor": "global-near-one-type",
+      "title": "The cost of near terms with prescribed flag ranks",
+      "statement": "Only points with least size below one half can contribute nonidentity near terms. For a fixed ordered list of positive jumps j with total J≤q and length a, their integral on the moderate region is at most 2Mκⱼ∏ᵢ[2fjᵢ log(1/(2τ∗))], hence at most 2MκⱼYᵃ for Y=22fq² log X.",
+      "hypotheses": "Self-dual unitary lattice in signature (p,q), q≥1, the scale and spectral gap hypotheses of the discrete series count, the near-unipotence and pointwise kernel bounds, the lattice count for a fixed flag and the normalized flag measure inequality.",
+      "dependencies": [],
+      "equations": [
+        "global-near-type-cost"
+      ],
+      "status": "mathematical proof reconstructed",
+      "sources": [
+        {
+          "declaration": "dHS",
+          "label": "The archimedean near test",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            18,
+            19
+          ],
+          "declaration_lines": {
+            "dHS": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L18-L19"
+        },
+        {
+          "declaration": "HasFlag",
+          "label": "The size filtration and its rank increments",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            62,
+            69
+          ],
+          "declaration_lines": {
+            "HasFlag": 62
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L62-L69"
+        },
+        {
+          "declaration": "IsNear",
+          "label": "Support, height cutoff and admissible counting data",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            99,
+            115
+          ],
+          "declaration_lines": {
+            "IsNear": 99
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L99-L115"
+        },
+        {
+          "declaration": "nearAbs",
+          "label": "The absolute near sum on the moderate region",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean",
+          "lines": [
+            17,
+            29
+          ],
+          "declaration_lines": {
+            "nearAbs": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean#L17-L29"
+        },
+        {
+          "declaration": "nearSet_eq",
+          "label": "Vanishing above the half-size threshold",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsSizeEqLeast.lean",
+          "lines": [
+            186,
+            218
+          ],
+          "declaration_lines": {
+            "nearSet_eq": 186
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsSizeEqLeast.lean#L186-L218"
+        },
+        {
+          "declaration": "near_count",
+          "label": "Counting small lattice transformations at fixed flag sizes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PowLePowRatio.lean",
+          "lines": [
+            479,
+            490
+          ],
+          "declaration_lines": {
+            "near_count": 479
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PowLePowRatio.lean#L479-L490"
+        },
+        {
+          "declaration": "layerProd",
+          "label": "The factors and their multiplicities",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            32,
+            35
+          ],
+          "declaration_lines": {
+            "layerProd": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L32-L35"
+        },
+        {
+          "declaration": "dens",
+          "label": "The density on increasing flag sizes",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            30,
+            36
+          ],
+          "declaration_lines": {
+            "dens": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L30-L36"
+        },
+        {
+          "declaration": "FlagMeasureBound",
+          "label": "Normalized flag measure and the arithmetic constant bound",
+          "path": "src/Development/AbelianVarietyTheory/Statements/CuspFrameWeights/SameKindIsometric.lean",
+          "lines": [
+            95,
+            110
+          ],
+          "declaration_lines": {
+            "FlagMeasureBound": 95
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Statements/CuspFrameWeights/SameKindIsometric.lean#L95-L110"
+        },
+        {
+          "declaration": "layerProd_count_mul_density_le_two",
+          "label": "Cancellation of the count against the flag density",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LayerProdCountMulDensityLeTwo.lean",
+          "lines": [
+            109,
+            136
+          ],
+          "declaration_lines": {
+            "layerProd_count_mul_density_le_two": 109
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LayerProdCountMulDensityLeTwo.lean#L109-L136"
+        },
+        {
+          "declaration": "integral_count_dens",
+          "label": "Integration of the matched factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+          "lines": [
+            40,
+            96
+          ],
+          "declaration_lines": {
+            "integral_count_dens": 40
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean#L40-L96"
+        },
+        {
+          "declaration": "near_terms_one_type",
+          "label": "Near-unipotence, the pointwise bound and the thick region",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+          "lines": [
+            116,
+            140
+          ],
+          "declaration_lines": {
+            "near_terms_one_type": 116
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean#L116-L140"
+        },
+        {
+          "declaration": "near_terms_one_type",
+          "label": "Passing from individual terms to a cardinality",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+          "lines": [
+            169,
+            181
+          ],
+          "declaration_lines": {
+            "near_terms_one_type": 116
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean#L169-L181"
+        },
+        {
+          "declaration": "near_terms_one_type",
+          "label": "The logarithmic cost of the lower cutoff",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+          "lines": [
+            183,
+            211
+          ],
+          "declaration_lines": {
+            "near_terms_one_type": 116
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean#L183-L211"
+        },
+        {
+          "declaration": "near_terms_one_type",
+          "label": "Restoring the total volume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+          "lines": [
+            212,
+            224
+          ],
+          "declaration_lines": {
+            "near_terms_one_type": 116
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean#L212-L224"
+        }
+      ]
+    },
+    {
+      "id": "NOC-02",
+      "chapter": "global",
+      "anchor": "global-near-sum",
+      "title": "The sum over near terms on the moderate region",
+      "statement": "The integral of the nonidentity near absolute sum is at most M exp(−U/4) for U=nf log n. The cost of integrating each of the a flag sizes is absorbed by the arithmetic gain for total isotropic rank J. Summing the 2^q−1 ordered rank types spends one further exponential factor.",
+      "hypotheses": "Fix the level-growth exponent Cg≥0 before taking n sufficiently large. Assume the admissible discrete-series counting data, 1≤q, q²≤n, the flag coefficient bound κⱼ≤exp(−JU/2), Y≤exp(U/8) and 2^(q+1)≤exp(U/8).",
+      "dependencies": [
+        "NOC-01"
+      ],
+      "equations": [
+        "global-near-moderate-integral"
+      ],
+      "status": "mathematical proof reconstructed",
+      "sources": [
+        {
+          "declaration": "IsNear",
+          "label": "Support, height cutoff and admissible counting data",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            99,
+            115
+          ],
+          "declaration_lines": {
+            "IsNear": 99
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L99-L115"
+        },
+        {
+          "declaration": "nearAbs",
+          "label": "The absolute near sum on the moderate region",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean",
+          "lines": [
+            17,
+            29
+          ],
+          "declaration_lines": {
+            "nearAbs": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/SiegelWeilLocal/NearNonzeroTerms.lean#L17-L29"
+        },
+        {
+          "declaration": "FlagMeasureBound",
+          "label": "Normalized flag measure and the arithmetic constant bound",
+          "path": "src/Development/AbelianVarietyTheory/Statements/CuspFrameWeights/SameKindIsometric.lean",
+          "lines": [
+            95,
+            110
+          ],
+          "declaration_lines": {
+            "FlagMeasureBound": 95
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Statements/CuspFrameWeights/SameKindIsometric.lean#L95-L110"
+        },
+        {
+          "declaration": "exists_type",
+          "label": "Short isotropic ranks exhaust the contributors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralLeSumTypes.lean",
+          "lines": [
+            41,
+            78
+          ],
+          "declaration_lines": {
+            "exists_type": 41
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralLeSumTypes.lean#L41-L78"
+        },
+        {
+          "declaration": "sum_card_composition_lt",
+          "label": "Ordered rank types and one-dimensional integrals",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SizeIntegralsAndCardCompositions.lean",
+          "lines": [
+            59,
+            75
+          ],
+          "declaration_lines": {
+            "sum_card_composition_lt": 59
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SizeIntegralsAndCardCompositions.lean#L59-L75"
+        },
+        {
+          "declaration": "moderate_log_factor_absorbed",
+          "label": "A single threshold for the two scale comparisons",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ModerateLogFactorAbsorbed.lean",
+          "lines": [
+            6,
+            23
+          ],
+          "declaration_lines": {
+            "moderate_log_factor_absorbed": 6
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ModerateLogFactorAbsorbed.lean#L6-L23"
+        },
+        {
+          "declaration": "one_type_arith",
+          "label": "The negative exponent for an individual type",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+          "lines": [
+            36,
+            55
+          ],
+          "declaration_lines": {
+            "one_type_arith": 36
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean#L36-L55"
+        },
+        {
+          "declaration": "nearModerate",
+          "label": "Combining the flag constant with the size cost",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+          "lines": [
+            89,
+            116
+          ],
+          "declaration_lines": {
+            "nearModerate": 57
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean#L89-L116"
+        },
+        {
+          "declaration": "nearModerate",
+          "label": "Summing all types in the moderate region",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+          "lines": [
+            126,
+            156
+          ],
+          "declaration_lines": {
+            "nearModerate": 57
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean#L126-L156"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds",
+          "label": "Using the near integral in the ambient trace",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            97,
+            115
+          ],
+          "declaration_lines": {
+            "countingTheorem_of_finite_of_bounds": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L97-L115"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "near_terms_one_type",
+      "callee": "nearSet_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 139,
+        "spelling": "GlobalTheory.NearLower.nearSet_eq"
+      }
+    },
+    {
+      "caller": "near_terms_one_type",
+      "callee": "near_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 169,
+        "spelling": "GlobalTheory.NearCount.near_count"
+      }
+    },
+    {
+      "caller": "integral_count_dens",
+      "callee": "layerProd_count_mul_density_le_two",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 64,
+        "spelling": "GlobalTheory.Count.layerProd_count_mul_density_le_two"
+      }
+    },
+    {
+      "caller": "integral_count_dens",
+      "callee": "sizeIntegrals_and_card_compositions",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.sizeIntegrals_and_card_compositions"
+      }
+    },
+    {
+      "caller": "near_terms_one_type",
+      "callee": "integral_count_dens",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 180,
+        "spelling": "integral_count_dens"
+      }
+    },
+    {
+      "caller": "near_terms_one_type",
+      "callee": "lintegral_type_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NearTermsModeratePointsOneTypeBound.lean",
+        "line": 220,
+        "spelling": "GlobalTheory.FlagPush.lintegral_type_le"
+      }
+    },
+    {
+      "caller": "nearModerate",
+      "callee": "moderate_log_factor_absorbed",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+        "line": 62,
+        "spelling": "GlobalTheory.moderate_log_factor_absorbed"
+      }
+    },
+    {
+      "caller": "nearModerate",
+      "callee": "nearTerms_moderate_points_one_type_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+        "line": 98,
+        "spelling": "GlobalTheory.T.nearTerms_moderate_points_one_type_bound"
+      }
+    },
+    {
+      "caller": "nearModerate",
+      "callee": "one_type_arith",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+        "line": 116,
+        "spelling": "one_type_arith"
+      }
+    },
+    {
+      "caller": "nearModerate",
+      "callee": "sum_card_composition_lt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneTypeArith.lean",
+        "line": 142,
+        "spelling": "GlobalTheory.sum_card_composition_lt"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "NOC-01",
+      "NOC-02"
+    ],
+    [
+      "NOC-02",
+      "RPC-02"
+    ]
+  ],
+  "outstanding": [
+    "The geometric lattice count, the normalized measure of a flag type, its arithmetic coefficient and the near-unipotence test enter as cited inputs. The far orbital terms and the concentration estimate on the deep region are separate inputs to the trace."
+  ]
+}

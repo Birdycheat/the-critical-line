@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "cusp-trace-mass": {
+      title: "How much of a projection can lie in a small region?",
+      kind: "Trace and volume on two points",
+      section: "global",
+      params: [
+        choose("denom", "Measure of the deep point", [["4", "1/4"], ["16", "1/16"], ["64", "1/64"]], "16"),
+        choose("profile", "Values before normalization", [["flat", "(1, 1)"], ["tilted", "(1, 4)"], ["deep", "(0, 1)"]], "tilted"),
+      ],
+      caption: "The two points have total measure one. Project onto the function with the selected moderate and deep values, after normalizing its squared norm to one. The last column is each point’s contribution to the trace.",
+      method: "If the weights are μ₁ and μ₂ and the two function values are a and b, divide (a,b) by the square root of μ₁a² + μ₂b². The diagonal of the resulting projection kernel is the square of the normalized function at each point. Multiply it by the point’s measure to integrate it.",
+    },
     "minor-shells": {
       title: "How can a shell have more candidates and carry less weight?",
       kind: "A single minor in the Gaussian integers",
@@ -1254,6 +1265,21 @@
   }
 
   function render(id, v) {
+    if (id === "cusp-trace-mass") {
+      const denom = Number(v.denom);
+      const [a,b] = {flat:[1,1], tilted:[1,4], deep:[0,1]}[v.profile];
+      const squared = (denom - 1) * a * a + b * b;
+      const rows = [["Moderate",denom - 1,a], ["Deep",1,b]].map(([name,mass,value]) => {
+        const power = value * value;
+        return '<tr><th scope="row">' + name + '</th><td>' + reducedFraction(mass,denom) +
+          '</td><td>' + reducedFraction(denom * power,squared) + '</td><td>' +
+          reducedFraction(mass * power,squared) + '</td></tr>';
+      }).join("");
+      return '<table class="carry-table"><caption>Integrating a rank-one projection</caption><thead><tr>' +
+        '<th scope="col">Region</th><th scope="col">Measure</th><th scope="col">Diagonal</th><th scope="col">Trace share</th>' +
+        '</tr></thead><tbody>' + rows + '</tbody></table>' +
+        metrics([["Total trace", "1"], ["Trace on the deep point", reducedFraction(b * b,squared)]]);
+    }
     if (id === "minor-shells") {
       const last = Number(v.last);
       const rows = Array.from({length: last + 1}, (_, h) => {

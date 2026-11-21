@@ -121,7 +121,11 @@
         "global-relative-four"
       ],
       "dependencies": [
-        "RPC-01"
+        "RPC-01",
+        "NOC-02",
+        "FAR-03",
+        "RFV-02",
+        "DCP-03"
       ],
       "sources": [
         {
@@ -266,6 +270,41 @@
           "repository": "Deicyde/riemann-hypothesis",
           "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBoundsStatement.lean#L16-L18"
+        },
+        {
+          "label": "Normalized height, size and infimum over sublattices",
+          "path": "src/Formalism/HarderNarasimhan/StatementPl.lean",
+          "lines": [
+            27,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/StatementPl.lean#L27-L45"
+        },
+        {
+          "label": "Strict and weak thresholds in the canonical filtration",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+          "lines": [
+            96,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean#L96-L109",
+          "declaration": "steps",
+          "declaration_lines": {
+            "steps": 104
+          }
+        },
+        {
+          "label": "The archimedean cutoff, field, level and spectral hypotheses",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            99,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L99-L115",
+          "declaration": "CountHyp",
+          "declaration_lines": {
+            "CountHyp": 108
+          }
         }
       ],
       "correspondence": "On the moderate set subtract the identity before summing the near and far moduli. On the deep set positivity bounds the signed integral difference by the sum of kernel mass δD and the missing identity mass αM. The rare-flag estimate at size 1/2 applies because the deep threshold is smaller. This yields the four costs αM, δM, αM and δD.",
@@ -277,7 +316,7 @@
       "chapter": "global",
       "title": "Absorption of the true rank and the upper half used by the frame",
       "anchor": "global-relative-absorb",
-      "statement": "For n≥exp(15), f≥1, the four-term bound implies |D−M|≤exp(−nf log n/16)M. The family comparison gives the same bilateral estimate for (Dall,Dstar), with n=r. The frame takes Dall≤(1+exp(−rf log r/16))Dstar.",
+      "statement": "For n≥exp(15), f≥1, the four-term bound implies |D−M|≤exp(−nf log n/16)M. The family comparison gives the same bilateral estimate for (Dall,Dstar), with n=k+m−1. The frame takes Dall≤(1+exp(−nf log n/16))Dstar. The minor lists have length at most m/2−1.",
       "hypotheses": "Use the previous estimate, D,M≥0 and the rank threshold. Before the tied family data vary, the uniform theorem chooses its n₀(A) and gap constant C₀(A); all n₁≥n₀ and C≥C₀ are allowed. The chosen signature has q=rS+1=m/2≥1 and the concrete count supplied from the convergent unitary Siegel–Weil interface has exponent 1/16.",
       "definitions": [
         "If X=|D−M| then D≤M+X, and (1−δ)X≤(2α+2δ)M.",
@@ -422,6 +461,24 @@
           "repository": "Deicyde/riemann-hypothesis",
           "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L186-L204"
+        },
+        {
+          "label": "Ambient Hermitian dimension, frame length and signature",
+          "path": "src/Formalism/LocalRingCardinality/Params.lean",
+          "lines": [
+            32,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/Params.lean#L32-L44"
+        },
+        {
+          "label": "The model has the ambient dimension and frames of the shorter length",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/HaarTransversals/UnitaryHaarProducts/SettingBlocks.lean",
+          "lines": [
+            26,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/HaarTransversals/UnitaryHaarProducts/SettingBlocks.lean#L26-L38"
         }
       ],
       "correspondence": "Move δX to the left and use δ≤1/2. The absolute bound holds even when M=0. In the chosen family the tie rewrites the comparison, then linkS_concl takes the second component returned by abs_le. The two-point projection illustrates the trace and the signed difference alone.",
@@ -635,10 +692,26 @@
     [
       "RPC-03",
       "GRM-02"
+    ],
+    [
+      "NOC-02",
+      "RPC-02"
+    ],
+    [
+      "FAR-03",
+      "RPC-02"
+    ],
+    [
+      "RFV-02",
+      "RPC-02"
+    ],
+    [
+      "DCP-03",
+      "RPC-02"
     ]
   ],
   "outstanding": [
-    "The deeper near-unipotent and far estimates, rare isotropic-flag probability, deep point-kernel bound, finite-dimensionality, compactly tested convergence/projector identities and convergent unitary Siegel–Weil volume step are used from the displayed suppliers. The separate diagonal and different-word Gram estimates are inputs to the frame alongside the rank bound."
+    "The near orbital integral, far orbital integral, small volume and cuspidal mass bounds are derived in NOC, FAR, RFV and DCP. Inputs that retain substantial upstream proofs include near-unipotence, flag disintegration, the local compression and Sobolev bounds, the unipotent orbit cover, finite-dimensionality and the volume ratio."
   ],
   "review_scope": "Written pinned declarations and calls. No Lean build or inspection of elaborated terms. Separate reader confirmed the trace, signs, rates, signature, explicit uniformity, example and consumed inequality."
 }

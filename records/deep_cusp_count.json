@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "DCP-01",
+      "chapter": "global",
+      "anchor": "global-deep-mean",
+      "title": "A zero mean on a short orbit bounds a cuspidal value",
+      "statement": "On a deep unipotent orbit, a vector of continuous cuspidal values with variation at most a has norm at most a at the center and at most 2a on the neighborhood.",
+      "hypotheses": "The orbit has invariant probability measure, its constant term vanishes coordinatewise, and the same bound on variation holds for its representatives in the neighborhood.",
+      "dependencies": [
+        "UOC-02"
+      ],
+      "equations": [
+        "global-deep-mean-zero"
+      ],
+      "sources": [
+        {
+          "label": "A vector differs from a zero mean by at most its oscillation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormLeOfMeanZero.lean",
+          "lines": [
+            29,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormLeOfMeanZero.lean#L29-L64",
+          "declaration": "norm_le_of_mean_zero",
+          "declaration_lines": {
+            "norm_le_of_mean_zero": 29
+          }
+        },
+        {
+          "label": "The unipotent average of continuous cuspidal representatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormLeOfMeanZero.lean",
+          "lines": [
+            65,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormLeOfMeanZero.lean#L65-L112",
+          "declaration": "norm_le_of_cusp",
+          "declaration_lines": {
+            "norm_le_of_cusp": 65
+          }
+        },
+        {
+          "label": "A short isotropic subspace supplies representatives in one neighborhood",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+          "lines": [
+            47,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean#L47-L62",
+          "declaration": "unipotent_orbit_cover",
+          "declaration_lines": {
+            "unipotent_orbit_cover": 47
+          }
+        },
+        {
+          "label": "One step of the oscillation argument",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/StepBound.lean",
+          "lines": [
+            14,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/StepBound.lean#L14-L55",
+          "declaration": "step_bound",
+          "declaration_lines": {
+            "step_bound": 14
+          }
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "The cited passages identify the input, its normalization and its use in the deep-region estimate."
+    },
+    {
+      "id": "DCP-02",
+      "chapter": "global",
+      "anchor": "global-deep-iteration",
+      "title": "Iteration of the cuspidal estimate gains twelve powers per dimension",
+      "statement": "With N=n²f and at order 8qN, the radius gain in the squared estimate is τ^(16N). The local evaluation contributes τ^(−4N), leaving τ^(12N). At τ<X^(−11q), the full scalar factor is at most exp(−N)/(g^(2N)X^N).",
+      "hypotheses": "The indefinite counting hypotheses give 8≤n, q≥1, q²≤n, nonempty real places, and a compatible family of isometric cuspidal vectors. The orbit cover, derivative bounds and Sobolev evaluation hold at the stated level and gap.",
+      "dependencies": [
+        "DCP-01",
+        "CSE-03"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "label": "Induction with one fewer available derivative",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+          "lines": [
+            68,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean#L68-L100",
+          "declaration": "iterate",
+          "declaration_lines": {
+            "iterate": 68
+          }
+        },
+        {
+          "label": "Derivative control in the counting range",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesStepBoundOfCountingHypotheses.lean",
+          "lines": [
+            16,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesStepBoundOfCountingHypotheses.lean#L16-L30",
+          "declaration": "stepBoundAt_of_countHyp",
+          "declaration_lines": {
+            "stepBoundAt_of_countHyp": 16
+          }
+        },
+        {
+          "label": "The local Sobolev evaluation at the initial order",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+          "lines": [
+            239,
+            272
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean#L239-L272",
+          "declaration": "sobolev_bound",
+          "declaration_lines": {
+            "sobolev_bound": 239
+          }
+        },
+        {
+          "label": "Choice of the orbit and its radius",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+          "lines": [
+            118,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean#L118-L142",
+          "declaration": "deep_bound_family",
+          "declaration_lines": {
+            "deep_bound_family": 118
+          }
+        },
+        {
+          "label": "Initial bound, iteration and squaring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+          "lines": [
+            156,
+            183
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean#L156-L183"
+        },
+        {
+          "label": "Identifying the squared vector norm with the projection diagonal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointKernelBoundOfPointwiseBound.lean",
+          "lines": [
+            22,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointKernelBoundOfPointwiseBound.lean#L22-L48",
+          "declaration": "deep_kernel_bound_of_ptBound",
+          "declaration_lines": {
+            "deep_kernel_bound_of_ptBound": 22
+          }
+        },
+        {
+          "label": "The scalar inequality at the cutoff",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean",
+          "lines": [
+            7,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean#L7-L51",
+          "declaration": "deep_exponent_core",
+          "declaration_lines": {
+            "deep_exponent_core": 7
+          }
+        },
+        {
+          "label": "Bounding the derivative constant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean",
+          "lines": [
+            125,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean#L125-L137"
+        },
+        {
+          "label": "The powers of the radius and the Sobolev loss",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean",
+          "lines": [
+            168,
+            193
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean#L168-L193"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "The cited passages identify the input, its normalization and its use in the deep-region estimate."
+    },
+    {
+      "id": "DCP-03",
+      "chapter": "global",
+      "anchor": "global-deep-integration",
+      "title": "Cuspidal mass on the deep region",
+      "statement": "Integrating the deep pointwise diagonal bound against the same Haar measure used for the quotient covolume gives ∫deep Re K(x,x) dμ ≤ D exp(−n²f).",
+      "hypotheses": "The discrete-series projector has rank D. Its range is cuspidal. The pointwise and covolume estimates use the same archimedean gauge constants and finite level subgroup.",
+      "dependencies": [
+        "DCP-02",
+        "RPC-01"
+      ],
+      "equations": [
+        "global-deep-trace-bound",
+        "global-deep-normalizations"
+      ],
+      "sources": [
+        {
+          "label": "The gauge normalizations and the choice of scale",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean",
+          "lines": [
+            28,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean#L28-L56",
+          "declaration": "deepBound",
+          "declaration_lines": {
+            "deepBound": 28
+          }
+        },
+        {
+          "label": "Covolume and index of the finite level subgroup",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean",
+          "lines": [
+            57,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean#L57-L91"
+        },
+        {
+          "label": "Cancellation in the integral of the diagonal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean",
+          "lines": [
+            109,
+            150
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean#L109-L150"
+        },
+        {
+          "label": "The five geometric inputs assembled in the counting theorem",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+          "lines": [
+            39,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean#L39-L49"
+        },
+        {
+          "label": "The deep trace bound in the split integral",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            97,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L97-L115"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "The cited passages identify the input, its normalization and its use in the deep-region estimate."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.representativeValuesVector_variation_unipotentOrbit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/StepBound.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.representativeValuesVector_variation_unipotentOrbit"
+      }
+    },
+    {
+      "callee": "GlobalTheory.MeanZero.norm_le_of_cusp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/StepBound.lean",
+        "line": 37,
+        "spelling": "GlobalTheory.MeanZero.norm_le_of_cusp"
+      }
+    },
+    {
+      "callee": "GlobalTheory.DeepStep.step_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.DeepStep.step_bound"
+      }
+    },
+    {
+      "callee": "GlobalTheory.DeepCover.unipotent_orbit_cover",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 130,
+        "spelling": "GlobalTheory.DeepCover.unipotent_orbit_cover"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SobolevBound.sobolev_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 160,
+        "spelling": "GlobalTheory.SobolevBound.sobolev_bound"
+      }
+    },
+    {
+      "callee": "GlobalTheory.DeepFamilyGap.iterate",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 171,
+        "spelling": "GlobalTheory.DeepFamilyGap.iterate"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Dec.kerDiag_basis_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointKernelBoundOfPointwiseBound.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.Dec.kerDiag_basis_indep"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.deepPoint_bound_cuspidalIsometricIntertwinerFamily",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointKernelBoundOfPointwiseBound.lean",
+        "line": 48,
+        "spelling": "GlobalTheory.T.deepPoint_bound_cuspidalIsometricIntertwinerFamily"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CongIndex.measure_Kset_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.CongIndex.measure_Kset_le"
+      }
+    },
+    {
+      "callee": "GlobalTheory.deep_region_exponents",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionKernelDiagonalBound.lean",
+        "line": 99,
+        "spelling": "GlobalTheory.deep_region_exponents"
+      }
+    },
+    {
+      "callee": "deep_exponent_core",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepRegionExponents.lean",
+        "line": 177,
+        "spelling": "deep_exponent_core"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.deepRegion_kernelDiagonal_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 48,
+        "spelling": "GlobalTheory.T.deepRegion_kernelDiagonal_bound"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.discreteSeries_counting_of_finite_and_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAutomorphicCountingOfCompactDualVolumeRat.lean",
+        "line": 49,
+        "spelling": "GlobalTheory.T.discreteSeries_counting_of_finite_and_bounds"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DCP-01",
+      "DCP-02"
+    ],
+    [
+      "DCP-02",
+      "DCP-03"
+    ],
+    [
+      "RPC-01",
+      "DCP-03"
+    ]
+  ],
+  "outstanding": [
+    "The discrete-series derivative estimate, change of variables on the local chart and covering estimates for the noncentral and central unipotent lattices remain upstream. Integration uses the absolute covolume and finite level index bounds."
+  ]
+}

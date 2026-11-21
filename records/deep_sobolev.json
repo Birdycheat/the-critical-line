@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CSE-01",
+      "chapter": "global",
+      "anchor": "global-deep-sobolev",
+      "title": "Ordered-cube evaluation from a derivative bound",
+      "statement": "A full-cube integral bound C‖w‖² through order P+N and derivative bound β give |F_u(y)|²≤(2/s+2sβ²)^N C‖u‖² for vectors through order P. The choice s=1/β gives (4β)^N.",
+      "hypotheses": "Positive side length, continuous representatives, fixed ordered one-parameter subgroups, and differentiation acting on the increasing filtration by at most one step.",
+      "correspondence": "The proof removes the last coordinate, applies the one-dimensional endpoint inequality and integrates the remaining parameters.",
+      "dependencies": [],
+      "equations": [
+        "global-sobolev-endpoint"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.sq_norm_le_sobolev_of_hasDerivAt",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.sq_norm_le_sobolev_of_hasDerivAt": 68
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean",
+          "lines": [
+            68,
+            87
+          ],
+          "label": "Endpoint evaluation on one subgroup",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean#L68-L87"
+        },
+        {
+          "declaration": "GlobalTheory.sobolev_iter_lemma_2",
+          "related_declarations": [
+            "GlobalTheory.sobolev_iterated_one_parameter_subgroups"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.sobolev_iter_lemma_2": 90,
+            "GlobalTheory.sobolev_iterated_one_parameter_subgroups": 181
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean",
+          "lines": [
+            90,
+            185
+          ],
+          "label": "Removing the ordered coordinates in succession",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean#L90-L185"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "CSE-02",
+      "chapter": "global",
+      "anchor": "global-sobolev-multiplicity",
+      "title": "Haar measure and rational multiplicity bound the cube integral",
+      "statement": "The cube constant at y is at most exp(f)(1+4√n/t(y)²)^(2N)P∞/kg, with t(y)=min(1,least(y)) and N=n²f.",
+      "hypotheses": "A positive cube side with 12n³s≤1 and 8n⁵s≤1, orthonormal bases at all real places, compatible gauge Haar measures, and a level-invariant automorphic continuous representative.",
+      "correspondence": "Compare Lebesgue with Haar integration, thicken by finite level invariance, fold to the quotient and pack the bounded separated ratios of rational lifts.",
+      "dependencies": [],
+      "equations": [
+        "global-sobolev-cube"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.ProductChartAll.lintegral_chart_all_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.ProductChartAll.lintegral_chart_all_le": 124
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralProductExpChartAllRealPlacesLe.lean",
+          "lines": [
+            124,
+            276
+          ],
+          "label": "Haar measure and the product exponential coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralProductExpChartAllRealPlacesLe.lean#L124-L276"
+        },
+        {
+          "declaration": "GlobalTheory.RationalCount.separated",
+          "related_declarations": [
+            "GlobalTheory.RationalCount.count_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.RationalCount.separated": 123,
+            "GlobalTheory.RationalCount.count_le": 166
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+          "lines": [
+            123,
+            206
+          ],
+          "label": "Separation of integral maps and counting bounded rational transformations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean#L123-L206"
+        },
+        {
+          "declaration": "SizeIneq",
+          "label": "The ratio of target minimum to source maximum for an integral map",
+          "path": "src/Formalism/HarderNarasimhan/StatementPl.lean",
+          "lines": [
+            121,
+            131
+          ],
+          "declaration_lines": {
+            "SizeIneq": 121
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/StatementPl.lean#L121-L131"
+        },
+        {
+          "declaration": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint",
+          "label": "The self-dual filtration pairs the least and largest lattice sizes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPointStatement.lean",
+          "lines": [
+            7,
+            8
+          ],
+          "declaration_lines": {
+            "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint": 7
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPointStatement.lean#L7-L8"
+        },
+        {
+          "declaration": "GlobalTheory.card_le_of_separated_in_ball",
+          "related_declarations": [
+            "GlobalTheory.packing_geometric_mean_separated"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.card_le_of_separated_in_ball": 9,
+            "GlobalTheory.packing_geometric_mean_separated": 62
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PackingGeometricMeanSeparated.lean",
+          "lines": [
+            9,
+            132
+          ],
+          "label": "The disjoint-ball volume comparison and its product version",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PackingGeometricMeanSeparated.lean#L9-L132"
+        },
+        {
+          "declaration": "GlobalTheory.BoundedUnfold.multiplicity_le",
+          "related_declarations": [
+            "GlobalTheory.BoundedUnfold.lintegral_le_multiplicity"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.BoundedUnfold.multiplicity_le": 13,
+            "GlobalTheory.BoundedUnfold.lintegral_le_multiplicity": 72
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralTranslateLeMultiplicityFundamental.lean",
+          "lines": [
+            13,
+            163
+          ],
+          "label": "Counting rational lifts and integrating their multiplicities",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralTranslateLeMultiplicityFundamental.lean#L13-L163"
+        },
+        {
+          "declaration": "GlobalTheory.SobolevBound.cube_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.SobolevBound.cube_bound": 131
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+          "lines": [
+            131,
+            221
+          ],
+          "label": "From the parameter integral to the squared quotient norm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean#L131-L221"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "CSE-03",
+      "chapter": "global",
+      "anchor": "global-sobolev-initial",
+      "title": "Uniform evaluation to start the deep-cusp descent",
+      "statement": "With P=8qN and β at order P+N, vector evaluation is at most (6β)^N D C(y)‖u‖² in squared norm. On the short neighborhood 1+4√n/t(y)²≤17√n/τ(x)².",
+      "hypotheses": "The indefinite counting hypotheses, n≥8, g≥1, n^19≤b², compatible representatives of D isometries, and a deep point with 0<τ(x)<1/2. The neighborhood radius is at most log 2.",
+      "correspondence": "The discrete-series bound provides β, summing the D scalar estimates gives D, and the neighborhood lower bound for the truncated least size supplies a common initial bound for the iteration.",
+      "dependencies": [
+        "CSE-01",
+        "CSE-02"
+      ],
+      "equations": [
+        "global-sobolev-family"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.Dec.stepBoundAt_of_countHyp",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Dec.stepBoundAt_of_countHyp": 16
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesStepBoundOfCountingHypotheses.lean",
+          "lines": [
+            16,
+            30
+          ],
+          "label": "Derivative estimates on the discrete-series vectors",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesStepBoundOfCountingHypotheses.lean#L16-L30"
+        },
+        {
+          "declaration": "GlobalTheory.SobolevBound.sobolev_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.SobolevBound.sobolev_bound": 239
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+          "lines": [
+            239,
+            285
+          ],
+          "label": "Vector-valued evaluation and the computation of its constants",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean#L239-L285"
+        },
+        {
+          "declaration": "GlobalTheory.OmegaLeast.half_truncatedLeastLatticeSize_le_unipotentNeighbourhood",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.OmegaLeast.half_truncatedLeastLatticeSize_le_unipotentNeighbourhood": 62
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HalfTruncatedLeastLatticeSizeLeUnipotentNeighbou.lean",
+          "lines": [
+            62,
+            110
+          ],
+          "label": "The lower bound for the lattice size across the neighborhood",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HalfTruncatedLeastLatticeSizeLeUnipotentNeighbou.lean#L62-L110"
+        },
+        {
+          "declaration": "GlobalTheory.DeepFamilyGap.mult_le",
+          "related_declarations": [
+            "GlobalTheory.DeepFamilyGap.deep_bound_family"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.DeepFamilyGap.mult_le": 102,
+            "GlobalTheory.DeepFamilyGap.deep_bound_family": 118
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+          "lines": [
+            102,
+            174
+          ],
+          "label": "Uniform initial bound on the short unipotent neighborhood",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean#L102-L174"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.sobolev_iter_lemma_2",
+      "callee": "integral_cube_succ_last",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean",
+        "line": 136,
+        "spelling": "integral_cube_succ_last"
+      }
+    },
+    {
+      "caller": "GlobalTheory.sobolev_iter_lemma_2",
+      "callee": "sq_norm_le_sobolev_of_hasDerivAt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean",
+        "line": 159,
+        "spelling": "sq_norm_le_sobolev_of_hasDerivAt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.sobolev_iterated_one_parameter_subgroups",
+      "callee": "sobolev_iter_lemma_2",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SobolevIteratedOneParameterSubgroups.lean",
+        "line": 183,
+        "spelling": "sobolev_iter_lemma_2"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RationalCount.separated",
+      "callee": "sizeIneq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 138,
+        "spelling": "sizeIneq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RationalCount.count_le",
+      "callee": "separated",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 177,
+        "spelling": "separated"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RationalCount.count_le",
+      "callee": "GlobalTheory.packing_geometric_mean_separated",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 189,
+        "spelling": "GlobalTheory.packing_geometric_mean_separated"
+      }
+    },
+    {
+      "caller": "GlobalTheory.packing_geometric_mean_separated",
+      "callee": "card_le_of_separated_in_ball",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PackingGeometricMeanSeparated.lean",
+        "line": 91,
+        "spelling": "card_le_of_separated_in_ball"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BoundedUnfold.multiplicity_le",
+      "callee": "GlobalTheory.RationalCount.count_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralTranslateLeMultiplicityFundamental.lean",
+        "line": 27,
+        "spelling": "GlobalTheory.RationalCount.count_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BoundedUnfold.lintegral_le_multiplicity",
+      "callee": "multiplicity_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralTranslateLeMultiplicityFundamental.lean",
+        "line": 122,
+        "spelling": "multiplicity_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ProductChartAll.lintegral_chart_all_le",
+      "callee": "GlobalTheory.ProductChart.lintegral_chart_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LintegralProductExpChartAllRealPlacesLe.lean",
+        "line": 196,
+        "spelling": "GlobalTheory.ProductChart.lintegral_chart_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SobolevBound.cube_bound",
+      "callee": "GlobalTheory.T.lintegral_productExpChart_allRealPlaces_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+        "line": 176,
+        "spelling": "GlobalTheory.T.lintegral_productExpChart_allRealPlaces_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SobolevBound.cube_bound",
+      "callee": "GlobalTheory.T.lintegral_translate_le_multiplicity_fundamental",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+        "line": 179,
+        "spelling": "GlobalTheory.T.lintegral_translate_le_multiplicity_fundamental"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SobolevBound.sobolev_bound",
+      "callee": "le_beP",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+        "line": 246,
+        "spelling": "le_beP"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SobolevBound.sobolev_bound",
+      "callee": "GlobalTheory.sobolev_iterated_one_parameter_subgroups",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+        "line": 260,
+        "spelling": "GlobalTheory.sobolev_iterated_one_parameter_subgroups"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SobolevBound.sobolev_bound",
+      "callee": "cube_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingReindex.lean",
+        "line": 279,
+        "spelling": "cube_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepFamilyGap.deep_bound_family",
+      "callee": "GlobalTheory.T.discreteSeries_stepBound_of_countingHypotheses",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 142,
+        "spelling": "GlobalTheory.T.discreteSeries_stepBound_of_countingHypotheses"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepFamilyGap.deep_bound_family",
+      "callee": "GlobalTheory.SobolevBound.sobolev_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 160,
+        "spelling": "GlobalTheory.SobolevBound.sobolev_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepFamilyGap.deep_bound_family",
+      "callee": "GlobalTheory.OmegaLeast.half_truncatedLeastLatticeSize_le_unipotentNeighbourhood",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 164,
+        "spelling": "GlobalTheory.OmegaLeast.half_truncatedLeastLatticeSize_le_unipotentNeighbourhood"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepFamilyGap.deep_bound_family",
+      "callee": "mult_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 165,
+        "spelling": "mult_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepFamilyGap.deep_bound_family",
+      "callee": "GlobalTheory.DeepFamilyGap.iterate",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DeepPointBoundCuspidalIsometricIntertwinerFamily.lean",
+        "line": 171,
+        "spelling": "GlobalTheory.DeepFamilyGap.iterate"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RationalCount.separated",
+      "callee": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 152,
+        "spelling": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CSE-01",
+      "CSE-03"
+    ],
+    [
+      "CSE-02",
+      "CSE-03"
+    ],
+    [
+      "CSE-03",
+      "DCP-02"
+    ]
+  ],
+  "outstanding": [
+    "The quantitative change of variables for the ordered exponential chart, the lattice size inequality for a nonzero integral map, the uniform discrete-series derivative estimate and the lower estimate for the truncated lattice size on the neighborhood are individual inputs. Their precise source declarations are linked."
+  ]
+}

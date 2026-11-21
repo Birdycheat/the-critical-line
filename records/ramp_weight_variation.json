@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "RWV-01",
+      "chapter": "balance",
+      "anchor": "balance-ramp-weight-variation",
+      "title": "Uniform variation of a centered ramp as its weight moves",
+      "statement": "For positive amplitude a and positive weights w and w′, the difference of wGψ(a/w) and w′Gψ(a/w′) has absolute value at most 3a|w−w′|/min(w,w′), uniformly over all local characters, including the trivial character.",
+      "hypotheses": "The finite-group coefficient is a unit-character average of absolute value at most one at prime powers. The trivial character uses the centered zeta ramp. The prime-power sum Ψ(y) is bounded by 3y for y≥0.",
+      "dependencies": [
+        "PIL-01",
+        "PIL-04",
+        "PIL-05"
+      ],
+      "equations": [
+        "balance-ramp-weight-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "psi_le_three",
+          "label": "Linear bound for the Chebyshev function",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            668,
+            690
+          ],
+          "declaration_lines": {
+            "psi_le_three": 668
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L668-L690"
+        },
+        {
+          "declaration": "sum_vM_le",
+          "label": "Transferring the Chebyshev bound to the finite von Mangoldt sum",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            692,
+            693
+          ],
+          "declaration_lines": {
+            "sum_vM_le": 692
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L692-L693"
+        },
+        {
+          "declaration": "norm_cosetMean_le",
+          "label": "Local coset averages have absolute value at most one",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            745,
+            758
+          ],
+          "declaration_lines": {
+            "norm_cosetMean_le": 745
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L745-L758"
+        },
+        {
+          "declaration": "norm_coef_le",
+          "label": "Domination of each coefficient by the von Mangoldt weight",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            759,
+            767
+          ],
+          "declaration_lines": {
+            "norm_coef_le": 764
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L759-L767"
+        },
+        {
+          "declaration": "wG_char",
+          "label": "Changing variables in the nontrivial character ramp",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            828,
+            847
+          ],
+          "declaration_lines": {
+            "wG_char": 828
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L828-L847"
+        },
+        {
+          "declaration": "lip_char",
+          "label": "The moving cutoff and the one-ramp variation",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            849,
+            875
+          ],
+          "declaration_lines": {
+            "lip_char": 852
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L849-L875"
+        },
+        {
+          "declaration": "wGz",
+          "label": "Weighted zeta ramp and its logarithmic centering",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            879,
+            899
+          ],
+          "declaration_lines": {
+            "wGz": 879
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L879-L899"
+        },
+        {
+          "declaration": "lip_triv_le",
+          "label": "Sign and bound of the uncentered zeta difference",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            901,
+            929
+          ],
+          "declaration_lines": {
+            "lip_triv_le": 901
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L901-L929"
+        },
+        {
+          "declaration": "lip_triv_le",
+          "label": "Sign and bound of the logarithmic difference",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            930,
+            945
+          ],
+          "declaration_lines": {
+            "lip_triv_le": 901
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L930-L945"
+        },
+        {
+          "declaration": "lip_triv",
+          "label": "Symmetry in the ordered positive weights",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            947,
+            953
+          ],
+          "declaration_lines": {
+            "lip_triv": 947
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L947-L953"
+        },
+        {
+          "declaration": "lipschitz_weight_all",
+          "label": "Uniform estimate over all characters",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+          "lines": [
+            957,
+            964
+          ],
+          "declaration_lines": {
+            "lipschitz_weight_all": 957
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L957-L964"
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "RWV-02",
+      "chapter": "balance",
+      "anchor": "balance-ramp-weight-cost",
+      "title": "The cost of substituting the reference weight at thick positions",
+      "statement": "If b≤w≤b+η+1 and |a/b−x|≤1 at a thick position, substituting b costs at most 3(x+1)(η+1) per character. With the local cost constraints, replacing the thick weights and omitting the thin terms together cost at most 2b/x per measurement.",
+      "hypotheses": "x≥3, b>0, η≥0. There are f=|Φ| positions and 2f characters, and the character expansion divides by f. The thick budget is 6f(x+1)(η+1)≤b/x. The separate thin allowance is at most b/x.",
+      "dependencies": [
+        "RWV-01",
+        "BAL-01"
+      ],
+      "equations": [
+        "balance-ramp-thick-cost"
+      ],
+      "sources": [
+        {
+          "declaration": "th_le",
+          "label": "The comparison scale and the hypotheses for thick and thin positions",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+          "lines": [
+            75,
+            89
+          ],
+          "declaration_lines": {
+            "th_le": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean#L75-L89"
+        },
+        {
+          "declaration": "th_le",
+          "label": "The common amplitude gives the thick-index change of weight",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+          "lines": [
+            105,
+            123
+          ],
+          "declaration_lines": {
+            "th_le": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean#L105-L123"
+        },
+        {
+          "declaration": "core",
+          "label": "Combining both costs and applying the weight estimate",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+          "lines": [
+            291,
+            310
+          ],
+          "declaration_lines": {
+            "core": 283
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean#L291-L310"
+        },
+        {
+          "declaration": "core",
+          "label": "How the per-measurement charge enters the translated average",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+          "lines": [
+            313,
+            338
+          ],
+          "declaration_lines": {
+            "core": 283
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean#L313-L338"
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "sum_vM_le",
+      "callee": "psi_le_three",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 693,
+        "spelling": "psi_le_three"
+      }
+    },
+    {
+      "caller": "norm_coef_le",
+      "callee": "norm_primVal_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 767,
+        "spelling": "norm_primVal_le"
+      }
+    },
+    {
+      "caller": "lip_char",
+      "callee": "wG_char",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 856,
+        "spelling": "wG_char"
+      }
+    },
+    {
+      "caller": "lip_char",
+      "callee": "floor_div_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 856,
+        "spelling": "floor_div_le"
+      }
+    },
+    {
+      "caller": "lip_char",
+      "callee": "norm_coef_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 869,
+        "spelling": "norm_coef_le"
+      }
+    },
+    {
+      "caller": "lip_char",
+      "callee": "sum_vM_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 872,
+        "spelling": "sum_vM_le"
+      }
+    },
+    {
+      "caller": "lip_triv_le",
+      "callee": "wGz",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 904,
+        "spelling": "wGz"
+      }
+    },
+    {
+      "caller": "lip_triv_le",
+      "callee": "sum_vM_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 926,
+        "spelling": "sum_vM_le"
+      }
+    },
+    {
+      "caller": "lip_triv",
+      "callee": "lip_triv_le",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 951,
+        "spelling": "lip_triv_le"
+      }
+    },
+    {
+      "caller": "lipschitz_weight_all",
+      "callee": "lip_triv",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 963,
+        "spelling": "AN.lip_triv"
+      }
+    },
+    {
+      "caller": "lipschitz_weight_all",
+      "callee": "lip_char",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+        "line": 964,
+        "spelling": "AN.lip_char"
+      }
+    },
+    {
+      "caller": "core",
+      "callee": "th_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+        "line": 307,
+        "spelling": "th_le"
+      }
+    },
+    {
+      "caller": "core",
+      "callee": "lipschitz_weight_all",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+        "line": 308,
+        "spelling": "lipschitz_weight_all"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RWV-01",
+      "RWV-02"
+    ],
+    [
+      "RWV-02",
+      "BAL-03"
+    ]
+  ],
+  "outstanding": [
+    "Thin positions use the separately supplied smallness estimate for the centered ramp relative to its argument. This calculation accounts for the change of weight on thick positions."
+  ]
+}

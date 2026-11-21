@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BGM-01",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-good-mass",
+      "title": "The binary Gram mass is a four-variable local density",
+      "statement": "At every good finite place the nonzero-length Gram-fibre mass of the binary coordinate lattice is the local density of Q(x)=xᵗBx/2 on four base-field coordinates. Its support is integral and its integral is one.",
+      "hypotheses": "CM quadratic extension and a fixed basis over the base field, a nonsingular Hermitian plane, scalar Haar measure of unit integer-ring volume and the corresponding Gram-fibre measures. At the good places 2 and det B are units and B has integral entries.",
+      "dependencies": [
+        "BGM-04"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "locMass",
+          "label": "Trace coordinates and the finitely many exceptional places",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            233,
+            263
+          ],
+          "declaration_lines": {
+            "locMass": 233
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L233-L263"
+        },
+        {
+          "declaration": "local_mass",
+          "label": "Matching a constant pushforward density with the Gram fibre",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensityAlmostAll.lean",
+          "lines": [
+            29,
+            46
+          ],
+          "declaration_lines": {
+            "local_mass": 29
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensityAlmostAll.lean#L29-L46"
+        },
+        {
+          "declaration": "density_nonint",
+          "label": "Vanishing for nonintegral lengths",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            214,
+            232
+          ],
+          "declaration_lines": {
+            "density_nonint": 214
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L214-L232"
+        },
+        {
+          "declaration": "fibre_masses_standard_lattice",
+          "label": "Continuity off zero and total mass one",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean",
+          "lines": [
+            22,
+            41
+          ],
+          "declaration_lines": {
+            "fibre_masses_standard_lattice": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean#L22-L41"
+        },
+        {
+          "label": "Nullity of the singular locus in source and target",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean",
+          "lines": [
+            76,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean#L76-L101"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "BGM-02",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-regular-residues",
+      "title": "Counting the primitive fibres over an odd residue field",
+      "statement": "For a nonzero residue a the number of solutions of the four-variable nonsingular quadratic equation differs from q³ by at most q. Counting only primitive vectors over a zero residue gives error at most q²+1. The primitive density is the count divided by q³, with error at most q⁻² on units.",
+      "hypotheses": "Odd residue field of order q, integral symmetric matrix invertible on reduction, additive Haar volume one for the integer ring.",
+      "dependencies": [
+        "BGM-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "norm_gauss",
+          "label": "Absolute value of the finite quadratic sum",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteFieldQuadraticFormPointCount.lean",
+          "lines": [
+            74,
+            83
+          ],
+          "declaration_lines": {
+            "norm_gauss": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteFieldQuadraticFormPointCount.lean#L74-L83"
+        },
+        {
+          "declaration": "count_mul_card",
+          "label": "Additive-character representation of a quadratic level count",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteFieldQuadraticFormPointCount.lean",
+          "lines": [
+            84,
+            107
+          ],
+          "declaration_lines": {
+            "count_mul_card": 84
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteFieldQuadraticFormPointCount.lean#L84-L107"
+        },
+        {
+          "declaration": "sum_sq_scale",
+          "label": "Quadratic-character scaling in a single variable",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean",
+          "lines": [
+            46,
+            57
+          ],
+          "declaration_lines": {
+            "sum_sq_scale": 46
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean#L46-L57"
+        },
+        {
+          "declaration": "card_quadric_unit",
+          "label": "Cancellation on a nonzero target",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean",
+          "lines": [
+            132,
+            177
+          ],
+          "declaration_lines": {
+            "card_quadric_unit": 132
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean#L132-L177"
+        },
+        {
+          "declaration": "measure_residue_class",
+          "label": "Primitive residue classes and conditional volume",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+          "lines": [
+            252,
+            277
+          ],
+          "declaration_lines": {
+            "measure_residue_class": 252
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean#L252-L277"
+        },
+        {
+          "declaration": "density_primitive",
+          "label": "The primitive density estimate on integral lengths",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityNearOne.lean",
+          "lines": [
+            301,
+            303
+          ],
+          "declaration_lines": {
+            "density_primitive": 301
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityNearOne.lean#L301-L303"
+        },
+        {
+          "declaration": "density_unit_lattice",
+          "label": "The stronger estimate on a unit target",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityUnitLattice.lean",
+          "lines": [
+            233,
+            265
+          ],
+          "declaration_lines": {
+            "density_unit_lattice": 233
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityUnitLattice.lean#L233-L265"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "BGM-03",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-valuation-step",
+      "title": "Scaling the imprimitive part gives a uniform binary mass bound",
+      "statement": "For nonzero s of valuation at least two, its density equals the primitive contribution plus q⁻² times the density at s/π². Induction gives |gᵥ(s)−1|≤3/q for every nonzero integral target. Unit targets satisfy the sharper bound 1/q². These two estimates enter the global length average.",
+      "hypotheses": "Same good-place assumptions. The identity concerns nonzero integral lengths and the unit-volume coordinate lattice, with π any uniformizer. The global length-average argument applies this calculation in the anisotropic binary case.",
+      "dependencies": [
+        "BGM-01",
+        "BGM-02"
+      ],
+      "equations": [
+        "lifts-binary-primitive-recursion",
+        "lifts-binary-mass-bounds"
+      ],
+      "sources": [
+        {
+          "declaration": "local_density_binary_unimodular",
+          "label": "Separate primitive vectors and start induction on the valuation",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            43,
+            64
+          ],
+          "declaration_lines": {
+            "local_density_binary_unimodular": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L43-L64"
+        },
+        {
+          "declaration": "local_density_binary_unimodular",
+          "label": "Scale source and target measures on the imprimitive part",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            147,
+            196
+          ],
+          "declaration_lines": {
+            "local_density_binary_unimodular": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L147-L196"
+        },
+        {
+          "declaration": "bound_step_two",
+          "label": "The uniform error in one recurrence step",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            17,
+            41
+          ],
+          "declaration_lines": {
+            "bound_step_two": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L17-L41"
+        },
+        {
+          "declaration": "locMass",
+          "label": "The three local conclusions in the selected theorem",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            262,
+            287
+          ],
+          "declaration_lines": {
+            "locMass": 233
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L262-L287"
+        },
+        {
+          "declaration": "srside",
+          "label": "Using the local bounds in the scalar average",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+          "lines": [
+            16,
+            40
+          ],
+          "declaration_lines": {
+            "srside": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean#L16-L40"
+        },
+        {
+          "declaration": "e1",
+          "label": "The anisotropic binary one-vector formula",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+          "lines": [
+            19,
+            27
+          ],
+          "declaration_lines": {
+            "e1": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean#L19-L27"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "BGM-04",
+      "chapter": "lifts",
+      "anchor": "lifts-binary-measure-chart",
+      "title": "Fibre measure in one primitive residue class",
+      "statement": "On a primitive residue ball of a good four-variable quadratic form, three free coordinates parametrize each allowed length and contribute q⁻³ to its fibre mass. At a nonzero length the scaled primitive shells give a finite sum.",
+      "hypotheses": "Odd residue characteristic, an integral symmetric matrix invertible over the local integers, a complete local field, and scalar Haar measure of unit integer-ring volume.",
+      "dependencies": [],
+      "equations": [
+        "lifts-binary-chart-integral"
+      ],
+      "sources": [
+        {
+          "label": "A primitive residue has a unit partial derivative",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+          "lines": [
+            55,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean#L55-L77",
+          "declaration": "exists_unit_coord",
+          "declaration_lines": {
+            "exists_unit_coord": 55
+          }
+        },
+        {
+          "label": "Measure of the inverse image under a one-variable quadratic on a residue ball",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+          "lines": [
+            107,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean#L107-L132",
+          "declaration": "slice",
+          "declaration_lines": {
+            "slice": 107
+          }
+        },
+        {
+          "label": "Mass over a primitive residue class",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+          "lines": [
+            252,
+            263
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean#L252-L263",
+          "declaration": "measure_residue_class",
+          "declaration_lines": {
+            "measure_residue_class": 252
+          }
+        },
+        {
+          "label": "Integration over the three remaining coordinates",
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+          "lines": [
+            289,
+            324
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean#L289-L324"
+        },
+        {
+          "label": "The regular-fibre mass is continuous off zero",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean",
+          "lines": [
+            54,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean#L54-L75"
+        },
+        {
+          "label": "Nullity of the singular locus in source and target",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean",
+          "lines": [
+            76,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean#L76-L101"
+        },
+        {
+          "label": "Dilation of a nonprimitive vector and scaling of the scalar target",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+          "lines": [
+            147,
+            196
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean#L147-L196"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.local_mass_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.T.local_mass_formula"
+      }
+    },
+    {
+      "callee": "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 22,
+        "spelling": "PositivityTheory.Rg.Mass.LiteralAutomorphy.srside"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.trace_form_coords",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 237,
+        "spelling": "GlobalTheory.CompanionTheory.SW.trace_form_coords"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.UnitVal.density_unit_lattice",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 256,
+        "spelling": "GlobalTheory.CompanionTheory.SW.UnitVal.density_unit_lattice"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.LocGood.local_mass",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 262,
+        "spelling": "GlobalTheory.CompanionTheory.SW.LocGood.local_mass"
+      }
+    },
+    {
+      "callee": "density_nonint",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 265,
+        "spelling": "density_nonint"
+      }
+    },
+    {
+      "callee": "density_near_value_two",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 281,
+        "spelling": "density_near_value_two"
+      }
+    },
+    {
+      "callee": "local_density_binary_unimodular",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 208,
+        "spelling": "local_density_binary_unimodular"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_quadratic_density_near_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.local_quadratic_density_near_one"
+      }
+    },
+    {
+      "callee": "bound_step_two",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 135,
+        "spelling": "bound_step_two"
+      }
+    },
+    {
+      "callee": "pi_scale",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalMassFormula.lean",
+        "line": 185,
+        "spelling": "pi_scale"
+      }
+    },
+    {
+      "callee": "count_mul_card",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean",
+        "line": 143,
+        "spelling": "count_mul_card"
+      }
+    },
+    {
+      "callee": "norm_gauss",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardQuadricUnit.lean",
+        "line": 151,
+        "spelling": "norm_gauss"
+      }
+    },
+    {
+      "callee": "GlobalTheory.CompanionTheory.SW.QuadricUnit.card_quadric_unit",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityUnitLattice.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.CompanionTheory.SW.QuadricUnit.card_quadric_unit"
+      }
+    },
+    {
+      "callee": "density_near_unit",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityUnitLattice.lean",
+        "line": 264,
+        "spelling": "density_near_unit"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.local_binary_gram_density",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/SingleRowSide/Srside.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.local_binary_gram_density"
+      }
+    },
+    {
+      "callee": "exists_unit_coord",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+        "line": 259,
+        "spelling": "exists_unit_coord"
+      }
+    },
+    {
+      "callee": "slice_form",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/PrimitiveVectorQuadraticLevelMeasure.lean",
+        "line": 297,
+        "spelling": "slice_form"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.gram_fiber_integral_isContDensityOn",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/LocalBinaryGramDensity.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.T.gram_fiber_integral_isContDensityOn"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "BGM-01",
+      "BGM-02"
+    ],
+    [
+      "BGM-01",
+      "BGM-03"
+    ],
+    [
+      "BGM-02",
+      "BGM-03"
+    ],
+    [
+      "BGM-03",
+      "BEQ-03"
+    ],
+    [
+      "BGM-04",
+      "BGM-01"
+    ]
+  ],
+  "outstanding": [
+    "The scalar charts give disintegration and normalization on the good binary lattice. Gluing compatible measures for general Hermitian Gram matrices at all places remains a separate input, as does the discrepancy bound after reduction to a Siegel domain."
+  ]
+}

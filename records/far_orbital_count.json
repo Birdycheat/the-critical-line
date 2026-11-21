@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FAR-01",
+      "chapter": "global",
+      "anchor": "global-far-orbits",
+      "title": "Packing the rational elements in a box of Cartan radii",
+      "statement": "The number of rational terms supported at the finite places with every Cartan distance bounded by Rᵥ is at most P(x) exp(2n² ΣRᵥ), with P(x)=(3√n/t²)^(2n²f) and t=min(1/2,least(x)).",
+      "hypotheses": "The self-dual integral lattice and the compact finite-place stabilizer in the unitary trace construction, n ≥ 1, f ≥ 1 and nonnegative place radii.",
+      "equations": [
+        "global-far-box"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "tau1",
+          "label": "The truncated least size",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            52,
+            54
+          ],
+          "declaration_lines": {
+            "tau1": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L52-L54"
+        },
+        {
+          "declaration": "dHS_polar",
+          "label": "The polar distance",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormPosOfIsUnit.lean",
+          "lines": [
+            93,
+            105
+          ],
+          "declaration_lines": {
+            "dHS_polar": 93
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NormPosOfIsUnit.lean#L93-L105"
+        },
+        {
+          "declaration": "sizeIneq",
+          "label": "The lattice map size inequality",
+          "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+          "lines": [
+            52,
+            58
+          ],
+          "declaration_lines": {
+            "sizeIneq": 57
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/ShiftInvariance.lean#L52-L58"
+        },
+        {
+          "declaration": "separated",
+          "label": "Separation for two rational elements",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+          "lines": [
+            123,
+            164
+          ],
+          "declaration_lines": {
+            "separated": 123
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean#L123-L164"
+        },
+        {
+          "declaration": "packing_geometric_mean_separated",
+          "label": "Rescaling the packing radii",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PackingGeometricMeanSeparated.lean",
+          "lines": [
+            62,
+            94
+          ],
+          "declaration_lines": {
+            "packing_geometric_mean_separated": 62
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PackingGeometricMeanSeparated.lean#L62-L94"
+        },
+        {
+          "declaration": "count_le",
+          "label": "Finite box count in the operator norm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+          "lines": [
+            166,
+            205
+          ],
+          "declaration_lines": {
+            "count_le": 166
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean#L166-L205"
+        },
+        {
+          "declaration": "autBallCount",
+          "label": "The bound in Cartan radii",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutBallCount.lean",
+          "lines": [
+            28,
+            48
+          ],
+          "declaration_lines": {
+            "autBallCount": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutBallCount.lean#L28-L48"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "FAR-02",
+      "chapter": "global",
+      "anchor": "global-far-shells",
+      "title": "Summing the nonzero far coefficients over all place profiles",
+      "statement": "If at least one Cartan distance exceeds ε, the far absolute sum is at most c₀ P(x)·2f·3^f·exp(−hε²/16). The far sum converges at each x.",
+      "hypotheses": "Lowest-type unit vectors, finite projector supported on the compact subgroup, signature p≥q≥1 and gap h≥120n q^(3/2). For κ=2n² require 0<ε≤1/√(2q), κε≤log 2, 32κ≤hε and hε²/16≥1.",
+      "equations": [
+        "global-far-decay",
+        "global-far-tail"
+      ],
+      "dependencies": [
+        "FAR-01"
+      ],
+      "sources": [
+        {
+          "declaration": "IsNear",
+          "label": "The near condition for a nonzero coefficient",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            99,
+            100
+          ],
+          "declaration_lines": {
+            "IsNear": 99
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L99-L100"
+        },
+        {
+          "declaration": "dec_exp",
+          "label": "Local lowest-type coefficient for the positive polar factor",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DecGapOfFormula.lean",
+          "lines": [
+            159,
+            171
+          ],
+          "declaration_lines": {
+            "dec_exp": 159
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DecGapOfFormula.lean#L159-L171"
+        },
+        {
+          "declaration": "ptBound_of_decGap",
+          "label": "Local coefficients and the finite projector",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundOfDecGap.lean",
+          "lines": [
+            13,
+            37
+          ],
+          "declaration_lines": {
+            "ptBound_of_decGap": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundOfDecGap.lean#L13-L37"
+        },
+        {
+          "declaration": "ptBound_and_farBound_and_decGap",
+          "label": "Construction of the coefficient input",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundAndFarBoundAndDecGap.lean",
+          "lines": [
+            11,
+            16
+          ],
+          "declaration_lines": {
+            "ptBound_and_farBound_and_decGap": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundAndFarBoundAndDecGap.lean#L11-L16"
+        },
+        {
+          "declaration": "exists_dyadic_shell_index",
+          "label": "Choice of shell and its endpoints",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+          "lines": [
+            8,
+            18
+          ],
+          "declaration_lines": {
+            "exists_dyadic_shell_index": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean#L8-L18"
+        },
+        {
+          "declaration": "sum_prod_box_erase_zero",
+          "label": "Factoring the sum over nonzero profiles",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+          "lines": [
+            20,
+            28
+          ],
+          "declaration_lines": {
+            "sum_prod_box_erase_zero": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean#L20-L28"
+        },
+        {
+          "declaration": "sum_over_dyadic_shells",
+          "label": "Sum of the positive shells and passage to the infinite sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+          "lines": [
+            123,
+            178
+          ],
+          "declaration_lines": {
+            "sum_over_dyadic_shells": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean#L123-L178"
+        },
+        {
+          "declaration": "farBound_of_ptBound",
+          "label": "Applying the box and coefficient estimates to the far support",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SummableOfSupport.lean",
+          "lines": [
+            66,
+            108
+          ],
+          "declaration_lines": {
+            "farBound_of_ptBound": 42
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SummableOfSupport.lean#L66-L108"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "FAR-03",
+      "chapter": "global",
+      "anchor": "global-far-moderate",
+      "title": "Integrating the far terms on the moderate region",
+      "statement": "For the indefinite counting data, integrating the absolute values of far summands on the moderate set costs at most exp(−n²f) times the identity mass M.",
+      "hypotheses": "The standing counting hypotheses, including n≥8, 1≤q≤p, q²≤n, log f≤√n, d≥1, b≥2, 1≤g≤b^Cg, Cg≥0, the finite volume fundamental domain and gap h≥8·10^14(Cg+4)n^19 f^5 log(bd). The cutoff is τ=(nfdgb)^(−11q).",
+      "equations": [
+        "global-far-integral"
+      ],
+      "dependencies": [
+        "FAR-02"
+      ],
+      "sources": [
+        {
+          "declaration": "CountHyp",
+          "label": "Radii and the counting-family hypotheses",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            102,
+            115
+          ],
+          "declaration_lines": {
+            "CountHyp": 108
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L102-L115"
+        },
+        {
+          "declaration": "countHyp_numerics",
+          "label": "Rank and gap consequences",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountHypPAtAddQAt.lean",
+          "lines": [
+            25,
+            43
+          ],
+          "declaration_lines": {
+            "countHyp_numerics": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CountHypPAtAddQAt.lean#L25-L43"
+        },
+        {
+          "declaration": "gap_threshold_pays_far_terms",
+          "label": "Comparing the spectral gap and the packing cost",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GapThresholdPaysFarTerms.lean",
+          "lines": [
+            25,
+            59
+          ],
+          "declaration_lines": {
+            "gap_threshold_pays_far_terms": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GapThresholdPaysFarTerms.lean#L25-L59"
+        },
+        {
+          "declaration": "gap_threshold_pays_far_terms",
+          "label": "Finishing the logarithmic comparison",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GapThresholdPaysFarTerms.lean",
+          "lines": [
+            153,
+            201
+          ],
+          "declaration_lines": {
+            "gap_threshold_pays_far_terms": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GapThresholdPaysFarTerms.lean#L153-L201"
+        },
+        {
+          "declaration": "farModerate_of_farBound",
+          "label": "Pointwise estimate and integration",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FarTermsModerateRegionOfFlagBound.lean",
+          "lines": [
+            53,
+            113
+          ],
+          "declaration_lines": {
+            "farModerate_of_farBound": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FarTermsModerateRegionOfFlagBound.lean#L53-L113"
+        },
+        {
+          "declaration": "countingTheorem_of_finite_of_bounds",
+          "label": "The far error in the ambient trace",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean",
+          "lines": [
+            97,
+            114
+          ],
+          "declaration_lines": {
+            "countingTheorem_of_finite_of_bounds": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DiscreteSeriesCountingOfFiniteAndBounds.lean#L97-L114"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.RationalCount.count_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutBallCount.lean",
+        "line": 30,
+        "spelling": "GlobalTheory.RationalCount.count_le"
+      }
+    },
+    {
+      "callee": "sizeIneq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 138,
+        "spelling": "sizeIneq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.packing_geometric_mean_separated",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TruncatedLeastLatticeSizePos.lean",
+        "line": 189,
+        "spelling": "GlobalTheory.packing_geometric_mean_separated"
+      }
+    },
+    {
+      "callee": "pow_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutBallCount.lean",
+        "line": 43,
+        "spelling": "pow_bound"
+      }
+    },
+    {
+      "callee": "GlobalTheory.AutBall.autBallCount",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SummableOfSupport.lean",
+        "line": 74,
+        "spelling": "GlobalTheory.AutBall.autBallCount"
+      }
+    },
+    {
+      "callee": "GlobalTheory.sum_over_dyadic_shells",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SummableOfSupport.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.sum_over_dyadic_shells"
+      }
+    },
+    {
+      "callee": "exists_dyadic_shell_index",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+        "line": 34,
+        "spelling": "exists_dyadic_shell_index"
+      }
+    },
+    {
+      "callee": "exp_neg_mul_two_pow_le_geometric",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+        "line": 132,
+        "spelling": "exp_neg_mul_two_pow_le_geometric"
+      }
+    },
+    {
+      "callee": "sum_prod_box_erase_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsDyadicShellIndex.lean",
+        "line": 152,
+        "spelling": "sum_prod_box_erase_zero"
+      }
+    },
+    {
+      "callee": "GlobalTheory.DecGapBound.decGap_of_formulaGap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundAndFarBoundAndDecGap.lean",
+        "line": 14,
+        "spelling": "GlobalTheory.DecGapBound.decGap_of_formulaGap"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Deep.ptBound_of_decGap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundAndFarBoundAndDecGap.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.Deep.ptBound_of_decGap"
+      }
+    },
+    {
+      "callee": "GlobalTheory.FarTerms.farBound_of_ptBound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PtBoundAndFarBoundAndDecGap.lean",
+        "line": 16,
+        "spelling": "GlobalTheory.FarTerms.farBound_of_ptBound"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Dec.countHyp_numerics",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FarTermsModerateRegionOfFlagBound.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.Dec.countHyp_numerics"
+      }
+    },
+    {
+      "callee": "GlobalTheory.gap_threshold_pays_far_terms",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FarTermsModerateRegionOfFlagBound.lean",
+        "line": 64,
+        "spelling": "GlobalTheory.gap_threshold_pays_far_terms"
+      }
+    },
+    {
+      "callee": "setLIntegral_mono",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FarTermsModerateRegionOfFlagBound.lean",
+        "line": 102,
+        "spelling": "setLIntegral_mono"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FAR-01",
+      "FAR-02"
+    ],
+    [
+      "FAR-02",
+      "FAR-03"
+    ],
+    [
+      "FAR-03",
+      "RPC-02"
+    ]
+  ],
+  "outstanding": [
+    "The detailed local compression formula for lowest-type coefficients and the lattice map size inequality are upstream inputs. Near rational terms, the rare-flag volume and the concentration of the projection on the deep region enter independently."
+  ]
+}
