@@ -1,11 +1,13 @@
-/* Reading-template styles adapted from Andréa Gourion’s article template, production release 55, commit 079c3b983c871e4b5557cfd03565a1d4221895a8. Font license: fonts/OFL.txt. */
+/* Reading layout adapted from Andréa Gourion’s article template, release 55. The monograph uses the Latin Modern fonts licensed in fonts/. */
+@font-face { font-family: 'Latin Modern Roman'; src: url('fonts/lmroman10-regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Latin Modern Roman'; src: url('fonts/lmroman10-italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Latin Modern Roman'; src: url('fonts/lmroman10-bold.otf') format('opentype'); font-weight: 600 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Latin Modern Roman'; src: url('fonts/lmroman10-bolditalic.otf') format('opentype'); font-weight: 600 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Latin Modern Math'; src: url('fonts/latinmodern-math.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'Libertinus Serif'; src: url('fonts/LibertinusSerif-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Libertinus Serif'; src: url('fonts/LibertinusSerif-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Libertinus Serif'; src: url('fonts/LibertinusSerif-Semibold.woff2') format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Libertinus Serif'; src: url('fonts/LibertinusSerif-SemiboldItalic.woff2') format('woff2'); font-weight: 600 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Critical Line Math Scripts'; src: url('fonts/critical-line-math-scripts.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'Libertinus Math Signs'; src: url('fonts/LibertinusMath-Signs.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+21A6, U+223C, U+2243, U+2245, U+225C, U+225D, U+227A, U+227B, U+227C, U+227D, U+2286, U+2287, U+22A4, U+27F5, U+27F6, U+27F7, U+27F8, U+27F9, U+27FA, U+27FC, U+2AAF, U+2AB0; }
+@font-face { font-family: 'Critical Line Additional Signs'; src: url('fonts/critical-line-additional-signs.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+0428, U+2605; }
 
 :root {
   color-scheme: light;
@@ -21,7 +23,8 @@
   --page-gutter: clamp(1.25rem, 5vw, 3rem);
   --content-max: 75rem;
   --reading-max: 41rem;
-  --font-text: 'Libertinus Serif', Georgia, 'Times New Roman', serif;
+  --font-text: 'Latin Modern Roman', 'Latin Modern Math', 'Critical Line Math Scripts', 'Critical Line Additional Signs', Georgia, serif;
+  --font-math: 'Latin Modern Math', 'Critical Line Math Scripts', 'Critical Line Additional Signs', math;
   --font-sans: var(--font-text);
   --font-code: ui-monospace, Consolas, 'Courier New', monospace;
   --text-size: clamp(1.125rem, 1rem + .55vw, 1.25rem);
@@ -166,7 +169,7 @@ a:hover { color: var(--copper); }
 .text-and-margin > :first-child { flex: 999 1 26rem; max-width: 41rem; min-width: 0; }
 .text-and-margin > :is(figure, aside) { flex: 1 1 16rem; max-width: 26rem; min-width: 0; }
 /* Book navigation and reading apparatus */
-body { font-synthesis: none; font-kerning: normal; font-variant-ligatures: common-ligatures; }
+body { font-synthesis: small-caps; font-kerning: normal; font-variant-ligatures: common-ligatures; }
 button, input, select, textarea, summary { font-family: inherit; color: inherit; }
 [hidden] { display: none !important; }
 .print-only { display: none; }
@@ -214,8 +217,9 @@ code { overflow-wrap: anywhere; }
 pre { max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; }
 .source-note, .audit-note, .chapter aside { padding-block: .55rem; margin-block: 1.1rem; border-block: 1px solid var(--ink); }
 .chapter .equation, .chapter .eq, .chapter .formula, .equation-block, math[display="block"] { display: block; max-width: 100%; margin-block: 1.05rem; padding: .15rem .1rem; overflow-x: auto; text-align: center; }
-math { font-family: 'Libertinus Math', 'Cambria Math', 'STIX Two Math', math; }
-.equation, .eq, .formula { font-family: 'Libertinus Serif', 'Libertinus Math Signs', 'Cambria Math', serif; }
+math { font-family: var(--font-math); font-weight: 400; font-style: normal; }
+.equation, .eq, .formula { font-family: var(--font-text); font-weight: 400; }
+:is(h1, h2, h3, h4, h5, h6, th, dt, strong, b) :is(i, var) { font-weight: 400; }
 .equation-number { display: block; text-align: right; font-size: .8em; color: var(--ink-soft); }
 .refno { margin-left: .15rem; font-size: .7em; line-height: 1; vertical-align: super; white-space: nowrap; }
 .refno a { text-decoration: none; color: var(--copper); }
@@ -257,6 +261,8 @@ thead th { border-bottom-color: var(--ink); }
 .site-header noscript { display: none; }
 /* Each experiment has a complete, static initial state. */
 .lab { min-width: 0; margin: 1.8rem 0; padding: .85rem 0 1.15rem; border-block: 1px solid var(--ink); background: transparent; }
+.lab :is(var, .math-coordinates) { font-weight: 400; }
+.lab var sub { font-style: normal; }
 .lab .labhead { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; }
 .lab .eyebrow { margin-bottom: .25rem; }
 .lab h4 { margin: .2rem 0 .35rem; font: italic 1.24em/1.22 var(--font-text); }
@@ -338,8 +344,8 @@ thead th { border-bottom-color: var(--ink); }
 @media print {
   @page {
     margin: .55in;
-    @bottom-left { content: "The Critical Line"; font: 8pt "Libertinus Serif", Georgia, serif; color: #514c45; }
-    @bottom-right { content: counter(page); font: 8pt "Libertinus Serif", Georgia, serif; color: #514c45; }
+    @bottom-left { content: "The Critical Line"; font: 8pt "Latin Modern Roman", Georgia, serif; color: #514c45; }
+    @bottom-right { content: counter(page); font: 8pt "Latin Modern Roman", Georgia, serif; color: #514c45; }
   }
   @page :first {
     @bottom-left { content: none; }

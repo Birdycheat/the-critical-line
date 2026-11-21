@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "rank-weight-projectors": {
+      title: "How many eigenspaces does a four-dimensional operator have?",
+      kind: "Spectral projectors and differences of weights",
+      section: "lifts",
+      params: [
+        choose("weights", "Distinct weights", [["separated", "0, 1, 4"], ["adjacent", "0, 1, 2"]], "separated"),
+        choose("repeated", "Weight with two coordinates", [["low", "Lowest"], ["middle", "Middle"], ["high", "Highest"]], "middle"),
+      ],
+      caption: "Read the four diagonal entries of each projector. A second 1 in one row means that eigenspace is a plane. Switch to equally spaced weights to see which two pairs then give the same difference.",
+      method: "Let D act diagonally with the four displayed entries. For each distinct weight h, evaluate Pₕ(x) = ∏(x−k)/∏(h−k), taking both products over the other distinct weights k. The rank is the sum of the diagonal entries of Pₕ(D). To test differences, let the commutator X ↦ DX−XD act on matrices. A map from the weight-k space to the weight-h space has commutator eigenvalue h−k. Its block has dimension rank(Pₖ) × rank(Pₕ).",
+    },
     "polynomial-cut": {
       title: "How much 5-adic precision does a local test cost?",
       kind: "Reweighting a finite approximation of polynomial evaluations",
@@ -1030,25 +1041,34 @@
     const dw = equal ? (122 * (xMax - xMin)) / (yMax - yMin) : 482;
     const X = (x) => 309 - dw / 2 + (dw * (x - xMin)) / (xMax - xMin);
     const Y = (y) => 170 - (122 * (y - yMin)) / (yMax - yMin);
+    // Reserve room for numerical ticks at the larger mobile label size.
+    const tickWidth = text => 12 * text.length + 6;
+    let leftMargin = 0, rightMargin = 0;
     let axes = "";
     for (let j = 0; j <= 4; j++) {
       const y = yMin + ((yMax - yMin) * j) / 4;
+      const label = fmt(y, 3);
+      leftMargin = Math.max(leftMargin, tickWidth(label) - 59);
       axes +=
         '<path class="grid" d="M68 ' +
         Y(y) +
         'H550"/><text x="59" y="' +
         (Y(y) + 4) +
         '" text-anchor="end">' +
-        fmt(y, 3) +
+        label +
         "</text>";
     }
     for (let j = 0; j <= 4; j++) {
       const x = xMin + ((xMax - xMin) * j) / 4;
+      const label = fmt(x, 3);
+      const halfWidth = tickWidth(label) / 2;
+      leftMargin = Math.max(leftMargin, halfWidth - X(x));
+      rightMargin = Math.max(rightMargin, X(x) + halfWidth - 580);
       axes +=
         '<text x="' +
         X(x) +
         '" y="192" text-anchor="middle">' +
-        fmt(x, 3) +
+        label +
         "</text>";
     }
     const line = (pts, cls = "ink") =>
@@ -1060,7 +1080,7 @@
     return (
       '<svg class="plot" role="img" aria-label="' +
       title +
-      '" viewBox="0 0 580 222"><title>' +
+      '" viewBox="' + -leftMargin + ' -2 ' + (580 + leftMargin + rightMargin) + ' 227"><title>' +
       title +
       "</title>" +
       axes +
@@ -1442,7 +1462,7 @@
       drawing = line(61, 63, 163, 63) + line(175, 63, 277, 63) +
         point(55, 63, "A") + point(169, 63, "U") + point(283, 63, "C");
     }
-    return '<svg class="plot" viewBox="0 0 338 107" role="img" aria-label="' + title + '"><title>' + title + '</title>' + drawing + '</svg>';
+    return '<svg class="plot" viewBox="0 -5 338 114" role="img" aria-label="' + title + '"><title>' + title + '</title>' + drawing + '</svg>';
   }
 
   function gaussianMinorShell(h) {
@@ -1486,6 +1506,38 @@
   }
 
   function render(id, v) {
+    if (id === "rank-weight-projectors") {
+      const weights = [0, 1, v.weights === "separated" ? 4 : 2];
+      const repeated = {low: 0, middle: 1, high: 2}[v.repeated];
+      const diagonal = weights.flatMap((h, i) => i === repeated ? [h, h] : [h]);
+      const projectors = weights.map(h => {
+        const other = weights.filter(k => k !== h);
+        const denominator = other.reduce((p, k) => p * (h - k), 1);
+        return diagonal.map(x => other.reduce((p, k) => p * (x - k), 1) / denominator);
+      });
+      const ranks = projectors.map(entries => entries.reduce((s, x) => s + x, 0));
+      const total = diagonal.map((_, i) => projectors.reduce((s, entries) => s + entries[i], 0));
+      const row = (label, entries, rank) => '<tr><th scope="row">' + label + '</th><td>(' +
+        entries.join(', ') + ')</td><td>' + rank + '</td></tr>';
+      const table = '<table class="carry-table"><caption>Projectors for <var>D</var> = diag(' + diagonal.join(', ') +
+        ')</caption><thead><tr><th scope="col">Operator</th><th scope="col">Diagonal</th>' +
+        '<th scope="col">Rank</th></tr></thead><tbody>' +
+        projectors.map((p, i) => row('<var>P<sub>' + weights[i] + '</sub></var>', p, ranks[i])).join('') +
+        row('Sum', total, total.reduce((s, x) => s + x, 0)) + '</tbody></table>';
+      const blocks = [];
+      let dimension = 0;
+      for (const [source, k] of weights.entries()) {
+        const target = weights.indexOf(k + 1);
+        if (target < 0) continue;
+        blocks.push(k + ' → ' + weights[target]);
+        dimension += ranks[source] * ranks[target];
+      }
+      return table + metrics([
+        ["Distinct projectors", String(projectors.length)],
+        ["Weight blocks with difference +1", blocks.join(' and ')],
+        ["Dimension of the +1 commutator eigenspace", String(dimension)],
+      ]);
+    }
     if (id === "polynomial-cut") {
       const degree = Number(v.power), cut = v.filter === "cut";
       const atZero = degree === 0 ? 1 : 0;
@@ -1497,7 +1549,7 @@
         denominator *= 5;
       }
       const table = '<table class="carry-table"><caption>Evaluation at each point</caption>' +
-        '<thead><tr><th scope="col">Point</th><th scope="col">Weight</th><th scope="col">Value of P</th></tr></thead><tbody>' +
+        '<thead><tr><th scope="col">Point</th><th scope="col">Weight</th><th scope="col">Value of <var>P</var></th></tr></thead><tbody>' +
         '<tr><th scope="row">0</th><td>' + (cut ? "0" : "1/2") + '</td><td>' + atZero + '</td></tr>' +
         '<tr><th scope="row">10</th><td>' + (cut ? "1" : "1/2") + '</td><td>' + 10 ** degree + '</td></tr></tbody></table>';
       return table + metrics([["Target P(5)", String(target)], ["Weighted sum", String(sum)],
@@ -1527,14 +1579,14 @@
       const numerators = elements.map(([a, b]) =>
         [1, (-1) ** a, (-1) ** b].slice(0, modes).reduce((sum, character) => sum + character, 0));
       const mean = numerators.reduce((sum, z) => sum + z, 0) / elements.length;
-      const rows = elements.map(([a, b], i) => '<tr><th scope="row">(' + a + ',' + b + ')</th><td>' +
+      const rows = elements.map(([a, b], i) => '<tr><th scope="row" class="math-coordinates">(' + a + ',' + b + ')</th><td>' +
         reducedFraction(numerators[i], mass) + '</td><td>' + reducedFraction(mean, mass) +
         '</td><td>' + reducedFraction(numerators[i] - mean, mass) + '</td></tr>');
       const table = '<table class="carry-table"><caption>Evaluation at the identity and its projection</caption>' +
-        '<thead><tr><th scope="col">(a,b)</th><th scope="col">w</th><th scope="col">Ew</th><th scope="col">w − Ew</th></tr></thead>' +
+        '<thead><tr><th scope="col">(<var>a</var>,<var>b</var>)</th><th scope="col"><var>w</var></th><th scope="col"><var>Ew</var></th><th scope="col"><var>w − Ew</var></th></tr></thead>' +
         '<tbody>' + rows.join("") + '</tbody></table>';
       const norm = center => reducedFraction(numerators.reduce((sum, z) => sum + (z - center) ** 2, 0), 4 * mass);
-      return table + metrics([["Squared norm of w", norm(0)], ["Formal degree of the constants", reducedFraction(1, mass)],
+      return table + metrics([["Squared norm of <var>w</var>", norm(0)], ["Formal degree of the constants", reducedFraction(1, mass)],
         ["Excess squared norm", norm(mean)]]);
     }
     if (id === "frobenius-good-places") {
@@ -1568,22 +1620,22 @@
       const denominators = [1, 2, 1 + b * b];
       const trial = [a, 1, 1];
       const rows = [
-        ["U/R", [0, 1, b]],
-        ["T", denominators.map(d => reducedFraction(1, d))],
-        ["P", denominators.map(d => reducedFraction(Math.max(2 - d, 0), 2 * d))],
-        ["N", denominators.map(d => reducedFraction(Math.max(d - 2, 0), 2 * d))],
-        ["Axis in ker N?", denominators.map(d => d <= 2 ? "Yes" : "No")],
-        ["Trial y", trial],
-        ["Witness Py", denominators.map((d, i) => reducedFraction(trial[i] * Math.max(2 - d, 0), 2 * d))],
+        ["<var>U/R</var>", [0, 1, b]],
+        ["<var>T</var>", denominators.map(d => reducedFraction(1, d))],
+        ["<var>P</var>", denominators.map(d => reducedFraction(Math.max(2 - d, 0), 2 * d))],
+        ["<var>N</var>", denominators.map(d => reducedFraction(Math.max(d - 2, 0), 2 * d))],
+        ["Axis in ker <var>N</var>?", denominators.map(d => d <= 2 ? "Yes" : "No")],
+        ["Trial <var>y</var>", trial],
+        ["Witness <var>Py</var>", denominators.map((d, i) => reducedFraction(trial[i] * Math.max(2 - d, 0), 2 * d))],
       ];
       const table = '<table class="carry-table"><caption>Diagonal actions and vector coordinates</caption>' +
-        '<thead><tr><th scope="col">On each axis</th><th scope="col">e₁</th><th scope="col">e₂</th><th scope="col">e₃</th></tr></thead><tbody>' +
+        '<thead><tr><th scope="col">On each axis</th><th scope="col"><var>e₁</var></th><th scope="col"><var>e₂</var></th><th scope="col"><var>e₃</var></th></tr></thead><tbody>' +
         rows.map(([name, entries]) => '<tr><th scope="row">' + name + '</th>' +
           entries.map(entry => "<td>" + entry + "</td>").join("") + "</tr>").join("") + "</tbody></table>";
       const normSquared = a * a + 2;
       const commonDenominator = 2 * denominators[2];
       const meanT = reducedFraction(a * a * commonDenominator + denominators[2] + 2, normSquared * commonDenominator);
-      return table + metrics([["Mean of U/R (≤ 1/2)", reducedFraction(1 + b, normSquared)], ["Mean of T (≥ 3/4)", meanT]]);
+      return table + metrics([["Mean of <var>U/R</var> (≤ 1/2)", reducedFraction(1 + b, normSquared)], ["Mean of <var>T</var> (≥ 3/4)", meanT]]);
     }
     if (id === "galois-character-peeling") {
       const [a, b] = v.element.split("").map(Number);
@@ -1595,9 +1647,9 @@
       const elements = [[0, 0], [1, 0], [0, 1], [1, 1]];
       const passed = elements.filter(([u, w]) => (-1) ** u * betaComponent === (-1) ** w * betaComponent).length;
       return '<table class="carry-table"><caption>Coordinates on the α-line and the added β-line</caption><tbody>' +
-        '<tr><th scope="row">Test vector v</th><td>' + formatVector(1, betaComponent) + '</td></tr>' +
-        '<tr><th scope="row">Actual image ρ(g)v</th><td>' + actual + '</td></tr>' +
-        '<tr><th scope="row">Required image α(g)v</th><td>' + target + '</td></tr></tbody></table>' +
+        '<tr><th scope="row">Test vector <var>v</var></th><td>' + formatVector(1, betaComponent) + '</td></tr>' +
+        '<tr><th scope="row">Actual image <var>ρ(g)v</var></th><td>' + actual + '</td></tr>' +
+        '<tr><th scope="row">Required image <var>α(g)v</var></th><td>' + target + '</td></tr></tbody></table>' +
         metrics([["At the selected element", actual === target ? "Equal" : "Different"], ["Elements satisfying the test", passed + " of 4"]]);
     }
     if (id === "regular-unit-shift") {
@@ -1627,16 +1679,16 @@
       const secondVector = tilted ? a + "e₂ + " + (b === 1 ? "" : b) + "(1+i)e₃" : "e₂";
       return '<table class="carry-table"><caption>One plane in the standard three-dimensional space</caption><tbody>' +
         '<tr><th scope="row">Second spanning vector</th><td>' + secondVector + '</td></tr>' +
-        '<tr><th scope="row">Discriminant order d²</th><td>' + d * d + '</td></tr>' +
-        '<tr><th scope="row">Bad-place product m</th><td>' + m + '</td></tr>' +
-        '<tr><th scope="row">Index d/m</th><td>' + d / m + '</td></tr></tbody></table>' +
+        '<tr><th scope="row">Discriminant order <var>d</var>²</th><td>' + d * d + '</td></tr>' +
+        '<tr><th scope="row">Bad-place product <var>m</var></th><td>' + m + '</td></tr>' +
+        '<tr><th scope="row">Index <var>d/m</var></th><td>' + d / m + '</td></tr></tbody></table>' +
         metrics([["Mass bound per label, divided by B", reducedFraction(1, m * m)], ["Upper bound on label count", String(m * m)]]);
     }
     if (id === "gluing-residues") {
       const T = Number(v.weight), s = Number(v.first), t = Number(v.second);
       const denominator = T + 1;
       const residue = value => ((value % denominator) + denominator) % denominator;
-      const values = [["On u", s + T * t], ["On w", t - s]];
+      const values = [["On <var>u</var>", s + T * t], ["On <var>w</var>", t - s]];
       const rows = values.map(([label, value]) =>
         '<tr><th scope="row">' + label + '</th><td>' + reducedFraction(value, denominator) + '</td>' +
         '<td>' + reducedFraction(residue(value), denominator) + '</td></tr>').join("");
@@ -1695,7 +1747,7 @@
       }).join(" ");
       const ticks = [0, 8, 16, 24, 32].map(exponent =>
         '<text text-anchor="middle" x="' + plotX(exponent) + '" y="116">' + exponent + '</text>').join("");
-      const plot = '<svg class="plot" viewBox="0 0 330 140" role="img" aria-label="Log of the Frobenius power bound by exponent of the largest singular value">' +
+      const plot = '<svg class="plot" viewBox="-3 -5 336 149" role="img" aria-label="Log of the Frobenius power bound by exponent of the largest singular value">' +
         '<text x="4" y="22">6000</text><text x="26" y="58">0</text><text x="0" y="95">−6000</text>' +
         '<path d="M49 12 V102 H305 M49 54 H305" fill="none" stroke="currentColor" opacity=".4"/>' +
         '<path d="' + curve + '" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
@@ -1745,8 +1797,8 @@
         return '<tr><th scope="row">' + label + '</th><td>(' + left + ', ' + right +
           ')</td><td>' + norm + '</td></tr>';
       });
-      return '<table class="carry-table"><caption>Residues at t = (' + a + ', ' + b +
-        ')</caption><thead><tr><th scope="col">Phase</th><th scope="col">Denominator δ</th>' +
+      return '<table class="carry-table"><caption>Residues at <var>t</var> = (' + a + ', ' + b +
+        ')</caption><thead><tr><th scope="col">Phase</th><th scope="col">Denominator <var>δ</var></th>' +
         '<th scope="col">Norm</th></tr></thead><tbody>' + rows.join("") + '</tbody></table>' +
         metrics([["Usable phases", usable.join(", ")], ["Total", usable.length + " of 4"]]);
     }
@@ -1793,8 +1845,8 @@
       }).join("");
       const sharpTerms = Array.from(sharp, ([prime, top]) => ({prime, top, bottom: 1}));
       return '<table class="carry-table"><caption>Integer weights for y = ' + y + ', u = ' + u +
-        '</caption><thead><tr><th scope="col">n</th><th scope="col">Λ(n)</th>' +
-        '<th scope="col">χ(n)</th><th scope="col">Weight</th><th scope="col">Signed term</th>' +
+        '</caption><thead><tr><th scope="col"><var>n</var></th><th scope="col"><var>Λ(n)</var></th>' +
+        '<th scope="col"><var>χ(n)</var></th><th scope="col">Weight</th><th scope="col">Signed term</th>' +
         '</tr></thead><tbody>' + body + '</tbody></table>' + metrics([
           ["Sharp sum", logSum(sharpTerms)], ["Short interval", logSum(tail)],
           ["Scaled difference ≈", difference.toFixed(4).replace("-", "−")],
@@ -1890,14 +1942,14 @@
           '</td><td>' + weight.toFixed(3) + '</td><td>' + reducedFraction(count, inner ** 3) + '</td></tr>';
       }).join("");
       return '<table class="carry-table"><caption>Candidate minors and their cubic weights</caption>' +
-        '<thead><tr><th scope="col">Size |z|</th><th scope="col">Count</th><th scope="col">Weight ≈</th>' +
+        '<thead><tr><th scope="col">Size |<var>z</var>|</th><th scope="col">Count</th><th scope="col">Weight ≈</th>' +
         '<th scope="col">Bound</th></tr></thead><tbody>' + rows + '</tbody></table>' +
         metrics([["First omitted size", 2 ** (last + 1)], ["All omitted weight ≤", reducedFraction(32, 2 ** (last + 1))]]);
     }
     if (id === "primitive-hyperplanes") {
       const types = primitiveHyperplanes(Number(v.norm));
       const total = types.reduce((sum, t) => sum+t.lines, 0);
-      const body = types.map(t => '<tr><th scope="row">' + t.pattern + '</th><td>' + t.lines +
+      const body = types.map(t => '<tr><th scope="row" class="math-coordinates">' + t.pattern + '</th><td>' + t.lines +
         '</td><td>' + t.stabilizer + '</td></tr>').join("");
       return '<table class="carry-table"><caption>Normal lines grouped by lattice symmetries</caption>' +
         '<thead><tr><th scope="col">Coordinate norms</th><th scope="col">Lines</th><th scope="col">Stabilizer order</th></tr></thead><tbody>' +
@@ -1967,9 +2019,9 @@
       const a = Number(v.value), square = Number(v.square);
       const phi = (x, y, k) => (a * (x + y) + square * (k / 2)) % 2;
       const theta = (x, y, k) => (a * (x + y) + square * (k % 2)) % 2;
-      const rows = [["e₁",1,0,0],["e₂",0,1,0],["σ²",0,0,2]].map(([name,x,y,k]) =>
+      const rows = [["<var>e₁</var>",1,0,0],["<var>e₂</var>",0,1,0],["<var>σ</var>²",0,0,2]].map(([name,x,y,k]) =>
         '<tr><th scope="row">' + name + '</th><td>' + phi(x,y,k) + '</td><td>' + theta(x,y,k) + '</td></tr>').join("");
-      return '<table class="carry-table"><caption>Values inside the subgroup U</caption><thead><tr><th scope="col">Generator</th><th scope="col">φ</th><th scope="col">Θ restricted to U</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+      return '<table class="carry-table"><caption>Values inside the subgroup <var>U</var></caption><thead><tr><th scope="col">Generator</th><th scope="col"><var>φ</var></th><th scope="col"><var>Θ</var> restricted to <var>U</var></th></tr></thead><tbody>' + rows + '</tbody></table>' +
         metrics([["Θ on σ outside U", theta(0,0,1)], ["Θ on σ²", theta(0,0,2)]]) +
         (square === 1 ? '<p>Every additive character of V sends σ² to twice its value on σ, hence to zero. The encoding records the missing bit at σ itself.</p>' :
           '<p>Here φ(σ²) is already zero. The character with Θ(σ) = 0 restricts to φ on every generator of U.</p>');
@@ -2052,7 +2104,7 @@
       }
       return '<table class="carry-table"><caption>Weights at the two orbit points</caption>' +
         '<thead><tr><th scope="col">Centre</th><th scope="col">Labels</th><th scope="col">Per label</th><th scope="col">Per centre</th></tr></thead>' +
-        '<tbody>' + row('h₀', 1) + row('h₁', height) + '</tbody></table>' +
+        '<tbody>' + row('<var>h₀</var>', 1) + row('<var>h₁</var>', height) + '</tbody></table>' +
         metrics([["Raw sum", total], ["Partition sum", "1"]]) +
         '<p>The denominator is ' + stabilizer + ' × 1 + ' + stabilizer + ' × ' + height + ' = ' + total + '.</p>';
     }
@@ -2122,7 +2174,7 @@
       const coord = item => '(' + item.m + ', ' + item.n + ')';
       const basisPoint = '(' + reducedFraction(first, 5) + ', ' + reducedFraction(second, 5) + ')';
       const label = 'Target p with basis coordinates ' + basisPoint;
-      const svg = '<svg class="plot" viewBox="0 0 348 219" role="img" aria-label="' + label +
+      const svg = '<svg class="plot" viewBox="0 -8 348 231" role="img" aria-label="' + label +
         '"><title>' + label + '</title><text x="43" y="19">Imaginary part</text>' + grid + dots +
         '<text x="299" y="211" text-anchor="end">Real part</text>' +
         '<path d="M' + dx + ' ' + dy + ' L' + point.join(" ") + ' L' + cx + ' ' + cy +
@@ -2151,7 +2203,7 @@
         '" y="214" text-anchor="middle">' + fmt(a) + '</text>').join("");
       const vertical = [-radius, 0, radius].map(b => '<text x="75" y="' + (cy - spacing * b + 4) +
         '" text-anchor="end">' + fmt(b) + '</text>').join("");
-      const svg = '<svg class="plot" viewBox="0 0 348 243" role="img" aria-label="Gaussian integers in the open disk of squared radius ' +
+      const svg = '<svg class="plot" viewBox="0 0 348 249" role="img" aria-label="Gaussian integers in the open disk of squared radius ' +
         (4 * d) + '"><title>Short Gaussian integers at scale ' + d +
         '</title><desc>' + fullWeight + ' full-weight points among ' + points.length + ' candidates. The second coordinate is zero throughout.</desc>' +
         '<path class="grid" d="M90 105H258 M174 21V189"/>' + boundary + dots + ticks + vertical +
@@ -2171,8 +2223,8 @@
         '<tr><th scope="row">' + (t.y === 1 ? "+1" : "−1") + "</th><td>" +
         reducedFraction(t.first, d) + "</td><td>" + complexFraction(t.real, t.imag, d) + "</td></tr>"
       ).join("");
-      return '<table class="carry-table"><caption>Two target points at M = ' + v.cutoff +
-        '</caption><thead><tr><th scope="col">y</th><th scope="col">First lift</th><th scope="col">Second lift</th></tr></thead><tbody>' +
+      return '<table class="carry-table"><caption>Two target points at <var>M</var> = ' + v.cutoff +
+        '</caption><thead><tr><th scope="col"><var>y</var></th><th scope="col">First lift</th><th scope="col">Second lift</th></tr></thead><tbody>' +
         rows + "</tbody></table>" +
         metrics([["Pair on the target", complexFraction(result.targetReal, result.targetImag, 2 * d ** 2)],
           ["Sum over source pairs", complexFraction(result.sourceReal, result.sourceImag, d ** 2)]]) +
@@ -2199,7 +2251,7 @@
         axes += '<path class="faint" d="M' + x(t) + ' ' + high + 'V' + low + '"/>' +
           '<text x="' + x(t) + '" y="150" text-anchor="middle">' + reducedFraction(16 * (start + t * length), 16) + '</text>';
       }
-      const svg = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="0 0 386 182">' +
+      const svg = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="0 -5 386 191">' +
         '<title>' + title + '</title><desc>Solid curve, original form. Dashed horizontal line, averaged form. ' +
         'The integral of each form is given below.</desc>' + axes +
         '<text x="38" y="22">Coefficient</text><text x="192" y="176" text-anchor="middle">Unit coordinate x</text>' +
@@ -2234,7 +2286,7 @@
       else if (truncated === 0) explanation = "The retained weights still sum to zero beyond the initial cancellation range.";
       else explanation = "The full divisor sum is zero. Omitting factor pairs at the cutoffs leaves a nonzero coefficient.";
       return '<table class="carry-table"><caption>Factor pairs for n = ' + v.n +
-        '</caption><thead><tr><th scope="col">d</th><th scope="col">b</th><th scope="col">μ(d)</th>' +
+        '</caption><thead><tr><th scope="col"><var>d</var></th><th scope="col"><var>b</var></th><th scope="col"><var>μ(d)</var></th>' +
         '<th scope="col">Cutoffs</th><th scope="col">Term</th></tr></thead><tbody>' + rows + "</tbody></table>" +
         metrics([["Pairs retained", retained], ["Full divisor sum", fmt(full)], ["Coefficient a(n)", fmt(truncated)]]) +
         "<p>" + explanation + "</p>";
@@ -2265,7 +2317,7 @@
       }
       const title = "Twelve induced values at α = " + reducedFraction(p, q) + ", with zonal mean " + mean;
       const meanY = y(sumTop / (12 * sumBottom));
-      const chart = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="0 0 385 137">' +
+      const chart = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="-8 0 393 137">' +
         '<title>' + title + '</title><desc>The three groups contain nine, two and one cosets. Exact values follow the chart.</desc>' +
         '<path class="grid" d="M34 26H368 M34 109H368"/><path class="faint" d="M281 18V114 M337 18V114"/>' +
         '<text x="29" y="30" text-anchor="end">' + tick(high) + '</text><text x="29" y="113" text-anchor="end">' +
@@ -2285,9 +2337,9 @@
       const subtract = s === 1 ? "R₁ − R₃" : "R₁ − 2R₃";
       const rank = t === 0 ? 1 : 2;
       const rows = [["R₁", s, corner], ["R₃", 1, 2], [subtract, 0, imaginary]];
-      const body = rows.map(([label, third, fourth]) => '<tr><th scope="row">' + label +
-        '</th><td>0</td><td>0</td><td>' + third + '</td><td>' + fourth + '</td></tr>').join("");
-      return '<table class="carry-table"><caption>Rows of 3G modulo 3 at s = ' + s + ', t = ' + t +
+      const body = rows.map(([label, third, fourth]) => '<tr><th scope="row"><var>' + label +
+        '</var></th><td>0</td><td>0</td><td>' + third + '</td><td>' + fourth + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Rows of 3<var>G</var> modulo 3 at <var>s</var> = ' + s + ', t = ' + t +
         '</caption><thead><tr><th scope="col">Row</th><th scope="col">Col 1</th><th scope="col">Col 2</th>' +
         '<th scope="col">Col 3</th><th scope="col">Col 4</th></tr></thead><tbody>' + body + '</tbody></table>' +
         '<p>In 𝔽₉, 2 represents −1. Rows 2 and 4 reduce to zero. Row 3 supplies a pivot in column 3. ' +
@@ -2339,9 +2391,9 @@
       const p = Number(v.p);
       const { root, h, counts, a, b, partner, norm, reductions } = cubicJacobi(p, v.root);
       const integer = n => String(n).replace("-", "−");
-      const element = (u, v) => integer(u) + (v < 0 ? " − " : " + ") + Math.abs(v) + "ω";
+      const element = (u, v) => integer(u) + (v < 0 ? " − " : " + ") + Math.abs(v) + "<var>ω</var>";
       const rows = reductions.map(test =>
-        '<tr><th scope="row">ω ↦ ' + test.root + "</th><td>" + test.value + "</td><td>" +
+        '<tr><th scope="row"><var>ω</var> ↦ ' + test.root + "</th><td>" + test.value + "</td><td>" +
         test.conjugate + "</td><td>" + test.order + ", " + test.partnerOrder + "</td></tr>"
       ).join("");
       return "<p>The reduction ω ↦ " + root + " defines χ. Here h = " + h +
@@ -2351,8 +2403,8 @@
         element(...partner) + "</strong>. Their product is the norm A² − AB + B² = (" + integer(a) + ")² − (" +
         integer(a) + ")(" + integer(b) + ") + (" + integer(b) + ")² = <strong>" + norm + "</strong>.</p>" +
         '<table class="carry-table"><caption>Two primes above ' + p + '</caption><thead><tr>' +
-        '<th scope="col">Test root</th><th scope="col">J mod p</th><th scope="col">J̄ mod p</th>' +
-        '<th scope="col">Orders (J, J̄)</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        '<th scope="col">Test root</th><th scope="col"><var>J</var> mod <var>p</var></th><th scope="col"><var>J̄</var> mod <var>p</var></th>' +
+        '<th scope="col">Orders (<var>J</var>, <var>J̄</var>)</th></tr></thead><tbody>' + rows + '</tbody></table>' +
         "<p>At each prime the orders of J and J̄ add to one, the order of p there. A zero residue picks the factor of order one.</p>";
     }
     if (id === "split-endpoint") {
@@ -2366,7 +2418,7 @@
       const previous = rows[degree - 1]?.before ?? 0;
       const twoBack = rows[degree - 2]?.before ?? 0;
       return '<table class="carry-table"><caption>Endpoint coefficients through degree ' +
-        selected.xDegree + ' in X (q = ' + q + ')</caption><thead><tr><th scope="col">Degree in X</th>' +
+        selected.xDegree + ' in X (q = ' + q + ')</caption><thead><tr><th scope="col">Degree in <var>X</var></th>' +
         '<th scope="col">Before</th><th scope="col">Hermite count</th><th scope="col">After</th>' +
         '</tr></thead><tbody>' + body + '</tbody></table>' +
         "<p>At degree " + selected.xDegree + " the corrected coefficient is " +
@@ -2379,7 +2431,7 @@
       const which = v.column === "first" ? "First" : "Second";
       const blocks = ["K₁₁ − I", "K₂₂ − I", "K₁₂"];
       const rows = blocks.map((block, i) =>
-        '<tr><th scope="row">' + block + "</th><td>" + fmt(result.full[i], 8) +
+        '<tr><th scope="row"><var>' + block + "</var></th><td>" + fmt(result.full[i], 8) +
         "</td><td>" + fmt(result.retained[i], 8) + "</td></tr>"
       ).join("");
       return "<p>Dividing the period matrices by 2 and 3 gives the normalized columns " +
@@ -2387,11 +2439,11 @@
         fmt(result.overlap, 8) + ". Their second columns are orthogonal.</p>" +
         '<table class="carry-table"><caption>Squared Gram errors with ' + which.toLowerCase() +
         ' columns retained</caption><thead><tr><th scope="col">Block</th>' +
-        '<th scope="col">Full Q</th><th scope="col">Retained Q</th></tr></thead><tbody>' +
+        '<th scope="col">Full <var>Q</var></th><th scope="col">Retained <var>Q</var></th></tr></thead><tbody>' +
         rows + "</tbody></table>" +
         metrics([["Retained inner product", fmt(result.retainedOverlap, 8)],
-          ["Full mean Q(K₁₁ − I) / 2", fmt(result.full[0] / 2, 8)],
-          ["Retained mean Q(K₁₁ − I) / 1", fmt(result.retained[0], 8)]]);
+          ["Full mean <var>Q(K₁₁ − I)</var> / 2", fmt(result.full[0] / 2, 8)],
+          ["Retained mean <var>Q(K₁₁ − I)</var> / 1", fmt(result.retained[0], 8)]]);
     }
     if (id === "prism") {
       const twist = Number(v.twist), weight = Number(v.weight), gluingLog = Number(v.gluing);
@@ -2421,7 +2473,7 @@
         ? "Here 5 divides b² − 1. The congruence holds, and S is divisible by 5 although T is a 5-adic unit."
         : "Here b² − 1 is a 5-adic unit. Both S and T have 5-adic valuation zero.";
       return '<table class="carry-table"><caption>Signed contributions at level ' + level + '</caption><thead><tr>' +
-        '<th scope="col">Quotient j</th><th scope="col">Carry θ</th><th scope="col">Sum of u</th>' +
+        '<th scope="col">Quotient <var>j</var></th><th scope="col">Carry <var>θ</var></th><th scope="col">Sum of <var>u</var></th>' +
         '<th scope="col">Contribution</th></tr></thead><tbody>' + rows + '</tbody></table>' +
         metrics([["Sum S", String(sum)], ["Cleared difference", cleared + " = " + (cleared / level) + " × " + level],
           ["Valuation of S", String(valuation)]]) + "<p>" + unitTest + "</p>";
@@ -2540,7 +2592,7 @@
           ["Main term", fmt(main, 6)],
           ["Centered Gχ", fmt(sum - main, 6)],
         ]) +
-        '<details><summary>Inspect individual terms</summary><div class="tablewrap"><table><thead><tr><th>n</th><th>Λ(n)</th><th>χ(n)</th><th>x/n − 1</th><th>Contribution</th></tr></thead><tbody>' +
+        '<details><summary>Inspect individual terms</summary><div class="tablewrap"><table><thead><tr><th><var>n</var></th><th><var>Λ(n)</var></th><th><var>χ(n)</var></th><th><var>x/n</var> − 1</th><th>Contribution</th></tr></thead><tbody>' +
         rows
           .map(
             (r) =>
@@ -2807,7 +2859,7 @@
         r +
         '" fill="none" stroke="#b9b4a8"/><path class="axis" d="M155 110H400 M282 16V200"/>' +
         arrows +
-        '<text x="410" y="116">Re</text><text x="289" y="23">Im</text></svg>' +
+        '<text x="410" y="116">Re</text><text x="289" y="27">Im</text></svg>' +
         metrics([
           ["Distinct values", groups.size],
           ["Average", selected ? 1 : 0],

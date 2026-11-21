@@ -260,8 +260,8 @@
       "anchor": "global-minor-ideal-height",
       "title": "The square of the terminal minor size bounds its ideal norm",
       "statement": "For a positive defect of a surviving diagonal term, write Δ for the absolute norm after division by the appropriate power of the extended different. Under the family discriminant hypothesis, 0 < Δ ≤ (2H₁)^(4rf) S² ≤ b^(C m² f) S². A general CM pair carries the explicitly displayed discriminant ratio.",
-      "hypotheses": "E/F is a quadratic CM extension with f conjugate pairs. The family has D_E=D_F² for absolute discriminants. The normal form supplies a nonzero last minor. The common allowance assumes b≥2, H₁=b^(C_H m), C_H≥0, m=2r+2 and C≥2(C_H+1).",
-      "correspondence": "The written family norm identity is applied only under its discriminant hypothesis. The unspecialized identity follows by norm multiplicativity from the field and ideal normalizations. The concrete diagonal result invokes the normal form of the relevant flags and then the height comparison.",
+      "hypotheses": "E/F is a quadratic CM extension with f conjugate pairs. The family has D_E=D_F² for absolute discriminants. For the two isotropic flags write I=X∩X′ and let U,U′ be the initial j-dimensional spaces. The normal form gives U∩I=0, X′=U′+I and z′−cz∈X+X′ for c∈E nonzero. The second flag has anisotropic residual space. The common allowance assumes b≥2, H₁=b^(C_H m), C_H≥0, m=2r+2 and C≥2(C_H+1).",
+      "correspondence": "The written family norm identity is applied only under its discriminant hypothesis. The unspecialized identity follows by norm multiplicativity from the field and ideal normalizations. The concrete diagonal result invokes the normal form of the relevant flags and then the height comparison. The determinant proof converts a singular leading block into a nonzero vector in U∩I by orthogonality and the anisotropy condition.",
       "sources": [
         {
           "declaration": "frameExp",
@@ -382,6 +382,81 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L977-L1003"
         },
         {
+          "declaration": "FlagD",
+          "label": "Isotropic frames and the anisotropy condition",
+          "path": "src/Formalism/FlagUnipotentLattices/MemOfOrthogonalAnisotropic.lean",
+          "lines": [
+            20,
+            61
+          ],
+          "declaration_lines": {
+            "FlagD": 20,
+            "Aniso": 40,
+            "PosDefAt": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/FlagUnipotentLattices/MemOfOrthogonalAnisotropic.lean#L20-L61",
+          "related_declarations": [
+            "Aniso",
+            "PosDefAt"
+          ]
+        },
+        {
+          "declaration": "NFShape",
+          "label": "Intersection and scalar hypotheses of the flag normal form",
+          "path": "src/Formalism/FlagUnipotentLattices/MemOfOrthogonalAnisotropic.lean",
+          "lines": [
+            101,
+            122
+          ],
+          "declaration_lines": {
+            "NFShape": 101,
+            "NFFull": 111
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/FlagUnipotentLattices/MemOfOrthogonalAnisotropic.lean#L101-L122",
+          "related_declarations": [
+            "NFFull"
+          ]
+        },
+        {
+          "declaration": "nf_core",
+          "label": "Normal form for a relevant term of geometric Gram value zero",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+          "lines": [
+            269,
+            283
+          ],
+          "declaration_lines": {
+            "nf_core": 269
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L269-L283"
+        },
+        {
+          "declaration": "Dl_zeroL",
+          "label": "A zero leading determinant produces an orthogonal vector",
+          "path": "src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean",
+          "lines": [
+            709,
+            723
+          ],
+          "declaration_lines": {
+            "Dl_zeroL": 709
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean#L709-L723"
+        },
+        {
+          "declaration": "leadingMinorNeZero",
+          "label": "The terminal block pairs the initial flag spaces nonsingularly",
+          "path": "src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean",
+          "lines": [
+            924,
+            953
+          ],
+          "declaration_lines": {
+            "leadingMinorNeZero": 924
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean#L924-L953"
+        },
+        {
           "declaration": "delta_pos_le_height_sq",
           "label": "Positivity of the terminal minor and the square bound",
           "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
@@ -420,7 +495,7 @@
         "global-minor-different-product",
         "global-minor-terminal-height"
       ],
-      "review": "The two quartic fields give respectively the exact factors 1 and 4^6 before the product of conjugate sizes. At r=j=f=2 and H₁=1, integral rational minors saturate their respective bounds. The example with D_E=256 tests the general identity, and D_E=144 tests the specialization."
+      "review": "The two quartic fields give respectively the exact factors 1 and 4^6 before the product of conjugate sizes. At r=j=f=2 and H₁=1, integral rational minors saturate their respective bounds. The example with D_E=256 tests the general identity, and D_E=144 tests the specialization. Reversing the order of one dual basis gives leading minors (0,−1), so the inverse terminal norm is defined even with a zero earlier in the list."
     }
   ],
   "written_source_calls": [
@@ -614,6 +689,38 @@
         "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
         "line": 136,
         "spelling": "PFHost_of_data"
+      }
+    },
+    {
+      "callee": "Dl_zeroL",
+      "callsite": {
+        "path": "src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean",
+        "line": 926,
+        "spelling": "Dl_zeroL"
+      }
+    },
+    {
+      "callee": "gram_zero",
+      "callsite": {
+        "path": "src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean",
+        "line": 712,
+        "spelling": "gram_zero"
+      }
+    },
+    {
+      "callee": "X_iso",
+      "callsite": {
+        "path": "src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/ExistsHasLeadingCoeffOfMemSpanBelow.lean",
+        "line": 950,
+        "spelling": "X_iso"
+      }
+    },
+    {
+      "callee": "nf_gen",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 67,
+        "spelling": "nf_gen"
       }
     }
   ],

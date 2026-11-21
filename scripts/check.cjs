@@ -141,6 +141,25 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Each coordinate line selects a unique weight. Matrix units test the commutator independently.
+for (const [weights, high] of [["separated", 4], ["adjacent", 2]]) {
+  for (const [index, repeated] of ["low", "middle", "high"].entries()) {
+    const distinct = [0, 1, high];
+    const diagonal = [...distinct, distinct[index]].sort((a, b) => a - b);
+    const display = lib.render("rank-weight-projectors", {weights, repeated});
+    assert.ok(display.includes("<caption>Projectors for <var>D</var> = diag(" + diagonal.join(", ") + ")</caption>"));
+    const cells = [...display.matchAll(/<td>([^<]+)<\/td>/g)].map(m => m[1]);
+    const expected = distinct.flatMap(h => {
+      const flags = diagonal.map(x => Number(x === h));
+      return ["(" + flags.join(", ") + ")", String(flags.filter(Boolean).length)];
+    });
+    assert.deepEqual(cells, [...expected, "(1, 1, 1, 1)", "4"]);
+    const units = diagonal.flatMap(source => diagonal.filter(target => target - source === 1));
+    const pairs = high === 4 ? "0 → 1" : "0 → 1 and 1 → 2";
+    assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]),
+      ["3", pairs, String(units.length)]);
+  }
+}
 for (const [filter, sums, errors] of [
   ["all", [1,5,50,500], ["0","0","1/25","1/125"]],
   ["cut", [1,10,100,1000], ["0","1/5","1/25","1/125"]],
@@ -189,7 +208,7 @@ for (const [amplitude, outer, meanU, meanT] of [
   [4, 2, "1/6", "167/180"], [4, 3, "2/9", "83/90"],
   [5, 2, "1/9", "257/270"], [5, 3, "4/27", "128/135"],
 ]) {
-  const display = lib.render("casimir-cutoff", {amplitude, outer});
+  const display = lib.render("casimir-cutoff", {amplitude, outer}).replace(/<\/?var>/g, "");
   const rows = [...display.matchAll(/<tr><th scope="row">[^<]+<\/th>(.*?)<\/tr>/g)]
     .map(row => [...row[1].matchAll(/<td>([^<]+)<\/td>/g)].map(cell => cell[1]));
   assert.deepEqual(rows, [
@@ -676,7 +695,7 @@ for (const a of [0,1]) for (const c of [0,1]) {
     const left = theta(x ^ (k % 2 ? j : h), y ^ (k % 2 ? h : j), (k+t)%4);
     assert.equal(left, theta(x,y,k) ^ theta(h,j,t));
   }
-  const rendered = lib.render("quadratic-character", {value:a, square:c});
+  const rendered = lib.render("quadratic-character", {value:a, square:c}).replace(/<\/?var>/g, "");
   assert.ok(rendered.includes('<th scope="row">σ²</th><td>'+c+'</td><td>0</td>'));
   assert.ok(rendered.includes('<dt>Θ on σ outside U</dt><dd>'+c+'</dd>'));
 }
@@ -1241,7 +1260,7 @@ function checkCubicJacobi() {
       assert.deepEqual(actual.counts, counts);
       assert.deepEqual(actual.partner, [c, d]);
       assert.equal(counts.reduce((u, v) => u + v, 0), p - 2);
-      const rendered = lib.render("jacobi-primes", { p: String(p), root: choice });
+      const rendered = lib.render("jacobi-primes", { p: String(p), root: choice }).replace(/<\/?var>/g, "");
       assert.deepEqual([...rendered.matchAll(/<dd>(\d+)<\/dd>/g)].map(m => Number(m[1])), counts);
       const show = (x, y) => (x < 0 ? "−" : "") + Math.abs(x) + (y < 0 ? " − " : " + ") + Math.abs(y) + "ω";
       assert.ok(rendered.includes("J = <strong>" + show(a, b) + "</strong>"));

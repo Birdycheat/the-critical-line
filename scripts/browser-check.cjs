@@ -14,6 +14,14 @@ async function openFigure(page, address) {
   await page.goto(address);
   await page.locator(new URL(address).hash + ".ready").waitFor();
 }
+async function assertRenderedFont(session, selector, postScriptName) {
+  const { root } = await session.send("DOM.getDocument");
+  const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
+  assert.ok(nodeId, "Missing font sample " + selector);
+  const { fonts } = await session.send("CSS.getPlatformFontsForNode", { nodeId });
+  assert.ok(fonts.some(font => font.isCustomFont && font.glyphCount > 0 && font.postScriptName === postScriptName),
+    selector + " must render with " + postScriptName + ", saw " + JSON.stringify(fonts));
+}
 async function run() {
   fs.mkdirSync(output, { recursive: true });
   const browser = await chromium.launch({ channel: "chrome", headless: true });
@@ -24,17 +32,31 @@ async function run() {
     });
     const page = await context.newPage(),
       errors = [];
+    const fontSession = await context.newCDPSession(page);
+    await fontSession.send("DOM.enable");
+    await fontSession.send("CSS.enable");
     page.on("pageerror", (e) => errors.push(e.message));
     page.on("response", (r) => {
       if (r.status() >= 400) errors.push(r.status() + " " + r.url());
     });
     await page.goto(base + "index.html");
     await page.evaluate(() => document.fonts.ready);
-    assert.ok(
-      await page.evaluate(() =>
-        document.fonts.check('20px "Libertinus Serif"'),
-      ),
-    );
+    await assertRenderedFont(fontSession, "h1", "LMRoman10-Regular");
+    await assertRenderedFont(fontSession, "#opening-plot text", "CriticalLinePlateLabels-Regular");
+    const loadedFaces = await page.evaluate(async () => {
+      const specs = [
+        ['normal 400 20px "Latin Modern Roman"', "Riemann"],
+        ['italic 400 20px "Latin Modern Roman"', "Riemann"],
+        ['normal 700 20px "Latin Modern Roman"', "Riemann"],
+        ['italic 700 20px "Latin Modern Roman"', "Riemann"],
+        ['normal 400 20px "Latin Modern Math"', "∑"],
+      ];
+      return Promise.all(specs.map(async ([spec, sample]) => {
+        const faces = await document.fonts.load(spec, sample);
+        return faces.length > 0 && faces.every(face => face.status === "loaded");
+      }));
+    });
+    assert.ok(loadedFaces.every(Boolean), "All five declared font faces must load");
     assert.equal(
       await page.locator(".site-header .brand").innerText(),
       "Andréa Gourion",
@@ -102,7 +124,11 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "polynomial-cut") {
+        if (id === "rank-weight-projectors") {
+          assert.equal(await fig.locator("caption").innerText(), "Projectors for D = diag(0, 1, 1, 4)");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "0 → 1", "2"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["(1, 1, 1, 1)", "4"]);
+        } else if (id === "polynomial-cut") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["5", "10", "1/5"]);
           assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "0"]);
         } else if (id === "satake-multiplicities") {
@@ -483,6 +509,9 @@ async function run() {
     await page.goto(base + "book.html#eq-pilot-chi-transform");
     await page.screenshot({ path: path.join(output, "equation.png") });
     assert.ok((await page.locator("math mfrac").count()) > 0);
+    await assertRenderedFont(fontSession, "math mi", "LatinModernMath-Regular");
+    await assertRenderedFont(fontSession, "#lifts-rank-root-spaces + p", "CriticalLineMathScripts-Regular");
+    assert.equal(await page.locator("h4 i").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
     for (const file of [
       "index.html",
       "book.html",
@@ -510,10 +539,11 @@ async function run() {
           await page
             .locator("main")
             .evaluate((el) =>
-              getComputedStyle(el).fontFamily.includes("Libertinus"),
+              getComputedStyle(el).fontFamily.startsWith('"Latin Modern Roman"'),
             ),
           file,
         );
+        if (width === 1360) await assertRenderedFont(fontSession, "main h1", "LMRoman10-Regular");
         assert.ok(
           await page.evaluate(
             () => document.documentElement.scrollWidth <= innerWidth + 1,
@@ -524,6 +554,8 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    await page.evaluate(() => document.fonts.ready);
+    await assertRenderedFont(fontSession, "math mi", "LatinModernMath-Regular");
     assert.equal(await page.locator("details.correspondence:visible").count(), 0);
     assert.ok(await page.locator("#global-higher-gaussian-planes").isVisible());
     assert.ok(await page.locator("#claim-HCM-03").isVisible());

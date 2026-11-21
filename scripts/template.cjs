@@ -71,7 +71,7 @@ function page(title, body, current = "") {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#fefdfa"><title>${esc(title)} · The Critical Line</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lmroman10-regular.otf" as="font" type="font/otf" crossorigin>
 <link rel="stylesheet" href="assets/book.css">
 <noscript><style>@media screen and (max-width:60rem){.header-inner{flex-wrap:wrap}.desktop-nav{display:flex;flex:1 0 100%;margin:0;gap:.45em 1.15em;padding-bottom:.55em;font-size:.83em}}</style></noscript>
 <script defer src="assets/navigation.js"></script><script defer src="assets/reader.js"></script></head>

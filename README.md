@@ -16,7 +16,7 @@ Open [the local reading room](http://127.0.0.1:8744/). Direct-file reading uses 
 
 ## Editorial template
 
-The six pages use Andréa Gourion’s *L’article vivant* template, release 55. The running head, article opener, numbered sections, simplex mark, copper line drawings and Libertinus font subsets come from the same site design. The provenance and original file hashes are in [the template record](records/template.json). Navigation is specific to the monograph. Font licensing accompanies the local font files.
+The six pages use Andréa Gourion’s *L’article vivant* template, release 55. The running head, article opener, numbered sections, simplex mark and copper line drawings come from the same site design. The monograph sets its text in Latin Modern Roman and its mathematics in Latin Modern Math on screen and in print. The standalone frontispiece embeds a subset of the same math font for its labels. The provenance and original file hashes are in [the template record](records/template.json). Navigation is specific to the monograph. Font licensing accompanies the local font files.
 
 ## Source and content
 

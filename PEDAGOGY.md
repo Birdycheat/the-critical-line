@@ -1,5 +1,7 @@
 # Reading the proof without the formal source
 
+The monograph uses English scientific prose. Define an object when it first acts in the proof, state each hypothesis where it is needed, and follow an equation with the inference it permits. Keep signs, quantifiers and repeated technical terms consistent. State proof-specific inputs at their first use and place formal identifiers inside correspondence panels. Typeset vectors and matrices at normal weight, including in headings, tables and print. Use the article template’s existing spacing, hierarchy and palette with Latin Modern text and mathematics.
+
 Three parallel readings on 21 November 2026 tested whether a reader with undergraduate analysis and linear algebra could recover specific implications. Each reader followed a different argument through the existing chapters. We checked the proposed changes against the statements they use. This was an editorial audit by agents. Testing with students and external mathematical review remain open.
 
 | Reading task | Where the reader needed another step | Change in the book |
@@ -135,3 +137,7 @@ Two further readings checked the constants and the row spaces independently. Dir
 - On the Galois side an annihilating polynomial alone can leave repeated roots in the local matrix. The examples with roots 1, 2, 4 and 2, 3, 5 separate this obstruction from the determinant test. Readers also traced the two injections needed to recover the filtration. [Testing the multiplicities](book.html#fig-satake-multiplicities)
 - One coordinate of an eigenform normalizes all the polynomial tests. Local filtering may lose precision if the detecting polynomial has a small nonzero value. The example at five attains this loss. A separate argument bounds the field of an infinite joint eigenvalue tuple by counting its simultaneous conjugates. [The lost 5-adic digit](book.html#fig-polynomial-cut) · [The common coefficient field](book.html#lifts-hecke-coefficient-field)
 - In the shell example the two embeddings select different minors. Their two dyadic indices sum to four while the product lies in shell five. The last-minor calculation uses the different of the real field extended to the CM field. The fields of twelfth and eighth roots of unity give different answers at the same normalized size. [The two-place table](book.html#global-minor-label-shells) · [The norm of the last minor](book.html#global-minor-ideal-height)
+
+## From a filtration to a rank
+
+The cold readings separated the dimension of a tangent eigenspace from the number of distinct eigenvalues and followed the two injections on a five-dimensional example. One reader found that conjugacy inside a matrix algebra alone did not put a correcting unit in the finite-index closure. The proof now factors that unit and uses square-zero off-diagonal directions. In the crystalline passage, evaluation on each vector explains how the auxiliary matrix-lattice operator gives a trace on the target. The independent minor reading recovered the proof of terminal nonvanishing and compared 2,304 pairs of dual-plane bases. In 576 of them the intermediate minor vanished while the terminal determinant stayed nonzero.

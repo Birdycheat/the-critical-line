@@ -1,3 +1,5 @@
+const fs = require('node:fs');
+const path = require('node:path');
 // Euler–Maclaurin continuation, with the endpoint included in the tail.
 const mul = ([a, b], [c, d]) => [a * c - b * d, a * d + b * c];
 const scale = ([a, b], q) => [a * q, b * q];
@@ -20,6 +22,9 @@ function zeta(sigma, t, N = 96) {
   return z;
 }
 function plate() {
+  // SVGs used through an image element cannot fetch external font resources.
+  const plateFont = fs.readFileSync(path.join(__dirname, "../assets/fonts/critical-strip-labels.woff")).toString("base64");
+  const plateStyle = "<style>@font-face{font-family:'Critical Line Plate Labels';src:url(data:font/woff;base64," + plateFont + ") format('woff')}</style>";
   const W = 540,
     H = 350,
     nt = 168,
@@ -93,7 +98,7 @@ function plate() {
     W +
     " " +
     H +
-    '"><title id="plate-title">Magnitude of the Riemann zeta function across the critical strip</title><desc id="plate-desc">Twenty-seven cross sections plot the magnitude against imaginary part from eight to thirty-two. The highlighted cross section is identified in the caption. Troughs show where the magnitude approaches zero.</desc><g font-family="Libertinus Serif,Georgia,serif" font-size="12" fill="#41484b"><g fill="none" stroke="#96958b" stroke-dasharray="2 5" stroke-width=".65">' +
+    '"><title id="plate-title">Magnitude of the Riemann zeta function across the critical strip</title><desc id="plate-desc">Twenty-seven cross sections plot the magnitude against imaginary part from eight to thirty-two. The highlighted cross section is identified in the caption. Troughs show where the magnitude approaches zero.</desc>' + plateStyle + '<g font-family="Critical Line Plate Labels,Latin Modern Roman,serif" font-size="12" fill="#41484b"><g fill="none" stroke="#96958b" stroke-dasharray="2 5" stroke-width=".65">' +
     [0, 1, 2, 3, 4]
       .map(
         (z) =>
@@ -116,7 +121,7 @@ function plate() {
     coords(point(1, 32, 0)) +
     '" fill="none" stroke="#646a6c"/>' +
     ticks +
-    '<text x="210" y="330">imaginary part  t</text><text x="30" y="103">|ζ|</text><text x="452" y="268">σ = 1</text><text x="410" y="294">σ = 0</text></g></svg>'
+    '<text x="210" y="330">imaginary part  𝑡</text><text x="30" y="103">|𝜁|</text><text x="452" y="268">𝜎 = 1</text><text x="410" y="294">𝜎 = 0</text></g></svg>'
   );
 }
 module.exports = { plate, zeta };

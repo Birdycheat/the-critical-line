@@ -21,5 +21,44 @@
     "public/fonts/libertinus/LibertinusSerif-SemiboldItalic.woff2": "bcda937320210149f67d409b474200c2f028048f801874ed15541c76740c4a25",
     "public/fonts/libertinus/OFL.txt": "311f0767d94c7490a5553682e4b701deb14072dd9bd1c67f80eb637f5575f866"
   },
-  "application": "All six generated pages share the journal running head, static simplex mark, Libertinus type, numbered hierarchy, copper links, paper background and colophon. The opening figure, exercise controls, reading anchors, source atlas and print edition are adapted to the mathematics. Book navigation is English."
+  "application": "All six generated pages share the journal running head, static simplex mark, numbered hierarchy, copper links, paper background and colophon. The monograph uses Latin Modern Roman and Latin Modern Math throughout its screen and print editions. Navigation is in English.",
+  "monograph_fonts": {
+    "distribution": "TeX Live 2026",
+    "families": {
+      "Latin Modern Roman": "2.005",
+      "Latin Modern Math": "1.959"
+    },
+    "source": [
+      "https://www.gust.org.pl/projects/e-foundry/latin-modern",
+      "https://www.gust.org.pl/projects/e-foundry/lm-math"
+    ],
+    "license": "GUST Font License, version 1.0 (LPPL 1.3c or later). The original license texts, manifests and authors’ notices accompany the local fonts.",
+    "plate": "The standalone SVG embeds Critical Line Plate Labels, a renamed WOFF subset of Latin Modern Math covering only the displayed letters, numbers and signs. The original OpenType fonts used in the six pages are unmodified.",
+    "assets_sha256": {
+      "lmroman10-regular.otf": "1aa18cfefa58132c52ce5de70db1fd1154201c19cd2b2cdaffba4906a33e6852",
+      "lmroman10-italic.otf": "c1fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169",
+      "lmroman10-bold.otf": "102fe06c430a8b681b2bf6876b7cd967ae4d47b4b6b41d915eb7913b726d9fb1",
+      "lmroman10-bolditalic.otf": "c37a28eed7a6e03f792b98b5e5f637b2fcda378bb4855f99284f1a88fe35f124",
+      "latinmodern-math.otf": "6075562b771f8b82f0c179e363389684f2dd09de30038269e2628e504bd7be0f",
+      "critical-strip-labels.woff": "293977304f2ae2fb8ce439a642c6a79437bc4317200911ec0b21ff846957bf8f",
+      "critical-line-math-scripts.woff": "68d17ee3ae0993a1d9846151e62228d76792ecb5fcef120cd08d846e7a4a57c3",
+      "critical-line-additional-signs.woff": "d65483b6b655f8edb36bb2a09f3bc400ef749f77c2f9fdae6ed4d6849fbfb390"
+    },
+    "scripts": "Unicode subscript, superscript and fraction labels use a renamed companion font when the original Latin Modern fonts lack the character. The glyphs use the original math outlines, optical script sizes and vertical metrics. Rebuild this file with FontTools and assets/fonts/derive-scripts.py.",
+    "additional_signs": {
+      "typeface": "Critical Line Additional Signs",
+      "attribution": "New Computer Modern by Antonis Tsolomitis, package 7.1.1. Star from NewCMMath-Regular (4.0), SHA from NewCM10-Regular (7.1.1).",
+      "license": "GUST Font License version 1.0 or later. The copyright notices of both source fonts are included in the derived font.",
+      "upstream": "https://ctan.org/pkg/newcomputermodern",
+      "glyphs": {
+        "U+2605": "NewCMMath-Regular.otf",
+        "U+0428": "NewCM10-Regular.otf"
+      },
+      "source_sha256": {
+        "NewCMMath-Regular.otf": "60394d357348f68cd301764fe61cc502a5858e1c4ff21b948a1d14d82586a7a2",
+        "NewCM10-Regular.otf": "954c2ed73be0944d0a4367628447a2c030d7a4f57dbb5d63198adad6682aaaf7"
+      },
+      "rebuild": "python assets/fonts/derive-signs.py with FontTools and a TeX Live installation providing the two source fonts."
+    }
+  }
 }
