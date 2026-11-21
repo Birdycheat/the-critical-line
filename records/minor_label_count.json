@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "MLC-01",
+      "chapter": "global",
+      "anchor": "global-minor-label-count",
+      "title": "Realized lists consist of separated algebraic integers",
+      "statement": "Pairings of the two frames in the common self-dual lattice and their leading determinants are integral. Distinct algebraic integers have product of squared conjugate-pair distances at least one. A vector of half-unit plane cells contains at most one embedded integer.",
+      "hypotheses": "A common unimodular row lattice, the two admissible frames, conjugate-pair representatives of a CM field and 1 ≤ j ≤ r.",
+      "correspondence": "The concrete integrality statement applies to the actual geometric terms; product separation then applies to any two values of a minor.",
+      "sources": [
+        {
+          "declaration": "minorInt_conc",
+          "label": "Integrality of the two-frame pairing minors",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+          "lines": [
+            150,
+            167
+          ],
+          "declaration_lines": {
+            "minorInt_conc": 150
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean#L150-L167"
+        },
+        {
+          "declaration": "labFacts_conc",
+          "label": "The entries of a realized list",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+          "lines": [
+            169,
+            184
+          ],
+          "declaration_lines": {
+            "labFacts_conc": 169
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean#L169-L184"
+        },
+        {
+          "declaration": "NormLB_holds",
+          "label": "The norm bound over conjugate pairs",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/MinorIntegralityTorus.lean",
+          "lines": [
+            67,
+            88
+          ],
+          "declaration_lines": {
+            "NormLB_holds": 67
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/MinorIntegralityTorus.lean#L67-L88"
+        },
+        {
+          "declaration": "norm_lt_one_of_cell",
+          "label": "Spacing in half-unit squares",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean",
+          "lines": [
+            201,
+            220
+          ],
+          "declaration_lines": {
+            "norm_lt_one_of_cell": 201
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean#L201-L220"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [],
+      "equations": [],
+      "review": "The count is of distinct ordered minor lists. Multiple representatives are accounted for by the separate fixed-list estimate."
+    },
+    {
+      "id": "MLC-02",
+      "chapter": "global",
+      "anchor": "global-minor-label-shells",
+      "title": "Counting minor lists by archimedean size",
+      "statement": "With B_j = ∏(10 R_l)^(2f), the number of realized labels in the global shell [2^h,2^(h+1)) is at most binom(h+f,f) B_j 2^(2jh).",
+      "hypotheses": "Integer h ≥ 0, f ≥ 1, normalized local maximum with H1 > 0, j integral minors and separation over the f complex representatives.",
+      "correspondence": "This explicit dyadic shell estimate is a derivation in the monograph from the normalization and half-unit cell packing. The archive directly bounds a weighted sum.",
+      "sources": [
+        {
+          "declaration": "frameExp",
+          "label": "Normalization at each order of minor",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean",
+          "lines": [
+            92,
+            99
+          ],
+          "declaration_lines": {
+            "frameExp": 92
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean#L92-L99"
+        },
+        {
+          "declaration": "k2sg",
+          "label": "The local maximum and the global product",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+          "lines": [
+            2913,
+            2916
+          ],
+          "declaration_lines": {
+            "k2sg": 2913
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L2913-L2916"
+        },
+        {
+          "declaration": "Rl",
+          "label": "Enlarging the coordinate radius",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean",
+          "lines": [
+            67,
+            69
+          ],
+          "declaration_lines": {
+            "Rl": 67
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean#L67-L69"
+        },
+        {
+          "declaration": "norm_lt_one_of_cell",
+          "label": "Spacing in half-unit squares",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean",
+          "lines": [
+            201,
+            220
+          ],
+          "declaration_lines": {
+            "norm_lt_one_of_cell": 201
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean#L201-L220"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MLC-01"
+      ],
+      "equations": [
+        "global-minor-shell-estimate"
+      ],
+      "review": "For each place profile the coordinate disks give a product of at most B_j 2^(2jA) cells. The number of nonnegative profiles of total ≤ h is binom(h+f,f)."
+    },
+    {
+      "id": "MLC-03",
+      "chapter": "global",
+      "anchor": "global-minor-label-sum",
+      "title": "Uniform weighted count at a fixed defect",
+      "statement": "The sum of S^(-3r) over every finite set of distinct realized rank-j lists is bounded by 2^j∏(64 R_l)^(2f). Under the standing scales this is bounded by b^(C_c² m² f r), with C_c = 21+4|C_H| for C_l ≥ 1.",
+      "hypotheses": "1 ≤ j ≤ r ≤ m, f ≥ 1, H1 = b^(C_H m), L = log b > 1, log rd_E ≤ L/C_l, rd_E ≥ 1, and C_l ≥ 1, in the concrete diagonal setting.",
+      "correspondence": "The displayed per-profile geometric series supplies an alternative proof. The source partitions by nonzero support, applies the cubic one-coordinate lattice sum, and then compares the radii with one global height. The diagonal cut also needs an independent dimension upper bound.",
+      "sources": [
+        {
+          "declaration": "latSum",
+          "label": "The weighted count of separated complex tuples",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean",
+          "lines": [
+            222,
+            251
+          ],
+          "declaration_lines": {
+            "latSum": 222
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean#L222-L251"
+        },
+        {
+          "declaration": "sum_one_coord",
+          "label": "Summing one algebraic-integer coordinate",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean",
+          "lines": [
+            88,
+            112
+          ],
+          "declaration_lines": {
+            "sum_one_coord": 88
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean#L88-L112"
+        },
+        {
+          "declaration": "cosets_sum_gen",
+          "label": "The weighted count at a fixed defect",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+          "lines": [
+            19,
+            100
+          ],
+          "declaration_lines": {
+            "cosets_sum_gen": 19
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean#L19-L100"
+        },
+        {
+          "declaration": "final_arith",
+          "label": "The arithmetic scale comparison",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/MinorCosetSumOfLatticeIndexHypOfTieOK.lean",
+          "lines": [
+            59,
+            74
+          ],
+          "declaration_lines": {
+            "final_arith": 59
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/MinorCosetSumOfLatticeIndexHypOfTieOK.lean#L59-L74"
+        },
+        {
+          "declaration": "kloostermanCosetSum_le",
+          "label": "Applying the common scale at every position",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+          "lines": [
+            102,
+            142
+          ],
+          "declaration_lines": {
+            "kloostermanCosetSum_le": 102
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean#L102-L142"
+        },
+        {
+          "declaration": "cosetsC_holds",
+          "label": "Uniformity in the choice of list and word",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+          "lines": [
+            186,
+            212
+          ],
+          "declaration_lines": {
+            "cosetsC_holds": 186
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean#L186-L212"
+        },
+        {
+          "declaration": "pairsDegCutC_of_steps",
+          "label": "Using the list sum and the separate dimension estimate",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/PairsDegCutCOfSteps.lean",
+          "lines": [
+            12,
+            16
+          ],
+          "declaration_lines": {
+            "pairsDegCutC_of_steps": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/PairsDegCutCOfSteps.lean#L12-L16"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MLC-01",
+        "MLC-02"
+      ],
+      "equations": [
+        "global-minor-weighted-count"
+      ],
+      "review": "The exponents 2j and 3r occur on the same sum of place indices. All constants are independent of the finite set T."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "det_isIntegral",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 160,
+        "spelling": "det_isIntegral"
+      }
+    },
+    {
+      "callee": "pair_int",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 167,
+        "spelling": "pair_int"
+      }
+    },
+    {
+      "callee": "minorInt_conc",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 174,
+        "spelling": "minorInt_conc"
+      }
+    },
+    {
+      "callee": "sum_one_coord",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 85,
+        "spelling": "sum_one_coord"
+      }
+    },
+    {
+      "callee": "cosets_sum_gen",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 118,
+        "spelling": "cosets_sum_gen"
+      }
+    },
+    {
+      "callee": "final_arith",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 136,
+        "spelling": "final_arith"
+      }
+    },
+    {
+      "callee": "labFacts_conc",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 192,
+        "spelling": "labFacts_conc"
+      }
+    },
+    {
+      "callee": "kloostermanCosetSum_le",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 193,
+        "spelling": "kloostermanCosetSum_le"
+      }
+    },
+    {
+      "callee": "NormLB_holds",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 193,
+        "spelling": "NormLB_holds"
+      }
+    },
+    {
+      "callee": "LatSum_holds",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean",
+        "line": 193,
+        "spelling": "Formalism.MainNotions.LatticeSumConvergence.LatSum_holds"
+      }
+    },
+    {
+      "callee": "latSum",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/LatticeSumBound.lean",
+        "line": 9,
+        "spelling": "Formalism.MainNotions.WeightedLatticeSum.latSum"
+      }
+    },
+    {
+      "callee": "cosetsC_holds",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/PairsDegCutCOfSteps.lean",
+        "line": 16,
+        "spelling": "cosetsC_holds"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "MLC-01",
+      "MLC-02"
+    ],
+    [
+      "MLC-01",
+      "MLC-03"
+    ],
+    [
+      "MLC-02",
+      "MLC-03"
+    ]
+  ],
+  "outstanding": []
+}

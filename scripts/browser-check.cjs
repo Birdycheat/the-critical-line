@@ -102,7 +102,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "primitive-hyperplanes") {
+        if (id === "minor-shells") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4", "8"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["36", "1.964", "9/2"]);
+        } else if (id === "primitive-hyperplanes") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["40/384", "1/16 + 1/24"]);
           assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["24", "16"]);
         } else if (id === "dyadic-unit-signs") {

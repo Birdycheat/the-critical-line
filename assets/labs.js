@@ -16,6 +16,14 @@
     value,
   });
   const configs = {
+    "minor-shells": {
+      title: "How can a shell have more candidates and carry less weight?",
+      kind: "A single minor in the Gaussian integers",
+      section: "global",
+      params: [range("last", "Last shell shown", 0, 5, 1, 1)],
+      caption: "Count every nonzero Gaussian integer in each size interval. The third column adds its actual weight |z|⁻³, rounded to three decimals. The last column gives the exact upper bound obtained by assigning every candidate the largest weight in its shell.",
+      method: "For z = a + bi and shell h, enumerate integer pairs with 4ʰ ≤ a² + b² < 4ʰ⁺¹. Write Nₕ for their number. Both coordinates have absolute value below 2ʰ⁺¹, so Nₕ < 16·4ʰ. The weighted shell contributes at most Nₕ·2⁻³ʰ < 16·2⁻ʰ. From the first omitted shell H onwards, the geometric series sums to 32·2⁻ᴴ. This example counts all possible entries in one lattice. A pairing of two flags may realize only some of them.",
+    },
     "primitive-hyperplanes": {
       title: "What changes when the marked hyperplane is counted first?",
       kind: "An incidence mass in a Gaussian lattice",
@@ -1230,7 +1238,34 @@
     return '<svg class="plot" viewBox="0 0 338 107" role="img" aria-label="' + title + '"><title>' + title + '</title>' + drawing + '</svg>';
   }
 
+  function gaussianMinorShell(h) {
+    const inner = 2 ** h, outer = 2 * inner;
+    let count = 0, weight = 0;
+    for (let a = 1 - outer; a < outer; a++) {
+      for (let b = 1 - outer; b < outer; b++) {
+        const norm = a * a + b * b;
+        if (inner * inner <= norm && norm < outer * outer) {
+          count++;
+          weight += norm ** (-1.5);
+        }
+      }
+    }
+    return {inner, outer, count, weight};
+  }
+
   function render(id, v) {
+    if (id === "minor-shells") {
+      const last = Number(v.last);
+      const rows = Array.from({length: last + 1}, (_, h) => {
+        const {inner, outer, count, weight} = gaussianMinorShell(h);
+        return '<tr><th scope="row">[' + inner + ', ' + outer + ')</th><td>' + count +
+          '</td><td>' + weight.toFixed(3) + '</td><td>' + reducedFraction(count, inner ** 3) + '</td></tr>';
+      }).join("");
+      return '<table class="carry-table"><caption>Candidate minors and their cubic weights</caption>' +
+        '<thead><tr><th scope="col">Size |z|</th><th scope="col">Count</th><th scope="col">Weight ≈</th>' +
+        '<th scope="col">Bound</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        metrics([["First omitted size", 2 ** (last + 1)], ["All omitted weight ≤", reducedFraction(32, 2 ** (last + 1))]]);
+    }
     if (id === "primitive-hyperplanes") {
       const types = primitiveHyperplanes(Number(v.norm));
       const total = types.reduce((sum, t) => sum+t.lines, 0);
@@ -2489,6 +2524,7 @@
     mellin,
     factorial,
     profile,
+    gaussianMinorShell,
     primitiveHyperplanes,
     binaryLatticeBox,
     stickelbergerFibres,

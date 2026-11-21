@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "MDR-01",
+      "chapter": "global",
+      "anchor": "global-minor-dimension",
+      "title": "The number of independent columns of one word",
+      "statement": "The minor-list contribution and the residual diagonal estimate give dim ker Aᵤ ≤ e₀dᵤ and rank Aᵤ ≥ (1−e₀)dᵤ, with e₀ = 2 exp(−kf log k) + 2C₀/Γ.",
+      "hypotheses": "One chosen word with positive normalization; its full dᵤ-dimensional source; the two diagonal subseries estimates, positive Γ and D∗, and the size proviso dᵤΓ²/D∗ ≤ C₀.",
+      "correspondence": "The pinned diagonal theorem supplies the squared Hilbert–Schmidt budget. The rank and nullity inequalities are deductions proved here. The family proof explicitly uses the weaker consequence Dall > 0 when e₀ < 1 and dᵤ > 0.",
+      "sources": [
+        {
+          "declaration": "Formalism.L2.SG.RowsOther.kppDiag_of_pairs",
+          "label": "The passage from the bound on pairs to the zero-label diagonal subseries",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RowsOther.lean",
+          "lines": [
+            35,
+            46
+          ],
+          "declaration_lines": {
+            "Formalism.L2.SG.RowsOther.kppDiag_of_pairs": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RowsOther.lean#L35-L46"
+        },
+        {
+          "declaration": "Formalism.MainNotions.S.diag_unproj",
+          "label": "The identity and the two parts of the Gram error",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            144,
+            185
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.S.diag_unproj": 144
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L144-L185"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.kp_eq",
+          "label": "The normalized matrix represents the period Gram operator",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1062,
+            1077
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.kp_eq": 1069
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1062-L1077"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.dall_pos",
+          "label": "A nonempty word and error below one force a positive target dimension",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1402,
+            1422
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.dall_pos": 1402
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1402-L1422"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MLC-03",
+        "DMN-02",
+        "GRM-02"
+      ],
+      "equations": [
+        "global-minor-nullity"
+      ],
+      "review": "The inequalities and constants were checked against the pinned text. The elementary rank consequences and coordinate example are derived in the book."
+    },
+    {
+      "id": "MDR-02",
+      "chapter": "global",
+      "anchor": "global-minor-frame-rank",
+      "title": "The joint span occupies at least D/(1+5σ) dimensions",
+      "statement": "The two Gram estimates imply tr F ≥ (1−√e₀)R and tr(F²) ≤ (1+η₀)R²/D∗ + (1+√e₀)²R. Together with D ≤ (1+η₁)D∗ these imply rank F ≥ D/(1+5σ).",
+      "hypotheses": "A finite family of normalized column maps between finite-dimensional complex inner-product spaces. D∗ > 0, R ≥ D∗/σ, 0 < σ ≤ 1/4, −1 ≤ η₀, e₀ ≥ 0, and η₀, η₁, √e₀ ≤ σ/2. The distinct-word, diagonal and independent row bounds all hold.",
+      "correspondence": "The source combines the two moments with the independent row inequality. The displayed rank consequence follows by Cauchy–Schwarz on the positive eigenvalues and the equality between the range of F and the span of all columns.",
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.S.linkS_concl",
+          "label": "The different-word, same-word and row estimates in a single family member",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            186,
+            204
+          ],
+          "declaration_lines": {
+            "Formalism.MainNotions.S.linkS_concl": 186
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L186-L204"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.InputS",
+          "label": "The three inputs to the frame calculation",
+          "path": "src/Formalism/SizeWindowBrackets/TraceSquareAndDiagBounds.lean",
+          "lines": [
+            28,
+            42
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.InputS": 39
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/TraceSquareAndDiagBounds.lean#L28-L42"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trace_Qm",
+          "label": "The trace is the sum of the traces of word Gram blocks",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            50,
+            56
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trace_Qm": 50
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L50-L56"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trace_Qm_sq",
+          "label": "The second moment is the sum over all ordered word pairs",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            66,
+            86
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trace_Qm_sq": 66
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L66-L86"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQ_lower",
+          "label": "Lower bound for the first trace from the diagonal budget",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            204,
+            220
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQ_lower": 204
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L204-L220"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQsq_upper",
+          "label": "Upper bound for the second trace from both Gram estimates",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            222,
+            249
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQsq_upper": 222
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L222-L249"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.cor_common",
+          "label": "Collecting the terms at the coverage scale",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            549,
+            576
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.cor_common": 549
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L549-L576"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_main",
+          "label": "The arithmetic inequality yielding the factor 1+5σ",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            481,
+            502
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_main": 481
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L481-L502"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MDR-01",
+        "GRM-02",
+        "RPC-03"
+      ],
+      "equations": [
+        "global-minor-traces",
+        "global-minor-trace-ratio"
+      ],
+      "review": "The inequalities and constants were checked against the pinned text. The elementary rank consequences and coordinate example are derived in the book."
+    },
+    {
+      "id": "MDR-03",
+      "chapter": "global",
+      "anchor": "global-minor-retained-rank",
+      "title": "The dimension that survives the ramified restriction",
+      "statement": "If at most a fraction ρ of the R columns is lost to isometric restrictions, the combined retained image has dimension at least D/(1+5σ+3√ρ).",
+      "hypotheses": "All hypotheses of the preceding frame theorem, now with 0 < σ ≤ 1/20. Each retained source embeds isometrically in its full word space, 0 ≤ ρ ≤ 1/4 and Σ(dᵤ−rᵤ) ≤ ρR.",
+      "correspondence": "The source proves the compressed trace inequality and uses it, with a separate bound for the compressed diagonal error, in the ramified lattice case. The rank fraction follows from the eigenvalue inequality proved in the text. The separate projection to the top arithmetic rows loses at most the dimension of its kernel. The slope theorem normalizes the ensuing deficit by the arithmetic rank.",
+      "sources": [
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.CompressTraceSquareBound",
+          "label": "Isometries, trace loss, diagonal defect and the compressed second moment",
+          "path": "src/Formalism/SizeWindowBrackets/TraceSquareAndDiagBounds.lean",
+          "lines": [
+            93,
+            116
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.CompressTraceSquareBound": 109
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/TraceSquareAndDiagBounds.lean#L93-L116"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceLowerBound",
+          "label": "Trace loss summed over all words",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            414,
+            448
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceLowerBound": 414
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L414-L448"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressDiagDefectBound",
+          "label": "The sum of compressed diagonal deviations",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            450,
+            473
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressDiagDefectBound": 450
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L450-L473"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_ram",
+          "label": "The numerical cost of the lost columns",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            506,
+            514
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_ram": 506
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L506-L514"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceSquareBound",
+          "label": "The trace ratio after column restriction",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+          "lines": [
+            591,
+            625
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceSquareBound": 591
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean#L591-L625"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.MatrixLatticeEstimates.ramification_linear_case_holds",
+          "label": "The two compressed bounds in the ramified lattice argument",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+          "lines": [
+            164,
+            176
+          ],
+          "declaration_lines": {
+            "Formalism.LFunctionChainParameters.MatrixLatticeEstimates.ramification_linear_case_holds": 164
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean#L164-L176"
+        },
+        {
+          "declaration": "Formalism.HN.thmF_place",
+          "label": "The moment inequalities used for slope-filtered images",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            133,
+            159
+          ],
+          "declaration_lines": {
+            "Formalism.HN.thmF_place": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L133-L159"
+        },
+        {
+          "declaration": "Formalism.HN.thmF_place",
+          "label": "Projecting onto the arithmetic rows and bounding the dimension of its kernel",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            97,
+            132
+          ],
+          "declaration_lines": {
+            "Formalism.HN.thmF_place": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L97-L132"
+        },
+        {
+          "declaration": "Formalism.HN.theoremFSharp_of",
+          "label": "Converting the dimension loss to a fraction of the arithmetic rank",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            305,
+            322
+          ],
+          "declaration_lines": {
+            "Formalism.HN.theoremFSharp_of": 168
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L305-L322"
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MDR-02",
+        "GRM-03",
+        "RKT-03"
+      ],
+      "equations": [
+        "global-minor-retained-dimension"
+      ],
+      "review": "The inequalities and constants were checked against the pinned text. The elementary rank consequences and coordinate example are derived in the book."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "Formalism.MainNotions.S.diag_unproj",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 200,
+        "spelling": "diag_unproj"
+      }
+    },
+    {
+      "callee": "Formalism.MainNotions.Lnk.dall_pos",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+        "line": 1460,
+        "spelling": "dall_pos"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQ_lower",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 560,
+        "spelling": "trQ_lower"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trQsq_upper",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 575,
+        "spelling": "trQsq_upper"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.cor_common",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 597,
+        "spelling": "cor_common"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceLowerBound",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 598,
+        "spelling": "compressTraceLowerBound"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.trace_Qm_sq",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 601,
+        "spelling": "trace_Qm_sq"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.Kp_ram",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 604,
+        "spelling": "Kp_ram"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.hsSq_compress",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 605,
+        "spelling": "hsSq_compress"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_main",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 621,
+        "spelling": "num_main"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.num_ram",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/TraceConjTransposeMulSelf.lean",
+        "line": 622,
+        "spelling": "num_ram"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressTraceSquareBound",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+        "line": 170,
+        "spelling": "HilbertSchmidtNormSquare.compressTraceSquareBound"
+      }
+    },
+    {
+      "callee": "Formalism.LFunctionChainParameters.HilbertSchmidtNormSquare.compressDiagDefectBound",
+      "callsite": {
+        "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+        "line": 173,
+        "spelling": "HilbertSchmidtNormSquare.compressDiagDefectBound"
+      }
+    },
+    {
+      "callee": "Formalism.HN.thmF_place",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+        "line": 311,
+        "spelling": "thmF_place"
+      }
+    },
+    {
+      "callee": "LinearMap.finrank_range_add_finrank_ker",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+        "line": 127,
+        "spelling": "LinearMap.finrank_range_add_finrank_ker"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "MLC-03",
+      "MDR-01"
+    ],
+    [
+      "DMN-02",
+      "MDR-01"
+    ],
+    [
+      "GRM-02",
+      "MDR-01"
+    ],
+    [
+      "MDR-01",
+      "MDR-02"
+    ],
+    [
+      "GRM-02",
+      "MDR-02"
+    ],
+    [
+      "RPC-03",
+      "MDR-02"
+    ],
+    [
+      "MDR-02",
+      "MDR-03"
+    ],
+    [
+      "GRM-03",
+      "MDR-03"
+    ],
+    [
+      "RKT-03",
+      "MDR-03"
+    ]
+  ],
+  "outstanding": [
+    "The independent automorphic projection count is developed in RPC-01 to RPC-03. Its analytic inputs and the subsequent slope filtration have their own evidence records."
+  ]
+}

@@ -67,6 +67,10 @@ for (const theorem of background) {
 for (const match of html["book.html"].matchAll(/<details\b[^>]*\sid="([^"]+)"/g)) {
   assert.ok(ids["print.html"].has(match[1]), "Missing printed example anchor " + match[1]);
 }
+for (const [figure] of html["book.html"].matchAll(/<figure class="lab"[^>]*>[\s\S]*?<\/figure>/g)) {
+  assert.ok(!figure.includes('class="passage-references"') && !figure.includes('class="correspondence"'),
+    "References belonging to the proof must precede the experiment");
+}
 for (const [n, s] of Object.entries(html)) {
   for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const val = m[1];
@@ -79,6 +83,24 @@ for (const [n, s] of Object.entries(html)) {
 }
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
+}
+// Independently group Gaussian integers by squared norm, coordinate swaps and signs.
+for (let h = 0; h <= 5; h++) {
+  const inner = 2 ** h, outer = 2 * inner;
+  let count = 0, weight = 0;
+  for (let norm = inner ** 2; norm < outer ** 2; norm++) {
+    for (let b = 0; 2 * b * b <= norm; b++) {
+      const a = Math.sqrt(norm - b * b);
+      if (!Number.isInteger(a)) continue;
+      const orbit = b === 0 || a === b ? 4 : 8;
+      count += orbit;
+      weight += orbit / (norm * Math.sqrt(norm));
+    }
+  }
+  const shell = lib.gaussianMinorShell(h);
+  assert.equal(shell.count, count);
+  close(shell.weight, weight, 1e-13);
+  assert.ok(weight <= count / inner ** 3 && count < 16 * inner ** 2);
 }
 // Generate whole orbits of normal lines using all 384 integral unitary matrices.
 const gaussianUnits = [[1,0],[0,1],[-1,0],[0,-1]];
@@ -1105,5 +1127,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

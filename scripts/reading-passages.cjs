@@ -1,17 +1,19 @@
 "use strict";
 
 // The manuscript consists of HTML fragments. Only sections and disclosures
-// introduce nested reading scopes; retain equations and other markup verbatim.
+// introduce nested reading scopes. Figures keep their own titles and references.
 function readingScopes(html) {
   const root = { tag: "", start: "", parts: [] };
   const stack = [root];
-  const boundary = /<\/?(details|section)\b[^>]*>|<h[2-6]\b[^>]*>[\s\S]*?<\/h[2-6]>/gi;
+  const boundary = /<figure class="lab"[^>]*>[\s\S]*?<\/figure>|<\/?(details|section)\b[^>]*>|<h[2-6]\b[^>]*>[\s\S]*?<\/h[2-6]>/gi;
   let previous = 0;
   for (const match of html.matchAll(boundary)) {
     const scope = stack.at(-1);
     scope.parts.push(html.slice(previous, match.index));
     previous = match.index + match[0].length;
-    if (!match[1]) {
+    if (match[0].startsWith("<figure")) {
+      scope.parts.push({ figure: match[0] });
+    } else if (!match[1]) {
       scope.parts.push({ heading: match[0] });
     } else if (match[0].startsWith("</")) {
       if (scope.tag !== match[1]) throw Error("Unbalanced manuscript scope " + match[0]);
@@ -28,7 +30,7 @@ function readingScopes(html) {
 }
 
 function original(scope) {
-  return scope.start + scope.parts.map(part => typeof part === "string" ? part : part.heading || original(part)).join("") +
+  return scope.start + scope.parts.map(part => typeof part === "string" ? part : part.figure || part.heading || original(part)).join("") +
     (scope.tag ? "</" + scope.tag + ">" : "");
 }
 const formalUrl = url => /^https?:\/\/github\.com\/(?:Deicyde\/riemann-hypothesis|leanprover-community\/mathlib4)(?:\/|$)/i.test(url);
@@ -97,6 +99,11 @@ function readingPassages(html, chapter, byPassage, linked) {
     }
     register(scopeId);
     for (const part of inner) {
+      if (part.figure) {
+        flush();
+        result += part.figure;
+        continue;
+      }
       if (typeof part === "string" || part.heading) {
         if (part.heading && prose.trim()) flush();
         const text = part.heading || part;
