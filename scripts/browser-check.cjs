@@ -102,7 +102,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "progression-difference") {
+        if (id === "marked-ideal-weight") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1/2", "4", "2", "1/8"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "1/4"]);
+        } else if (id === "progression-difference") {
           assert.equal(await fig.locator("caption").innerText(), "Integer weights for y = 4, u = 6");
           assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "1", "1", "0"]);
           assert.deepEqual(await fig.locator("tbody tr").nth(3).locator("td").allInnerTexts(), ["log 2", "1", "1", "log 2"]);

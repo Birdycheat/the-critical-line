@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "marked-ideal-weight": {
+      title: "Which part of the orbit weight remembers the ideal?",
+      kind: "Covolumes of a marked Gaussian lattice",
+      section: "global",
+      params: [
+        choose("rank", "Block rank j", [["2","2"],["3","3"],["4","4"]], "2"),
+        choose("norm", "Ideal generator", [["1","1"],["2","1 + i"],["4","2"],["5","2 + i"]], "2"),
+        choose("scale", "Last quotient generator m", [["1","1"],["2","2"],["3","3"]], "2"),
+      ],
+      caption: "At fixed ideal and rank, changing m scales the row and full covolumes in opposite directions. Their product is the factor multiplying the quotient slab mass. Changing the ideal or the rank changes that product.",
+      method: "Work over O = ℤ[i]. Put N = |α|² for the selected generator and k = j − 1. The split lattice is α⁻¹O ⊕ Λ′ with Λ′ = O^(k−1) ⊕ mO. A row mapping Λ′ to α⁻¹O has k − 1 coordinates in α⁻¹O and the last in (mα)⁻¹O. Each complex coordinate contributes its fundamental area. The table uses exact products of rational areas.",
+    },
     "progression-difference": {
       title: "Which prime powers survive the difference?",
       kind: "From a smoothed sum to a sharp cutoff",
@@ -1327,6 +1339,29 @@
   }
 
   function render(id, v) {
+    if (id === "marked-ideal-weight") {
+      const rank = Number(v.rank);
+      const norm = Number(v.norm);
+      const scale = Number(v.scale);
+      const quotientArea = scale ** 2;
+      const fullArea = reducedFraction(quotientArea, norm);
+      const rowDenominator = norm ** (rank - 1) * quotientArea;
+      const quantities = [
+        ["Marked line", reducedFraction(1, norm)],
+        ["Quotient lattice", String(quotientArea)],
+        ["Full lattice", fullArea],
+        ["Integral rows", reducedFraction(1, rowDenominator)],
+      ];
+      const rows = quantities.map(([label, area]) =>
+        '<tr><th scope="row">' + label + '</th><td>' + area + '</td></tr>'
+      ).join("");
+      return '<table class="carry-table"><caption>Gaussian covolumes in rank ' + rank +
+        '</caption><thead><tr><th scope="col">Lattice</th><th scope="col">Covolume</th></tr></thead><tbody>' +
+        rows + '</tbody></table>' + metrics([
+          ["Ideal norm N", String(norm)],
+          ["Rows × full lattice", reducedFraction(quotientArea, rowDenominator * norm)],
+        ]);
+    }
     if (id === "progression-difference") {
       const y = Number(v.y);
       const {u, rows} = progressionDifference(y, Number(v.width), v.chi);

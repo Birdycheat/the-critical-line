@@ -404,30 +404,57 @@ save(
 );
 const route = data("route");
 const edges = route.written_proof_edges;
+const solution = data("solution_terms");
+const terms = solution.selected_declarations;
+const termRecord = linked("Direct names in the exported solution", "records/solution_terms.json");
+function edgeEvidence(edge) {
+  const caller = terms[route.declarations[edge.from].declaration];
+  const target = route.declarations[edge.to].declaration;
+  if (!caller) return "caller outside the selection";
+  if (caller.value?.constants.includes(target)) return "direct in value";
+  if (caller.type.constants.includes(target)) return "direct in type only";
+  return "not found directly in the value or type";
+}
+const directValueCount = edges.filter(e => edgeEvidence(e) === "direct in value").length;
+function exportedTerm(name, spellOut) {
+  const term = terms[name];
+  if (!term || !term.value) return "";
+  const names = term.value.constants;
+  const body = spellOut ? names.map(n => "<code>" + esc(n) + "</code>").join(", ") :
+    names.length + " distinct names in the value";
+  return '<p class="micro" data-solution-term="' + esc(name) + '"><b>Exported solution.</b> ' +
+    '<code>' + esc(name) + '</code>, record ' + term.line.toLocaleString("en-US") +
+    '. ' + body + '. ' + termRecord + '.</p>';
+}
 function depNode(key) {
   const e = route.declarations[key];
-  const list = (keys) =>
-    keys.length
-      ? keys
-          .map((k) => linked(route.declarations[k].declaration, "#decl-" + k))
+  const list = (matches, other) =>
+    matches.length
+      ? matches
+          .map((edge) => {
+            const k = edge[other];
+            return linked(route.declarations[k].declaration, "#decl-" + k) + " (" + edgeEvidence(edge) + ")";
+          })
           .join(" · ")
       : "No further edge recorded here.";
   return (
     '<div class="proofnode" id="decl-' +
     key +
     '"><code>' +
-    linked(e.declaration, e.url) +
-    '</code><p class="micro">Uses ' +
-    list(edges.filter((v) => v.from === key).map((v) => v.to)) +
+    linked(e.declaration, e.url) + "</code>" +
+    (solution.missing_names.includes(e.declaration) ?
+      '<p class="micro">This definition occurs in the pinned source. The local search of the full solution export found no declaration under this name. No recorded call in this graph relies on it.</p>' : '') +
+    '<p class="micro">Uses ' +
+    list(edges.filter((v) => v.from === key), "to") +
     '</p><p class="micro">Used by ' +
-    list(edges.filter((v) => v.to === key).map((v) => v.from)) +
+    list(edges.filter((v) => v.to === key), "from") +
     "</p></div>"
   );
 }
 const graph =
   '<h2 id="source-graph">Written proof dependencies</h2><p>Each entry links to the declaration it uses and to its recorded callers. Follow the proof of ' +
   linked("riemannHypothesis", "#decl-main") +
-  " back to the geometric suppliers. An endpoint marks the boundary of this extraction.</p>" +
+  " back to the geometric suppliers. An endpoint marks the boundary of this selection. Each edge reports whether the named supplier occurs directly in the exported proof value or its type. Three isolated source definitions for a theta chain are marked separately.</p>" +
   Object.keys(route.declarations).map(depNode).join("");
 const paths = tar.source_proof_applications
   .map(
@@ -457,7 +484,7 @@ function claimLi(c, print = false) {
     return linked(label, chapterPage + "#" + target);
   });
   const sourceLinks = (c.sources || c.declarations || []).filter(s => s.url).map(s =>
-    linked(s.label ? s.label + " (" + s.declaration + ")" : s.declaration || s.name || s.path, s.url));
+    linked(s.label && s.declaration ? s.label + " (" + s.declaration + ")" : s.label || s.declaration || s.name || s.path, s.url));
   if (c.source) sourceLinks.push(linked(c.declaration || "Pinned source", c.source));
   const evidence = c.correspondence || c.evidence;
   const status = c.status || c.reconstruction;
@@ -465,7 +492,13 @@ function claimLi(c, print = false) {
     (status ? '<p>' + esc(status) + '</p>' : '') +
     (evidence ? '<p>' + esc(evidence) + '</p>' : '') +
     (c.type ? '<p><b>Formal type.</b> <code>' + esc(c.type) + '</code></p>' : '') +
+    (!print && id === "INP-03" ? '<p><b>Direct proof values.</b> In the Galois construction the following chain reaches the constructor for a single lift.</p><p>' +
+      solution.theta_value_paths[0].map(name => "<code>" + esc(name) + "</code>").join(" → ") +
+      '</p><p>The separate exclusion theorem supplies a split place at each step under its parameter bounds. The formulation in the source model also imposes conditions at every completely split prime.</p><p>' +
+      solution.theta_value_paths[1].map(name => "<code>" + esc(name) + "</code>").join(" → ") + '. ' + termRecord + '.</p>' : '') +
     (c.review ? '<p><b>Review.</b> ' + esc(c.review) + '</p>' : '') +
+    (print ? '' : [...new Set([c.declaration, ...(c.sources || []).map(s => s.exported_name)])]
+      .filter(Boolean).map(name => exportedTerm(name, name === c.declaration)).join('')) +
     (sourceLinks.length ? '<p>' + sourceLinks.join(" · ") + '</p>' : '');
   const assumptions = Array.isArray(c.hypotheses) ? c.hypotheses.join(" ") : c.hypotheses;
   return '<li data-search id="claim-' + esc(id) + '"><b>' + esc(c.title) + '</b><p>' + esc(c.statement) +
@@ -507,8 +540,11 @@ const checks = [
   ],
   [
     "Theorem statements",
-    "Five public statements inspected against pinned definitions. The challenge export was hashed and its theorem records located locally.",
+    "Five public statements inspected against pinned definitions. The challenge export matches the published SHA-256, and its five theorem records were checked locally. Its measured unpacked size is 350,862,311 bytes. The verification report lists 350,862,970 bytes for the same digest.",
   ],
+  ["Local direct proof terms", "We verified both SHA-256 digests of the complete published solution and inspected the types and values of " +
+    Object.keys(terms).length + " selected declarations. Of the " + edges.length + " written calls in the route, " +
+    directValueCount + " name a constant occurring directly in the caller’s exported value. Each route entry gives its individual result."],
   ["Compilation", ver.compilation],
   ["Axiom audit", ver.axioms],
   ["Module kernel replay", ver.module_kernel_replay],
@@ -558,7 +594,7 @@ save(
         .join("<span>←</span>") +
       '</div><details class="correspondence"><summary>Lean correspondence</summary><ul>' +
       paths +
-      '</ul><p>These entries follow written proof expressions. The transitive constant-dependency graph of the elaborated solution has not been extracted locally.</p></details><h2 id="verification">Verification record</h2><details class="correspondence"><summary>Lean correspondence</summary><p>The table records Andrew V. Sutherland’s checks as of 20 November 2026 at 22:05 UTC. In his update of 21 November at 12:55 UTC, Sutherland reports that two independent kernels accepted the full exported proof and that all five statements matched the challenge. The end-to-end Comparator run and the Lean kernels’ replay of the export were still in progress. ' +
+      '</ul><p>These entries follow written proof expressions. The source graph below also checks each recorded call against the direct references of the published solution. The external audit follows dependencies transitively.</p></details><h2 id="verification">Verification record</h2><details class="correspondence"><summary>Lean correspondence</summary><p>The table records Andrew V. Sutherland’s checks as of 20 November 2026 at 22:05 UTC. In his update of 21 November at 12:55 UTC, Sutherland reports that two independent kernels accepted the full exported proof and that all five statements matched the challenge. The end-to-end Comparator run and the Lean kernels’ replay of the export were still in progress. ' +
       linked("Sutherland’s verification report at MIT, updated 21 November 2026 at 12:55 UTC", ver.url) +
       " · " +
       linked("Author’s announcement", corpus.attribution.announcement) +
@@ -574,8 +610,9 @@ save(
       '</tbody></table></div><p class="micro">Source commit <code>' +
       pin +
       "</code> · Lean v4.33.1 · Mathlib <code>0df444a360eaa60ab8c11dca51a86af692955474</code>. " +
-      linked("Corpus lock", "records/corpus.json") +
-      '</p></details><h2 id="reconstruction">Reconstruction record</h2><p>The book follows the argument to the critical line. As of 21 November 2026, we estimate that about 75% of the explanatory work is written (roughly 68–82%). This editorial estimate weights six parts of the argument by their expected writing workload. Three passages locate the current boundary of the reconstruction.</p><ul><li>For a marked flag, an integral frame identifies both opposite lattices. The one-place Haar formula and the logarithmic determinant slabs give the mass of one marked slice. Summing all block lattice classes invokes a further arithmetic mass estimate. <a href="book.html#global-adapted-opposite">The integral opposite lattice</a>.</li><li>In Hermitian dimension at least three, counting one vector on an averaged lattice controls the theta discrepancy. The many-column formula then uses regular Gram fibres and a separate domination argument for Schwartz functions. The reduction theorem and the quotient volumes used in unfolding still have inputs. <a href="book.html#lifts-siegel-discrepancy">Discrepancy for one vector</a> · <a href="book.html#lifts-schwartz-fibre-density">Tests for several columns</a>.</li><li>Factorization in a disk controls the zeros crossed by the contour. Taking a difference of two smoothed sums recovers the sharp prime count with a relative exceptional correction in the large-modulus range. The separate small-modulus argument and the prime moment bound behind zero repulsion remain to be unpacked. <a href="book.html#inputs-progression-finite-difference">From the smoothed sum to the prime count</a>.</li></ul><p>The analytic chapters follow a possible zero from its residue to the one-sided window estimate and reflection. The theta chapters reconstruct an integral expansion at the selected primes, the local zeta quotients, the <a href="book.html#lifts-siegel-weil">two Siegel–Weil ranges</a> and the <a href="book.html#lifts-kernel-majorant">absolute bound for pairing two lifts</a>. The arithmetic chapter derives the marked-window selection, degree-two estimate and separate character counts. Each chapter records its remaining inputs. The chapter on normalization follows the six prime classes and the nonzero base tuple. The arithmetic chapter constructs the finite cycles and their determinant evaluations. The book follows the <a href="book.html#lifts-inert-length">length of an inert lattice</a> into the local zeta sum. At a real place the <a href="book.html#lifts-fock-projection">projection of a joint polynomial</a> gives the positive factor. The <a href="book.html#lifts-schrodinger-fourier">Fourier comparison</a> recovers the lower-range value after treating singular frequencies. The <a href="book.html#lifts-height-fibres">count of rational classes at fixed height</a> supplies the convergence estimate. Counting <a href="book.html#lifts-whittaker-density">integral Hermitian frames</a> gives the full-rank Whittaker factor at the good finite places. At an <a href="book.html#lifts-exceptional-whittaker">exceptional place</a> shell cancellation supplies the continued value. At infinity <a href="book.html#lifts-archimedean-whittaker">determinant differentiation</a> continues the nonsingular coefficient and recovers its density. The <a href="book.html#lifts-global-gram-density">global Gram-fibre mean</a> explains how the local densities fit together. In cohomology, <a href="book.html#inputs-lattice-transference">transference</a> bounds the distance to the lattice, and <a href="book.html#inputs-additive-cups">products of translation classes</a> determine the weights in the stabilizer. The <a href="book.html#inputs-common-invariants">common invariant functions</a> explain why a spectral gap bounds the period of a mean-zero form. Averaging the vertices transfers that bound to the <a href="book.html#inputs-period-transfer">period of a fixed cycle</a>. A <a href="book.html#inputs-hecke-transfer">second Hecke estimate</a> forces the remaining periods to vanish, and <a href="book.html#inputs-invariant-forms">alternating traces</a> bound the number of independent tests. The <a href="book.html#inputs-split-connectivity">split-sequence calculation</a> supplies integral stability, while the <a href="book.html#inputs-field-cycle-quotient">cyclotomic quotient map</a> bounds the length at the base field. In the dyadic tower the <a href="book.html#inputs-inertia-orbits">indices of Frobenius subgroups</a> bound the number of inertia evaluations. The choice of primes uses a <a href="book.html#inputs-zero-density">count of characters with a zero</a> and a <a href="book.html#inputs-twist-mean-square">mean square for quadratic twists</a>. Further inputs include local representation densities and the volume estimates for the period maps. An end-to-end review of the exposition is still in progress. ' +
+      linked("Corpus lock", "records/corpus.json") + " · " + termRecord + " · " +
+      linked("Independent comparison with seven compiled modules", "records/compiled_edge_comparison.json") +
+      '</p></details><h2 id="reconstruction">Reconstruction record</h2><p>The book follows the argument to the critical line. As of 21 November 2026, we estimate that about 76% of the explanatory work is written (roughly 69–83%). The estimate weights six parts by their expected writing workload. Three comparisons show where the argument now stands.</p><ul><li>Marking a vector determines an ideal exactly. Its norm gives the weight of the marked orbit, and Poisson summation recovers the mass of all unmarked coefficient classes. A second Gaussian comparison gives the Hermitian rank factors in the denominator. The finite part comes from counting vectors of unit norm in each residue field and lifting them through its powers. <a href="book.html#global-marked-vector-weight">The ideal weight</a> · <a href="book.html#global-class-mass-poisson">The unmarked volume</a> · <a href="book.html#global-hermitian-rank-step">The Hermitian rank step</a> · <a href="book.html#global-hermitian-unit-density">Finite unit densities</a>.</li><li>For one Hermitian vector the domain reduction now chooses a bottom row in one of finitely many ideal classes and balances its heights by a unit. Compact transverse representatives carry the shell estimate from the line stabilizer to the full group. At a real place, two signed choices per column give a compact family of isometries on a regular Gram fibre. The finite-place construction and the passage to the adelic group still require further work. <a href="book.html#lifts-hilbert-cusp-rows">Choosing the cusp</a> · <a href="book.html#lifts-isotropic-transverse">Leaving the stabilizer</a> · <a href="book.html#lifts-real-gram-lift">Lifting a real frame</a>.</li><li>For small moduli the difference of two smoothed sums isolates the exceptional zero. A separate positive prime moment controls how strongly that zero repels the others. The quantitative estimate that detects a zero between fixed heights still uses a short Dirichlet polynomial and its large-sieve bound. <a href="book.html#inputs-small-modulus-relative">The exceptional correction</a> · <a href="book.html#inputs-positive-prime-moments">The positive prime moment</a>.</li></ul><p>The analytic chapters follow a possible zero from its residue to the one-sided window estimate and reflection. The theta chapters reconstruct an integral expansion at the selected primes, the local zeta quotients, the <a href="book.html#lifts-siegel-weil">two Siegel–Weil ranges</a> and the <a href="book.html#lifts-kernel-majorant">absolute bound for pairing two lifts</a>. The arithmetic chapter derives the marked-window selection, degree-two estimate and separate character counts. Each chapter records its remaining inputs. The chapter on normalization follows the six prime classes and the nonzero base tuple. The arithmetic chapter constructs the finite cycles and their determinant evaluations. The book follows the <a href="book.html#lifts-inert-length">length of an inert lattice</a> into the local zeta sum. At a real place the <a href="book.html#lifts-fock-projection">projection of a joint polynomial</a> gives the positive factor. The <a href="book.html#lifts-schrodinger-fourier">Fourier comparison</a> recovers the lower-range value after treating singular frequencies. The <a href="book.html#lifts-height-fibres">count of rational classes at fixed height</a> supplies the convergence estimate. Counting <a href="book.html#lifts-whittaker-density">integral Hermitian frames</a> gives the full-rank Whittaker factor at the good finite places. At an <a href="book.html#lifts-exceptional-whittaker">exceptional place</a> shell cancellation supplies the continued value. At infinity <a href="book.html#lifts-archimedean-whittaker">determinant differentiation</a> continues the nonsingular coefficient and recovers its density. The <a href="book.html#lifts-global-gram-density">global Gram-fibre mean</a> explains how the local densities fit together. In cohomology, <a href="book.html#inputs-lattice-transference">transference</a> bounds the distance to the lattice, and <a href="book.html#inputs-additive-cups">products of translation classes</a> determine the weights in the stabilizer. The <a href="book.html#inputs-common-invariants">common invariant functions</a> explain why a spectral gap bounds the period of a mean-zero form. Averaging the vertices transfers that bound to the <a href="book.html#inputs-period-transfer">period of a fixed cycle</a>. A <a href="book.html#inputs-hecke-transfer">second Hecke estimate</a> forces the remaining periods to vanish, and <a href="book.html#inputs-invariant-forms">alternating traces</a> bound the number of independent tests. The <a href="book.html#inputs-split-connectivity">split-sequence calculation</a> supplies integral stability, while the <a href="book.html#inputs-field-cycle-quotient">cyclotomic quotient map</a> bounds the length at the base field. In the dyadic tower the <a href="book.html#inputs-inertia-orbits">indices of Frobenius subgroups</a> bound the number of inertia evaluations. The choice of primes uses a <a href="book.html#inputs-zero-density">count of characters with a zero</a> and a <a href="book.html#inputs-twist-mean-square">mean square for quadratic twists</a>. Further inputs include local representation densities and the volume estimates for the period maps. An end-to-end review of the exposition is still in progress. ' +
       linked("Current project state", "STATE.md") +
       '</p><h2 id="ledger">Results in the proof</h2>' +
       filters("Result, theorem, or mathematical term") +

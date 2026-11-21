@@ -28,4 +28,15 @@ The six pages use Andréa Gourion’s *L’article vivant* template, release 55.
 
 To reproduce the source checks on another machine, use the repository URLs, commits, archive-part URLs and hashes in `records/corpus.json`. Keep downloaded research data in an external directory. The citation check can read Git objects directly from the pinned checkouts. With the fourteen original parts already present, `python -B scripts/index_sources.py build PATH_TO_PARTS NEW_EXTERNAL_DIRECTORY` builds the optional full-text index for faster lookups. The matching `find` and `read` commands appear in [STATE.md](STATE.md).
 
+For the direct dependency comparison, download the compressed solution to external storage and verify the compressed SHA-256 in [the selected-term record](records/solution_terms.json). Run `zstd -d --long=30 solution.ndjson.zst` there. The following commands rerun the selection from the repository root. Set `$grhEvidence` to the external directory containing the unpacked solution.
+
+```powershell
+$record = Get-Content -Raw records/solution_terms.json | ConvertFrom-Json
+$selection = @($record.selected_declarations.PSObject.Properties.Name) + @($record.missing_names)
+$selection | Set-Content -Encoding utf8 (Join-Path $grhEvidence 'selection.txt')
+python -B -X utf8 scripts/export_dependencies.py (Join-Path $grhEvidence 'solution.ndjson') --sha256 $record.uncompressed_sha256 --names-file (Join-Path $grhEvidence 'selection.txt') --allow-missing
+```
+
+The reader verifies the full uncompressed SHA-256 and separately lists direct names in the type and value of each selected declaration. The [compiled-object comparison](records/compiled_edge_comparison.json) gives the input objects, commands and fingerprints from the second reader. The site check also compares those fingerprints with the stored export data.
+
 Original formalization, author announcement, Mathlib, and external verification logs are linked with attribution. Computational evidence and exposition review are recorded independently.

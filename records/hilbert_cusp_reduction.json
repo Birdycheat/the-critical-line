@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HCR-01",
+      "chapter": "lifts",
+      "anchor": "lifts-hilbert-cusp-rows",
+      "title": "Small integral denominators and finitely many rational cusp matrices",
+      "statement": "A fixed constant A works at every embedding for a single nonzero pair (c,b)∈𝒪², with |w(c)τ_w+w(b)|²≤A Im τ_w. There are a fixed finite S⊂SL₂(F) and B and, for each such pair, λ∈F× with |Nλ|≤B such that every unit multiple of λ(c,b) is the bottom row of r k with r∈S and k∈SL₂(𝒪).",
+      "hypotheses": "F is a totally real number field for the small row, using all its real embeddings and strictly positive heights. The finite row completion holds for any number field. The row generates a nonzero integral ideal.",
+      "correspondence": "The product of determinant-one archimedean blocks preserves lattice covolume. The numerator ideal may be nonprincipal. Completing a row uses its inverse ideal. Fix an adapted matrix for each class encountered before multiplying the row by a balancing unit.",
+      "dependencies": [],
+      "equations": [
+        "lifts-hilbert-small-denominator"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small": 58
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean",
+          "lines": [
+            94,
+            131
+          ],
+          "label": "Minkowski applied after a determinant-one change of variables",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean#L94-L131"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small_pair",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small_pair": 153
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean",
+          "lines": [
+            153,
+            174
+          ],
+          "label": "The two integral coordinates give the Möbius denominator",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean#L153-L174"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_adapted",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_adapted": 41
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+          "lines": [
+            21,
+            58
+          ],
+          "label": "A row generating an ideal extends to determinant one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean#L21-L58"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.integral_inv_mul",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.integral_inv_mul": 56
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+          "lines": [
+            56,
+            75
+          ],
+          "label": "Two adapted matrices differ by an integral matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean#L56-L75"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_scale",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_scale": 93
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+          "lines": [
+            93,
+            105
+          ],
+          "label": "The scalar taking the row ideal to a fixed ideal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean#L93-L105"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion": 156
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+          "lines": [
+            156,
+            186
+          ],
+          "label": "One rational matrix for each ideal class",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean#L156-L186"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion": 156
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+          "lines": [
+            189,
+            206
+          ],
+          "label": "Row completion after arbitrary multiplication by a unit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean#L189-L206"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "HCR-02",
+      "chapter": "lifts",
+      "anchor": "lifts-hilbert-cusp-heights",
+      "title": "Unit balancing gives a positive lower height at every real embedding",
+      "statement": "For some fixed κ,t>0 every positive tuple τ has r∈S and k∈SL₂(𝒪) such that z_w=Im(r k τ)_w≥t and κ z_w≤z_v for all v,w. The common scale can be arbitrarily large.",
+      "hypotheses": "F totally real, all real embeddings, positive imaginary parts, integral determinant-one k and finitely many rational determinant-one matrices r. Dirichlet’s logarithmic unit lattice and the bounded absolute norm of the row multiplier enter separately.",
+      "correspondence": "The bottom row uses u⁻¹ before λ. The imaginary parts are therefore multiplied by |w(u)|². Their product is unchanged. Bounding the logarithmic deviations by L yields κ=exp(−4L). The source takes t=κ min(1,P) with P=1/(A^d B²).",
+      "dependencies": [
+        "HCR-01"
+      ],
+      "equations": [
+        "lifts-hilbert-balanced-heights"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.UnitBalance.balance_by_units",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.UnitBalance.balance_by_units": 62
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitBalancingImaginaryParts.lean",
+          "lines": [
+            62,
+            85
+          ],
+          "label": "The logarithmic unit lattice bounds the ratio of heights",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitBalancingImaginaryParts.lean#L62-L85"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Red.reduction": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+          "lines": [
+            55,
+            81
+          ],
+          "label": "The multiplicative order of integral and rational transformations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean#L55-L81",
+          "exported_name": "GlobalTheory.CompanionTheory.SW.Red.reduction"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Red.reduction": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+          "lines": [
+            95,
+            127
+          ],
+          "label": "The inverse unit in the bottom row multiplies the height by its square",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean#L95-L127",
+          "exported_name": "GlobalTheory.CompanionTheory.SW.Red.reduction"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Red.reduction": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+          "lines": [
+            151,
+            182
+          ],
+          "label": "The norm product and the common lower bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean#L151-L182",
+          "exported_name": "GlobalTheory.CompanionTheory.SW.Red.reduction"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded": 20
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+          "lines": [
+            54,
+            79
+          ],
+          "label": "Where balanced heights enter the weighted discrepancy",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean#L54-L79"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "HCR-03",
+      "chapter": "lifts",
+      "anchor": "lifts-isotropic-shell-volume",
+      "title": "A finite arithmetic factor bounds every shell of the isotropic-line stabilizer",
+      "statement": "In Hermitian dimension s+2 over the CM field E, the parabolic stabilizing an isotropic line has measurable shells covering modulo its rational points with mass ≤K exp(−2d(s+1)j), j∈ℤ, d=[F:ℚ]. The fixed finite factor is the product of the volumes of two compact additive sets, one lower-dimensional arithmetic quotient, the multiplicative measure of a compact idèle set and its supremum of the continuous modulus character.",
+      "hypotheses": "E/F CM. A hyperbolic pair is fixed. The complement is nondegenerate, with finite arithmetic volume in every Haar normalization. Haar measures on the additive coordinates and idèles are fixed, and the real flow scales all archimedean components and is the identity at finite places. The downstream geometric count has s=M−2≥1.",
+      "correspondence": "The product and the almost-everywhere covering are explicit. The formal source supplies finite covolume by its own separate arithmetic construction. Borel’s adelic finiteness theorem, with the check of rational characters for a unitary group, gives a classical proof of the same input. The idèle norm-one compactness admits both a classical source and the archive’s independent compactness argument.",
+      "dependencies": [],
+      "equations": [
+        "lifts-isotropic-shell-product"
+      ],
+      "sources": [
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.nu": 24
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+          "lines": [
+            37,
+            50
+          ],
+          "label": "Finite complementary quotient and the additive and multiplicative factors",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean#L37-L50"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.nu": 24
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+          "lines": [
+            65,
+            83
+          ],
+          "label": "Left Haar measure in the coordinates of the line stabilizer",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean#L65-L83"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.nu": 24
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+          "lines": [
+            95,
+            110
+          ],
+          "label": "Integration over one translated compact set of idèles",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean#L95-L110"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.nu": 24
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+          "lines": [
+            113,
+            130
+          ],
+          "label": "Rational translations reduce the horizontal coordinate and then the centre",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean#L113-L130"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Fujisaki.units_decomp",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Fujisaki.units_decomp": 180
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicUnitsDecompositionFlowCompact.lean",
+          "lines": [
+            178,
+            205
+          ],
+          "label": "The adelic multiplier modulo field elements and integer dilations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicUnitsDecompositionFlowCompact.lean#L178-L205"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Fujisaki.core",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Fujisaki.core": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicUnitsDecompositionFlowCompact.lean",
+          "lines": [
+            162,
+            174
+          ],
+          "label": "Absorbing the fractional part of the logarithmic height",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicUnitsDecompositionFlowCompact.lean#L162-L174"
+        },
+        {
+          "declaration": "CompanionTheory.SWFin.adelicCovolumeFinite",
+          "declaration_lines": {
+            "CompanionTheory.SWFin.adelicCovolumeFinite": 52
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/AdelicCovolumeFinite.lean",
+          "lines": [
+            30,
+            58
+          ],
+          "label": "Arithmetic finite covolume for every nondegenerate Hermitian space",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/AdelicCovolumeFinite.lean#L30-L58"
+        },
+        {
+          "declaration": "CompanionTheory.SWFin.finVol",
+          "declaration_lines": {
+            "CompanionTheory.SWFin.finVol": 8
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean",
+          "lines": [
+            8,
+            10
+          ],
+          "label": "Passage to the Haar fundamental-domain formulation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean#L8-L10"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.mean_isotropic_box": 82
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+          "lines": [
+            113,
+            121
+          ],
+          "label": "The chosen complement supplies its finite quotient volume",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean#L113-L121",
+          "exported_name": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi": 75
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean",
+          "lines": [
+            75,
+            84
+          ],
+          "label": "The exact modular character on the dilation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean#L75-L84"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "HCR-04",
+      "chapter": "lifts",
+      "anchor": "lifts-isotropic-transverse",
+      "title": "A compact transverse family transfers the shell bound to the unfolded integral",
+      "statement": "For an adelic Hermitian group G with a chosen hyperbolic plane and isotropic-line stabilizer P, one compact C satisfies G=PC. A positive cutoff on C and Tonelli bound any nonnegative unfolded line count by a fixed constant times the shell volumes with uniform majorants on an enlarged compact transverse family.",
+      "hypotheses": "Work over a CM extension, with a nondegenerate ambient form, its rational hyperbolic pair and the rational subgroup Γ∩P. The test is measurable, nonnegative and Γ∩P-invariant, and on each shell admits a uniform bound after multiplication on the right by the compact transverse cutoff support. The shell set covers P up to measure zero modulo its rational elements.",
+      "correspondence": "Primitive-vector normalization, an explicit hyperbolic partner and compact lifting on a nonsingular rank-two Gram orbit yield G=PC. Compact cutoff averaging corrects for overlaps, and unfolding the count lands on (Γ∩P)∖G. G is integrated in its own Haar measure.",
+      "dependencies": [
+        "HCR-03",
+        "RGL-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Iwa.iwa_core",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Iwa.iwa_core": 198
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean",
+          "lines": [
+            198,
+            235
+          ],
+          "label": "A compact family of hyperbolic frames gives transverse representatives",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean#L198-L235"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.PrimA.unimodular_compact_mod_units",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.PrimA.unimodular_compact_mod_units": 25
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicPrimitiveVectorCompactRescale.lean",
+          "lines": [
+            25,
+            47
+          ],
+          "label": "Simultaneous compact normalizations at the places",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicPrimitiveVectorCompactRescale.lean#L25-L47"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Iwa.iwasawa",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Iwa.iwasawa": 249
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean",
+          "lines": [
+            294,
+            315
+          ],
+          "label": "Compact lifting from the regular rank-two Gram orbit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean#L294-L315"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre": 14
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean",
+          "lines": [
+            14,
+            52
+          ],
+          "label": "The closed regular orbit and compact lifting",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean#L14-L52"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum": 27
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+          "lines": [
+            37,
+            46
+          ],
+          "label": "Combining transverse compactness with the shell estimate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean#L37-L46"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum": 27
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+          "lines": [
+            125,
+            145
+          ],
+          "label": "The integral inequality after unfolding",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean#L125-L145"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.lower",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.lower": 8
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean",
+          "lines": [
+            8,
+            35
+          ],
+          "label": "A positive lower integral on a compact transversal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean#L8-L35"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.cover",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.cover": 37
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean",
+          "lines": [
+            37,
+            65
+          ],
+          "label": "Inserting and unfolding a cutoff on the compact directions",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean#L37-L65"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.cover",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.cover": 37
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean",
+          "lines": [
+            63,
+            80
+          ],
+          "label": "Tonelli gives the upper bound by the shell integral",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean#L63-L80"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small_pair",
+      "callee": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_realBasis",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean",
+        "line": 159,
+        "spelling": "exists_realBasis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small_pair",
+      "callee": "GlobalTheory.CompanionTheory.SW.SmallPair.exists_small",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ExistsCuspReductionBound.lean",
+        "line": 164,
+        "spelling": "exists_small"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_adapted",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_bezout",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+        "line": 44,
+        "spelling": "exists_bezout"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.integral_inv_mul",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.integral_of_mem",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+        "line": 61,
+        "spelling": "integral_of_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+        "line": 185,
+        "spelling": "exists_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.exists_adapted",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+        "line": 201,
+        "spelling": "exists_adapted"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.exists_finset_row_completion",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.RowCompletion.integral_inv_mul",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CuspRepresentativesFinite.lean",
+        "line": 204,
+        "spelling": "integral_inv_mul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.UnitBalance.balance_by_units",
+      "callee": "GlobalTheory.CompanionTheory.SW.UnitBalance.exists_bound_log_centered",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/UnitBalancingImaginaryParts.lean",
+        "line": 67,
+        "spelling": "exists_bound_log_centered"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.CompanionTheory.SW.Red.balanced_lower",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 182,
+        "spelling": "balanced_lower"
+      }
+    },
+    {
+      "caller": "CompanionTheory.SWFin.finVol",
+      "callee": "CompanionTheory.SWFin.adelicCovolumeFinite",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/SiegelWeilFiniteness/SiegelWeilOfFormula.lean",
+        "line": 10,
+        "spelling": "adelicCovolumeFinite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwa.iwasawa",
+      "callee": "GlobalTheory.CompanionTheory.SW.Iwa.iwa_core",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean",
+        "line": 294,
+        "spelling": "iwa_core"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.cover",
+      "callee": "CompanionTheory.PlacePermOperatorBicommutantSpan.lower",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Nuabs.lean",
+        "line": 42,
+        "spelling": "lower"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.exists_cusp_reduction_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.exists_cusp_reduction_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.cusp_representatives_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.cusp_representatives_finite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.unit_balancing_imaginary_parts",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 59,
+        "spelling": "GlobalTheory.T.unit_balancing_imaginary_parts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.mobius_action_upper_half_plane",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 69,
+        "spelling": "GlobalTheory.T.mobius_action_upper_half_plane"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+      "callee": "GlobalTheory.T.reduction_to_siegel_domain",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.T.reduction_to_siegel_domain"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+      "callee": "GlobalTheory.T.weighted_theta_average_le_of_countData",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.weighted_theta_average_le_of_countData"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.haar_fundamental_domain_exists_unitary",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.haar_fundamental_domain_exists_unitary"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.modulus_character_unit_action_product",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 45,
+        "spelling": "GlobalTheory.T.modulus_character_unit_action_product"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.adelic_units_decomposition_flow_compact",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.adelic_units_decomposition_flow_compact"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.adele_ring_cocompact_discrete_number_field",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 48,
+        "spelling": "GlobalTheory.T.adele_ring_cocompact_discrete_number_field"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.triple_product_measure_map_mul_left_invariant",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 73,
+        "spelling": "GlobalTheory.T.triple_product_measure_map_mul_left_invariant"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.adelic_haar_invariant_unitary_action",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.T.adelic_haar_invariant_unitary_action"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 115,
+        "spelling": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwa.iwasawa",
+      "callee": "GlobalTheory.T.adelic_primitive_vector_compact_rescale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean",
+        "line": 265,
+        "spelling": "GlobalTheory.T.adelic_primitive_vector_compact_rescale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwa.iwasawa",
+      "callee": "GlobalTheory.T.gram_orbit_compact_representative",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicUnitaryStabilizerCocompact.lean",
+        "line": 303,
+        "spelling": "GlobalTheory.T.gram_orbit_compact_representative"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PrimA.unimodular_compact_mod_units",
+      "callee": "GlobalTheory.T.archimedean_primitive_vector_compact_rescale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicPrimitiveVectorCompactRescale.lean",
+        "line": 36,
+        "spelling": "GlobalTheory.T.archimedean_primitive_vector_compact_rescale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PrimA.unimodular_compact_mod_units",
+      "callee": "GlobalTheory.T.local_primitive_vector_compact_rescale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicPrimitiveVectorCompactRescale.lean",
+        "line": 37,
+        "spelling": "GlobalTheory.T.local_primitive_vector_compact_rescale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.PrimA.unimodular_compact_mod_units",
+      "callee": "GlobalTheory.T.primitive_vector_lattice_rescale_almost_all",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicPrimitiveVectorCompactRescale.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.T.primitive_vector_lattice_rescale_almost_all"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.T.hyperbolic_parabolic_siegel_set_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.hyperbolic_parabolic_siegel_set_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.T.hyperbolic_unitary_stabilizer_cocompact",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 40,
+        "spelling": "GlobalTheory.T.hyperbolic_unitary_stabilizer_cocompact"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.CompanionTheory.Adelic.integral_fundamentalDomain_le_siegel",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.CompanionTheory.Adelic.integral_fundamentalDomain_le_siegel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 116,
+        "spelling": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HCR-01",
+      "HCR-02"
+    ],
+    [
+      "HCR-02",
+      "SDR-02"
+    ],
+    [
+      "HCR-03",
+      "HCR-04"
+    ],
+    [
+      "HCR-04",
+      "HVO-01"
+    ],
+    [
+      "HCR-03",
+      "HVO-02"
+    ]
+  ],
+  "outstanding": [
+    "The scalar modular reduction bounds all imaginary parts below and all their ratios. Its infinite tail is controlled by the separate weighted theta and Eisenstein estimates. Compact lifting for a nonsingular Gram tuple is used in its two-column case. The comparison of arithmetic fundamental domains with the global density constants belongs to the later mass argument."
+  ]
+}

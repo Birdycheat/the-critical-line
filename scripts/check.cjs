@@ -81,8 +81,77 @@ for (const [n, s] of Object.entries(html)) {
     if (id) assert.ok(ids[dest]?.has(id), n + " missing anchor " + val);
   }
 }
+assert.ok(!html["atlas.html"].includes("(undefined)"), "An atlas source label has a missing declaration name");
+const route = require("../records/route.json");
+const solution = require("../records/solution_terms.json");
+const comparison = require("../records/compiled_edge_comparison.json");
+const { createHash } = require("node:crypto");
+assert.equal(solution.uncompressed_sha256, comparison.solution.uncompressed_sha256);
+assert.equal(solution.uncompressed_bytes, comparison.solution.uncompressed_bytes);
+for (const target of require("../records/targets.json").targets) {
+  const term = solution.selected_declarations[target.declaration];
+  assert.deepEqual(term.type.constants, [target.type]);
+  assert.ok(term.value.constants.length && !term.value.constants.includes("sorryAx"));
+  assert.ok(html["atlas.html"].includes('data-solution-term="' + target.declaration + '"'));
+}
+for (const edge of route.written_proof_edges) {
+  const caller = route.declarations[edge.from].declaration;
+  const callee = route.declarations[edge.to].declaration;
+  assert.ok(solution.selected_declarations[caller]?.value?.constants.includes(callee),
+    "Recorded call missing in exported value: " + caller + " -> " + callee);
+}
+for (const [key, node] of Object.entries(route.declarations)) {
+  if (solution.selected_declarations[node.declaration]) continue;
+  assert.ok(solution.missing_names.includes(node.declaration));
+  assert.ok(!route.written_proof_edges.some(e => e.from === key || e.to === key));
+}
+for (const chain of solution.theta_value_paths) {
+  for (let i = 1; i < chain.length; i++) {
+    assert.ok(solution.selected_declarations[chain[i - 1]].value.constants.includes(chain[i]),
+      "Missing direct theta reference " + chain[i]);
+  }
+}
+let comparedFields = 0;
+for (const mod of Object.values(comparison.modules)) {
+  for (const [name, fields] of Object.entries(mod.declarations)) {
+    const term = solution.selected_declarations[name];
+    assert.equal(term.line, fields.line);
+    for (const field of ["type", "value"]) {
+      const names = term[field].constants;
+      assert.equal(names.length, fields[field].count);
+      assert.equal(createHash("sha256").update(JSON.stringify(names)).digest("hex"), fields[field].sha256);
+      comparedFields++;
+    }
+  }
+}
+assert.equal(comparedFields, comparison.result.equal_fields);
+assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
+}
+// Compute each fundamental area from the real 2 by 2 basis for a Gaussian line.
+for (const [real, imag] of [[1, 0], [1, 1], [2, 0], [2, 1]]) {
+  const norm = real * real + imag * imag;
+  for (const rank of [2, 3, 4]) {
+    for (const scale of [1, 2, 3]) {
+      const area = (a, b) => Math.abs(a * a - b * (-b));
+      const line = area(real / norm, -imag / norm);
+      const quotient = area(scale, 0);
+      const lastRow = area(real / (norm * scale), -imag / (norm * scale));
+      const row = Array.from({length: rank - 2}).reduce(product => product * line, lastRow);
+      const output = lib.render("marked-ideal-weight", {rank, norm, scale});
+      function fraction(match) {
+        const [numerator, denominator = 1] = match[1].split("/").map(Number);
+        return numerator / denominator;
+      }
+      const areas = Array.from(output.matchAll(/<td>([^<]+)<\/td>/g), fraction);
+      const totals = Array.from(output.matchAll(/<dd>([^<]+)<\/dd>/g), fraction);
+      [line, quotient, line * quotient, row].forEach((x, i) => close(areas[i], x, 1e-12));
+      close(totals[0], norm, 0);
+      close(totals[1], row * line * quotient, 1e-12);
+      close(totals[1], 1 / norm ** rank, 1e-12);
+    }
+  }
 }
 // Use the two original continuous sums as an independent reference for the sharp cutoff.
 const referencePrimePowers = new Map([[2,2],[3,3],[4,2],[5,5],[7,7],[8,2],[9,3],

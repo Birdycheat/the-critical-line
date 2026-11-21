@@ -721,13 +721,16 @@
       "source": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean#L59-L73"
     }
   ],
-  "dependency_evidence": "Edges describe identifier resolution in explicit source proof expressions. The independently exported challenge contains placeholder proofs and supplies only target types. A machine-extracted transitive dependency closure for the actual solution is a separate task.",
+  "dependency_evidence": "The complete published solution export was hashed and each of the five target types and proof values was inspected locally. The challenge separately records the statements. All 111 written route calls also occur in their callers’ exported values. records/solution_terms.json gives the direct names. The transitive closure counts below come from the separately attributed external audit.",
   "challenge_export": {
     "url": "https://math.mit.edu/~drew/grh/challenge.ndjson.zst",
     "compressed_sha256": "c24ef99dab3556a52c7fb886e03cf22a242f3b96f82ae4cc40539e5d2f678ac6",
     "uncompressed_sha256": "bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9",
     "checks": "Downloaded, decompressed, locally hashed, inspected the five exported theorem records, proposition records and expression identifiers. Record lines are one-based in the uncompressed UTF-8 NDJSON.",
-    "reproduce": "python -B -X utf8 scripts/verify_target_terms.py PATH_TO_UNCOMPRESSED_CHALLENGE --json"
+    "reproduce": "python -B -X utf8 scripts/verify_target_terms.py PATH_TO_UNCOMPRESSED_CHALLENGE --json",
+    "observed_size_bytes": 350862311,
+    "reported_size_bytes": 350862970,
+    "byte_check": "The decompressed byte stream was compared with the local file, then the target-term verifier checked the five statements in the hash-matched file."
   },
   "extension": "Dirichlet L-functions for all positive moduli. The classical zeta theorem and all-character strip theorem use different final proof wrappers. The root-level riemannHypothesis in src/Main.lean uses rhOfAll. The separate UpperTheory.FinalTheorems.riemannHypothesis offers an alternate route.",
   "independent_solution_evidence": "The external compiled solution audit checked the five theorem types and semantic declaration origins in the solution environment. Its author also traversed constants from each theorem and reported totals by root package plus all reachable axioms. The full named edges of those walks are absent from these outputs."

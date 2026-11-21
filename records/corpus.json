@@ -403,7 +403,7 @@
     "bytes": 28865695,
     "sha256": "375cbee2fc3fc0f5088ef2e6dc9a5ac5530924310dc62422ec65aac9dc4c1d25",
     "count": 175187,
-    "status": "Locally verified the digest of the published manifest and matched every listed module path to the 175,187 original Lean source paths. Object hashes below are published by the external builder. The compiled objects themselves were not downloaded or hashed locally.",
+    "status": "The initial comparison verified the published manifest and matched every listed module path to the 175,187 original source paths. A later local inspection read seven compiled modules. Five match the MIT object digests. For the remaining two, both object hashes and the comparison of selected direct references with the published solution appear in records/compiled_edge_comparison.json.",
     "selected_objects": {
       "Main.olean": "9146dfb4148e24d2252e04c50742f3e49dd126dfcc5006d10bf5f873ddf796ad",
       "Statements.olean": "f8e0aed3c2d69390b6dd3bb24e13aa25e043a02ca42f021e3f6e4ec8b57fd6b1",
@@ -416,5 +416,27 @@
       "Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.olean": "b831ebaa3bdb011963cfaf36f82efe37dce9d3f7f7d53da1bd9e28aa6b4c70e0",
       "Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.olean": "9c66198ba46220d33b7968755d0618af51c7a132fbe45c3c33dec67daf775679"
     }
+  },
+  "export_size_check": {
+    "artifact": "challenge.ndjson",
+    "report_utc": "2026-11-21T12:55:00Z",
+    "report_url": "https://math.mit.edu/~drew/grh/",
+    "published_uncompressed_bytes": 350862970,
+    "observed_uncompressed_bytes": 350862311,
+    "observed_compressed_bytes": 46881299,
+    "sha256_manifest_url": "https://math.mit.edu/~drew/grh/SHA256SUMS",
+    "check": "The compressed digest matches the published manifest. The Zstandard frame declares 350862311 bytes. Independent streaming decompression produced exactly these bytes and matched the local unpacked file byte for byte and the published unpacked SHA-256. The report lists 659 more bytes for the same digest. Its cause is undetermined."
+  },
+  "selected_solution_term_inspection": {
+    "evidence": "records/solution_terms.json",
+    "direct_comparison": "records/compiled_edge_comparison.json",
+    "release": "https://math.mit.edu/~drew/grh/",
+    "unpacked_bytes": 61570595788,
+    "unpacked_sha256": "5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e",
+    "selection_found": 197,
+    "selection_missing": 9,
+    "route_value_edges_checked": 111,
+    "compiled_fields_agree": 38,
+    "scope": "Direct references of selected exported declarations. Kernel acceptance and transitive walks are separately attributed to the published reports."
   }
 }

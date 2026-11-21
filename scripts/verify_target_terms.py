@@ -18,31 +18,8 @@ def require(condition, message):
         raise ValueError(message)
 
 
-class TargetIndex:
-    """Offset tables keep the multi-million-node export on disk."""
-
-    def __init__(self, stream, lines, sha256):
-        self.stream = stream
-        self.expressions = array("Q")
-        self.names = array("Q", [0])
-        self.declarations = {}
-        self.name_cache = {0: ""}
-        position = 0
-        digest = hashlib.sha256()
-        for line_no, raw in enumerate(stream, 1):
-            digest.update(raw)
-            if line_no in lines:
-                self.declarations[line_no] = json.loads(raw)
-            if b'"ie":' in raw:
-                number = int(EXPR_ID.search(raw)[1])
-                require(number == len(self.expressions), f"Unexpected expression index {number}")
-                self.expressions.append(position)
-            elif b'"in":' in raw:
-                number = int(NAME_ID.search(raw)[1])
-                require(number == len(self.names), f"Unexpected name index {number}")
-                self.names.append(position)
-            position += len(raw)
-        require(digest.hexdigest() == sha256, "Wrong challenge SHA-256")
+class TermReader:
+    """Read shared expression nodes and resolve their direct named references."""
 
     def node(self, offset):
         self.stream.seek(offset)
@@ -51,6 +28,7 @@ class TargetIndex:
     def name(self, key):
         if key not in self.name_cache:
             record = self.node(self.names[key])
+            require(record.get("in") == key, f"Missing name {key}")
             value = record.get("str") or record["num"]
             prefix = self.name(value["pre"])
             last = value["str"] if "str" in value else str(value["i"])
@@ -83,6 +61,33 @@ class TargetIndex:
             elif kind not in {"natVal", "strVal", "bvar", "sort"}:
                 raise ValueError(f"Unsupported expression kind {kind!r} at {key}")
         return len(seen), sorted(constants)
+
+
+class TargetIndex(TermReader):
+    """Offset tables keep the multi-million-node export on disk."""
+
+    def __init__(self, stream, lines, sha256):
+        self.stream = stream
+        self.expressions = array("Q")
+        self.names = array("Q", [0])
+        self.declarations = {}
+        self.name_cache = {0: ""}
+        position = 0
+        digest = hashlib.sha256()
+        for line_no, raw in enumerate(stream, 1):
+            digest.update(raw)
+            if line_no in lines:
+                self.declarations[line_no] = json.loads(raw)
+            if b'"ie":' in raw:
+                number = int(EXPR_ID.search(raw)[1])
+                require(number == len(self.expressions), f"Unexpected expression index {number}")
+                self.expressions.append(position)
+            elif b'"in":' in raw:
+                number = int(NAME_ID.search(raw)[1])
+                require(number == len(self.names), f"Unexpected name index {number}")
+                self.names.append(position)
+            position += len(raw)
+        require(digest.hexdigest() == sha256, "Wrong challenge SHA-256")
 
 
 def inspect_targets(stream, book):

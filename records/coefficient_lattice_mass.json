@@ -1,0 +1,646 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CLM-01",
+      "chapter": "global",
+      "anchor": "global-class-slabs-line",
+      "title": "The total mass of the rank-one determinant slabs",
+      "statement": "For a totally complex number field E with f conjugate pairs, the sum over the rank-one coefficient-lattice classes is πᶠhR/w, equivalently the residue of ζ_E at one times the Euclidean covolume of its integer ring.",
+      "hypotheses": "Full lattices up to a rational change of basis, ordinary complex area at every place, and one unit of logarithmic determinant width. The regulator uses doubled logarithms at complex places.",
+      "dependencies": [
+        "DBS-02"
+      ],
+      "equations": [
+        "global-class-line-mass"
+      ],
+      "sources": [
+        {
+          "label": "A full lattice on an arithmetic line is a fractional ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            164,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L164-L185",
+          "declaration": "exists_ideal",
+          "declaration_lines": {
+            "exists_ideal": 164
+          }
+        },
+        {
+          "label": "Changing the basis gives exactly the ideal classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            224,
+            257
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L224-L257",
+          "declaration": "nonempty_equiv_classGroup",
+          "declaration_lines": {
+            "nonempty_equiv_classGroup": 224
+          }
+        },
+        {
+          "label": "The automorphisms of each ideal are the units",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            258,
+            289
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L258-L289",
+          "declaration": "mem_autGL_iff",
+          "declaration_lines": {
+            "mem_autGL_iff": 258
+          }
+        },
+        {
+          "label": "Torsion multiplicity of the unit cone",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            364,
+            380
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L364-L380",
+          "declaration": "torsion_mul_covol",
+          "declaration_lines": {
+            "torsion_mul_covol": 364
+          }
+        },
+        {
+          "label": "Summing the cone volume over the ideal classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            430,
+            449
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L430-L449",
+          "declaration": "glVol_one",
+          "declaration_lines": {
+            "glVol_one": 440
+          }
+        },
+        {
+          "label": "Discriminant and regulator normalization",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+          "lines": [
+            450,
+            468
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean#L450-L468"
+        },
+        {
+          "label": "The total is defined over rational equivalence classes",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/GlVolEqTsumSlabVol.lean",
+          "lines": [
+            140,
+            143
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/GlVolEqTsumSlabVol.lean#L140-L143",
+          "declaration": "glVol_eq_tsum_slabVol",
+          "declaration_lines": {
+            "glVol_eq_tsum_slabVol": 140
+          }
+        }
+      ]
+    },
+    {
+      "id": "CLM-02",
+      "chapter": "global",
+      "anchor": "global-marked-vector-orbits",
+      "title": "Classifying the nonzero marked vectors on coefficient lattices",
+      "statement": "At rank j=k+1 a pair consisting of a full lattice and a chosen nonzero vector in it has exactly one orbit label (𝔞,[Λ′]) with 𝔞 a nonzero integral ideal and [Λ′] a rank-k lattice class.",
+      "hypotheses": "The rational group changes the vector and the full lattice together. The saturated coefficient line is taken along the chosen vector.",
+      "dependencies": [],
+      "equations": [
+        "global-marked-line-normal"
+      ],
+      "sources": [
+        {
+          "label": "A section over the projective quotient lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+          "lines": [
+            100,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean#L100-L130"
+        },
+        {
+          "label": "Separating a marked line by a rational shear",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+          "lines": [
+            233,
+            257
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean#L233-L257",
+          "declaration": "exists_normal",
+          "declaration_lines": {
+            "exists_normal": 233
+          }
+        },
+        {
+          "label": "Rationally moving any marked vector to the first column",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+          "lines": [
+            316,
+            343
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean#L316-L343",
+          "declaration": "classes",
+          "declaration_lines": {
+            "classes": 316
+          }
+        },
+        {
+          "label": "Uniqueness of the ideal and the quotient class",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+          "lines": [
+            345,
+            394
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean#L345-L394"
+        },
+        {
+          "label": "Unfolding the count over these pair classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSumEqTsumPairOrbits.lean",
+          "lines": [
+            383,
+            407
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSumEqTsumPairOrbits.lean#L383-L407",
+          "declaration": "latMean_sum_eq_tsum_orbits",
+          "declaration_lines": {
+            "latMean_sum_eq_tsum_orbits": 383
+          }
+        }
+      ]
+    },
+    {
+      "id": "CLM-03",
+      "chapter": "global",
+      "anchor": "global-marked-vector-weight",
+      "title": "The contribution of one marked-vector orbit",
+      "statement": "The nonzero-vector integral for one pair class contributes b(Λ′) Δ^(2j−1) N(𝔞)^(−j) times the vector-test integral and the covolume-weight integral with density dt/t².",
+      "hypotheses": "Totally complex E, j=k+1≥2, ordinary complex area and nonnegative measurable tests. N is absolute ideal norm.",
+      "dependencies": [
+        "CLM-02",
+        "DBS-02",
+        "FSV-01"
+      ],
+      "equations": [
+        "global-marked-vector-factor"
+      ],
+      "sources": [
+        {
+          "label": "The marked column, complementary block and free row",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsCoordinatesInverseFirstColumnInfiniteGL.lean",
+          "lines": [
+            194,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsCoordinatesInverseFirstColumnInfiniteGL.lean#L194-L218",
+          "declaration": "coordinates",
+          "declaration_lines": {
+            "coordinates": 202
+          }
+        },
+        {
+          "label": "The integral row lattice and its covolume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFundamentalDomainEmbeddedRowsLattice.lean",
+          "lines": [
+            30,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFundamentalDomainEmbeddedRowsLattice.lean#L30-L56",
+          "declaration": "hasCov_rowLat",
+          "declaration_lines": {
+            "hasCov_rowLat": 35
+          }
+        },
+        {
+          "label": "Covolume of the inverse ideal in the marked line",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLatticeCovolumeInverseIdeal.lean",
+          "lines": [
+            96,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLatticeCovolumeInverseIdeal.lean#L96-L121",
+          "declaration": "covolume_inv_ideal",
+          "declaration_lines": {
+            "covolume_inv_ideal": 107
+          }
+        },
+        {
+          "label": "Integrating the coordinate rectangle over the stabilizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+          "lines": [
+            121,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean#L121-L145",
+          "declaration": "covol_stabilizer",
+          "declaration_lines": {
+            "covol_stabilizer": 121
+          }
+        },
+        {
+          "label": "Splitting the original covolume into the line and the quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+          "lines": [
+            241,
+            255
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean#L241-L255",
+          "declaration": "orbit_term",
+          "declaration_lines": {
+            "orbit_term": 241
+          }
+        },
+        {
+          "label": "The change of scale and cancellation of the quotient covolume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+          "lines": [
+            259,
+            281
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean#L259-L281"
+        },
+        {
+          "label": "Summing the ideal weights and the complementary slabs",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanSumNonzeroUnfold.lean",
+          "lines": [
+            89,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanSumNonzeroUnfold.lean#L89-L101",
+          "declaration": "latMean_sum_ne_zero",
+          "declaration_lines": {
+            "latMean_sum_ne_zero": 89
+          }
+        },
+        {
+          "label": "First-column coordinates for complex matrix Haar measure",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingCons.lean",
+          "lines": [
+            303,
+            314
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingCons.lean#L303-L314"
+        },
+        {
+          "label": "The inverse matrix and the complementary determinant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingCons.lean",
+          "lines": [
+            326,
+            354
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasurePreservingCons.lean#L326-L354"
+        }
+      ]
+    },
+    {
+      "id": "CLM-04",
+      "chapter": "global",
+      "anchor": "global-class-mass-poisson",
+      "title": "Comparing the marked and unmarked constants by Poisson summation",
+      "statement": "At rank j≥2 the mass Vⱼ of all unmarked determinant slabs equals the coefficient Cⱼ obtained by marking a nonzero vector. Integration of a nonnegative Gaussian identity gives Vⱼ/2+Cⱼ/2=Cⱼ.",
+      "hypotheses": "The rank j−1 mass is finite. The full integral over positive covolumes and all coefficient-lattice classes is invariant under trace duality.",
+      "dependencies": [
+        "CLM-03",
+        "DBS-02"
+      ],
+      "equations": [
+        "global-marked-mean-test",
+        "global-class-poisson-balance"
+      ],
+      "sources": [
+        {
+          "label": "The unmarked covolume measure",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanCovolumeFunction.lean",
+          "lines": [
+            89,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanCovolumeFunction.lean#L89-L104",
+          "declaration": "latMean_covAt",
+          "declaration_lines": {
+            "latMean_covAt": 89
+          }
+        },
+        {
+          "label": "Inverse transpose preserves the matrix Haar measure",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanTraceFormDualLattice.lean",
+          "lines": [
+            129,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanTraceFormDualLattice.lean#L129-L151",
+          "declaration": "measurePreserving_invT",
+          "declaration_lines": {
+            "measurePreserving_invT": 133
+          }
+        },
+        {
+          "label": "The involution on coefficient classes preserves the complete mean",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanTraceFormDualLattice.lean",
+          "lines": [
+            347,
+            375
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanTraceFormDualLattice.lean#L347-L375",
+          "declaration": "latMean_dualAt",
+          "declaration_lines": {
+            "latMean_dualAt": 367
+          }
+        },
+        {
+          "label": "Poisson summation with the real-part pairing",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PoissonSummationInfinitePlaceGaussianLattice.lean",
+          "lines": [
+            95,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PoissonSummationInfinitePlaceGaussianLattice.lean#L95-L118",
+          "declaration": "_root_.GlobalTheory.FlagBase.poisson_gaussV",
+          "declaration_lines": {
+            "_root_.GlobalTheory.FlagBase.poisson_gaussV": 105
+          }
+        },
+        {
+          "label": "Keeping the two zero-vector terms in the Gaussian identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+          "lines": [
+            123,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean#L123-L133",
+          "declaration": "poisson_ne_zero",
+          "declaration_lines": {
+            "poisson_ne_zero": 123
+          }
+        },
+        {
+          "label": "A nonnegative identity on the half-line of covolumes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+          "lines": [
+            194,
+            211
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean#L194-L211",
+          "declaration": "weighted",
+          "declaration_lines": {
+            "weighted": 194
+          }
+        },
+        {
+          "label": "Integrating on the two sides of covolume one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+          "lines": [
+            214,
+            239
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean#L214-L239",
+          "declaration": "glVol_step",
+          "declaration_lines": {
+            "glVol_step": 214
+          },
+          "exported_name": "GlobalTheory.FlagBase.SiegelStep.glVol_step"
+        },
+        {
+          "label": "Cancellation uses finiteness inherited from the previous rank",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+          "lines": [
+            240,
+            251
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean#L240-L251"
+        },
+        {
+          "label": "The half-trace pairing in the complex embeddings",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TraceFormDualTranslatedLatticeEqInverseTranspose.lean",
+          "lines": [
+            89,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TraceFormDualTranslatedLatticeEqInverseTranspose.lean#L89-L99"
+        }
+      ]
+    },
+    {
+      "id": "CLM-05",
+      "chapter": "global",
+      "anchor": "global-block-class-product",
+      "title": "The finite product of all block-class masses in the flag bound",
+      "statement": "For j≥1 the whole coefficient-lattice mass is Δ^(j²) Resₛ₌₁ ζ_E(s) ∏₂≤ᵣ≤ⱼ ζ_E(r). The marked-flag upper bound takes a separate such factor for each block, multiplied by its metric normalization.",
+      "hypotheses": "Totally complex number field, positive block ranks, logarithmic determinant width one, and the original nonnegative marked-flag integrand for the upper bound.",
+      "dependencies": [
+        "CLM-01",
+        "CLM-04",
+        "FSV-03"
+      ],
+      "equations": [
+        "global-full-lattice-class-product"
+      ],
+      "sources": [
+        {
+          "label": "Evaluation by induction starting at the residue",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean",
+          "lines": [
+            11,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean#L11-L29",
+          "declaration": "genLinVolume",
+          "declaration_lines": {
+            "genLinVolume": 11
+          },
+          "exported_name": "GlobalTheory.FlagMeas.genLinVolume"
+        },
+        {
+          "label": "Summing the realized marked slices inside the product of all classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean",
+          "lines": [
+            257,
+            279
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean#L257-L279"
+        },
+        {
+          "label": "Use of the explicit general linear volumes in the probability estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean",
+          "lines": [
+            92,
+            103
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean#L92-L103"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "nonempty_equiv_classGroup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+        "line": 444,
+        "spelling": "nonempty_equiv_classGroup"
+      }
+    },
+    {
+      "callee": "torsion_mul_covol",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+        "line": 448,
+        "spelling": "torsion_mul_covol"
+      }
+    },
+    {
+      "callee": "mixedEmbedding.fundamentalCone.volume_normLeOne",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+        "line": 449,
+        "spelling": "mixedEmbedding.fundamentalCone.volume_normLeOne"
+      }
+    },
+    {
+      "callee": "dedekindZeta_residue_def",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeOneEqResidue.lean",
+        "line": 463,
+        "spelling": "dedekindZeta_residue_def"
+      }
+    },
+    {
+      "callee": "exists_section",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+        "line": 245,
+        "spelling": "exists_section"
+      }
+    },
+    {
+      "callee": "exists_equiv_single",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeNonzeroVectorPairNormalForms.lean",
+        "line": 320,
+        "spelling": "exists_equiv_single"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lineLatticeMean_sum_eq_tsum_pair_orbits",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanSumNonzeroUnfold.lean",
+        "line": 94,
+        "spelling": "GlobalTheory.T.lineLatticeMean_sum_eq_tsum_pair_orbits"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_fundamentalDomain_embeddedRowsLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+        "line": 133,
+        "spelling": "GlobalTheory.T.exists_fundamentalDomain_embeddedRowsLattice"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_coordinates_inverseFirstColumn_infiniteGL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+        "line": 134,
+        "spelling": "GlobalTheory.T.exists_coordinates_inverseFirstColumn_infiniteGL"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.infiniteLatticeCovolume_split_lattice_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+        "line": 251,
+        "spelling": "GlobalTheory.T.infiniteLatticeCovolume_split_lattice_prod"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lintegral_Ioi_comp_const_div_change_of_var",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeMeanSinglePairOrbitContribution.lean",
+        "line": 264,
+        "spelling": "GlobalTheory.T.lintegral_Ioi_comp_const_div_change_of_var"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lineLatticeMean_single_pair_orbit_contribution",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanSumNonzeroUnfold.lean",
+        "line": 97,
+        "spelling": "GlobalTheory.T.lineLatticeMean_single_pair_orbit_contribution"
+      }
+    },
+    {
+      "callee": "tsum_absNorm_pow_inv",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LineLatticeClassMeanSumNonzeroUnfold.lean",
+        "line": 100,
+        "spelling": "tsum_absNorm_pow_inv"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lineLatticeClassMean_covolume_function",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+        "line": 224,
+        "spelling": "GlobalTheory.T.lineLatticeClassMean_covolume_function"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lineLatticeClassMean_sum_nonzero_unfold",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+        "line": 225,
+        "spelling": "GlobalTheory.T.lineLatticeClassMean_sum_nonzero_unfold"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.lineLatticeClassMean_traceFormDualLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+        "line": 227,
+        "spelling": "GlobalTheory.T.lineLatticeClassMean_traceFormDualLattice"
+      }
+    },
+    {
+      "callee": "poisson_ne_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GlNormOneAdelicQuotientVolumeSiegelStep.lean",
+        "line": 251,
+        "spelling": "poisson_ne_zero"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.glNormOneAdelicQuotientVolume_one_eq_residue",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean",
+        "line": 14,
+        "spelling": "GlobalTheory.T.glNormOneAdelicQuotientVolume_one_eq_residue"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.glNormOneAdelicQuotientVolume_siegel_step",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GenLinTamagawaVolume.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.glNormOneAdelicQuotientVolume_siegel_step"
+      }
+    },
+    {
+      "callee": "tsum_pi_prod_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean",
+        "line": 268,
+        "spelling": "tsum_pi_prod_le"
+      }
+    }
+  ]
+}
