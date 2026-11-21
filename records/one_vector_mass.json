@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "OVM-01",
+      "chapter": "lifts",
+      "title": "A finite-lattice dilation bounds the discrepancy of a single coefficient",
+      "anchor": "lifts-one-vector-mass",
+      "statement": "Fix a nonzero scalar Gram target β, with all fibre measures nonzero. A single positive archimedean test with finite positive fibre integral w and a constant C work for every integer a≥1. For the test with finite support a⁻¹Λ, the absolute difference between the averaged one-vector count I(a) and the reference product wP(a) is at most C a^{dM}, where d=[F:ℚ].",
+      "hypotheses": "F is totally real, E/F is CM, the Hermitian form on E^M is nondegenerate and M≥3. Use the specified Haar quotient probability and compatible coordinate measures in the one-vector Siegel–Weil measure statement. The archimedean Gram fibre has locally finite nonzero measure.",
+      "equations": [
+        "lifts-one-vector-discrepancy"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            95,
+            102
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.one_vec_sw",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L95-L102",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.one_vec_sw": 95
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            23,
+            36
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L23-L36",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one": 23
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+          "lines": [
+            31,
+            58
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean#L31-L58",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian": 29
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+          "lines": [
+            73,
+            96
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean#L73-L96",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian": 29
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            41,
+            51
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L41-L51",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one": 23
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+          "lines": [
+            54,
+            76
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean#L54-L76",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded": 20
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+          "lines": [
+            36,
+            68
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded_a",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean#L36-L68",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded_a": 36
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+          "lines": [
+            109,
+            126
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean#L109-L126",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.core": 70
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Use the 2M-dimensional trace quadratic form over F and a positive Gaussian majorant. The weighted discrepancy of the theta and Eisenstein families is uniformly bounded by Siegel reduction and the supplied estimates. Dilating the finite lattice gives archimedean weight a^(−dM). Integrating the discrepancy against the frequency character on an additive fundamental domain extracts the single coefficient. The two coefficient formulas identify the average with I(a) and its reference value with wP(a).",
+      "review": "Checked the positive and finite integral and the exponent of the undone weight at the actual call sites. The bound makes no claim that I(a) equals wP(a) before the scalar has been determined."
+    },
+    {
+      "id": "OVM-02",
+      "chapter": "lifts",
+      "title": "Local scaling gives a positive product of the required size on a subsequence",
+      "anchor": "lifts-one-vector-growth",
+      "statement": "There is a κ>0 and an unbounded sequence a=Np^k such that the product P(a) of finite-place Gram-fibre masses on a⁻¹Λ is at least κ a^{d(2M−2)}. At v the dilation contributes q_v^{ord_v(a)(2M−2)} times the standard-lattice mass at a²β.",
+      "hypotheses": "M≥3, every finite local fibre measure at β is nonzero, and the local Gram measures and Haar normalizations obey the scaling formula. Good-place estimates apply to nonzero integral targets. Fix N so that N²β is integral and sufficient lattice dilations capture positive mass at every exceptional place.",
+      "equations": [
+        "lifts-one-vector-growth-bound"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+          "lines": [
+            251,
+            260
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.Growth.dil_eq",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean#L251-L260",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Growth.dil_eq": 251
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+          "lines": [
+            216,
+            231
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.Growth.eventually_half",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean#L216-L231",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Growth.eventually_half": 216
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+          "lines": [
+            262,
+            300
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.Growth.growth_main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean#L262-L300",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Growth.growth_main": 262
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+          "lines": [
+            313,
+            349
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.Growth.growth_main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean#L313-L349",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Growth.growth_main": 262
+          }
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+          "lines": [
+            350,
+            382
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.Growth.growth_main",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean#L350-L382",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Growth.growth_main": 262
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Choose p=1+∏q_v over the finite exceptional set. At places away from p, scaling by the local unit p^k leaves the standard-lattice mass at N²β unchanged. These masses are positive and their deviations from one are absolutely summable. Every place over p is good, and there the uniform lower bound is 1/2. The finite-place product of the explicit valuation factors equals a^{d(2M−2)}.",
+      "review": "Checked the dependence on N and p, the absence of any primality requirement on the integer p and the unbounded sequence. For the inert prime 3 and the standard ternary Hermitian form the mod-3 counts give 252 vectors of norm one and 224 nonzero ones of norm zero. At target nine the local density is 2044/2187; dilation of the test gives 2044/27."
+    },
+    {
+      "id": "OVM-03",
+      "chapter": "lifts",
+      "title": "Growth against the discrepancy fixes the normalization of the genus measure",
+      "anchor": "lifts-one-vector-constant",
+      "statement": "The one-vector genus-average measure equals the compatible product of Gram-fibre measures with scalar one. When every fibre measure is nonzero, evaluation on the same tests gives I(a)=c wP(a). The two estimates imply |c−1|≤C/(wκ)a^{−d(M−2)} on an unbounded sequence, hence c=1. When a fibre measure is zero the genus measure and the product vanish and the equality already holds with scalar one.",
+      "hypotheses": "Apply the invariant factorization to a nondegenerate one-by-one Hermitian target, identify it with a nonzero scalar β of F, and assume M≥3. The exact formula uses the archimedean test and the finite lattice characteristic functions from OVM-01, with the standard lattice unchanged at almost all places.",
+      "equations": [],
+      "dependencies": [
+        "OVM-01",
+        "OVM-02"
+      ],
+      "sources": [
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            62,
+            82
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L62-L82",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one": 23
+          }
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            82,
+            101
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L82-L101",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one": 23
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Evaluate the measure identity with the initially unknown scalar on the same product test and combine the resulting exact identity with the absolute discrepancy bound. Since d≥1 and M≥3 the exponent gap d(M−2) is positive. The source argues by contradiction using an arbitrarily large integer lower bound for a.",
+      "review": "Checked the absolute value, strict positivity of wκ and the separate zero-measure branch. Dimension two requires a different comparison. The caller one_vec_sw dispatches the higher-dimensional case here and the binary case to its own provider."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "siegel_weil_measure_rank_one",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 101
+      }
+    },
+    {
+      "callee": "hE1",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 102
+      }
+    },
+    {
+      "callee": "theta_inv",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "exists_isEulerProd_of_invariant_of_fiber_supported",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "theta_measure_locally_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "euler_product_measure_zero",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "euler_product_measure_zero",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "hermitian_one_by_one_is_scalar",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "thetaMeas_rank_one_sub_density_product_le",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "exists_frequently_mul_pow_le_tprod_rank_one_local_density",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "ENNReal.toReal_pos",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 43
+      }
+    },
+    {
+      "callee": "hg",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 48
+      }
+    },
+    {
+      "callee": "euler_product_measure_integral",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 68
+      }
+    },
+    {
+      "callee": "lattice_stable_almost_everywhere",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "exists_nat_gt",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 97
+      }
+    },
+    {
+      "callee": "key",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 98
+      }
+    },
+    {
+      "callee": "exists_trace_form_gram_matrix_in_basis",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "symmetric_invertible_exists_posdef_congruence",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 40
+      }
+    },
+    {
+      "callee": "quotient_probability_measure",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 49
+      }
+    },
+    {
+      "callee": "positive_majorant_gaussian",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "average_rational_vector_count_ball_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 57
+      }
+    },
+    {
+      "callee": "gaussian_continuous_rapid_decay",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "archimedean_gram_fiber_continuous_density",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "archimedean_local_density_formula",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "global_product_gram_fiber_rank_one",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 88
+      }
+    },
+    {
+      "callee": "trace_form_rational_theta_identity",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "reduction_to_siegel_domain",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 54
+      }
+    },
+    {
+      "callee": "weighted_theta_average_le_of_countData",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "orbit_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 72
+      }
+    },
+    {
+      "callee": "bounded",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "theta_function_modularity",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "ei_inv",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "quadratic_level_set_density",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 77
+      }
+    },
+    {
+      "callee": "lattice_fundamental_domain_volume",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 88
+      }
+    },
+    {
+      "callee": "real_quadratic_form_lemma",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 89
+      }
+    },
+    {
+      "callee": "schur_function_smooth_right_invariant",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "norm_setIntegral_le_of_norm_le_const",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 113
+      }
+    },
+    {
+      "callee": "rank_one_local_density_almost_all",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 220
+      }
+    },
+    {
+      "callee": "hermitian_rank_one_local_volume",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 247
+      }
+    },
+    {
+      "callee": "local_rank_one_density_uniformizer_power",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 257
+      }
+    },
+    {
+      "callee": "exists_den",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 276
+      }
+    },
+    {
+      "callee": "exists_exponents",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 317
+      }
+    },
+    {
+      "callee": "dil_eq",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 337
+      }
+    },
+    {
+      "callee": "dilSet_unit",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 339
+      }
+    },
+    {
+      "callee": "abs_tprod",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 347
+      }
+    },
+    {
+      "callee": "exists_exponents",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 358
+      }
+    },
+    {
+      "callee": "dil_eq",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 362
+      }
+    },
+    {
+      "callee": "tprod_mul",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RankOneLocalDensitiesProductConverges.lean",
+        "line": 371
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "OVM-01",
+      "OVM-03"
+    ],
+    [
+      "OVM-02",
+      "OVM-03"
+    ],
+    [
+      "OVM-03",
+      "GGD-02"
+    ]
+  ],
+  "outstanding": [
+    "The action and support of the genus theta measure, local finiteness, and uniqueness of the invariant Euler product up to a scalar are used here. The upper estimate uses reduction to a Siegel domain, a weighted theta bound from averaged rational-vector counts, the Eisenstein discrepancy bound, and identification of the trace-form Fourier coefficients with the chosen Gram-fibre measures. The lower estimate uses local scaling, the good-place density estimate and absolute convergence away from a finite set. A separate argument supplies the anisotropic binary case."
+  ]
+}

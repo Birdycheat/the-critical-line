@@ -16,6 +16,44 @@
     value,
   });
   const configs = {
+    "one-vector-density": {
+      title: "How much mass comes from vectors divisible by 3?",
+      kind: "A single Hermitian norm at an inert prime",
+      section: "lifts",
+      params: [range("depth", "Exponent k in the dilation a = 3ᵏ", 0, 2, 1, 1)],
+      caption: "Use three Gaussian integer coordinates and the norm |x₁|² + |x₂|² + |x₃|² at 3. The rows separate vectors by their largest common power of 3. Compare the density at target a² in the integral lattice with the density at target 1 in the enlarged lattice.",
+      method: "Write x = 3ʲy with y primitive. Modulo 3 there are 224 nonzero vectors of norm zero in 𝔽₉³ and 252 vectors of norm one. Smooth lifting divides these counts by 3⁵. Changing x to 3ʲy costs 3⁻⁶ʲ in source volume and contributes 3²ʲ from scaling the target interval. The density on a⁻¹ times the lattice therefore gains a factor a⁴.",
+    },
+    "quadratic-character": {
+      title: "Where does the bit on the square of a lift go?",
+      kind: "Characters across an index-two subgroup",
+      section: "inputs",
+      params: [range("value", "Common value on e₁ and e₂", 0, 1, 1, 0), range("square", "Value on σ²", 0, 1, 1, 1)],
+      caption: "The subgroup has three generators. Conjugation by σ exchanges the first two and fixes σ². The controls give all four invariant characters φ. Compare them with the characters Θ used to count them.",
+      method: "Use V = 𝔽₂² ⋊ ℤ/4, with σ swapping the two coordinates, and U consisting of elements with even last coordinate. For φ(x,y,2z) = a(x+y)+cz, subtract c times the character z. The remainder extends with value zero on σ. Add c times the sign of V/U, obtaining Θ(x,y,k) = a(x+y)+c(k mod 2), with arithmetic modulo two.",
+    },
+    "whittaker-cutoff": {
+      title: "Does the real integral approach its continued value?",
+      kind: "Whittaker coefficient at infinity",
+      section: "lifts",
+      params: [
+        choose("shift", "Shift w", [["-1","−1"],["0","0"],["1","1"]], "-1"),
+        range("quarter", "Target in quarters", 1, 4, 1, 1),
+      ],
+      caption: "The solid curve integrates the real part over [−R,R]. The dashed line gives the exact value of the continued coefficient. At w = −1, increasing the cutoff keeps the integral oscillating.",
+      method: "Use signature (1,1), frequency B > 0 and the Lebesgue normalization of the example. The truncated integral is half the integral from 0 to R of cos(2πBy)/(1+y²)^(1+w). At w = −1 integrate the cosine exactly. At w = 0,1 the plot uses composite Simpson quadrature with step 1/64; the horizontal line uses the closed Fourier formula.",
+    },
+    "inertia-orbits": {
+      title: "How many Frobenius orbits survive as the level grows?",
+      kind: "Primes in a cyclotomic tower",
+      section: "inputs",
+      params: [
+        choose("prime", "Odd prime", [["3","3"],["7","7"]], "3"),
+        range("depth", "Exponent t in the conductor 2ᵗ", 2, 6, 1, 5),
+      ],
+      caption: "Start at any odd residue and multiply repeatedly by the chosen prime. Each row is one complete orbit in the cyclotomic Galois group. A row represents a prime of the cyclotomic layer above that prime of ℚ.",
+      method: "List the odd residues modulo 2ᵗ. For the smallest unvisited residue, apply multiplication by the selected prime until its orbit closes. Repeat until every unit occurs. The orbit length is the residue degree and the orbit count is the index of the Frobenius subgroup. This calculation gives the cyclotomic part of the bound before accounting for the auxiliary field.",
+    },
     "localization-kernel": {
       title: "Which kernel classes come from the integral map?",
       kind: "Reduction of a localization map",
@@ -985,6 +1023,41 @@
     return { original, originalExact, mean, meanExact, equal: change === 0 };
   }
 
+  function realWhittakerCutoff(shift, quarter) {
+    const frequency = quarter / 4, angle = 2 * Math.PI * frequency;
+    const density = Math.PI * Math.exp(-angle) / 4;
+    const continued = shift === -1 ? 0 : shift === 0 ? density : density * (1 + angle) / 2;
+    const points = [[0, 0]];
+    const integrand = y => Math.cos(angle * y) / (2 * (1 + y * y) ** (1 + shift));
+    let integral = 0;
+    for (let tick = 1; tick <= 12 * 32; tick++) {
+      const right = tick / 32, left = (tick - 1) / 32;
+      if (shift === -1) {
+        integral = Math.sin(angle * right) / (2 * angle);
+      } else {
+        integral += (integrand(left) + 4 * integrand((left + right) / 2) + integrand(right)) / 192;
+      }
+      points.push([right, integral]);
+    }
+    return {points, continued};
+  }
+
+  function frobeniusOrbits(prime, depth) {
+    const modulus = 2 ** depth, visited = new Set(), orbits = [];
+    for (let start = 1; start < modulus; start += 2) {
+      if (visited.has(start)) continue;
+      const orbit = [];
+      let x = start;
+      do {
+        orbit.push(x);
+        visited.add(x);
+        x = (prime * x) % modulus;
+      } while (x !== start);
+      orbits.push(orbit);
+    }
+    return orbits;
+  }
+
   function localizationKernel(depth) {
     const sourceSize = Math.min(27, 3 ** depth), targetSize = Math.min(9, 3 ** depth);
     const kernel = [], image = new Set(), integralResidues = new Set();
@@ -1075,6 +1148,59 @@
   }
 
   function render(id, v) {
+    if (id === "one-vector-density") {
+      const k = Number(v.depth), commonDenominator = 243 * 81 ** k;
+      let total = 0;
+      const rows = [];
+      for (let j = 0; j <= k; j++) {
+        const residues = j === k ? 252 : 224;
+        const contribution = residues * 81 ** (k - j);
+        total += contribution;
+        rows.push('<tr><th scope="row">' + 3 ** j + '</th><td>' + residues +
+          '</td><td>' + reducedFraction(contribution, commonDenominator) + '</td></tr>');
+      }
+      return '<table class="carry-table"><caption>Contributions to the integral-lattice density</caption>' +
+        '<thead><tr><th scope="col">Common 3-part</th><th scope="col">Primitive residues</th><th scope="col">Density</th></tr></thead><tbody>' +
+        rows.join("") + '</tbody></table>' +
+        metrics([["Density at " + 9 ** k, reducedFraction(total, commonDenominator)],
+          ["Enlarged lattice at 1", reducedFraction(total * 81 ** k, commonDenominator)]]);
+    }
+    if (id === "quadratic-character") {
+      const a = Number(v.value), square = Number(v.square);
+      const phi = (x, y, k) => (a * (x + y) + square * (k / 2)) % 2;
+      const theta = (x, y, k) => (a * (x + y) + square * (k % 2)) % 2;
+      const rows = [["e₁",1,0,0],["e₂",0,1,0],["σ²",0,0,2]].map(([name,x,y,k]) =>
+        '<tr><th scope="row">' + name + '</th><td>' + phi(x,y,k) + '</td><td>' + theta(x,y,k) + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Values inside the subgroup U</caption><thead><tr><th scope="col">Generator</th><th scope="col">φ</th><th scope="col">Θ restricted to U</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        metrics([["Θ on σ outside U", theta(0,0,1)], ["Θ on σ²", theta(0,0,2)]]) +
+        (square === 1 ? '<p>Every additive character of V sends σ² to twice its value on σ, hence to zero. The encoding records the missing bit at σ itself.</p>' :
+          '<p>Here φ(σ²) is already zero. The character with Θ(σ) = 0 restricts to φ on every generator of U.</p>');
+    }
+    if (id === "whittaker-cutoff") {
+      const shift = Number(v.shift), quarter = Number(v.quarter);
+      const {points, continued} = realWhittakerCutoff(shift, quarter);
+      const values = [continued, ...points.map(p => p[1])];
+      const bound = Math.ceil(20 * Math.max(...values.map(Math.abs))) / 20;
+      const graph = chart({
+        xMax: 12, yMin: -bound, yMax: bound, xt: "Cutoff R", yt: "Integral",
+        title: "Truncated Fourier integral and its continued value",
+        paint: (X, Y, line) => line(points) + line([[0, continued], [12, continued]], "dash"),
+      });
+      const conclusion = shift === -1 ?
+        'The cutoff integral returns to zero along some sequences of radii and stays away from zero along others.' :
+        'The integrand is absolutely integrable. The tails tend to zero as the cutoff increases.';
+      return graph + metrics([["Target B", reducedFraction(quarter, 4)], ["Continued value", fmt(continued, 5)]]) +
+        '<p>' + conclusion + '</p>';
+    }
+    if (id === "inertia-orbits") {
+      const prime = Number(v.prime), depth = Number(v.depth);
+      const orbits = frobeniusOrbits(prime, depth);
+      const rows = orbits.map(orbit => '<tr><th scope="row">' + orbit[0] + '</th><td>' + orbit.join(", ") + '</td></tr>').join("");
+      return '<table class="carry-table"><caption>Multiplication by ' + prime + ' on the units modulo ' + (2 ** depth) + '</caption>' +
+        '<thead><tr><th scope="col">Start</th><th scope="col">Successive residues</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        metrics([["Residue degree", orbits[0].length], ["Number of primes", orbits.length]]) +
+        '<p>Each row has ' + orbits[0].length + ' entries. Together the rows account for all ' + (2 ** (depth - 1)) + ' units.</p>';
+    }
     if (id === "localization-kernel") {
       const {sourceSize, targetSize, kernel, integral, cokernelSize} = localizationKernel(Number(v.depth));
       const row = (name, entries) => '<tr><th scope="row">' + name + '</th><td>' + entries.join(", ") + '</td><td>' + entries.length + '</td></tr>';
@@ -2228,6 +2354,8 @@
     mellin,
     factorial,
     profile,
+    realWhittakerCutoff,
+    frobeniusOrbits,
     localizationKernel,
     smallGenusClasses,
     splitGraph,

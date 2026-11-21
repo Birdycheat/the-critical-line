@@ -1,0 +1,657 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Dirichlet-series coefficients, the local logarithmic-derivative expansion at height zero, two-real-character and same-character exclusions, Page transfer across levels, and the two distinct uses of exceptional-zero information in the prime selection.",
+  "claims": [
+    {
+      "id": "ETZ-01",
+      "chapter": "inputs",
+      "title": "One pole cannot accommodate near-one zeros of two distinct real characters",
+      "anchor": "inputs-exceptional-four",
+      "statement": "Uniformly in positive Q, two distinct nonprincipal characters of order two modulo Q cannot both have a real zero in [1−1/(20H log(2Q)),1), for H=3|C|+2C′+1. The two real values β₁ and β₂ may differ.",
+      "hypotheses": "C is a uniform constant in the local zero-sum bound and C′≥0 in the right-half-plane logarithmic derivative estimate. Nonprincipality of each character and of their product is essential to the single-pole count.",
+      "definitions": [
+        "Dψ(σ)=Re(−L′(σ,ψ)/L(σ,ψ)). Its coefficient at n coprime to Q in the four-character sum is Λ(n)(1+χ₁(n))(1+χ₂(n)); all four terms vanish for a nonunit.",
+        "ℓ=log(2Q)>1/2, e=1/(20Hℓ)≤1/10, σ=1+2e. The local expansion at t=0 sums zeros in |ρ−11/10|≤1/5 and works for 1<σ≤6/5."
+      ],
+      "equations": [
+        "inputs-exceptional-positive",
+        "inputs-exceptional-budget"
+      ],
+      "dependencies": [],
+      "correspondence": "All zeros of a nonprincipal character have Re ρ<1, so the real parts of their reciprocal distances from σ are positive. Retain each named zero with multiplicity at least one: each gives ≥1/(3e), while the principal allowance is 1/(2e). The product character gives at most Cℓ. Positivity contradicts the total upper bound 3Cℓ+C′−1/(6e)≤(H−1)ℓ−(10/3)Hℓ<0.",
+      "sources": [
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.negLogDeriv_eq_LSeries",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+          "lines": [
+            10,
+            21
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean#L10-L21",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.hasSum_re_term"
+          ],
+          "label": "The negative logarithmic derivative as a sum of weighted character values",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.negLogDeriv_eq_LSeries": 10,
+            "Formalism.ZeroFreeDirichlet.hasSum_re_term": 18
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.negLogDerivPositivity",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+          "lines": [
+            111,
+            145
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean#L111-L145",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.term_two_real_nonneg"
+          ],
+          "label": "The four character coefficients",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.negLogDerivPositivity": 130,
+            "Formalism.ZeroFreeDirichlet.term_two_real_nonneg": 111
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+          "lines": [
+            44,
+            73
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean#L44-L73",
+          "label": "Normalizing the local zero expansion at its center",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds": 44
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+          "lines": [
+            94,
+            137
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean#L94-L137",
+          "label": "The zero disk, multiplicities and real parts",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds": 44
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.l_log_deriv_right",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+          "lines": [
+            116,
+            126
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean#L116-L126",
+          "label": "The right-half-plane bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.l_log_deriv_right": 116
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.re_negLogDeriv_le_of_real_zero",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean",
+          "lines": [
+            9,
+            73
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean#L9-L73",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos_bis"
+          ],
+          "label": "The contribution of one real zero to the upper bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.re_negLogDeriv_le_of_real_zero": 31,
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos_bis": 9
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.twoRealCharNoCommonZeroOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean",
+          "lines": [
+            75,
+            164
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean#L75-L164",
+          "label": "Two nearby real zeros contradict the four-character inequality",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.twoRealCharNoCommonZeroOfBounds": 75
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the selected written bodies, the quantified interfaces and their callers. Independently checked the arithmetic contradiction, the change of modulus and the unit 41."
+    },
+    {
+      "id": "ETZ-02",
+      "chapter": "inputs",
+      "title": "Uniform uniqueness in one level and agreement on common units",
+      "anchor": "inputs-exceptional-common-modulus",
+      "statement": "Some absolute c>0 gives at most one character–zero pair in Re z≥1−c/log(Q(|Im z|+2)) for each integer Q≥1, with the principal pole excluded. The pair, if present, consists of a real nonprincipal quadratic character and a real simple zero. For any D≥3 and any two positive levels M₁,M₂≤D, two real nonprincipal quadratic characters with zeros 1−c/(3log D)<βᵢ<1 agree on all units of M₁M₂.",
+      "hypotheses": "The assembled width is the minimum of the widths for the Riemann zeta function, nonreal characters, real characters at large and small imaginary part, distinct real characters, and 1/2. The cross-level conclusion concerns values on integers coprime to both moduli.",
+      "definitions": [
+        "For the small-height estimate put K₀=2C₀+max(C,0), W=10(K₀+1), T=W log(2Q), σ=1+1/T. The small-height and real-part clauses have constant 1/(10W); each zero in that range contributes at least 4T/5 to the local zero sum, whose total is bounded by (11K₀+10)log(2Q)<8T/5."
+      ],
+      "equations": [],
+      "dependencies": [
+        "ETZ-01"
+      ],
+      "correspondence": "Two distinct zeros or a zero of multiplicity at least two would violate that strict inequality. Conjugation of a real Dirichlet character's L-function then excludes a nonreal zero. The global statement uses separate proofs for the other character and imaginary-part cases. The change-of-level formula preserves each zero; the common product level has log(2M₁M₂)≤3log D. Uniqueness at that level yields agreement on common units.",
+      "sources": [
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.realCharZeroSmallHeightOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealSmallTOf.lean",
+          "lines": [
+            43,
+            99
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealSmallTOf.lean#L43-L99",
+          "label": "Small-height test point and upper bound for the zero sum",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.realCharZeroSmallHeightOfBounds": 43
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.realCharZeroSmallHeightOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealSmallTOf.lean",
+          "lines": [
+            125,
+            189
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealSmallTOf.lean#L125-L189",
+          "label": "Multiplicity and conjugation of small-height zeros",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.realCharZeroSmallHeightOfBounds": 43
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.ZFRDirichlet",
+          "path": "src/Formalism/LandauZeroFreeBounds/Statement.lean",
+          "lines": [
+            9,
+            19
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/Statement.lean#L9-L19",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.InRegion",
+            "Formalism.ZeroFreeDirichlet.IsLZero"
+          ],
+          "label": "The closed zero-free region and its exceptional pair",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.ZFRDirichlet": 15,
+            "Formalism.ZeroFreeDirichlet.InRegion": 9,
+            "Formalism.ZeroFreeDirichlet.IsLZero": 12
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.zeroFreeRegionExceptionalZeroOfBounds",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZFRDirichletOf.lean",
+          "lines": [
+            54,
+            108
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZFRDirichletOf.lean#L54-L108",
+          "label": "Combining the regions",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.zeroFreeRegionExceptionalZeroOfBounds": 54
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.zFRDirichlet",
+          "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+          "lines": [
+            17,
+            33
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean#L17-L33",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.localZeros",
+            "Formalism.ZeroFreeDirichlet.noZeroComplex",
+            "Formalism.ZeroFreeDirichlet.realLargeT",
+            "Formalism.ZeroFreeDirichlet.realSmallT",
+            "Formalism.ZeroFreeDirichlet.twoReal"
+          ],
+          "label": "The zero-free theorem used by the twist estimate",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.zFRDirichlet": 32,
+            "Formalism.ZeroFreeDirichlet.localZeros": 17,
+            "Formalism.ZeroFreeDirichlet.noZeroComplex": 20,
+            "Formalism.ZeroFreeDirichlet.realLargeT": 23,
+            "Formalism.ZeroFreeDirichlet.realSmallT": 26,
+            "Formalism.ZeroFreeDirichlet.twoReal": 29
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.page_across",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean",
+          "lines": [
+            10,
+            65
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean#L10-L65",
+          "related_declarations": [
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.inRegion_of_lt",
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.isLZero_changeLevel"
+          ],
+          "label": "Inducing two characters to a common modulus",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.page_across": 37,
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.inRegion_of_lt": 10,
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.isLZero_changeLevel": 27
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the selected written bodies, the quantified interfaces and their callers. Independently checked the arithmetic contradiction, the change of modulus and the unit 41."
+    },
+    {
+      "id": "ETZ-03",
+      "chapter": "inputs",
+      "title": "How the fixed-height moment uses the single surviving twist",
+      "anchor": "inputs-exceptional-selection",
+      "statement": "For each ε,A,B>0 there is Y₀ such that every Y≥Y₀ and every admitted progression (U,m,a) admits a natural s★ for which all admissible s≠s★ satisfy |∑_{p∈P}(p/s)|≤Y^(−B)|P|. In meanSqK use A=800K, B=K+1 for 0<ε≤1, K≥1. Choose s★ before y∈[Y,Y^K] and the common coefficient sequence κ.",
+      "hypotheses": "An admissible s is odd, squarefree, 1<s≤Y^A, coprime to m. Admitted progressions require m>0, 8|m, (a,m)=1, (log Y)² log m/4≤log U, and Y^(ε/6)≤log U≤Y^(ε/5)(log Y)². meanSqK also asks that each p|m satisfy p≤Y^(ε/5) or p>(Y^K)^400.",
+      "definitions": [
+        "D=mY^A and c₀=c/3. E(ms) is the optional pair supplied by the relative progression theorem. If E(ms)=some(χ,β) then χ²=1, χ≠1, L(β,χ)=0, and 1−1/(8log(ms))<β<1.",
+        "The one potentially bad s must have such a pair with 1−β<c₀/log D and agreement χ(u)=(u/s) on units u≡1 mod m. If no s meets both tests the source uses s★=0.",
+        "Away from this one s, misalignment forces exact cancellation of the exceptional main term; in the aligned case r=4log U exp(−c₀ log U/log D) bounds li(U^β)/li(U). The uniform parameter estimate gives 4r≤Y^(−B)/8."
+      ],
+      "equations": [],
+      "dependencies": [
+        "ETZ-02"
+      ],
+      "correspondence": "Two alleged bad denominators are separated by a common unit on which their Jacobi symbols differ. Example for m=8 and denominators 3,5: at the unit 41 the two signs are −1 and +1. This checks separation without asserting any zero exists. The remaining individual denominator costs its pair weight. Separately, excBound is used at exponent one and at the original m to obtain 1−β≥c₁/m inside count_a and hence |P|≥U^(9/10). The optional pair comes from the relative progression theorem.",
+      "sources": [
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.PNTAPRelW",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean",
+          "lines": [
+            29,
+            46
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean#L29-L46",
+          "related_declarations": [
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.IsExcPair",
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.mainAP"
+          ],
+          "label": "The optional zero in the progression formula",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.PNTAPRelW": 38,
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.IsExcPair": 29,
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.mainAP": 33
+          }
+        },
+        {
+          "declaration": "QH.admitted",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+          "lines": [
+            18,
+            27
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean#L18-L27",
+          "related_declarations": [
+            "QH.MeanSq"
+          ],
+          "label": "The admitted progression and the fixed-height mean square",
+          "declaration_lines": {
+            "QH.admitted": 18,
+            "QH.MeanSq": 26
+          }
+        },
+        {
+          "declaration": "QH.twistK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            148,
+            171
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L148-L171",
+          "label": "Uniform twist estimate and its three inputs",
+          "declaration_lines": {
+            "QH.twistK": 148
+          }
+        },
+        {
+          "declaration": "QH.twistK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            249,
+            282
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L249-L282",
+          "label": "Alignment and the choice of the exceptional denominator",
+          "declaration_lines": {
+            "QH.twistK": 148
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.jacobi_separate",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean",
+          "lines": [
+            133,
+            140
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean#L133-L140",
+          "label": "Separating two squarefree quadratic symbols on a common unit",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.jacobi_separate": 133
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.main_twist_bound",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+          "lines": [
+            182,
+            219
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean#L182-L219",
+          "label": "Cancellation when the exceptional character is misaligned",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.main_twist_bound": 116
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.liX_pow_le",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistC.lean",
+          "lines": [
+            51,
+            79
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistC.lean#L51-L79",
+          "label": "Exponential saving for the logarithmic integral",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.liX_pow_le": 51
+          }
+        },
+        {
+          "declaration": "QH.twistK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            292,
+            330
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L292-L330",
+          "label": "The logarithmic integral and uniform error budget",
+          "declaration_lines": {
+            "QH.twistK": 148
+          }
+        },
+        {
+          "declaration": "QH.meanSqK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            49,
+            73
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L49-L73",
+          "label": "The choice before the height",
+          "declaration_lines": {
+            "QH.meanSqK": 51
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.count_a",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean",
+          "lines": [
+            346,
+            356
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean#L346-L356",
+          "label": "The separate Siegel-bound input",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.count_a": 346
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.count_a",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean",
+          "lines": [
+            379,
+            387
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqCount.lean#L379-L387",
+          "label": "Lower bound for the exceptional zero gap at the original modulus",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.LogarithmicIntegralBounds.count_a": 346
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.excBound",
+          "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+          "lines": [
+            26,
+            34
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean#L26-L34",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.excBound_of_siegelLower"
+          ],
+          "label": "From the primitive Siegel lower bound to a modulus bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.excBound": 32,
+            "Formalism.ZeroFreeDirichlet.excBound_of_siegelLower": 26
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the selected written bodies, the quantified interfaces and their callers. Independently checked the arithmetic contradiction, the change of modulus and the unit 41."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "ETZ-01",
+      "ETZ-02"
+    ],
+    [
+      "ETZ-02",
+      "ETZ-03"
+    ],
+    [
+      "ETZ-03",
+      "TMS-02"
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "negLogDerivPositivity",
+      "callee": "term_two_real_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+        "line": 144
+      }
+    },
+    {
+      "caller": "localZeros",
+      "callee": "localZeroSumBoundOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "twoRealCharNoCommonZeroOfBounds",
+      "callee": "re_negLogDeriv_le_of_real_zero",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean",
+        "line": 122
+      }
+    },
+    {
+      "caller": "twoRealCharNoCommonZeroOfBounds",
+      "callee": "sum_re_one_div_sub_zero_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TwoRealOf.lean",
+        "line": 149
+      }
+    },
+    {
+      "caller": "twoReal",
+      "callee": "twoRealCharNoCommonZeroOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "realSmallT",
+      "callee": "realCharZeroSmallHeightOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 27
+      }
+    },
+    {
+      "caller": "zFRDirichlet",
+      "callee": "zeroFreeRegionExceptionalZeroOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "zFRDirichlet",
+      "callee": "twoReal",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "page_across",
+      "callee": "inRegion_of_lt",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "page_across",
+      "callee": "isLZero_changeLevel",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "zFRDirichlet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 155
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "page_across",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 158
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "jacobi_separate",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 264
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "liX_pow_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 328
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "count_a",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 157
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "twistK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 63
+      }
+    },
+    {
+      "caller": "excBound",
+      "callee": "excBound_of_siegelLower",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+        "line": 32
+      }
+    }
+  ],
+  "outstanding": [
+    "The analytic disk lemma with multiplicities, polynomial growth and right-of-one inverse estimate feeding localZeros; the Riemann zeta region, principal-character reduction, nonreal-character and large-imaginary-part exclusions feeding zFRDirichlet. The same-character small-height argument is summarized with its actual constants.",
+    "The independent proof of Siegel’s lower bound for L(1,χ), the right-of-one derivative control in excBound_of_siegelLower, and the complete relative progression theorem remain upstream. The comparison of two characters permits one exceptional real zero. The fixed-height estimate counts pairs carrying its possible aligned denominator.",
+    "Variable-height selection, later zero-density exclusions and contour estimates have separate consumers."
+  ],
+  "review_scope": "Pinned written declarations and proof bodies with independent arithmetic checks. No new elaboration trace or Lean build."
+}

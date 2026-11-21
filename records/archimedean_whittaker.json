@@ -1,0 +1,962 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "AWH-01",
+      "chapter": "lifts",
+      "title": "A signature and a polynomial Gaussian determine the archimedean section",
+      "anchor": "lifts-archimedean-whittaker",
+      "statement": "For one real place, the source test is P(X,X̅) exp(−c Σ|Xᵢⱼ|²) and the positive Gram transform is A(Y)=∫P exp(−c‖X‖²)exp(it tr(YX*JX))dX. The Whittaker Fourier transform at B uses the phase exp(−it tr(BY)), the weight det(I+Y²)^{−w}, and w=z−(M−n)/2.",
+      "hypotheses": "Choose Hermitian frames of signature (p,q), p+q=M, a nontrivial place character with t=2πℓ, c=|t|=2π|ℓ|>0, and arbitrary polynomial P in the matrix entries and their conjugates. The regular target is Hermitian and det B≠0. The coordinate theorem uses Lebesgue measure in n² real Hermitian coordinates.",
+      "equations": [
+        "lifts-archimedean-integral"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration": "PositivityTheory.PfSWUS.whitGenLt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean#L13-L15",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.whitGenLt": 13
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            93,
+            107
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.RealWhit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L93-L107",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.Gen.RealWhit": 93
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/NullSec.lean",
+          "lines": [
+            12,
+            19
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.evX",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/NullSec.lean#L12-L19",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.evX": 14
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/NullSec.lean",
+          "lines": [
+            50,
+            54
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.secN",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/NullSec.lean#L50-L54",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.secN": 53
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            26,
+            48
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.phiInf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L26-L48",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.Gen.phiInf": 38
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsBoundAlt.lean",
+          "lines": [
+            14,
+            26
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.cls",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsBoundAlt.lean#L14-L26",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.cls": 25
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The archimedean test becomes a pure product of polynomial Gaussians after changes of coordinates. In the ordinary integral the phase of the section and the phase of the frequency have opposite signs.",
+      "review": "Checked the distinction between the character frequency t, its positive magnitude c, the signed row Gram form and the Mellin parameter w. The two real coordinates of one complex variable use the usual area measure."
+    },
+    {
+      "id": "AWH-02",
+      "chapter": "lifts",
+      "title": "Repeated determinant differentiation gives an entire function at a nonsingular frequency",
+      "anchor": "lifts-archimedean-continuation",
+      "statement": "The Nth regularized Fourier integral divides the transform of Δ^N(D^{−w}A) by ((it)^n det B)^N. It is holomorphic for 2 Re w+M+N>n². These half-planes cover ℂ and the integrals agree by analytic uniqueness. The provider identifies the ordinary absolutely convergent integral with the result on Re w>n²/2.",
+      "hypotheses": "Use the preceding signatures, matching |t|=c, polynomial Gaussian and nonsingular B. D=det(I+Y²) satisfies D≥1+‖y‖². The needed integrability bound is in real dimension n². Every differentiated amplitude is a finite sum of powers of w times coefficient functions, after factoring out D^{−w}.",
+      "equations": [
+        "lifts-archimedean-halfplanes"
+      ],
+      "dependencies": [
+        "AWH-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+          "lines": [
+            6,
+            8
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.G.gauss",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean#L6-L8",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.G.gauss": 8
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/IntegrableOfBound.lean",
+          "lines": [
+            203,
+            225
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.Ib.ibp",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/IntegrableOfBound.lean#L203-L225",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.Ib.ibp": 203
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+          "lines": [
+            9,
+            12
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.wr",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean#L9-L12",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.wr": 11
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean",
+          "lines": [
+            16,
+            47
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.K.GB.ratBound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean#L16-L47",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.K.GB.ratBound": 16
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean",
+          "lines": [
+            52,
+            85
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.K.GB.ratBound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean#L52-L85",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.K.GB.ratBound": 16
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.K.GB.clsGainB_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean#L32-L48",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.K.GB.clsGainB_of": 22
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean",
+          "lines": [
+            59,
+            73
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.K.GB.clsGainB_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean#L59-L73",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.K.GB.clsGainB_of": 22
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Integr.lean",
+          "lines": [
+            122,
+            142
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.I.integr",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Integr.lean#L122-L142",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.I.integr": 122
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+          "lines": [
+            38,
+            65
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.T.wr_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean#L38-L65",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.T.wr_of": 17
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+          "lines": [
+            68,
+            109
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.T.wr_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean#L68-L109",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.T.wr_of": 17
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+          "lines": [
+            115,
+            141
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.T.wr_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean#L115-L141",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.T.wr_of": 17
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The signed row Gaussians yield resolvents (I∓i sign(ℓ)Y)⁻¹. On a diagonal matrix with eigenvalues λᵢ, each determinant differentiation uses every row and column, yielding one factor ∏(1+|λᵢ|)⁻¹; this is ≤D^{−1/2}. Polynomial interpolation at integer Mellin parameters gives the general differentiated estimate. Integration by parts identifies all regularizations on the common far-right half-plane. Each one is holomorphic on its own larger half-plane. In unscaled two-by-two entry coordinates the differential operator has symbol (it)²(ab−c²−d²); a nonzero target of determinant zero illustrates the regularity condition.",
+      "review": "Independently verified the scalar ((it)^n det B) and the domain 2 Re w+p+q+N>n² in the written proof. The determinant is required for division. The unregularized integral can converge on a larger half-plane for a particular test."
+    },
+    {
+      "id": "AWH-03",
+      "chapter": "lifts",
+      "title": "Fourier inversion recovers the weighted coordinate Gram density",
+      "anchor": "lifts-archimedean-density",
+      "statement": "In the one-place Lebesgue normalization W(0)=(2π/|t|)^{n²}g(B), where g is the regular-locus Gram pushforward density. For M=2, n=1, signature (1,1), ℓ=1 and P=1 it is π exp(−2π|B|)/4. For nonzero B the continued value at w=−1 vanishes.",
+      "hypotheses": "The coordinate density is required only on the open det B≠0. Insert N=n²+1 determinant derivatives at w=0. In the worked one-place example c=t=2π and both complex coordinates carry Lebesgue area.",
+      "equations": [
+        "lifts-archimedean-density-value"
+      ],
+      "dependencies": [
+        "AWH-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean",
+          "lines": [
+            34,
+            46
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.D.dens_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean#L34-L46",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.D.dens_of": 25
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean",
+          "lines": [
+            92,
+            120
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.D.dens_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean#L92-L120",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.D.dens_of": 25
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContinuousCexpIp.lean",
+          "lines": [
+            96,
+            118
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.D.mollId",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContinuousCexpIp.lean#L96-L118",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.D.mollId": 96
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+          "lines": [
+            142,
+            155
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.T.wr_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean#L142-L155",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.T.wr_of": 17
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsBoundAlt.lean",
+          "lines": [
+            78,
+            87
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.WRSt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsBoundAlt.lean#L78-L87",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.WRSt": 78
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBaseA.lean",
+          "lines": [
+            9,
+            29
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.G.GB.gauss_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBaseA.lean#L9-L29",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.G.GB.gauss_one": 9
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/HermTranspose.lean",
+          "lines": [
+            62,
+            87
+          ],
+          "declaration": "PositivityTheory.Rg.Sw.WR.G.base",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/HermTranspose.lean#L62-L87",
+          "declaration_lines": {
+            "PositivityTheory.Rg.Sw.WR.G.base": 62
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Each determinant differentiation inserts (it)^n det(Gram X) in the Gaussian transform. The modified transform is integrable, so mollified Fourier inversion identifies its density by testing away from det B=0. Dividing out the determinant gives the value. In rank one two opposite signs give 1/[4(1+y²)] and the two squared radii give the same density directly. A constant after shifting to w=−1 has zero second derivative. At B=0 on the real axis the positive integral blows up when w approaches −1/2 from above.",
+      "review": "An independent reader verified the normalization by polar coordinates, the rank-one Hermitian coordinate and the derivative at w=−1. Numerical oscillatory quadrature at |B|=1/4 and 1/2 and shifts w=0 and 1 agreed with both explicit Fourier formulas to 19 decimal places."
+    },
+    {
+      "id": "AWH-04",
+      "chapter": "lifts",
+      "title": "Archimedean measure normalization sends the product to the global Gram density",
+      "anchor": "lifts-archimedean-product",
+      "statement": "The aggregate archimedean entire function is c_b c_μ∏Wᵢ(z−s₀), equal at z=s₀ to the globally supplied archimedean Gram density. It equals the ordinary archimedean integral for Re z>s₀+Σ|σᵢ| for the place thresholds σᵢ. The assembled full-rank coefficient is evaluated on Re z>0.",
+      "hypotheses": "Self-dual measures μ on source matrices and ν on the Hermitian space. Use the frames and real place charts, coordinate density compatibility on the regular set, polynomial Gaussian factors, and an invertible rational Gram target. For the strict-rank global theorem take n<M and either n+2≤M or J anisotropic.",
+      "equations": [],
+      "dependencies": [
+        "AWH-03",
+        "GGD-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/SecondCountableTens.lean",
+          "lines": [
+            14,
+            22
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.ygAll",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/SecondCountableTens.lean#L14-L22",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.ygAll": 20
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+          "lines": [
+            187,
+            209
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean#L187-L209",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of": 180
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+          "lines": [
+            229,
+            245
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean#L229-L245",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of": 180
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+          "lines": [
+            253,
+            287
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean#L253-L287",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of": 180
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+          "lines": [
+            288,
+            319
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean#L288-L319",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.realWhitAll_of": 180
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+          "lines": [
+            324,
+            326
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.GReal.realWhit_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean#L324-L326",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.GReal.realWhit_of": 324
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            24,
+            42
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L24-L42",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf": 12
+          }
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            69,
+            91
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L69-L91",
+          "declaration_lines": {
+            "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf": 12
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The Fourier variable is conjugated by g⁻¹ on the left and g⁻* on the right, while the target is conjugated by g* and g. The pushed measures have constants c_b,c_g satisfying c_b c_g=∏|ℓᵢ|^{n²}. After multiplication by the single-place coordinate factors, the density scale at s₀ is c_μ/c_g. Shrinking product boxes characterize this continuous density. WXMain uses the Schwartz property before recovering the supplied g∞ and evaluating its Whittaker function.",
+      "review": "Independent review confirmed the opposite coordinate transformations, source and target pushforward scales and the distinction between the entire archimedean continuation and the global right half-plane."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "realWhit_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "wr",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "realWhitAll_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 326
+      }
+    },
+    {
+      "callee": "exists_crdHomeo",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 187
+      }
+    },
+    {
+      "callee": "exists_ybHomeo",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 188
+      }
+    },
+    {
+      "callee": "exists_ygHomeo",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 189
+      }
+    },
+    {
+      "callee": "exists_map_eq_smul",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 194
+      }
+    },
+    {
+      "callee": "selfDual_const",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 199
+      }
+    },
+    {
+      "callee": "exists_schwartz_polyGauss",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 205
+      }
+    },
+    {
+      "callee": "hWR",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 224
+      }
+    },
+    {
+      "callee": "det_herm_ygAll",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 229
+      }
+    },
+    {
+      "callee": "eq_of_box",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 254
+      }
+    },
+    {
+      "callee": "dens_box",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 287
+      }
+    },
+    {
+      "callee": "integral_whI",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/RealGaussianTraces/CpowProdOfReal.lean",
+        "line": 317
+      }
+    },
+    {
+      "callee": "wr_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "gauss",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "clsBound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "clsGainB",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "ibp",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "integr",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "densOf3",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Imports.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "gauss_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "integP",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "wick_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "rot",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "base",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ImportsAlt.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "gauss_row",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/HermTranspose.lean",
+        "line": 84
+      }
+    },
+    {
+      "callee": "integral_gaussian_complex",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBaseA.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "clsGainB_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "cauchyW",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "invar",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "pBound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "link",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "twist",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "lagr",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/GBClose.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "herm_spectral",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "hC",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "prod_sqrt_perm",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/RatBound.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "ratBound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "hLg",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean",
+        "line": 40
+      }
+    },
+    {
+      "callee": "hCL",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ContDiffHerm.lean",
+        "line": 67
+      }
+    },
+    {
+      "callee": "integrable_rpow_neg_one_add_norm_sq",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/Integr.lean",
+        "line": 134
+      }
+    },
+    {
+      "callee": "ibp_list",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/IntegrableOfBound.lean",
+        "line": 224
+      }
+    },
+    {
+      "callee": "dens_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/DensOf3.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "algA",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/DensOf3.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "intG",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/DensOf3.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "derivF",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/DensOf3.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "mollId",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/DensOf3.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "hD",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "hCG",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "hM",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/CardAddB.lean",
+        "line": 120
+      }
+    },
+    {
+      "callee": "hG",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "hD",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "hGain",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "holo",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "integ_term",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "ibp_iter",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 83
+      }
+    },
+    {
+      "callee": "eqOn_of_preconnected_of_eventuallyEq",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 109
+      }
+    },
+    {
+      "callee": "integ_term",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 140
+      }
+    },
+    {
+      "callee": "hgv",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/MollifiedIntegrability/ClsShift.lean",
+        "line": 146
+      }
+    },
+    {
+      "callee": "hReal",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "hSDL",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "hR",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "hR",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 37
+      }
+    },
+    {
+      "callee": "hermOf_unit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 37
+      }
+    },
+    {
+      "callee": "hWi0",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "hmean",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "AWH-01",
+      "AWH-02"
+    ],
+    [
+      "AWH-02",
+      "AWH-03"
+    ],
+    [
+      "AWH-03",
+      "AWH-04"
+    ],
+    [
+      "GGD-03",
+      "AWH-04"
+    ],
+    [
+      "AWH-04",
+      "WDL-03"
+    ]
+  ],
+  "outstanding": [
+    "Upstream inputs used here include the Gaussian moment identity for arbitrary polynomial tests, holomorphic Cauchy estimates on matrix polydiscs and Fourier inversion with a Gaussian cutoff. The calculation reconstructs how these inputs provide the derivative gain, entire continuation and normalization, including the precise single-place scalar. The global product on Re z>0 also uses the finite local factors."
+  ]
+}

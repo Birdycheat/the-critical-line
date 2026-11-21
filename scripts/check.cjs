@@ -63,6 +63,104 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Count six rational squares directly at two resolutions for every dilation in the norm example.
+for (const k of [0, 1, 2]) {
+  const target = 9 ** k;
+  const rendered = lib.render("one-vector-density", {depth:k});
+  const values = [...rendered.matchAll(/<dd>([0-9/]+)<\/dd>/g)].map(match => {
+    const [top, bottom = '1'] = match[1].split('/');
+    return [BigInt(top), BigInt(bottom)];
+  });
+  assert.equal(values.length, 2);
+  for (const exponent of [2*k+1, 2*k+2]) {
+    const modulus = 3 ** exponent, squares = Array(modulus).fill(0n);
+    for (let x = 0; x < modulus; x++) squares[(x*x) % modulus]++;
+    let totals = Array(modulus).fill(0n);
+    totals[0] = 1n;
+    const support = [...squares.keys()].filter(i => squares[i] > 0n);
+    for (let coordinate = 0; coordinate < 6; coordinate++) {
+      const next = Array(modulus).fill(0n);
+      for (let i = 0; i < modulus; i++) {
+        for (const square of support) next[(i+square) % modulus] += totals[i] * squares[square];
+      }
+      totals = next;
+    }
+    const count = totals[target % modulus], scale = BigInt(modulus) ** 5n;
+    assert.equal(values[0][0] * scale, count * values[0][1]);
+    assert.equal(values[1][0] * scale, count * BigInt(81 ** k) * values[1][1]);
+  }
+}
+// All four encodings must be additive on the full semidirect product, including the odd coset.
+for (const a of [0,1]) for (const c of [0,1]) {
+  const theta = (x,y,k) => (a*(x+y)+c*(k % 2)) % 2;
+  for (let u=0; u<16; u++) for (let v=0; v<16; v++) {
+    const x = u % 2, y = (u >> 1) % 2, k = u >> 2;
+    const h = v % 2, j = (v >> 1) % 2, t = v >> 2;
+    const left = theta(x ^ (k % 2 ? j : h), y ^ (k % 2 ? h : j), (k+t)%4);
+    assert.equal(left, theta(x,y,k) ^ theta(h,j,t));
+  }
+  const rendered = lib.render("quadratic-character", {value:a, square:c});
+  assert.ok(rendered.includes('<th scope="row">σ²</th><td>'+c+'</td><td>0</td>'));
+  assert.ok(rendered.includes('<dt>Θ on σ outside U</dt><dd>'+c+'</dd>'));
+}
+// Compare both cyclic decompositions of every product in the group of order 54.
+const twistGroup = Array.from({length: 54}, (_, u) => [u%9, Math.floor(u/9)%3, Math.floor(u/27)]);
+function multiplyTwisted([n,k,e], [m,j,d]) {
+  return [(n + 7**k*m)%9, (k+j)%3, (e+d)%2];
+}
+for (const left of twistGroup) for (const right of twistGroup) {
+  const product = multiplyTwisted(left, right);
+  for (const exponent of [product[1], product[1]+3]) {
+    const power = [0, exponent%3, exponent%2];
+    const kernel = [4**exponent*product[0]%9, 0, (power[2]+product[2])%2];
+    assert.deepEqual(multiplyTwisted(power, kernel), product);
+    assert.equal(7**exponent*kernel[0]%9, product[0]);
+  }
+}
+// Conjugate the cyclic direction by (1,0,0) and evaluate the local coboundary witness −1.
+assert.deepEqual(multiplyTwisted(multiplyTwisted([1,0,0], [0,1,1]), [8,0,0]), [3,1,1]);
+assert.equal((7-1)*8%9, 3);
+// Directly compare the old finite slope with the new ramp after the prime power 4 enters.
+const shortTwist = [[2,-Math.log(2)], [3,0], [4,Math.log(2)], [5,-Math.log(5)]];
+function shortRamp(y) {
+  return shortTwist.filter(([n]) => n<=y).reduce((sum,[n,term]) => sum+term*(y/n-1),0);
+}
+const oldSlope = shortTwist.filter(([n]) => n<=3.5).reduce((sum,[n,term]) => sum+term/n,0);
+close(shortRamp(5)-shortRamp(3.5)-1.5*oldSlope, Math.log(2)/4, 1e-14);
+// Check each cutoff curve by a separate 4-node Gaussian rule on short panels.
+const gaussPairs = [[0.3399810435848563, 0.6521451548625461], [0.8611363115940526, 0.3478548451374538]];
+for (const shift of [-1, 0, 1]) {
+  for (const quarter of [1, 2, 3, 4]) {
+    const {points, continued} = lib.realWhittakerCutoff(shift, quarter);
+    const angle = Math.PI * quarter / 2;
+    const density = Math.PI * Math.exp(-angle) / 4;
+    close(continued, shift === -1 ? 0 : shift === 0 ? density : density * (1 + angle) / 2, 1e-14);
+    let exact = 0;
+    for (let i = 1; i < points.length; i++) {
+      const midpoint = (i - 0.5) / 32, halfwidth = 1 / 64;
+      for (const [node, weight] of gaussPairs) {
+        for (const sign of [-1, 1]) {
+          const y = midpoint + sign * node * halfwidth;
+          exact += halfwidth * weight * Math.cos(angle * y) / (2 * (1+y*y) ** (shift+1));
+        }
+      }
+      close(points[i][1], exact, 2e-7);
+    }
+  }
+}
+// Compare the explicit orbits with their known indices and check the partition at every level.
+for (const prime of [3, 7]) {
+  const indices = prime === 3 ? [1,2,2,2,2] : [1,2,4,4,4];
+  for (let t = 2; t <= 6; t++) {
+    const orbits = lib.frobeniusOrbits(prime, t), modulus = 2 ** t;
+    assert.equal(orbits.length, indices[t-2]);
+    assert.deepEqual(orbits.flat().sort((a,b) => a-b), Array.from({length: modulus/2}, (_, i) => 2*i+1));
+    for (const orbit of orbits) {
+      assert.equal(orbit.length * indices[t-2], modulus/2);
+      orbit.forEach((x,i) => assert.equal(prime*x % modulus, orbit[(i+1) % orbit.length]));
+    }
+  }
+}
 // Full sets at each depth catch the extra reduced classes when reduction loses image information.
 for (const [r, kernel, integral] of [[1, [0, 1, 2], [0]], [2, [0, 3, 6], [0, 3, 6]],
                                     [3, [0, 3, 6, 9, 12, 15, 18, 21, 24], [0, 3, 6, 9, 12, 15, 18, 21, 24]]]) {
@@ -884,5 +982,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

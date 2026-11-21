@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Compared the finite-field detecting statement with its number-field valuation proof, the two compactness arguments and the telescoping lemma for wild automorphisms. Independently enumerated the order-20 example.",
+  "claims": [
+    {
+      "id": "TIC-01",
+      "chapter": "inputs",
+      "title": "One inertia element generates all the finite tame images at a chosen place",
+      "anchor": "inputs-tame-inertia-lift",
+      "statement": "For a prolongation of a finite place of residue characteristic p on the algebraic closure Ω of a number field, there is γ∈I such that the powers of γ are dense in I/P, where P is wild inertia. The same γ may be used for every continuous additive ℓ-primary character, for every ℓ≠p.",
+      "hypotheses": "Fix a prolongation and use the Krull topology. The archive constructs γ at a valuation of an algebraic closure of a number field. Its proof uses algebraicity over ℚ to control the value of every nonzero element through a power of p.",
+      "definitions": [
+        "P consists of automorphisms σ with |σ(y)/y−1|<1 for every y≠0.",
+        "If r_n^(n!)=p, the finite cyclic tame image is obtained by mapping σ to σ(r_n)/r_n modulo the principal units."
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.TameGenAt",
+          "path": "src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean",
+          "lines": [
+            44,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean#L44-L48",
+          "declaration_lines": {
+            "Formalism.BasicNotions.TameGenAt": 44
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameInertiaGen.tameChar",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+          "lines": [
+            167,
+            192
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean#L167-L192",
+          "declaration_lines": {
+            "GlobalTheory.TameInertiaGen.tameChar": 172
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameInertiaGen.exists_topGen",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+          "lines": [
+            7,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean#L7-L41",
+          "declaration_lines": {
+            "GlobalTheory.TameInertiaGen.exists_topGen": 7
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameInertiaGen.exists_tameGenAt_of_valuationSubring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+          "lines": [
+            210,
+            235
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean#L210-L235",
+          "declaration_lines": {
+            "GlobalTheory.TameInertiaGen.exists_tameGenAt_of_valuationSubring": 210
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameInertiaGen.exists_pow_eq",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+          "lines": [
+            80,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean#L80-L111",
+          "declaration_lines": {
+            "GlobalTheory.TameInertiaGen.exists_pow_eq": 80
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameInertiaGen.exists_tameGenAt_of_valuationSubring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+          "lines": [
+            236,
+            260
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean#L236-L260",
+          "declaration_lines": {
+            "GlobalTheory.TameInertiaGen.exists_tameGenAt_of_valuationSubring": 210
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Lift compatible requirements using nested closed generator sets in compact I. For each σ, a second intersection in the closure of ⟨γ⟩ matches its finite images. The quotient element lies in P by comparing every valuation with a factorial root of p.",
+      "review": "Verified the nested kernel argument, both compact intersections and the use of the number-field hypothesis in the final wild criterion."
+    },
+    {
+      "id": "TIC-02",
+      "chapter": "inputs",
+      "title": "Evaluation determines a continuous ℓ-primary character, with ℓ choices for coefficients in the prime field",
+      "anchor": "inputs-tame-inertia-detection",
+      "statement": "For p≠ℓ and a discrete ℓ-primary abelian group A, evaluation at the chosen tame lift injects Hom_cont(I,A) into A. The finite-field specialization gives at most ℓ possibilities per orbit representative. With A=ℚ_ℓ/ℤ_ℓ each character has finite image and those killed by ℓ^r have at most ℓ^r possible evaluations.",
+      "hypotheses": "The coefficient action is trivial and the characters are additive homomorphisms. Inertia is compact and the characters are locally constant. The factor ℓ in CharStep uses 𝔽_ℓ coefficients. The extension to a general primary group follows from the argument and does not change that consumer.",
+      "definitions": [
+        "I is the absolute inertia group at the chosen prolongation. An open kernel contains its intersection with some fixing subgroup of a finite extension.",
+        "For a wild τ and p∤k, τ^k x=x implies τx=x by a telescoping sum on the orbit differences."
+      ],
+      "equations": [
+        "inputs-tame-inertia-evaluation"
+      ],
+      "dependencies": [
+        "TIC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Two.tameGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+          "lines": [
+            7,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean#L7-L24",
+          "declaration_lines": {
+            "UpperTheory.V.Two.tameGen": 7
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            29,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L29-L53",
+          "declaration_lines": {
+            "UpperTheory.V.Two.charStep": 29
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.tameGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+          "lines": [
+            34,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean#L34-L60",
+          "declaration_lines": {
+            "UpperTheory.V.Two.tameGen": 7
+          }
+        },
+        {
+          "declaration": "GlobalTheory.WildInertiaChar.fixed_of_pow_fixed",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/FixedOfPowFixed.lean",
+          "lines": [
+            30,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/FixedOfPowFixed.lean#L30-L46",
+          "declaration_lines": {
+            "GlobalTheory.WildInertiaChar.fixed_of_pow_fixed": 30
+          }
+        },
+        {
+          "declaration": "GlobalTheory.TameCharUnique.mem_of_tameGen",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ValuationApplyOfWild.lean",
+          "lines": [
+            53,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ValuationApplyOfWild.lean#L53-L72",
+          "declaration_lines": {
+            "GlobalTheory.TameCharUnique.mem_of_tameGen": 53
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            87,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L87-L106",
+          "declaration_lines": {
+            "UpperTheory.V.Two.charStep": 29
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For σ∈P choose N=ℓ^a b such that σ^N fixes the finite extension cut out by a neighbourhood of the identity, with ℓ∤b. The valuation lemma removes ℓ^a from this power. Thus b annihilates the image of σ, forcing that image to be zero. The closed kernel contains P and γ when the chosen evaluation vanishes. The order-20 finite inertia example gives the counts two and four.",
+      "review": "A second reader verified the cyclotomic extension, wild kernel, lift of order four, and the distinct counts for the two discrete targets. All finite-model characters were also enumerated."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "nonempty_iInter_of_sequence_nonempty_isCompact_isClosed",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "exists_generator",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "nonempty_iInter_of_sequence_nonempty_isCompact_isClosed",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "exists_max_image",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 101
+      }
+    },
+    {
+      "callee": "cob_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 178
+      }
+    },
+    {
+      "callee": "cob_mem_of_unit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 176
+      }
+    },
+    {
+      "callee": "isCyclic_of_surjective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 189
+      }
+    },
+    {
+      "callee": "cob_pow_eq_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 192
+      }
+    },
+    {
+      "callee": "isClosed_setOf_apply",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 197
+      }
+    },
+    {
+      "callee": "exists_nat_gen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 216
+      }
+    },
+    {
+      "callee": "exists_pow_nat_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 219
+      }
+    },
+    {
+      "callee": "exists_topGen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 228
+      }
+    },
+    {
+      "callee": "isClosed_preimage",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 229
+      }
+    },
+    {
+      "callee": "isCyclic_range",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 229
+      }
+    },
+    {
+      "callee": "cob_mem_of_zpow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 231
+      }
+    },
+    {
+      "callee": "exists_pow_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 247
+      }
+    },
+    {
+      "callee": "cob_mem_of_zpow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 249
+      }
+    },
+    {
+      "callee": "tameChar_eq_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsTameGenAtOfValuationSubring.lean",
+        "line": 250
+      }
+    },
+    {
+      "callee": "sum_range_sub",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/FixedOfPowFixed.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "wild_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/FixedOfPowFixed.lean",
+        "line": 46
+      }
+    },
+    {
+      "callee": "exists_tameGenAt_of_valuationSubring",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "mem_of_tameGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "krullTopology_mem_nhds_one_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "finrank_eq_fixingSubgroup_index",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "exists_pow_mem_of_index_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 46
+      }
+    },
+    {
+      "callee": "exists_eq_pow_mul_and_not_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "fixed_of_pow_fixed",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 51
+      }
+    },
+    {
+      "callee": "wild_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 52
+      }
+    },
+    {
+      "callee": "natCast_eq_zero_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 60
+      }
+    },
+    {
+      "callee": "closure_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ValuationApplyOfWild.lean",
+        "line": 66
+      }
+    },
+    {
+      "callee": "mem_Ine_of_wild",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ValuationApplyOfWild.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "closure_minimal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ValuationApplyOfWild.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "tameGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 37
+      }
+    },
+    {
+      "callee": "card_le_card_of_injective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 103
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "TIC-01",
+      "TIC-02"
+    ],
+    [
+      "TIC-02",
+      "IOR-03"
+    ]
+  ],
+  "outstanding": [
+    "The orbit representatives and the arithmetic bound on their number are derived in IOR. The ℚ_ℓ/ℤ_ℓ statement is a consequence for discrete primary coefficients. IOR applies the finite-field specialization."
+  ]
+}

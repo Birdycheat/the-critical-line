@@ -97,7 +97,20 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "localization-kernel") {
+        if (id === "one-vector-density") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2044/2187", "2044/27"]);
+          assert.equal(await fig.locator("tbody tr").count(), 2);
+        } else if (id === "quadratic-character") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "0"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["1", "0"]);
+        } else if (id === "whittaker-cutoff") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/4", "0"]);
+          assert.ok(await fig.locator("svg path.ink").isVisible());
+          assert.equal(await fig.locator("svg path.dash").count(), 1);
+        } else if (id === "inertia-orbits") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["8", "2"]);
+          assert.equal(await fig.locator("tbody tr").count(), 2);
+        } else if (id === "localization-kernel") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "3"]);
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["0, 1, 2", "3", "0", "1"]);
         } else if (id === "genus-mass") {

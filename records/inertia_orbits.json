@@ -1,0 +1,907 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the rational Frobenius, dyadic principal-unit, decomposition and relative-index arguments, the orbit representatives, their tame evaluation fibres and the two quadratic steps in the pinned source. Reproduced the finite residue computations and checked the descent to the generator bound.",
+  "claims": [
+    {
+      "id": "IOR-01",
+      "chapter": "inputs",
+      "title": "The closed dyadic decomposition image has index at most two or four",
+      "anchor": "inputs-inertia-depth",
+      "equations": [],
+      "statement": "Let A be a prolongation to Ω of the rational prime p. In the absolute Galois group G of ℚ, K=ker χ₂, the subgroup K D_A has finite index at most 2 if p≡3 mod 8 and at most 4 if p≡7 mod 16.",
+      "hypotheses": "Ω an algebraic closure of ℚ, p a rational prime in the indicated class. The auxiliary abelian field does not enter this assertion.",
+      "definitions": [
+        "D_A is the decomposition group and H=χ₂(D_A) is a closed subgroup of ℤ₂^×.",
+        "A single arithmetic Frobenius acts as x↦x^p on all roots of order coprime to p; taking all dyadic roots gives p∈H.",
+        "P_a=1+2^aℤ₂, a=v₂(p²−1) equals 3 or 4, and p∉P_a."
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.decFrob",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/DecFrob.lean",
+          "lines": [
+            69,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/DecFrob.lean#L69-L87",
+          "declaration_lines": {
+            "UpperTheory.V.LDataCardLeFinrank.decFrob": 69
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.decIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+          "lines": [
+            8,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean#L8-L32",
+          "declaration_lines": {
+            "UpperTheory.V.Two.decIndex": 8
+          }
+        },
+        {
+          "declaration": "KStar.TotallyRealRoots.gen_emult",
+          "path": "src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean",
+          "lines": [
+            19,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean#L19-L36",
+          "declaration_lines": {
+            "KStar.TotallyRealRoots.gen_emult": 20
+          }
+        },
+        {
+          "declaration": "KStar.TotallyRealRoots.princ_le_of_isClosed",
+          "path": "src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean",
+          "lines": [
+            89,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean#L89-L109",
+          "declaration_lines": {
+            "KStar.TotallyRealRoots.princ_le_of_isClosed": 103
+          }
+        },
+        {
+          "declaration": "index_closed_dyadic_subgroup",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+          "lines": [
+            13,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean#L13-L31",
+          "declaration_lines": {
+            "index_closed_dyadic_subgroup": 13
+          }
+        },
+        {
+          "declaration": "index_closed_dyadic_subgroup",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+          "lines": [
+            32,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean#L32-L54",
+          "declaration_lines": {
+            "index_closed_dyadic_subgroup": 13
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.idxAdic",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+          "lines": [
+            56,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean#L56-L81",
+          "declaration_lines": {
+            "UpperTheory.V.Two.idxAdic": 53
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.idxAdic",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+          "lines": [
+            82,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean#L82-L106",
+          "declaration_lines": {
+            "UpperTheory.V.Two.idxAdic": 53
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.decIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+          "lines": [
+            30,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean#L30-L39",
+          "declaration_lines": {
+            "UpperTheory.V.Two.decIndex": 8
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.decGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/DecGen.lean",
+          "lines": [
+            176,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/DecGen.lean#L176-L191",
+          "declaration_lines": {
+            "UpperTheory.V.Kum.decGen": 176
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The powers of p² generate the principal units modulo every 2^t: successive squaring raises the depth by one. Hence by closedness P_a⊆H. The additional coset pP_a gives 2[ℤ₂^×:H]≤φ(2^a). Since KD_A=χ₂⁻¹(H), its index in G is at most this index.",
+      "review": "Independently enumerated the finite cyclotomic examples p=3,7 at depths 2 to 6. The index sequences are (1,2,2,2,2) and (1,2,4,4,4), respectively. The bounds are upper bounds for a general closed image."
+    },
+    {
+      "id": "IOR-02",
+      "chapter": "inputs",
+      "title": "Passing to the fixed abelian datum costs at most its degree in the orbit count",
+      "anchor": "inputs-inertia-places",
+      "equations": [
+        "inputs-inertia-orbit-count"
+      ],
+      "statement": "For every abelian datum M with degree b and every algebraic closure Ω of ℚ, V=cycU₂(abU(M(i))) acts on the prolongations of p with a cover by at most 2b or 4b orbit representatives in the two congruence classes of IOR-01. This cover projects to all finite cyclotomic layers.",
+      "hypotheses": "Same two prime congruences as IOR-01. No coprimality between p and the modulus of M is needed for the orbit count itself.",
+      "definitions": [
+        "W=abU(M) is a normal subgroup with [G:W]=b. The group fixing all dyadic roots already fixes i, so V=W∩K.",
+        "OrbLe means that there is a finite set T of places above p with bounded cardinality and that every place is vB with v∈V and B∈T.",
+        "If D fixes A, K D and V D are group products since K and V are normal."
+      ],
+      "dependencies": [
+        "IOR-01"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Two.OrbLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean",
+          "lines": [
+            53,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean#L53-L65",
+          "declaration_lines": {
+            "UpperTheory.V.Two.OrbLe": 61
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.orbTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+          "lines": [
+            11,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean#L11-L29",
+          "declaration_lines": {
+            "UpperTheory.V.Two.orbTwo": 11
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.abBasic",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/AbBasic.lean",
+          "lines": [
+            82,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/AbBasic.lean#L82-L96",
+          "declaration_lines": {
+            "UpperTheory.V.Two.abBasic": 82
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.decIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+          "lines": [
+            30,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean#L30-L39",
+          "declaration_lines": {
+            "UpperTheory.V.Two.decIndex": 8
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.supIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/SupIndex.lean",
+          "lines": [
+            31,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/SupIndex.lean#L31-L49",
+          "declaration_lines": {
+            "UpperTheory.V.Two.supIndex": 31
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.orbIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+          "lines": [
+            79,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean#L79-L92",
+          "declaration_lines": {
+            "UpperTheory.V.Two.orbIndex": 79
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.orbIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+          "lines": [
+            93,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean#L93-L105",
+          "declaration_lines": {
+            "UpperTheory.V.Two.orbIndex": 79
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.orbTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+          "lines": [
+            30,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean#L30-L42",
+          "declaration_lines": {
+            "UpperTheory.V.Two.orbTwo": 11
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The number of left cosets of VD in KD is bounded by [K:K∩W]≤b. Choose a representative r of each left coset of VD in G. Any other prolongation is gA with g=rvd, yielding gA=(rvr⁻¹)(rA). The subgroup at each finite layer contains V, so its orbit partition is coarser.",
+      "review": "A second reader checked the direction of the left cosets, which factor fixes A, and the use of normality to put rvr⁻¹ back in V."
+    },
+    {
+      "id": "IOR-03",
+      "chapter": "inputs",
+      "title": "One tame evaluation per orbit bounds the cost of allowing a new prime",
+      "anchor": "inputs-inertia-characters",
+      "equations": [
+        "inputs-inertia-evaluation-equation"
+      ],
+      "statement": "For a prime ℓ and a subgroup V of the absolute Galois group of a number field, let C(N) be its locally constant additive 𝔽_ℓ-characters that vanish on inertia away from N. If gcd(p,ℓ)=1, the inertia groups above p lie in V, and k places cover the V-orbits above p, then |C(Np)|≤|C(N)|ℓ^k whenever C(N) is finite. For the two admissible dyadic primes this gives the exponent 4(g+6b) after both quadratic extensions.",
+      "hypotheses": "The general charStep uses natural N,p and an orbit cover for valuation rings A with |p|_A<1. In the application N=1 then q, and q,d are primes prime to 2m in the two required congruence classes, m the modulus of M. The initial g is fixed for M(i) before choosing q,d.",
+      "definitions": [
+        "A locally constant additive character of tame inertia at residue characteristic different from ℓ is detected by its value on one chosen lift γ_B inside the absolute inertia group.",
+        "For two characters with equal evaluations, their difference vanishes on I_B; when A=vB, v⁻¹I_Av=I_B and v∈V.",
+        "One representative is chosen per attained evaluation fibre. The injection is from the enlarged group of characters into evaluation tuples times the old group."
+      ],
+      "dependencies": [
+        "IOR-02",
+        "QCS-02",
+        "TIC-02"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Two.OrbLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean",
+          "lines": [
+            53,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean#L53-L65",
+          "declaration_lines": {
+            "UpperTheory.V.Two.OrbLe": 61
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.CharOff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean",
+          "lines": [
+            43,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/ModulusAdjoinISqrtNegPrimes.lean#L43-L59",
+          "declaration_lines": {
+            "UpperTheory.V.Two.CharOff": 43
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.ineTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IneTwo.lean",
+          "lines": [
+            29,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IneTwo.lean#L29-L44",
+          "declaration_lines": {
+            "UpperTheory.V.Two.ineTwo": 29
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.tameGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+          "lines": [
+            7,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean#L7-L24",
+          "declaration_lines": {
+            "UpperTheory.V.Two.tameGen": 7
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.tameGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+          "lines": [
+            34,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean#L34-L60",
+          "declaration_lines": {
+            "UpperTheory.V.Two.tameGen": 7
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            29,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L29-L53",
+          "declaration_lines": {
+            "UpperTheory.V.Two.charStep": 29
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            54,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L54-L86",
+          "declaration_lines": {
+            "UpperTheory.V.Two.charStep": 29
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.charStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+          "lines": [
+            87,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean#L87-L108",
+          "declaration_lines": {
+            "UpperTheory.V.Two.charStep": 29
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.quadStep",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+          "lines": [
+            11,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean#L11-L34",
+          "declaration_lines": {
+            "UpperTheory.V.Two.quadStep": 11
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.idxTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean",
+          "lines": [
+            64,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean#L64-L96",
+          "declaration_lines": {
+            "UpperTheory.V.Two.idxTwo": 80
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.baseRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            69,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L69-L85",
+          "declaration_lines": {
+            "UpperTheory.V.Two.baseRk": 69
+          }
+        },
+        {
+          "declaration": "UpperTheory.V.Two.towerTwo",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+          "lines": [
+            87,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean#L87-L97",
+          "declaration_lines": {
+            "UpperTheory.V.Two.towerTwo": 87
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The evaluations allow at most ℓ^k tuples. In each attained fibre, subtracting its chosen representative maps into C(N) injectively. At q,d this adds at most 2b+4b to g; the two subsequent subgroup changes of index dividing two each square the cardinality bound. The strict unramified character space over the new base includes into that with ramification allowed at both primes.",
+      "review": "Independent review checked the requirement that each full inertia group lie in V, the direction of the injection, and that no arbitrary tuple is assumed attainable."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_isFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/DecFrob.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "normV_vQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/DecFrob.lean",
+        "line": 74
+      }
+    },
+    {
+      "callee": "decFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "ext_of_toZModPow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "cyclotomicCharacter.spec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "continuous_cycZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "idxAdic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "comap_map_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "index_comap",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/DecIndex.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "emultiplicity_pow_sub_one_sq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "gen_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "exists_pow_redPow_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/TotallyRealRoots/Generate.lean",
+        "line": 108
+      }
+    },
+    {
+      "callee": "two_pow_dvd_intCast_padic_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "princ_le_of_isClosed",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "card_units_eq_totient",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "relIndex_mul_index",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "index_closed_dyadic_subgroup",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "index_closed_dyadic_subgroup",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxAdic.lean",
+        "line": 103
+      }
+    },
+    {
+      "callee": "relIndex_sup_normal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/SupIndex.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "relIndex_mul_index",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/SupIndex.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "relIndex_dvd_index_of_normal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/SupIndex.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "card_image_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "exists_smul_eq_of_isPlaceOver",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "mk_out_eq_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "normal_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "conj_mem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 99
+      }
+    },
+    {
+      "callee": "mem_Dec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbIndex.lean",
+        "line": 100
+      }
+    },
+    {
+      "callee": "abBasic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "levChar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "decIndex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "supIndex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "orbIndex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/OrbTwo.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "ineChar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IneTwo.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "places",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IneTwo.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "exists_tameGenAt_of_valuationSubring",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "mem_of_tameGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "krullTopology_mem_nhds_one_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/TameGen.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "not_valuation_lt_one_of_coprime_of_lt_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "tameGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 37
+      }
+    },
+    {
+      "callee": "hTcov",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 52
+      }
+    },
+    {
+      "callee": "ineConj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 53
+      }
+    },
+    {
+      "callee": "hγ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "invFun",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 88
+      }
+    },
+    {
+      "callee": "of_injective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 100
+      }
+    },
+    {
+      "callee": "card_le_card_of_injective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CharStep.lean",
+        "line": 103
+      }
+    },
+    {
+      "callee": "abBasic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "idxTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "ineConj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "ineChar",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/QuadStep.lean",
+        "line": 50
+      }
+    },
+    {
+      "callee": "sqZero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "invTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IdxTwo.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "xDual_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 75
+      }
+    },
+    {
+      "callee": "charStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "orbTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "ineTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 77
+      }
+    },
+    {
+      "callee": "charStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "orbTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "ineTwo",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 79
+      }
+    },
+    {
+      "callee": "quadStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 80
+      }
+    },
+    {
+      "callee": "quadStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 81
+      }
+    },
+    {
+      "callee": "xDual_le_charOff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 82
+      }
+    },
+    {
+      "callee": "abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 90
+      }
+    },
+    {
+      "callee": "baseRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "genLE_of_abRk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/IsAlgClosureRat.lean",
+        "line": 96
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "IOR-01",
+      "IOR-02"
+    ],
+    [
+      "IOR-02",
+      "IOR-03"
+    ],
+    [
+      "IOR-03",
+      "INP-15"
+    ]
+  ],
+  "outstanding": [
+    "TIC constructs the common tame lift and explains why characters with ℓ-primary targets kill wild inertia at p≠ℓ. Galois transitivity on prolongations and the initial uniform abelian class-rank estimate are cited inputs. QCS explains the obstruction bit, its encoding by the sign character and the square-zero endomorphism giving each subsequent squaring step."
+  ]
+}

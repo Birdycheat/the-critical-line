@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned original definitions and written proof bodies for the sign of the finite splitting, both finite differences, the zero-free contour and the quantitative application in the prime-choice stage. Source lines and names are independently reproducible using the immutable archive. The small character calculation is an independent teaching example.",
+  "claims": [
+    {
+      "id": "TCT-01",
+      "chapter": "inputs",
+      "title": "A single slope error for every height",
+      "anchor": "inputs-twist-contour-tail",
+      "statement": "With D(s)=−L′(s,χ)/L(s,χ), a_n=Λ(n)χ(n), R(y)=Σ_{n≤y}a_n(y/n−1), P_Z=Σ_{n≤Z}a_n/n and S_Z(y)=Σ_{n≤Z}a_n min(1,y/n), the centered ramp equals Gχ(y)=R(y)−yD(1)=−S_Z(y)−y[D(1)−P_Z]. For h>0 the error in R(Z+h)−R(Z)−hP_Z consists precisely of new terms with Z<n≤Z+h.",
+      "hypotheses": "All sums start at 1 and stop at the real endpoint rounded down. Finite splitting assumes 0<y≤Z. The increment bound requires Z≥1, h>0. The selected characters are nonprincipal of nonzero modulus.",
+      "definitions": [
+        "centered prime-power ramp",
+        "finite clipped weight",
+        "truncated slope at Z",
+        "negative logarithmic derivative"
+      ],
+      "equations": [
+        "inputs-twist-contour-split"
+      ],
+      "dependencies": [],
+      "correspondence": "Every old term advances by ha_n/n. There are at most h+1 new terms, each of size at most log(Z+h)h/Z. For the nontrivial character modulo 3 and Z=7/2,h=3/2 the only nonzero new contribution is χ(4)Λ(4)(5/4−1)=log(2)/4. The terminal prime 5 contributes zero.",
+      "sources": [
+        {
+          "declaration": "Formalism.HermitianLattices.ZeroFreeRegionGL2.Gchi",
+          "path": "src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean",
+          "lines": [
+            14,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean#L14-L29",
+          "related_declarations": [
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.logDerivLAtOne",
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.cN",
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.Sz",
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.tailL"
+          ],
+          "label": "Ramp, finite sum and tail",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.Gchi": 17,
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.logDerivLAtOne": 14,
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.cN": 23,
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.Sz": 25,
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.tailL": 28
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.ZeroFreeRegionGL2.finite_splitting_of_group",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/WeightedVonMangoldtSumIdentity.lean",
+          "lines": [
+            52,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/WeightedVonMangoldtSumIdentity.lean#L52-L77",
+          "label": "Finite splitting at the cutoff",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.finite_splitting_of_group": 52
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_diff_identity",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailDiff.lean",
+          "lines": [
+            21,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailDiff.lean#L21-L36",
+          "label": "Exact increment of the finite ramp",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_diff_identity": 21
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_diff_schi",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailDiff.lean",
+          "lines": [
+            67,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailDiff.lean#L67-L86",
+          "label": "Rounding at both endpoints",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_diff_schi": 67
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "An independent reader checked the endpoint convention, sign of the centered identity, increment formula and the example directly from the source."
+    },
+    {
+      "id": "TCT-02",
+      "chapter": "inputs",
+      "title": "The residue at one and the two contour errors",
+      "anchor": "inputs-twist-contour-residue",
+      "statement": "Writing ΔR=R(Z+h)−R(Z), h=ηZ and σ=1−1/400+δ, there is Aδ≥0 such that |ΔR−hD(1)|≤Aδ log Q[(log Q)η Z^σ + Z²/Q]. The shift to σ at T=Q/2 crosses the kernel point s=1, with residue uD(1) for the evaluation at u.",
+      "hypotheses": "0<δ≤1/800, Z≥1, 0<η≤1, Q≥2, 1≤N≤Q, χ nonprincipal modulo N, L(s,χ) nonzero for Re(s)>1−1/400, |Im(s)|≤Q. No primitivity or quadratic-order assumption is required for this estimate.",
+      "definitions": [
+        "Perron integral on Re(s)=2",
+        "rectangular contour",
+        "zero-free box",
+        "logarithmic derivative with a positive horizontal margin"
+      ],
+      "equations": [],
+      "dependencies": [],
+      "correspondence": "The interior estimate bounds |D| by Cδ log Q for Re(s)≥σ, |Im(s)|≤Q−1. Near the one-line a local Landau partial fraction expansion has a weighted zero count O(log Q) and denominators of size ≥δ. Differencing the two left integrals before taking norms saves η and cancels |s|. Integrating the remaining 1/|s−1| costs O(log Q). The top and bottom edges and the tails of the right line yield the second error.",
+      "sources": [
+        {
+          "declaration": "Formalism.HermitianLattices.ZeroFreeRegionGL2.ZeroFreeBox",
+          "path": "src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean",
+          "lines": [
+            44,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean#L44-L48",
+          "related_declarations": [
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.GoodFor"
+          ],
+          "label": "Open left edge of the zero-free box",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.ZeroFreeBox": 44,
+            "Formalism.HermitianLattices.ZeroFreeRegionGL2.GoodFor": 47
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.PerronChi",
+          "path": "src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean",
+          "lines": [
+            11,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean#L11-L20",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.Schi",
+            "Formalism.ZeroFreeDirichlet.Fchi"
+          ],
+          "label": "Perron integral for the ramp",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.PerronChi": 17,
+            "Formalism.ZeroFreeDirichlet.Schi": 11,
+            "Formalism.ZeroFreeDirichlet.Fchi": 14
+          }
+        },
+        {
+          "declaration": "Formalism.ZeroFreeDirichlet.perron_integrand_residue_at_one",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RectShiftChi.lean",
+          "lines": [
+            27,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RectShiftChi.lean#L27-L43",
+          "label": "Residue at one",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.perron_integrand_residue_at_one": 27
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_shift_identity",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourA.lean",
+          "lines": [
+            20,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourA.lean#L20-L35",
+          "label": "Rectangle with empty zero list",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_shift_identity": 20
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_box_negLD",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailBox.lean",
+          "lines": [
+            35,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailBox.lean#L35-L57",
+          "label": "Local logarithmic derivative estimate",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_box_negLD": 35
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_box_negLD",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailBox.lean",
+          "lines": [
+            61,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailBox.lean#L61-L87",
+          "label": "Separation of nearby zeros",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_box_negLD": 35
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tc_left_pt",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourB.lean",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourB.lean#L29-L55",
+          "label": "Taking the difference on the left edge",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tc_left_pt": 10
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tc_left_int",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourB.lean",
+          "lines": [
+            157,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourB.lean#L157-L163",
+          "label": "Logarithmic integral on the left edge",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tc_left_int": 157
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_contour",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+          "lines": [
+            14,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean#L14-L45",
+          "label": "The contour and its estimate",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_contour": 14
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_contour",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+          "lines": [
+            53,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean#L53-L85",
+          "label": "Right tails and horizontal edges",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_contour": 14
+          }
+        },
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_contour",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+          "lines": [
+            87,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean#L87-L105",
+          "label": "The second logarithm",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_contour": 14
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "An independent reader checked the hypotheses of the zero-free rectangle, the signed residue, the left-edge derivative with constant one and the two error orders."
+    },
+    {
+      "id": "TCT-03",
+      "chapter": "inputs",
+      "title": "Uniform cutoff for both prime-selection stages",
+      "anchor": "inputs-twist-contour-budget",
+      "statement": "Set x=Y^K, Z=x^400, η=x^−2, h=x^398, δ=ε/(1600K). For all sufficiently large Y satisfying Y^(ε/6)≤log Q≤Y^(ε/4), each surviving nonprincipal character satisfies x|D(1)−P_Z|≤Y^ε. A simultaneous half-budget for its finite sums then gives |Gχ(y)|≤y^(1/2+τ) throughout [Y,x].",
+      "hypotheses": "The tail theorem permits 0<ε≤1, K≥1. The selected box assembly uses 0<ε≤1/4, τ>0, K≥1, GoodC(Q,χ), pointwise equality of character evaluations, and a finite-sum half-budget for all heights. For the selection Q=FU and the twist supplied by the stage is primitive. Thresholds may depend on ε,K and, in the full assembly, the additional stage parameters; the tail threshold is uniform in Q,N,χ.",
+      "definitions": [
+        "common upper height x",
+        "finite difference length h",
+        "logarithmic scale for Q",
+        "two half-budgets"
+      ],
+      "equations": [],
+      "dependencies": [
+        "TCT-01",
+        "TCT-02"
+      ],
+      "correspondence": "After multiplying by x/h, the bounds become Aδ(log Q)²Y^(ε/4), Aδ(log Q)x^403/Q and (x^398+1)log(Z+h)/x^399. The three are bounded by Y^ε/3, 1/3 and 802 for sufficiently large Y. The finite term has already passed the variable-height exclusion. Stage obtains box_of_S at line 49, instantiates it at line 53 and applies the resulting local hypothesis at line 133. The same stage is used in the construction of the pair.",
+      "sources": [
+        {
+          "declaration": "Formalism.HermitianLattices.Ext.BoxTail.tail_num_alg",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailNum.lean",
+          "lines": [
+            7,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailNum.lean#L7-L25",
+          "related_declarations": [
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_num_rpow",
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_num_third"
+          ],
+          "label": "The three errors after rescaling",
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_num_alg": 15,
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_num_rpow": 7,
+            "Formalism.HermitianLattices.Ext.BoxTail.tail_num_third": 24
+          }
+        },
+        {
+          "declaration": "QH.tailK_num",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+          "lines": [
+            57,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean#L57-L90",
+          "label": "Absorbing the three errors",
+          "declaration_lines": {
+            "QH.tailK_num": 23
+          }
+        },
+        {
+          "declaration": "QH.tailK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+          "lines": [
+            92,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean#L92-L105",
+          "label": "Uniform parameters for the whole interval",
+          "declaration_lines": {
+            "QH.tailK": 92
+          }
+        },
+        {
+          "declaration": "QH.tailK",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+          "lines": [
+            125,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean#L125-L145",
+          "label": "Subtracting the two differences",
+          "declaration_lines": {
+            "QH.tailK": 92
+          }
+        },
+        {
+          "declaration": "QH.Box",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+          "lines": [
+            26,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean#L26-L39",
+          "related_declarations": [
+            "QH.MeanSq",
+            "QH.GoodC"
+          ],
+          "label": "What the surviving twist must satisfy",
+          "declaration_lines": {
+            "QH.Box": 35,
+            "QH.MeanSq": 26,
+            "QH.GoodC": 32
+          }
+        },
+        {
+          "declaration": "QH.box_of_S",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+          "lines": [
+            28,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean#L28-L46",
+          "label": "Assumptions and finite splitting",
+          "declaration_lines": {
+            "QH.box_of_S": 28
+          }
+        },
+        {
+          "declaration": "QH.box_of_S",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+          "lines": [
+            46,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean#L46-L60",
+          "label": "Two half-budgets",
+          "declaration_lines": {
+            "QH.box_of_S": 28
+          }
+        },
+        {
+          "declaration": "QH.stage",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+          "lines": [
+            125,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean#L125-L139",
+          "label": "The surviving prime’s primitive twist",
+          "declaration_lines": {
+            "QH.stage": 41
+          }
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "An independent reader recomputed all three exponents and the constant 802, and checked where the two half-budgets enter the selected character estimate."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "TCT-01",
+      "TCT-03"
+    ],
+    [
+      "TCT-02",
+      "TCT-03"
+    ],
+    [
+      "TCT-03",
+      "PRP-02"
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "stage",
+      "callee": "box_of_S",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "box_of_S",
+      "callee": "tailK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "box_of_S",
+      "callee": "finite_splitting_of_group",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+        "line": 45
+      }
+    },
+    {
+      "caller": "box_of_S",
+      "callee": "num_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "tailK",
+      "callee": "tail_contour",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 102
+      }
+    },
+    {
+      "caller": "tailK",
+      "callee": "tailK_num",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 103
+      }
+    },
+    {
+      "caller": "tailK",
+      "callee": "tail_diff_schi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 126
+      }
+    },
+    {
+      "caller": "tailK_num",
+      "callee": "tail_num_rpow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "tailK_num",
+      "callee": "tail_num_alg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "tailK_num",
+      "callee": "tail_num_third",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/TailKExp.lean",
+        "line": 74
+      }
+    },
+    {
+      "caller": "tail_diff_schi",
+      "callee": "tail_diff_identity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailDiff.lean",
+        "line": 71
+      }
+    },
+    {
+      "caller": "tail_contour",
+      "callee": "tail_box_negLD",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "tail_contour",
+      "callee": "tail_shift_identity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+        "line": 44
+      }
+    },
+    {
+      "caller": "tail_contour",
+      "callee": "tc_left_int",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContour.lean",
+        "line": 87
+      }
+    },
+    {
+      "caller": "tc_left_int",
+      "callee": "tc_left_pt",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourB.lean",
+        "line": 186
+      }
+    },
+    {
+      "caller": "tail_box_negLD",
+      "callee": "landau_lemma_lfunction_zeros",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailBox.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "tail_shift_identity",
+      "callee": "perron_formula_character",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourA.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "tail_shift_identity",
+      "callee": "rectangle_contour_shift_character",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/TailContourA.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "rectangle_contour_shift_character",
+      "callee": "perron_integrand_residue_at_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RectShiftChi.lean",
+        "line": 130
+      }
+    }
+  ],
+  "outstanding": [
+    "Upstream analytic inputs include Perron inversion, the local Landau expansion with a multiplicity bound, polynomial growth for the Dirichlet L-function, and the right-half-plane logarithmic-derivative bound. The zero-density and mean-square arguments supplying the two separate selection tests are recorded in PRP-02 and TMS. This contour applies to a twist that has already passed the zero-free-box test."
+  ],
+  "review_scope": "Independently read back against the pinned primary source and checked the finite example. Named written calls are textual relationships. The dependent application of the local hypothesis hY₁ at StagePow line 133 is described separately."
+}

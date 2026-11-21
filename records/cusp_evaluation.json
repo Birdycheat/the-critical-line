@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CEV-01",
+      "chapter": "normalization",
+      "title": "A prescribed nonzero row has a point exceeding half its own supremum",
+      "anchor": "norm-cusp-evaluation",
+      "statement": "For a nonzero multiplicity row t in the bottom model and the prescribed pure tensor w with every factor nonzero, φ=t(w) is nonzero, and B=sup|φ| is finite and positive. There exists x with |φ(x)|>B/2.",
+      "hypotheses": "Use the CM datum, the row discrete-series model, the fixed level with trivial level character and the packet vector w. The Schur inner-product formula and pointwise rapid decay come from the published cuspidal rapid-decay input via the actual suppliers. The chosen quotient has Haar measure and a rational fundamental domain.",
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+          "lines": [
+            18,
+            40
+          ],
+          "declaration": "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean#L18-L40",
+          "declaration_lines": {
+            "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero": 18
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+          "lines": [
+            26,
+            31
+          ],
+          "declaration": "GlobalTheory.SupVal.tprod_ne_zero'",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean#L26-L31",
+          "declaration_lines": {
+            "GlobalTheory.SupVal.tprod_ne_zero'": 26
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean",
+          "lines": [
+            92,
+            101
+          ],
+          "declaration": "GlobalTheory.multT_eq_zero_of_apply_eq_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean#L92-L101",
+          "declaration_lines": {
+            "GlobalTheory.multT_eq_zero_of_apply_eq_zero": 92
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean",
+          "lines": [
+            119,
+            133
+          ],
+          "declaration": "GlobalTheory.multT_eq_zero_of_apply_eq_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean#L119-L133",
+          "declaration_lines": {
+            "GlobalTheory.multT_eq_zero_of_apply_eq_zero": 92
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+          "lines": [
+            33,
+            56
+          ],
+          "declaration": "GlobalTheory.SupVal.exists_bound_half_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean#L33-L56",
+          "declaration_lines": {
+            "GlobalTheory.SupVal.exists_bound_half_lt": 33
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Pair the nonzero pure tensor with factorwise functionals. In the multiplicity space, killing a nonzero tensor forces the Schur scalar to vanish and all row values to have zero squared norm. Order-zero rapid decay bounds φ pointwise. The supremum then gives a strict half-bound with no attainment assumption.",
+      "review": "Checked the quantifier order in Period and distinguished a row-dependent point and amplitude from the uniform depth. Independent review verified the order-zero decay and supremum argument."
+    },
+    {
+      "id": "CEV-02",
+      "chapter": "normalization",
+      "title": "One failed ideal-vector estimate puts the point in a small-size region",
+      "anchor": "norm-cusp-length",
+      "statement": "For a nonzero w in 𝔪Λₓ the product of its archimedean norms is at least λ(x)^f√N(𝔪), where λ(x) is the least normalized submodule size. Failure of the analogous bound at s gives λ(x)<s.",
+      "hypotheses": "Self-dual Hermitian lattice with the finite part transported to x and archimedean frame norms after x⁻¹. The ideal 𝔪 of 𝒪_E is nonzero; f=[F:ℚ]. The least size is the infimum over nonzero submodules, including modules of rank one.",
+      "equations": [
+        "norm-cusp-all-ideals"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/DepthPays.lean",
+          "lines": [
+            30,
+            44
+          ],
+          "declaration": "GlobalTheory.SepPer.Long",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/DepthPays.lean#L30-L44",
+          "declaration_lines": {
+            "GlobalTheory.SepPer.Long": 39
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean",
+          "lines": [
+            51,
+            65
+          ],
+          "declaration": "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean#L51-L65",
+          "declaration_lines": {
+            "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod": 51
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean",
+          "lines": [
+            112,
+            133
+          ],
+          "declaration": "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean#L112-L133",
+          "declaration_lines": {
+            "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod": 51
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean",
+          "lines": [
+            153,
+            176
+          ],
+          "declaration": "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean#L153-L176",
+          "declaration_lines": {
+            "GlobalTheory.LineBound.least_pow_mul_sqrt_absNorm_le_prod": 51
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+          "lines": [
+            65,
+            88
+          ],
+          "declaration": "GlobalTheory.ShortLineCusp.norm_le_of_not_long",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean#L65-L88",
+          "declaration_lines": {
+            "GlobalTheory.ShortLineCusp.norm_le_of_not_long": 67
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For 0≠a∈𝔪, write (a)=𝔪𝔟. The rank-one module 𝔟(w/a) inside Λₓ contains 𝒪_Ew with relative index N(𝔪). The height formula and λ≤size of that module prove the norm inequality.",
+      "review": "Checked the orientation of the ideal index and of the inequality; one contradicting vector suffices, while the resulting length condition holds for every nonzero ideal and nonzero vector therein."
+    },
+    {
+      "id": "CEV-03",
+      "chapter": "normalization",
+      "title": "A short line bounds the cusp value by its real variation",
+      "anchor": "norm-cusp-constant-term",
+      "statement": "If the depth condition on all ideal multiples fails at x for 0<s≤1/2, then |φ(x)|≤L n² f g rd(E) (2s)^{1/q}. Here L controls real one-parameter variations uniformly in the basepoint and place.",
+      "hypotheses": "Rank n≥1, self-dual lattice, integer g≥1 for principal congruence invariance, integer q≥1 bounding the smaller signature component at every real place. The function is automorphic and cuspidal, and obeys the stated directional Lipschitz estimate for L≥0.",
+      "equations": [
+        "norm-cusp-short-bound"
+      ],
+      "dependencies": [
+        "CEV-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+          "lines": [
+            60,
+            91
+          ],
+          "declaration": "GlobalTheory.DeepPoint.exists_step",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean#L60-L91",
+          "declaration_lines": {
+            "GlobalTheory.DeepPoint.exists_step": 60
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+          "lines": [
+            92,
+            115
+          ],
+          "declaration": "GlobalTheory.DeepPoint.exists_step",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean#L92-L115",
+          "declaration_lines": {
+            "GlobalTheory.DeepPoint.exists_step": 60
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsConsecutiveRatioLeRpow.lean",
+          "lines": [
+            30,
+            64
+          ],
+          "declaration": "GlobalTheory.exists_consecutive_ratio_le_rpow",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsConsecutiveRatioLeRpow.lean#L30-L64",
+          "declaration_lines": {
+            "GlobalTheory.exists_consecutive_ratio_le_rpow": 7
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+          "lines": [
+            141,
+            156
+          ],
+          "declaration": "GlobalTheory.DeepPoint.deep_point",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean#L141-L156",
+          "declaration_lines": {
+            "GlobalTheory.DeepPoint.deep_point": 141
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+          "lines": [
+            156,
+            175
+          ],
+          "declaration": "GlobalTheory.DeepPoint.deep_point",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean#L156-L175",
+          "declaration_lines": {
+            "GlobalTheory.DeepPoint.deep_point": 141
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/NormLeOfCuspidalVariationUnipotentRadical.lean",
+          "lines": [
+            15,
+            36
+          ],
+          "declaration": "GlobalTheory.CuspGeo.norm_le_of_unipRad_variation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/NormLeOfCuspidalVariationUnipotentRadical.lean#L15-L36",
+          "declaration_lines": {
+            "GlobalTheory.CuspGeo.norm_le_of_unipRad_variation": 15
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+          "lines": [
+            96,
+            114
+          ],
+          "declaration": "GlobalTheory.ShortLineCusp.norm_le_of_not_long",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean#L96-L114",
+          "declaration_lines": {
+            "GlobalTheory.ShortLineCusp.norm_le_of_not_long": 67
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+          "lines": [
+            119,
+            140
+          ],
+          "declaration": "GlobalTheory.ShortLineCusp.norm_le_of_not_long",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean#L119-L140",
+          "declaration_lines": {
+            "GlobalTheory.ShortLineCusp.norm_le_of_not_long": 67
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The canonical isotropic flag has from one to q size steps between λ and 1/2. A small consecutive ratio gives a rational isotropic space. Strong approximation and the real fundamental set express translates in its adelic unipotent radical by a rational element, two real exponentials and a finite congruence element. A probability average of the differences from φ(x) equals φ(x), since the unipotent constant term is zero. Cauchy–Schwarz converts the two real square-sum bounds to a placewise sum.",
+      "review": "Independently checked the exponent 1/q, the intermediate constant n²√f·g·rd(E)/4 and its enlargement to n²f·g·rd(E). The ratio example realizes equality in both jumps of the comparison sequence."
+    },
+    {
+      "id": "CEV-04",
+      "chapter": "normalization",
+      "title": "A row-independent depth makes every half-supremum point long",
+      "anchor": "norm-cusp-uniform-depth",
+      "statement": "The packet gives L=exp(Q)B. If exp(Q)n²fg rd(E)(2s)^{1/q}≤1/2 with 0<s≤1/2, then every x with |φ(x)|>B/2 has the desired product length at depth s for every ideal. The period uses the same s with a separate lower bound on s^f√N at its level ideal.",
+      "hypotheses": "The packet and loss Q are chosen independently of t, along with the prescribed real and finite level data. The depth theorem supplies one choice of s for those data satisfying all three inequalities in Pays. Its uniformity does not assert a common x or a row-independent positive lower bound on B.",
+      "equations": [],
+      "dependencies": [
+        "CEV-01",
+        "CEV-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+          "lines": [
+            24,
+            32
+          ],
+          "declaration": "GlobalTheory.SepPer.LipValue.lip_value",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean#L24-L32",
+          "declaration_lines": {
+            "GlobalTheory.SepPer.LipValue.lip_value": 19
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+          "lines": [
+            52,
+            75
+          ],
+          "declaration": "GlobalTheory.SepPer.LipValue.lip_value",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean#L52-L75",
+          "declaration_lines": {
+            "GlobalTheory.SepPer.LipValue.lip_value": 19
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+          "lines": [
+            75,
+            89
+          ],
+          "declaration": "GlobalTheory.SepPer.LipValue.lip_value",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean#L75-L89",
+          "declaration_lines": {
+            "GlobalTheory.SepPer.LipValue.lip_value": 19
+          }
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/DepthPays.lean",
+          "lines": [
+            138,
+            146
+          ],
+          "declaration": "GlobalTheory.SepPer.Pays",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/DepthPays.lean#L138-L146",
+          "declaration_lines": {
+            "GlobalTheory.SepPer.Pays": 142
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+          "lines": [
+            40,
+            63
+          ],
+          "declaration": "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean#L40-L63",
+          "declaration_lines": {
+            "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero": 18
+          }
+        },
+        {
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+          "lines": [
+            68,
+            74
+          ],
+          "declaration": "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean#L68-L74",
+          "declaration_lines": {
+            "UpperTheory.Lit.Cusp.exists_cusp_form_theta_period_ne_zero": 18
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Reproduction of the row value up to a nonzero scalar bounds differences by B times the integral of a kernel difference. The L¹ packet estimate and division by the reproducing scalar yield L=exp(Q)B. The short-line estimate would contradict |φ(x)|>B/2. The long condition is then passed to the period theorem without a second selection of x.",
+      "review": "Verified the choices and caller lines, strict and weak inequalities, the actual specialization g=g₀g₁, and the use of the same s for the geometric and arithmetic requirements."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "hDP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "hx₁",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "hx₂",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "exists_bound_multiplicity_value_exceeds_half",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 40
+      }
+    },
+    {
+      "callee": "multT_apply_rapidDec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "unipotentPeriod_value_lipschitz_realOneParameter",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "multT_apply_mul_lev",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 48
+      }
+    },
+    {
+      "callee": "norm_cuspForm_le_of_shortLine",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "hsLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 61
+      }
+    },
+    {
+      "callee": "poincareSeries_pairing_ne_zero_of_large_level",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/Period.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "exists_dual_eq_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 28
+      }
+    },
+    {
+      "callee": "tprod_ne_zero'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "schurMult_multiplicitySpaces_of_rapidDecay",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 40
+      }
+    },
+    {
+      "callee": "multiplicitySpace_eq_zero_of_apply_nonzero_tensor_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 42
+      }
+    },
+    {
+      "callee": "multT_apply_rapidDec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "exists_lt_of_lt_csSup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsBoundMultiplicityValueExceedsHalf.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean",
+        "line": 98
+      }
+    },
+    {
+      "callee": "eq_zero_of_tprodInnerFun",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean",
+        "line": 121
+      }
+    },
+    {
+      "callee": "eq_zero_of_integral_fundDomain",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/MultiplicitySpaceEqZeroOfApplyNonzeroTensorZero.lean",
+        "line": 129
+      }
+    },
+    {
+      "callee": "relIndex_span_singleton",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean",
+        "line": 127
+      }
+    },
+    {
+      "callee": "csInf_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LeastSizePowMulSqrtAbsNormLeProdNorms.lean",
+        "line": 158
+      }
+    },
+    {
+      "callee": "exists_instanceFrames_of_diagonalFrame_selfDual",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "adelicPointRationalLattice_unitaryModelIso_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 82
+      }
+    },
+    {
+      "callee": "leastSize_pow_mul_sqrt_absNorm_le_prod_norms",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "rationalVectorNorm_adelicPoint_twoModels_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 86
+      }
+    },
+    {
+      "callee": "automorphicPoint_exists_isotropic_reduction_of_small_size",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "norm_le_of_unipRad_variation",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 99
+      }
+    },
+    {
+      "callee": "principalCongruence_mem_latticeCongruenceLevel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 110
+      }
+    },
+    {
+      "callee": "lipschitz_bound_real_unipotent_action",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 111
+      }
+    },
+    {
+      "callee": "sum_sqrt_add_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormCuspFormLeOfShortLine.lean",
+        "line": 112
+      }
+    },
+    {
+      "callee": "flag_spec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 67
+      }
+    },
+    {
+      "callee": "flag_isotropic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 89
+      }
+    },
+    {
+      "callee": "exists_consecutive_ratio_le_rpow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 109
+      }
+    },
+    {
+      "callee": "exists_step",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 149
+      }
+    },
+    {
+      "callee": "strong_approximation",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 156
+      }
+    },
+    {
+      "callee": "small_fundamental_set",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AutomorphicPointExistsIsotropicReductionOfSmallS.lean",
+        "line": 171
+      }
+    },
+    {
+      "callee": "cocompact_single",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/NormLeOfCuspidalVariationUnipotentRadical.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "isCuspFun_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/NormLeOfCuspidalVariationUnipotentRadical.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "norm_integral_le_of_norm_le_const",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/NormLeOfCuspidalVariationUnipotentRadical.lean",
+        "line": 33
+      }
+    },
+    {
+      "callee": "integrable_scalar_action_multiplicityMap_values",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "lip",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+        "line": 67
+      }
+    },
+    {
+      "callee": "le_of_mul_le_mul_left",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodValueLipschitzRealOneParameter.lean",
+        "line": 89
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CEV-01",
+      "CEV-04"
+    ],
+    [
+      "CEV-02",
+      "CEV-03"
+    ],
+    [
+      "CEV-03",
+      "CEV-04"
+    ],
+    [
+      "CEV-04",
+      "POT-02"
+    ]
+  ],
+  "outstanding": [
+    "The reconstruction uses the rapid-decay theorem for cuspidal forms, the real packet with its integral variation estimate, the canonical isotropic lattice filtration, strong approximation for its unipotent radical and the quantitative real fundamental set. The first depth inequality and its use here are independent of the remaining arithmetic inequalities fitting the chosen congruence ideal to the period."
+  ]
+}

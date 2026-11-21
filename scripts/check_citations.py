@@ -31,9 +31,14 @@ def main():
     for page in ROOT.glob('*.html'):
         links.feed(page.read_text('utf8'))
     written_calls = []
+    declaration_sites = []
     for file in (ROOT/'records').glob('*.json'):
         record = json.loads(file.read_text('utf8'))
         written_calls.extend((file.name, call) for call in record.get('written_source_calls', []))
+        for claim in record.get('claims', []):
+            for source in claim.get('sources', []):
+                if isinstance(source, dict) and 'declaration_lines' in source:
+                    declaration_sites.append((file.name, source))
         links.links.update(re.findall(r'https://github\.com/[^\s"<>]+/blob/[a-f0-9]{40}/[^\s"<>]+\.lean(?:#L\d+(?:-L\d+)?)?',file.read_text('utf8')))
     ix=sqlite3.connect((args.index/'archive-index.sqlite').as_uri()+'?mode=ro',uri=True) if args.index else None
     @lru_cache(maxsize=None)
@@ -72,6 +77,22 @@ def main():
         pattern = rf"(?<![\w']){re.escape(identifier)}(?![\w'])"
         if not 1 <= line <= len(source_lines) or not re.search(pattern, source_lines[line - 1]):
             errors.append(f"{filename}: {identifier} missing at {site['path']}:{line}")
+    checked_heads = 0
+    for filename, source in declaration_sites:
+        repo, pin = repos[source.get('repository', primary)]
+        source_lines = lines(repo, pin, source['path'])
+        names = [source['declaration'], *source.get('related_declarations', [])]
+        if set(names) != set(source['declaration_lines']):
+            errors.append(f"{filename}: incomplete set of declaration lines for {source['path']}")
+            continue
+        for name, number in source['declaration_lines'].items():
+            pattern = r"\b(?:theorem|lemma|def|abbrev|structure|class|inductive)\s+([\w'.]+)"
+            valid_line = 1 <= number <= min(len(source_lines), source['lines'][1])
+            head = re.search(pattern, source_lines[number-1]) if valid_line else None
+            written_name = head[1].removeprefix('_root_.') if head else ''
+            if not written_name or not (name == written_name or name.endswith('.' + written_name)):
+                errors.append(f"{filename}: declaration {name} missing at {source['path']}:{number}")
+            checked_heads += 1
     if errors: raise ValueError('\n'.join(errors))
-    print(f'Checked {count} pinned URLs and their line ranges, and {len(written_calls)} written call names at the recorded source lines.')
+    print(f'Checked {count} pinned URLs and their line ranges, and {len(written_calls)} written call names at the recorded source lines. Checked {checked_heads} recorded declaration locations.')
 if __name__=='__main__':main()
