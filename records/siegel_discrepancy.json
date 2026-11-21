@@ -1,0 +1,907 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SDR-01",
+      "chapter": "lifts",
+      "anchor": "lifts-siegel-discrepancy",
+      "title": "The averaged one-vector ball count controls the Gaussian in the unbounded cusp",
+      "statement": "For one column, level N≥1 and every R>0 the mean count of nonzero vectors is at most C_N(R^k+R^(2k)), where k=[F:ℚ]M. On the reduced region, the absolute Gaussian contribution of all nonzero vectors is O(Y^(−k/2)) for Y=min Im τ_w≥t>0. Multiplication by the modular weight gives a uniform bound when κ Im τ_w≤Y for every w.",
+      "hypotheses": "CM E/F, nondegenerate E-Hermitian space of dimension M≥3, normalized quotient Haar probability, fixed F-basis of E. Use all archimedean coordinates and the standard finite coordinate lattices. The Gaussian uses positive definite majorants of the trace form. For each fixed finite locally constant compactly supported test, choose its denominator N. The implied constants may depend on these data and t,κ.",
+      "correspondence": "The scalar discrepancy needs one vector in an arbitrary ambient dimension M≥3. The small-radius estimate retains all nonzero isotropic vectors. The packing estimate for large boxes includes zero in its reference box. The dyadic bounds apply throughout the unbounded range of reduced heights.",
+      "dependencies": [
+        "HVO-01",
+        "HVO-02"
+      ],
+      "equations": [
+        "lifts-siegel-ball-count"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian": 29
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+          "lines": [
+            29,
+            58
+          ],
+          "label": "One Hermitian column and its positive trace-form Gaussian",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean#L29-L58"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.SmallQ.small_length",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.SmallQ.small_length": 26
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SmallBoxGramScalarZero.lean",
+          "lines": [
+            26,
+            44
+          ],
+          "label": "The compact box isolates the zero rational norm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SmallBoxGramScalarZero.lean#L26-L44"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.mean_isotropic_box": 82
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+          "lines": [
+            82,
+            115
+          ],
+          "label": "The isotropic mean after splitting a hyperbolic plane",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean#L82-L115"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box": 36
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+          "lines": [
+            36,
+            55
+          ],
+          "label": "The mean count and its two radius estimates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean#L36-L55"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box": 36
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+          "lines": [
+            73,
+            125
+          ],
+          "label": "Why only isotropic vectors survive in a small box",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean#L73-L125"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+          "lines": [
+            55,
+            60
+          ],
+          "label": "Finiteness of the averaged count on a compact set",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean#L55-L60"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntLarge.cnt_large",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntLarge.cnt_large": 61
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingVectorsBoundedLargeRadius.lean",
+          "lines": [
+            61,
+            87
+          ],
+          "label": "Packing a large box around the fixed compact box",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingVectorsBoundedLargeRadius.lean#L61-L87"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BB.CountHyp.main_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BB.CountHyp.main_bound": 70
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilArchimedeanDensity.lean",
+          "lines": [
+            70,
+            83
+          ],
+          "label": "The coordinate ball count in one column",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilArchimedeanDensity.lean#L70-L83"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.ThetaBound.theta_integral_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.ThetaBound.theta_integral_bound": 194
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageExpectedCount.lean",
+          "lines": [
+            194,
+            209
+          ],
+          "label": "Bounding the finite test and the archimedean Gaussian",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageExpectedCount.lean#L194-L209"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.exists_dyadic",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.exists_dyadic": 15
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean",
+          "lines": [
+            15,
+            42
+          ],
+          "label": "Gaussian weights on successive dyadic shells",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean#L15-L42"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.radius_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.radius_bound": 74
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean",
+          "lines": [
+            74,
+            102
+          ],
+          "label": "The two powers at the rescaled shell radii",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean#L74-L102"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.gaussian_sum_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.gaussian_sum_le": 127
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean",
+          "lines": [
+            183,
+            205
+          ],
+          "label": "Summing the radius bounds against the Gaussian",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GaussianSumOfCounting.lean#L183-L205"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.ThetaBound.theta_integral_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.ThetaBound.theta_integral_bound": 194
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageExpectedCount.lean",
+          "lines": [
+            242,
+            273
+          ],
+          "label": "Cancellation of the smallest height against the modular weight",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageExpectedCount.lean#L242-L273"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+          "lines": [
+            93,
+            106
+          ],
+          "label": "The zero norm and the finite-volume estimate on each nonzero fibre",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean#L93-L106"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+          "lines": [
+            127,
+            145
+          ],
+          "label": "Only finitely many rational norms occur in a compact box",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean#L127-L145"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SDR-02",
+      "chapter": "lifts",
+      "anchor": "lifts-siegel-modular-bound",
+      "title": "The weighted Eisenstein tail and finite changes of test bound every scalar coefficient",
+      "statement": "In the product of Hilbert upper half-planes the weighted absolute difference between the theta average and the Eisenstein series is bounded for each fixed finite test. For the positive Gaussian, standard finite lattice dilated by a⁻¹, and β≠0, removing the weight and extracting the β coefficient gives |I(a)−wP(a)|≤C a^([F:ℚ]M) for every positive integer a.",
+      "hypotheses": "The same Hermitian data and coordinate measures as the one-vector estimate, the standard adelic additive character, and M≥3. The finite denominator-ideal series converges because M−1>1. The reduced minimum height is positive. Automorphy transforms both the argument and the finite test.",
+      "correspondence": "The constant term φ(0) cancels exactly. The integral part of a reducing matrix moves the test in a uniformly bounded finite span. Integral translates within each denominator class cost ∏y_w^(1−M), leaving ∏y_w^(1−M/2) after weighting. The Fourier integral is divided by the period volume.",
+      "dependencies": [
+        "SDR-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.ThetaIntegral.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.ThetaIntegral.main": 21
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageIntegralFormula.lean",
+          "lines": [
+            46,
+            55
+          ],
+          "label": "Separating the zero-vector theta term",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageIntegralFormula.lean#L46-L55"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Red.reduction": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+          "lines": [
+            55,
+            72
+          ],
+          "label": "Finite cusp representatives and balancing by units",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean#L55-L72"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound": 74
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean",
+          "lines": [
+            74,
+            105
+          ],
+          "label": "The finite denominator and the archimedean Eisenstein kernel",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean#L74-L105"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.DenSum.fibre_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.DenSum.fibre_bound": 35
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/DenominatorPowerSummable.lean",
+          "lines": [
+            35,
+            41
+          ],
+          "label": "The number of denominator classes with a fixed ideal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/DenominatorPowerSummable.lean#L35-L41"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.DenSum.summable_den",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.DenSum.summable_den": 135
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/DenominatorPowerSummable.lean",
+          "lines": [
+            135,
+            156
+          ],
+          "label": "Summability over denominator ideals",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/DenominatorPowerSummable.lean#L135-L156"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound": 74
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean",
+          "lines": [
+            145,
+            167
+          ],
+          "label": "The Eisenstein tail after multiplication by the weight",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean#L145-L167"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded": 20
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+          "lines": [
+            54,
+            76
+          ],
+          "label": "The common constant term and the two reduced-domain bounds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean#L54-L76"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.orbit_adelic",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.orbit_adelic": 54
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+          "lines": [
+            54,
+            66
+          ],
+          "label": "Integral changes of variables give finitely supported expansions",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean#L54-L66"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded": 20
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+          "lines": [
+            75,
+            94
+          ],
+          "label": "Transport of the weighted norm back to every modular point",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean#L75-L94"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded_a",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded_a": 36
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+          "lines": [
+            43,
+            68
+          ],
+          "label": "The imaginary parts after finite-lattice dilation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean#L43-L68"
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.core",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.core": 70
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+          "lines": [
+            109,
+            131
+          ],
+          "label": "Dividing the integrated coefficient bound by its period volume",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean#L109-L131"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian": 29
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+          "lines": [
+            83,
+            96
+          ],
+          "label": "Identification with the product of the Hermitian densities",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean#L83-L96"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SDR-03",
+      "chapter": "lifts",
+      "anchor": "lifts-schwartz-fibre-density",
+      "title": "Schwartz decay makes every invertible archimedean Gram fibre integrable",
+      "statement": "For a complex Schwartz test Φ on n columns, its integral against the Gram fibre measure m_S exists at every invertible archimedean target. The fibre integrals are continuous there, they disintegrate Φ over each compact regular target set, and scaling source and target Haar by a,a′>0 multiplies them by a/a′.",
+      "hypotheses": "Any CM E/F, nondegenerate Hermitian space of dimension M, any n≥0, all archimedean places, additive source and target Haar measures with an associated regular Gram-fibre family. There is no stable-range or M≥3 requirement for this local theorem. The global application separately assumes its stated rank range.",
+      "correspondence": "In an open target chart, disintegration yields one reference fibre with finite integral of (1+‖x‖)^(−D−1). A local linear transport with bounded inverse provides the same dominator for every nearby test. Compact cutoffs then recover disintegration for the complex test. The global caller applies the lemma at both the original and rescaled measures.",
+      "dependencies": [
+        "GFG-02",
+        "GFG-03"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.SchwartzDensInf",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.SchwartzDensInf": 19
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/Reduce.lean",
+          "lines": [
+            19,
+            29
+          ],
+          "label": "The archimedean Schwartz theorem for an arbitrary number of columns",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/Reduce.lean#L19-L29"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FinOpenGram.finOpen",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FinOpenGram.finOpen": 9
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FinitePartOpen.lean",
+          "lines": [
+            9,
+            26
+          ],
+          "label": "A fibre with finite weight in every open target neighbourhood",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FinitePartOpen.lean#L9-L26"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SecInf.secInf",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SecInf.secInf": 267
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanSection.lean",
+          "lines": [
+            267,
+            280
+          ],
+          "label": "Local congruence transports at all archimedean places",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanSection.lean#L267-L280"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of": 28
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean",
+          "lines": [
+            82,
+            105
+          ],
+          "label": "The quotient of target and source Haar scaling under congruence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean#L82-L105"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_clm_comp",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_clm_comp": 34
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean",
+          "lines": [
+            34,
+            65
+          ],
+          "label": "Perturbing the linear transport and applying dominated convergence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean#L34-L65"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_of_linear_push",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_of_linear_push": 71
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean",
+          "lines": [
+            71,
+            107
+          ],
+          "label": "The reference fibre and the uniform integrable majorant",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean#L71-L107"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of": 28
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean",
+          "lines": [
+            106,
+            146
+          ],
+          "label": "Continuity for the test and its absolute value",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean#L106-L146"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.DensInt.density_limit",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.DensInt.density_limit": 25
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityIntegral.lean",
+          "lines": [
+            25,
+            75
+          ],
+          "label": "Removing compact cutoffs in the source and on the target",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityIntegral.lean#L25-L75"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of": 445
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            482,
+            501
+          ],
+          "label": "The two uses at infinity and the scaled density",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L482-L501"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+      "callee": "GlobalTheory.T.positive_majorant_gaussian",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.T.positive_majorant_gaussian"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+      "callee": "GlobalTheory.T.average_rational_vector_count_ball_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.average_rational_vector_count_ball_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+      "callee": "GlobalTheory.T.small_box_gram_scalar_zero",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+        "line": 52,
+        "spelling": "GlobalTheory.T.small_box_gram_scalar_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+      "callee": "GlobalTheory.T.isotropic_vector_count_box_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.T.isotropic_vector_count_box_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+      "callee": "GlobalTheory.T.counting_vectors_bounded_large_radius",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.T.counting_vectors_bounded_large_radius"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntLarge.cnt_large",
+      "callee": "GlobalTheory.T.theta_count_compact_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingVectorsBoundedLargeRadius.lean",
+        "line": 66,
+        "spelling": "GlobalTheory.T.theta_count_compact_finite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntLarge.cnt_large",
+      "callee": "GlobalTheory.T.adelic_box_lattice_count_ratio",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingVectorsBoundedLargeRadius.lean",
+        "line": 72,
+        "spelling": "GlobalTheory.T.adelic_box_lattice_count_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.isotropic_vector_splits_hyperbolic_plane",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.T.isotropic_vector_splits_hyperbolic_plane"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 115,
+        "spelling": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound",
+      "callee": "GlobalTheory.T.fourier_coefficient_growth_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean",
+        "line": 84,
+        "spelling": "GlobalTheory.T.fourier_coefficient_growth_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound",
+      "callee": "GlobalTheory.T.eisenstein_lattice_sum_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean",
+        "line": 85,
+        "spelling": "GlobalTheory.T.eisenstein_lattice_sum_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.EiBound.ei_bound",
+      "callee": "GlobalTheory.T.denominator_power_summable",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionGrowthBound.lean",
+        "line": 87,
+        "spelling": "GlobalTheory.T.denominator_power_summable"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+      "callee": "GlobalTheory.T.reduction_to_siegel_domain",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.T.reduction_to_siegel_domain"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+      "callee": "GlobalTheory.T.weighted_theta_average_le_of_countData",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.weighted_theta_average_le_of_countData"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.exists_cusp_reduction_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.exists_cusp_reduction_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.cusp_representatives_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.cusp_representatives_finite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Red.reduction",
+      "callee": "GlobalTheory.T.unit_balancing_imaginary_parts",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+        "line": 59,
+        "spelling": "GlobalTheory.T.unit_balancing_imaginary_parts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+      "callee": "GlobalTheory.T.global_product_gram_fiber_rank_one",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 88,
+        "spelling": "GlobalTheory.T.global_product_gram_fiber_rank_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BB.bound_hermitian",
+      "callee": "GlobalTheory.T.trace_form_rational_theta_identity",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HaarFundamentalDomainRankOneDensity.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.T.trace_form_rational_theta_identity"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of",
+      "callee": "GlobalTheory.T.gram_fiber_measures_rmul_equivariant",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean",
+        "line": 88,
+        "spelling": "GlobalTheory.T.gram_fiber_measures_rmul_equivariant"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+      "callee": "GlobalTheory.T.gram_fiber_measures_scaling",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 499,
+        "spelling": "GlobalTheory.T.gram_fiber_measures_scaling"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.ThetaBound.theta_integral_bound",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.gaussian_sum_of_counting",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaAverageExpectedCount.lean",
+        "line": 204,
+        "spelling": "GlobalTheory.CompanionTheory.SW.Core.GaussianDyadic.gaussian_sum_of_counting"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.DenSum.summable_den",
+      "callee": "GlobalTheory.countable_ideal_and_summable_absNorm_rpow",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/DenominatorPowerSummable.lean",
+        "line": 141,
+        "spelling": "GlobalTheory.countable_ideal_and_summable_absNorm_rpow"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded",
+      "callee": "orbit_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/Bounded.lean",
+        "line": 72,
+        "spelling": "orbit_adelic"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.bounded_a",
+      "callee": "bounded",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 38,
+        "spelling": "bounded"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.core",
+      "callee": "bounded_a",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/BoundedA.lean",
+        "line": 75,
+        "spelling": "bounded_a"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_clm_comp",
+      "callee": "tendsto_integral_filter_of_dominated_convergence",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean",
+        "line": 60,
+        "spelling": "tendsto_integral_filter_of_dominated_convergence"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.PushFam.integrable_continuousAt_of_linear_push",
+      "callee": "integrable_continuousAt_clm_comp",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanFamilyContinuity.lean",
+        "line": 91,
+        "spelling": "integrable_continuousAt_clm_comp"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.DensInt.density_limit",
+      "callee": "tendsto_integral_of_dominated_convergence",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityIntegral.lean",
+        "line": 53,
+        "spelling": "tendsto_integral_of_dominated_convergence"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.DensInt.density_limit",
+      "callee": "tendsto_integral_of_dominated_convergence",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityIntegral.lean",
+        "line": 61,
+        "spelling": "tendsto_integral_of_dominated_convergence"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.DensInt.density_limit",
+      "callee": "tendsto_integral_of_dominated_convergence",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DensityIntegral.lean",
+        "line": 71,
+        "spelling": "tendsto_integral_of_dominated_convergence"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 495,
+        "spelling": "hB"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 500,
+        "spelling": "hB"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf",
+      "callee": "GlobalTheory.T.archimedean_family_continuity",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.T.archimedean_family_continuity"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf",
+      "callee": "GlobalTheory.T.archimedean_section",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.T.archimedean_section"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf",
+      "callee": "GlobalTheory.T.density_integral",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 11,
+        "spelling": "GlobalTheory.T.density_integral"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.isotropic_vector_count_box_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.T.isotropic_vector_count_box_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.finite_volume_induction_compact_sum",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 103,
+        "spelling": "GlobalTheory.T.finite_volume_induction_compact_sum"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.rational_gram_adelic_compact_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 130,
+        "spelling": "GlobalTheory.T.rational_gram_adelic_compact_finite"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SDR-01",
+      "SDR-02"
+    ],
+    [
+      "SDR-02",
+      "OVM-01"
+    ],
+    [
+      "GFG-02",
+      "SDR-03"
+    ],
+    [
+      "GFG-03",
+      "SDR-03"
+    ],
+    [
+      "SDR-03",
+      "GGD-03"
+    ]
+  ],
+  "outstanding": [
+    "The isotropic shell count and the compact nonzero-fibre mean are reconstructed in the orbit argument. The reduction to finitely many cusp representatives, finite Weil orbit of tests, integral translates, and transverse parabolic quotient volumes remain inputs."
+  ]
+}

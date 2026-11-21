@@ -102,7 +102,14 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "central-rounding") {
+        if (id === "progression-difference") {
+          assert.equal(await fig.locator("caption").innerText(), "Integer weights for y = 4, u = 6");
+          assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "1", "1", "0"]);
+          assert.deepEqual(await fig.locator("tbody tr").nth(3).locator("td").allInnerTexts(), ["log 2", "1", "1", "log 2"]);
+          assert.deepEqual(await fig.locator("tbody tr").nth(4).locator("td").allInnerTexts(), ["log 5", "1", "2/5", "2/5 log 5"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["0", "0", "0", "0"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2 log 2", "2/5 log 5", "2.0301"]);
+        } else if (id === "central-rounding") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "3/4", "1", "1/4"]);
           assert.equal(await fig.locator("svg circle").count(), 5);
         } else if (id === "cusp-trace-mass") {
@@ -254,6 +261,15 @@ async function run() {
         "book overflows " + width,
       );
     }
+    await openFigure(page, base + "book.html?progression-difference.y=8&progression-difference.chi=quadratic#fig-progression-difference");
+    const difference = page.locator("#fig-progression-difference.ready");
+    assert.deepEqual(await difference.locator("tbody tr").nth(7).locator("td").allInnerTexts(), ["log 2", "−1", "1", "−log 2"]);
+    assert.deepEqual(await difference.locator("tbody tr").nth(8).locator("td").allInnerTexts(), ["log 3", "0", "2/3", "0"]);
+    assert.deepEqual(await difference.locator("tbody tr").nth(10).locator("td").allInnerTexts(), ["log 11", "−1", "2/11", "−2/11 log 11"]);
+    assert.deepEqual(await difference.locator(".metrics dd").allInnerTexts(), ["−log 2 − log 5 + log 7", "−2/11 log 11", "−0.7927"]);
+    await difference.getByRole("combobox", {name: "Relative step δ"}).selectOption("4");
+    assert.equal(await difference.locator("caption").innerText(), "Integer weights for y = 8, u = 10");
+    assert.equal(await difference.locator(".metrics dd").nth(1).innerText(), "0");
     await openFigure(page, base + "book.html?minimum-scale.scale=16&minimum-scale.direction=dual#fig-minimum-scale");
     const minimum = page.locator("#fig-minimum-scale.ready");
     assert.deepEqual(await minimum.locator(".metrics dd").allInnerTexts(), ["193", "49", "e₂ / 64"]);
@@ -510,6 +526,11 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    const plainDifference = plain.locator("#fig-progression-difference");
+    assert.equal(await plainDifference.locator("tbody tr").count(), 6);
+    assert.deepEqual(await plainDifference.locator(".metrics dd").allInnerTexts(), ["2 log 2", "2/5 log 5", "2.0301"]);
+    assert.ok(await plainDifference.locator("table").evaluate(el =>
+      el.getBoundingClientRect().width <= el.closest("figure").getBoundingClientRect().width + 1));
     assert.deepEqual(await plain.locator("#fig-minimum-scale .metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
     assert.deepEqual(await plain.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
     assert.ok(await plain.locator("#fig-central-period svg").isVisible());

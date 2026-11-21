@@ -1,0 +1,652 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SPF-01",
+      "chapter": "inputs",
+      "anchor": "inputs-smoothed-progression-formula",
+      "title": "A truncated rectangle gives the normalized smoothed prime sum and its local zero multiplicities",
+      "statement": "For a character modulo m, Sχ(y)/y equals a constant Kχ plus the principal logarithm log y−1 minus the finite sum of aρ y^(ρ−1)/[ρ(ρ−1)], with error bounded by Cκ[(mT)^Cκ y^(−κ/2)+(log y)log²(mT)/T]. The outer list lies in Re ρ>1−κ and |Im ρ|≤T+1 and contains every zero at Re ρ≥1−κ/2, |Im ρ|≤T. Local multiplicities sum to O(log(m(|t|+2))).",
+      "hypotheses": "m≥3, T≥2, 0<κ≤1/20, y≥2, χ a Dirichlet character modulo m; no primitivity restriction. The left side, heights and zero list are fixed before y varies. The moving right side remains in Re s>1.",
+      "definitions": [
+        "Sχ(y) sums Λ(n)χ(n)(y/n−1) up to y. The constant is −Fχ′(1)/Fχ(1), where the pole of the principal L-function has been removed."
+      ],
+      "dependencies": [
+        "LZE-02"
+      ],
+      "equations": [
+        "inputs-progression-smoothed-identity"
+      ],
+      "sources": [
+        {
+          "declaration": "explicitFormulaConstant",
+          "label": "Removing the principal pole and defining the kernel, orders and constant",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplDefs.lean",
+          "lines": [
+            12,
+            20
+          ],
+          "declaration_lines": {
+            "explicitFormulaConstant": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplDefs.lean#L12-L20"
+        },
+        {
+          "declaration": "perron_formula_character",
+          "label": "Perron inversion for this complex character and its continuous weight",
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/PerronChi.lean",
+          "lines": [
+            283,
+            305
+          ],
+          "declaration_lines": {
+            "perron_formula_character": 283
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/PerronChi.lean#L283-L305"
+        },
+        {
+          "declaration": "ex_local",
+          "label": "Local zero multiplicity and logarithmic derivative in concentric disks",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplLocL.lean",
+          "lines": [
+            86,
+            96
+          ],
+          "declaration_lines": {
+            "ex_local": 86
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplLocL.lean#L86-L96"
+        },
+        {
+          "declaration": "ex_box",
+          "label": "Multiplicity in a unit window and the number of available ordinates",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplBox.lean",
+          "lines": [
+            115,
+            132
+          ],
+          "declaration_lines": {
+            "ex_box": 115
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplBox.lean#L115-L132"
+        },
+        {
+          "declaration": "ex_choose",
+          "label": "Avoiding zeros on the vertical and horizontal boundaries",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplPick.lean",
+          "lines": [
+            43,
+            110
+          ],
+          "declaration_lines": {
+            "ex_choose": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplPick.lean#L43-L110"
+        },
+        {
+          "declaration": "ex_negLD_bound",
+          "label": "Logarithmic derivative away from the listed zeros",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplNeg.lean",
+          "lines": [
+            27,
+            34
+          ],
+          "declaration_lines": {
+            "ex_negLD_bound": 27
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplNeg.lean#L27-L34"
+        },
+        {
+          "declaration": "ex_rect_Fchi",
+          "label": "The contour identity with its zero sign and the principal double pole",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplRectF.lean",
+          "lines": [
+            154,
+            160
+          ],
+          "declaration_lines": {
+            "ex_rect_Fchi": 154
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplRectF.lean#L154-L160"
+        },
+        {
+          "declaration": "exm_core",
+          "label": "The combined bounds for the two tails, left edge and horizontal edges",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+          "lines": [
+            31,
+            55
+          ],
+          "declaration_lines": {
+            "exm_core": 31
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean#L31-L55"
+        },
+        {
+          "declaration": "exm_core",
+          "label": "Shifting the Perron integral and dividing by the argument",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+          "lines": [
+            124,
+            168
+          ],
+          "declaration_lines": {
+            "exm_core": 31
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean#L124-L168"
+        },
+        {
+          "declaration": "exm_left_num",
+          "label": "The fourth power of the height-modulus product bounds the left edge",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainA.lean",
+          "lines": [
+            152,
+            163
+          ],
+          "declaration_lines": {
+            "exm_left_num": 152
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainA.lean#L152-L163"
+        },
+        {
+          "declaration": "smoothed_explicit_formula",
+          "label": "Choosing a finite zero list and preserving the local multiplicity estimate",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+          "lines": [
+            15,
+            74
+          ],
+          "declaration_lines": {
+            "smoothed_explicit_formula": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean#L15-L74"
+        },
+        {
+          "declaration": "smoothed_explicit_formula",
+          "label": "The two errors in the final normalized smoothed formula",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+          "lines": [
+            75,
+            97
+          ],
+          "declaration_lines": {
+            "smoothed_explicit_formula": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean#L75-L97"
+        }
+      ]
+    },
+    {
+      "id": "SPF-02",
+      "chapter": "inputs",
+      "anchor": "inputs-progression-finite-difference",
+      "title": "The scaled endpoint difference restores the prime sum and isolates the exceptional character",
+      "statement": "At u=(1+δ)y, scaling by yu/(u−y) recovers ψχ(y) up to the short interval. The sharp error is at most 4yE/δ+20δy Σ aρ y^(Re ρ−1)+4(δy+1)log(2y). With T=m^12 and δ=m^−5 the total character error in the large-modulus range is at most By/m²+22yW. Character orthogonality gives the individual progression main terms.",
+      "hypotheses": "y≥2, 0<δ≤1/2, one finite list and one constant at both arguments, 1/2≤Re ρ<1, and E bounds the smoothed error at both endpoints. The final specialization uses 8|m and the two displayed large-modulus range inequalities. The class a is relatively prime to m.",
+      "definitions": [
+        "W is the sum over all characters of the residual zero weights with one selected exceptional occurrence removed if listed."
+      ],
+      "dependencies": [
+        "SPF-01"
+      ],
+      "equations": [
+        "inputs-progression-differenced-identity"
+      ],
+      "sources": [
+        {
+          "declaration": "sharp_schi_div",
+          "label": "The exact continuity weight and its sharp difference",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpB.lean",
+          "lines": [
+            25,
+            42
+          ],
+          "declaration_lines": {
+            "sharp_schi_div": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpB.lean#L25-L42"
+        },
+        {
+          "declaration": "sharp_arith",
+          "label": "Bounding prime powers in the short end interval",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpB.lean",
+          "lines": [
+            106,
+            123
+          ],
+          "declaration_lines": {
+            "sharp_arith": 106
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpB.lean#L106-L123"
+        },
+        {
+          "declaration": "differenced_kernel_bound",
+          "label": "The derivative and second-order error of one zero kernel",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpA.lean",
+          "lines": [
+            26,
+            60
+          ],
+          "declaration_lines": {
+            "differenced_kernel_bound": 26
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpA.lean#L26-L60"
+        },
+        {
+          "declaration": "sharp_zero_term",
+          "label": "Cancelling the zero denominator after differencing",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+          "lines": [
+            13,
+            42
+          ],
+          "declaration_lines": {
+            "sharp_zero_term": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean#L13-L42"
+        },
+        {
+          "declaration": "sharp_log_term",
+          "label": "The difference of the principal logarithm",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+          "lines": [
+            44,
+            67
+          ],
+          "declaration_lines": {
+            "sharp_log_term": 44
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean#L44-L67"
+        },
+        {
+          "declaration": "differenced_explicit_formula",
+          "label": "Cancellation of the regular constant and the three sharp error terms",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+          "lines": [
+            120,
+            156
+          ],
+          "declaration_lines": {
+            "differenced_explicit_formula": 69
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean#L120-L156"
+        },
+        {
+          "declaration": "psi_relative_far_range",
+          "label": "The height m to the twelfth and the difference width m to the minus fifth",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+          "lines": [
+            30,
+            56
+          ],
+          "declaration_lines": {
+            "psi_relative_far_range": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean#L30-L56"
+        },
+        {
+          "declaration": "psi_relative_far_range",
+          "label": "Using a common remainder at both endpoints",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+          "lines": [
+            62,
+            93
+          ],
+          "declaration_lines": {
+            "psi_relative_far_range": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean#L62-L93"
+        },
+        {
+          "declaration": "excT_sub_le",
+          "label": "Removing a listed real zero or bounding it if it lies left of the inner strip",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmB.lean",
+          "lines": [
+            68,
+            108
+          ],
+          "declaration_lines": {
+            "excT_sub_le": 68
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmB.lean#L68-L108"
+        },
+        {
+          "declaration": "psi_relative_far_range",
+          "label": "Summing the complementary weights and handling one exceptional character",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+          "lines": [
+            103,
+            138
+          ],
+          "declaration_lines": {
+            "psi_relative_far_range": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean#L103-L138"
+        },
+        {
+          "declaration": "num_main",
+          "label": "Size range and uniform remainder after summing over the characters",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmA.lean",
+          "lines": [
+            88,
+            98
+          ],
+          "declaration_lines": {
+            "num_main": 88
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmA.lean#L88-L98"
+        },
+        {
+          "declaration": "num_main",
+          "label": "Absorbing the truncated contour and the short-interval costs",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmA.lean",
+          "lines": [
+            128,
+            157
+          ],
+          "declaration_lines": {
+            "num_main": 88
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsmA.lean#L128-L157"
+        },
+        {
+          "declaration": "abs_psiAP_sub_le",
+          "label": "Character orthogonality for a reduced residue class",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean",
+          "lines": [
+            102,
+            111
+          ],
+          "declaration_lines": {
+            "abs_psiAP_sub_le": 102
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean#L102-L111"
+        },
+        {
+          "declaration": "mainPsi_sum_some",
+          "label": "Mean and exceptional terms for the individual class",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean",
+          "lines": [
+            135,
+            167
+          ],
+          "declaration_lines": {
+            "mainPsi_sum_some": 145
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean#L135-L167"
+        },
+        {
+          "declaration": "pnt_progressions_relative_weak_holds",
+          "label": "The smoothed and differenced estimates used in the progression theorem",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+          "lines": [
+            16,
+            24
+          ],
+          "declaration_lines": {
+            "pnt_progressions_relative_weak_holds": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean#L16-L24"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "explicitS_proof'",
+      "callee": "smoothed_explicit_formula",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 16,
+        "spelling": "smoothed_explicit_formula"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "differenced_explicit_formula",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "differenced_explicit_formula"
+      }
+    },
+    {
+      "caller": "pnt_progressions_relative_weak_holds",
+      "callee": "explicitS_proof'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean",
+        "line": 24,
+        "spelling": "explicitS_proof'"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "ex_choose",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 17,
+        "spelling": "ex_choose"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "ex_box",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 18,
+        "spelling": "ex_box"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "exm_core",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 19,
+        "spelling": "exm_core"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "explicitFormulaConstant",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 43,
+        "spelling": "explicitFormulaConstant"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "exm_tail_num",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 83,
+        "spelling": "exm_tail_num"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "exm_horiz_num",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 84,
+        "spelling": "exm_horiz_num"
+      }
+    },
+    {
+      "caller": "smoothed_explicit_formula",
+      "callee": "exm_left_num",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMain.lean",
+        "line": 85,
+        "spelling": "exm_left_num"
+      }
+    },
+    {
+      "caller": "exm_core",
+      "callee": "ex_negLD_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+        "line": 44,
+        "spelling": "ex_negLD_bound"
+      }
+    },
+    {
+      "caller": "exm_core",
+      "callee": "ex_tail_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+        "line": 45,
+        "spelling": "ex_tail_bound"
+      }
+    },
+    {
+      "caller": "exm_core",
+      "callee": "ex_rect_Fchi",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+        "line": 149,
+        "spelling": "ex_rect_Fchi"
+      }
+    },
+    {
+      "caller": "exm_core",
+      "callee": "perron_formula_character",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplMainB.lean",
+        "line": 150,
+        "spelling": "perron_formula_character"
+      }
+    },
+    {
+      "caller": "ex_choose",
+      "callee": "ex_box",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplPick.lean",
+        "line": 49,
+        "spelling": "ex_box"
+      }
+    },
+    {
+      "caller": "ex_box",
+      "callee": "ex_local",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTExplBox.lean",
+        "line": 121,
+        "spelling": "ex_local"
+      }
+    },
+    {
+      "caller": "differenced_explicit_formula",
+      "callee": "sharp_arith",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+        "line": 76,
+        "spelling": "sharp_arith"
+      }
+    },
+    {
+      "caller": "differenced_explicit_formula",
+      "callee": "sharp_zero_term",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+        "line": 99,
+        "spelling": "sharp_zero_term"
+      }
+    },
+    {
+      "caller": "differenced_explicit_formula",
+      "callee": "sharp_log_term",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+        "line": 111,
+        "spelling": "sharp_log_term"
+      }
+    },
+    {
+      "caller": "sharp_zero_term",
+      "callee": "sharp_kernel",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharp.lean",
+        "line": 36,
+        "spelling": "sharp_kernel"
+      }
+    },
+    {
+      "caller": "sharp_kernel",
+      "callee": "differenced_kernel_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpA.lean",
+        "line": 67,
+        "spelling": "differenced_kernel_bound"
+      }
+    },
+    {
+      "caller": "sharp_arith",
+      "callee": "sharp_identity",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTSharpB.lean",
+        "line": 109,
+        "spelling": "sharp_identity"
+      }
+    },
+    {
+      "caller": "psi_relative_far_range",
+      "callee": "num_main",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+        "line": 20,
+        "spelling": "num_main"
+      }
+    },
+    {
+      "caller": "psi_relative_far_range",
+      "callee": "one_char",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTBAsm.lean",
+        "line": 115,
+        "spelling": "one_char"
+      }
+    },
+    {
+      "caller": "abs_psiAP_sub_le",
+      "callee": "chebyshev_progression_orthogonality",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTPiA.lean",
+        "line": 109,
+        "spelling": "chebyshev_progression_orthogonality"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SPF-01",
+      "SPF-02"
+    ],
+    [
+      "SPF-01",
+      "EZS-01"
+    ],
+    [
+      "SPF-02",
+      "EZS-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Mellin inversion",
+      "url": "https://dlmf.nist.gov/2.5.E2"
+    },
+    {
+      "title": "Residue theorem",
+      "url": "https://dlmf.nist.gov/1.10.E8"
+    }
+  ],
+  "outstanding": [
+    "Local analytic growth, a lower bound at the disk centre, and factorization with multiplicities are treated in the local zero expansion. Mellin inversion and the residue theorem are standard analytic inputs. The weighted residual zero bound is used downstream. The small-modulus prime theorem is separate."
+  ]
+}

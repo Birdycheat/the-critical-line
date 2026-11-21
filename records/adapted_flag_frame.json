@@ -1,0 +1,723 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "AFF-01",
+      "chapter": "global",
+      "anchor": "global-adapted-flag-lattice",
+      "title": "Splitting the successive saturated flag lattices",
+      "statement": "The marked lattice is the direct sum of full coefficient lattices in rational block coordinates. An integral projector exists onto their total rational span.",
+      "hypotheses": "A full self-dual lattice, a saturated isotropic flag and the Dedekind domain of integers of its CM field.",
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Self-duality of the finite-point lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutPointLatticeIntersectionSelfDualProperties.lean",
+          "lines": [
+            144,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AutPointLatticeIntersectionSelfDualProperties.lean#L144-L158",
+          "declaration": "lamX_selfDual",
+          "declaration_lines": {
+            "lamX_selfDual": 144
+          }
+        },
+        {
+          "label": "A section of the torsion-free quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SaturatedHasComplement.lean",
+          "lines": [
+            9,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SaturatedHasComplement.lean#L9-L43",
+          "declaration": "saturated_has_complement",
+          "declaration_lines": {
+            "saturated_has_complement": 9
+          }
+        },
+        {
+          "label": "Splitting each stage of a saturated flag",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsComplOfSaturated.lean",
+          "lines": [
+            20,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsComplOfSaturated.lean#L20-L37",
+          "declaration": "saturatedFlag_splits",
+          "declaration_lines": {
+            "saturatedFlag_splits": 20
+          }
+        },
+        {
+          "label": "Coordinates on a rational span and its coefficient lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+          "lines": [
+            169,
+            194
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean#L169-L194",
+          "declaration": "exists_model",
+          "declaration_lines": {
+            "exists_model": 169
+          }
+        },
+        {
+          "label": "Assembling the partial sums of the flag",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+          "lines": [
+            191,
+            224
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean#L191-L224",
+          "declaration": "exists_blocks",
+          "declaration_lines": {
+            "exists_blocks": 191
+          }
+        },
+        {
+          "label": "Extending the integral projection to the rational space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            9,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L9-L32",
+          "declaration": "exists_projector",
+          "declaration_lines": {
+            "exists_projector": 9
+          }
+        },
+        {
+          "label": "The projector as one minus a section of the quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            33,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L33-L62"
+        },
+        {
+          "label": "The marked flag and its chosen block lattices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+          "lines": [
+            68,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean#L68-L90",
+          "declaration": "exists_isAdapted",
+          "declaration_lines": {
+            "exists_isAdapted": 68
+          }
+        }
+      ],
+      "equations": []
+    },
+    {
+      "id": "AFF-02",
+      "chapter": "global",
+      "anchor": "global-adapted-opposite",
+      "title": "An integral opposite isotropic space from two projectors",
+      "statement": "The integral trace-one correction of the adjoint projector gives the opposite isotropic space, dual pairing and integral splitting into its two sides and the orthogonal residual lattice.",
+      "hypotheses": "A nonsingular integral self-dual Hermitian lattice and a trace-one integer. Finite unramifiedness supplies such an integer.",
+      "dependencies": [
+        "AFF-01"
+      ],
+      "sources": [
+        {
+          "label": "The adjoint in the Hermitian form",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            98,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L98-L108",
+          "declaration": "exists_adjoint",
+          "declaration_lines": {
+            "exists_adjoint": 98
+          }
+        },
+        {
+          "label": "An integral projector and its integral adjoint",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            110,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L110-L129",
+          "declaration": "split_of_trace",
+          "declaration_lines": {
+            "split_of_trace": 110
+          }
+        },
+        {
+          "label": "Trace one corrects the opposite projector",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            130,
+            149
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L130-L149"
+        },
+        {
+          "label": "Equal ranks, perfect pairing and the integral splitting",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            150,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L150-L169"
+        },
+        {
+          "label": "The integral trace-one element",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsTraceOne.lean",
+          "lines": [
+            32,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsTraceOne.lean#L32-L49",
+          "declaration": "exists_trace_one",
+          "declaration_lines": {
+            "exists_trace_one": 32
+          }
+        },
+        {
+          "label": "Integral splitting for an unramified CM field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+          "lines": [
+            172,
+            175
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean#L172-L175",
+          "declaration": "main",
+          "declaration_lines": {
+            "main": 172
+          }
+        },
+        {
+          "label": "From the isotropic span to an integral splitting",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+          "lines": [
+            117,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean#L117-L151"
+        }
+      ],
+      "equations": [
+        "global-adapted-projector"
+      ]
+    },
+    {
+      "id": "AFF-03",
+      "chapter": "global",
+      "anchor": "global-adapted-finite-place",
+      "title": "Finite-place equivalence of self-dual residual lattices",
+      "statement": "Unimodular Hermitian lattices at a split or unramified finite place have one completed isometry class at fixed rank. In a common rational space one can also match the localized lattices by a rational isometry at that place.",
+      "hypotheses": "Characteristic-zero CM field, finite place split or unramified, and a nondegenerate Hermitian form. Rational approximation is asserted at the chosen place.",
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Congruence of an integral unimodular Hermitian matrix to the identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/FiniteResidueFieldAdicCompletionIntegers.lean",
+          "lines": [
+            570,
+            599
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/FiniteResidueFieldAdicCompletionIntegers.lean#L570-L599",
+          "declaration": "exists_eq_transpose_mul_map_locConj",
+          "declaration_lines": {
+            "exists_eq_transpose_mul_map_locConj": 570
+          }
+        },
+        {
+          "label": "One finite genus for modular lattices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/FiniteResidueFieldAdicCompletionIntegers.lean",
+          "lines": [
+            788,
+            817
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AdelicLatticeProofs/FiniteResidueFieldAdicCompletionIntegers.lean#L788-L817",
+          "declaration": "exists_isLocalIsometry_of_modular",
+          "declaration_lines": {
+            "exists_isLocalIsometry_of_modular": 788
+          }
+        },
+        {
+          "label": "Comparing integral frames in the completed algebra",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            20,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L20-L54",
+          "declaration": "exists_factor",
+          "declaration_lines": {
+            "exists_factor": 20
+          }
+        },
+        {
+          "label": "Approximation by a rational isometry in the same lattice coset",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            55,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L55-L81"
+        },
+        {
+          "label": "Rational approximation in Cayley coordinates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsCoprimeScaledIsometrySameSignature.lean",
+          "lines": [
+            18,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsCoprimeScaledIsometrySameSignature.lean#L18-L52",
+          "declaration": "exists_unitary_congr",
+          "declaration_lines": {
+            "exists_unitary_congr": 18
+          }
+        },
+        {
+          "label": "Infinitely many scalars of norm one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsCoprimeScaledIsometrySameSignature.lean",
+          "lines": [
+            134,
+            154
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsCoprimeScaledIsometrySameSignature.lean#L134-L154",
+          "declaration": "infinite_norm_one",
+          "declaration_lines": {
+            "infinite_norm_one": 134
+          }
+        },
+        {
+          "label": "Comparing rationally localized lattices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            186,
+            226
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L186-L226",
+          "declaration": "exists_isom",
+          "declaration_lines": {
+            "exists_isom": 186
+          }
+        },
+        {
+          "label": "Local denominators from the real base field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            94,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L94-L115",
+          "declaration": "mem_loc_iff",
+          "declaration_lines": {
+            "mem_loc_iff": 94
+          }
+        }
+      ],
+      "equations": [
+        "global-adapted-cayley"
+      ]
+    },
+    {
+      "id": "AFF-04",
+      "chapter": "global",
+      "anchor": "global-adapted-model-class",
+      "title": "Identifying the residual model and the marked class",
+      "statement": "The dual coefficient lattices, a finite residual lattice representative and the partial sums determine the marked slice up to rational isometry and compact finite level.",
+      "hypotheses": "Finite-unramified CM data, common signature (p,q), positive flag jumps with sum d at most min(p,q), and a compatible prescribed residual self-dual model of signature (p−d,q−d).",
+      "dependencies": [
+        "AFF-02",
+        "AFF-03"
+      ],
+      "sources": [
+        {
+          "label": "Dual bases in the two opposite isotropic spaces",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+          "lines": [
+            225,
+            255
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean#L225-L255",
+          "declaration": "exists_witt",
+          "declaration_lines": {
+            "exists_witt": 225
+          }
+        },
+        {
+          "label": "Residual signature after removing the hyperbolic pairs",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+          "lines": [
+            83,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean#L83-L114",
+          "declaration": "hasSignature_complement",
+          "declaration_lines": {
+            "hasSignature_complement": 83
+          }
+        },
+        {
+          "label": "The residual integral factor is a full self-dual lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+          "lines": [
+            280,
+            314
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean#L280-L314",
+          "declaration": "exists_factor_lattice",
+          "declaration_lines": {
+            "exists_factor_lattice": 280
+          }
+        },
+        {
+          "label": "Local data and the global isometry of residual forms",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermitianSpacesSameSignatureIsometric.lean",
+          "lines": [
+            87,
+            120
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermitianSpacesSameSignatureIsometric.lean#L87-L120"
+        },
+        {
+          "label": "Local equivalence at a finite place of an unramified CM field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            229,
+            245
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L229-L245",
+          "declaration": "exists_isom_of_isUnimodularAt",
+          "declaration_lines": {
+            "exists_isom_of_isUnimodularAt": 229
+          }
+        },
+        {
+          "label": "Local self-duality puts the residual lattice in the genus",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean",
+          "lines": [
+            14,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean#L14-L29",
+          "declaration": "mem_genus",
+          "declaration_lines": {
+            "mem_genus": 14
+          }
+        },
+        {
+          "label": "Realizing a self-dual residual lattice by a finite adelic point",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean",
+          "lines": [
+            39,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean#L39-L61",
+          "declaration": "exists_lamX_eq",
+          "declaration_lines": {
+            "exists_lamX_eq": 39
+          }
+        },
+        {
+          "label": "Matching the prescribed residual space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+          "lines": [
+            15,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean#L15-L42",
+          "declaration": "exists_complement",
+          "declaration_lines": {
+            "exists_complement": 15
+          }
+        },
+        {
+          "label": "Transport of the residual lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+          "lines": [
+            54,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean#L54-L66"
+        },
+        {
+          "label": "Coordinate duals characterize all integral vectors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+          "lines": [
+            158,
+            200
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean#L158-L200"
+        },
+        {
+          "label": "Comparing two full frames of identical Gram matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+          "lines": [
+            16,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean#L16-L42",
+          "declaration": "exists_unitary_of_gram",
+          "declaration_lines": {
+            "exists_unitary_of_gram": 16
+          }
+        },
+        {
+          "label": "One rational isometry for both full adapted frames",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+          "lines": [
+            176,
+            199
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean#L176-L199",
+          "declaration": "conjugate_of_isAdapted",
+          "declaration_lines": {
+            "conjugate_of_isAdapted": 176
+          }
+        },
+        {
+          "label": "Preservation of the flagged lattices and the change of the finite representative",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+          "lines": [
+            200,
+            227
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean#L200-L227"
+        }
+      ],
+      "equations": [
+        "global-adapted-lattice-split"
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.PointLattice.lamX_selfDual",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 70,
+        "spelling": "GlobalTheory.PointLattice.lamX_selfDual"
+      }
+    },
+    {
+      "callee": "GlobalTheory.saturatedFlag_splits",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 78,
+        "spelling": "GlobalTheory.saturatedFlag_splits"
+      }
+    },
+    {
+      "callee": "exists_blocks",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 79,
+        "spelling": "exists_blocks"
+      }
+    },
+    {
+      "callee": "exists_model",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HasSignatureComplement.lean",
+        "line": 194,
+        "spelling": "exists_model"
+      }
+    },
+    {
+      "callee": "exists_projector",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+        "line": 120,
+        "spelling": "exists_projector"
+      }
+    },
+    {
+      "callee": "exists_adjoint",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+        "line": 121,
+        "spelling": "exists_adjoint"
+      }
+    },
+    {
+      "callee": "GlobalTheory.TraceOnto.exists_trace_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+        "line": 174,
+        "spelling": "GlobalTheory.TraceOnto.exists_trace_one"
+      }
+    },
+    {
+      "callee": "split_of_trace",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsProjector.lean",
+        "line": 175,
+        "spelling": "split_of_trace"
+      }
+    },
+    {
+      "callee": "GlobalTheory.WittInt.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 126,
+        "spelling": "GlobalTheory.WittInt.main"
+      }
+    },
+    {
+      "callee": "exists_witt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 128,
+        "spelling": "exists_witt"
+      }
+    },
+    {
+      "callee": "exists_factor_lattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 33,
+        "spelling": "exists_factor_lattice"
+      }
+    },
+    {
+      "callee": "GlobalTheory.FlagMeas.sameKindIsometric",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.FlagMeas.sameKindIsometric"
+      }
+    },
+    {
+      "callee": "hasSignature_complement",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 41,
+        "spelling": "hasSignature_complement"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SelfDualPoint.exists_lamX_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsAdaptedBasisSaturatedIsotropicFlag.lean",
+        "line": 65,
+        "spelling": "GlobalTheory.SelfDualPoint.exists_lamX_eq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.SelfDualGenus.congr_of_modular",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermitianSpacesSameSignatureIsometric.lean",
+        "line": 109,
+        "spelling": "GlobalTheory.SelfDualGenus.congr_of_modular"
+      }
+    },
+    {
+      "callee": "GlobalTheory.Mass.UnimodLoc.exists_isom_of_isUnimodularAt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean",
+        "line": 26,
+        "spelling": "GlobalTheory.Mass.UnimodLoc.exists_isom_of_isUnimodularAt"
+      }
+    },
+    {
+      "callee": "mem_genus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsFiniteAdelicPointLatticeEqSelfDual.lean",
+        "line": 60,
+        "spelling": "mem_genus"
+      }
+    },
+    {
+      "callee": "exists_unitary_of_gram",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+        "line": 100,
+        "spelling": "exists_unitary_of_gram"
+      }
+    },
+    {
+      "callee": "exists_unitary_adapted",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+        "line": 185,
+        "spelling": "exists_unitary_adapted"
+      }
+    },
+    {
+      "callee": "GlobalTheory.PointEquivariance.lamX_mul_eq_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagsConjugateOfSameAdaptedModels.lean",
+        "line": 219,
+        "spelling": "GlobalTheory.PointEquivariance.lamX_mul_eq_iff"
+      }
+    },
+    {
+      "callee": "exists_eq_transpose_mul_map_locConj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+        "line": 25,
+        "spelling": "exists_eq_transpose_mul_map_locConj"
+      }
+    },
+    {
+      "callee": "exists_factor",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+        "line": 39,
+        "spelling": "exists_factor"
+      }
+    },
+    {
+      "callee": "infinite_norm_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+        "line": 55,
+        "spelling": "infinite_norm_one"
+      }
+    },
+    {
+      "callee": "exists_unitary_congr_pi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+        "line": 57,
+        "spelling": "exists_unitary_congr_pi"
+      }
+    },
+    {
+      "callee": "exists_unitary",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+        "line": 197,
+        "spelling": "exists_unitary"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "AFF-01",
+      "AFF-02"
+    ],
+    [
+      "AFF-02",
+      "AFF-04"
+    ],
+    [
+      "AFF-03",
+      "AFF-04"
+    ],
+    [
+      "AFF-04",
+      "FMU-01"
+    ]
+  ],
+  "outstanding": [
+    "The comparison uses the local-to-global theorem for Hermitian forms. Unramified norm surjectivity, nondegeneracy of finite-field trace, and finite-place approximation are standard inputs to the integral classification."
+  ]
+}

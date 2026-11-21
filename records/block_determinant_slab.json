@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "DBS-01",
+      "chapter": "global",
+      "anchor": "global-block-scalar-domain",
+      "title": "A scalar-stable fundamental domain for a lattice block",
+      "statement": "The automorphisms of a full lattice admit a measurable fundamental domain in the product of its complex general linear groups, invariant under all simultaneous positive scalars.",
+      "hypotheses": "Positive block rank, totally complex number field, and a full finitely generated coefficient lattice.",
+      "dependencies": [],
+      "equations": [],
+      "sources": [
+        {
+          "label": "One common denominator for all lattice automorphism entries",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            185,
+            216
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L185-L216",
+          "declaration": "exists_denominator",
+          "declaration_lines": {
+            "exists_denominator": 185
+          }
+        },
+        {
+          "label": "Finiteness under bounds at every complex embedding",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            231,
+            249
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L231-L249",
+          "declaration": "finite_bounded",
+          "declaration_lines": {
+            "finite_bounded": 231
+          }
+        },
+        {
+          "label": "Only finitely many translates have bounded matrix size",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            251,
+            274
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L251-L274",
+          "declaration": "finite_orbit",
+          "declaration_lines": {
+            "finite_orbit": 257
+          }
+        },
+        {
+          "label": "A scale-invariant tie breaker and the orbit representatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            307,
+            341
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L307-L341",
+          "declaration": "dir",
+          "declaration_lines": {
+            "dir": 307
+          }
+        },
+        {
+          "label": "A unique measurable choice on each orbit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            350,
+            384
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L350-L384",
+          "declaration": "measurableSet_dom",
+          "declaration_lines": {
+            "measurableSet_dom": 350
+          }
+        },
+        {
+          "label": "Integration on the fundamental domain and the quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            400,
+            439
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L400-L439",
+          "declaration": "covol_eq",
+          "declaration_lines": {
+            "covol_eq": 400
+          }
+        },
+        {
+          "label": "One fundamental domain for every positive scalar",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+          "lines": [
+            441,
+            450
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean#L441-L450",
+          "declaration": "exists_cone_domain",
+          "declaration_lines": {
+            "exists_cone_domain": 441
+          }
+        }
+      ]
+    },
+    {
+      "id": "DBS-02",
+      "chapter": "global",
+      "anchor": "global-block-slab-mass",
+      "title": "The logarithmic determinant measure of one block",
+      "statement": "For a nonnegative measurable test of the logarithmic determinant, the quotient integral is the mass of one unit slab times the integral of the test against Lebesgue measure.",
+      "hypotheses": "The scalar-stable matrix fundamental domain, Haar measure, and at least one complex place and one column.",
+      "dependencies": [
+        "DBS-01"
+      ],
+      "equations": [
+        "global-block-log-distribution"
+      ],
+      "sources": [
+        {
+          "label": "Effect of a scalar on the determinant and Haar measure",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            57,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L57-L85",
+          "declaration": "detNorm_scal",
+          "declaration_lines": {
+            "detNorm_scal": 64
+          }
+        },
+        {
+          "label": "Translation invariance of the logarithmic determinant distribution",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            137,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L137-L169",
+          "declaration": "lintegral_cone",
+          "declaration_lines": {
+            "lintegral_cone": 137
+          }
+        },
+        {
+          "label": "Calculating that distribution from the mass of one slab",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            172,
+            200
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L172-L200"
+        },
+        {
+          "label": "Weighted determinant integrals on the quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+          "lines": [
+            202,
+            220
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean#L202-L220",
+          "declaration": "covol_withDensity_detNorm",
+          "declaration_lines": {
+            "covol_withDensity_detNorm": 202
+          }
+        },
+        {
+          "label": "Use of the scalar-stable domain for each Levi block",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+          "lines": [
+            382,
+            410
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean#L382-L410",
+          "declaration": "exists_dom",
+          "declaration_lines": {
+            "exists_dom": 382
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_denominator",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+        "line": 233,
+        "spelling": "exists_denominator"
+      }
+    },
+    {
+      "callee": "finite_bounded",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+        "line": 261,
+        "spelling": "finite_bounded"
+      }
+    },
+    {
+      "callee": "exists_mul_mem_dom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsScalarStableLatticeAutomorphismFundamental.lean",
+        "line": 415,
+        "spelling": "exists_mul_mem_dom"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.exists_scalarStable_latticeAutomorphismFundamentalDomain",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+        "line": 388,
+        "spelling": "GlobalTheory.T.exists_scalarStable_latticeAutomorphismFundamentalDomain"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.leftQuotientCovolume_withDensity_detNormSq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeviFactorIntegralModIntegralPointsLe.lean",
+        "line": 407,
+        "spelling": "GlobalTheory.T.leftQuotientCovolume_withDensity_detNormSq"
+      }
+    },
+    {
+      "callee": "measure_add_lintegral_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeWithDensityDetNormSq.lean",
+        "line": 184,
+        "spelling": "measure_add_lintegral_eq"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DBS-01",
+      "DBS-02"
+    ],
+    [
+      "DBS-02",
+      "FSV-03"
+    ]
+  ],
+  "outstanding": [
+    "Summing the individual determinant-slab weights over all coefficient-lattice classes is a separate mass estimate."
+  ]
+}

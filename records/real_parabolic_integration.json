@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "RPI-01",
+      "chapter": "global",
+      "anchor": "global-real-parabolic-integration",
+      "title": "The inverse conjugation determinant in real parabolic integration",
+      "statement": "For G = U(p,q) and the stabilizer NM of an isotropic flag, the NMK integration density is the inverse of the real determinant of conjugation on Lie(N). For local sizes s it equals the one-place flag weight P₁(s).",
+      "hypotheses": "A totally isotropic flag with positive rank jumps in signature (p,q), the Hilbert–Schmidt subgroup gauges, compact Haar probability, and a nonnegative measurable integrand. The ambient Haar measure is multiplied by its small-ball gauge correction.",
+      "dependencies": [
+        "FSV-01"
+      ],
+      "sources": [
+        {
+          "label": "Hilbert–Schmidt gauges and the groups of an isotropic flag",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            52,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L52-L71",
+          "declaration": "IsGaugeSub",
+          "declaration_lines": {
+            "IsGaugeSub": 52
+          }
+        },
+        {
+          "label": "Determinants on flag quotients and inverse graded sizes",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            75,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L75-L80",
+          "declaration": "locSize",
+          "declaration_lines": {
+            "locSize": 78
+          }
+        },
+        {
+          "label": "The ambient gauge and the block product",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean",
+          "lines": [
+            26,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/LayerProd.lean#L26-L35",
+          "declaration": "layerProd",
+          "declaration_lines": {
+            "layerProd": 32
+          }
+        },
+        {
+          "label": "Surjectivity of multiplication and its compact ambiguity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaDecompositionUnitaryIsotropicFlag.lean",
+          "lines": [
+            535,
+            543
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaDecompositionUnitaryIsotropicFlag.lean#L535-L543",
+          "declaration": "iwasawa",
+          "declaration_lines": {
+            "iwasawa": 535
+          }
+        },
+        {
+          "label": "The real determinant and pushforward under conjugation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+          "lines": [
+            395,
+            423
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean#L395-L423"
+        },
+        {
+          "label": "Identifying the pushed measure up to its scalar",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+          "lines": [
+            84,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean#L84-L97"
+        },
+        {
+          "label": "Multiplication of the archimedean size factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLayerProductMeasureMulProdLocal.lean",
+          "lines": [
+            37,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagLayerProductMeasureMulProdLocal.lean#L37-L47",
+          "declaration": "layerProd_mul_prod",
+          "declaration_lines": {
+            "layerProd_mul_prod": 37
+          }
+        }
+      ],
+      "equations": [
+        "global-real-parabolic-formula"
+      ]
+    },
+    {
+      "id": "RPI-02",
+      "chapter": "global",
+      "anchor": "global-real-parabolic-gauge",
+      "title": "The compact intersection and the Hilbert–Schmidt Jacobian",
+      "statement": "With compact mass one, the one-place coefficient is 2^(−dim N/2) vol(K)/vol(M∩K), both volumes measured in the induced Hilbert–Schmidt metric. This coefficient is π for the isotropic line in U(1,1).",
+      "hypotheses": "The same local flag and gauges. The compact intersection has one doubled unitary block of rank jᵢ per jump and single residual blocks of ranks p−Σjᵢ and q−Σjᵢ.",
+      "dependencies": [
+        "RPI-01"
+      ],
+      "sources": [
+        {
+          "label": "The fully normalized one-place constant",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/IsGaugeAll.lean",
+          "lines": [
+            24,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/IsGaugeAll.lean#L24-L26",
+          "declaration": "cIw",
+          "declaration_lines": {
+            "cIw": 24
+          }
+        },
+        {
+          "label": "Unitary group volume and dimension of the radical",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean",
+          "lines": [
+            13,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/SemilocalFrames/DefClassNum.lean#L13-L18",
+          "declaration": "volU",
+          "declaration_lines": {
+            "volU": 15
+          }
+        },
+        {
+          "label": "Relative positions of the four tangent spaces",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaLieAlgebrasRelativePosition.lean",
+          "lines": [
+            71,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaLieAlgebrasRelativePosition.lean#L71-L83",
+          "declaration": "lieRel",
+          "declaration_lines": {
+            "lieRel": 71
+          }
+        },
+        {
+          "label": "The tangent change of variables and its Euclidean factor",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaGaugeDefiniteAndUnitBodyVolume.lean",
+          "lines": [
+            45,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaGaugeDefiniteAndUnitBodyVolume.lean#L45-L58"
+        },
+        {
+          "label": "Embedding the compact Levi and doubling its paired metric",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeMaximalCompactInterIsotropicFlagLevi.lean",
+          "lines": [
+            326,
+            348
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeMaximalCompactInterIsotropicFlagLevi.lean#L326-L348"
+        },
+        {
+          "label": "The induced volume of the compact Levi",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeMaximalCompactInterIsotropicFlagLevi.lean",
+          "lines": [
+            348,
+            359
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeMaximalCompactInterIsotropicFlagLevi.lean#L348-L359"
+        },
+        {
+          "label": "Passage from linearized products to small group balls",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean",
+          "lines": [
+            35,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean#L35-L46",
+          "declaration": "localised_iwasawa_asymptotics",
+          "declaration_lines": {
+            "localised_iwasawa_asymptotics": 35
+          }
+        },
+        {
+          "label": "Comparing the two positive small-ball limits",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+          "lines": [
+            323,
+            346
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean#L323-L346"
+        },
+        {
+          "label": "Combining the integration formula and the gauge constant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean",
+          "lines": [
+            10,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean#L10-L14",
+          "declaration": "iwasawaFormula",
+          "declaration_lines": {
+            "iwasawaFormula": 10
+          }
+        },
+        {
+          "label": "Multiplication over the archimedean places",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+          "lines": [
+            255,
+            266
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean#L255-L266"
+        }
+      ],
+      "equations": [
+        "global-real-parabolic-constant"
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "GlobalTheory.T.iwasawa_integration_formula_up_to_constant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean",
+        "line": 12,
+        "spelling": "GlobalTheory.T.iwasawa_integration_formula_up_to_constant"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.iwasawa_integration_formula_constant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryIwasawaIntegrationFormulaRealPlace.lean",
+        "line": 13,
+        "spelling": "GlobalTheory.T.iwasawa_integration_formula_constant"
+      }
+    },
+    {
+      "callee": "GlobalTheory.RealIwasawa.iwasawa",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+        "line": 68,
+        "spelling": "GlobalTheory.RealIwasawa.iwasawa"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.isotropicFlag_levi_conj_haar_modulus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.T.isotropicFlag_levi_conj_haar_modulus"
+      }
+    },
+    {
+      "callee": "GlobalTheory.IwasawaShape.exists_lintegral_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+        "line": 87,
+        "spelling": "GlobalTheory.IwasawaShape.exists_lintegral_eq"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.map_conj_gaugeMeasure_eq_inv_det_smul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 413,
+        "spelling": "GlobalTheory.T.map_conj_gaugeMeasure_eq_inv_det_smul"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.isotropicFlag_dimension_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 159,
+        "spelling": "GlobalTheory.T.isotropicFlag_dimension_count"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.iwasawa_lieAlgebras_relative_position",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 168,
+        "spelling": "GlobalTheory.T.iwasawa_lieAlgebras_relative_position"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.iwasawaGauge_definite_and_unitBody_volume",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 169,
+        "spelling": "GlobalTheory.T.iwasawaGauge_definite_and_unitBody_volume"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.volume_unitaryMaximalCompact_eq_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 184,
+        "spelling": "GlobalTheory.T.volume_unitaryMaximalCompact_eq_prod"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.volume_maximalCompact_inter_isotropicFlagLevi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 185,
+        "spelling": "GlobalTheory.T.volume_maximalCompact_inter_isotropicFlagLevi"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.localisedIwasawaIntegral_smallBall_asymptotics",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 209,
+        "spelling": "GlobalTheory.T.localisedIwasawaIntegral_smallBall_asymptotics"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.iwasawaNMKIntegration_pi_product",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 260,
+        "spelling": "GlobalTheory.T.iwasawaNMKIntegration_pi_product"
+      }
+    },
+    {
+      "callee": "GlobalTheory.T.unitary_iwasawa_integration_formula_real_place",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagClassMeasureBoundLatticeStabiliser.lean",
+        "line": 262,
+        "spelling": "GlobalTheory.T.unitary_iwasawa_integration_formula_real_place"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FSV-01",
+      "RPI-01"
+    ],
+    [
+      "RPI-01",
+      "RPI-02"
+    ],
+    [
+      "RPI-02",
+      "FSV-03"
+    ]
+  ],
+  "outstanding": [
+    "The passage uses the real parabolic decomposition and the general Haar integration theorem, the adapted orthonormal frames of the flag, the smooth subgroup charts and their small-ball asymptotics, and the Hilbert–Schmidt volume of U(r). The arithmetic radical and Levi lattice covolumes remain separate inputs to the global marked-slice estimate."
+  ]
+}

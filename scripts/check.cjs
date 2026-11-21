@@ -84,6 +84,48 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Use the two original continuous sums as an independent reference for the sharp cutoff.
+const referencePrimePowers = new Map([[2,2],[3,3],[4,2],[5,5],[7,7],[8,2],[9,3],
+  [11,11],[13,13],[16,2],[17,17]]);
+for (const y of [4, 8, 12]) {
+  for (const width of [2, 4]) {
+    for (const chi of ["principal", "quadratic"]) {
+      const residues = chi === "principal" ? [0, 1, 1] : [0, 1, -1];
+      const {u, rows} = lib.progressionDifference(y, width, chi);
+      assert.equal(u, y * (1 + 1 / width));
+      const b = y * u / (u - y);
+      function originalSum(t) {
+        let sum = 0;
+        for (const [n, p] of referencePrimePowers) {
+          if (n <= t) sum += Math.log(p) * residues[n % 3] * (t / n - 1);
+        }
+        return sum;
+      }
+      let signed = 0;
+      assert.deepEqual(rows.map(row => row.n), Array.from({length: u}, (_, i) => i + 1));
+      for (const {n, prime, character, top, bottom} of rows) {
+        assert.equal(prime, referencePrimePowers.get(n) || 0);
+        assert.equal(character, residues[n % 3]);
+        assert.ok(Number.isInteger(top) && Number.isInteger(bottom) && bottom > 0);
+        const weight = top / bottom;
+        const difference = b * (Math.max(0, u / n - 1) / u - Math.max(0, y / n - 1) / y);
+        close(weight, difference, 1e-14);
+        if (n <= y) assert.equal(top, bottom);
+        else if (n === u) assert.equal(top, 0);
+        else assert.ok(0 < top && top < bottom);
+        if (prime) signed += character * Math.log(prime) * weight;
+      }
+      const independent = b * (originalSum(u) / u - originalSum(y) / y);
+      close(signed, independent, 1e-13);
+      const result = lib.render("progression-difference", {y: String(y), width: String(width), chi});
+      const totals = [...result.matchAll(/<dd>(.*?)<\/dd>/g)].map(match => match[1]);
+      assert.equal(totals.at(-1), independent.toFixed(4).replace("-", "−"));
+    }
+  }
+}
+for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes(lib.render("progression-difference", lib.defaults("progression-difference"))));
+}
 // Compare each displayed flag layer with individual matrix coordinates and the closed layer product.
 for (const n of [4, 6, 8]) {
   for (const jumps of [[1], [2], [1, 1]]) {

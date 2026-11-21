@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "progression-difference": {
+      title: "Which prime powers survive the difference?",
+      kind: "From a smoothed sum to a sharp cutoff",
+      section: "inputs",
+      params: [
+        choose("y", "Sharp cutoff y", [["4", "4"], ["8", "8"], ["12", "12"]], "4"),
+        choose("width", "Relative step δ", [["2", "1/2"], ["4", "1/4"]], "2"),
+        choose("chi", "Character modulo 3", [["principal", "Principal"], ["quadratic", "Quadratic"]], "principal"),
+      ],
+      caption: "Each bar shows the fraction of the original prime-power term retained at n. Multiply its weight by Λ(n) and χ(n) to obtain the signed last column. Add the sharp sum and the short-interval contribution to recover the scaled difference.",
+      method: "Set u = (1 + δ)y and b = yu/(u − y). The coefficient in b(Sχ(u)/u − Sχ(y)/y) is one through y and b(1/n − 1/u) on y < n ≤ u. At the upper endpoint it is zero. For n = pᵏ with p prime, Λ(n) = log p. All other integers have Λ(n) = 0. Both characters vanish on multiples of 3. At residues 1 and 2 the principal values are (1, 1) and the quadratic values are (1, −1).",
+    },
     "flag-layer-exponents": {
       title: "Which flag layers supply the exponent?",
       kind: "The volume factor of an isotropic flag",
@@ -1289,7 +1301,59 @@
     return {inner, outer, count, weight};
   }
 
+  function progressionDifference(y, width, chi) {
+    const u = y + y / width;
+    const rows = [];
+    for (let n = 1; n <= u; n++) {
+      const residue = n % 3;
+      const character = residue === 0 ? 0 : chi === "quadratic" && residue === 2 ? -1 : 1;
+      // With δ = 1/width the ramp equals ((width + 1)y − width·n)/n.
+      const top = n <= y ? 1 : (width + 1) * y - width * n;
+      const bottom = n <= y ? 1 : n;
+      rows.push({n, prime: primeBase(n), character, top, bottom});
+    }
+    return {u, rows};
+  }
+
+  function logSum(terms) {
+    let result = "";
+    for (const {prime, top, bottom} of terms) {
+      if (!prime || !top) continue;
+      const fraction = reducedFraction(Math.abs(top), bottom);
+      const sign = result ? (top < 0 ? " − " : " + ") : (top < 0 ? "−" : "");
+      result += sign + (fraction === "1" ? "" : fraction + " ") + "log " + prime;
+    }
+    return result || "0";
+  }
+
   function render(id, v) {
+    if (id === "progression-difference") {
+      const y = Number(v.y);
+      const {u, rows} = progressionDifference(y, Number(v.width), v.chi);
+      const sharp = new Map();
+      const tail = [];
+      let difference = 0;
+      const body = rows.map(({n, prime, character, top, bottom}) => {
+        const term = {prime, top: character * top, bottom};
+        if (prime && n <= y) sharp.set(prime, (sharp.get(prime) || 0) + character);
+        if (n > y) tail.push(term);
+        if (prime) difference += term.top / bottom * Math.log(prime);
+        const weight = reducedFraction(top, bottom);
+        return '<tr><th scope="row">' + n + '</th><td>' + (prime ? 'log ' + prime : '0') +
+          '</td><td>' + (character < 0 ? "−1" : character) + '</td><td>' + weight +
+          '<meter aria-hidden="true" min="0" max="1" value="' + top / bottom +
+          '" style="display:block;width:3em;max-width:100%;margin-left:auto"></meter></td><td>' +
+          logSum([term]) + '</td></tr>';
+      }).join("");
+      const sharpTerms = Array.from(sharp, ([prime, top]) => ({prime, top, bottom: 1}));
+      return '<table class="carry-table"><caption>Integer weights for y = ' + y + ', u = ' + u +
+        '</caption><thead><tr><th scope="col">n</th><th scope="col">Λ(n)</th>' +
+        '<th scope="col">χ(n)</th><th scope="col">Weight</th><th scope="col">Signed term</th>' +
+        '</tr></thead><tbody>' + body + '</tbody></table>' + metrics([
+          ["Sharp sum", logSum(sharpTerms)], ["Short interval", logSum(tail)],
+          ["Scaled difference ≈", difference.toFixed(4).replace("-", "−")],
+        ]);
+    }
     if (id === "flag-layer-exponents") {
       const n = Number(v.n);
       const jumps = v.jumps.split(",").map(Number);
@@ -2625,6 +2689,7 @@
   }
   const api = {
     configs,
+    progressionDifference,
     centralPeriod,
     kernelOrder,
     minimumScale,

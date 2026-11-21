@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "chapter": "lifts",
+      "status": "source checked",
+      "id": "HVO-01",
+      "anchor": "lifts-hermitian-orbit-mean",
+      "title": "The nonzero isotropic orbit has mean O(r^(2d(M−1)))",
+      "statement": "For one vector in a nondegenerate M-dimensional Hermitian space, M≥3, the mean of the nonzero rational vectors of norm zero meeting B_N(r) is ≤C_N r^(2d(M−1)) for every r>0, with d=[F:ℚ]. The singleton zero contributes exactly the indicator of zero after division by the fundamental domain volume.",
+      "hypotheses": "CM E/F, a fixed F-basis of E, N a positive integer, finite coordinate lattices and the sum of absolute real coordinates defining the radius. The mean uses quotient Haar probability. In the split case the hyperbolic complement of dimension s=M−2 has finite arithmetic quotient volume. The shell comparison uses compact representatives transverse to the stabilizer, the parabolic Haar multiplier, and scalar lattice packing in dimension 2d.",
+      "correspondence": "The proof first estimates the raw count integral after transferring to the hyperbolic coordinates and dilating a fixed compact set by the inverse radius. The geometric tail starts at ceil(x₀−log r), with ratio exp(−2ds). The compact family of paired vectors has Hermitian pairing one. The comparison does not determine the leading constant or an asymptotic.",
+      "dependencies": [],
+      "equations": [
+        "lifts-hermitian-orbit-average",
+        "lifts-hermitian-orbit-shell"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box": 36
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+          "lines": [
+            49,
+            66
+          ],
+          "label": "Normalizing the mean by the volume of the fundamental domain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean#L49-L66"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.HypSplit.exists_partner",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.HypSplit.exists_partner": 37
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IsotropicVectorSplitsHyperbolicPlane.lean",
+          "lines": [
+            37,
+            69
+          ],
+          "label": "Constructing an isotropic partner",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IsotropicVectorSplitsHyperbolicPlane.lean#L37-L69"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.mean_isotropic_box": 82
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+          "lines": [
+            82,
+            91
+          ],
+          "label": "Splitting off the hyperbolic plane",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean#L82-L91"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.mean_isotropic_box": 82
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+          "lines": [
+            113,
+            150
+          ],
+          "label": "Transport of the box under real dilation and the empty cone",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean#L113-L150"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le": 21
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+          "lines": [
+            21,
+            48
+          ],
+          "label": "One representative per line and a scalar sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean#L21-L48"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le": 21
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+          "lines": [
+            72,
+            99
+          ],
+          "label": "Recovering the scaled scalar by pairing",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean#L72-L99"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum": 27
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+          "lines": [
+            27,
+            41
+          ],
+          "label": "Parabolic shell estimate with compact transverse directions",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean#L27-L41"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum": 27
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+          "lines": [
+            83,
+            113
+          ],
+          "label": "Rational transitivity and unfolding the line sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean#L83-L113"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi": 75
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean",
+          "lines": [
+            75,
+            84
+          ],
+          "label": "Unipotent coordinates and their pushforward multiplier",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean#L75-L84"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FChi.exists_modulus_chi": 75
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean",
+          "lines": [
+            148,
+            177
+          ],
+          "label": "Evaluating the modulus along the real flow",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ModulusCharacterUnitActionProduct.lean#L148-L177"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatCount.count_le": 78
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+          "lines": [
+            78,
+            104
+          ],
+          "label": "Discreteness and the scalar threshold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean#L78-L104"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatCount.count_le": 78
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+          "lines": [
+            114,
+            145
+          ],
+          "label": "Packing after the scalar threshold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean#L114-L145"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Adelic.geom_sum_int_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Adelic.geom_sum_int_le": 8
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GeomSumIntLe.lean",
+          "lines": [
+            8,
+            29
+          ],
+          "label": "The first contributing shell",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GeomSumIntLe.lean#L8-L29"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Adelic.geom_sum_int_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Adelic.geom_sum_int_le": 8
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GeomSumIntLe.lean",
+          "lines": [
+            91,
+            114
+          ],
+          "label": "Summing the parabolic weights",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GeomSumIntLe.lean#L91-L114"
+        }
+      ]
+    },
+    {
+      "chapter": "lifts",
+      "status": "source checked",
+      "id": "HVO-02",
+      "anchor": "lifts-hermitian-orbit-compact",
+      "title": "Each regular scalar orbit has finite mean on a compact set",
+      "statement": "For each fixed t∈F× and compact adelic Ω, the integral of the number of rational vectors of norm t in hΩ is finite. The rational norms that can meet Ω form a finite set. In dimension M≥3 the additional nonzero isotropic orbit is integrable on Ω by the ball estimate, so the mean of all nonzero vectors on Ω is finite.",
+      "hypotheses": "CM E/F and nondegenerate Hermitian form. For a represented nonzero t the orthogonal complement of a vector of norm t has finite arithmetic quotient volume (the general theorem takes this as an induction hypothesis in lower dimensions). The compact representative input applies to tuples of nondegenerate Gram matrix, here the single scalar t. The ambient Haar fundamental domain has finite positive volume for normalization.",
+      "correspondence": "Witt extension gives transitivity over the rational points and, adelically, closed-orbit transitivity. Compact lifting supplies representatives C above the compact part of the regular orbit. For f(h)=1_Ω(h⁻¹e) its support lies in G₁C⁻¹. The compact-cover bound compares the unfolded integral with the finite stabilizer volume. Only when assembling the whole compact mean is the nonzero isotropic estimate invoked.",
+      "dependencies": [
+        "HVO-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CountGen.finite_count",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CountGen.finite_count": 75
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeInductionCompactSum.lean",
+          "lines": [
+            75,
+            110
+          ],
+          "label": "Splitting off a represented line of nonzero norm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeInductionCompactSum.lean#L75-L110"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top": 108
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+          "lines": [
+            162,
+            185
+          ],
+          "label": "Witt extension identifies the rational orbit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean#L162-L185"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre": 14
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean",
+          "lines": [
+            14,
+            52
+          ],
+          "label": "A compact family of isometries above the compact part of the orbit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean#L14-L52"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top": 108
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+          "lines": [
+            218,
+            239
+          ],
+          "label": "The support modulo the stabilizer",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean#L218-L239"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top": 108
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+          "lines": [
+            263,
+            284
+          ],
+          "label": "Finite volume for the stabilizer",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean#L263-L284"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Aniso.mean_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Aniso.mean_lt_top": 23
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+          "lines": [
+            50,
+            67
+          ],
+          "label": "Unfolding and the bound by the stabilizer volume",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean#L50-L67"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+          "lines": [
+            93,
+            105
+          ],
+          "label": "The two contributions to the compact mean",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean#L93-L105"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+          "lines": [
+            127,
+            146
+          ],
+          "label": "Finitely many possible rational norms",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean#L127-L146"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+      "callee": "GlobalTheory.T.haar_fundamental_domain_exists_unitary",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+        "line": 50,
+        "spelling": "GlobalTheory.T.haar_fundamental_domain_exists_unitary"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.MeanCount.mean_count_box",
+      "callee": "GlobalTheory.T.isotropic_vector_count_box_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaMeasureNonzeroVectorsBound.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.T.isotropic_vector_count_box_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.isotropic_vector_splits_hyperbolic_plane",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.T.isotropic_vector_splits_hyperbolic_plane"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.fundamental_domain_transport_congruent_form",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 89,
+        "spelling": "GlobalTheory.T.fundamental_domain_transport_congruent_form"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 115,
+        "spelling": "GlobalTheory.T.hyperbolic_finite_volume_integral_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+      "callee": "GlobalTheory.T.hyperbolic_fundamental_domain_cover",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+        "line": 26,
+        "spelling": "GlobalTheory.T.hyperbolic_fundamental_domain_cover"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+      "callee": "GlobalTheory.T.flow_lattice_count_bounded",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.flow_lattice_count_bounded"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.T.hyperbolic_parabolic_siegel_set_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.hyperbolic_parabolic_siegel_set_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.T.hyperbolic_unitary_stabilizer_cocompact",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 40,
+        "spelling": "GlobalTheory.T.hyperbolic_unitary_stabilizer_cocompact"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.T.unitary_transitive_on_isotropic_vectors",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 87,
+        "spelling": "GlobalTheory.T.unitary_transitive_on_isotropic_vectors"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.T.adelic_box_lattice_count_ratio",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.adelic_box_lattice_count_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CountGen.finite_count",
+      "callee": "GlobalTheory.T.fundamental_domain_transport_congruent_form",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeInductionCompactSum.lean",
+        "line": 92,
+        "spelling": "GlobalTheory.T.fundamental_domain_transport_congruent_form"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CountGen.finite_count",
+      "callee": "GlobalTheory.T.finite_volume_block_one_extension",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeInductionCompactSum.lean",
+        "line": 108,
+        "spelling": "GlobalTheory.T.finite_volume_block_one_extension"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+      "callee": "GlobalTheory.T.witt_extension_global",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 177,
+        "spelling": "GlobalTheory.T.witt_extension_global"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+      "callee": "GlobalTheory.T.gram_orbit_compact_representative",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 218,
+        "spelling": "GlobalTheory.T.gram_orbit_compact_representative"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+      "callee": "GlobalTheory.T.haar_fundamental_domain_exists_unitary",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 270,
+        "spelling": "GlobalTheory.T.haar_fundamental_domain_exists_unitary"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.mean_lt_top",
+      "callee": "GlobalTheory.T.invariant_measure_compact_cover_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 52,
+        "spelling": "GlobalTheory.T.invariant_measure_compact_cover_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.mean_lt_top",
+      "callee": "GlobalTheory.T.fundamental_domain_of_subgroup_from_coset_reps",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 53,
+        "spelling": "GlobalTheory.T.fundamental_domain_of_subgroup_from_coset_reps"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre",
+      "callee": "GlobalTheory.T.witt_extension_rational_to_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.witt_extension_rational_to_adelic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.isotropic_vector_count_box_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.T.isotropic_vector_count_box_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.finite_volume_induction_compact_sum",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 103,
+        "spelling": "GlobalTheory.T.finite_volume_induction_compact_sum"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.T.rational_gram_adelic_compact_finite",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 130,
+        "spelling": "GlobalTheory.T.rational_gram_adelic_compact_finite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mean_isotropic_box",
+      "callee": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CountingRationalVectorsBoxBound.lean",
+        "line": 116,
+        "spelling": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+      "callee": "GlobalTheory.CompanionTheory.Adelic.geom_sum_int",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+        "line": 35,
+        "spelling": "GlobalTheory.CompanionTheory.Adelic.geom_sum_int"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoMain.integral_isotropic_lines_le_flow_sum",
+      "callee": "GlobalTheory.CompanionTheory.Adelic.unfold_coset_sum_fundamentalDomain",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFundamentalDomainCover.lean",
+        "line": 108,
+        "spelling": "GlobalTheory.CompanionTheory.Adelic.unfold_coset_sum_fundamentalDomain"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CountGen.finite_count",
+      "callee": "GlobalTheory.CompanionTheory.SW.AlgSplit.split_anisotropic",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeInductionCompactSum.lean",
+        "line": 90,
+        "spelling": "GlobalTheory.CompanionTheory.SW.AlgSplit.split_anisotropic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Proper.compact_gram_fibre",
+      "callee": "GlobalTheory.CompanionTheory.Adelic.compact_part_closed_orbit",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramOrbitCompactRepresentative.lean",
+        "line": 51,
+        "spelling": "GlobalTheory.CompanionTheory.Adelic.compact_part_closed_orbit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CntFin.cntI_nonzero_lt_top",
+      "callee": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaCountCompactFinite.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Aniso.count_lt_top",
+      "callee": "GlobalTheory.CompanionTheory.SW.Aniso.mean_lt_top",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteVolumeBlockOneExtension.lean",
+        "line": 272,
+        "spelling": "mean_lt_top"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.modulus_character_unit_action_product",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 45,
+        "spelling": "GlobalTheory.T.modulus_character_unit_action_product"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.nu",
+      "callee": "GlobalTheory.T.adelic_units_decomposition_flow_compact",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ActWSmul.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.adelic_units_decomposition_flow_compact"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HVO-01",
+      "HVO-02"
+    ],
+    [
+      "HVO-01",
+      "SDR-01"
+    ],
+    [
+      "HVO-02",
+      "SDR-01"
+    ]
+  ],
+  "outstanding": [
+    "The parabolic shell cover and cocompactness transverse to the isotropic-line stabilizer enter through the stated reduction theorem. The finite volume of each smaller unitary quotient, adelic Witt extension on a nondegenerate fibre, and the invariant-measure compact-cover comparison are used with pinned sources."
+  ]
+}
