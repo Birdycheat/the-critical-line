@@ -1,0 +1,181 @@
+{
+  "claims": [
+    {
+      "id": "LOC-04",
+      "title": "The price of a mixed jet",
+      "chapter": "local",
+      "anchor": "local-sigma",
+      "statement": "For the finite multi-index κ≤a coordinatewise and the valued-field, integral-series, BHyp, weight and substitution hypotheses in LemmaRA, the factored jet has normalized valuation at least ∑κᵢ(γₚ−σᵢ)−|ι|(logₚ a+1). Each offending pure pair below κ requires p^ασᵢ+p^βσⱼ≥1.",
+      "dependencies": [
+        "INP-01",
+        "INP-02"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.LemmaRA",
+          "path": "src/Formalism/GaussJetBounds/StatementG.lean",
+          "lines": [
+            12,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/StatementG.lean#L12-L32"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.lemmaRA_of",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/LemmaRA.lean",
+          "lines": [
+            55,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/LemmaRA.lean#L55-L168"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.lemma_R_log_loss",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/LemmaRA.lean",
+          "lines": [
+            170,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/LemmaRA.lean#L170-L172"
+        }
+      ],
+      "correspondence": "The proof raises the radii, bounds the integral substitution and exponential separately, then multiplies by the multifactorial. The full BHyp realization is open in this exposition.",
+      "status": "mathematical implication reconstructed under its stated hypotheses",
+      "review": "Lead source inspection; external human review pending."
+    },
+    {
+      "id": "LOC-05",
+      "title": "Feasible row corrections",
+      "chapter": "local",
+      "anchor": "local-mixed",
+      "statement": "Under the hypotheses of theorem_A_monomial_of_lemmas (LemmaS, LemmaRA, ThmAAssembly7, FramePure), row corrections chosen by lemmaFa and the assembly lemma yield the bounds consumed by ThmAJet7.",
+      "dependencies": [
+        "LOC-04"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.theorem_A_monomial_of_lemmas",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+          "lines": [
+            20,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean#L20-L66"
+        }
+      ],
+      "correspondence": "The local-mixed section identifies the optimizer inputs and constraints. The local-radii section derives the dual optimum, its cyclic row assembly and its use in the monomial coefficient bound. Applying the result to all global host data still requires additional arithmetic input.",
+      "status": "statement and selected proof steps inspected",
+      "review": "Lead source inspection; external human review pending."
+    },
+    {
+      "id": "LOC-06",
+      "title": "Transport of the normalized theta vector",
+      "chapter": "local",
+      "anchor": "local-lattice",
+      "statement": "For a D7 datum, curve ideal cc, discriminant twelfth root δ≠0, Base D cc δ, admissible χ and admitted lattices L,L′, the pullback of eNat along e⁻¹ satisfies S.IsTheta when e identifies lattices and Hermitian forms and S.d=D.host.d.",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.IsomTheta.isTheta_eNat_comp",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormalizedThetaVectorIsometryIsTheta.lean",
+          "lines": [
+            13,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormalizedThetaVectorIsometryIsTheta.lean#L13-L40"
+        }
+      ],
+      "correspondence": "Holomorphicity is pulled back along a complex linear equivalence; rational integrality converts its translation phase to (−1)^m.",
+      "status": "mathematical implication reconstructed under its stated hypotheses",
+      "review": "Lead source inspection; external human review pending."
+    },
+    {
+      "id": "CLS-01",
+      "title": "Passing to every level",
+      "chapter": "reflection",
+      "anchor": "reflect-euler",
+      "statement": "For N>0, Re s>½ and (χ≠1 or s≠1), primitive nonvanishing in ZeroFreeAll gives L(χ,s)≠0. At positive real part each extra factor is nonzero because |ψ(p)p^(−s)|≤p^(−Re s)<1.",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Top.imprimitive",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean",
+          "lines": [
+            5,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean#L5-L32"
+        }
+      ],
+      "correspondence": "Uses conductor positivity and the primitive change of level, then checks each finite Euler factor.",
+      "status": "mathematical implication reconstructed under its stated hypotheses",
+      "review": "Lead source inspection; external human review pending."
+    },
+    {
+      "id": "CLS-02",
+      "title": "Reflection of a character zero",
+      "chapter": "reflection",
+      "anchor": "reflection-dirichlet",
+      "statement": "For a primitive ψ of nonzero modulus and a zero with 0<Re s<1, L(ψ⁻¹,1−s)=0. For arbitrary χ the primitive transfer and right-half-plane nonvanishing imply Re s=½.",
+      "dependencies": [
+        "CLS-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Claim.prim_reflect",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+          "lines": [
+            44,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean#L44-L59"
+        },
+        {
+          "declaration": "Claim.strip",
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+          "lines": [
+            62,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean#L62-L78"
+        }
+      ],
+      "correspondence": "Parity gives a nonvanishing gamma factor. The completed equation uses the inverse character.",
+      "status": "mathematical implication reconstructed under its stated hypotheses",
+      "review": "Lead source inspection; external human review pending."
+    },
+    {
+      "id": "CLS-03",
+      "title": "Classical reflection with the exceptional integers",
+      "chapter": "reflection",
+      "anchor": "reflect-zeta-formula",
+      "statement": "If ζ(s)≠0 for Re s>½ and s≠1, every zero away from 1 and the negative even integers has real part ½.",
+      "dependencies": [
+        "target.half"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.VW.rh_of_right",
+          "path": "src/Formalism/GammaFactorNonvanishing/RhOfRight.lean",
+          "lines": [
+            5,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean#L5-L62"
+        },
+        {
+          "declaration": "Formalism.VW.rh_of_every",
+          "path": "src/Formalism/GammaFactorNonvanishing/CritLine.lean",
+          "lines": [
+            29,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GammaFactorNonvanishing/CritLine.lean#L29-L32"
+        }
+      ],
+      "correspondence": "At w=1−s, gamma and the exponential power are nonzero, and zeros of the cosine would force excluded or impossible even s.",
+      "status": "mathematical implication reconstructed under its stated hypotheses",
+      "review": "Lead source inspection; external human review pending."
+    }
+  ]
+}

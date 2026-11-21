@@ -1,0 +1,705 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "LFT-01",
+      "title": "The adjoint survives on a positive row",
+      "statement": "Fix an index i and a source type σ. Given PTf=λσf on Mσ, with T=P* and λσ>0 whenever Mσ≠0, ‖Tf‖²=λσ‖f‖² and Tf=0 implies f=0 on Mσ.",
+      "chapter": "lifts",
+      "anchor": "lifts-gram",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.Rows.Data.thetaT",
+          "path": "src/Formalism/LocalRingCardinality/DataRows.lean",
+          "lines": [
+            201,
+            204
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataRows.lean#L201-L204"
+        },
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.ThetaGramMatrix.ThetaGramPositiveScalar.norm_sq",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/ThetaLiftGeometry/ThetaGramMatrix.lean",
+          "lines": [
+            19,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/ThetaLiftGeometry/ThetaGramMatrix.lean#L19-L31"
+        },
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.ThetaGramMatrix.ThetaGramPositiveScalar.eq_zero",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/ThetaLiftGeometry/ThetaGramMatrix.lean",
+          "lines": [
+            33,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/ThetaLiftGeometry/ThetaGramMatrix.lean#L33-L48"
+        }
+      ],
+      "status": "proof reconstructed",
+      "correspondence": "Proof expands the adjoint pairing. Positivity of λσ is an input to this lemma; deriving positivity from global theta integrals remains open in this chapter.",
+      "review": "independent source-excerpt review and author cross-check"
+    },
+    {
+      "id": "LFT-02",
+      "title": "The lifted row has one target type",
+      "statement": "Assume target components span the target and are pairwise orthogonal, HoweUp (at most one target type pairs with each row), and the Gram hypothesis. Every nonzero source component has nonzero image contained in a single target type.",
+      "chapter": "lifts",
+      "anchor": "lifts-type",
+      "dependencies": [
+        "LFT-01"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.ThetaExh.Pairs",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/HeckeSplitOne.lean",
+          "lines": [
+            35,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/HeckeSplitOne.lean#L35-L36"
+        },
+        {
+          "declaration": "Formalism.MainNotions.N.thetaOf",
+          "path": "src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean",
+          "lines": [
+            1302,
+            1304
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean#L1302-L1304"
+        },
+        {
+          "declaration": "GlobalTheory.Proof.HoweThetaLiftComponents.eachRowHasThetaLift_of_howe",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/HoweThetaLiftComponents.lean",
+          "lines": [
+            43,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/HoweThetaLiftComponents.lean#L43-L56"
+        }
+      ],
+      "status": "proof reconstructed",
+      "correspondence": "Nonzero inner product detects one target component; uniqueness excludes all others, and orthogonal spanning yields image containment.",
+      "review": "author checked pinned source; separate review pending"
+    },
+    {
+      "id": "LFT-03",
+      "title": "Stable-range split parameter",
+      "statement": "For the paired types in the source's row, under the Bernstein–Zelevinsky finiteness and Bernstein irreducibility inputs, reading laws, row unitarisability, local pairing and goodness of the target, every split-place target parameter equals liftPar of the source. The ranks satisfy r=k+m−1, nV=r+t and r+5≤t. The extra segment consists of t twists of μ with exponents (t−1)/2−h for 0≤h<t, and the full sum is twisted by η⁻¹.",
+      "chapter": "lifts",
+      "anchor": "lifts-parameter",
+      "dependencies": [
+        "LFT-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.Ranks",
+          "path": "src/Formalism/LocalRingCardinality/Params.lean",
+          "lines": [
+            6,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/Params.lean#L6-L34"
+        },
+        {
+          "declaration": "GlobalTheory.ThetaGL.ThetaPair",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/IsParahoricVec.lean",
+          "lines": [
+            14,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/IsParahoricVec.lean#L14-L18"
+        },
+        {
+          "declaration": "GlobalTheory.T.theta_lift_general_linear",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/LocalTypeDictionary/ThetaLiftGeneralLinear.lean",
+          "lines": [
+            9,
+            10
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/LocalTypeDictionary/ThetaLiftGeneralLinear.lean#L9-L10"
+        },
+        {
+          "declaration": "UpperTheory.One.M.pairLift_of_howeDuality_bernstein_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PairLiftOfHoweDualityBernstein.lean",
+          "lines": [
+            17,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PairLiftOfHoweDualityBernstein.lean#L17-L57"
+        },
+        {
+          "declaration": "GlobalTheory.RowTie.PairLift",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/RankOneUnitary.lean",
+          "lines": [
+            48,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/RankOneUnitary.lean#L48-L49"
+        },
+        {
+          "declaration": "GlobalTheory.ThetaExh.liftPar",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/HeckeSplitOne.lean",
+          "lines": [
+            46,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/HeckeSplitOne.lean#L46-L47"
+        },
+        {
+          "declaration": "Formalism.MainNotions.N.spehLoc",
+          "path": "src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean",
+          "lines": [
+            1239,
+            1242
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean#L1239-L1242"
+        },
+        {
+          "declaration": "Formalism.MainNotions.N.muPart",
+          "path": "src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean",
+          "lines": [
+            1255,
+            1255
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/LevelLetterCocycles/DataN.lean#L1255-L1255"
+        }
+      ],
+      "status": "statement and definitions inspected",
+      "correspondence": "The source derives r<t from rank_add_five_le, passes to the determinant twist, uses local theta classification, translates the product and determinant block through the parameter laws, and undoes the twist. The local classification theorem is identified, not independently reconstructed.",
+      "review": "author checked pinned source; separate review pending"
+    },
+    {
+      "id": "LFT-04",
+      "title": "Galois-side use",
+      "statement": "For linked row data the point-condition theorem assembles separate split pairing, base-change and local identification hypotheses alongside other inputs. thetaOne_of_ties combines positivity, pairing, orthogonality, existence of base change, split base change and realization from local data to conclude row-wise ThetaOne.",
+      "chapter": "lifts",
+      "anchor": "lifts-route",
+      "dependencies": [
+        "LFT-02",
+        "LFT-03"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.One.M.latticesB_closing_alt",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointsOfTiedLattices.lean",
+          "lines": [
+            44,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/PointsOfTiedLattices.lean#L44-L65"
+        },
+        {
+          "declaration": "GlobalTheory.Proof.ThetaOneGenusOne.thetaOne_of_ties",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ThetaOneGenusOne.lean",
+          "lines": [
+            11,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ThetaOneGenusOne.lean#L11-L14"
+        },
+        {
+          "declaration": "GlobalTheory.RowsAll.locComp_of_isRc_classMapD_cenLoc",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/GaloisRepIsGeometricAtAllPlaces.lean",
+          "lines": [
+            23,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/GaloisRepIsGeometricAtAllPlaces.lean#L23-L35"
+        }
+      ],
+      "status": "statement and definitions inspected",
+      "correspondence": "Direct source uses for a fixed-row pairing in the long-chain application. The global pair entering the even-rank Galois statement is tracked separately in LFT-05 through LFT-08.",
+      "review": "author checked pinned source; separate review pending"
+    },
+    {
+      "id": "LFT-05",
+      "title": "Two lifts of one even-rank source",
+      "statement": "Under the stated field conditions, each positive even rank n, automorphic source U, compatible weights and chosen split place give two parallel lifts to the same odd rank D=n+t, t=2(d₀+n)+1. There is a common twist κ and two globally disjoint lists of t auxiliary characters. The first list and κ are unramified at the chosen place.",
+      "chapter": "lifts",
+      "anchor": "lifts-two",
+      "dependencies": [
+        "LFT-06"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.TP.TwoUpOK",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/AllCoreOf.lean",
+          "lines": [
+            12,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/AllCoreOf.lean#L12-L22"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.IsUp",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/RowDefOfOdd.lean",
+          "lines": [
+            85,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/RowDefOfOdd.lean#L85-L94"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.TwoUp",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/RowDefOfOdd.lean",
+          "lines": [
+            98,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/RowDefOfOdd.lean#L98-L104"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.twoUpOK_of_steps",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/TwoUpOKOfSteps.lean",
+          "lines": [
+            13,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/TwoUpOKOfSteps.lean#L13-L31"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.twoUpOK_of_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/TwoUpOKOfSteps.lean",
+          "lines": [
+            29,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/TwoUpOKOfSteps.lean#L29-L33"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The proof applies one threshold to both choices of splitting characters, using a common lower bound for the source weight components at the chosen complex embedding above each real place. A conditional type TwoUpAll with weaker field hypotheses is not used as the evidence for this claim.",
+      "review": "independent source-excerpt review and author cross-check"
+    },
+    {
+      "id": "LFT-06",
+      "title": "A nonzero global theta transform in stable range",
+      "statement": "For a definite Hermitian source with positive rank, compatible definite skew target, matching splitting characters and real weights, rank D sufficiently large supplies a nonzero global theta transform and an automorphic constituent carrying it. A height-integrability threshold and stable-range bound D≥2n enter before the finite test vector is chosen.",
+      "chapter": "lifts",
+      "anchor": "lifts-integral",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.TP.TLiftK",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/HalfIndexLattices/TLiftK.lean",
+          "lines": [
+            12,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/HalfIndexLattices/TLiftK.lean#L12-L23"
+        },
+        {
+          "declaration": "UpperTheory.TP.Rallis_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean",
+          "lines": [
+            61,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean#L61-L68"
+        },
+        {
+          "declaration": "UpperTheory.TP.nonVan_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGNonVan.lean",
+          "lines": [
+            26,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGNonVan.lean#L26-L41"
+        },
+        {
+          "declaration": "UpperTheory.TP.nonVan_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGNonVan.lean",
+          "lines": [
+            117,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGNonVan.lean#L117-L151"
+        },
+        {
+          "declaration": "UpperTheory.TP.tLift_of_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean",
+          "lines": [
+            137,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean#L137-L177"
+        },
+        {
+          "declaration": "UpperTheory.TP.tLift_of_tools_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGTop.lean",
+          "lines": [
+            46,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGTop.lean#L46-L49"
+        },
+        {
+          "declaration": "UpperTheory.TP.tLift_holds_k",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGHolds.lean",
+          "lines": [
+            38,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGHolds.lean#L38-L58"
+        },
+        {
+          "declaration": "UpperTheory.TP.K.tLiftK",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean",
+          "lines": [
+            4,
+            5
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean#L4-L5"
+        },
+        {
+          "declaration": "GlobalTheory.WeilM.thetaSum",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/HilbertNinetyQuotientHomEqIff.lean",
+          "lines": [
+            107,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/HilbertNinetyQuotientHomEqIff.lean#L107-L108"
+        },
+        {
+          "declaration": "GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.theta",
+          "path": "src/Development/AbelianVarietyTheory/BlockTheory/DivisorBase/WeilTensorModels.lean",
+          "lines": [
+            284,
+            289
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/BlockTheory/DivisorBase/WeilTensorModels.lean#L284-L289"
+        },
+        {
+          "declaration": "UpperTheory.TP.lift",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SchurStep.lean",
+          "lines": [
+            22,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SchurStep.lean#L22-L25"
+        },
+        {
+          "declaration": "GlobalTheory.ThK.Dbl.coef",
+          "path": "src/Development/WeilBound/ThetaLifts/LatticeBasics/HodgeTateFromSandwich.lean",
+          "lines": [
+            28,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/ThetaLifts/LatticeBasics/HodgeTateFromSandwich.lean#L28-L29"
+        },
+        {
+          "declaration": "UpperTheory.TP.absNe",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/AbsNe.lean",
+          "lines": [
+            31,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/AbsNe.lean#L31-L64"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "Nonvanishing of the integral uses specialized finite vectors, a nonzero Schur scalar and identity coefficient, and a tail estimate. The chapter identifies the precise Rallis implication and the assembly of the analytic inputs. It does not independently prove Siegel–Weil or the real local correspondence.",
+      "review": "independent source-excerpt review and author cross-check"
+    },
+    {
+      "id": "LFT-07",
+      "title": "Subtraction in the Galois representation",
+      "statement": "After the odd-dimensional construction attaches representations to both targets, a characteristic polynomial identity holds for every Galois group element. Cross-list disjointness and semisimplicity allow t successive one-character splittings. Twisting the continuous semisimple rank n remainder by the character attached to κ restores the source normalization.",
+      "chapter": "lifts",
+      "anchor": "lifts-subtract",
+      "dependencies": [
+        "LFT-05"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.atPlace_holds",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PAtPlace.lean",
+          "lines": [
+            11,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PAtPlace.lean#L11-L50"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.peelAll_holds",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean",
+          "lines": [
+            17,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean#L17-L40"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.subtract_holds",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+          "lines": [
+            49,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean#L49-L65"
+        },
+        {
+          "declaration": "UpperTheory.Gal.TP.Sub.subtract_of",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean",
+          "lines": [
+            182,
+            189
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean#L182-L189"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The two normalized Satake identities are combined at good split places, followed by density, auxiliary-line splitting, and a twist. Distinct characters can coincide on a particular Galois element.",
+      "review": "independent source-excerpt review and author cross-check"
+    },
+    {
+      "id": "LFT-08",
+      "title": "Use by the global local–global Galois statement",
+      "statement": "The global lifting construction tLiftK is passed to galoisRepresentations_of_thetaLift. It joins independently supplied geometry and congruence inputs and yields the strong Row0b statement with the specified local reciprocity notion.",
+      "chapter": "lifts",
+      "anchor": "lifts-subtract",
+      "dependencies": [
+        "LFT-05",
+        "LFT-06",
+        "LFT-07"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.Int.Core.toCoreK",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/ToCoreK.lean",
+          "lines": [
+            7,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/ToCoreK.lean#L7-L9"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_of_geometry_lift",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean",
+          "lines": [
+            18,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean#L18-L31"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean#L4-L6"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean#L4-L6"
+        },
+        {
+          "declaration": "UpperTheory.GalStar.Row0b",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean",
+          "lines": [
+            69,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L69-L82"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "Direct cross-module application of the concrete global lift theorem. Odd-rank geometric seeds, congruence and the passage from local compatibility to the strong statement are external inputs for this bounded chapter.",
+      "review": "independent source-excerpt review and author cross-check"
+    },
+    {
+      "id": "LFT-09",
+      "title": "A nonzero upward lift at a stage of the iterated chain",
+      "statement": "At stage j<m with rank r+jt, for a nonzero Hecke vector obtained along the chain from a bounded initial family, the shifted partial L-function has nonzero holomorphic value at t/2. A nonzero local zeta integral and the normalized doubling identity supply test data with nonzero upward lift to rank r+(j+1)t.",
+      "chapter": "lifts",
+      "anchor": "lifts-chain",
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.Ranks.rankY",
+          "path": "src/Formalism/LocalRingCardinality/Params.lean",
+          "lines": [
+            32,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/Params.lean#L32-L42"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.PiLocalization₂.Is",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean",
+          "lines": [
+            56,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean#L56-L76"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.stepPar",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean",
+          "lines": [
+            116,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean#L116-L132"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.upNe_of_heckeForm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftUpwardsNeZeroOfLValue.lean",
+          "lines": [
+            34,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftUpwardsNeZeroOfLValue.lean#L34-L49"
+        },
+        {
+          "declaration": "GlobalTheory.Core.Rk.IP.HeckeForm",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/IntegrandSZero.lean",
+          "lines": [
+            165,
+            180
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/IntegrandSZero.lean#L165-L180"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.upNe_of_heckeForm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftUpwardsNeZeroOfLValue.lean",
+          "lines": [
+            112,
+            140
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftUpwardsNeZeroOfLValue.lean#L112-L140"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.chainLW_holds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainLValuesNonvanishing.lean",
+          "lines": [
+            51,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainLValuesNonvanishing.lean#L51-L77"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.chainLW_holds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainLValuesNonvanishing.lean",
+          "lines": [
+            92,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainLValuesNonvanishing.lean#L92-L117"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.QuotL.quotL_entire_ne_zero",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainCharQuotientLFunctionEntireNeZero.lean",
+          "lines": [
+            45,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainCharQuotientLFunctionEntireNeZero.lean#L45-L62"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The continued product is nonzero including the quotient character at 1. The local zeta theorem and Hecke form supply analytic inputs. The full Petersson identity and analytic use of conjugation are checked.",
+      "review": "author proof and source-range check"
+    },
+    {
+      "id": "LFT-10",
+      "title": "Adjoints propagate Hecke eigenvectors along the chain",
+      "statement": "At each stage the adjoint of the downward map sends the current Hecke eigenvector to a nonzero vector with the twisted family and added character segment. With the metric, parameter separation, and spanning assumptions, each reachable downward composite through stage m is surjective onto the initial multiplicity space.",
+      "chapter": "lifts",
+      "anchor": "lifts-chain",
+      "dependencies": [
+        "LFT-09"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.ChainOnto.Reach",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean",
+          "lines": [
+            91,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean#L91-L105"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.stepPar",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean",
+          "lines": [
+            116,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/ChainParSucc.lean#L116-L132"
+        },
+        {
+          "declaration": "GlobalTheory.LFun.seg",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Foundations/NormEulerPolySubOneLe.lean",
+          "lines": [
+            115,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Foundations/NormEulerPolySubOneLe.lean#L115-L123"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.stepUp",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainAdjointNonvanishingStep.lean",
+          "lines": [
+            23,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainAdjointNonvanishingStep.lean#L23-L42"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.thetaChain_upward_induction_fixed_metric",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainUpwardInductionFixedMetric.lean",
+          "lines": [
+            41,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaChainUpwardInductionFixedMetric.lean#L41-L63"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.ontoAll_of_chainUp",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainSurjectiveOfAdjointNonvanishing.lean",
+          "lines": [
+            14,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainSurjectiveOfAdjointNonvanishing.lean#L14-L38"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.ontoAll_of_classicalTheorems",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainOntoCuspFormsOfInnerProduct.lean",
+          "lines": [
+            37,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftChainOntoCuspFormsOfInnerProduct.lean#L37-L57"
+        },
+        {
+          "declaration": "GlobalTheory.ChainOnto.ontoAll_of_classicalTheorems_and_hecke",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftOntoAll.lean",
+          "lines": [
+            28,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ThetaLiftOntoAll.lean#L28-L34"
+        }
+      ],
+      "status": "statement and proof inspected",
+      "correspondence": "The fixed-metric induction and adjoint witness are explicit; surjectivity requires independence of distinct labels in addition to individual nonvanishing. Local transfer, the doubling formula and representation-theoretic inputs are stated dependencies.",
+      "review": "author proof and source-range check"
+    }
+  ]
+}

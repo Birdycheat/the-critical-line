@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Declarations and written proof terms inspected at the pinned revision. No local kernel run or elaborated-type extraction. Implicit positive-modulus typeclasses, character domains and existence quantifiers are expanded in the statement and definitions fields. Dependencies listed here order the explanation, and are not a kernel dependency export.",
+  "claims": [
+    {
+      "id": "PIL-01",
+      "title": "Ramp normalization",
+      "statement": "For x≥1 and χ any Dirichlet character of positive modulus, Sχ(x)=Σ_{1≤n≤⌊x⌋} Λ(n)χ(n)max(x/n−1,0).",
+      "anchor": "ramp",
+      "chapter": "pilot",
+      "equations": [
+        "2.1"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.ramp",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            10,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L10-L11"
+        }
+      ],
+      "dependencies": [],
+      "definitions": [
+        "positive part",
+        "von Mangoldt function",
+        "Dirichlet character"
+      ],
+      "correspondence": "The Lean definition takes any f:ℕ→ℂ and includes a zero term at n=0. The chapter specializes f(n)=χ(n) and omits that vanishing term.",
+      "status": "statement and definitions inspected",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-02",
+      "title": "Mellin transform of a single ramp",
+      "statement": "For integer n≥1 and complex s with σ=Re(s)>1, the absolutely convergent integral on (1,∞) of max(x/n−1,0)x^(−s−1) is n^(−s)/[s(s−1)].",
+      "anchor": "mellin",
+      "chapter": "pilot",
+      "equations": [
+        "2.2"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.mellin_ramp",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/MellinRamp.lean",
+          "lines": [
+            10,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/MellinRamp.lean#L10-L51"
+        },
+        {
+          "declaration": "Deduction.mellin_Gchi_of_ne_one_norm",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean",
+          "lines": [
+            27,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean#L27-L41"
+        }
+      ],
+      "dependencies": [
+        "PIL-01"
+      ],
+      "definitions": [
+        "positive complex power x^s=exp(s log x)",
+        "ℳ uses x^(−s−1)dx"
+      ],
+      "correspondence": "The split at n and two elementary improper integrals reproduce the proof. Taking s real gives the exact integral norm.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-03",
+      "title": "The uncentered transform",
+      "statement": "For a Dirichlet character of positive modulus and Re(s)>1, ℳSχ(s)=−Dχ(s)/[s(s−1)], where Dχ=L′/L. The absolute-integral sum is bounded by Σ Λ(n)n^(−σ)/[σ(σ−1)].",
+      "anchor": "pilot-euler",
+      "chapter": "pilot",
+      "equations": [
+        "2.3",
+        "2.4",
+        "2.5"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.mellin_Gchi_of_ne_one_ramp",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean",
+          "lines": [
+            65,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean#L65-L114"
+        },
+        {
+          "declaration": "Deduction.mellin_Gchi_of_ne_one",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean",
+          "lines": [
+            123,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean#L123-L132"
+        },
+        {
+          "declaration": "Deduction.mellin_Gchi_modOne",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiModOne.lean",
+          "lines": [
+            168,
+            193
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiModOne.lean#L168-L193"
+        }
+      ],
+      "dependencies": [
+        "PIL-01",
+        "PIL-02"
+      ],
+      "definitions": [
+        "Dχ=L′/L",
+        "Euler product for σ>1",
+        "Fubini absolute-integrability condition"
+      ],
+      "correspondence": "Specialize the generic identity to f=χ and g=0. The source invokes Mathlib twisted von Mangoldt identities. The Euler-product differentiation and elementary summable majorant are supplied in the exposition.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-04",
+      "title": "Centering at modulus one",
+      "statement": "For the character modulo one, G₁(x)=S₁(x)−x log x+(1+γ)x. For Re(s)>1 its Mellin transform is −(ζ′/ζ)(s)/[s(s−1)]−1/(s−1)²+(1+γ)/(s−1). Its continuation is analytic at s=1.",
+      "anchor": "centering",
+      "chapter": "pilot",
+      "equations": [
+        "2.6"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.Gchi",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            15,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L15-L19"
+        },
+        {
+          "declaration": "Deduction.mellin_Gchi_modOne",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiModOne.lean",
+          "lines": [
+            115,
+            199
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiModOne.lean#L115-L199"
+        },
+        {
+          "declaration": "Deduction.poleData_char",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            145,
+            221
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L145-L221"
+        }
+      ],
+      "dependencies": [
+        "PIL-03"
+      ],
+      "definitions": [
+        "γ Euler–Mascheroni constant",
+        "g(s)=(s−1)ζ(s) continued by g(1)=1"
+      ],
+      "correspondence": "The transform expands the common denominator used by Lean. The Laurent proof of cancellation matches g′(1)=γ and removal of the singular quotient in poleData_abstract.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-05",
+      "title": "Centering a nonprincipal character",
+      "statement": "For N≥1, χ≠1 modulo N, cχ=L′(1,χ)/L(1,χ) and x≥1, Gχ(x)=Sχ(x)+xcχ. For Re(s)>1 its transform equals [s cχ−Dχ(s)]/[s(s−1)]. Its continuation is analytic at s=1.",
+      "anchor": "centering",
+      "chapter": "pilot",
+      "equations": [
+        "2.7",
+        "2.8"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.Gchi",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            15,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L15-L19"
+        },
+        {
+          "declaration": "Deduction.mellin_Gchi_of_ne_one",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean",
+          "lines": [
+            116,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/mellinGchiOfNeOne.lean#L116-L142"
+        },
+        {
+          "declaration": "Deduction.poleData_abstract",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            22,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L22-L61"
+        },
+        {
+          "declaration": "Deduction.poleData_char",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            230,
+            239
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L230-L239"
+        }
+      ],
+      "dependencies": [
+        "PIL-03"
+      ],
+      "definitions": [
+        "implicit modulus N with [NeZero N]",
+        "χ≠1",
+        "L(1,χ)≠0"
+      ],
+      "correspondence": "The theorem assumes no primitivity. The source applies the abstract regularization with g=L and k=0. A principal character of higher level does not satisfy these hypotheses.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-06",
+      "title": "The residue of one zero",
+      "statement": "At a zero ρ with 0<Re(ρ)<1 of order m≥1 for an admissible character (N=1 or χ≠1), the centered transform continues with a simple pole at ρ, of residue −m/[ρ(ρ−1)].",
+      "anchor": "pilot-residues",
+      "chapter": "pilot",
+      "equations": [
+        "2.9"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.logDeriv_local",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/LogDerivLocal.lean",
+          "lines": [
+            9,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/LogDerivLocal.lean#L9-L34"
+        },
+        {
+          "declaration": "Deduction.poleData_abstract",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            22,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L22-L83"
+        },
+        {
+          "declaration": "Deduction.poleData_char",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            137,
+            144
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L137-L144"
+        }
+      ],
+      "dependencies": [
+        "PIL-04",
+        "PIL-05"
+      ],
+      "definitions": [
+        "analytic order",
+        "punctured neighborhood",
+        "principal part"
+      ],
+      "correspondence": "Analytic order is identified explicitly inside logDeriv_local. poleData_char packages existence of an integer with the specified pole and an iff for zero order; the proof obtains it from the germ factorization. Its Laplace identity is only requested on Re(s)>2.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-07",
+      "title": "Residues for a real weighted family",
+      "statement": "For a finite family of positive-modulus admissible characters, weights aᵢ>0 and ρ in its zero set, 0<Re(ρ)<1, the family transform has residue −B/[ρ(ρ−1)], B=Σ aᵢ(mᵢ+mᵢ⁻)/2>0. The two orders belong to χᵢ and χᵢ⁻¹ at the same ρ. For real ρ this residue is positive.",
+      "anchor": "pilot-family",
+      "chapter": "pilot",
+      "equations": [
+        "2.10"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.CharFamily",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            24,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L24-L32"
+        },
+        {
+          "declaration": "Deduction.Gm",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            36,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L36-L36"
+        },
+        {
+          "declaration": "Deduction.zeroSet",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauZeroFreeCriterion.lean",
+          "lines": [
+            11,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauZeroFreeCriterion.lean#L11-L13"
+        },
+        {
+          "declaration": "Deduction.Gchi_conj",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/GchiConj.lean",
+          "lines": [
+            38,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/GchiConj.lean#L38-L47"
+        },
+        {
+          "declaration": "Deduction.poleData_inv_zero",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            241,
+            246
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L241-L246"
+        },
+        {
+          "declaration": "Deduction.poleData",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            248,
+            265
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L248-L265"
+        },
+        {
+          "declaration": "Deduction.poleData",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            336,
+            400
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L336-L400"
+        }
+      ],
+      "dependencies": [
+        "PIL-06"
+      ],
+      "definitions": [
+        "admissibility",
+        "χ⁻¹ on units and zero on nonunits",
+        "real-part average",
+        "witness of zeroSet membership"
+      ],
+      "correspondence": "Finite addition of analytic remainders is valid. A witness forces a strictly positive summand in B. No pointwise sign of the centered family follows from this residue calculation.",
+      "status": "proof reconstructed",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-08",
+      "title": "The retained weights",
+      "statement": "For a level Λ the index set of the analytic family is Λ.KEPT. The principal primitive character has weight 1, and each other index has weight Λ.wt ψ. Under the comparison data in gmA_eq these are wtA((3Λ.o+1)^−1,ψ): 1 for characters trivial on the full H factor in E₀×H and the reciprocal otherwise.",
+      "anchor": "pilot-family",
+      "chapter": "pilot",
+      "equations": [
+        "2.10"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Comparison₂.level_family",
+          "path": "src/Development/AutomorphicArithmetic/PrimitiveCosets/LevelFamily.lean",
+          "lines": [
+            41,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/PrimitiveCosets/LevelFamily.lean#L41-L52"
+        },
+        {
+          "declaration": "UpperTheory.Comparison₂.gmA_eq",
+          "path": "src/Development/AutomorphicArithmetic/PrimitiveCosets/GmAEq.lean",
+          "lines": [
+            61,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/PrimitiveCosets/GmAEq.lean#L61-L128"
+        },
+        {
+          "declaration": "Deduction.CH.wtA",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean",
+          "lines": [
+            30,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean#L30-L30"
+        }
+      ],
+      "dependencies": [
+        "PIL-07"
+      ],
+      "definitions": [
+        "Λ.KEPT",
+        "Λ.o",
+        "Deduction.CH.wtA",
+        "nonempty concrete family via Λ.one_mem"
+      ],
+      "correspondence": "Concrete level-family construction and weight conversion were inspected. The construction of all input comparison data lies outside this claim.",
+      "status": "statement and definitions inspected",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    },
+    {
+      "id": "PIL-09",
+      "title": "Handoff to the window theorem",
+      "statement": "For any CharFamily F there exists Φ giving PoleData for u↦Gm F (exp u) and its formal zeroSet. The Laplace identity is required for Re(s)>2, and the analytic assertions on Re(s)>0 off the zero set. Given 0<θ<1, δ>0 and WindowHyp F θ δ, lemmaL proves ZeroFree F θ.",
+      "anchor": "pilot-handoff",
+      "chapter": "pilot",
+      "equations": [],
+      "sources": [
+        {
+          "declaration": "Deduction.PoleData",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauZeroFreeCriterion.lean",
+          "lines": [
+            15,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauZeroFreeCriterion.lean#L15-L23"
+        },
+        {
+          "declaration": "Deduction.Gchi_growth",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/GchiGrowth.lean",
+          "lines": [
+            37,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/GchiGrowth.lean#L37-L65"
+        },
+        {
+          "declaration": "Deduction.poleData",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+          "lines": [
+            248,
+            265
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean#L248-L265"
+        },
+        {
+          "declaration": "Deduction.WindowHyp",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean",
+          "lines": [
+            41,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean#L41-L45"
+        },
+        {
+          "declaration": "Deduction.lemmaL",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/lemmaL.lean",
+          "lines": [
+            13,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/lemmaL.lean#L13-L22"
+        }
+      ],
+      "dependencies": [
+        "PIL-07"
+      ],
+      "definitions": [
+        "gm F u=Gm F (exp u)",
+        "WindowHyp quantified over η>0 then thresholds Y₀",
+        "ZeroFree F θ"
+      ],
+      "correspondence": "The chapter proves the rough growth bound and describes the residue-analytic interface. Its final paragraph states the exact quantified hypothesis; it does not establish that the arithmetic construction supplies it. Every point of the positive half-plane has an isolated punctured neighborhood free of the pole set, including regular points.",
+      "status": "statement and definitions inspected",
+      "review": "separate source and mathematical review by the corpus researcher; revisions to full-factor weights and local discreteness incorporated"
+    }
+  ]
+}

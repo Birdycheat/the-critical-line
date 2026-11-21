@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned source definitions and explicit proof applications. Links can point to a statement or the relevant steps in its proof. Dependency links here record mathematical uses in this reconstruction.",
+  "claims": [
+    {
+      "id": "global.lattice",
+      "chapter": "global",
+      "statement": "For a good positive-rank lattice over a totally complex number field, μ=−lcv/r, lcv=2 log(ht)/[K:ℚ]. For nonempty word sets of positive-rank lattices with μ≤μmax, their rank-weighted adjusted mean s is at most the maximum adjusted maximal slope.",
+      "hypotheses": "Real metrics via an archimedean frame, full finitely generated lattice, finite positive rank, adjusted heights h.",
+      "title": "Normalized height and the rank-weighted slope",
+      "anchor": "global-objects",
+      "equations": [
+        "global-rank-mean"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.BasicNotions.HLat.lcv",
+          "path": "src/Formalism/LocalRingCardinality/DataArith.lean",
+          "lines": [
+            61,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataArith.lean#L61-L112"
+        },
+        {
+          "declaration": "Formalism.BasicNotions.bridge_hn_mu_holds",
+          "path": "src/Formalism/LocalRingCardinality/RankBoundMonotoneInDimension.lean",
+          "lines": [
+            975,
+            992
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/RankBoundMonotoneInDimension.lean#L975-L992"
+        },
+        {
+          "declaration": "Formalism.BasicNotions.sFrame",
+          "path": "src/Formalism/LocalRingCardinality/DataArith.lean",
+          "lines": [
+            127,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataArith.lean#L127-L135"
+        },
+        {
+          "declaration": "Formalism.RankGapBounds.WeightedMeanData.Data.uF_nonneg",
+          "path": "src/Formalism/RankGapBounds/RankGapProofs/WeightedMeanData.lean",
+          "lines": [
+            159,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RankGapBounds/RankGapProofs/WeightedMeanData.lean#L159-L168"
+        }
+      ],
+      "correspondence": "Interpretation and proof inspected; geometric construction of the input lattices pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "statement and definitions inspected",
+      "definitions": [
+        "Hermitian lattice and the integral dual",
+        "sFrame, μ, μmax, uF"
+      ],
+      "dependencies": [],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "id": "global.count",
+      "chapter": "global",
+      "statement": "Count5 gives λ ≤ log T_u ≤ cCount·m·L, and |log T_u−log T_u′| ≤ cCount log k, with λ = Σ_j mean_ρ log(w_jρ v/π) + m lg − cCount(La + m²La/k).",
+      "hypotheses": "At the application f>0, w,v>0, k>0 and words are a finite nonempty set. Uniform realization needs the hypotheses of count_at_of and the family conditions.",
+      "title": "The uniform counting floor",
+      "anchor": "global-count",
+      "equations": [
+        "global-count-floor"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.LFunctionChainParameters.WeightedSlopeBounds.Count5",
+          "path": "src/Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean",
+          "lines": [
+            27,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean#L27-L32"
+        },
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            20,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L20-L36"
+        },
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.countF_fam",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            1152,
+            1155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L1152-L1155"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.Mod.data_Count5",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            641,
+            660
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L641-L660"
+        }
+      ],
+      "correspondence": "Statement, inputs and reindexing inspected. Torus-pair and Vandermonde bounds pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "statement and definitions inspected",
+      "definitions": [
+        "Count5, lambda5, k, La, T"
+      ],
+      "dependencies": [],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "id": "global.algebra",
+      "chapter": "global",
+      "statement": "For v>0, positive natural f, and all w_jρ>0, SDiv−A·λ+m·A·lg = Main + A·cCount·(La + m²La/k). A=Σ_t a_t, Ωlog=gam+log(π/v)−LpL, SDiv=mΣ_t[a_t log(a_t)−a_t−a_tΩlog].",
+      "hypotheses": "Positive v and weights allow logarithms to split. The nonnegative a_t used to turn Count5 into an upper bound is an application hypothesis, separate from the exact identity.",
+      "title": "Matching the period with the counted main term",
+      "anchor": "global-matching",
+      "equations": [
+        "global-main-id"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.RankGapBounds.WeightedMeanData.Data.Main",
+          "path": "src/Formalism/RankGapBounds/MeanBoundSecondForm.lean",
+          "lines": [
+            84,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RankGapBounds/MeanBoundSecondForm.lean#L84-L109"
+        },
+        {
+          "declaration": "Formalism.RankGapBounds.WeightedMeanData.Data.key_identity",
+          "path": "src/Formalism/RankGapBounds/RankGapProofs/WeightedMeanData.lean",
+          "lines": [
+            170,
+            216
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RankGapBounds/RankGapProofs/WeightedMeanData.lean#L170-L216"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.WeightedSlopeBounds.key_identity5",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean",
+          "lines": [
+            105,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean#L105-L111"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.Mod.logOm_eq",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            556,
+            568
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L556-L568"
+        }
+      ],
+      "correspondence": "Mathematical proof reconstructed by expanding place logarithms and finite sums. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "mathematical proof reconstructed",
+      "definitions": [
+        "Ωlog, sumA, SDiv, lambda5, Main"
+      ],
+      "dependencies": [],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "id": "global.reindex",
+      "chapter": "global",
+      "statement": "Under IdentU and its top/place equivalences, Dd.Main(u) equals the sum of Re MAIN over top indices and lift stages. Together with the counted-value clause this identifies gapA with Dd.ASK−Dd.Main.",
+      "hypotheses": "Matching top and place indices, weights, gamma, log derivative and counted value; ch_top requires additional size, window, growth and normalization bounds.",
+      "title": "Transport across the top and place indices",
+      "anchor": "global-matching",
+      "equations": [
+        "global-main-id"
+      ],
+      "sources": [
+        {
+          "declaration": "Deduction.CH.IdentU",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean",
+          "lines": [
+            67,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean#L67-L72"
+        },
+        {
+          "declaration": "Deduction.ch_top_main_eq",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean",
+          "lines": [
+            11,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean#L11-L37"
+        },
+        {
+          "declaration": "Deduction.ch_top",
+          "path": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean",
+          "lines": [
+            39,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean#L39-L54"
+        },
+        {
+          "declaration": "UpperTheory.Comparison₂.core_gm",
+          "path": "src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean",
+          "lines": [
+            53,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean#L53-L60"
+        }
+      ],
+      "correspondence": "Finite reindexing reconstructed. Geometric realization of all five IdentU clauses pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "mathematical proof reconstructed",
+      "definitions": [
+        "IdentU, ASK, MAIN, gapA"
+      ],
+      "dependencies": [
+        "global.algebra"
+      ],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "id": "global.slope",
+      "chapter": "global",
+      "statement": "At a word family, given 0≤δ<1, η≥0, 0≤e≤1/4, 0<H and s−μmin(R∨)≤H, the slope lower bound is s−log|W|−[4uF log(1+H/uF)+(η+4√e)H]/(1−δ) ≤ μ(R∨).",
+      "hypotheses": "The application additionally needs HidaSetting, DIV, EComp5, HComp, Count5, Slopes, QuotientSlopeBoundsWith, HHBound and FParams as listed in Ga_bound5.",
+      "title": "The frame estimate for the dual slope",
+      "anchor": "global-slope",
+      "equations": [
+        "global-slope-ineq"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.RankGapBounds.WeightedMeanData.Data.SlopeIneq",
+          "path": "src/Formalism/RankGapBounds/MeanBoundSecondForm.lean",
+          "lines": [
+            151,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RankGapBounds/MeanBoundSecondForm.lean#L151-L163"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.Mod.data_SlopeIneq",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            687,
+            711
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L687-L711"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.WeightedSlopeBounds.Ga_bound5",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean",
+          "lines": [
+            113,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean#L113-L130"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.WeightedSlopeBounds.each_unit_bound_statement",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean",
+          "lines": [
+            175,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean#L175-L197"
+        }
+      ],
+      "correspondence": "Exact statement, side conditions and downstream use inspected. Frame inequality proof pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "statement and definitions inspected",
+      "definitions": [
+        "SlopeIneq, H, δ, η, e, uF"
+      ],
+      "dependencies": [
+        "global.lattice"
+      ],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "id": "global.uniform",
+      "chapter": "global",
+      "statement": "linkCore takes family-level hypotheses and yields constants K,cHH,eK,CL,x0 preceding every x≥x0 in Fm.Win. In its specialization the constant K is max(Cd,0)+Cc+Cs+C1+Cl+6. CountF and LinkDIV quantify their constants before x and the family index; FrameF allows its two caps to depend on x with (η̄+4√ē)x^CH≤6.",
+      "hypotheses": "linkCore requires Cabs,CH,eL nonnegative, c6 positive, CountF, SlopesMF, SlopesNF, LatF, NodesF, FrameF, LossFS, CharF, WinF, ChosenTT, ChosenQD, ChosenThin, LinkIRR and LinkDIV. Nonempty choices on a good window are supplied using a loss witness and a cover (lines 86–92).",
+      "title": "Uniform constants before the scale varies",
+      "anchor": "global-suppliers",
+      "equations": [
+        "global-slope-ineq"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.Lnk.linkCore",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "lines": [
+            38,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L38-L61"
+        },
+        {
+          "declaration": "Formalism.MainNotions.LinkDIV",
+          "path": "src/Formalism/SharpRestriction/GlobalTheoremInputs.lean",
+          "lines": [
+            77,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalTheoremInputs.lean#L77-L95"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.FrameF",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            248,
+            260
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L248-L260"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.linkCore",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "lines": [
+            169,
+            211
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L169-L211"
+        },
+        {
+          "declaration": "Formalism.MainNotions.linkGLOBAL7_pk",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "lines": [
+            468,
+            511
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L468-L511"
+        }
+      ],
+      "correspondence": "Source applications and quantifier order inspected. Uniform geometric input proofs pending. Pinned source expressions and definitions; no local elaboration or kernel run.",
+      "status": "statement and definitions inspected",
+      "definitions": [
+        "LinkDIV, CountF, FrameF, Win"
+      ],
+      "dependencies": [],
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending."
+    },
+    {
+      "chapter": "global",
+      "review": "Independently checked against TheoremFSharp.lean lines 216–400. The affine normalization, strict lower tail, b_F=0 case, constants, integration, weaker log|W| form and finite example agree. The earlier geometric matrix inputs were outside this independent review.",
+      "id": "global.layer",
+      "title": "Integrating the rank deficit",
+      "anchor": "global-layer",
+      "equations": [
+        "global-tail",
+        "global-layer-mean"
+      ],
+      "statement": "Assume the normalized target slopes ν satisfy ν≥s−H and the fraction below s−τ is at most ω(τ)=(η+4u/(u+τ)+4√e)/(1−δ) for 0≤τ≤H. Their mean is at least s−[4u log(1+H/u)+(η+4√e)H]/(1−δ), with the logarithmic term zero when u=0.",
+      "dependencies": [
+        "global.lattice"
+      ],
+      "definitions": [
+        "Harder–Narasimhan filtration",
+        "normalized slope list",
+        "strict lower-tail fraction",
+        "layer-cake integral"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.HN.thmF_share",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            11,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L11-L33"
+        },
+        {
+          "declaration": "Formalism.HN.theoremFSharp_of",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            168,
+            386
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L168-L386"
+        },
+        {
+          "declaration": "Formalism.CorankShareLayerCake.FR.layer_cake_formula",
+          "path": "src/Formalism/CorankShare/CorankShareProofs/LayerCakeFormula.lean",
+          "lines": [
+            57,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/CorankShare/CorankShareProofs/LayerCakeFormula.lean#L57-L97"
+        },
+        {
+          "declaration": "Formalism.HN.theoremF_of_sharp",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            390,
+            398
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L390-L398"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.MatrixLatticeEstimates.ramification_linear_case_holds",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+          "lines": [
+            164,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean#L164-L185"
+        },
+        {
+          "declaration": "Formalism.LFunctionChainParameters.MatrixLatticeEstimates.joint_a_ramified_holds",
+          "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+          "lines": [
+            254,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean#L254-L258"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The finite source-tail inequality, layer-cake identity, logarithmic integral and deliberate logarithmic weakening are reconstructed. The map-height and one-place matrix estimates supplying the target-tail bound are traced through explicit proof applications, with their full derivation pending."
+    },
+    {
+      "chapter": "global",
+      "review": "Checked against source expressions by the chapter author; independent chapter review pending.",
+      "id": "global.uniform-six",
+      "title": "The numerical constant in the uniform frame bound",
+      "anchor": "global-suppliers",
+      "equations": [
+        "global-slope-ineq"
+      ],
+      "statement": "If (3√de+4√ē)x^CH≤1, σ=x^(−CH), and η=5σ+3√de, then (η+4√ē)x^CH≤6. The constructed local e=2e₀ satisfies e≤ē.",
+      "dependencies": [
+        "global.slope"
+      ],
+      "definitions": [
+        "FrameRealF",
+        "Frame_at",
+        "FrameF",
+        "matrix deviation e₀",
+        "scale exponent CH"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.Lnk.frame_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            538,
+            550
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L538-L550"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.FrameRealF",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            602,
+            604
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L602-L604"
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.frameF_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            606,
+            646
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L606-L646"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The numerical cap is reconstructed conditional on the exhibited real frame and scale quantifiers. The global construction of the real frame remains a separate obligation."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "global.count",
+      "global.algebra",
+      "The lower bound replaces log(T) in the divisibility inequality once A≥0."
+    ],
+    [
+      "global.algebra",
+      "global.reindex",
+      "The exact geometric main term can be compared to the sum of the analytic main terms."
+    ],
+    [
+      "global.slope",
+      "global.reindex",
+      "ch_top uses the pointwise bound with the frame inequality and the main-term identification."
+    ],
+    [
+      "global.uniform",
+      "global.count",
+      "Uniform counting supplies Count5 for the particular translated record."
+    ],
+    [
+      "global.uniform",
+      "global.slope",
+      "The frame supplies the local parameters needed for SlopeIneq."
+    ],
+    [
+      "global.layer",
+      "global.slope",
+      "The actual proof weakens the sharp mean estimate by subtracting log of the word count."
+    ],
+    [
+      "global.uniform-six",
+      "global.uniform",
+      "After all common thresholds are exceeded, the caps contribute at most 6 in scaled units."
+    ]
+  ],
+  "outstanding": [
+    "Derive the period of the normalized theta object, including the discriminant twelfth root and metric compatibility.",
+    "Reconstruct the uniform input LinkDIV for the actual family and trace the construction of maps, period, finite-place gain and archimedean size.",
+    "Reconstruct the torus counts, family uniformity, and actual rank and frame estimates."
+  ]
+}

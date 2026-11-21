@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Claims reconstructed from pinned declarations and written proof bodies. The callsite list records selected direct names. Kernel-level term dependencies were not locally extracted. The two-row numerical example is an independent specialization.",
+  "claims": [
+    {
+      "id": "local.radii.duality",
+      "chapter": "local",
+      "title": "The optimum correction for cyclic row weights",
+      "anchor": "local-radii",
+      "statement": "F(D)=γ∑D−maxFlow(D) is the attained maximum over feasible σ of ∑D(γ−σ). The same optimizer satisfies p^j σ_s+σ_(s+j)≥1 for every positive odd integer j.",
+      "hypotheses": "Natural p≥3, nonzero even period d≥2, real D_s≥0. The local prime, field and frame hypotheses are unnecessary for this optimization.",
+      "definitions": [
+        "Odd levels j<d",
+        "nonnegative flow",
+        "load at a row",
+        "normalized price vector in [0,1]",
+        "γ=p/(p²−1)."
+      ],
+      "dependencies": [],
+      "correspondence": "The proof reconstructs weak duality, attainment, strict separation, unit-edge testing, box clipping and parity after reduction modulo d. The example p=3,d=2 independently checks zero and positive capacities.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently reviewed against the pinned original declarations and proof bodies. Checked the primal and dual constraints, sign of the separation functional, clipping, compact attainment and reduction of any positive odd exponent modulo the even period. Recomputed both p=3 examples, including the zero-capacity case.",
+      "equations": [
+        "local-radii-optimum"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.IncomingBounds.IsFlow",
+          "path": "src/Formalism/IncomingBounds/IncomingBound.lean",
+          "lines": [
+            18,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/IncomingBound.lean#L18-L21"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.Fnum",
+          "path": "src/Formalism/IncomingBounds/IncomingBound.lean",
+          "lines": [
+            28,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/IncomingBound.lean#L28-L28"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.IsDual",
+          "path": "src/Formalism/IncomingBounds/IncomingBound.lean",
+          "lines": [
+            30,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/IncomingBound.lean#L30-L32"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.LemmaFa",
+          "path": "src/Formalism/IncomingBounds/IncomingBound.lean",
+          "lines": [
+            56,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/IncomingBound.lean#L56-L61"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.pair_eq",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            22,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L22-L32"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.weak_core",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            34,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L34-L45"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.exists_opt_flow",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            108,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L108-L135"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.isClosed_K",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            198,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L198-L228"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.exists_dual_lt",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            230,
+            336
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L230-L336"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.clip_dual",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            338,
+            357
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L338-L357"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.strong",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            377,
+            397
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L377-L397"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.FlowLoadBounds.dualAll_of_dual",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            399,
+            414
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L399-L414"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.strongDuality",
+          "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+          "lines": [
+            430,
+            447
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean#L430-L447"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.lemmaFa",
+          "path": "src/Formalism/IncomingBounds/WeightIdentities.lean",
+          "lines": [
+            17,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/WeightIdentities.lean#L17-L17"
+        }
+      ]
+    },
+    {
+      "id": "local.radii.assembly",
+      "chapter": "local",
+      "title": "Choosing top and special coordinate corrections",
+      "anchor": "local-radii-frame",
+      "statement": "For the frame partition of κ, there are nonnegative top prices ε such that ∑κ_i(γ−r_i)≥F(D)+∑_(u∈T)(topTerm(u)−γWcapOneLetter(u)). At finite top distance J(u), ε_u≥p^(−J(u)).",
+      "hypotheses": "p≥3, d even≥2; finite coordinates with row labels, top flags and optional special origins/signed odd shifts; ν₂≤ν₁≤size. Top and non-top derivative-order sums equal ν₁ and D respectively; the assigned and reachable capacities satisfy ThmAAssembly7. An optimal nonnegative dual price for D is supplied.",
+      "definitions": [
+        "top distance J",
+        "topTerm",
+        "rowRad",
+        "grouped special-row mass",
+        "WcapOneLetter."
+      ],
+      "dependencies": [
+        "local.radii.duality"
+      ],
+      "correspondence": "The first eligible odd level, terminal fallback, infinite fallback, and the resulting remaining geometric-series budget are shown. Assembly groups coordinate degrees, bounds surcharges of each signed shift, and uses the non-top dual identity.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently reviewed against the pinned original declarations and proof bodies. Checked positive and negative shift signs, caps on the destination row, finite/infinite first top distance, the unused budget at exactly J, and the resulting per-top correction and sign of its surcharge against the named implementations.",
+      "equations": [
+        "local-radii-assembly"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.ThmAAssembly7",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/StatementA.lean",
+          "lines": [
+            13,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/StatementA.lean#L13-L33"
+        },
+        {
+          "declaration": "Formalism.IncomingBounds.topTerm",
+          "path": "src/Formalism/IncomingBounds/IncomingBound.lean",
+          "lines": [
+            113,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/IncomingBounds/IncomingBound.lean#L113-L118"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.WcapOneLetter",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OddLevelGainSum.lean",
+          "lines": [
+            16,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OddLevelGainSum.lean#L16-L18"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.rowRad",
+          "path": "src/Formalism/GaussJetBounds/StatementA.lean",
+          "lines": [
+            10,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/StatementA.lean#L10-L17"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.asmA_top_core",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+          "lines": [
+            45,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean#L45-L79"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.asmA_top_choice",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+          "lines": [
+            81,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean#L81-L118"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.asmA_top_gen",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+          "lines": [
+            126,
+            186
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean#L126-L186"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.asmA_top",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+          "lines": [
+            208,
+            217
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean#L208-L217"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.asmA_row",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+          "lines": [
+            255,
+            276
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean#L255-L276"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.gauss_jet_bound_of_parts",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/CapLeOddShiftBound.lean",
+          "lines": [
+            37,
+            217
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/CapLeOddShiftBound.lean#L37-L217"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAAssembly7",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+          "lines": [
+            14,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean#L14-L14"
+        }
+      ]
+    },
+    {
+      "id": "local.radii.coefficient",
+      "chapter": "local",
+      "title": "Applying the optimized radii to a monomial",
+      "anchor": "local-radii-frame",
+      "statement": "A factorial-weighted degree-κ coefficient has norm ≤ ‖p‖ to the assembly gain minus dN₀N₁(log_p a+1), with a=max(1,max_T ν₁,max_s cap_s).",
+      "hypotheses": "Odd prime p≥3, d even≥2, N₀>0, ultrametric characteristic-zero normed field with ‖p‖<1 and unramified coefficient subfield. Primitive (p^d−1)-st root, BHyp series, inverse formal logarithms, integral U, integral matrix entries, sign ±1, partition, per-row caps and undesignated-pair cancellation as in ThmAJet7.",
+      "definitions": [
+        "frameTop",
+        "pureMon",
+        "offending mixed-pair constraint",
+        "coordinate count dN₀N₁",
+        "factorial log loss."
+      ],
+      "dependencies": [
+        "local.radii.assembly"
+      ],
+      "correspondence": "The explicit row optimizer is obtained at lines 29–30; assembly at 37–64; the two mixed cases and top/top and non-top/non-top cases at 101–207; factorial estimate and final norm inequality at 209–238. The underlying one-letter bound is local and conditional on these inputs.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independently reviewed against the pinned original declarations and proof bodies. Checked the offending-pair argument in all four top/non-top cases, the local norm direction, choice of the factorial cap including zero, dimension dN₀N₁, and the subsequent operator-to-entry application with sign −1 in the theta factorization.",
+      "equations": [
+        "local-radii-assembly"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.ThmAJet7",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/StatementJ.lean",
+          "lines": [
+            13,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/StatementJ.lean#L13-L46"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.kaMaxOneLetter",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OddLevelGainSum.lean",
+          "lines": [
+            27,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OddLevelGainSum.lean#L27-L27"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.dualRadiiInequalities",
+          "path": "src/Formalism/GaussJetBounds/GaussJetProofs/OneLetterRadiusIdentity.lean",
+          "lines": [
+            124,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/GaussJetProofs/OneLetterRadiusIdentity.lean#L124-L206"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.theorem_A_monomial_of_lemmas",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+          "lines": [
+            20,
+            238
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean#L20-L238"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7_of",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+          "lines": [
+            240,
+            241
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean#L240-L241"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+          "lines": [
+            15,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean#L15-L15"
+        },
+        {
+          "declaration": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAEntry7",
+          "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+          "lines": [
+            14,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean#L14-L22"
+        },
+        {
+          "declaration": "Formalism.L2.Th1.Top.matrix_entries_all_disc_seven",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/UniformGaussModels/OrthogonalGaussModels/EvenDegreeWeightBounds.lean",
+          "lines": [
+            13,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/UniformGaussModels/OrthogonalGaussModels/EvenDegreeWeightBounds.lean#L13-L21"
+        }
+      ]
+    }
+  ],
+  "derivation_edges": [
+    [
+      "local.radii.duality",
+      "local.radii.assembly",
+      "The non-top degree sum equals F(D) at an optimal row price."
+    ],
+    [
+      "local.radii.assembly",
+      "local.radii.coefficient",
+      "Feasible coordinate radii and the assembled gain supply the exponent before the factorial loss."
+    ]
+  ],
+  "outstanding": [
+    "Realization of the abstract frame, special assignments and local cancellation in the abelian-variety geometry."
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.IncomingBounds.lemmaFa",
+      "callee": "Formalism.IncomingBounds.strongDuality",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/WeightIdentities.lean",
+        "line": 17
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.strongDuality",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.strong",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 433
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.strongDuality",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.dualAll_of_dual",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 440
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.FlowLoadBounds.strong",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.exists_opt_flow",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 379
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.FlowLoadBounds.strong",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.exists_dual_lt",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 392
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.FlowLoadBounds.strong",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.clip_dual",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 393
+      }
+    },
+    {
+      "caller": "Formalism.IncomingBounds.FlowLoadBounds.exists_dual_lt",
+      "callee": "Formalism.IncomingBounds.FlowLoadBounds.isClosed_K",
+      "callsite": {
+        "path": "src/Formalism/IncomingBounds/FlowDegreeBounds/MaxFlowValueAttained.lean",
+        "line": 247
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.asmA_top_gen",
+      "callee": "Formalism.DworkPowerSeriesWeights.asmA_top_choice",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+        "line": 179
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.asmA_top_choice",
+      "callee": "Formalism.DworkPowerSeriesWeights.asmA_top_core",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+        "line": 99
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.asmA_top",
+      "callee": "Formalism.DworkPowerSeriesWeights.asmA_top_gen",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/GaussJetProofs/CapacityLeReachCapacity.lean",
+        "line": 214
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.gauss_jet_bound_of_parts",
+      "callee": "Formalism.DworkPowerSeriesWeights.asmA_top",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/CapLeOddShiftBound.lean",
+        "line": 73
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.gauss_jet_bound_of_parts",
+      "callee": "Formalism.DworkPowerSeriesWeights.asmA_row",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/CapLeOddShiftBound.lean",
+        "line": 80
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAAssembly7",
+      "callee": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.gauss_jet_bound_of_parts",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7",
+      "callee": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7_of",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7",
+      "callee": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAAssembly7",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/TheoremATwoFormsOfEntry.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.thmAJet7_of",
+      "callee": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.theorem_A_monomial_of_lemmas",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+        "line": 241
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.theorem_A_monomial_of_lemmas",
+      "callee": "Formalism.IncomingBounds.lemmaFa",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "Formalism.DworkPowerSeriesWeights.OddLevelGainBounds.theorem_A_monomial_of_lemmas",
+      "callee": "Formalism.DworkPowerSeriesWeights.dualRadiiInequalities",
+      "callsite": {
+        "path": "src/Formalism/GaussJetBounds/OneLetterGaussJets/OneLetterGaussProofs/TheoremAMonomialOfLemmas.lean",
+        "line": 64
+      }
+    }
+  ],
+  "review_scope": "Reviewed the finite-dimensional duality and scalar assembly, the indicated ultrametric monomial deduction, and the explicit use of the specialized matrix-entry theorem. Field, frame, series and cancellation inputs are assumptions at the monomial stage."
+}
