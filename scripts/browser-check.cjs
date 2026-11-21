@@ -97,7 +97,13 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "height-grid") {
+        if (id === "hermitian-density") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["6,048", "224/243"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["252", "24"]);
+        } else if (id === "orbit-weights") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["216", "1"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["72", "1/216", "1/3", "72", "1/108", "2/3"]);
+        } else if (id === "height-grid") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["675", "1,296"]);
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["9 (k = 2)", "5 (k = 1)", "5 (k = 1)", "3 (k = 0)"]);
         } else if (id === "trace-cycles") {
@@ -408,6 +414,21 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    const referenceLayout = await page.locator("#book-references ol").evaluate(list => {
+      const sample = document.createElement("span");
+      sample.textContent = list.children.length + ". ";
+      sample.style.whiteSpace = "pre";
+      list.append(sample);
+      const markerWidth = sample.getBoundingClientRect().width;
+      sample.remove();
+      return {
+        indent: parseFloat(getComputedStyle(list).paddingInlineStart),
+        markerWidth,
+        split: getComputedStyle(list.lastElementChild).breakInside,
+      };
+    });
+    assert.ok(referenceLayout.indent >= referenceLayout.markerWidth, "Source list must fit its longest number");
+    assert.equal(referenceLayout.split, "avoid");
     assert.deepEqual(await page.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
     assert.deepEqual(await page.locator("#fig-minimum-scale .metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
     assert.ok(await page.locator("#fig-central-period svg").isVisible());

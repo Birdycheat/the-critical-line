@@ -16,6 +16,27 @@
     value,
   });
   const configs = {
+    "hermitian-density": {
+      title: "Count the frames behind one local density",
+      kind: "Inert prime · full-rank coefficient",
+      section: "lifts",
+      params: [
+        choose("frame", "Orthonormal frame", [["line", "One vector in dimension 2"], ["pair", "Two vectors in dimension 3"]], "pair"),
+        range("level", "Congruence level", 1, 3, 1, 1),
+      ],
+      caption: "Each column must have norm one. Two columns must also be orthogonal for the Hermitian form. Passing to the next power of 3 increases the number of solutions, while the normalized density stays the same.",
+      method: "At level one enumerate vectors over the nine elements a+bi with i²=−1. Conjugation sends i to −i. Compare their norms and inner products modulo 3. For an ambient dimension m and n columns, the linearized Gram map has n² independent scalar outputs and 2mn input coordinates, giving 3^(2mn−n²) lifts per frame at each further level. Divide the count at level t by 3^(t(2mn−n²)).",
+    },
+    "orbit-weights": {
+      title: "How much weight belongs to each orbit point?",
+      kind: "Partition of unity · two centres",
+      section: "inputs",
+      params: [
+        range("height", "Bump value at the second centre", 1, 4, 1, 2),
+      ],
+      caption: "The bump equals 1 at the first centre. Its support meets just two points of the chosen orbit. Each point occurs under 72 different group elements. Add the weights in a row to see the share attached to that centre.",
+      method: "Take rank two over the Eisenstein integers. A unitary integral matrix permutes the two coordinate lines and multiplies each by one of six units. Thus 2·6² = 72 matrices fix h₀. The 72 matrices carrying h₀ to the second form are a coset of this stabilizer. Normalize the bump value of each label by the sum of all 144 values.",
+    },
     "height-grid": {
       title: "How many grid points must one height label allow?",
       kind: "Counting rational centres",
@@ -774,6 +795,44 @@
     return remainder === 1 ? sign : -sign;
   }
 
+  // Encode a+bi as a+3b over F₃, so conjugation changes only the sign of b.
+  function countHermitianFrames(dimension, columns) {
+    const vectors = [];
+    for (let word = 0; word < 9 ** dimension; word++) {
+      let remaining = word, norm = 0;
+      const vector = [];
+      for (let i = 0; i < dimension; i++) {
+        const digit = remaining % 9;
+        const a = digit % 3, b = Math.floor(digit / 3);
+        vector.push([a, b]);
+        norm += a * a + b * b;
+        remaining = Math.floor(remaining / 9);
+      }
+      if (norm % 3 === 1) vectors.push(vector);
+    }
+    if (columns === 1) return { first: vectors.length, frames: vectors.length };
+    let frames = 0;
+    for (const left of vectors) {
+      for (const right of vectors) {
+        let real = 0, imag = 0;
+        for (let i = 0; i < dimension; i++) {
+          const [a, b] = left[i], [c, d] = right[i];
+          real += a * c + b * d;
+          imag += a * d - b * c;
+        }
+        if (real % 3 === 0 && imag % 3 === 0) frames++;
+      }
+    }
+    return { first: vectors.length, frames };
+  }
+  const residueFrameCounts = new Map();
+  function hermitianDensity(pair, level) {
+    const m = pair ? 3 : 2, n = pair ? 2 : 1;
+    if (!residueFrameCounts.has(m)) residueFrameCounts.set(m, countHermitianFrames(m, n));
+    const { first, frames } = residueFrameCounts.get(m);
+    const lift = 3 ** (2 * m * n - n * n);
+    return { first, frames, lift, count: frames * lift ** (level - 1), density: reducedFraction(frames, lift) };
+  }
   function heightGrid(u, v) {
     const depths = [2 * u, u + v, u + v, 2 * v];
     const counts = depths.map(k => 2 * 2 ** k + 1);
@@ -903,6 +962,33 @@
   }
 
   function render(id, v) {
+    if (id === "hermitian-density") {
+      const pair = v.frame === "pair", level = Number(v.level);
+      const state = hermitianDensity(pair, level);
+      const second = pair ? '<tr><th scope="row">Second column, orthogonal to the first</th><td>' +
+        (state.frames / state.first) + '</td></tr>' : '';
+      return '<table class="carry-table density-table"><caption>Level one over the field with 9 elements</caption><thead><tr>' +
+        '<th scope="col">Choice</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row">Unit first column</th><td>' +
+        state.first + '</td></tr>' + second + '</tbody></table>' +
+        metrics([["Frames at level " + level, state.count.toLocaleString("en-US")], ["Normalized density", state.density]]) +
+        '<p>Each frame has ' + state.lift.toLocaleString("en-US") + ' lifts at the next level. ' +
+        (level === 1 ? 'At level one, divide the frame count by this same number.' :
+          'At level ' + level + ', divide by its ' + (level === 2 ? 'square' : 'cube') + '.') + ' At the special point the local factor is ' +
+        (pair ? '(1 + 1/27)(1 − 1/9) = 224/243.' : '1 − 1/9 = 8/9.') + '</p>';
+    }
+    if (id === "orbit-weights") {
+      const height = Number(v.height), stabilizer = 2 * 6 ** 2;
+      const total = stabilizer * (1 + height);
+      function row(name, raw) {
+        return '<tr><th scope="row">' + name + '</th><td>' + stabilizer + '</td><td>' +
+          reducedFraction(raw, total) + '</td><td>' + reducedFraction(stabilizer * raw, total) + '</td></tr>';
+      }
+      return '<table class="carry-table"><caption>Weights at the two orbit points</caption>' +
+        '<thead><tr><th scope="col">Centre</th><th scope="col">Labels</th><th scope="col">Per label</th><th scope="col">Per centre</th></tr></thead>' +
+        '<tbody>' + row('h₀', 1) + row('h₁', height) + '</tbody></table>' +
+        metrics([["Raw sum", total], ["Partition sum", "1"]]) +
+        '<p>The denominator is ' + stabilizer + ' × 1 + ' + stabilizer + ' × ' + height + ' = ' + total + '.</p>';
+    }
     if (id === "height-grid") {
       const u = Number(v.u), second = Number(v.v);
       const { depths, counts, candidates, bound } = heightGrid(u, second);
@@ -1987,6 +2073,8 @@
     minimumScale,
     shearRounding,
     fourierRank,
+    countHermitianFrames,
+    hermitianDensity,
     heightGrid,
     traceCycles,
     render,

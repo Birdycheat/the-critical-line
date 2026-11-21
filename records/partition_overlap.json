@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the pinned proper-action, cutoff, normalization, pullback, support-overlap and derivative arguments; independently checked the stabilizer and the two packets of orbit points.",
+  "claims": [
+    {
+      "id": "OVL-01",
+      "chapter": "inputs",
+      "title": "A compact set permits finitely many arithmetic changes of coordinates",
+      "anchor": "inputs-overlap-columns",
+      "statement": "For every compact Q inside the positive cone, Γ(Q)={γ | some h∈Q has γ·h∈Q} is finite. In positive rank with Q nonempty, the number is at most the product of the sizes of N specified lattice ellipsoids.",
+      "hypotheses": "The properness theorem holds for any number field and N≥0. For the product choose h₀∈Q, a uniform A with q_(h₀)≤A q_h on Q, and B_j bounding q_h(e_j) there.",
+      "definitions": [
+        "The action is q_(γ·h)(v)=q_h(γ⁻¹v).",
+        "Positive q_h on the unit sphere and compactness of Q give the uniform comparison by a continuous ratio.",
+        "At rank zero the matrix group is trivial. Empty Q has no incidences."
+      ],
+      "equations": [
+        "inputs-overlap-column-count"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.Bump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            95,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L95-L108"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.exists_qR_le_mul_qR_on_compact_subset_Pos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+          "lines": [
+            60,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean#L60-L82"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GProper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+          "lines": [
+            120,
+            143
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean#L120-L143"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GProper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+          "lines": [
+            144,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean#L144-L163"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GProper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+          "lines": [
+            164,
+            175
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean#L164-L175"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For a returning γ each column γ⁻¹e_j has q_(h₀) at most A B_j. Each finite ellipsoid bounds the choices for that one column. The ordered columns recover γ⁻¹, so the product bounds possible matrices. The written proof uses a union of these same finite sets and injectivity of the ordered columns.",
+      "review": "Verified inverse columns, compactness, the zero-rank case and the sharpened counting product implied by the per-column estimates."
+    },
+    {
+      "id": "OVL-02",
+      "chapter": "inputs",
+      "title": "A locally finite orbit sum normalizes a smooth weight on the orbits meeting K",
+      "anchor": "inputs-overlap-normalize",
+      "statement": "For every number field and rank and each compact K in the positive cone, there exist a globally smooth nonnegative ψ and compact K′ inside the cone containing its support. Every orbit meeting K has ∑_γ ψ(γ⁻¹·h)=1. On each compact subset of the positive cone the sum uses a uniformly finite list.",
+      "hypotheses": "N≥0. Nonnegative δ and every Hermitian k with Cl(δ,h,k) are allowed in the separate relative bound for ψ. The positive h need only meet K up to arithmetic translation for normalization.",
+      "definitions": [
+        "There is an ε>0 with compact closed thickening K′ inside the cone. A smooth f∈[0,1] has the open thickening as its nonzero set.",
+        "b=f/m≥1 on K for its positive minimum m there; in the empty case b=0 and m=1.",
+        "τ_γ h=γ⁻¹·h, τ_δτ_γ=τ_(γδ). The invariant S is the orbit sum of b and g(s)=1/2+(s−1/2)Θ(2s−1)."
+      ],
+      "equations": [
+        "inputs-overlap-orbit-sum"
+      ],
+      "dependencies": [
+        "OVL-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            70,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L70-L93"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            94,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L94-L114"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            115,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L115-L132"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.contDiff_gb_g_and_half_le_and_eq_of_one_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            10,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L10-L35"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            133,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L133-L156"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            167,
+            179
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L167-L179"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Properness on B∪K′ bounds the labels which can contribute anywhere on B. Apply this to small closed balls to get smoothness of S on the cone. The denominator g(S) is at least 1/2. It equals S wherever an orbit meets K. Compact support strictly inside the cone gives a smooth zero extension to all Hermitian tuples. The sum runs over group elements with stabilizer multiplicities.",
+      "review": "An independent check reproduced the Eisenstein example: τ_γ I=γ*γ, U has 2·6²=72 elements, τ_γ I=s*s iff γ∈Us, and the two stabilizer packets give 72 weights of 1/216 and 72 of 1/108."
+    },
+    {
+      "id": "OVL-03",
+      "chapter": "inputs",
+      "title": "Equivariant pullback gives finite relative overlaps and the bump factor in the derivative bound",
+      "anchor": "inputs-overlap-pullback",
+      "statement": "For the positive-rank totally complex construction, φ=ψ∘F gives a locally finite partition on the entire positive cone. All relative return labels for its closed support belong up to inversion to Γ(K′). The bump has a relative Lipschitz witness Cψ=16/m+4LR, used before differentiation.",
+      "hypotheses": "The corrected, normalized map F is smooth and equivariant on the cone, and all its values meet K up to translation by the two lower bounds on the minima. The constant L is an ordinary Lipschitz constant for ψ, and R≥0 bounds the matrix-entry norm on K′.",
+      "definitions": [
+        "The closure D of {φ≠0} is taken relative to the positive cone. It satisfies F(D)⊆K′.",
+        "Cl(δ,h,k) means |q_k(z)−q_h(z)|≤δ q_h(z) for all archimedean z. The base h is positive.",
+        "For labels γ,η meeting over h, η⁻¹γ moves F(γ⁻¹·h) to F(η⁻¹·h)."
+      ],
+      "equations": [],
+      "dependencies": [
+        "OVL-02",
+        "FCR-03"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            11,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L11-L22"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            31,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L31-L51"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            52,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L52-L72"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            73,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L73-L88"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.norm_sub_le_two_mul_mul_norm_of_cl",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            37,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L37-L68"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            146,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L146-L166"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            180,
+            219
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L180-L219"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            89,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L89-L117"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            118,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L118-L129"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+          "lines": [
+            29,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean#L29-L60"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sPU_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+          "lines": [
+            23,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean#L23-L30"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Apply properness to F(V)∪K′ for a compact neighborhood V; equivariance gives local finiteness for the pulled-back labels. Closure and continuity give a finite set of relative returns via Γ(K′). For δ<1/4, differing values force one point into K′ and ‖k−h‖≤2δ‖h‖ yields ‖h‖≤2R. For δ≥1/4 use the bound 0≤ψ≤2/m. Composing with normalization and correction gives a relative modulus Cψ C_r C_n(1+H). Moving-frame differentiation and the positive lower bound for H give a constant times H.",
+      "review": "A second reader confirmed that global finiteness concerns the relative group labels of pairs of intersecting closed supports. Normalization first holds on the orbits hitting K, and then on all positive inputs after pullback."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "qR",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 64
+      }
+    },
+    {
+      "callee": "qR_pos_of_mem_Pos_of_VR_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "exists_pos_smul_unit_sphere_eq_of_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 74
+      }
+    },
+    {
+      "callee": "eventually_nhds_abs_qR_sub_le_half_of_mem_Pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 139
+      }
+    },
+    {
+      "callee": "exists_qR_le_mul_qR_on_compact_subset_Pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 144
+      }
+    },
+    {
+      "callee": "bddAbove_image",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 149
+      }
+    },
+    {
+      "callee": "finite_iUnion",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 153
+      }
+    },
+    {
+      "callee": "hEq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 162
+      }
+    },
+    {
+      "callee": "mulVec_single_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 173
+      }
+    },
+    {
+      "callee": "of_finite_image",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+        "line": 175
+      }
+    },
+    {
+      "callee": "zero_of_nonpos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "one_of_one_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "exists_cthickening_subset_open",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "exists_contDiff_support_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 75
+      }
+    },
+    {
+      "callee": "exists_isMinOn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 81
+      }
+    },
+    {
+      "callee": "thickening_subset_cthickening",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 92
+      }
+    },
+    {
+      "callee": "hP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 98
+      }
+    },
+    {
+      "callee": "actL_mul_apply_eq_actL_actL",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 110
+      }
+    },
+    {
+      "callee": "finsum_comp_equiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 114
+      }
+    },
+    {
+      "callee": "hfin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 121
+      }
+    },
+    {
+      "callee": "finsum_eq_sum_of_support_subset",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 123
+      }
+    },
+    {
+      "callee": "sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 128
+      }
+    },
+    {
+      "callee": "contDiff_gb_g_and_half_le_and_eq_of_one_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 133
+      }
+    },
+    {
+      "callee": "isClosed_cthickening",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 142
+      }
+    },
+    {
+      "callee": "lipschitzWith_of_hasCompactSupport",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 155
+      }
+    },
+    {
+      "callee": "single_le_finsum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 173
+      }
+    },
+    {
+      "callee": "Sinv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 177
+      }
+    },
+    {
+      "callee": "finsum_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 178
+      }
+    },
+    {
+      "callee": "norm_sub_le_two_mul_mul_norm_of_cl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 184
+      }
+    },
+    {
+      "callee": "dist_le_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 215
+      }
+    },
+    {
+      "callee": "hTh",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "hBu",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "comp_contDiffOn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 49
+      }
+    },
+    {
+      "callee": "exists_compact_subset",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 53
+      }
+    },
+    {
+      "callee": "hPr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "hFeq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 64
+      }
+    },
+    {
+      "callee": "hKt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "hψsum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 70
+      }
+    },
+    {
+      "callee": "closure_minimal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 75
+      }
+    },
+    {
+      "callee": "hPr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 79
+      }
+    },
+    {
+      "callee": "hFeq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "hDB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 104
+      }
+    },
+    {
+      "callee": "hnLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 112
+      }
+    },
+    {
+      "callee": "hrLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 113
+      }
+    },
+    {
+      "callee": "hψlip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+        "line": 115
+      }
+    },
+    {
+      "callee": "d_key",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "hl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+        "line": 59
+      }
+    },
+    {
+      "callee": "pf_GProper",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 28
+      }
+    },
+    {
+      "callee": "pf_GBump",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "pf_DerB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "OVL-01",
+      "OVL-02"
+    ],
+    [
+      "OVL-02",
+      "OVL-03"
+    ],
+    [
+      "FCR-03",
+      "OVL-03"
+    ],
+    [
+      "OVL-03",
+      "TPK-02"
+    ],
+    [
+      "OVL-03",
+      "TPK-03"
+    ]
+  ],
+  "outstanding": [
+    "Smooth cutoff existence on an open subset of a finite-dimensional real space enters as the named general smooth-support theorem. The relative moduli of the normalization and correction and the lower height bound are further inputs to the final derivative estimate."
+  ]
+}

@@ -2,6 +2,12 @@
 
 ## 21 November 2026
 
+- An A4 inspection found clipped leading digits on four-digit source numbers and the final address on a different page from its title. The source list now reserves space for its longest number and keeps each printed citation together.
+
+- For a good unramified Whittaker coefficient the local integral is proved in a right half-plane. In rank two the example evaluates the continued Euler polynomial at z=½; direct convergence there is not part of this calculation. Matching the global product to the mean on a Gram fibre is a separate theorem.
+- In the separating-period bound, the product minimum applies first to differences of lattice points to give disjoint boxes, and then to a point itself to extract 1/R. It requires no lower bound R on every individual coordinate.
+- At a form with a stabilizer, the normalizing sum of the partition counts all group labels giving each orbit point. Distinct orbit points in the same orbit can have different total weights. In the stability argument, increasing matrix size over a fixed field and transferring between fields require different comparison maps.
+
 - At one height label the product of the dyadic list sizes counts candidate centres. A separate injection into relative rational matrices bounds the multiplicity per centre. Neither count by itself is the cardinality of the coset fibre.
 - The determinant and inverse-matrix residues classify a finite set of possible column matrices up to an integral left change of basis. The families of positive forms parametrized by them can still vary continuously.
 - The colored swap in the unitary commutant can act nontrivially when its slots have distinct places. Its contraction with inputs supported on the two distinct blocks vanishes. The commutant assertion gives a spanning family, including in small dimension where its members can be dependent.

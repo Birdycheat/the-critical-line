@@ -63,6 +63,63 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// The norm form of F₉ has one vector of norm 0 in one dimension and four of each nonzero norm.
+let normHistogram = [1, 0, 0];
+for (let dim = 1; dim <= 3; dim++) {
+  const next = [0, 0, 0];
+  for (let r = 0; r < 3; r++) {
+    for (let add = 0; add < 3; add++) next[(r + add) % 3] += normHistogram[r] * [1, 4, 4][add];
+  }
+  normHistogram = next;
+  if (dim >= 2) assert.equal(lib.countHermitianFrames(dim, 1).first, next[1]);
+}
+// In the tangent map at the standard two-frame, enumerate all entries of its upper 2 × 2 block.
+// The last complex row is unrestricted and gives 3⁴ additional lifts.
+const tangent = Array(81).fill(0);
+for (let code = 0; code < 3 ** 8; code++) {
+  let rest = code;
+  const h = Array.from({length: 8}, () => { const digit = rest % 3; rest = Math.floor(rest / 3); return digit; });
+  const offReal = (h[2] + h[4]) % 3, offImag = (h[3] - h[5] + 3) % 3;
+  const index = (2 * h[0]) % 3 + 3 * ((2 * h[6]) % 3) + 9 * offReal + 27 * offImag;
+  tangent[index]++;
+}
+assert.ok(tangent.every(count => count * 81 === 3 ** 8));
+for (const level of [1, 2, 3]) {
+  const pair = lib.hermitianDensity(true, level), line = lib.hermitianDensity(false, level);
+  assert.equal(pair.count, 252 * 24 * 3 ** (8 * (level - 1)));
+  assert.equal(pair.density, "224/243");
+  assert.equal(line.count, 24 * 3 ** (3 * (level - 1)));
+  assert.equal(line.density, "8/9");
+}
+// Enumerate all Eisenstein integer columns of norm ≤2 and count the two specified Gram matrices.
+const eisenstein = [];
+for (let a = -2; a <= 2; a++) {
+  for (let b = -2; b <= 2; b++) {
+    const norm = a * a - a * b + b * b;
+    if (norm <= 2) eisenstein.push({a, b, norm});
+  }
+}
+const shortColumns = eisenstein.flatMap(x => eisenstein.map(y => [x,y]))
+  .filter(([x,y]) => x.norm + y.norm <= 2);
+const overlapCounts = [0, 0];
+for (const left of shortColumns) {
+  if (left[0].norm + left[1].norm !== 1) continue;
+  for (const right of shortColumns) {
+    const norm = right[0].norm + right[1].norm;
+    let real = 0, omega = 0;
+    for (let k = 0; k < 2; k++) {
+      const x = left[k], y = right[k];
+      real += (x.a - x.b) * y.a + x.b * y.b;
+      omega += x.a * y.b - x.b * y.a;
+    }
+    if (omega === 0 && real === 0 && norm === 1) overlapCounts[0]++;
+    if (omega === 0 && real === 1 && norm === 2) overlapCounts[1]++;
+  }
+}
+assert.deepEqual(overlapCounts, [72, 72]);
+for (let height = 1; height <= 4; height++) {
+  assert.ok(lib.render("orbit-weights", {height}).includes(String(72 + 72 * height)));
+}
 // Count integer numerators by membership in the scaled interval.
 for (let u = 0; u <= 3; u++) {
   for (let v = 0; v <= 3; v++) {
@@ -741,5 +798,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

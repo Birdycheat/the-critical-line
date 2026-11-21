@@ -200,6 +200,7 @@ img.opening-figure, svg.opening-figure:not([tabindex]) { cursor: default; }
 .chapter .lead, .chapter .lede { margin-block: .7rem 1.3rem; }
 .chapter li + li, .textpage li + li { margin-top: .2rem; }
 .chapter :is(ol,ul), .textpage :is(ol,ul) { padding-inline-start: 1.35em; }
+#book-references > ol { padding-inline-start: 6ch; }
 .textpage > h2:not(:first-child), .chapter h2:not(:first-child), .chapter section > h2 { margin-top: 2.2rem; }
 :is(.chapter, .textpage, .reading) :is(p, details, aside, li, th, td, dd) { overflow-wrap: anywhere; }
 :is(details, .source-panel) { margin-block: .95rem; }
@@ -287,6 +288,8 @@ thead th { border-bottom-color: var(--ink); }
 .lab .rank-grid { table-layout: fixed; width: min(100%, 29rem); margin: 1rem auto; font-variant-numeric: lining-nums tabular-nums; }
 .lab .carry-table { width: min(100%, 30rem); margin: 1rem auto; font-variant-numeric: lining-nums tabular-nums; }
 .carry-table :is(th, td) { text-align: right; padding: .35em; }
+.density-table th:first-child { text-align: left; }
+.density-table tr > :last-child { width: 5em; white-space: nowrap; }
 .carry-table caption, .rank-grid caption { caption-side: top; margin-bottom: .4rem; text-align: center; font-style: italic; }
 .rank-grid :is(th, td) { padding: .35em .15em; text-align: center; vertical-align: middle; }
 .rank-grid tr > :first-child, .rank-grid tr > :last-child { width: 18%; }
@@ -347,6 +350,7 @@ thead th { border-bottom-color: var(--ink); }
   .chapter:first-child { break-before: auto; }
   h1, h2, h3, h4, h5, h6, summary { break-after: avoid-page; }
   figure, tr, .metrics, .equation, .eq, .formula, math { break-inside: avoid; }
+  #book-references li { break-inside: avoid; }
   thead { display: table-header-group; }
   .chapter p { orphans: 3; widows: 3; }
   .article .chapter .measure { max-width: none; }

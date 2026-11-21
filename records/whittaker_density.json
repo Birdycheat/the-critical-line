@@ -1,0 +1,752 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "WDL-01",
+      "chapter": "lifts",
+      "title": "A unimodular Gram fibre has the same normalized density at every positive level",
+      "anchor": "lifts-whittaker-density",
+      "statement": "At a good finite place with base residue size q, for 1≤n≤M and unimodular Hermitian J,T, the density is the product over 0≤j<n of (1−(ε/q)^(M−j)). Each solution modulo ϖᵏ lifts to q^(2Mn−n²) solutions modulo ϖ^(k+1) for k≥1.",
+      "hypotheses": "Unramified quadratic valuation algebra over the local base, ε=−1 in the field case and +1 in the split case, Hermitian source and target of ranks M and n with invertible determinants. The application uses good odd places and the integral matrix-lattice test. The lifting demonstration with division by 2 uses this odd-place hypothesis.",
+      "equations": [
+        "lifts-whittaker-level"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean",
+          "lines": [
+            19,
+            40
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.GoodLoc",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean#L19-L40"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean",
+          "lines": [
+            12,
+            14
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.eSp",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean#L12-L14"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/LocalDefs.lean",
+          "lines": [
+            33,
+            47
+          ],
+          "declaration": "PositivityTheory.PfSWUS.Loc.densAt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/LocalDefs.lean#L33-L47"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardUnimodularHermitianRepsLevelOne.lean",
+          "lines": [
+            55,
+            67
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.solCount_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardUnimodularHermitianRepsLevelOne.lean#L55-L67"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean",
+          "lines": [
+            97,
+            111
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.Emb.card_isometric_embeddings",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean#L97-L111"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardOrthonormalFramesHermitianSpace.lean",
+          "lines": [
+            59,
+            89
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.card_orthonormal_tuples",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardOrthonormalFramesHermitianSpace.lean#L59-L89"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardFibreGramDifferential.lean",
+          "lines": [
+            113,
+            129
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.GramDiff.card_fibre_gram_differential",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardFibreGramDifferential.lean#L113-L129"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+          "lines": [
+            187,
+            205
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.HenselStep.fibre_card",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean#L187-L205"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+          "lines": [
+            227,
+            243
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.solCount_succ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean#L227-L243"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+          "lines": [
+            12,
+            38
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.unrFormula",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean#L12-L38"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+          "lines": [
+            38,
+            50
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.UnrDens.unrFormula",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean#L38-L50"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Reduction of the target changes the fibre bijectively to orthonormal frames. Successive norm-one vector counts give the level-one cardinal. The surjective additive Gram differential counts the correction fibres and the normalized density cancels their common cardinal.",
+      "review": "Compared the level and modulus of the Gram equations, ranks, both exponents and the residue-algebra sign directly with the archive. The F₉ example was independently enumerated for all 252 possible first columns and cross-checked by a second reader."
+    },
+    {
+      "id": "WDL-02",
+      "chapter": "lifts",
+      "title": "Finite Fourier interpolation computes the good Whittaker integral",
+      "anchor": "lifts-whittaker-analytic",
+      "statement": "The good-place integral equals ∏_{j=0}^{n−1}(1−ε^(M+j)q^(−(2z+n−j))) for Re(z)>n². This expression extends holomorphically to all z, and its value at z₀=(M−n)/2 is the density in WDL-01.",
+      "hypotheses": "Good local data include an integral trace-self-dual lattice, unramified quadratic algebra, unit 2, character of valuation-ring conductor, integral unimodular J and T, and the standard lattice indicator. Both Fourier measures are self-dual for their prescribed pairings. The auxiliary lattice height is vol(L+bL)/vol(L) and appears to the power −(z−z₀).",
+      "equations": [
+        "lifts-whittaker-integral",
+        "lifts-whittaker-good-factor"
+      ],
+      "dependencies": [
+        "WDL-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean",
+          "lines": [
+            19,
+            40
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.GoodLoc",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean#L19-L40"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean",
+          "lines": [
+            42,
+            53
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.LocC",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/TraceDual.lean#L42-L53"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/NDDefs.lean",
+          "lines": [
+            16,
+            22
+          ],
+          "declaration": "PositivityTheory.PfSWUS.Loc.trPair",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/NDDefs.lean#L16-L22"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            13,
+            17
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.nu2",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L13-L17"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            50,
+            54
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.whI",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L50-L54"
+        },
+        {
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean",
+          "lines": [
+            353,
+            363
+          ],
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.GenusMassVolumes.SdHerm",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean#L353-L363"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+          "lines": [
+            109,
+            124
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SiegLoc.UnimodSeries.unrPoly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean#L109-L124"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+          "lines": [
+            120,
+            144
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SiegLoc.UnimodSeries.unrPoly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean#L120-L144"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+          "lines": [
+            145,
+            164
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SiegLoc.UnimodSeries.unrPoly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean#L145-L164"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean",
+          "lines": [
+            40,
+            60
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.locC_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean#L40-L60"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean",
+          "lines": [
+            67,
+            94
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.locC_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean#L67-L94"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean",
+          "lines": [
+            96,
+            111
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gunr.locC_of_steps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/LocCMain.lean#L96-L111"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/UnrPDifferentiable.lean",
+          "lines": [
+            49,
+            57
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.unrP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/UnrPDifferentiable.lean#L49-L57"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            59,
+            79
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L59-L79"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The Gram character is positive and the target character is negative. In the quotient by integral Hermitian matrices the sum at each positive level is computed by polynomial interpolation at (ε/q)^m, m≥n, using finite orthogonality and the Gram density for the identity form. A uniform geometric bound justifies passage to the full integral on the right half-plane. Its continuation supplies the stated value at the target point.",
+      "review": "Verified the two measures, character sign, reciprocal volume exponent, geometric majorant and polynomial evaluation. A second reader checked the auxiliary-rank interpolation and identified the finite Fourier calls."
+    },
+    {
+      "id": "WDL-03",
+      "chapter": "lifts",
+      "title": "The good factors enter the global full-rank coefficient through a separate density-to-mean identity",
+      "anchor": "lifts-whittaker-assembly",
+      "statement": "In the strict-rank case the product of the real factor, finitely many exceptional finite factors, and the good-place product agrees with the global Whittaker family sufficiently far right. The continued global value at z₀ is the normalized rational Gram-fibre mean by the low-rank global density theorem.",
+      "hypotheses": "Use the pure standard datum, det T≠0, M>n, and n+2≤M or anisotropy of J. The global comparison takes a convergence hypothesis on some right half-plane and the attached orbital density functions. The good-place product is holomorphic on Re(z)>0, containing z₀ under strict rank.",
+      "equations": [],
+      "dependencies": [
+        "WDL-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            32,
+            57
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L32-L57"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            59,
+            79
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L59-L79"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/UnrPDifferentiable.lean",
+          "lines": [
+            62,
+            69
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.unr_prod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/UnrPDifferentiable.lean#L62-L69"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            80,
+            91
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L80-L91"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            115,
+            127
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L115-L127"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean",
+          "lines": [
+            1,
+            6
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_sch",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean#L1-L6"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean",
+          "lines": [
+            158,
+            173
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.WhitGenX",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean#L158-L173"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean",
+          "lines": [
+            29,
+            45
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.IwaAd.whitKAOfGenLt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean#L29-L45"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean",
+          "lines": [
+            36,
+            46
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SWGlue.ndOfWhit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NondegenerateOfWhittaker.lean#L36-L46"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The cofinite good set gives the explicit local constants. The independent mass identity supplies equality with the normalized rational theta mean. The flag governing the optional vacuum restriction in WhitGenX is False here, making only this implication vacuous. The full-rank CoefND proof calls the resulting family through its compact argument and Iwasawa transport.",
+      "review": "Distinguished the strict-rank vacuous implication from the actual arithmetic factor and the use of SiegelDensitiesLowA. Checked the global product half-plane and far-right equality against the selected proof."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "whitGenLt",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "whittaker_maximal_compact_general",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/EisensteinSeries/SiegelEisensteinHalfPlane/IntegralUnitCoefficients/CoefND.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "whitGenLtOf",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "unrWhit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "factorX",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "locFin2",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "data_zero_of_data",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "False.elim",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/WhittakerMaximalCompactGeneral.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA_of_sch",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "schwartzDensInf",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA_of_leaves",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean",
+        "line": 6
+      }
+    },
+    {
+      "callee": "oneVecBinary",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean",
+        "line": 6
+      }
+    },
+    {
+      "callee": "unrWhit_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/UnrWhitOf.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "locC",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/UnrWhitOf.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "almostGood",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/UnrWhitOf.lean",
+        "line": 9
+      }
+    },
+    {
+      "callee": "unrWhitAll_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/Assemble.lean",
+        "line": 41
+      }
+    },
+    {
+      "callee": "unrWhitX_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/Assemble.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "unramified_formula_polynomial_gen",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/CFinal.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "unramified_local_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/CFinal.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "locC_of_steps",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/CFinal.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "unrPoly",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/CFinal.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "integral_hermitian_volume_one",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/UnramifiedWhittaker/CFinal.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "card_unimodular_hermitian_reps_level_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "unimodular_hermitian_reps_count_succ",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "unramified_quotient_card",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "card_hermitian_matrices_mod_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedLocalFormula.lean",
+        "line": 38
+      }
+    },
+    {
+      "callee": "card_hermitian_representations_residue",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardUnimodularHermitianRepsLevelOne.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "exists_hermitian_congr_to_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean",
+        "line": 103
+      }
+    },
+    {
+      "callee": "card_eq_card_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean",
+        "line": 109
+      }
+    },
+    {
+      "callee": "card_one_eq_orthonormal",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean",
+        "line": 109
+      }
+    },
+    {
+      "callee": "card_orthonormal_frames_hermitian_space",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardHermitianRepresentationsResidue.lean",
+        "line": 110
+      }
+    },
+    {
+      "callee": "hermitian_vector_values_card",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardOrthonormalFramesHermitianSpace.lean",
+        "line": 67
+      }
+    },
+    {
+      "callee": "consEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardOrthonormalFramesHermitianSpace.lean",
+        "line": 83
+      }
+    },
+    {
+      "callee": "card_fibre_gram_differential",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+        "line": 191
+      }
+    },
+    {
+      "callee": "lift_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+        "line": 202
+      }
+    },
+    {
+      "callee": "card_of_fibres",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+        "line": 241
+      }
+    },
+    {
+      "callee": "fibre_card",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnimodularHermitianRepsCountSucc.lean",
+        "line": 243
+      }
+    },
+    {
+      "callee": "diffMap_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CardFibreGramDifferential.lean",
+        "line": 123
+      }
+    },
+    {
+      "callee": "level_identity",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+        "line": 124
+      }
+    },
+    {
+      "callee": "orth_hermMod",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+        "line": 125
+      }
+    },
+    {
+      "callee": "gauss_full",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+        "line": 126
+      }
+    },
+    {
+      "callee": "densAt_eq_of_isDens",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+        "line": 132
+      }
+    },
+    {
+      "callee": "eq_of_infinite_eval_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/UnramifiedFormulaPolynomialGen.lean",
+        "line": 160
+      }
+    },
+    {
+      "callee": "hSDL",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "hLoc",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "hUnr",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "eq_of_eqOn_right",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "unramifiedPart_differentiable",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "unr_prod",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "hmean",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "tendsto_nhds_unique",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 122
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "WDL-01",
+      "WDL-02"
+    ],
+    [
+      "WDL-02",
+      "WDL-03"
+    ],
+    [
+      "WDL-03",
+      "SCF-02"
+    ]
+  ],
+  "outstanding": [
+    "The exceptional finite-place continuation and the real factor have their own hypotheses and proofs. The global theorem on normalized Gram-fibre means, including its binary mass inputs, is identified as a distinct input here. The finite Fourier interpolation also calls the character orthogonality and Gaussian-sum identities."
+  ]
+}

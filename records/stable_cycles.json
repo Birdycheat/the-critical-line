@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Followed the archive from the two one-step induction theorems and standard-point differential to base change, the real-cycle interface and the selected odd-degree nonboundary argument.",
+  "claims": [
+    {
+      "id": "STY-01",
+      "chapter": "inputs",
+      "title": "Split vector–covector sequences give an alternating row of stabilizations and zero maps",
+      "anchor": "inputs-stable-split-sequences",
+      "statement": "For G=GL_b(R) and the permutation module C_p on ordered split sequences of length p, the standard-point map identifies H_q(GL_{b−p}(R),ℤ) with H_q(G,C_p) when p+s≤b. Under adjacent identifications the differential d_p from length p+1 to p is one-step stabilization for even p and zero for odd p.",
+      "hypotheses": "R commutative with stable range at most s. The first-page differential formula is stated for p+1≤b, and the two identifications are isomorphisms in the range p+1+s≤b.",
+      "definitions": [
+        "Split sequences satisfy λᵢ(vⱼ)=δᵢⱼ; C₀=ℤ comes from the empty ordered sequence.",
+        "The standard sequence uses the last p vector–covector pairs; its point stabilizer is exactly diag(GL_{b−p}(R),I_p).",
+        "A signed sum of the p+1 deletion maps has scalar ∑_{j=0}^p(−1)^j under the point maps."
+      ],
+      "equations": [
+        "inputs-stable-face-row"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.HomStab.SplitSet",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/MemSplitSeqIff.lean",
+          "lines": [
+            17,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/MemSplitSeqIff.lean#L17-L39"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.splitD",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/MemSplitSeqIff.lean",
+          "lines": [
+            67,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/MemSplitSeqIff.lean#L67-L77"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.firstPage_split",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean",
+          "lines": [
+            21,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean#L21-L39"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.ptH_comp_hMap_splitD",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/StandardSeqPointCompSplitSeqDifferential.lean",
+          "lines": [
+            33,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/StandardSeqPointCompSplitSeqDifferential.lean#L33-L50"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The written comparison uses transitivity, the exact stabilizer and Shapiro. A conjugator for each standard face commutes with the source of the smaller stabilization, so each face has the same induced map.",
+      "review": "An independent reader checked the p+1+s≤b range for both adjacent isomorphisms and computed the last two arrows in their source-to-target order."
+    },
+    {
+      "id": "STY-02",
+      "chapter": "inputs",
+      "title": "Integral homology stabilizes at two adjacent rank thresholds",
+      "anchor": "inputs-stable-cycles",
+      "statement": "In degree m, stabilization from GL_n(R) to GL_{n+1}(R) is surjective for n≥2m+s+1 and injective for n≥2m+s+2. Over a Dedekind domain, any size N≥n gives an integral isomorphism once n≥2m+4.",
+      "hypotheses": "Integral group homology with trivial coefficients and commutative R of stable range at most s; the arithmetic application uses the Dedekind parameter s=2. These are sufficient thresholds. The split-sequence exactness theorem is used at length p under 2p+s+1≤b.",
+      "definitions": [
+        "One-rank steps use ambient size b=n+1. The position p in the sequence complex is a length, and q denotes a degree of group homology.",
+        "The kernel factorizations of the differential pass lower-degree exactness to a surjective bottom map. In the larger range the image of the preceding zero map is its kernel."
+      ],
+      "equations": [
+        "inputs-stable-two-thresholds"
+      ],
+      "dependencies": [
+        "STY-01"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KL.StableRangeLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TensorHomCubes/StabDirectedSystem.lean",
+          "lines": [
+            59,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TensorHomCubes/StabDirectedSystem.lean#L59-L63"
+        },
+        {
+          "declaration": "UpperTheory.V.KL.dedekindSR",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TensorHomCubes/DedekindSR.lean",
+          "lines": [
+            50,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TensorHomCubes/DedekindSR.lean#L50-L54"
+        },
+        {
+          "declaration": "GlobalTheory.T.splitSeq_exactAt_of_two_mul_add_stableRange_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqExactAtOfTwoMulAddStableRangeLe.lean",
+          "lines": [
+            73,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqExactAtOfTwoMulAddStableRangeLe.lean#L73-L86"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.Staircase.main",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SurjectiveHMapZeroOfStaircase.lean",
+          "lines": [
+            40,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SurjectiveHMapZeroOfStaircase.lean#L40-L82"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.StairMid.main",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactHMapOneZeroOfStaircase.lean",
+          "lines": [
+            21,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactHMapOneZeroOfStaircase.lean#L21-L49"
+        },
+        {
+          "declaration": "GlobalTheory.injective_stabilisation_bottom_of_rows_exact",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/QuillenStabilisationInjectiveBottom.lean",
+          "lines": [
+            23,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/QuillenStabilisationInjectiveBottom.lean#L23-L47"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.grpHMap_stab_surjective_step",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabSurjectiveOfStableRangeInduct.lean",
+          "lines": [
+            17,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabSurjectiveOfStableRangeInduct.lean#L17-L30"
+        },
+        {
+          "declaration": "GlobalTheory.homStab_GL_inj_step",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabInjectiveOfStableRangeInducti.lean",
+          "lines": [
+            12,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabInjectiveOfStableRangeInducti.lean#L12-L26"
+        },
+        {
+          "declaration": "GlobalTheory.HomStab.kStability_main",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/HomologicalStabilityTheorem.lean",
+          "lines": [
+            10,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/HomologicalStabilityTheorem.lean#L10-L27"
+        },
+        {
+          "declaration": "PositivityTheory.KB.StabilizationIso.isIso_stab",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean",
+          "lines": [
+            17,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean#L17-L34"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The row induction, kernel factorizations and parity of the first differential give the two maps used in kStability_main. isIso_stab applies the published integral supplier successively for s=2.",
+      "review": "An independent reader confirmed the distinct one-step thresholds. The inequalities for the smaller-degree injective and surjective maps were rechecked across both induction diagonals."
+    },
+    {
+      "id": "STY-03",
+      "chapter": "inputs",
+      "title": "Stable real nonboundaries survive to the rank where invariant forms detect them",
+      "anchor": "inputs-stable-real-cycles",
+      "statement": "In degree m=k+1 and n≥2m+4, stabilization over the same Dedekind ring reflects real boundaries and every real cycle at a larger rank lifts up to a real boundary. In the odd-degree arithmetic application the reflected nonboundary at the final filter level survives at a rank furnished by SSurj.",
+      "hypotheses": "The chain argument assumes SChain and SBridge. The application takes one totally complex number field L, odd m=k+1<r₂(L) and positive block multiplicity. It uses SSep to find a detecting cochain, SSurj for the invariant form and SWtOdd for its weights. The conclusion bounds the integral rank of the span of the filtered homology image.",
+      "definitions": [
+        "θ: Z_m(Γ;ℝ) → ℝ⊗ℤ H_m(Γ;ℤ) is surjective, natural, and has precisely the real boundaries as kernel.",
+        "At level ℓ^k n the stabilizing map is injective on real homology. The two filter maps are block repetition and identity padding.",
+        "In degree three over ℚ(ζ₁₆), r₂=4 and at ℓ=2 the two levels from initial size 10 are 20 and 40: test multipliers are 12,0,0.",
+        "The fixed-size affine block comparison and field transfer of primitive boundary statements have distinct source interfaces."
+      ],
+      "equations": [],
+      "dependencies": [
+        "STY-02",
+        "STB-01",
+        "IVR-02"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SStab",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            28,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L28-L39"
+        },
+        {
+          "declaration": "PositivityTheory.KB.StabilizationIso.baseChange_bijective",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean",
+          "lines": [
+            36,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean#L36-L48"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sStab_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/SStabOf.lean",
+          "lines": [
+            11,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/SStabOf.lean#L11-L31"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SSurj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBStar.lean",
+          "lines": [
+            20,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBStar.lean#L20-L34"
+        },
+        {
+          "declaration": "PositivityTheory.KB.PrimeModuloFree.wsys_zc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/TensorPrimeModuli/SBStarOf.lean",
+          "lines": [
+            40,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/TensorPrimeModuli/SBStarOf.lean#L40-L63"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sBStarOdd_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+          "lines": [
+            29,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean#L29-L44"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sBStarOdd_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+          "lines": [
+            60,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean#L60-L78"
+        },
+        {
+          "declaration": "PositivityTheory.KB.BStarOdd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBStarOdd.lean",
+          "lines": [
+            18,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBStarOdd.lean#L18-L24"
+        },
+        {
+          "declaration": "PositivityTheory.KB.TwOdd.rank_span_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/RankSpanLe.lean",
+          "lines": [
+            23,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/RankSpanLe.lean#L23-L44"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SBig",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            49,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L49-L64"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The proof at SBStarOddOf uses hStab only in its reflection direction to preserve a nonboundary at the SSurj rank. The final lift of integral filtered generators uses surjectivity and naturality of θ; it does not identify integral torsion with real homology.",
+      "review": "An independent reader checked the degree-three field and the values 12,0,0 at sizes 10,20,40 and verified that the source preserves the field when it selects a larger rank, reflects nonboundaries and evaluates invariant periods."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "firstPage_split",
+      "callee": "shapiro_lemma_transitive_groupHomology",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "firstPage_split",
+      "callee": "stabilizer_stdSeq_iso_GL_of_complement",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "firstPage_split",
+      "callee": "GL_transitive_splitSet_of_stableRangeLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "firstPage_split",
+      "callee": "standardSeqPoint_comp_splitSeqDifferential",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSeqFirstPageIsoAndDifferential.lean",
+        "line": 39
+      }
+    },
+    {
+      "caller": "ptH_comp_hMap_splitD",
+      "callee": "altSum_neg_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/StandardSeqPointCompSplitSeqDifferential.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "ptH_comp_hMap_splitD",
+      "callee": "face_stdSeq_GL_conjugate_commuting_stab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/StandardSeqPointCompSplitSeqDifferential.lean",
+        "line": 46
+      }
+    },
+    {
+      "caller": "grpHMap_stab_surjective_step",
+      "callee": "quillen_stabilisation_surjective_bottom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabSurjectiveOfStableRangeInduct.lean",
+        "line": 21
+      }
+    },
+    {
+      "caller": "grpHMap_stab_surjective_step",
+      "callee": "splitSeq_exactAt_of_two_mul_add_stableRange_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabSurjectiveOfStableRangeInduct.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "homStab_GL_inj_step",
+      "callee": "quillen_stabilisation_injective_bottom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabInjectiveOfStableRangeInducti.lean",
+        "line": 17
+      }
+    },
+    {
+      "caller": "homStab_GL_inj_step",
+      "callee": "splitSeq_exactAt_of_two_mul_add_stableRange_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/GroupHomologyGLStabInjectiveOfStableRangeInducti.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "injective_stabilisation_bottom_of_rows_exact",
+      "callee": "exact_hMap_one_zero_of_staircase",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/QuillenStabilisationInjectiveBottom.lean",
+        "line": 13
+      }
+    },
+    {
+      "caller": "StairMid.main",
+      "callee": "surjective_hMap_zero_of_staircase",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactHMapOneZeroOfStaircase.lean",
+        "line": 26
+      }
+    },
+    {
+      "caller": "kStability_main",
+      "callee": "groupHomology_GL_stab_surjective_of_stableRange_induction",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/HomologicalStabilityTheorem.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "kStability_main",
+      "callee": "groupHomology_GL_stab_injective_of_stableRange_induction",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/HomologicalStabilityTheorem.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "kStability",
+      "callee": "kStability_main",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/KStability.lean",
+        "line": 4
+      }
+    },
+    {
+      "caller": "isIso_stab",
+      "callee": "dedekindSR",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "isIso_stab",
+      "callee": "kStability",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/BaseChangeBijective.lean",
+        "line": 33
+      }
+    },
+    {
+      "caller": "sStab_of",
+      "callee": "isIso_stab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/SStabOf.lean",
+        "line": 14
+      }
+    },
+    {
+      "caller": "sStab_of",
+      "callee": "baseChange_bijective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/BaseChangeStability/SStabOf.lean",
+        "line": 15
+      }
+    },
+    {
+      "caller": "sBStarOdd_of",
+      "callee": "hSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+        "line": 37
+      }
+    },
+    {
+      "caller": "sBStarOdd_of",
+      "callee": "hStab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+        "line": 41
+      }
+    },
+    {
+      "caller": "sBStarOdd_of",
+      "callee": "hSep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "sBStarOdd_of",
+      "callee": "wsys_zc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+        "line": 51
+      }
+    },
+    {
+      "caller": "sBStarOdd_of",
+      "callee": "th_zc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/OddSpanRank/SBStarOddOf.lean",
+        "line": 78
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "STY-01",
+      "STY-02"
+    ],
+    [
+      "STY-02",
+      "STY-03"
+    ],
+    [
+      "STB-01",
+      "STY-03"
+    ],
+    [
+      "IVR-02",
+      "STY-03"
+    ],
+    [
+      "STY-03",
+      "STB-02"
+    ]
+  ],
+  "outstanding": [
+    "Transitivity, Shapiro and the connectivity of the split-sequence complex are cited at their actual suppliers. SSurj, SSep, the odd trace decomposition, and the transfer of primitive-cycle boundary conclusions between fields are additional inputs to their respective applications."
+  ]
+}
