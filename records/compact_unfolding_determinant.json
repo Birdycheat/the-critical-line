@@ -1,0 +1,572 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CUD-01",
+      "chapter": "inputs",
+      "anchor": "inputs-compact-unfolding-frame",
+      "title": "Uniform scalar and determinant-one frames for positive matrices",
+      "statement": "On a compact family of positive definite Hermitian N×N matrices, every Q has Q=(Y⁻¹)*Y⁻¹ with Y=cT and det T=1. If |(Q⁻¹)ᵢⱼ|≤R₂ and det Q≤R₃ then the entries of both Y and T are bounded by R=max(1,R₂)max(1,R₃). The complex scalar satisfies |c|^(2N)det Q=1.",
+      "hypotheses": "N≥1. The matrices are complex Hermitian at every index in the finite set of infinite places. The bounds can be imposed on the enlarged compact set of the application.",
+      "correspondence": "The source obtains Y by inverting a spectral Gram factor B with B*B=Q; taking Y=Q^(−1/2) is one valid choice. Its radius a/m agrees with the displayed one, since m=min(1,max(1,R₃)⁻¹). The family diag(u²,1) explains why an upper bound on the determinant accompanies the bound on Q⁻¹.",
+      "dependencies": [],
+      "equations": [
+        "inputs-unfolding-scalar-determinant"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.actM",
+          "declaration_lines": {
+            "PositivityTheory.KB.actM": 97
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean",
+          "lines": [
+            93,
+            102
+          ],
+          "label": "Inverse congruence on families of Hermitian matrices",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean#L93-L102"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.gl_fac_exists",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.gl_fac_exists": 26
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            10,
+            38
+          ],
+          "label": "Positive Gram factor and inverse matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L10-L38"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.norm_sq_le_diag",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.norm_sq_le_diag": 39
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            39,
+            46
+          ],
+          "label": "A row norm and the diagonal of the inverse Gram matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L39-L46"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.sl_dec",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.sl_dec": 48
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            48,
+            66
+          ],
+          "label": "Removing a scalar root of the determinant",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L48-L66"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.dec_bdd": 85
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            85,
+            118
+          ],
+          "label": "The common radius for full and determinant-one frames",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L85-L118"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.dec_bdd": 85
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            120,
+            150
+          ],
+          "label": "The lower bound for the scalar from its determinant identity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L120-L150"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.dec_K",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.dec_K": 176
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            160,
+            197
+          ],
+          "label": "Uniform choices on a compact family of positive forms",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L160-L197"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "CUD-02",
+      "chapter": "inputs",
+      "anchor": "inputs-compact-unfolding-jacobian",
+      "title": "The reciprocal real Jacobian in compact unfolding",
+      "statement": "For W in the archimedean special linear group, K₁={A_(s⁻¹)p:s∈W,p∈K} has K⊆A_sK₁. If |detℝ A_s|≤D₀ on W then ∫_(K₁)f(A_sp) dμ≥D₀⁻¹∫_K f dμ for each s∈W. At one place |detℝ A_g|=|detℂ g|^(−2N), so D₀=1 is admissible for the determinant-one group.",
+      "hypotheses": "N≥1, K compact in the positive cone, W the closed entrywise ball of radius 1/2 around the identity in the finite product of special linear groups. μ additive Haar measure, f nonnegative measurable, and A_g inverse congruence.",
+      "correspondence": "The pinned proof takes a compact uniform upper bound D′≥1 for the real determinant and divides by it. The exposition additionally evaluates that Jacobian by singular values. This calculation provides an admissible exact multiplier; the cited formal proof only needs its compact bound.",
+      "dependencies": [],
+      "equations": [
+        "inputs-unfolding-real-jacobian"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.lintegral_cle_ge",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.lintegral_cle_ge": 152
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+          "lines": [
+            152,
+            173
+          ],
+          "label": "The pushforward of additive Haar measure has the reciprocal determinant",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean#L152-L173"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.cont_det",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.cont_det": 63
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            47,
+            65
+          ],
+          "label": "The determinant of the real action varies continuously",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L47-L65"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.Wn_pos",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.Wn_pos": 229
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            214,
+            238
+          ],
+          "label": "Entry bound, compactness and positive measure of the neighbourhood",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L214-L238"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.unfold_holds": 257
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            257,
+            288
+          ],
+          "label": "The enlarged cone set and its inclusion after every averaging translation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L257-L288"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.unfold_holds": 257
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            289,
+            324
+          ],
+          "label": "The determinant upper bound and the direction of the integral inequality",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L289-L324"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "CUD-03",
+      "chapter": "inputs",
+      "anchor": "inputs-compact-unfolding-bound",
+      "title": "From ambient volume to a compact integral of the moving frame",
+      "statement": "For continuous centrally invariant real q-forms on the positive cone there is a fixed compact K′ in the special linear group such that ∫_K ‖ω‖dμ ≤ C₂∫_(K′) ‖fr ω‖dν. One may take R′=3NR/2, B=(N²R′²)^q and C₂=D₀ B μ(K₁)/ν(W).",
+      "hypotheses": "The ambient space has the maximum entry norm and additive Haar measure μ. The group measure ν is left and right Haar; the arithmetic application comes with such a measure. The finite rank N, degree q, compact K and measures are held fixed before the form is chosen.",
+      "correspondence": "The pointwise bound uses the entries of X=sY to bound the inverse tangent map by N²R′². Scalar invariance removes c from the frame, and right translation sends W to WT⊆K′. The source swaps two finite restricted integrals and then chooses a representative only for fixed p. Its compact unfolding hypothesis is supplied to the simplex estimate before the separate arithmetic overlap argument.",
+      "dependencies": [
+        "CUD-01",
+        "CUD-02"
+      ],
+      "equations": [
+        "inputs-compact-unfolding-constant"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.fr",
+          "declaration_lines": {
+            "PositivityTheory.KB.fr": 132
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean",
+          "lines": [
+            132,
+            136
+          ],
+          "label": "The moving frame and invariance under pullback",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean#L132-L136"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.norm_om_le",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.norm_om_le": 86
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            67,
+            89
+          ],
+          "label": "Recovering the form from its frame and removing a scalar",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L67-L89"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.norm_actL_le",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.norm_actL_le": 111
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            91,
+            122
+          ],
+          "label": "Bounding the tangent action entry by entry",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L91-L122"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.point_bd",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.point_bd": 135
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            135,
+            150
+          ],
+          "label": "The tangent estimate in every alternating slot",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L135-L150"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.right_trans_le",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.right_trans_le": 240
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            240,
+            256
+          ],
+          "label": "Right translation into a fixed compact group region",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L240-L256"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.unfold_holds": 257
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            325,
+            367
+          ],
+          "label": "Swapping the two restricted integrals and translating the inner one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L325-L367"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.unfold_holds": 257
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+          "lines": [
+            368,
+            382
+          ],
+          "label": "Division by the mass of the averaging neighbourhood",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean#L368-L382"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.Unfold",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.Unfold": 43
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/OverlapG.lean",
+          "lines": [
+            43,
+            48
+          ],
+          "label": "The hypotheses and quantifiers of compact unfolding",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/OverlapG.lean#L43-L48"
+        },
+        {
+          "declaration": "PositivityTheory.KB.LocalOverlapAverage.integral_abs_intS_actL_le_mul_sqrt_integral",
+          "declaration_lines": {
+            "PositivityTheory.KB.LocalOverlapAverage.integral_abs_intS_actL_le_mul_sqrt_integral": 37
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Assemble.lean",
+          "lines": [
+            37,
+            72
+          ],
+          "label": "The simplex-period estimate uses this constant before orbit overlap",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Assemble.lean#L37-L72"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sLoc_of",
+          "declaration_lines": {
+            "PositivityTheory.KB.sLoc_of": 10
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/SLocOf.lean",
+          "lines": [
+            8,
+            12
+          ],
+          "label": "Passing compact unfolding to the local bound on cycle periods",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/SLocOf.lean#L8-L12"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.gl_fac_exists",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.fac_exists",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+        "line": 29,
+        "spelling": "fac_exists"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.gl_fac_exists",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+        "line": 102,
+        "spelling": "gl_fac_exists"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.sl_dec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+        "line": 103,
+        "spelling": "sl_dec"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.norm_sq_le_diag",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/UnfoldM.lean",
+        "line": 110,
+        "spelling": "norm_sq_le_diag"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_K",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.contOn_inv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 181,
+        "spelling": "contOn_inv"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_K",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.cont_detq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 182,
+        "spelling": "cont_detq"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.dec_K",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.dec_bdd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 183,
+        "spelling": "dec_bdd"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.isCompact_Wn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 262,
+        "spelling": "isCompact_Wn"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.Wn_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 264,
+        "spelling": "Wn_pos"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.dec_K",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 282,
+        "spelling": "dec_K"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.isCompact_bddSL",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 287,
+        "spelling": "isCompact_bddSL"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.cont_det",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 289,
+        "spelling": "cont_det"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.lintegral_cle_ge",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 304,
+        "spelling": "lintegral_cle_ge"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.norm_actL_le",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.entry_mul_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 119,
+        "spelling": "entry_mul_le"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.point_bd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.norm_om_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 144,
+        "spelling": "norm_om_le"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.point_bd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.fr_scal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 145,
+        "spelling": "fr_scal"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.point_bd",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.norm_actL_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 147,
+        "spelling": "norm_actL_le"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.Wn_bdd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 348,
+        "spelling": "Wn_bdd"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.point_bd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 349,
+        "spelling": "point_bd"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.right_trans_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/Unfold.lean",
+        "line": 367,
+        "spelling": "right_trans_le"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sLoc_of",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.unfold_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/SLocOf.lean",
+        "line": 11,
+        "spelling": "LocalOverlapAverage.unfold_holds"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sLoc_of",
+      "callee": "PositivityTheory.KB.LocalOverlapAverage.sLoc_of_parts",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/CompactLocalSets/SLocOf.lean",
+        "line": 11,
+        "spelling": "LocalOverlapAverage.sLoc_of_parts"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sLoc",
+      "callee": "PositivityTheory.KB.sLoc_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 36,
+        "spelling": "sLoc_of"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CUD-01",
+      "CUD-03"
+    ],
+    [
+      "CUD-02",
+      "CUD-03"
+    ],
+    [
+      "CUD-03",
+      "PTR-02"
+    ]
+  ],
+  "outstanding": [
+    "The compact unfolding estimate does not set the simplex-density constant or the arithmetic multiplicity of the compact image. Those further factors of the fixed-cycle estimate are treated in PTR-02. The separate Hecke rate and the stability lower comparison enter later."
+  ]
+}

@@ -95,7 +95,9 @@
         "global-block-slab-mass",
         "global-marked-vector-weight",
         "lifts-isotropic-transverse",
-        "normalization-transverse-period-class"
+        "normalization-transverse-period-class",
+        "normalization-branching-period-translate",
+        "inputs-compact-unfolding-bound"
       ]
     },
     {
@@ -341,11 +343,12 @@
       "id": "cauchy-binet",
       "title": "Cauchy–Binet for a Gram determinant",
       "statement": "Let X be a complex m by r matrix, m ≥ r. The determinant of X*X is the sum of |det Xᵢ|² over all r-element sets of rows i, where Xᵢ is the corresponding square submatrix. This follows by applying the product formula for determinants of rectangular matrices to X* and X.",
-      "use": "For a basis of a Gaussian plane in four dimensions the six two-row minors therefore measure its determinant. The first two values can be counted exactly.",
+      "use": "For a basis of a Gaussian plane in four dimensions the six two-row minors therefore measure its determinant. The first two values can be counted exactly. A second use expands a compressed Hermitian exponential as a probability-weighted sum over its eigenvalue subsets.",
       "citation": "Andrew Putman, The Cauchy–Binet formula, Theorem 0.1.",
       "url": "https://www3.nd.edu/~andyp/notes/CauchyBinet.pdf",
       "passages": [
-        "global-higher-gaussian-planes"
+        "global-higher-gaussian-planes",
+        "normalization-leading-minor-decay"
       ]
     },
     {
@@ -656,27 +659,32 @@
       "id": "spectral-theorem-frame",
       "title": "An orthonormal eigenbasis for the Gram operator",
       "statement": "On a finite-dimensional complex inner product space every self-adjoint operator has an orthonormal eigenbasis. The eigenvalues of A*A are nonnegative because its quadratic form is the squared norm of Ax. Its zero eigenspace is the kernel of A.",
-      "use": "The positive eigenvalues count image dimensions and their first and second power sums give the two traces in the rank estimate.",
+      "use": "The positive eigenvalues count image dimensions and their first and second power sums give the two traces in the rank estimate. In the unitary period the same diagonalization describes principal determinants and the polar factor. In the cohomological integral it gives a bounded frame and identifies the real Jacobian.",
       "citation": "Sheldon Axler, Linear Algebra Done Right, 4th edition, §7B, theorem 7.31, and §7C on positive operators.",
       "url": "https://linear.axler.net/LADR4e.pdf#page=260",
       "passages": [
         "global-gram-frame",
         "global-minor-frame-rank",
         "inputs-face-real-gram",
-        "inputs-face-normal-cover"
+        "inputs-face-normal-cover",
+        "normalization-leading-minor-decay",
+        "normalization-compact-type-average",
+        "inputs-compact-unfolding-frame",
+        "inputs-compact-unfolding-jacobian"
       ]
     },
     {
       "id": "cauchy-schwarz-rank",
       "title": "Cauchy–Schwarz for the nonzero eigenvalues",
       "statement": "For k real numbers λᵢ, (Σ λᵢ)² ≤ k Σ λᵢ². This follows by taking the inner product of the vector of entries with the vector of k ones.",
-      "use": "When the entries are the positive eigenvalues of the frame operator, the quotient of the squared trace by the trace of its square is a lower bound for its rank.",
+      "use": "When the entries are the positive eigenvalues of the frame operator, the quotient of the squared trace by the trace of its square is a lower bound for its rank. In the unitary period, at most twice the real rank many eigenvalues enter each partial sum.",
       "citation": "Sheldon Axler, Linear Algebra Done Right, 4th edition, §6A, inequality 6.14 and example 6.16(a).",
       "url": "https://linear.axler.net/LADR4e.pdf#page=203",
       "passages": [
         "global-gram-frame",
         "global-minor-frame-rank",
-        "global-minor-retained-rank"
+        "global-minor-retained-rank",
+        "normalization-leading-minor-decay"
       ]
     },
     {
@@ -796,7 +804,9 @@
       "citation": "D. Vogan, Understanding restriction to K, slide 8, theorem of Schmid and Hecht–Schmid. For U(p,q) the formula is also (2.24) of Harris, Kobayashi and Speh.",
       "url": "https://legacy-www.math.harvard.edu/conferences/schmid_2013/docs/vogan.pdf#page=8",
       "passages": [
-        "global-discrete-series-derivatives"
+        "global-discrete-series-derivatives",
+        "normalization-compact-type-jets",
+        "normalization-compact-type-compression"
       ]
     },
     {
@@ -991,7 +1001,8 @@
       "url": "https://math.mit.edu/classes/18.785/2016fa/LectureNotes13.pdf",
       "passages": [
         "normalization-transverse-period-haar",
-        "normalization-transverse-period-class"
+        "normalization-transverse-period-class",
+        "inputs-compact-unfolding-jacobian"
       ]
     },
     {
@@ -1014,6 +1025,41 @@
       "url": "https://math.mit.edu/~hrm/palestine/weibel/01-chain_complexes.pdf#page=10",
       "passages": [
         "inputs-torsion-degree-shift"
+      ]
+    },
+    {
+      "id": "square-integrable-orthogonality",
+      "title": "Schur orthogonality for a square-integrable unitary representation",
+      "statement": "For an irreducible square-integrable unitary representation of a unimodular group with fixed Haar measure, the integral of |⟨u,π(g)v⟩|² is ‖u‖²‖v‖²/dπ. Polarization gives orthogonality for mixed coefficients. The positive constant dπ is its formal degree for this measure.",
+      "use": "The total mass of the mixed coefficient and its mass on each stabilizer fibre refer to two distinct formal degrees. Orthogonality also turns the entries of the period operator into coefficients of an orthogonal family in L².",
+      "citation": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, J. Funct. Anal. 21 (1976), 209–243, specialized to a unimodular group.",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3",
+      "passages": [
+        "normalization-branching-period-moment",
+        "normalization-branching-period-translate",
+        "normalization-branching-period-eigenvalue"
+      ]
+    },
+    {
+      "id": "compact-operator-spectrum",
+      "title": "Spectral theorem for a compact self-adjoint operator",
+      "statement": "For a compact self-adjoint operator on a Hilbert space the closed span of its nonzero eigenspaces is the orthogonal complement of its kernel. Each nonzero eigenspace has finite dimension. The quadratic form is the sum of the eigenvalues weighted by the squared coordinates in an orthonormal eigenbasis.",
+      "use": "A positive lower bound on the quadratic form at the projected vector forces a positive eigenvalue of the required size.",
+      "citation": "MIT 18.102, Introduction to Functional Analysis, Lecture 22, Theorem 232.",
+      "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/resources/lecture-22-the-spectral-theorem-for-a-compact-self-adjoint-operator/",
+      "passages": [
+        "normalization-branching-period-eigenvalue"
+      ]
+    },
+    {
+      "id": "linear-jacobian",
+      "title": "A linear change of variables in real volume",
+      "statement": "On a finite-dimensional real vector space an invertible linear map A multiplies Lebesgue measure by |det A|. In an integral of f(Ax) with respect to the original variable x, substitution on the image therefore introduces the reciprocal factor.",
+      "use": "On the product of Hermitian matrix spaces the reciprocal Jacobian compares integrals on a compact set and its image.",
+      "citation": "J. Hunter, Measure Theory, §2.8, Linear transformations.",
+      "url": "https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf",
+      "passages": [
+        "inputs-compact-unfolding-jacobian"
       ]
     }
   ]

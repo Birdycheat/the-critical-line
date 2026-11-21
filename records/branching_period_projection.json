@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BPP-01",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-period-moment",
+      "title": "A mixed discrete-series coefficient controls its inverse-column moment",
+      "hypotheses": "The signed unitary branching pair of dimensions n+1 and n, n≥3, satisfying the interlacing, large opposing-sign gaps, weight bound B and signature conditions of TPD-01. Both lowest compact-type vectors have norm one and i is the seeded isometric intertwiner.",
+      "statement": "For X=8(n+1)B and F(g)=|⟨iw₀,π(g)v₀⟩|² the column moment ∫‖g⁻¹z‖₂²F(g) dμ is at most X^(8(n+1))/dπ. The unweighted mass is exactly 1/dπ.",
+      "definitions": [
+        "The real dimension parameter in the exponents is the complex matrix size m=n+1. The group measures used to define dπ and dσ are the measures used in the integrals.",
+        "Each shifted component costs at most X^m X^(4m) X^m/dπ in squared norm. Cauchy–Schwarz and the two finite sums use at most X³ more."
+      ],
+      "dependencies": [],
+      "equations": [
+        "normalization-branching-moment-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "realInputE_holds",
+          "label": "The actual selection of branching, moment and eigenvector suppliers",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            231,
+            235
+          ],
+          "declaration_lines": {
+            "realInputE_holds": 231
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L231-L235"
+        },
+        {
+          "declaration": "seedB_of",
+          "label": "Signed interlacing, occurrence and the isometric embedding",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SeedBaseCases/SeedBOf.lean",
+          "lines": [
+            5,
+            10
+          ],
+          "declaration_lines": {
+            "seedB_of": 5
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SeedBaseCases/SeedBOf.lean#L5-L10"
+        },
+        {
+          "declaration": "SchurEigenProjectionExists",
+          "label": "The embedded lowest vector, smooth test and coefficient projection",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/BigProjP.lean",
+          "lines": [
+            17,
+            24
+          ],
+          "declaration_lines": {
+            "SchurEigenProjectionExists": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/BigProjP.lean#L17-L24"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Coordinate tensor and the square-integrable components",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            28,
+            73
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L28-L73"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Coefficient projection after restricting a tensor component",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            78,
+            107
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L78-L107"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "The three factors in the component norm bound",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            108,
+            148
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L108-L148"
+        },
+        {
+          "declaration": "momentHeA_of",
+          "label": "Column identity, Cauchy–Schwarz and the powers lost in finite sums",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            149,
+            179
+          ],
+          "declaration_lines": {
+            "momentHeA_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L149-L179"
+        },
+        {
+          "declaration": "moment_higher_estimate_holds",
+          "label": "Tensor decomposition, comatrix estimate and compact-type word estimate",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            181,
+            189
+          ],
+          "declaration_lines": {
+            "moment_higher_estimate_holds": 181
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L181-L189"
+        },
+        {
+          "declaration": "unitary_decomposition_exists",
+          "label": "Discrete-series summands in the tensor representation",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            190,
+            200
+          ],
+          "declaration_lines": {
+            "unitary_decomposition_exists": 190
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L190-L200"
+        },
+        {
+          "declaration": "comatrix_word_bound",
+          "label": "Uniform bounds on the tensor projections in the comatrix formulas",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "declaration_lines": {
+            "comatrix_word_bound": 6
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean#L6-L7"
+        },
+        {
+          "declaration": "bigProjP_of",
+          "label": "Contraction of the adjoint and insertion of the seed into the moment",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+          "lines": [
+            81,
+            117
+          ],
+          "declaration_lines": {
+            "bigProjP_of": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean#L81-L117"
+        }
+      ]
+    },
+    {
+      "id": "BPP-02",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-period-translate",
+      "title": "A bounded translate has a quantitatively large branching projection",
+      "hypotheses": "The mixed moment of BPP-01, formal-degree orthogonality on both unitary groups, the subgroup formal-degree comparison, the ambient Haar ball bound and the signed-unitary stabilizer geometry for the distinguished positive unit vector.",
+      "statement": "There exists g₀ with ‖g₀‖F≤X^(10m) and ‖i*π(g₀)v₀‖≥X^(−100m³). In particular ℬ(100)‖i*π(g₀)v₀‖≥1 for ℬ(100)=X^(100m⁴).",
+      "definitions": [
+        "Choose Y₁=2X^(8m), D=X^(67m²), K=4X^(24m³). At least half the Schur mass lies where ‖g⁻¹z‖²≤Y₁.",
+        "The finite-volume region C is defined by ‖g‖F²≤64m(m+Y₁)² and U by ‖h−1‖F≤1. Translating its indicator yields ν(U)∫S F ≤ ∫C∫H F(ι(h)k)."
+      ],
+      "dependencies": [
+        "BPP-01"
+      ],
+      "equations": [
+        "normalization-branching-translate-bound",
+        "normalization-branching-double-integral"
+      ],
+      "sources": [
+        {
+          "declaration": "g0",
+          "label": "The bounded-translate theorem from stabilizer geometry and the bounded boost",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Imports.lean",
+          "lines": [
+            8,
+            11
+          ],
+          "declaration_lines": {
+            "g0": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Imports.lean#L8-L11"
+        },
+        {
+          "declaration": "standard_stabiliser_bound",
+          "label": "Norm conventions, Schur mass and the bounded regions",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean",
+          "lines": [
+            75,
+            102
+          ],
+          "declaration_lines": {
+            "standard_stabiliser_bound": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean#L75-L102"
+        },
+        {
+          "declaration": "standard_stabiliser_bound",
+          "label": "The half of the mass that remains and the contradiction with a quarter",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean",
+          "lines": [
+            103,
+            139
+          ],
+          "declaration_lines": {
+            "standard_stabiliser_bound": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean#L103-L139"
+        },
+        {
+          "declaration": "standard_stabiliser_bound",
+          "label": "Geometry of each stabilizer fibre and its exact Schur integral",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean",
+          "lines": [
+            140,
+            173
+          ],
+          "declaration_lines": {
+            "standard_stabiliser_bound": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean#L140-L173"
+        },
+        {
+          "declaration": "unfold",
+          "label": "Tonelli and left Haar translation, without choosing a measurable family of representatives",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Unfold.lean",
+          "lines": [
+            8,
+            57
+          ],
+          "declaration_lines": {
+            "unfold": 8
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Unfold.lean#L8-L57"
+        },
+        {
+          "declaration": "bigProjP_of",
+          "label": "Controlling the reciprocal subgroup formal degree by a ball volume",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+          "lines": [
+            128,
+            177
+          ],
+          "declaration_lines": {
+            "bigProjP_of": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean#L128-L177"
+        },
+        {
+          "declaration": "bigProjP_of",
+          "label": "Ambient formal degree times the ball volume",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+          "lines": [
+            188,
+            219
+          ],
+          "declaration_lines": {
+            "bigProjP_of": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean#L188-L219"
+        },
+        {
+          "declaration": "bigProjP_of",
+          "label": "The three constants in the bounded-translate theorem and the numerical simplification",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+          "lines": [
+            221,
+            275
+          ],
+          "declaration_lines": {
+            "bigProjP_of": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean#L221-L275"
+        },
+        {
+          "declaration": "projLarge_of",
+          "label": "Taking a square root and using the common larger scale",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            162,
+            194
+          ],
+          "declaration_lines": {
+            "projLarge_of": 140
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L162-L194"
+        }
+      ]
+    },
+    {
+      "id": "BPP-03",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-period-eigenvalue",
+      "title": "A projected vector supplies a positive eigenvalue and a smooth unit period vector",
+      "hypotheses": "For v=π(g₀)v₀ assume p=i*v≠0, the absolute integrability of the restricted coefficient and of the seed coefficient, square-integrability of σ for ν with degree dσ>0, and the unitary branching inclusion.",
+      "statement": "The integrated conjugate coefficient on the smaller Hilbert space is compact self-adjoint, dominates |⟨p,a⟩|²/dσ in quadratic form, and has a smooth normalized eigenvector w with eigenvalue c₁≥‖p‖²/(2dσ)>0. Its period pairing is c₁⟨a,w⟩ for every a.",
+      "definitions": [
+        "The smoothness uses a bounded intertwiner from the ambient representation to the subgroup model sending v to w after division by c₁. The adjoint P is distinguished from the orthogonal projection iP.",
+        "In the normalized circle example the exact eigenvalue is 9/25 and the guaranteed lower bound is 9/50."
+      ],
+      "dependencies": [
+        "BPP-02",
+        "TPD-01"
+      ],
+      "equations": [
+        "normalization-branching-eigen-operator"
+      ],
+      "sources": [
+        {
+          "declaration": "eigA",
+          "label": "Coefficient averages, positive lower bound, compactness and eigenvector",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+          "lines": [
+            72,
+            93
+          ],
+          "declaration_lines": {
+            "eigA": 72
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean#L72-L93"
+        },
+        {
+          "declaration": "avg_conj_coef_ge",
+          "label": "Averaging the smaller lowest-type coefficient and pairing with its embedded vector",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeSchurOrthogonality.lean",
+          "lines": [
+            29,
+            59
+          ],
+          "declaration_lines": {
+            "avg_conj_coef_ge": 29
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeSchurOrthogonality.lean#L29-L59"
+        },
+        {
+          "declaration": "avg_conj_coef_ge",
+          "label": "The squared norm formula and the rank-one lower bound",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeSchurOrthogonality.lean",
+          "lines": [
+            95,
+            142
+          ],
+          "declaration_lines": {
+            "avg_conj_coef_ge": 29
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeSchurOrthogonality.lean#L95-L142"
+        },
+        {
+          "declaration": "lower_bound_of_cyclic_coef",
+          "label": "From the dense span of translates to the lower bound on the smaller model",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CyclicVectorIntertwinerDetermined.lean",
+          "lines": [
+            11,
+            52
+          ],
+          "declaration_lines": {
+            "lower_bound_of_cyclic_coef": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CyclicVectorIntertwinerDetermined.lean#L11-L52"
+        },
+        {
+          "declaration": "isHilbertSchmidt_coefOp",
+          "label": "Bessel and Schur estimates for compactness of the integrated coefficient operator",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeMatrixCoefficientNorm.lean",
+          "lines": [
+            63,
+            92
+          ],
+          "declaration_lines": {
+            "isHilbertSchmidt_coefOp": 63
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/FormalDegreeMatrixCoefficientNorm.lean#L63-L92"
+        },
+        {
+          "declaration": "isSelfAdjoint_coefOp",
+          "label": "The involution on the real group and self-adjointness",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MatrixCoefficientOrthogonalityRelation.lean",
+          "lines": [
+            35,
+            57
+          ],
+          "declaration_lines": {
+            "isSelfAdjoint_coefOp": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/MatrixCoefficientOrthogonalityRelation.lean#L35-L57"
+        },
+        {
+          "declaration": "exists_eig_of_low",
+          "label": "Spectral expansion at the projected vector and the factor of two",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+          "lines": [
+            21,
+            70
+          ],
+          "declaration_lines": {
+            "exists_eig_of_low": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean#L21-L70"
+        },
+        {
+          "declaration": "exists_matrix_coefficient_intertwiner",
+          "label": "Constructing the bounded operator representing the period form",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean",
+          "lines": [
+            89,
+            132
+          ],
+          "declaration_lines": {
+            "exists_matrix_coefficient_intertwiner": 89
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean#L89-L132"
+        },
+        {
+          "declaration": "tMap",
+          "label": "Equivariance, evaluation on the translated vector and division by the eigenvalue",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean",
+          "lines": [
+            136,
+            154
+          ],
+          "declaration_lines": {
+            "tMap": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean#L136-L154"
+        },
+        {
+          "declaration": "eigMap_of",
+          "label": "Identifying the adjoint and delivering the eigenvector and intertwiner",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            196,
+            223
+          ],
+          "declaration_lines": {
+            "eigMap_of": 196
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L196-L223"
+        },
+        {
+          "declaration": "UpperTheory.Lit.Branch.realInputE",
+          "label": "Transfer of smoothness and normalization without changing the eigenvalue",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+          "lines": [
+            71,
+            110
+          ],
+          "declaration_lines": {
+            "UpperTheory.Lit.Branch.realInputE": 41
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean#L71-L110"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "realInputE_holds",
+      "callee": "realInputE",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 232,
+        "spelling": "Branch.realInputE"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "projLarge_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 233,
+        "spelling": "Branch.projLarge_of"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "seedB_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 233,
+        "spelling": "PositivityTheory.RgHe.A.Pf.seedB_of"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "seed",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 233,
+        "spelling": "PositivityTheory.RgHe.LowestKTypeModel.seed"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "occ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 233,
+        "spelling": "PositivityTheory.RgHe.occ"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "bigProjP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 234,
+        "spelling": "PositivityTheory.RgHe.A.Pf.bigProjP"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "momentP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 234,
+        "spelling": "PositivityTheory.RgHe.A.Pf.momentP"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "analytic_estimates",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 234,
+        "spelling": "CompanionTheory.Lime.T3.analytic_estimates"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "eigMap_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 235,
+        "spelling": "Branch.eigMap_of"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "eigA",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 235,
+        "spelling": "GlobalTheory.CompanionTheory.RgHeA.eigA"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "tMap",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 235,
+        "spelling": "GlobalTheory.CompanionTheory.RgHeA.TMapPf.tMap"
+      }
+    },
+    {
+      "caller": "bigProjP",
+      "callee": "bigProjP_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 277,
+        "spelling": "bigProjP_of"
+      }
+    },
+    {
+      "caller": "bigProjP",
+      "callee": "g0",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 277,
+        "spelling": "PositivityTheory.UnitaryDecomposition.X4.g0"
+      }
+    },
+    {
+      "caller": "bigProjP",
+      "callee": "emb",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 277,
+        "spelling": "PositivityTheory.UnitaryDecomposition.X4.emb"
+      }
+    },
+    {
+      "caller": "bigProjP_of",
+      "callee": "num_D",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 173,
+        "spelling": "UnitaryDecomposition.X4.num_D"
+      }
+    },
+    {
+      "caller": "bigProjP_of",
+      "callee": "num_V",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 188,
+        "spelling": "UnitaryDecomposition.X4.num_V"
+      }
+    },
+    {
+      "caller": "bigProjP_of",
+      "callee": "num_Y",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/SchurFiniteDimensionality/IsFdOfSchurK.lean",
+        "line": 178,
+        "spelling": "UnitaryDecomposition.X4.num_Y"
+      }
+    },
+    {
+      "caller": "momentP",
+      "callee": "moment_higher_estimate_holds",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 188,
+        "spelling": "PositivityTheory.UnitaryDecomposition.moment_higher_estimate_holds"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "momentHeA_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "momentHeA_of"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "unitary_decomposition_exists",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "DecB.unitary_decomposition_exists"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "comatrix_word_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "Com.comatrix_word_bound"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    },
+    {
+      "caller": "g0",
+      "callee": "standard_stabiliser_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Imports.lean",
+        "line": 10,
+        "spelling": "standard_stabiliser_bound"
+      }
+    },
+    {
+      "caller": "g0",
+      "callee": "boost",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Imports.lean",
+        "line": 10,
+        "spelling": "boost"
+      }
+    },
+    {
+      "caller": "g0",
+      "callee": "stab",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/Imports.lean",
+        "line": 10,
+        "spelling": "stab"
+      }
+    },
+    {
+      "caller": "standard_stabiliser_bound",
+      "callee": "isFd_abs",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean",
+        "line": 100,
+        "spelling": "isFd_abs"
+      }
+    },
+    {
+      "caller": "standard_stabiliser_bound",
+      "callee": "unfold",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HilbertSchmidtTraces/IsFdAbs.lean",
+        "line": 102,
+        "spelling": "unfold"
+      }
+    },
+    {
+      "caller": "eigA",
+      "callee": "cyclic_vector_intertwiner_determined",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.T.cyclic_vector_intertwiner_determined"
+      }
+    },
+    {
+      "caller": "eigA",
+      "callee": "formal_degree_schur_lower_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 85,
+        "spelling": "GlobalTheory.T.formal_degree_schur_lower_bound"
+      }
+    },
+    {
+      "caller": "eigA",
+      "callee": "formal_degree_matrix_coefficient_norm",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 91,
+        "spelling": "GlobalTheory.T.formal_degree_matrix_coefficient_norm"
+      }
+    },
+    {
+      "caller": "eigA",
+      "callee": "matrix_coefficient_orthogonality_relation",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 91,
+        "spelling": "GlobalTheory.T.matrix_coefficient_orthogonality_relation"
+      }
+    },
+    {
+      "caller": "eigA",
+      "callee": "exists_eig_of_low",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 90,
+        "spelling": "exists_eig_of_low"
+      }
+    },
+    {
+      "caller": "exists_eig_of_low",
+      "callee": "exists_hilbertBasis_eigenvectors_hasSum",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsEigOfLow.lean",
+        "line": 25,
+        "spelling": "GroundTheory.Automorphic.CompactSelfAdjoint.exists_hilbertBasis_eigenvectors_hasSum"
+      }
+    },
+    {
+      "caller": "tMap",
+      "callee": "exists_matrix_coefficient_intertwiner",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean",
+        "line": 138,
+        "spelling": "exists_matrix_coefficient_intertwiner"
+      }
+    },
+    {
+      "caller": "exists_matrix_coefficient_intertwiner",
+      "callee": "form_facts",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsMatrixCoefficientIntertwiner.lean",
+        "line": 92,
+        "spelling": "form_facts"
+      }
+    },
+    {
+      "caller": "eigMap_of",
+      "callee": "eq_adjoint_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 209,
+        "spelling": "ContinuousLinearMap.eq_adjoint_iff"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "BPP-01",
+      "BPP-02"
+    ],
+    [
+      "BPP-02",
+      "BPP-03"
+    ],
+    [
+      "TPD-01",
+      "BPP-03"
+    ],
+    [
+      "BPP-02",
+      "TPD-02"
+    ],
+    [
+      "BPP-03",
+      "TPD-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group (1976), square-integrable representations and their orthogonality relations",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    },
+    {
+      "title": "T. Tao, An Epsilon of Room, I, Theorem 1.1.23 (Tonelli on product measure spaces)",
+      "url": "https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-117-tao3-epsilon1.pdf"
+    },
+    {
+      "title": "MIT 18.102, Lecture 22, Theorem 232, spectral theorem for compact self-adjoint operators",
+      "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/resources/lecture-22-the-spectral-theorem-for-a-compact-self-adjoint-operator/"
+    }
+  ],
+  "outstanding": [
+    "The signed branching occurrence and smooth seed identity are cited inputs. The finite decomposition with shifted parameters, its comatrix estimates, the Lie-word bounds on lowest vectors and the explicit formal-degree comparison are located at their suppliers.",
+    "BPP-02 uses two separate ball estimates for distinct Haar measures and degrees. The proof derives the quantitative translation from these and the mixed moment. The named constants are valid in the indicated model and parameter range.",
+    "The finite-dimensional circle example isolates the eigenvector normalization and does not instantiate the large-gap unitary branching hypotheses."
+  ]
+}

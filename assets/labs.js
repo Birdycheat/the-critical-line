@@ -16,6 +16,14 @@
     value,
   });
   const configs = {
+    "cartan-power": {
+      title: "When does the power bound fall below one?",
+      kind: "One moving plane in signature (3, 1)",
+      section: "normalization",
+      params: [choose("scale", "Largest singular value", [["0", "1"], ["0.25", "2¹ᐟ⁴"], ["1", "2"], ["8", "2⁸"], ["16", "2¹⁶"], ["32", "2³²"]], "16")],
+      caption: "The curve follows the logarithm of the Frobenius power bound. The dot marks the chosen singular value. Each number below is the natural logarithm of an upper bound for the same unit-vector coefficient. A negative entry certifies a coefficient of absolute value less than one.",
+      method: "On one positive and one negative coordinate use the matrix with diagonals cosh(s) and off-diagonals sinh(s), taking s to be the logarithm of the selected singular value. The other two coordinates are fixed. The log singular values are s, −s, 0, 0, so t² = 2s² and F² = exp(2s) + exp(−2s) + 2. The weight gap is 64,000. The three bounds are evaluated in logarithms so even very small upper bounds remain distinguishable.",
+    },
     "convex-nerve-cut": {
       title: "Which faces survive a cut?",
       kind: "The nerve of three closed intervals",
@@ -1358,6 +1366,35 @@
   }
 
   function render(id, v) {
+    if (id === "cartan-power") {
+      const s = Number(v.scale) * Math.LN2;
+      const squareDistance = 2 * s * s;
+      const logFrobenius = 0.5 * Math.log(2 + Math.exp(2 * s) + Math.exp(-2 * s));
+      const logCartanBound = -8000 * Math.min(squareDistance, s);
+      const logPowerBound = 6400 - 640 * logFrobenius;
+      const formatLog = value => value.toFixed(2).replace(/^-/, "−");
+      const plotX = exponent => 49 + 8 * exponent;
+      const plotY = bound => 54 - 0.006 * bound;
+      const curve = Array.from({length: 65}, (_, index) => {
+        const exponent = index / 2;
+        const stretch = 2 ** exponent;
+        const bound = 6400 - 640 * Math.log(stretch + 1 / stretch);
+        return (index ? "L" : "M") + plotX(exponent) + " " + plotY(bound);
+      }).join(" ");
+      const ticks = [0, 8, 16, 24, 32].map(exponent =>
+        '<text text-anchor="middle" x="' + plotX(exponent) + '" y="116">' + exponent + '</text>').join("");
+      const plot = '<svg class="plot" viewBox="0 0 330 140" role="img" aria-label="Log of the Frobenius power bound by exponent of the largest singular value">' +
+        '<text x="4" y="22">6000</text><text x="26" y="58">0</text><text x="0" y="95">−6000</text>' +
+        '<path d="M49 12 V102 H305 M49 54 H305" fill="none" stroke="currentColor" opacity=".4"/>' +
+        '<path d="' + curve + '" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+        '<circle cx="' + plotX(Number(v.scale)) + '" cy="' + plotY(logPowerBound) + '" r="4" fill="#976342"/>' +
+        ticks + '<text text-anchor="middle" x="177" y="134">Exponent of 2</text></svg>';
+      return plot + metrics([
+        ["Unitarity", "0.00"],
+        ["From the weighted minors", formatLog(logCartanBound)],
+        ["From the Frobenius power", formatLog(logPowerBound)],
+      ]);
+    }
     if (id === "convex-nerve-cut") {
       const cut = Number(v.cut);
       const intervals = [["A", 0, 1], ["B", 1, 3], ["C", 3, 4]];
