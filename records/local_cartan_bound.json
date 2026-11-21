@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "LCB-01",
+      "chapter": "lifts",
+      "title": "A bounded spherical coefficient bounds the eigenvalue of each finite Hecke sum",
+      "anchor": "lifts-local-cartan-bound",
+      "statement": "For a finite left K-stable set S of cosets gK, the Hecke indicator acts by a scalar a on the spherical eigenvector. A bounded coefficient c(g)=ℓ(ρ(g)x) with c(1)≠0 gives |a|≤#S.",
+      "hypotheses": "Nonarchimedean local GLₙ(k) with K=GLₙ(𝒪), finite residue field of order q, and a spherical eigenvector carrying a Satake multiset. The scalar linear functional gives a bounded coefficient with nonzero value at the identity. Representatives may be chosen freely because x is K-fixed.",
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+          "lines": [
+            67,
+            79
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.localZetaOn_split",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean#L67-L79"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+          "lines": [
+            19,
+            32
+          ],
+          "declaration": "GlobalTheory.Core.Rk.BdSplit.cosetInd_mem",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean#L19-L32"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+          "lines": [
+            42,
+            60
+          ],
+          "declaration": "GlobalTheory.Core.Rk.BdSplit.norm_le_card",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean#L42-L60"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+          "lines": [
+            70,
+            94
+          ],
+          "declaration": "GlobalTheory.Core.Rk.BdSplit.norm_le_of_isSatVecGL",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean#L70-L94"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Translate the eigenvector equation by every y and apply ℓ. Taking the supremum B=sup |c(y)| on the left gives |a|B≤#S·B, and 0<B<∞ permits division. The normalized spherical function with the same parameters therefore has finite-set sums of norm at most #S, regardless of its pointwise values.",
+      "review": "Matched the supremum argument and the evaluation of the normalized model at the identity with the written proof. The supremum need not be attained. Independently checked the finiteness and positivity needed to cancel B."
+    },
+    {
+      "id": "LCB-02",
+      "chapter": "lifts",
+      "title": "Integral sublattices bound complete homogeneous polynomials in the scaled parameters",
+      "anchor": "lifts-local-cartan-count",
+      "statement": "Writing bᵢ=q^((n−1)/2)βᵢ and dᵢ=q^(n−1−i), the colength-m Hecke set yields |hₘ(b)|≤hₘ(d) for all nonnegative m, where hₘ is the complete homogeneous polynomial.",
+      "hypotheses": "Order the multiset β arbitrarily as the parameters of a normalized triangular model with diagonal factors γᵢ=βᵢq^(i−(n−1)/2). The local ring is a DVR and indices start at zero. Use the eigenvalue bound for left K-stable finite sets.",
+      "equations": [
+        "lifts-local-cartan-homogeneous"
+      ],
+      "dependencies": [
+        "LCB-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            22,
+            27
+          ],
+          "declaration": "GlobalTheory.SatakeBound.hermMat",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L22-L27"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            150,
+            158
+          ],
+          "declaration": "GlobalTheory.SatakeBound.hermGL_injective",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L150-L158"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            160,
+            181
+          ],
+          "declaration": "GlobalTheory.SatakeBound.exists_smul_hermGL",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L160-L181"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            190,
+            205
+          ],
+          "declaration": "GlobalTheory.SatakeBound.apply_hermGL",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L190-L205"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            207,
+            218
+          ],
+          "declaration": "GlobalTheory.SatakeBound.card_hermIdx",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L207-L218"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            220,
+            240
+          ],
+          "declaration": "GlobalTheory.SatakeBound.exists_cosets_sum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L220-L240"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+          "lines": [
+            244,
+            260
+          ],
+          "declaration": "GlobalTheory.SatakeBound.norm_le_pow",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean#L244-L260"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For a diagonal tuple u≥0 of sum m, row i supplies uᵢ(n−1−i) residue digits. The eigenfunction gives ∏γᵢ^{uᵢ} independently of those digits. Summing yields hₘ(b). Applying the same count to the constant function yields the cardinality hₘ(d).",
+      "review": "Verified row order and the precise q-exponent per row. In rank two at q=3, the degree-one and degree-two majorants are 4 and 13, counting only integral sublattices. Independent rederivation agreed."
+    },
+    {
+      "id": "LCB-03",
+      "chapter": "lifts",
+      "title": "All degrees constrain each parameter and its reciprocal at split places",
+      "anchor": "lifts-local-cartan-roots",
+      "statement": "The coefficient majorants imply |bᵢ|≤q^(n−1), hence |βᵢ|≤q^((n−1)/2). The provider passes |β|≤q^(n/2) to the zeta sum. The parameter multiset at the other CM place is the inverse and its residue cardinality agrees, giving the same needed bound on |β⁻¹|.",
+      "hypotheses": "For the reciprocal bound use a split prime in the CM extension with the chart and self-dual lattice assumed by localZetaOn_split. The determinant-character twist has modulus one. The nonzero scalar branch needs both parameter bounds. The local GL lemma uses Re s>n/2 and the adelic application assumes Re s>n.",
+      "equations": [],
+      "dependencies": [
+        "LCB-02"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+          "lines": [
+            50,
+            66
+          ],
+          "declaration": "GlobalTheory.CompleteHomogeneousBound.coeff_prod_geom",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean#L50-L66"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+          "lines": [
+            68,
+            91
+          ],
+          "declaration": "GlobalTheory.CompleteHomogeneousBound.norm_le_of_completeHomogeneous_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean#L68-L91"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+          "lines": [
+            92,
+            98
+          ],
+          "declaration": "GlobalTheory.CompleteHomogeneousBound.norm_le_of_completeHomogeneous_le",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean#L92-L98"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+          "lines": [
+            95,
+            109
+          ],
+          "declaration": "GlobalTheory.Core.Rk.BdSplit.norm_le_of_isSatVecGL",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean#L95-L109"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+          "lines": [
+            118,
+            126
+          ],
+          "declaration": "GlobalTheory.Core.Rk.BdSplit.paramBound_split",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean#L118-L126"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlaceStatement.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration": "GlobalTheory.T.sphericalParameterBound_split_place",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlaceStatement.lean#L13-L15"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+          "lines": [
+            49,
+            65
+          ],
+          "declaration": "GlobalTheory.Core.Rk.IP.localZetaOn_split",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean#L49-L65"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean",
+          "lines": [
+            59,
+            82
+          ],
+          "declaration": "GlobalTheory.ZetaGL.zeta_sum_GL_complex",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean#L59-L82"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean",
+          "lines": [
+            122,
+            138
+          ],
+          "declaration": "GlobalTheory.ZetaGL.zeta_sum_GL_complex",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean#L122-L138"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "At r=1/|bᵢ| below 1/q^(n−1), coefficientwise domination gives absolute summability with weights r^m. Multiplying the formal product by the linear factors other than i leaves a geometric series whose weighted term norms all equal one, a contradiction. The arithmetic caller uses the conjugate place to obtain the reciprocal bound. At c(1)=0 its weighted Euler expression vanishes.",
+      "review": "Checked the isolated-factor argument even for repeated or cancelling parameters and the distinction between the two exponents. The scaled test pair (4,−3/4) passes degree one and fails degree two by exact rational arithmetic. The trivial pair saturates all degrees. Independent readers checked the conjugate-place input and the distinct local and adelic half-planes."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "eq_map_inv_of_isParamVec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+        "line": 59
+      }
+    },
+    {
+      "callee": "sphericalParameterBound_split_place",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "Hb",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+        "line": 73
+      }
+    },
+    {
+      "callee": "zeta_sum_GL_complex",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+        "line": 77
+      }
+    },
+    {
+      "callee": "hbd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/UnramifiedDoublingIntegralSplitPlaceAdelic.lean",
+        "line": 79
+      }
+    },
+    {
+      "callee": "paramBound_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlaceStatement.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "norm_le_of_isSatVecGL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 122
+      }
+    },
+    {
+      "callee": "Real.rpow_le_rpow_of_exponent_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 124
+      }
+    },
+    {
+      "callee": "SphericalExists",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "isSatVecGL_of_isSpherical",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 80
+      }
+    },
+    {
+      "callee": "exists_eigenvalue_GL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 84
+      }
+    },
+    {
+      "callee": "cosetInd_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 86
+      }
+    },
+    {
+      "callee": "heckeVec_cosetInd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "norm_le_card",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "law",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 99
+      }
+    },
+    {
+      "callee": "norm_le_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 105
+      }
+    },
+    {
+      "callee": "resCard_completion",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 108
+      }
+    },
+    {
+      "callee": "le_ciSup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "norm_sum_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 51
+      }
+    },
+    {
+      "callee": "ciSup_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SphericalParameterBoundSplitPlace.lean",
+        "line": 58
+      }
+    },
+    {
+      "callee": "hermMat_eq_of_coe_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 153
+      }
+    },
+    {
+      "callee": "iwasawa_blockTriangular",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 163
+      }
+    },
+    {
+      "callee": "exists_hermMat",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 176
+      }
+    },
+    {
+      "callee": "card_quot",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 215
+      }
+    },
+    {
+      "callee": "hermGL_injective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 229
+      }
+    },
+    {
+      "callee": "exists_smul_hermGL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 231
+      }
+    },
+    {
+      "callee": "apply_hermGL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 237
+      }
+    },
+    {
+      "callee": "card_hermIdx",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 238
+      }
+    },
+    {
+      "callee": "norm_le_of_completeHomogeneous_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 248
+      }
+    },
+    {
+      "callee": "exists_cosets_sum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 251
+      }
+    },
+    {
+      "callee": "isBorelSph_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PowDvdOfHermMatEq.lean",
+        "line": 252
+      }
+    },
+    {
+      "callee": "weightedSummable_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "weightedSummable_geom_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 79
+      }
+    },
+    {
+      "callee": "coeff_prod_geom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "weightedSummable_linear",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "geom_mul_linear",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "weightedSummable_geom_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NormLeOfCompleteHomogeneousLe.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean",
+        "line": 129
+      }
+    },
+    {
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ZetaSumGLComplex.lean",
+        "line": 133
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LCB-01",
+      "LCB-02"
+    ],
+    [
+      "LCB-02",
+      "LCB-03"
+    ],
+    [
+      "LCB-03",
+      "SZS-02"
+    ]
+  ],
+  "outstanding": [
+    "The existence of the normalized split spherical function, equality of Hecke eigencharacters at fixed Satake parameters, and the CM chart comparison at conjugate places are inputs here. The actual local parameter bound follows from the bounded coefficient and the counted lattices."
+  ]
+}

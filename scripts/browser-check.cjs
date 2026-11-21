@@ -97,7 +97,17 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "hermitian-density") {
+        if (id === "localization-kernel") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "3"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["0, 1, 2", "3", "0", "1"]);
+        } else if (id === "genus-mass") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4", "7/2"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["2", "(4 + 20)/6"]);
+        } else if (id === "split-graph") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["6", "3", "3"]);
+          assert.equal(await fig.locator("circle").count(), 6);
+          assert.ok(await fig.locator("svg").isVisible());
+        } else if (id === "hermitian-density") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["6,048", "224/243"]);
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["252", "24"]);
         } else if (id === "orbit-weights") {

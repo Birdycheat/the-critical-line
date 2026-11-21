@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "EWH-01",
+      "chapter": "lifts",
+      "title": "Shell cancellation gives an entire exceptional finite factor",
+      "anchor": "lifts-exceptional-whittaker",
+      "statement": "For a full-rank Hermitian target, the integrals of r(b)^{−(z−s₀)}u(b) over sufficiently large concentric balls agree for all complex z. A single compact integral defines an entire function. On a sufficiently far right half-plane the full integral is absolutely convergent and equals this function.",
+      "hypotheses": "Finite place v of a CM extension E/F, locally nontrivial component of the adelic character, nondegenerate source J, locally constant compactly supported complex Φ and det T a unit of E⊗Fᵥ. Source and target measures are self-dual and L₁,L₂ are compact open additive subgroups measured by Haar λ. LocFinX also accepts a continuous Gram density. Its local statement allows every pair of ranks.",
+      "equations": [
+        "lifts-exceptional-integral"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            56,
+            71
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.LocFin2",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L56-L71"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean",
+          "lines": [
+            39,
+            54
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.LocFinX",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenLowOf.lean#L39-L54"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/NDDefs.lean",
+          "lines": [
+            16,
+            22
+          ],
+          "declaration": "PositivityTheory.PfSWUS.Loc.jtR",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/NDDefs.lean#L16-L22"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            13,
+            17
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.nu2",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L13-L17"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean",
+          "lines": [
+            50,
+            54
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.whI",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhitGenOf.lean#L50-L54"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+          "lines": [
+            513,
+            542
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.Shell.shellP_core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean#L513-L542"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+          "lines": [
+            575,
+            620
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.Shell.shellP_core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean#L575-L620"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+          "lines": [
+            20,
+            32
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.locFinX_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean#L20-L32"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean",
+          "lines": [
+            32,
+            82
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.differentiable_setIntegral_fz",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean#L32-L82"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean",
+          "lines": [
+            97,
+            109
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean#L97-L109"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean",
+          "lines": [
+            234,
+            264
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.convP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean#L234-L264"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean",
+          "lines": [
+            270,
+            292
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.convP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean#L270-L292"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean",
+          "lines": [
+            110,
+            126
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.core",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean#L110-L126"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The linear term in a sufficiently small conjugation yields a nontrivial perturbation character for each matrix in a large shell. Its quadratic error lies in the additive character kernel. Invariance of the index and Gram transform permits averaging before integrating in b. Absolute convergence has its own geometric shell estimate.",
+      "review": "Checked the signs and the exponent, the independence of the cancellation cutoff from z, and the compact integral giving the entire function. Independently reviewed the finite-place hypotheses and the distinction between absolute convergence and continuation."
+    },
+    {
+      "id": "EWH-02",
+      "chapter": "lifts",
+      "title": "At the special point the shrinking annihilator recovers the density",
+      "anchor": "lifts-exceptional-value",
+      "statement": "At s₀=(M−n)/2 the weight is 1. The integral over a sufficiently large b-ball equals the average of the Gram density on the translate by T of its annihilator. Continuity and self-dual volume normalization identify the stabilized integral with g(T).",
+      "hypotheses": "Use the preceding local data and a continuous density g of the Φ-weighted Gram pushforward on the invertible locus, satisfying the measure identity on its compact subsets. In the example use 3 inert in ℚ(i), the conductor ℤ₃, J=I₂, n=1, T=1, equal integral lattices and the indicator of (1,0) mod 3.",
+      "equations": [
+        "lifts-exceptional-average",
+        "lifts-exceptional-three"
+      ],
+      "dependencies": [
+        "EWH-01"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+          "lines": [
+            43,
+            89
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.DualA.setIntegral_uu",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean#L43-L89"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+          "lines": [
+            192,
+            219
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.dualP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean#L192-L219"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+          "lines": [
+            220,
+            249
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.dualP",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean#L220-L249"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Orthogonality cuts down to Gram(X)−T in the annihilator. Self-duality converts the volume of the Fourier ball to the reciprocal target volume. In the example the input tube has mass 1/81 and its uniform scalar Gram image has volume 1/3, giving g(1)=1/27. Its entire function is (1+2·9^{−(z−1/2)})/81.",
+      "review": "Verified successive Gram digits by enumeration modulo 9 and 27 and the two lattice indices 1 and 9. An independent reader reproduced the uniform-fibre count, both shell volumes, the density and the continuation value."
+    },
+    {
+      "id": "EWH-03",
+      "chapter": "lifts",
+      "title": "Exceptional finite factors enter the coefficient on the global right half-plane",
+      "anchor": "lifts-exceptional-assembly",
+      "statement": "For Re z>0 multiply the archimedean factor, the finitely many exceptional Wᵥ and the convergent good-place product. The resulting function agrees with the adelic Whittaker integral sufficiently far right and its value at s₀ equals the normalized rational Gram mean.",
+      "hypotheses": "Global pure datum with a nonsingular rational target, n<M and either n+2≤M or J anisotropic. Use the prescribed archimedean test, self-dual measures, standard data away from a finite set, a right half-plane of absolute integrability, the factorization on that half-plane, and global Gram densities.",
+      "equations": [],
+      "dependencies": [
+        "EWH-01",
+        "EWH-02",
+        "GGD-03"
+      ],
+      "sources": [
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+          "lines": [
+            6,
+            10
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.locFin2",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean#L6-L10"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+          "lines": [
+            72,
+            74
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.SwLocFin.locFin2_of_X",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean#L72-L74"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            502,
+            523
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L502-L523"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            34,
+            51
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L34-L51"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            59,
+            79
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L59-L79"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            81,
+            93
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L81-L93"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            108,
+            127
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L108-L127"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "declaration": "PositivityTheory.PfSWUS.whitGenLt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean#L13-L15"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The stronger finite theorem is restricted to the ranks used by the global caller. At good places uniqueness of entire continuation from the right identifies its value with the explicit factor. At exceptional places the evaluated entire factors already equal gᵥ(T). Since s₀>0 the global Gram-density identity applies there.",
+      "review": "Checked the construction of S, the use of hWv0 at the special point, and the comparison only on a common right half-plane. The reconstruction does not assert that the entire finite factors yield an entire global coefficient."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "whitGenLtOf",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "locFin2",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "unrWhit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "realWhit_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "factorX",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "locFinX_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "shellP",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "convP",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "dualP",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "locFin2_of_X",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "locFinX",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "whI_eq",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 30
+      }
+    },
+    {
+      "callee": "core",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "uu_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 53
+      }
+    },
+    {
+      "callee": "hR₀",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 62
+      }
+    },
+    {
+      "callee": "hC",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 64
+      }
+    },
+    {
+      "callee": "hD",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 66
+      }
+    },
+    {
+      "callee": "h",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/LocFin2OfX.lean",
+        "line": 74
+      }
+    },
+    {
+      "callee": "shellP_core",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 625
+      }
+    },
+    {
+      "callee": "jtR_conj_inv",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 528
+      }
+    },
+    {
+      "callee": "lattice_norm_conj_invariant",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 529
+      }
+    },
+    {
+      "callee": "exists_quad",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 530
+      }
+    },
+    {
+      "callee": "exists_nontriv",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 531
+      }
+    },
+    {
+      "callee": "avg_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 575
+      }
+    },
+    {
+      "callee": "setIntegral_conj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 584
+      }
+    },
+    {
+      "callee": "trPair_conj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 608
+      }
+    },
+    {
+      "callee": "setIntegral_char_eq_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/SetIntegralCharEqZero.lean",
+        "line": 618
+      }
+    },
+    {
+      "callee": "exists_lattice_norm_ge_pow",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean",
+        "line": 240
+      }
+    },
+    {
+      "callee": "exists_scale",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean",
+        "line": 241
+      }
+    },
+    {
+      "callee": "uu_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/ExistsLatticeNormGePow.lean",
+        "line": 242
+      }
+    },
+    {
+      "callee": "differentiable_setIntegral_fz",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean",
+        "line": 109
+      }
+    },
+    {
+      "callee": "tendsto_setIntegral_of_monotone",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/DifferentiableSetIntegralFz.lean",
+        "line": 121
+      }
+    },
+    {
+      "callee": "integral_integral_swap",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "setIntegral_char_subgroup",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "perp_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 195
+      }
+    },
+    {
+      "callee": "perpH_subset",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 215
+      }
+    },
+    {
+      "callee": "vol_mul_vol_perp",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 224
+      }
+    },
+    {
+      "callee": "setIntegral_uu",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 228
+      }
+    },
+    {
+      "callee": "setP_eq",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/LocalCharacterIntegrals/PsiVTrPairAddLeft.lean",
+        "line": 228
+      }
+    },
+    {
+      "callee": "hReal",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 32
+      }
+    },
+    {
+      "callee": "hSDL",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "hLoc",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 39
+      }
+    },
+    {
+      "callee": "hUnr",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 44
+      }
+    },
+    {
+      "callee": "exists_finset_of_cofinite",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 46
+      }
+    },
+    {
+      "callee": "eq_of_eqOn_right",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "unr_prod",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "hmean",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "hWv0",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "hFac",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 108
+      }
+    },
+    {
+      "callee": "hasProd_split",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 110
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "EWH-01",
+      "EWH-02"
+    ],
+    [
+      "EWH-01",
+      "EWH-03"
+    ],
+    [
+      "EWH-02",
+      "EWH-03"
+    ],
+    [
+      "GGD-03",
+      "EWH-03"
+    ],
+    [
+      "EWH-03",
+      "WDL-03"
+    ]
+  ],
+  "outstanding": [
+    "This argument evaluates a prescribed continuous density at a nonsingular finite target. The global mean and the existence of densities for the pure adelic data are supplied by GGD-03. The archimedean continuation and the independent factorization of the absolutely convergent adelic integral are separate inputs."
+  ]
+}

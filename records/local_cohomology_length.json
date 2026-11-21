@@ -1,0 +1,678 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the finite-level, integral reduction, filtration and length arguments in the pinned original archive. Independently enumerated both kernels and the cokernel at three depths in the finite abelian model.",
+  "claims": [
+    {
+      "id": "LCL-01",
+      "chapter": "inputs",
+      "title": "Reduction of the localization kernel at a finite coefficient level",
+      "anchor": "inputs-local-cohomology-lift",
+      "statement": "Let λ:X→Y be the integral degree-two restriction map, B=λ(X), K=ker λ, C=Y/B, and let t=ℓ^r with r≥1. The finite-coefficient map λ_r is λ modulo t. Its cokernel is C/tC. The image of K in ker λ_r is K/(K∩tX), and it fills the finite-level kernel exactly when B∩tY=tB. In the nonzero-twist arithmetic case this holds for all sufficiently large r.",
+      "hypotheses": "L is a number field, ℓ prime, S the finite places above ℓ with chosen prolongations. T=ℤ_ℓ(e+1), A=(ℚ_ℓ/ℤ_ℓ)(−e). The arithmetic identification of the reduced groups uses finite global Poitou–Tate in its valid case, local Tate duality and local finiteness. The algebraic lifting criterion holds for any homomorphism of ℤ_ℓ-modules. Bounding the exponent of Y by the argument given uses e≠0.",
+      "definitions": [
+        "G_S is the global Galois group unramified outside S. X=H²(G_S,T), Y=∏_{v∈S}H²(D_v,T), with the local action pulled back by each decomposition group map.",
+        "The coefficient dual of T/ℓ^rT with cyclotomic factor is A[ℓ^r].",
+        "K∩tX denotes the intersection in the ambient integral X."
+      ],
+      "equations": [
+        "inputs-local-cohomology-square"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.GaloisCohomology.localH2",
+          "path": "src/Formalism/GaloisCohomology/Statement.lean",
+          "lines": [
+            48,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaloisCohomology/Statement.lean#L48-L93"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_iota",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            175,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L175-L198"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.finite_level",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            517,
+            525
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L517-L525"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.reduction_h2_surjective",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            75,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L75-L107"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.local_lim",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            265,
+            293
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L265-L293"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.global_lim",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            327,
+            351
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L327-L351"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.cok_ker",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            353,
+            377
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L353-L377"
+        },
+        {
+          "declaration": "GlobalTheory.natCard_coker_ker_mod_pow",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NatCardCokerKerPadicModPow.lean",
+          "lines": [
+            14,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NatCardCokerKerPadicModPow.lean#L14-L54"
+        },
+        {
+          "declaration": "GlobalTheory.natCard_coker_ker_mod_pow",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NatCardCokerKerPadicModPow.lean",
+          "lines": [
+            55,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NatCardCokerKerPadicModPow.lean#L55-L81"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_kill",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            399,
+            418
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L399-L418"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.local_tate_duality_h2_limit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            295,
+            302
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L295-L302"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_kill_pi",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            438,
+            459
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L438-L459"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Lift a class of the finite kernel to x, then correct it by t x′ if λ(x)=tλ(x′). Both cokernel models quotient Y by B+tY. Finite local invariant groups give a common exponent killing the local H² product. The model x↦3x from ℤ/27 to ℤ/9 isolates the first level where lifting fails.",
+      "review": "Checked the criterion in both directions and enumerated the three reductions. An independent reader reproduced the finite kernels and the images of the integral kernel."
+    },
+    {
+      "id": "LCL-02",
+      "chapter": "inputs",
+      "title": "The integral degree-two length from finite Poitou–Tate and local lengths",
+      "anchor": "inputs-local-cohomology-balance",
+      "statement": "Writing A=(ℚ_ℓ/ℤ_ℓ)(−e) and T=ℤ_ℓ(e+1), length H²(G_S,T)+length H⁰(G_S,A)=length Ш¹(G_S,A)+∑_{v∣ℓ}length H⁰(D_v,A). The degree-two bound uses this identity in the direction length H²≤length Ш¹+∑ length H⁰(D_v,A).",
+      "hypotheses": "Use the finite-coefficient global Poitou–Tate and local Tate duality inputs and local finiteness. The global hypothesis permits ℓ odd or L with no real places. The filtration argument presented is the e≠0 branch, including the arithmetic application e≥1. The source also proves the identity for e=0 by a separate lifting argument.",
+      "definitions": [
+        "Ш¹(G_S,A) is the kernel of all degree-one restrictions to the groups at S.",
+        "P_r consists of locally trivial classes that admit a cocycle with values in A[ℓ^r] and local coboundary witnesses also in A[ℓ^r].",
+        "Module lengths are extended natural numbers. The length formula is additive before finiteness has been inferred."
+      ],
+      "equations": [
+        "inputs-local-cohomology-identity"
+      ],
+      "dependencies": [
+        "LCL-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.GaloisCohomology.localH2",
+          "path": "src/Formalism/GaloisCohomology/Statement.lean",
+          "lines": [
+            48,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GaloisCohomology/Statement.lean#L48-L93"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_iota",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            175,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L175-L198"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.finite_level",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            517,
+            525
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L517-L525"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.card_cok",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            379,
+            397
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L379-L397"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.length_eq_length_invariants_of_torsion_levels",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            137,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L137-L157"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.local_tate_duality_h2_limit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            295,
+            302
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L295-L302"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_kill",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            399,
+            418
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L399-L418"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.exists_kill_pi",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            438,
+            459
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L438-L459"
+        },
+        {
+          "declaration": "GlobalTheory.sha1_exhausted_by_torsion_levels",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/Sha1TorsionLevelFiltration.lean",
+          "lines": [
+            21,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/Sha1TorsionLevelFiltration.lean#L21-L69"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.ptShaAt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            470,
+            500
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L470-L500"
+        },
+        {
+          "declaration": "GlobalTheory.TateLimit.ptShaAt",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+          "lines": [
+            501,
+            513
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean#L501-L513"
+        },
+        {
+          "declaration": "GlobalTheory.padicInt_length_eq_of_card_quotient_eq_card_submodule",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/PadicIntLengthEqOfCardQuotientEqCardSubmodule.lean",
+          "lines": [
+            31,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/PadicIntLengthEqOfCardQuotientEqCardSubmodule.lean#L31-L88"
+        },
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.vFormula",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+          "lines": [
+            6,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean#L6-L28"
+        },
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.vFormula_of_classicalTheorems",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+          "lines": [
+            15,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean#L15-L32"
+        },
+        {
+          "declaration": "UpperTheory.V.ZK.sFinal",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+          "lines": [
+            100,
+            120
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean#L100-L120"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The final finite Poitou–Tate arrow controls the cokernel and finite Sha duality controls the kernel. Two separated/exhaustive comparisons identify their lengths with global H⁰ and locally trivial H¹ respectively. Local Tate duality controls the product of local H² groups. Add the lengths of ker λ and im λ and then im λ and coker λ. SFinal applies VLen_le_shaLen_add before substituting its numerical local bound.",
+      "review": "Matched the twists, localization set, relative kernel filtration, finite-input hypotheses and the final named consumer against the pinned source. A second reader checked both filtrations, the eventual lifting inequalities and the additive identity before finiteness."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "natCard_coker_ker_mod_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NatCardCokerKerPadicModPowStatement.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "sha1_exhausted_by_torsion_levels",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/Sha1TorsionLevelFiltrationStatement.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "padicInt_length_eq_of_card_quotient_eq_card_submodule",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/PadicIntLengthEqOfCardQuotientEqCardSubmoduleStatement.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "exists_z2_sub_pow_smul_mem_b2_of_reduction",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "mod_l_three_cocycle_condition",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 104
+      }
+    },
+    {
+      "callee": "exists_coboundary_of_subsingleton_contCohomology_three",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 105
+      }
+    },
+    {
+      "callee": "padicInt_length_eq_of_card_quotient_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 147
+      }
+    },
+    {
+      "callee": "finite_cohomology_and_card_H2_eq_card_H0_dual",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 272
+      }
+    },
+    {
+      "callee": "finite_h2_padic_representation",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 288
+      }
+    },
+    {
+      "callee": "reduction_h2_surjective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 291
+      }
+    },
+    {
+      "callee": "reduction_h2_eq_zero_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 293
+      }
+    },
+    {
+      "callee": "local_lim",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 298
+      }
+    },
+    {
+      "callee": "exists_iota",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 299
+      }
+    },
+    {
+      "callee": "length_eq_length_invariants_of_torsion_levels",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 300
+      }
+    },
+    {
+      "callee": "local_zr",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 302
+      }
+    },
+    {
+      "callee": "finite_h2_padic_representation",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 341
+      }
+    },
+    {
+      "callee": "reduction_h2_surjective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 342
+      }
+    },
+    {
+      "callee": "reduction_h2_eq_zero_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 343
+      }
+    },
+    {
+      "callee": "global_lim",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 364
+      }
+    },
+    {
+      "callee": "local_lim",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 365
+      }
+    },
+    {
+      "callee": "natCard_coker_ker_padic_mod_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 366
+      }
+    },
+    {
+      "callee": "cok_ker",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 384
+      }
+    },
+    {
+      "callee": "card_dual_zmod_module_eq_card",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 385
+      }
+    },
+    {
+      "callee": "finite_pi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 395
+      }
+    },
+    {
+      "callee": "card_cok",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 397
+      }
+    },
+    {
+      "callee": "exists_decompositionGroup_cyclotomicCharacter_zpow_ne_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 403
+      }
+    },
+    {
+      "callee": "local_tate_duality_h2_limit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 446
+      }
+    },
+    {
+      "callee": "monotone_stabilizes",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 452
+      }
+    },
+    {
+      "callee": "lpow_sep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 455
+      }
+    },
+    {
+      "callee": "sha1_torsion_level_filtration",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 468
+      }
+    },
+    {
+      "callee": "exists_kill",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 488
+      }
+    },
+    {
+      "callee": "exists_kill_pi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 489
+      }
+    },
+    {
+      "callee": "nonempty_S",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 494
+      }
+    },
+    {
+      "callee": "padicInt_length_eq_of_card_quotient_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 504
+      }
+    },
+    {
+      "callee": "cok_ker",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 511
+      }
+    },
+    {
+      "callee": "exists_primitiveRoot_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/LengthEqLengthInvariantsOfTorsionLevels.lean",
+        "line": 520
+      }
+    },
+    {
+      "callee": "length_eq_add_of_exact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "length_eq_add_of_exact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "quotKerEquivRange",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "ker_pi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "length_add_coker",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "length_pi_of_fintype",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/VFormula.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "finite_level",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "ptCokerAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "ptShaAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "vFormula",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "local_tate_duality_h2_limit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "length_H0_global_eq_nu",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "vFormula_of_classicalTheorems",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/Formula.lean",
+        "line": 31
+      }
+    },
+    {
+      "callee": "VLen_le_shaLen_add",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 111
+      }
+    },
+    {
+      "callee": "shaLen_eq_shaInv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 112
+      }
+    },
+    {
+      "callee": "sf_loc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SFinal.lean",
+        "line": 113
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LCL-01",
+      "LCL-02"
+    ],
+    [
+      "LCL-02",
+      "inputs.degree-two.local"
+    ]
+  ],
+  "outstanding": [
+    "Finite-coefficient Poitou–Tate duality, local Tate duality and local finiteness remain the published arithmetic inputs of the degree-two window. The chapter reconstructs the reduction argument, comparison of filtrations and integral length balance for the nonzero twist used in that window."
+  ]
+}

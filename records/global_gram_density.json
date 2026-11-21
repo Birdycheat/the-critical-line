@@ -1,0 +1,822 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GGD-01",
+      "chapter": "lifts",
+      "title": "The rational Gram-fibre mean uses quotient Haar weights",
+      "anchor": "lifts-global-gram-density",
+      "statement": "The normalized average of the sum of Φ(h⁻¹X) over rational X with X*JX=T is the integral of Φ against the sum of the translated-orbit measures divided by the volume of an adelic fundamental domain.",
+      "hypotheses": "CM E/F, nondegenerate rational Hermitian J of rank M, nonsingular rational Hermitian T of size n, n<M and either n+2≤M or J anisotropic. The test is a product of a Schwartz archimedean factor and pure finite Schwartz–Bruhat factors standard outside finitely many places. The fundamental domain is for rational points of the same unitary group; use a Haar measure of finite nonzero quotient volume.",
+      "equations": [
+        "lifts-global-gram-mean"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean",
+          "lines": [
+            125,
+            129
+          ],
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.GenusMassVolumes.meanC",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean#L125-L129"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean",
+          "lines": [
+            84,
+            87
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.thetaMeas",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean#L84-L87"
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ThetaLint.lean",
+          "lines": [
+            33,
+            57
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.theta_int",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/ThetaLint.lean#L33-L57"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            419,
+            443
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.SiegelDensitiesLowA",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L419-L443"
+        },
+        {
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean",
+          "lines": [
+            279,
+            286
+          ],
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.GenusMassVolumes.IsPureFin",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean#L279-L286"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Each summand is a pushforward of the restricted Haar measure by h↦h⁻¹X. Integration against their normalized sum gives the rational theta mean. The finite double-coset example illustrates the volume weighting with a probability measure on S₃.",
+      "review": "A separate reader checked the strict-rank and anisotropic branches, the dimension change under orthogonal complementation, the ratio of the two local measures, its global product and the normalized S₃ example against the pinned sources."
+    },
+    {
+      "id": "GGD-02",
+      "chapter": "lifts",
+      "title": "Rank induction identifies the coordinate fibre measure as an Euler product with constant one",
+      "anchor": "lifts-global-gram-ranks",
+      "statement": "The normalized global measure has a coordinate-measure Euler factorization with constant 1 in the stated strict-rank range. A represented first line reduces both source and Gram ranks by one. A missing first line gives a zero global measure and a vanishing local factor. Unit-mass errors for standard finite lattices are absolutely summable.",
+      "hypotheses": "Use the same rational forms and embeddings at every place. The stable range has gap at least two; the gap-one branch requires rational anisotropy. Local Haar measures have the prescribed reference-coordinate normalizations. The two binary inputs are a one-vector global formula and a separate cofinite local error bound.",
+      "equations": [],
+      "dependencies": [
+        "GGD-01"
+      ],
+      "sources": [
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean",
+          "lines": [
+            99,
+            120
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsEulerProd",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean#L99-L120"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureRankZero.lean",
+          "lines": [
+            95,
+            109
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.ZeroTuple.swMeas_zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureRankZero.lean#L95-L109"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            379,
+            404
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.swMeas_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L379-L404"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureOfRankSmallOrZero.lean",
+          "lines": [
+            25,
+            48
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.AllFrames.swMeas_all",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureOfRankSmallOrZero.lean#L25-L48"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            404,
+            416
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.swMeas_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L404-L416"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            249,
+            274
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.notRep_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L249-L274"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            320,
+            351
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.step_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L320-L351"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            352,
+            376
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.step_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L352-L376"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            95,
+            102
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.one_vec_sw",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L95-L102"
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            23,
+            36
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L23-L36"
+        },
+        {
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+          "lines": [
+            78,
+            101
+          ],
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.sw_one",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean#L78-L101"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean",
+          "lines": [
+            11,
+            41
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.Mass.anisotropic_binary_one_vector_formula",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/OneVectorFormulaOfParts.lean#L11-L41"
+        },
+        {
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+          "lines": [
+            18,
+            27
+          ],
+          "declaration": "PositivityTheory.Rg.Mass.e1",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean#L18-L27"
+        },
+        {
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+          "lines": [
+            126,
+            145
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.RgMass.cnt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean#L126-L145"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+          "lines": [
+            302,
+            307
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean#L302-L307"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            194,
+            219
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.mass_summable_lt",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L194-L219"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The induction splits a nonsingular target line, matches the local and global integrations on its orthogonal complement, and compares the product tails. The one-vector normalization in dimension ≥3 uses dilation bounds; the anisotropic binary case determines the scalar from a nonzero finite-volume test and similitude across represented lengths. The binary unit-mass estimate supplies a uniform local bound. Empty fibres, including the negative scalar against a positive definite form at infinity, are allowed.",
+      "review": "A separate reader checked the strict-rank and anisotropic branches, the dimension change under orthogonal complementation, the ratio of the two local measures, its global product and the normalized S₃ example against the pinned sources."
+    },
+    {
+      "id": "GGD-03",
+      "chapter": "lifts",
+      "title": "Self-dual normalization preserves the product of local Gram densities",
+      "anchor": "lifts-global-gram-normalize",
+      "statement": "For self-dual source and target Haar measures, the continuous density at an invertible target is the integral over its reference Gram fibre multiplied by cᵥ/eᵥ. These ratios have product one including infinity. Hence the archimedean density times the convergent product of finite densities equals the normalized rational Gram mean.",
+      "hypotheses": "Coordinate fibre measures disintegrate the matrix Haar measure over the Hermitian target measure. The local scalar Fourier characters are components of one global character. The finite test factors are compactly supported and the archimedean factor has Schwartz decay. The self-dual scalings satisfy the product-one law.",
+      "equations": [
+        "lifts-global-gram-scale"
+      ],
+      "dependencies": [
+        "GGD-01",
+        "GGD-02"
+      ],
+      "sources": [
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean",
+          "lines": [
+            61,
+            65
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsGramFib",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean#L61-L65"
+        },
+        {
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean",
+          "lines": [
+            177,
+            189
+          ],
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.GenusMassVolumes.IsContDensityOn",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GeneralLinearActions/GenusMassVolumes.lean#L177-L189"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean",
+          "lines": [
+            73,
+            82
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsStdV",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/IsEulerProd.lean#L73-L82"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            448,
+            458
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L448-L458"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            463,
+            481
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L463-L481"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            482,
+            501
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L482-L501"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+          "lines": [
+            1,
+            11
+          ],
+          "declaration": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean#L1-L11"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/EulerS.lean",
+          "lines": [
+            12,
+            21
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.euler_int_integrable",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/EulerS.lean#L12-L21"
+        },
+        {
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelDensitiesOfHermitianForm.lean",
+          "lines": [
+            25,
+            37
+          ],
+          "declaration": "GlobalTheory.CompanionTheory.SW.TopDens.rescale_tprod",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelDensitiesOfHermitianForm.lean#L25-L37"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+          "lines": [
+            502,
+            523
+          ],
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean#L502-L523"
+        },
+        {
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+          "lines": [
+            80,
+            91
+          ],
+          "declaration": "PositivityTheory.SiegelWeilFormula.Gen.W.whitGenLtOf",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean#L80-L91"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The local density scales linearly with the source measure and inversely with the target measure. The ratios are one at almost all finite places and their product with the aggregate infinite factor is one. The positive product measure extends to the integrable complex-valued pure test; substituting into the rational mean gives the value invoked in WXMain.",
+      "review": "A separate reader checked the strict-rank and anisotropic branches, the dimension change under orthogonal complementation, the ratio of the two local measures, its global product and the normalized S₃ example against the pinned sources."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "siegelDensitiesLowA",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/WhitGenLt.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "hSDL",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 34
+      }
+    },
+    {
+      "callee": "hmean",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/SiegelWeilFormula/WhittakerGlobalFactors/WXMain.lean",
+        "line": 87
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA_of_sch",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "schwartzDensInf",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA_of_leaves",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean",
+        "line": 6
+      }
+    },
+    {
+      "callee": "oneVecBinary",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterA.lean",
+        "line": 6
+      }
+    },
+    {
+      "callee": "oneVecBinaryMass_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "sharpCount",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 5
+      }
+    },
+    {
+      "callee": "siegelDensitiesLowA_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "oneVecBinaryMass",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 8
+      }
+    },
+    {
+      "callee": "unitary_group_finite_volume",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 448
+      }
+    },
+    {
+      "callee": "exists_standard_local_measures",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 451
+      }
+    },
+    {
+      "callee": "exists_unit_scaling_selfdual_adelic_measures",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 453
+      }
+    },
+    {
+      "callee": "exists_unit_scaling_selfdual_herm_measures",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 454
+      }
+    },
+    {
+      "callee": "unit_product_closure_properties",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 455
+      }
+    },
+    {
+      "callee": "coordinate_haar_measure",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 475
+      }
+    },
+    {
+      "callee": "exists_gram_fiber_measures",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 476
+      }
+    },
+    {
+      "callee": "gram_fiber_measures_scaling",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 479
+      }
+    },
+    {
+      "callee": "gram_fiber_integral_isContDensityOn",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 480
+      }
+    },
+    {
+      "callee": "hB",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 495
+      }
+    },
+    {
+      "callee": "swMeas_lt",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 508
+      }
+    },
+    {
+      "callee": "euler_int_integrable",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 510
+      }
+    },
+    {
+      "callee": "siegel_mean_value_integrable",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 512
+      }
+    },
+    {
+      "callee": "rescale_tprod",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 513
+      }
+    },
+    {
+      "callee": "siegel_weil_measure_rank_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 387
+      }
+    },
+    {
+      "callee": "siegel_weil_measure_of_rank_small_or_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 391
+      }
+    },
+    {
+      "callee": "exists_repr",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 394
+      }
+    },
+    {
+      "callee": "split_anisotropic",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 396
+      }
+    },
+    {
+      "callee": "siegel_weil_measure_of_congruent_target",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 404
+      }
+    },
+    {
+      "callee": "split_anisotropic",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 409
+      }
+    },
+    {
+      "callee": "siegel_weil_measure_of_congruent_form",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 413
+      }
+    },
+    {
+      "callee": "step_lt",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 414
+      }
+    },
+    {
+      "callee": "notRep_lt",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 416
+      }
+    },
+    {
+      "callee": "euler_product_measure_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 260
+      }
+    },
+    {
+      "callee": "fibre_zero_of_one",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 266
+      }
+    },
+    {
+      "callee": "one_vec_sw",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 314
+      }
+    },
+    {
+      "callee": "theta_hypothesis",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 324
+      }
+    },
+    {
+      "callee": "local_density_block_one_eventually",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 325
+      }
+    },
+    {
+      "callee": "local_density_block_one_product",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 337
+      }
+    },
+    {
+      "callee": "lintegral_thetaMeas_block_one_eq_rank_one",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 349
+      }
+    },
+    {
+      "callee": "infinite_product_multipliable",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 366
+      }
+    },
+    {
+      "callee": "mass_good_lt",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 212
+      }
+    },
+    {
+      "callee": "summable_one_div_absNorm_sq",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SiegelDensitiesLowAOf.lean",
+        "line": 215
+      }
+    },
+    {
+      "callee": "one_vector_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "vector_length_formula_of_parts",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "cocompactness",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "local_mass_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "similitude_invariance",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "hasse_principle",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "counting_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "test_function_exists",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "equidistribution",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/BinaryMassMeans/OneVecBinary.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "lattice_unit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+        "line": 306
+      }
+    },
+    {
+      "callee": "theta_inv",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "exists_isEulerProd_of_invariant_of_fiber_supported",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "thetaMeas_rank_one_sub_density_product_le",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "exists_frequently_mul_pow_le_tprod_rank_one_local_density",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/SwOne.lean",
+        "line": 36
+      }
+    },
+    {
+      "callee": "tendsto_nhds_unique",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/CountingFormula.lean",
+        "line": 141
+      }
+    },
+    {
+      "callee": "integral_sum_measure",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ThetaLint.lean",
+        "line": 55
+      }
+    },
+    {
+      "callee": "integral_tsum",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/ThetaLint.lean",
+        "line": 57
+      }
+    },
+    {
+      "callee": "archimedean_family_continuity",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "archimedean_section",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 10
+      }
+    },
+    {
+      "callee": "density_integral",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/SchTop.lean",
+        "line": 11
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GGD-01",
+      "GGD-02"
+    ],
+    [
+      "GGD-01",
+      "GGD-03"
+    ],
+    [
+      "GGD-02",
+      "GGD-03"
+    ],
+    [
+      "GGD-03",
+      "WDL-03"
+    ]
+  ],
+  "outstanding": [
+    "Inputs used here include the invariant-measure characterization and quantitative dilation estimates for one vector in dimension at least three; the binary representation, similitude, equidistribution and counting comparisons; local disintegration and the Schwartz estimates at infinity; and the global product normalization of self-dual measures. Their use and the arguments that determine the constants are reconstructed. A derivation of every one of these providers from its own prerequisites remains upstream."
+  ]
+}

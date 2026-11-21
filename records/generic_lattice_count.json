@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "The two written calls in uniform_counts separate generic single-flag bounds from pairs. Read their fixed-row counts alongside the saturation lemma.",
+  "claims": [
+    {
+      "id": "GLC-01",
+      "chapter": "global",
+      "title": "Saturation converts a determinant cutoff into an index cutoff",
+      "anchor": "global-lattice-saturation",
+      "statement": "The rank-n count is bounded by the sum of primitive determinant-d counts weighted by (G/d)^(k+log₂[K:ℚ]+1).",
+      "hypotheses": "Positive definite integral finitely generated lattice under the selected CM hypotheses, ambient dimension k. The count is zero below G=1.",
+      "definitions": [
+        "M=L∩span_K(P)",
+        "j=#(M/P)",
+        "det(P)=j det(M)"
+      ],
+      "equations": [
+        "global-lattice-index-sum"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Passing to the saturation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+          "lines": [
+            85,
+            103
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean#L85-L103"
+        },
+        {
+          "declaration": "Integral determinant and finite index",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+          "lines": [
+            103,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean#L103-L122"
+        },
+        {
+          "declaration": "Counting each index in a projective module",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+          "lines": [
+            42,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean#L42-L58"
+        },
+        {
+          "declaration": "Summing the indices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+          "lines": [
+            60,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean#L60-L81"
+        },
+        {
+          "declaration": "Summing the primitive determinants",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+          "lines": [
+            123,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean#L123-L130"
+        },
+        {
+          "declaration": "The empty range below one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            127,
+            143
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L127-L143"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The exact-index count uses the bound for finitely generated projective modules. The integral determinant uses the standing CM norm conditions.",
+      "review": "A separate reader checked the determinant and index hypotheses, the exponent, the recovery of the pair isometry and the four-unit orbits. In the example eight rank-one submodules occupy six field lines."
+    },
+    {
+      "id": "GLC-02",
+      "chapter": "global",
+      "title": "A generic flag has a witness in the definite complement",
+      "anchor": "global-generic-lattice-count",
+      "statement": "For fixed row and Gram class, the generic term count is bounded by the number of admissible rank-(k−1) sublattices times the uniform fixed-witness flag bound.",
+      "hypotheses": "Selected fixed base flag, admissible row, generic term, determinant control and a positive uniform fixed-witness estimate.",
+      "definitions": [
+        "The witness is the definite lattice seen from the orthogonal flag."
+      ],
+      "equations": [
+        "global-lattice-index-sum"
+      ],
+      "dependencies": [
+        "GLC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "The orthogonal lattice of a frame",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            79,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L79-L96"
+        },
+        {
+          "declaration": "Bounding a covered set of equivalence classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            144,
+            159
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L144-L159"
+        },
+        {
+          "declaration": "Applying the bound on one generic row",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            217,
+            242
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L217-L242"
+        },
+        {
+          "declaration": "Exchanging the two finite sums",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+          "lines": [
+            244,
+            250
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean#L244-L250"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The cover by witness lattices suffices for the claimed upper bound, then row averaging preserves it.",
+      "review": "A separate reader checked the determinant and index hypotheses, the exponent, the recovery of the pair isometry and the four-unit orbits. In the example eight rank-one submodules occupy six field lines."
+    },
+    {
+      "id": "GLC-03",
+      "chapter": "global",
+      "title": "Two flag classes determine an admissible loop triple",
+      "anchor": "global-lattice-pair-count",
+      "statement": "A common rank-(k−s) witness and two fixed-witness flag counts give a bound of the number of witnesses times J².",
+      "hypotheses": "Fixed admissible base flag and row, positive frame parameter, level at least three, positive corank, two fixed Gram classes and the stated determinant bound.",
+      "definitions": [
+        "The third component is the isometry between the indicated flag quotients."
+      ],
+      "equations": [
+        "global-lattice-index-sum"
+      ],
+      "dependencies": [
+        "GLC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Constructing a common lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+          "lines": [
+            97,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean#L97-L119"
+        },
+        {
+          "declaration": "Recovering the comparison isometry",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+          "lines": [
+            121,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean#L121-L138"
+        },
+        {
+          "declaration": "Counting pairs of classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+          "lines": [
+            30,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean#L30-L57"
+        },
+        {
+          "declaration": "The row and genus averages",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+          "lines": [
+            314,
+            325
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean#L314-L325"
+        },
+        {
+          "declaration": "Assembly of the separate arithmetic estimates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+          "lines": [
+            25,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean#L25-L44"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Existence of a common witness and uniqueness after moving the flags are separate steps in the proof. The genus-mean bound remains a separate numerical input.",
+      "review": "A separate reader checked the determinant and index hypotheses, the exponent, the recovery of the pair isometry and the four-unit orbits. In the example eight rank-one submodules occupy six field lines."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "index_eq",
+      "callee": "Formalism.HermitianLatticeCounting.Final.LatticeSumBounds.c2a",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+        "line": 52
+      }
+    },
+    {
+      "caller": "index_le",
+      "callee": "index_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+        "line": 75
+      }
+    },
+    {
+      "caller": "SubCount.main",
+      "callee": "GlobalTheory.LoopC.DetCard.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+        "line": 103
+      }
+    },
+    {
+      "caller": "SubCount.main",
+      "callee": "GlobalTheory.Mass.DetNat.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EncardSublatticesBoundedDetLeSum.lean",
+        "line": 111
+      }
+    },
+    {
+      "caller": "GenericMean.main",
+      "callee": "orth_lattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 229
+      }
+    },
+    {
+      "caller": "GenericMean.main",
+      "callee": "sub_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CntClLeEncardMul.lean",
+        "line": 239
+      }
+    },
+    {
+      "caller": "PairMean.main",
+      "callee": "pEqv_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+        "line": 317
+      }
+    },
+    {
+      "caller": "PairMean.main",
+      "callee": "pair_sub",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+        "line": 318
+      }
+    },
+    {
+      "caller": "PairMean.main",
+      "callee": "GlobalTheory.T.encard_sublattices_bounded_det_le_sum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeSizeZ.lean",
+        "line": 321
+      }
+    },
+    {
+      "caller": "uniform_counts",
+      "callee": "GlobalTheory.LoopC.PairMean.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "uniform_counts",
+      "callee": "GlobalTheory.LoopC.GenericMean.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RowCountsUniformConstantsFamilies.lean",
+        "line": 36
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GLC-01",
+      "GLC-02"
+    ],
+    [
+      "GLC-01",
+      "GLC-03"
+    ]
+  ],
+  "outstanding": [
+    "The numerical fixed-witness flag bound, projective-module sublattice bound and primitive genus-mean estimate have separate suppliers."
+  ]
+}

@@ -63,6 +63,92 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Full sets at each depth catch the extra reduced classes when reduction loses image information.
+for (const [r, kernel, integral] of [[1, [0, 1, 2], [0]], [2, [0, 3, 6], [0, 3, 6]],
+                                    [3, [0, 3, 6, 9, 12, 15, 18, 21, 24], [0, 3, 6, 9, 12, 15, 18, 21, 24]]]) {
+  const model = lib.localizationKernel(r);
+  assert.deepEqual(model.kernel, kernel);
+  assert.deepEqual(model.integral, integral);
+  assert.equal(model.cokernelSize, 3);
+}
+// A pair of proposed scaled parameters passes the degree-one Cartan bound and fails in degree two.
+const scaledNumerators = [16, -3]; // roots 4 and −3/4 with common denominator 4
+for (const degree of [1, 2]) {
+  const numerator = Array.from({length: degree + 1}, (_, i) =>
+    scaledNumerators[0] ** i * scaledNumerators[1] ** (degree - i)).reduce((a, b) => a + b, 0);
+  const latticeCount = (3 ** (degree + 1) - 1) / 2;
+  assert.equal(numerator, degree === 1 ? 13 : 217);
+  assert.equal(numerator <= 4 ** degree * latticeCount, degree === 1);
+}
+// Each left coset has two elements, while the two double cosets have different masses.
+const [singletons, leftCosets, doubleCosets] = lib.smallGenusClasses();
+assert.equal(singletons.length, 6);
+assert.deepEqual(leftCosets.map(c => c.length), [2, 2, 2]);
+assert.deepEqual(doubleCosets[0], ["123", "213"]);
+assert.deepEqual(doubleCosets[1], ["132", "231", "312", "321"]);
+for (const partition of [singletons, leftCosets, doubleCosets]) {
+  assert.equal(new Set(partition.flat()).size, 6);
+  assert.equal(partition.flat().length, 6);
+  for (let second = 0; second <= 6; second++) {
+    const weight = p => doubleCosets[0].includes(p) ? 2 : second;
+    assert.ok(partition.every(group => group.every(p => weight(p) === weight(group[0]))));
+    assert.equal(partition.reduce((sum, group) => sum + group.length * weight(group[0]), 0), 4 + 4 * second);
+  }
+}
+// A vertex has a fixed complement of dimension n−1. Its neighbours are the split vertices there.
+for (const [dimension, count, degree, sizes] of [[2, 6, 1, [2, 2, 2]], [3, 28, 6, [28]]]) {
+  const graph = lib.splitGraph(dimension);
+  assert.equal(graph.points.length, count);
+  assert.equal(graph.edges, count * degree / 2);
+  assert.ok(graph.points.every(p => p.adjacent.length === degree));
+  assert.deepEqual(graph.components.map(c => c.length), sizes);
+  const index = (v, f) => graph.points.findIndex(p => p.vector === v && p.form === f);
+  const a = index(1, 1), c = index(1, 3);
+  assert.ok(!graph.points[a].adjacent.includes(c));
+  if (dimension === 2) assert.ok(!graph.components.find(component => component.includes(a)).includes(c));
+  else {
+    const u = index(4, 4);
+    assert.ok(graph.points[a].adjacent.includes(u) && graph.points[u].adjacent.includes(c));
+  }
+}
+// Independently lift the nonstandard residue tube X=(1,0) modulo 3 to moduli 9 and 27.
+// Its four scalar coordinates are (a,b,c,d), and the Gram value is their squared norm.
+for (const modulus of [9, 27]) {
+  const counts = Array(modulus).fill(0);
+  for (let a = 1; a < modulus; a += 3) for (let b = 0; b < modulus; b += 3) {
+    for (let c = 0; c < modulus; c += 3) for (let d = 0; d < modulus; d += 3) {
+      counts[(a*a + b*b + c*c + d*d) % modulus]++;
+    }
+  }
+  for (let t = 0; t < modulus; t++) {
+    assert.equal(counts[t], t % 3 === 1 ? (modulus / 3) ** 3 : 0);
+  }
+  // Each side of the finite Fourier identity is measured in the ambient lattice.
+  for (let j = 0; j < modulus; j++) {
+    let real = 0, imaginary = 0;
+    for (let t = 0; t < modulus; t++) {
+      const angle = 2 * Math.PI * j * (t - 1) / modulus;
+      real += counts[t] * Math.cos(angle) / modulus ** 4;
+      imaginary += counts[t] * Math.sin(angle) / modulus ** 4;
+    }
+    close(real, j % (modulus / 3) === 0 ? 1/81 : 0, 1e-13);
+    close(imaginary, 0, 1e-13);
+  }
+}
+// Count Gaussian generators by squared norm and saturation at the concrete cutoff G=2.
+const gaussianOrbits = new Map();
+for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++)
+  for (let c = -1; c <= 1; c++) for (let d = -1; d <= 1; d++) {
+    const h = a*a + b*b + c*c + d*d;
+    if (h === 0 || h > 2) continue;
+    const orbit = [[a,b,c,d], [-b,a,-d,c], [-a,-b,-c,-d], [b,-a,d,-c]];
+    const key = orbit.map(row => row.join(",")).sort()[0];
+    const indexTwo = h === 2 && ((!a && !b) || (!c && !d));
+    gaussianOrbits.set(key, indexTwo ? "index-two" : "primitive-" + h);
+  }
+for (const [type, expected] of [["primitive-1", 2], ["primitive-2", 4], ["index-two", 2]]) {
+  assert.equal([...gaussianOrbits.values()].filter(x => x === type).length, expected);
+}
 // The norm form of F₉ has one vector of norm 0 in one dimension and four of each nonzero norm.
 let normHistogram = [1, 0, 0];
 for (let dim = 1; dim <= 3; dim++) {
@@ -798,5 +884,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

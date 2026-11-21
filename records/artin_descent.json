@@ -1,0 +1,886 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Compared the norm, Hilbert class field, local Frobenius and decomposition formulas, class-character pullback, finite-level character and finite-index proofs. Independently computed the two character counts for the field of discriminant −20.",
+  "claims": [
+    {
+      "id": "ART-01",
+      "chapter": "inputs",
+      "title": "The Hilbert norm group fixes the direction of the Artin map",
+      "anchor": "inputs-artin-norm",
+      "statement": "For a number field K with Hilbert class field H, the idèle-class norm N_(H/K)(C_H) is the image in C_K of the idèles that are units at every finite place. The induced map α_K:G_K→Cl(𝒪_K) is onto and locally constant. It kills inertia and takes a lift of arithmetic Frobenius at 𝔭 to [𝔭], so α_K(D_𝔭)=⟨[𝔭]⟩.",
+      "hypotheses": "Choose an algebraic closure of K. H is the ray class field of the unit modulus with empty real support. 𝔭 is any finite prime and a prolongation is chosen.",
+      "definitions": [
+        "C_K=𝔸_K^×/K^×. An idèle is in the standard open subgroup exactly when its component and inverse component are integral at each finite place.",
+        "Art_K:Cl(𝒪_K)≃Gal(H/K) takes an ideal prime to its arithmetic Frobenius. On the absolute group α_K=Art_K⁻¹∘res_H.",
+        "The modulus-one ideal ray group is the ordinary ideal class group. All real signs occur in the standard subgroup."
+      ],
+      "equations": [
+        "inputs-artin-norm-equation"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GroundTheory.Global.IdeleGroup.standardOpenSubgroup",
+          "path": "src/GroundTheory/GlobalFields/IdeleGroups/InfiniteProjInfiniteEmbeddingOfNe.lean",
+          "lines": [
+            271,
+            278
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/IdeleGroups/InfiniteProjInfiniteEmbeddingOfNe.lean#L271-L278"
+        },
+        {
+          "declaration": "GroundTheory.Global.normGroupOrderIso",
+          "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+          "lines": [
+            209,
+            225
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean#L209-L225"
+        },
+        {
+          "declaration": "GroundTheory.Global.reciprocityMapEquiv",
+          "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+          "lines": [
+            227,
+            243
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean#L227-L243"
+        },
+        {
+          "declaration": "GroundTheory.Global.Modulus.rayClassGroupGalEquiv",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+          "lines": [
+            77,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean#L77-L99"
+        },
+        {
+          "declaration": "GroundTheory.Global.Modulus.congruenceSubgroup_one",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+          "lines": [
+            119,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean#L119-L132"
+        },
+        {
+          "declaration": "GroundTheory.Global.Modulus.classGroupEquiv",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+          "lines": [
+            146,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean#L146-L172"
+        },
+        {
+          "declaration": "GroundTheory.Global.range_ideleClassNorm_hilbertClassField",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+          "lines": [
+            16,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean#L16-L47"
+        },
+        {
+          "declaration": "GroundTheory.Global.le_hilbertClassField_iff",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+          "lines": [
+            49,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean#L49-L67"
+        },
+        {
+          "declaration": "GroundTheory.Global.hilbertClassFieldArtinEquiv",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+          "lines": [
+            69,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean#L69-L81"
+        },
+        {
+          "declaration": "GroundTheory.Global.Modulus.rayClassArtinEquiv_primeClass",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+          "lines": [
+            134,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean#L134-L145"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artCl",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ClPullApply.lean",
+          "lines": [
+            10,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ClPullApply.lean#L10-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artSurj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtSurj.lean",
+          "lines": [
+            10,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtSurj.lean#L10-L30"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artFrob",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean",
+          "lines": [
+            81,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean#L81-L97"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artDec",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+          "lines": [
+            9,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean#L9-L24"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Use the global norm-group existence correspondence to identify H and the reciprocity quotient theorem on C_K. The uniformizer idèle gives arithmetic Frobenius. Restriction is onto with open kernel. Finite inertia is trivial in H, and the remaining decomposition image is generated by the Frobenius class.",
+      "review": "A second reader checked the norm is on idèle classes, the unrestricted real components, and the prime-class normalization."
+    },
+    {
+      "id": "ART-02",
+      "chapter": "inputs",
+      "title": "The ordinary class quotient parametrizes characters with the selected decomposition conditions",
+      "anchor": "inputs-artin-characters",
+      "statement": "For N≥1, precomposition with α_K identifies additive characters of Cl(𝒪_K)/⟨[𝔭]:𝔭|N⟩ into M with locally constant G_K-characters into M killing all finite inertia and all decomposition groups at primes above N. If K is normal over the base, the identification transports a prescribed conjugation action ρ on coefficients.",
+      "hypotheses": "K a number field, M an additive module over a commutative ring, and K totally complex or M[2]=0. The converse uses all of G_K. The equivariance statement uses a common algebraic closure, a normal extension K/F and a representation of G_F on M.",
+      "definitions": [
+        "A character θ on the multiplicative class group is additive on products. The split-prime condition kills the prime classes individually.",
+        "A locally constant Galois character has open kernel. Its fixed field is finite abelian, with finite inertia and real conjugation trivial under the stated hypotheses.",
+        "Under conjugation by g lifting τ one has α_K(gug⁻¹)=τ_*α_K(u). The scalar action for the degree-one coefficient is χ_cyc(g)^(−e)."
+      ],
+      "equations": [
+        "inputs-artin-character-equation"
+      ],
+      "dependencies": [
+        "ART-01"
+      ],
+      "sources": [
+        {
+          "declaration": "GroundTheory.Global.le_hilbertClassField_iff",
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+          "lines": [
+            49,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean#L49-L67"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artDec",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+          "lines": [
+            9,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean#L9-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.ClS",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            16,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L16-L21"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.ClDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            54,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L54-L61"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.XDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean",
+          "lines": [
+            90,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/Mk0IdMapCongr.lean#L90-L99"
+        },
+        {
+          "declaration": "hilbert_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+          "lines": [
+            61,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean#L61-L90"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.artKer",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+          "lines": [
+            91,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean#L91-L106"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.pullMem",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+          "lines": [
+            11,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean#L11-L35"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.pullOnto",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+          "lines": [
+            11,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean#L11-L46"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.pullOnto",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+          "lines": [
+            47,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean#L47-L57"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.pullCond",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullCond.lean",
+          "lines": [
+            8,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullCond.lean#L8-L26"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.pullEq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullEq.lean",
+          "lines": [
+            7,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullEq.lean#L7-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.LDataCardLeFinrank.qzG",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/LevelInertiaLeLevelDec.lean",
+          "lines": [
+            20,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/GaloisCohomologyLength/LevelInertiaLeLevelDec.lean#L20-L26"
+        },
+        {
+          "declaration": "GlobalTheory.minkowski_const_le_one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ExistsIdealInClassOfNormLeSqrtDiscr.lean",
+          "lines": [
+            233,
+            241
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ExistsIdealInClassOfNormLeSqrtDiscr.lean#L233-L241"
+        },
+        {
+          "declaration": "GlobalTheory.exists_ideal_in_class_of_norm_le_sqrt_discr",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ExistsIdealInClassOfNormLeSqrtDiscr.lean",
+          "lines": [
+            251,
+            257
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ExistsIdealInClassOfNormLeSqrtDiscr.lean#L251-L257"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "A quotient character pulls back with the two specified vanishings. Conversely, maximality of the Hilbert field factors a locally constant character through α_K and evaluating a Frobenius at each 𝔭|N gives the ideal quotient. Use surjectivity to transport the coefficient condition in both directions. The finite-field character identification and the restriction of a twisted degree-one class to the infinite cyclotomic kernel play distinct roles.",
+      "review": "A second reader checked both alternatives at infinity and the example K=ℚ(√−5), whose norm-two prime generates its class group. The Minkowski bound is 2√20/π, and the numbers of 𝔽₂-characters for N=1 and N=2 are two and one."
+    },
+    {
+      "id": "ART-03",
+      "chapter": "inputs",
+      "title": "Two finite-field character counts control the level and field changes",
+      "anchor": "inputs-artin-count",
+      "statement": "For K=F(μ_{ℓⁿ}) with n≥2, N=1, the untwisted 𝔽_ℓ-valued G_K characters killing all inertia have cardinality |Cl(𝒪_K)/ℓCl(𝒪_K)|. For any finite L/K with L totally complex, |Cl(𝒪_K)/ℓCl(𝒪_K)|≤[L:K]|Cl(𝒪_L)/ℓCl(𝒪_L)|.",
+      "hypotheses": "ℓ prime and F a number field. No Galois condition on L/K is used in the comparison. In the first application K is totally complex also when ℓ=2.",
+      "definitions": [
+        "The dual of a finite 𝔽_ℓ-vector space has the same cardinality. With N=1 there are no distinguished prime classes.",
+        "For V the homomorphisms G_K→𝔽_ℓ vanishing on G_L, the map g↦(φ↦φ(g)) has image an 𝔽_ℓ-subspace equal to V*. It is constant on cosets of G_L.",
+        "The restriction of class characters has kernel injecting into V and image injecting into the 𝔽_ℓ-valued class characters of L."
+      ],
+      "equations": [
+        "inputs-artin-restriction-equation"
+      ],
+      "dependencies": [
+        "ART-02"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Two.cardClDual",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CardClDual.lean",
+          "lines": [
+            40,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/CardClDual.lean#L40-L65"
+        },
+        {
+          "declaration": "UpperTheory.V.Two.levelRk",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+          "lines": [
+            10,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean#L10-L27"
+        },
+        {
+          "declaration": "UpperTheory.V.Kum.fnCyc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/FnCycMap.lean",
+          "lines": [
+            40,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/FnCycMap.lean#L40-L46"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+          "lines": [
+            10,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean#L10-L29"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+          "lines": [
+            40,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean#L40-L62"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.desc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+          "lines": [
+            73,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean#L73-L94"
+        },
+        {
+          "declaration": "UpperTheory.V.FW.homLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HomLe.lean",
+          "lines": [
+            59,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HomLe.lean#L59-L97"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Identify the finite-level unramified characters with the class dual by ART-02. For a general field extension, a vanishing evaluation annihilator makes the map from left cosets onto V* surjective and bounds the kernel by [L:K]. Over the totally complex upper field the reverse class-character construction bounds the cardinality of the restriction image. Multiply the two bounds.",
+      "review": "An independent reader verified n≥2, N=1, and the surjection from the coset set onto the dual. The comparison allows nonnormal extensions."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_intermediateField_range_ideleClassNorm_eq_of_finiteIndex",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 214
+      }
+    },
+    {
+      "callee": "normGroup_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 221
+      }
+    },
+    {
+      "callee": "normGroup_le_normGroup_iff",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 223
+      }
+    },
+    {
+      "callee": "ker_reciprocityMap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 237
+      }
+    },
+    {
+      "callee": "reciprocityMap_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 238
+      }
+    },
+    {
+      "callee": "normGroupOrderIso",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 78
+      }
+    },
+    {
+      "callee": "normGroupOrderIso_apply",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 92
+      }
+    },
+    {
+      "callee": "range_ideleClassNorm_rayClassField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 98
+      }
+    },
+    {
+      "callee": "reciprocityMapEquiv",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 99
+      }
+    },
+    {
+      "callee": "rayClassArtinEquiv_mk",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 144
+      }
+    },
+    {
+      "callee": "ideleSymbol_finiteEmbedding_eq_arithFrobAt",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 145
+      }
+    },
+    {
+      "callee": "congruenceSubgroup_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 28
+      }
+    },
+    {
+      "callee": "range_ideleClassNorm_rayClassField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "range_ideleClassNorm_hilbertClassField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 43
+      }
+    },
+    {
+      "callee": "range_ideleClassNorm_le_range_iff",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "ideleSymbol_eq_one_of_isUnramifiedEverywhere",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 60
+      }
+    },
+    {
+      "callee": "rayClassArtinEquiv",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "rayClassArtinEquiv_primeClass",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/HilbertClassField.lean",
+        "line": 81
+      }
+    },
+    {
+      "callee": "hilbertClassFieldArtinEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ClPullApply.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "restrictNormalHom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ClPullApply.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "fixingSubgroup_isOpen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtSurj.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "restrictNormalHom_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtSurj.lean",
+        "line": 22
+      }
+    },
+    {
+      "callee": "place_between",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "res_frob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean",
+        "line": 86
+      }
+    },
+    {
+      "callee": "mul_inv_mem_inertia",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean",
+        "line": 88
+      }
+    },
+    {
+      "callee": "hilbertClassFieldArtinEquiv_mk0",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtFrob.lean",
+        "line": 96
+      }
+    },
+    {
+      "callee": "exists_isFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+        "line": 12
+      }
+    },
+    {
+      "callee": "artFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "decGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "artSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "artIne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtDec.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "fixingSubgroup_fixedField",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 68
+      }
+    },
+    {
+      "callee": "isOpen_iff_finite",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 71
+      }
+    },
+    {
+      "callee": "le_hilbertClassField_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 83
+      }
+    },
+    {
+      "callee": "lift_ine",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 88
+      }
+    },
+    {
+      "callee": "exists_conj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "hilbert_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/ArtKer.lean",
+        "line": 104
+      }
+    },
+    {
+      "callee": "toGalDict",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "artSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "artIne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "artDec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+        "line": 28
+      }
+    },
+    {
+      "callee": "funLeft_injective_of_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullMem.lean",
+        "line": 35
+      }
+    },
+    {
+      "callee": "pullMem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "artKer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "liftOfSurjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+        "line": 47
+      }
+    },
+    {
+      "callee": "exists_isFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+        "line": 52
+      }
+    },
+    {
+      "callee": "artFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullOnto.lean",
+        "line": 54
+      }
+    },
+    {
+      "callee": "artConj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullCond.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "artSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullCond.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "pullOnto",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullEq.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "pullCond",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/KummerTheory/PullEq.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "galOfCyc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "pullOnto",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+        "line": 21
+      }
+    },
+    {
+      "callee": "cardClDual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+        "line": 23
+      }
+    },
+    {
+      "callee": "submoduleMap_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/QuadraticExtensions/LevelRk.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "cardTors",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "pullOnto",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "artIne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 37
+      }
+    },
+    {
+      "callee": "artSurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 40
+      }
+    },
+    {
+      "callee": "homLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 41
+      }
+    },
+    {
+      "callee": "card_mul_index",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 93
+      }
+    },
+    {
+      "callee": "mul_le_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/CardClDualOne.lean",
+        "line": 94
+      }
+    },
+    {
+      "callee": "evalEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HomLe.lean",
+        "line": 76
+      }
+    },
+    {
+      "callee": "dual_finrank_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/HomLe.lean",
+        "line": 95
+      }
+    },
+    {
+      "callee": "exists_ideal_in_class_of_norm_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ExistsIdealInClassOfNormLeSqrtDiscr.lean",
+        "line": 254
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "ART-01",
+      "ART-02"
+    ],
+    [
+      "ART-02",
+      "ART-03"
+    ],
+    [
+      "ART-01",
+      "DOP-02"
+    ],
+    [
+      "ART-03",
+      "INP-13"
+    ],
+    [
+      "ART-03",
+      "INP-14"
+    ]
+  ],
+  "outstanding": [
+    "The global existence theorem for abelian extensions with prescribed open finite-index idèle-class norm subgroup and the global reciprocity theorem identifying the norm quotient are retained foundational inputs. Their selected pinned theorems and the use of uniformizers in their local normalization are recorded. The cocycle extension over the infinite cyclotomic kernel and the dual cokernel formula are handled in INP-16 and INP-17."
+  ]
+}
