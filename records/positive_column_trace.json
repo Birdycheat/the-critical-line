@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "PCT-01",
+      "chapter": "normalization",
+      "anchor": "normalization-signed-column-pairing",
+      "title": "A signed coefficient pairing that separates tensor columns",
+      "hypotheses": "The original model is irreducible square-integrable of formal degree d>0, the test vector y is nonzero in its lowest compact type, and the weighted coefficients of generated vectors are square-integrable. The dual matrix preserves the signature J.",
+      "statement": "The signed L² pairing of two coefficient columns is ‖y‖²/d times the signed tensor pairing. Testing against the sign-reversed input gives injectivity.",
+      "definitions": [
+        "B(f,h)=⟨f,Jh⟩, with signs on the finite tensor factor."
+      ],
+      "equations": [
+        "normalization-signed-column-identity"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tfCoef_orth",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaA.lean",
+          "label": "The dual matrix preserves the signature",
+          "lines": [
+            176,
+            200
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tfCoef_orth": 176
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaA.lean#L176-L200"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tensor_functor_separation",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaD.lean",
+          "label": "Reduction to ordinary Schur orthogonality",
+          "lines": [
+            34,
+            76
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tensor_functor_separation": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaD.lean#L34-L76"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_ph_inj",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+          "label": "Reversing each signed coordinate to test injectivity",
+          "lines": [
+            15,
+            57
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_ph_inj": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean#L15-L57"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The argument uses the separated model and its polarized formal-degree identity.",
+      "review": "The null signed column and the sign-reversed test were evaluated directly."
+    },
+    {
+      "id": "PCT-02",
+      "chapter": "normalization",
+      "anchor": "normalization-positive-column-trace",
+      "title": "The positive partial trace on generated tensor columns",
+      "hypotheses": "In addition to the signed pairing, P is an equivariant idempotent, self-adjoint for the signature pairing. Its image is in one tensor eigenspace and its partial trace acts by c on the derivative module.",
+      "statement": "The closed span of projected coefficient columns has readers w_b with c=Σ‖w_b‖²/d. In particular c is real and nonnegative, and c=0 forces P to vanish on all generated columns.",
+      "definitions": [
+        "Q is ordinary orthogonal projection onto the coefficient space and κ=d/‖y‖²."
+      ],
+      "equations": [
+        "normalization-column-reproducing",
+        "normalization-positive-trace-formula"
+      ],
+      "dependencies": [
+        "PCT-01",
+        "DLA-04"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_closure_stable",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaG.lean",
+          "label": "A single Casimir eigenvalue on the projected generators and invariance of their closure",
+          "lines": [
+            149,
+            197
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_closure_stable": 75
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaG.lean#L149-L197"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+          "label": "Projecting the signed coordinate vectors and testing the complementary input",
+          "lines": [
+            65,
+            101
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean#L65-L101"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+          "label": "Recovering a coordinate on a translated generator",
+          "lines": [
+            136,
+            169
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean#L136-L169"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_rep_closure",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaB.lean",
+          "label": "Extending the coordinate identity almost everywhere",
+          "lines": [
+            13,
+            34
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_rep_closure": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaB.lean#L13-L34"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_tr_swap",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaF.lean",
+          "label": "Inversion interchanges the two coordinate indices",
+          "lines": [
+            24,
+            70
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_tr_swap": 24
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaF.lean#L24-L70"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+          "label": "The ordinary sum of squared norms",
+          "lines": [
+            238,
+            288
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean#L238-L288"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+          "label": "Zero trace eliminates the projected column of a lowest-type input",
+          "lines": [
+            74,
+            101
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core": 59
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean#L74-L101"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+          "label": "Propagation to the full generated tensor",
+          "lines": [
+            108,
+            131
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg": 89
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean#L108-L131"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The coordinate calculation passes through an indefinite pairing, a Hilbert projection, and inversion of the Haar variable.",
+      "review": "The normalization κ was checked before and after the exchange of integrated coordinates."
+    },
+    {
+      "id": "PCT-03",
+      "chapter": "normalization",
+      "anchor": "normalization-column-degree-equality",
+      "title": "The exact formal-degree defect of a shifted subspace",
+      "hypotheses": "A nonzero closed irreducible invariant copy of formal degree d′ is contained in the coefficient space with trace scalar c and readers w_b. All formal degrees use the same Haar measure.",
+      "statement": "If E is ordinary orthogonal projection onto the copy, dc−d′=Σ‖(I−E)w_b‖². Equality forces the whole coefficient space to coincide with that copy.",
+      "definitions": [
+        "E is the orthogonal projection onto the embedded closed copy."
+      ],
+      "equations": [
+        "normalization-column-degree-defect"
+      ],
+      "dependencies": [
+        "PCT-02"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_ge_abstract",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaJ.lean",
+          "label": "Projecting the readers and integrating every coordinate",
+          "lines": [
+            13,
+            58
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_ge_abstract": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaJ.lean#L13-L58"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_ge_abstract",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaJ.lean",
+          "label": "Equality annihilates the orthogonal complement",
+          "lines": [
+            59,
+            89
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_ge_abstract": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaJ.lean#L59-L89"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+          "label": "Transporting the formal degree onto the shifted image",
+          "lines": [
+            162,
+            216
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean#L162-L216"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The displayed identity is the Pythagorean remainder in the inequality, with the equality statement on the closed coefficient space.",
+      "review": "The four-element example checks both equality and strict excess under two Haar measures."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tensor_functor_separation",
+      "callee": "tfClRep_schur",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaD.lean",
+        "line": 60,
+        "spelling": "tfClRep_schur"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tensor_functor_separation",
+      "callee": "tf_jquad",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaD.lean",
+        "line": 65,
+        "spelling": "tf_jquad"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tensor_functor_separation",
+      "callee": "tfCoef_orth",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaD.lean",
+        "line": 65,
+        "spelling": "tfCoef_orth"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_ph_inj",
+      "callee": "tensor_functor_separation",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+        "line": 33,
+        "spelling": "tensor_functor_separation"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_ph_inj",
+      "callee": "tf_ph_memLp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+        "line": 34,
+        "spelling": "tf_ph_memLp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+      "callee": "tf_closure_stable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+        "line": 50,
+        "spelling": "tf_closure_stable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+      "callee": "tf_ph_memLp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+        "line": 56,
+        "spelling": "tf_ph_memLp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+      "callee": "tensor_functor_separation",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+        "line": 63,
+        "spelling": "tensor_functor_separation"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+      "callee": "tf_rep_closure",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+        "line": 195,
+        "spelling": "tf_rep_closure"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_data",
+      "callee": "tf_tr_swap",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaH.lean",
+        "line": 238,
+        "spelling": "tf_tr_swap"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core",
+      "callee": "tfClRep_fdeg",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+        "line": 76,
+        "spelling": "tfClRep_fdeg"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core",
+      "callee": "tf_trace_data",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+        "line": 78,
+        "spelling": "tf_trace_data"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core",
+      "callee": "tf_ph_inj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+        "line": 101,
+        "spelling": "tf_ph_inj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg",
+      "callee": "tf_trace_core",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 108,
+        "spelling": "tf_trace_core"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg",
+      "callee": "tfg_gen",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 125,
+        "spelling": "tfg_gen"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge",
+      "callee": "tf_trace_data",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 173,
+        "spelling": "tf_trace_data"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge",
+      "callee": "tf_datum2",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 175,
+        "spelling": "tf_datum2"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge",
+      "callee": "tf_schur_transfer",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 185,
+        "spelling": "tf_schur_transfer"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_ge",
+      "callee": "tf_ge_abstract",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 212,
+        "spelling": "tf_ge_abstract"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PCT-01",
+      "PCT-02"
+    ],
+    [
+      "DLA-04",
+      "PCT-02"
+    ],
+    [
+      "PCT-02",
+      "PCT-03"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, Journal of Functional Analysis 21 (1976), 209–243",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    }
+  ],
+  "outstanding": [
+    "The weighted coefficient estimate, the spectral splitting, the central-character moments and the algebraic construction of the shifted copy each have separate proofs. Hilbert-space equality here presupposes a copy already embedded."
+  ]
+}

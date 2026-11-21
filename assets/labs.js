@@ -16,6 +16,39 @@
     value,
   });
   const configs = {
+    "polynomial-cut": {
+      title: "How much 5-adic precision does a local test cost?",
+      kind: "Reweighting a finite approximation of polynomial evaluations",
+      section: "lifts",
+      params: [
+        choose("power", "Polynomial to test", [["0", "1"], ["1", "X"], ["2", "X²"], ["3", "X³"]], "1"),
+        choose("filter", "Rule", [["all", "Average at 0 and 10"], ["cut", "Keep nonzero points"]], "cut"),
+      ],
+      caption: "For X, the average recovers the target 5 exactly. Filtering leaves the value at 10. Read the old error on X² to see where the new error on X comes from.",
+      method: "Compute ordinary rational values first. The original weights at 0 and 10 are both 1/2. Multiplication by Q(x)/Q(5)=x/5 changes them to 0 and 1. For the test Xᵏ, evaluate at the target 5 and compare with the chosen weighted sum. The displayed 5-adic error is 5⁻ᵛ for a nonzero difference divisible by 5ᵛ and equals zero for an exact match.",
+    },
+    "satake-multiplicities": {
+      title: "Does the determinant determine the three roots?",
+      kind: "Testing the local polynomial at a prescribed place",
+      section: "lifts",
+      params: [
+        choose("roots", "Allowed roots", [["primes", "2, 3, 5"], ["powers", "1, 2, 4"]], "powers"),
+        choose("candidate", "Candidate multiplicities", [["middle", "0, 3, 0"], ["simple", "1, 1, 1"], ["first", "2, 1, 0"]], "middle"),
+      ],
+      caption: "The allowed roots annihilate every displayed candidate. Inspect all multiplicities with the prescribed determinant, then compare the two traces. For roots 1, 2, 4 a repeated root passes the determinant test.",
+      method: "Each candidate is a diagonal three-by-three matrix. Enumerate all ten nonnegative triples with sum three and keep those whose product of roots, counted with multiplicity, equals the product of the three prescribed roots. The trace sums roots with the same multiplicities.",
+    },
+    "column-degree-defect": {
+      title: "Does one character account for the whole coefficient space?",
+      kind: "Projecting the evaluation vector on a four-element group",
+      section: "normalization",
+      params: [
+        choose("modes", "Characters in the space", [["1", "1"], ["2", "1, χ₁"], ["3", "1, χ₁, χ₂"]], "2"),
+        choose("mass", "Total Haar mass M", [["1", "1 (probability)"], ["4", "4 (counting)"]], "1"),
+      ],
+      caption: "Keep the constant character and add a second character to the coefficient space. The excess squared norm is the part of the evaluation vector outside the constants. Changing the Haar mass rescales both the formal degree and the squared norms.",
+      method: "On pairs of bits use χ₁(a,b)=(−1)ᵃ and χ₂(a,b)=(−1)ᵇ. Each point has mass M/4. The vector w representing evaluation at (0,0) is the sum of the selected characters divided by M. Its projection Ew onto the constants is its average. The table evaluates these functions at all four points. Sum their squares with mass M/4 to obtain the two norms.",
+    },
     "frobenius-good-places": {
       title: "Which prime still realizes the chosen Frobenius?",
       kind: "Testing an inverse Frobenius on seventh roots of unity",
@@ -1453,6 +1486,57 @@
   }
 
   function render(id, v) {
+    if (id === "polynomial-cut") {
+      const degree = Number(v.power), cut = v.filter === "cut";
+      const atZero = degree === 0 ? 1 : 0;
+      const target = 5 ** degree;
+      const sum = cut ? 10 ** degree : (atZero + 10 ** degree) / 2;
+      let magnitude = Math.abs(target - sum), denominator = 1;
+      while (magnitude > 0 && magnitude % 5 === 0) {
+        magnitude /= 5;
+        denominator *= 5;
+      }
+      const table = '<table class="carry-table"><caption>Evaluation at each point</caption>' +
+        '<thead><tr><th scope="col">Point</th><th scope="col">Weight</th><th scope="col">Value of P</th></tr></thead><tbody>' +
+        '<tr><th scope="row">0</th><td>' + (cut ? "0" : "1/2") + '</td><td>' + atZero + '</td></tr>' +
+        '<tr><th scope="row">10</th><td>' + (cut ? "1" : "1/2") + '</td><td>' + 10 ** degree + '</td></tr></tbody></table>';
+      return table + metrics([["Target P(5)", String(target)], ["Weighted sum", String(sum)],
+        ["5-adic error", magnitude === 0 ? "0" : reducedFraction(1, denominator)]]);
+    }
+    if (id === "satake-multiplicities") {
+      const roots = v.roots === "primes" ? [2, 3, 5] : [1, 2, 4];
+      const mult = {middle: [0, 3, 0], simple: [1, 1, 1], first: [2, 1, 0]}[v.candidate];
+      const product = counts => roots.reduce((value, root, i) => value * root ** counts[i], 1);
+      const target = product([1, 1, 1]), passing = [];
+      for (let a = 0; a <= 3; a++) for (let b = 0; b <= 3 - a; b++) {
+        const candidate = [a, b, 3 - a - b];
+        if (product(candidate) === target) passing.push("(" + candidate.join(",") + ")");
+      }
+      const trace = roots.reduce((value, root, i) => value + root * mult[i], 0);
+      const table = '<table class="carry-table"><caption>Local data for the three eigenvalues</caption>' +
+        '<thead><tr><th scope="col">Quantity</th><th scope="col">Prescribed</th><th scope="col">Candidate</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Multiplicities</th><td>(1,1,1)</td><td>(' + mult.join(",") + ')</td></tr>' +
+        '<tr><th scope="row">Determinant</th><td>' + target + '</td><td>' + product(mult) + '</td></tr>' +
+        '<tr><th scope="row">Trace</th><td>' + roots.reduce((s, r) => s + r, 0) + '</td><td>' + trace + '</td></tr></tbody></table>';
+      return table + metrics([["All triples with the prescribed determinant", passing.join(" or ")],
+        ["Candidate has prescribed polynomial", mult.every(count => count === 1) ? "Yes" : "No"]]);
+    }
+    if (id === "column-degree-defect") {
+      const modes = Number(v.modes), mass = Number(v.mass);
+      const elements = [[0, 0], [0, 1], [1, 0], [1, 1]];
+      const numerators = elements.map(([a, b]) =>
+        [1, (-1) ** a, (-1) ** b].slice(0, modes).reduce((sum, character) => sum + character, 0));
+      const mean = numerators.reduce((sum, z) => sum + z, 0) / elements.length;
+      const rows = elements.map(([a, b], i) => '<tr><th scope="row">(' + a + ',' + b + ')</th><td>' +
+        reducedFraction(numerators[i], mass) + '</td><td>' + reducedFraction(mean, mass) +
+        '</td><td>' + reducedFraction(numerators[i] - mean, mass) + '</td></tr>');
+      const table = '<table class="carry-table"><caption>Evaluation at the identity and its projection</caption>' +
+        '<thead><tr><th scope="col">(a,b)</th><th scope="col">w</th><th scope="col">Ew</th><th scope="col">w − Ew</th></tr></thead>' +
+        '<tbody>' + rows.join("") + '</tbody></table>';
+      const norm = center => reducedFraction(numerators.reduce((sum, z) => sum + (z - center) ** 2, 0), 4 * mass);
+      return table + metrics([["Squared norm of w", norm(0)], ["Formal degree of the constants", reducedFraction(1, mass)],
+        ["Excess squared norm", norm(mean)]]);
+    }
     if (id === "frobenius-good-places") {
       const prime = Number(v.prime);
       const residues = new Set(Array.from({length: prime}, (_, r) => r * r % prime));

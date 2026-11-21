@@ -141,7 +141,7 @@
       "equations": [
         "global-minor-shell-estimate"
       ],
-      "review": "For each place profile the coordinate disks give a product of at most B_j 2^(2jA) cells. The number of nonnegative profiles of total ≤ h is binom(h+f,f)."
+      "review": "For each place profile the coordinate disks give a product of at most B_j 2^(2jA) cells. The number of nonnegative profiles of total ≤ h is binom(h+f,f). In Q(ζ₈), with r=j=2 and H₁=1, the radii are 4096 and 65536. Conjugate units 3±2√2 give a two-minor calculation with local index sum A=4 and global shell h=5. Integral row additions preserve this candidate list."
     },
     {
       "id": "MLC-03",
@@ -253,6 +253,174 @@
         "global-minor-weighted-count"
       ],
       "review": "The exponents 2j and 3r occur on the same sum of place indices. All constants are independent of the finite set T."
+    },
+    {
+      "id": "MLC-04",
+      "chapter": "global",
+      "anchor": "global-minor-ideal-height",
+      "title": "The square of the terminal minor size bounds its ideal norm",
+      "statement": "For a positive defect of a surviving diagonal term, write Δ for the absolute norm after division by the appropriate power of the extended different. Under the family discriminant hypothesis, 0 < Δ ≤ (2H₁)^(4rf) S² ≤ b^(C m² f) S². A general CM pair carries the explicitly displayed discriminant ratio.",
+      "hypotheses": "E/F is a quadratic CM extension with f conjugate pairs. The family has D_E=D_F² for absolute discriminants. The normal form supplies a nonzero last minor. The common allowance assumes b≥2, H₁=b^(C_H m), C_H≥0, m=2r+2 and C≥2(C_H+1).",
+      "correspondence": "The written family norm identity is applied only under its discriminant hypothesis. The unspecialized identity follows by norm multiplicativity from the field and ideal normalizations. The concrete diagonal result invokes the normal form of the relevant flags and then the height comparison.",
+      "sources": [
+        {
+          "declaration": "frameExp",
+          "label": "Orders and the finite and infinite normalizations",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean",
+          "lines": [
+            92,
+            99
+          ],
+          "declaration_lines": {
+            "frameExp": 92,
+            "Nloc": 94,
+            "absReal": 98
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean#L92-L99",
+          "related_declarations": [
+            "Nloc",
+            "absReal"
+          ]
+        },
+        {
+          "declaration": "ddS",
+          "label": "The extended different of the real subfield",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean",
+          "lines": [
+            116,
+            121
+          ],
+          "declaration_lines": {
+            "ddS": 116,
+            "embS": 120
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BlockEnds.lean#L116-L121",
+          "related_declarations": [
+            "embS"
+          ]
+        },
+        {
+          "declaration": "szf_rd_pow",
+          "label": "Degree and the root discriminant",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean",
+          "lines": [
+            41,
+            51
+          ],
+          "declaration_lines": {
+            "szf_rd_pow": 41
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean#L41-L51"
+        },
+        {
+          "declaration": "szf_normDD",
+          "label": "The norm of the extended different",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean",
+          "lines": [
+            53,
+            93
+          ],
+          "declaration_lines": {
+            "szf_normDD": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean#L53-L93"
+        },
+        {
+          "declaration": "StandingNumericalData",
+          "label": "The family discriminant hypothesis",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingNumericalData.lean",
+          "lines": [
+            84,
+            104
+          ],
+          "declaration_lines": {
+            "StandingNumericalData": 84
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingNumericalData.lean#L84-L104"
+        },
+        {
+          "declaration": "pf_norm",
+          "label": "Pairing the complex embeddings",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+          "lines": [
+            1104,
+            1112
+          ],
+          "declaration_lines": {
+            "pf_norm": 1104
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L1104-L1112"
+        },
+        {
+          "declaration": "PFHost_of_discr",
+          "label": "The square product under the family hypothesis",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+          "lines": [
+            1119,
+            1140
+          ],
+          "declaration_lines": {
+            "PFHost_of_discr": 1119,
+            "PFHost_of_data": 1138
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L1119-L1140",
+          "related_declarations": [
+            "PFHost_of_data"
+          ]
+        },
+        {
+          "declaration": "two_pow_le_height_bound",
+          "label": "The uniform height allowance",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+          "lines": [
+            977,
+            1003
+          ],
+          "declaration_lines": {
+            "two_pow_le_height_bound": 977
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean#L977-L1003"
+        },
+        {
+          "declaration": "delta_pos_le_height_sq",
+          "label": "Positivity of the terminal minor and the square bound",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+          "lines": [
+            60,
+            110
+          ],
+          "declaration_lines": {
+            "delta_pos_le_height_sq": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean#L60-L110"
+        },
+        {
+          "declaration": "localNorm_le_height_sq",
+          "label": "The nonzero positions and the theorem for the diagonal word",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+          "lines": [
+            112,
+            136
+          ],
+          "declaration_lines": {
+            "localNorm_le_height_sq": 112,
+            "DelC_holds": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean#L112-L136",
+          "related_declarations": [
+            "DelC_holds"
+          ]
+        }
+      ],
+      "status": "source checked",
+      "dependencies": [
+        "MLC-01"
+      ],
+      "equations": [
+        "global-minor-different-product",
+        "global-minor-terminal-height"
+      ],
+      "review": "The two quartic fields give respectively the exact factors 1 and 4^6 before the product of conjugate sizes. At r=j=f=2 and H₁=1, integral rational minors saturate their respective bounds. The example with D_E=256 tests the general identity, and D_E=144 tests the specialization."
     }
   ],
   "written_source_calls": [
@@ -351,6 +519,102 @@
         "line": 16,
         "spelling": "cosetsC_holds"
       }
+    },
+    {
+      "callee": "szf_rd_pow",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean",
+        "line": 55,
+        "spelling": "szf_rd_pow"
+      }
+    },
+    {
+      "callee": "szf_finrankFE",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean",
+        "line": 56,
+        "spelling": "szf_finrankFE"
+      }
+    },
+    {
+      "callee": "absNorm_differentIdeal",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/BruhatCellsKronecker/FamilySeparationBound.lean",
+        "line": 88,
+        "spelling": "NumberField.absNorm_differentIdeal"
+      }
+    },
+    {
+      "callee": "szf_normDD",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+        "line": 1121,
+        "spelling": "szf_normDD"
+      }
+    },
+    {
+      "callee": "pf_norm",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+        "line": 1124,
+        "spelling": "pf_norm"
+      }
+    },
+    {
+      "callee": "PFHost_of_discr",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/KappaEndpoints.lean",
+        "line": 1140,
+        "spelling": "PFHost_of_discr"
+      }
+    },
+    {
+      "callee": "exists_nfFull_of_relevant_of_G_eq_zero",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 65,
+        "spelling": "exists_nfFull_of_relevant_of_G_eq_zero"
+      }
+    },
+    {
+      "callee": "index_eq_normalForm",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 66,
+        "spelling": "index_eq_normalForm"
+      }
+    },
+    {
+      "callee": "normSgBound",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 89,
+        "spelling": "Formalism.HermitianLatticeCounting.Final.S6.normSgBound"
+      }
+    },
+    {
+      "callee": "two_pow_le_height_bound",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 90,
+        "spelling": "two_pow_le_height_bound"
+      }
+    },
+    {
+      "callee": "delta_pos_le_height_sq",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 136,
+        "spelling": "delta_pos_le_height_sq"
+      }
+    },
+    {
+      "callee": "PFHost_of_data",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/RelevantSetZeroGNotIdentity.lean",
+        "line": 136,
+        "spelling": "PFHost_of_data"
+      }
     }
   ],
   "derivation_edges": [
@@ -365,6 +629,10 @@
     [
       "MLC-02",
       "MLC-03"
+    ],
+    [
+      "MLC-01",
+      "MLC-04"
     ]
   ],
   "outstanding": []

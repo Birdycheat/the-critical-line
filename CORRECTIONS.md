@@ -134,3 +134,15 @@ The bound on the initial vector's mean Casimir defect alone does not persist und
 ### Reconstructing a companion with fixed auxiliary places
 
 The limiting representation is constructed for one fixed pair of auxiliary places. Its independence of a finite list of imposed tests follows within that construction. Passing from one auxiliary pair to another uses a separate isomorphism argument. The domains of the approximating identities are open dense subsets of the Galois group, with Frobenius elements chosen inside the necessary finite intersections. [Trace construction](book.html#lifts-odd-companion-trace) · [Local transport](book.html#lifts-odd-companion-three-places)
+
+### The last minor and the discriminant of its real field
+
+The normalized ideal uses the different of the maximal real subfield extended to the CM field. Rewriting its norm with the archimedean sizes introduces the factor (D_E/D_F²)^(2e). The field hypothesis sets that factor to one in the arithmetic family. The two-field example checks what happens when this hypothesis fails. [The last-minor identity and its scope](book.html#global-minor-ideal-height)
+
+### Translating an algebraically generated tensor column
+
+A translate of an algebraic tensor column can lie only in its Hilbert closure. The signed pairing at a translated projected column is justified by right invariance of Haar measure and square integrability of the coefficient functions. The ordinary orthogonal projection can be inserted or removed because the vector on its other side lies in the invariant coefficient space. [The coordinate and trace formulas](book.html#normalization-positive-column-trace)
+
+### Which local systems must pass the genericity tests
+
+In the odd-rank application the collection W of power-sum places lies above ℓ. Genericity is imposed on the union of W with the other finite test set Z. The polynomial division in the two-stage approximation tests each intermediate system and does not require a nonzero detector on the original target. A separate finite-dimensional argument places the rational original Hecke eigenvalues in a common finite extension. [The extended Hecke system](book.html#lifts-hecke-congruence-tests) · [The finite field of coefficients](book.html#lifts-hecke-coefficient-field)

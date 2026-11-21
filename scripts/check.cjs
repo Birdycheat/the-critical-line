@@ -141,6 +141,34 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+for (const [filter, sums, errors] of [
+  ["all", [1,5,50,500], ["0","0","1/25","1/125"]],
+  ["cut", [1,10,100,1000], ["0","1/5","1/25","1/125"]],
+]) for (let degree = 0; degree <= 3; degree++) {
+  const display = lib.render("polynomial-cut", {power: String(degree), filter});
+  assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]),
+    [String(5 ** degree), String(sums[degree]), errors[degree]]);
+}
+// Fourier orthogonality on four points fixes the norms independently of the table's coordinate sum.
+for (let modes = 1; modes <= 3; modes++) for (const mass of [1, 4]) {
+  const display = lib.render("column-degree-defect", {modes: String(modes), mass: String(mass)});
+  const fractions = mass === 1 ? ["0", "1", "2", "3"] : ["0", "1/4", "1/2", "3/4"];
+  assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]),
+    [fractions[modes], fractions[1], fractions[modes - 1]]);
+}
+// Integer diagonal matrices give two different traces at determinant eight.
+for (const [roots, triples, entries] of [
+  ["primes", "(1,1,1)", [[27, 9], [30, 10], [12, 7]]],
+  ["powers", "(0,3,0) or (1,1,1)", [[8, 6], [8, 7], [2, 4]]],
+]) {
+  for (const [i, candidate] of ["middle", "simple", "first"].entries()) {
+    const display = lib.render("satake-multiplicities", {roots, candidate});
+    const cells = [...display.matchAll(/<td>([^<]+)<\/td>/g)].map(m => m[1]);
+    assert.equal(Number(cells[3]), entries[i][0]);
+    assert.equal(Number(cells[5]), entries[i][1]);
+    assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]), [triples, i === 1 ? "Yes" : "No"]);
+  }
+}
 // Norms and exponents are computed here from this biquadratic field's splitting classes.
 for (const [prime, relative, square, norm, inverse] of [
   [3, "Yes", "No", 9, 4], [11, "No", "No", 121, 4], [17, "Yes", "Yes", 289, 4],
@@ -1531,5 +1559,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

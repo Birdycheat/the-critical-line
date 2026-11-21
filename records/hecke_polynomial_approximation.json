@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HPA-01",
+      "chapter": "lifts",
+      "anchor": "lifts-word-polynomial-approximation",
+      "title": "From a small error of Hecke eigenforms to all integral polynomials",
+      "hypotheses": "A bounded separating frame for the fixed weight and level has been chosen, and each selected integral Hecke operator preserves every uniform bound in the frame. A joint eigenform can be approximated there by a finite sum of joint eigenforms in the prescribed family with arbitrarily small relative error.",
+      "statement": "One finite list of systems and coefficients for each tolerance approximates evaluation of all integer polynomials in their eigenvalues, including simultaneously in all the chosen coordinates.",
+      "equations": [
+        "lifts-polynomial-frame-bound"
+      ],
+      "definitions": [
+        "A Hecke system lists the simultaneous eigenvalues in the selected operator coordinates."
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.Cong.PolyApprox",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/PolyApproxZeroPadic.lean",
+          "lines": [
+            10,
+            12
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.PolyApprox": 10
+          },
+          "label": "One family of coefficients works for every integral polynomial",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/PolyApproxZeroPadic.lean#L10-L12"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Gen.toPolyX_pf",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean",
+          "lines": [
+            20,
+            48
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.toPolyX_pf": 11
+          },
+          "label": "A detecting frame coordinate and a common bound on the normalized form",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean#L20-L48"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Gen.toPolyX_pf",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean",
+          "lines": [
+            55,
+            89
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.toPolyX_pf": 11
+          },
+          "label": "The finite expansion of forms and its uniform residual",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean#L55-L89"
+        },
+        {
+          "declaration": "GlobalTheory.Cong.eigen_small_sub_finite_approx",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenvectorSmallSubFiniteEigenApproxInequality.lean",
+          "lines": [
+            19,
+            49
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.eigen_small_sub_finite_approx": 9
+          },
+          "label": "Polynomial induction and the weights at one coordinate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenvectorSmallSubFiniteEigenApproxInequality.lean#L19-L49"
+        },
+        {
+          "declaration": "GlobalTheory.Cong.eigen_small_sub_finite_approx",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenvectorSmallSubFiniteEigenApproxInequality.lean",
+          "lines": [
+            54,
+            79
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.eigen_small_sub_finite_approx": 9
+          },
+          "label": "Grouping all equal joint eigensystems",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenvectorSmallSubFiniteEigenApproxInequality.lean#L54-L79"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The norm-bound argument uses induction on polynomials with integral coefficients.",
+      "review": "Normalization, repeated systems, and the simultaneous quantifiers are spelled out."
+    },
+    {
+      "id": "HPA-02",
+      "chapter": "lifts",
+      "anchor": "lifts-cutting-polynomial-approximants",
+      "title": "Filtering and composing simultaneous polynomial approximations",
+      "hypotheses": "Work over a nonarchimedean field. Each intermediate evaluation has polynomial approximants, and the chosen test Q is nonzero at every intermediate evaluation used.",
+      "statement": "Reweight the inner approximants by Q(x)/Q(η) to remove failed tests. Finite composition followed by summing over fibres preserves uniform polynomial approximation.",
+      "equations": [
+        "lifts-polynomial-cut-weights",
+        "lifts-polynomial-composition-bound"
+      ],
+      "definitions": [
+        "An approximation is uniform over all polynomials with integer coefficients."
+      ],
+      "dependencies": [
+        "HPA-01"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.Gen.polyApprox_cut",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean",
+          "lines": [
+            11,
+            36
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.polyApprox_cut": 11
+          },
+          "label": "Weighting by a nonzero polynomial removes the unwanted systems",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean#L11-L36"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Gen.polyApprox_trans",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean",
+          "lines": [
+            38,
+            92
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.polyApprox_trans": 38
+          },
+          "label": "Two finite rules combine with a uniform inner tolerance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean#L38-L92"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Gen.combine_pf",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean",
+          "lines": [
+            94,
+            96
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.combine_pf": 94
+          },
+          "label": "The cut is taken separately at each intermediate system",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean#L94-L96"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Gen.restrict_pf",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Restrict.lean",
+          "lines": [
+            8,
+            33
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.restrict_pf": 8
+          },
+          "label": "Regrouping the fibres after forgetting coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Restrict.lean#L8-L33"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The two approximation steps group coefficients on a finite union and sum over fibres on restriction.",
+      "review": "The midpoint test at five shows the precise loss when cutting at a nonunit."
+    },
+    {
+      "id": "HPA-03",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-congruence-tests",
+      "title": "Recovering simultaneous Hecke congruences after imposing the local tests",
+      "hypotheses": "The fixed-level density theorem at prescribed generic places, integral test operators and their frame bounds, local type construction, and existence of lacunary weight variation at the second auxiliary place hold.",
+      "statement": "The same finite weighted systems carry the prescribed local tests, lacunary weight and auxiliary type while approximating all integral polynomials on the retained Hecke and scaled Satake-power coordinates.",
+      "equations": [
+        "lifts-hecke-augmented-coordinates"
+      ],
+      "definitions": [
+        "The test polynomial on the augmented system multiplies the auxiliary genericity coordinates."
+      ],
+      "dependencies": [
+        "HPA-02"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.exists_testOp",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean",
+          "lines": [
+            93,
+            114
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.exists_testOp": 93
+          },
+          "label": "A spherical operator detects the specified local polynomial",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean#L93-L114"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            87,
+            108
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.stepSt_of_ex": 76
+          },
+          "label": "Passing from changed weights to the distinguished local type",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L87-L108"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.congUWG_of",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            138,
+            147
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.congUWG_of": 111
+          },
+          "label": "Separate nonzero factors scale the power and genericity operators",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L138-L147"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.congUWG_of",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            163,
+            179
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.congUWG_of": 111
+          },
+          "label": "Three families of commuting eigenvalue coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L163-L179"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.congUWG_of",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            198,
+            229
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.congUWG_of": 111
+          },
+          "label": "Combining the local tests, then forgetting their coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L198-L229"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.CongUWG.congUW4",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+          "lines": [
+            252,
+            263
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.CongUWG.congUW4": 252
+          },
+          "label": "The union of the two prescribed finite sets is tested",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean#L252-L263"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Cong.congFinOdd_of_ex",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/CongFinOddOfLvLac.lean",
+          "lines": [
+            9,
+            15
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.congFinOdd_of_ex": 15
+          },
+          "label": "Odd-rank congruences from existence of the lacunary change of weight",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/CongFinOddOfLvLac.lean#L9-L15"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "This is the assembly from the stated automorphic approximation inputs; their construction is a separate argument.",
+      "review": "The restriction retains the scaled power sums, while the genericity conclusion concerns the representatives giving those points."
+    },
+    {
+      "id": "HPA-04",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-coefficient-field",
+      "title": "One finite field for the original rational Hecke coordinates",
+      "hypotheses": "Rational Hecke operators act by the stated joint eigenvalues. Their conjugate forms are nonzero and belong to one finite-dimensional space. A fixed field identification transports the eigenvalues into the algebraic closure of ℚℓ.",
+      "statement": "The degree over ℚℓ of the field generated by any finite selection of original coordinates is at most the dimension of the conjugate-form space. One maximal finite selection generates a field containing the entire system.",
+      "definitions": [
+        "A joint conjugate is the entire list transformed by one field automorphism."
+      ],
+      "equations": [
+        "lifts-hecke-field-degree"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+          "declaration": "GlobalTheory.Cong.linearIndependent_simulEigen",
+          "label": "Independence at distinct joint eigensystems",
+          "lines": [
+            22,
+            31
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.linearIndependent_simulEigen": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean#L22-L31"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+          "declaration": "GlobalTheory.Cong.finU_holds",
+          "label": "Rational Hecke actions on a finite-dimensional space of conjugate forms",
+          "lines": [
+            49,
+            66
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.finU_holds": 49
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean#L49-L66"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+          "declaration": "GlobalTheory.Cong.finU_holds",
+          "label": "Bounding the simultaneous orbit by the dimension of this space",
+          "lines": [
+            67,
+            81
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Cong.finU_holds": 49
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean#L67-L81"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FiniteAutomorphismOrbitMemFiniteExtensionPadic.lean",
+          "declaration": "GlobalTheory.orbit_finite_mem_finite_ext",
+          "label": "Each embedding of a finite coordinate field gives a different global system",
+          "lines": [
+            17,
+            38
+          ],
+          "declaration_lines": {
+            "GlobalTheory.orbit_finite_mem_finite_ext": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FiniteAutomorphismOrbitMemFiniteExtensionPadic.lean#L17-L38"
+        },
+        {
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FiniteAutomorphismOrbitMemFiniteExtensionPadic.lean",
+          "declaration": "GlobalTheory.orbit_finite_mem_finite_ext",
+          "label": "A field of maximal degree contains every coordinate",
+          "lines": [
+            39,
+            53
+          ],
+          "declaration_lines": {
+            "GlobalTheory.orbit_finite_mem_finite_ext": 9
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FiniteAutomorphismOrbitMemFiniteExtensionPadic.lean#L39-L53"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The field belongs to the original rational operator system. The existence of a finite-dimensional space of conjugate automorphic forms is a separate automorphic input.",
+      "review": "Each extension of an embedding distinguishes its finite generating set inside the full tuple. The example over ℚ₅ attains the bound."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Gen.toPolyX_pf",
+      "callee": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.T.exists_algebraicForm_weight_level_smooth_at_place"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.toPolyX_pf",
+      "callee": "GlobalTheory.T.eigenvector_small_sub_finite_eigen_approx_inequality",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean",
+        "line": 81,
+        "spelling": "GlobalTheory.T.eigenvector_small_sub_finite_eigen_approx_inequality"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.toPolyX_pf",
+      "callee": "GlobalTheory.T.isAutomorphicOfWeight_of_nonzero_fixed_finPart_form",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/ToPolyX.lean",
+        "line": 88,
+        "spelling": "GlobalTheory.T.isAutomorphicOfWeight_of_nonzero_fixed_finPart_form"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.eigenvector_small_sub_finite_eigen_approx_inequality",
+      "callee": "GlobalTheory.Cong.eigen_small_sub_finite_approx",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/EigenvectorSmallSubFiniteEigenApproxInequalityStatement.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.Cong.eigen_small_sub_finite_approx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.combine_pf",
+      "callee": "polyApprox_trans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean",
+        "line": 96,
+        "spelling": "polyApprox_trans"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.combine_pf",
+      "callee": "polyApprox_cut",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/Combine.lean",
+        "line": 96,
+        "spelling": "polyApprox_cut"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+      "callee": "combine_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 79,
+        "spelling": "combine_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+      "callee": "tyStep_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 97,
+        "spelling": "tyStep_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.stepSt_of_ex",
+      "callee": "toPolyX_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 102,
+        "spelling": "toPolyX_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "exists_powOp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 138,
+        "spelling": "exists_powOp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "exists_scale",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 139,
+        "spelling": "exists_scale"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "exists_testOp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 141,
+        "spelling": "exists_testOp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "denseGen_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 203,
+        "spelling": "denseGen_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "frameW_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 204,
+        "spelling": "frameW_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "combine_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 216,
+        "spelling": "combine_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congUWG_of",
+      "callee": "restrict_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/NotApartOfOverPair.lean",
+        "line": 222,
+        "spelling": "restrict_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congFinG_of_step",
+      "callee": "congUWG_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/CongFinOddOfLvLac.lean",
+        "line": 11,
+        "spelling": "congUWG_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congFinG_of_ex",
+      "callee": "stepSt_of_ex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/CongFinOddOfLvLac.lean",
+        "line": 13,
+        "spelling": "stepSt_of_ex"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.congFinOdd_of_ex",
+      "callee": "CongUWG.congUW4",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/CongFinOddOfLvLac.lean",
+        "line": 15,
+        "spelling": "CongUWG.congUW4"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.finU_holds",
+      "callee": "exists_conj_isAutFormU",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+        "line": 58,
+        "spelling": "exists_conj_isAutFormU"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.finU_holds",
+      "callee": "GlobalTheory.T.conjugates_automorphicForm_span_finiteDimensional",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+        "line": 59,
+        "spelling": "GlobalTheory.T.conjugates_automorphicForm_span_finiteDimensional"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.finU_holds",
+      "callee": "GlobalTheory.T.definiteUnitaryRationalHecke_commute_complexAutomorphism",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+        "line": 61,
+        "spelling": "GlobalTheory.T.definiteUnitaryRationalHecke_commute_complexAutomorphism"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.finU_holds",
+      "callee": "linearIndependent_simulEigen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+        "line": 73,
+        "spelling": "linearIndependent_simulEigen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Cong.finU_holds",
+      "callee": "GlobalTheory.T.finite_automorphism_orbit_mem_finite_extension_padic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LinearIndependentSimulEigen.lean",
+        "line": 80,
+        "spelling": "GlobalTheory.T.finite_automorphism_orbit_mem_finite_extension_padic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.finite_automorphism_orbit_mem_finite_extension_padic",
+      "callee": "GlobalTheory.orbit_finite_mem_finite_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/FiniteAutomorphismOrbitMemFiniteExtensionPadicStatement.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.orbit_finite_mem_finite_ext"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HPA-01",
+      "HPA-02"
+    ],
+    [
+      "HPA-02",
+      "HPA-03"
+    ]
+  ],
+  "outstanding": [
+    "The integral frame construction, density of forms with prescribed genericity, local auxiliary type, and existence of lacunary change of weight remain mathematical inputs. Where the odd-rank limiting argument needs fixed-weight crystalline closure and simultaneous local Weil moment closure, those inputs are separate."
+  ]
+}

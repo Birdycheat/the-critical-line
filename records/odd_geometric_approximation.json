@@ -1,0 +1,808 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "OGA-01",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-jumps",
+      "title": "Weighing disjoint subsets of the auxiliary jumps",
+      "hypotheses": "One inducing embedding has a dominant weight and its successive sorted jumps satisfy the multiplicative gap condition relative to the smallest jump.",
+      "statement": "The m jumps are distinct. After translation by their minimum, the subset containing the largest element in any comparison has strictly larger mean. Reflection through m−1 sends each jump to the corresponding dual jump and preserves the unequal-mean property.",
+      "equations": [
+        "lifts-geometric-gap"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The sorted jumps and their required growth at one embedding",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWPhi.lean",
+          "lines": [
+            20,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWPhi.lean#L20-L26",
+          "declaration": "GlobalTheory.CongL.GapJ",
+          "declaration_lines": {
+            "GlobalTheory.CongL.GapJ": 20
+          }
+        },
+        {
+          "label": "The comparison of the means of disjoint nonempty sets",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DivisionOfDeterminantCharacter.lean",
+          "lines": [
+            15,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DivisionOfDeterminantCharacter.lean#L15-L20",
+          "declaration": "GlobalTheory.RoadWGeo.Lacunary",
+          "declaration_lines": {
+            "GlobalTheory.RoadWGeo.Lacunary": 15
+          }
+        },
+        {
+          "label": "Index minus highest-weight coordinate gives distinct integral jumps",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DivisionOfDeterminantCharacter.lean",
+          "lines": [
+            58,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DivisionOfDeterminantCharacter.lean#L58-L77",
+          "declaration": "GlobalTheory.RoadWGeo.wtJumps",
+          "declaration_lines": {
+            "GlobalTheory.RoadWGeo.wtJumps": 58
+          }
+        },
+        {
+          "label": "Subtracting the minimum and comparing the subset containing the maximum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PGapLac.lean",
+          "lines": [
+            21,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PGapLac.lean#L21-L84",
+          "declaration": "UpperTheory.Gal.Int.Div.gapLac_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.gapLac_of": 52
+          }
+        },
+        {
+          "label": "Dual weights reflect the jump set and preserve unequal means",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PLacConj.lean",
+          "lines": [
+            15,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PLacConj.lean#L15-L62",
+          "declaration": "UpperTheory.Gal.Int.Div.lacConj_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.lacConj_of": 52
+          }
+        },
+        {
+          "label": "Where separated jumps are used to supply the geometric theorem",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/SeedFinOddOf.lean",
+          "lines": [
+            44,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/SeedFinOddOf.lean#L44-L61",
+          "declaration": "UpperTheory.Gal.Int.Div.seedFinOdd_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.seedFinOdd_of": 44
+          }
+        }
+      ],
+      "correspondence": "Sorted jumps, distinctness from dominance, disjoint means, and reflection at the conjugate place are separately identified.",
+      "status": "mathematical proof reconstructed",
+      "review": "The rank-three gap, its reflection, and the equal-mean failure of regular spacing can be checked by enumerating disjoint subsets."
+    },
+    {
+      "id": "OGA-02",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-cohomology",
+      "title": "A Hecke eigenspace in geometric cohomology yields a continuous semisimple piece",
+      "hypotheses": "The geometric construction supplies a smooth projective variety, finite étale correspondences defined over the CM field, an eigensystem, an algebraic character and the indicated Frobenius and Hodge comparisons.",
+      "statement": "The simultaneous eigenspace is Galois stable. Its invariant composition flag produces a continuous semisimple representation with the original characteristic polynomials. A character twist restores the normalized Satake annihilator and the desired occurrences among the jumps. Its dimension may exceed the target rank.",
+      "equations": [
+        "lifts-geometric-piece"
+      ],
+      "dependencies": [
+        "OGA-01"
+      ],
+      "sources": [
+        {
+          "label": "The tower, correspondence eigenvalues, character, and shifted local conditions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean",
+          "lines": [
+            54,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean#L54-L75",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pack",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pack": 58
+          }
+        },
+        {
+          "label": "The precise holomorphic trace formula for a finite étale correspondence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HodgeTraceFromLefschetzAndGroupSide.lean",
+          "lines": [
+            102,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HodgeTraceFromLefschetzAndGroupSide.lean#L102-L111",
+          "declaration": "UpperTheory.Gal.LocalSmoothExtension.HolomorphicLefschetzFormula",
+          "declaration_lines": {
+            "UpperTheory.Gal.LocalSmoothExtension.HolomorphicLefschetzFormula": 102
+          }
+        },
+        {
+          "label": "Galois commutation preserves each Hecke eigenspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PPieceStab.lean",
+          "lines": [
+            10,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PPieceStab.lean#L10-L24",
+          "declaration": "UpperTheory.Gal.Int.Geo.pieceStab_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.pieceStab_of": 10
+          }
+        },
+        {
+          "label": "Choosing minimal larger invariant spaces until the flag exhausts the module",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PFlagEx.lean",
+          "lines": [
+            21,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PFlagEx.lean#L21-L69",
+          "declaration": "UpperTheory.Gal.Int.Geo.flagEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.flagEx_of": 39
+          }
+        },
+        {
+          "label": "Diagonal blocks multiply and give invertible group actions on the quotients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGrHom.lean",
+          "lines": [
+            25,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGrHom.lean#L25-L65",
+          "declaration": "UpperTheory.Gal.Int.Geo.grHom_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.grHom_of": 10
+          }
+        },
+        {
+          "label": "Continuous matrix entries on the eigenspace and its associated graded representation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepAsm.lean",
+          "lines": [
+            15,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepAsm.lean#L15-L59",
+          "declaration": "UpperTheory.Gal.Int.Geo.repEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.repEx_of": 13
+          }
+        },
+        {
+          "label": "Twisting the semisimple piece restores both the Satake roots and the filtration indices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/MapInvMul.lean",
+          "lines": [
+            43,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/MapInvMul.lean#L43-L87",
+          "declaration": "UpperTheory.Gal.Int.Geo.Pack.rep",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Pack.rep": 43
+          }
+        },
+        {
+          "label": "Which local tests may use different geometric realizations",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean",
+          "lines": [
+            92,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean#L92-L101",
+          "declaration": "UpperTheory.Gal.Int.Geo.PackEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.PackEx": 92
+          }
+        },
+        {
+          "label": "The geometric existence input and its holomorphic Lefschetz hypothesis",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeometricRealizationOfWeightOne.lean",
+          "lines": [
+            17,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeometricRealizationOfWeightOne.lean#L17-L25",
+          "declaration": "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one": 25
+          }
+        }
+      ],
+      "correspondence": "The semisimplification on a simultaneous eigenspace and the inverse scalar and jump shifts are tracked separately. The existence of geometric realizations is an input.",
+      "status": "mathematical proof reconstructed",
+      "review": "The unipotent plane in a space of dimension three, the three scalar root shifts and the three filtration shifts can all be checked directly."
+    },
+    {
+      "id": "OGA-03",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-rank",
+      "title": "The extracted rank is independent of which geometric realization supplies the local test",
+      "hypotheses": "The rank-extraction theorem for a continuous semisimple representation with m lacunary jumps is available, as are a determinant character and the off-ℓ geometric annihilation identities.",
+      "statement": "Inverse Frobenius elements in a dense set satisfy the signed constant-term condition. On the open dense simple-spectrum locus the annihilator on the extracted rank-m subrepresentation is its characteristic polynomial. All extractions for the same automorphic system are isomorphic by density and Brauer–Nesbitt, and this determinant agrees with the prescribed character globally.",
+      "equations": [
+        "lifts-geometric-inclusions"
+      ],
+      "dependencies": [
+        "OGA-01",
+        "OGA-02",
+        "GGP-03"
+      ],
+      "sources": [
+        {
+          "label": "The two injective intertwiners go in opposite directions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/InsideRefl.lean",
+          "lines": [
+            25,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/InsideRefl.lean#L25-L30",
+          "declaration": "UpperTheory.Gal.Int.Div.Inside",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.Inside": 25
+          }
+        },
+        {
+          "label": "The exact rank-extraction statement, including the simple-spectrum locus",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PhiOfDivOf.lean",
+          "lines": [
+            121,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PhiOfDivOf.lean#L121-L129",
+          "declaration": "UpperTheory.Gal.Int.Div.DivSet",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.DivSet": 121
+          }
+        },
+        {
+          "label": "How the weight condition and dense annihilators enter the extraction theorem",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivSet.lean",
+          "lines": [
+            16,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivSet.lean#L16-L48",
+          "declaration": "UpperTheory.Gal.Int.Div.divSet_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.divSet_of": 16
+          }
+        },
+        {
+          "label": "Using a Satake polynomial and its constant term on dense inverse Frobenius elements",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivOne.lean",
+          "lines": [
+            35,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivOne.lean#L35-L72",
+          "declaration": "UpperTheory.Gal.Int.Div.divOne_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.divOne_of": 35
+          }
+        },
+        {
+          "label": "On the simple-spectrum locus each root of the characteristic polynomial occurs",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PSepPin.lean",
+          "lines": [
+            23,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PSepPin.lean#L23-L45",
+          "declaration": "UpperTheory.Gal.Int.Div.sepPin_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.sepPin_of": 8
+          }
+        },
+        {
+          "label": "Comparing the two finite exclusions and open dense sets",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivUniq.lean",
+          "lines": [
+            16,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivUniq.lean#L16-L32",
+          "declaration": "UpperTheory.Gal.Int.Div.divUniq_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.divUniq_of": 16
+          }
+        },
+        {
+          "label": "The determinant character agrees everywhere by continuity",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivDet.lean",
+          "lines": [
+            16,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDivDet.lean#L16-L45",
+          "declaration": "UpperTheory.Gal.Int.Div.divDet_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.divDet_of": 16
+          }
+        },
+        {
+          "label": "One fixed representation transfers to every eligible geometric piece",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PhiOfDivOf.lean",
+          "lines": [
+            166,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PhiOfDivOf.lean#L166-L178",
+          "declaration": "UpperTheory.Gal.Int.Div.divAll_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.divAll_of": 166
+          }
+        }
+      ],
+      "correspondence": "The two injective equivariant maps are distinguished; the elementary polynomial identification and independence argument are proved after an explicit statement of the extraction input.",
+      "status": "mathematical proof reconstructed",
+      "review": "A generic group element is distinguished from a Frobenius element at a previously prescribed prime. The same trace argument can compare geometric pieces of different dimensions."
+    },
+    {
+      "id": "OGA-04",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-local-tests",
+      "title": "Generic products and a reverse injection recover the local data at a specified prime",
+      "hypotheses": "The rank-m extracted representation and both inclusions are available for every eligible geometric piece. A piece realizing each prescribed local comparison exists. The multiplicative genericity polynomial does not vanish where exact Satake or Weil polynomials are required. The coefficient-prime target is spherical and outside the two auxiliary real-subfield fibres.",
+      "statement": "Away from ℓ the determinant fixes the multiplicities of the roots of the annihilator. Above ℓ the injection into the crystalline piece gives crystallinity; its injection back into copies of the target forces all m distinct jumps to occur there. The same product test fixes a degree minus one Weil polynomial and unramifiedness gives the other degrees. Orienting the auxiliary primes preserves their real-subfield fibres.",
+      "equations": [
+        "lifts-geometric-products"
+      ],
+      "dependencies": [
+        "OGA-03"
+      ],
+      "sources": [
+        {
+          "label": "The finite product detects determinant collisions for multiplicities summing to the rank",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWPhi.lean",
+          "lines": [
+            14,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWPhi.lean#L14-L18",
+          "declaration": "GlobalTheory.CongL.DGen",
+          "declaration_lines": {
+            "GlobalTheory.CongL.DGen": 14
+          }
+        },
+        {
+          "label": "The multiplicity test follows from the nonvanishing polynomial",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDGenMul.lean",
+          "lines": [
+            26,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PDGenMul.lean#L26-L51",
+          "declaration": "UpperTheory.Gal.Int.Div.dGenMul_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.dGenMul_of": 16
+          }
+        },
+        {
+          "label": "An annihilator and determinant determine the characteristic polynomial at a generic place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PCharAnn.lean",
+          "lines": [
+            23,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PCharAnn.lean#L23-L65",
+          "declaration": "UpperTheory.Gal.crystallineComparison.charAnn_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.charAnn_of": 7
+          }
+        },
+        {
+          "label": "An injective intertwiner carries inertia and polynomial annihilation to the subrepresentation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PInFacts.lean",
+          "lines": [
+            46,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PInFacts.lean#L46-L57",
+          "declaration": "UpperTheory.Gal.Int.Div.inFacts_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.inFacts_of": 46
+          }
+        },
+        {
+          "label": "Embedding back into copies of the target recovers all prescribed jumps exactly",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PJumpSeed.lean",
+          "lines": [
+            16,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PJumpSeed.lean#L16-L46",
+          "declaration": "UpperTheory.Gal.Int.Div.jumpSeed_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.jumpSeed_of": 16
+          }
+        },
+        {
+          "label": "A degree minus one Weil polynomial and its determinant give all the local polynomials",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PPhiSeed.lean",
+          "lines": [
+            23,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PPhiSeed.lean#L23-L61",
+          "declaration": "UpperTheory.Gal.Int.Div.phiSeed_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.phiSeed_of": 20
+          }
+        },
+        {
+          "label": "Reorienting auxiliary places and transferring fixed-place tests",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/SeedFinOddOf.lean",
+          "lines": [
+            53,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/SeedFinOddOf.lean#L53-L78",
+          "declaration": "UpperTheory.Gal.Int.Div.seedFinOdd_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.seedFinOdd_of": 44
+          }
+        },
+        {
+          "label": "Conjugate choices of primes have the two possible restrictions to the quadratic subfield",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PSameOr.lean",
+          "lines": [
+            97,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PSameOr.lean#L97-L129",
+          "declaration": "UpperTheory.Gal.Int.Div.sameOr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.sameOr_of": 107
+          }
+        },
+        {
+          "label": "Transport of sphericity, the cuspidal type, and lacunarity under conjugation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/StConj.lean",
+          "lines": [
+            37,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/StConj.lean#L37-L55",
+          "declaration": "UpperTheory.Gal.Int.Div.SatConj",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.SatConj": 45
+          }
+        },
+        {
+          "label": "The geometric theorem and local conditions give each approximating representation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean#L13-L15",
+          "declaration": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne": 13
+          }
+        },
+        {
+          "label": "The geometric approximants and the eigenvalue congruence enter as separate inputs",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean",
+          "lines": [
+            20,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean#L20-L28",
+          "declaration": "UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift": 27
+          }
+        }
+      ],
+      "correspondence": "Annihilation, determinant and rank separately constrain the eigenvalues. The second inclusion takes jump supports in the necessary direction. The local polynomial comparison uses the geometric, determinant and crystalline compatibilities.",
+      "status": "mathematical proof reconstructed",
+      "review": "The generic product (2,3,5) and collision (1,2,4) can be tested over every multiplicity vector of total size three. The two injections have opposite directions."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift",
+      "callee": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean",
+        "line": 28,
+        "spelling": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callee": "UpperTheory.Gal.Int.Div.seedFinOdd_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+        "line": 14,
+        "spelling": "seedFinOdd_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callee": "UpperTheory.Gal.Int.Div.divAll_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+        "line": 14,
+        "spelling": "divAll_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callee": "UpperTheory.Gal.Int.Div.lacConj_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+        "line": 14,
+        "spelling": "lacConj_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callee": "UpperTheory.Gal.Int.Div.gapLac_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+        "line": 15,
+        "spelling": "gapLac_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne",
+      "callee": "UpperTheory.Gal.Int.Div.dGenMul_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/MainFin.lean",
+        "line": 15,
+        "spelling": "dGenMul_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.divSet_holds",
+      "callee": "UpperTheory.Gal.Int.Div.divSet_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 52,
+        "spelling": "divSet_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.divOne_holds",
+      "callee": "UpperTheory.Gal.Int.Div.divOne_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 53,
+        "spelling": "divOne_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.divAll_holds",
+      "callee": "UpperTheory.Gal.Int.Div.divAll_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 55,
+        "spelling": "divAll_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.divAll_holds",
+      "callee": "UpperTheory.Gal.Int.Div.divUniq_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 55,
+        "spelling": "divUniq_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.divAll_holds",
+      "callee": "UpperTheory.Gal.Int.Div.jumpSeed_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 56,
+        "spelling": "jumpSeed_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.phiSeed_holds",
+      "callee": "UpperTheory.Gal.Int.Div.rootPin_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/DivisionOneGeometricRepresentation.lean",
+        "line": 47,
+        "spelling": "rootPin_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Div.genPin_of",
+      "callee": "UpperTheory.Gal.crystallineComparison.charAnn_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/ZetaCharacterDivisibility/PGenPin.lean",
+        "line": 47,
+        "spelling": "UpperTheory.Gal.crystallineComparison.charAnn_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one",
+      "callee": "UpperTheory.Gal.Int.Geo.geoOne_of_parts",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeometricRealizationOfWeightOne.lean",
+        "line": 25,
+        "spelling": "geoOne_of_parts"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one",
+      "callee": "UpperTheory.Gal.Int.Geo.kodaira_spencer_of_weight_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeometricRealizationOfWeightOne.lean",
+        "line": 25,
+        "spelling": "kodaira_spencer_of_weight_one"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoOne_of_parts",
+      "callee": "UpperTheory.Gal.Int.Geo.geoOne_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeoOneOfParts.lean",
+        "line": 7,
+        "spelling": "geoOne_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoOne_of",
+      "callee": "UpperTheory.Gal.Int.Geo.Pack.rep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/MapInvMul.lean",
+        "line": 93,
+        "spelling": "P.rep"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pack.rep",
+      "callee": "UpperTheory.Gal.Int.Geo.map_inv_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/MapInvMul.lean",
+        "line": 58,
+        "spelling": "map_inv_mul"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.repEx_core",
+      "callee": "UpperTheory.Gal.Int.Geo.repEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 75,
+        "spelling": "repEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.repEx_core",
+      "callee": "UpperTheory.Gal.Int.Geo.pieceStab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 75,
+        "spelling": "pieceStab"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.repEx_core",
+      "callee": "UpperTheory.Gal.Int.Geo.grEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 75,
+        "spelling": "grEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.pieceStab",
+      "callee": "UpperTheory.Gal.Int.Geo.pieceStab_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 63,
+        "spelling": "pieceStab_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.grEx",
+      "callee": "UpperTheory.Gal.Int.Geo.flagEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 59,
+        "spelling": "flagEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.grEx",
+      "callee": "UpperTheory.Gal.Int.Geo.grHom_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 59,
+        "spelling": "grHom_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.grEx",
+      "callee": "UpperTheory.Gal.Int.Geo.flagBasis_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 59,
+        "spelling": "flagBasis_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.grEx",
+      "callee": "UpperTheory.Gal.Int.Geo.sSOfSum_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 59,
+        "spelling": "sSOfSum_of"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "OGA-01",
+      "OGA-02"
+    ],
+    [
+      "OGA-01",
+      "OGA-03"
+    ],
+    [
+      "OGA-02",
+      "OGA-03"
+    ],
+    [
+      "GGP-03",
+      "OGA-03"
+    ],
+    [
+      "OGA-03",
+      "OGA-04"
+    ],
+    [
+      "OGA-04",
+      "OCI-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "J. S. Milne, Lectures on Étale Cohomology, Theorems 15.1 and 19.2 (finiteness and the cohomological dimension bound)",
+      "url": "https://www.jmilne.org/math/CourseNotes/LEC.pdf"
+    },
+    {
+      "title": "O. Brinon and B. Conrad, CMI Summer School Notes on p-adic Hodge Theory, Example 1.2.3, Theorem 5.2.1 and §6.3 (continuity in cohomology, admissibility, and the de Rham filtration)",
+      "url": "https://math.stanford.edu/~conrad/papers/notes.pdf"
+    },
+    {
+      "title": "M. F. Atiyah and R. Bott, A Lefschetz fixed point formula for elliptic complexes II, Annals of Mathematics 88 (1968), 451–491 (holomorphic fixed-point formula for a map)",
+      "url": "https://annals.math.princeton.edu/1968/88-3/p04"
+    }
+  ],
+  "outstanding": [
+    "The construction of geometric realizations for the prescribed eigenvalues, including the holomorphic Lefschetz input, the choice of auxiliary level, and the local Frobenius, crystalline and Hodge comparisons on these realizations, remains upstream.",
+    "The extraction theorem from lacunary Hodge–Tate weights and dense degree-m annihilators is stated here. Its proof from the Sen operator and the structure of the image group remains to be reconstructed, as does construction of the determinant character from automorphic central data.",
+    "HPA-01 through HPA-04 derive simultaneous polynomial approximation and coefficient-field finiteness from the stated automorphic, rationality and integral-frame inputs. Fixed-weight crystalline closure and local Weil moment closure enter the subsequent limit independently."
+  ]
+}

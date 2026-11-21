@@ -102,7 +102,16 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "frobenius-good-places") {
+        if (id === "polynomial-cut") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["5", "10", "1/5"]);
+          assert.deepEqual(await fig.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "0"]);
+        } else if (id === "satake-multiplicities") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["(0,3,0) or (1,1,1)", "No"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["7", "6"]);
+        } else if (id === "column-degree-defect") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "1", "1"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["0", "1", "−1"]);
+        } else if (id === "frobenius-good-places") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["Yes", "Yes", "61", "5", "3"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "Witness"]);
         } else if (id === "casimir-cutoff") {
