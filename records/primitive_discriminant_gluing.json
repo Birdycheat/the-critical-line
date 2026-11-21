@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GPD-01",
+      "chapter": "global",
+      "anchor": "global-primitive-projection-glue",
+      "title": "The two projected residue modules are the same gluing quotient",
+      "hypotheses": "A full integral Hermitian lattice L in a totally definite space V with rational orthogonal decomposition U ⊕ W.",
+      "statement": "For the two intersection lattices P,Q, projection identifies L/(P⊕Q) with both pL/P and qL/Q. Their duals are p(L∨) and q(L∨).",
+      "equations": [
+        "global-primitive-common-glue"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Projection of a full lattice and the dual of its primitive intersection",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            42,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L42-L71",
+          "declaration": "GlobalTheory.Mass.PrimDisc.dual_latIn",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.dual_latIn": 49
+          }
+        },
+        {
+          "label": "The equal indices of the two projected residue modules",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            74,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L74-L87",
+          "declaration": "GlobalTheory.Mass.PrimDisc.idx_swap",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.idx_swap": 74
+          }
+        },
+        {
+          "label": "Complementary projections in the totally definite space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            150,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L150-L169",
+          "declaration": "GlobalTheory.Mass.PrimDisc.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.main": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "GPD-02",
+      "chapter": "global",
+      "anchor": "global-primitive-perpendicular-order",
+      "title": "A perpendicular intersection has discriminant order at most nN₀",
+      "hypotheses": "The first intersection has discriminant order n and the ambient lattice has discriminant order N₀.",
+      "statement": "The shared gluing index divides n and Q∨/qL is an image of L∨/L. Their orders multiply to the order a of Q∨/Q, giving a≤nN₀. Equality occurs for a plane with Gram matrix diag(1,2).",
+      "equations": [
+        "global-primitive-perpendicular-product"
+      ],
+      "dependencies": [
+        "GPD-01"
+      ],
+      "sources": [
+        {
+          "label": "A projected quotient is an image and indices multiply along a chain",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            90,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L90-L99",
+          "declaration": "GlobalTheory.Mass.PrimDisc.idx_map_dvd",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.idx_map_dvd": 90
+          }
+        },
+        {
+          "label": "The shared index divides the first discriminant and the remaining quotient divides the ambient order",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            166,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L166-L182",
+          "declaration": "GlobalTheory.Mass.PrimDisc.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.main": 150
+          }
+        },
+        {
+          "label": "The perpendicular intersection falls in the stated order range",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+          "lines": [
+            153,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean#L153-L160",
+          "declaration": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le",
+          "declaration_lines": {
+            "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "GPD-03",
+      "chapter": "global",
+      "anchor": "global-primitive-gluing-generators",
+      "title": "The perpendicular rank bounds both lists of gluing generators",
+      "hypotheses": "In the same setup W has rank s. The row has a cyclic ambient discriminant module.",
+      "statement": "The two discriminant modules P∨/P and Q∨/Q have generating lists of lengths at most s+1 and s. Hence at most (na)^(2s+1) lattices realize the two fixed intersections.",
+      "equations": [
+        "global-primitive-gluing-tuple-count"
+      ],
+      "dependencies": [
+        "GPD-01",
+        "GPD-02"
+      ],
+      "sources": [
+        {
+          "label": "Transport of generators between the two projection quotients",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            107,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L107-L122",
+          "declaration": "GlobalTheory.Mass.PrimDisc.gens_swap",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.gens_swap": 107
+          }
+        },
+        {
+          "label": "Projection of the ambient dual generators and the perpendicular rank",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+          "lines": [
+            183,
+            190
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean#L183-L190",
+          "declaration": "GlobalTheory.Mass.PrimDisc.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimDisc.main": 150
+          }
+        },
+        {
+          "label": "Generators of a finite lattice quotient and the bound on intermediates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeQuotientGensAndIntermediateCount.lean",
+          "lines": [
+            174,
+            192
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeQuotientGensAndIntermediateCount.lean#L174-L192",
+          "declaration": "GlobalTheory.Mass.LatticeGens.gens_and_count",
+          "declaration_lines": {
+            "GlobalTheory.Mass.LatticeGens.gens_and_count": 174
+          }
+        },
+        {
+          "label": "The absolute rank bound on the perpendicular dual quotient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+          "lines": [
+            88,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean#L88-L96",
+          "declaration": "GlobalTheory.Mass.FixedSub.gens_rank",
+          "declaration_lines": {
+            "GlobalTheory.Mass.FixedSub.gens_rank": 88
+          }
+        },
+        {
+          "label": "Generator counts for a glued lattice between two fixed pairs of intersections",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardHermitianLatticesGluedSubspaceComplement.lean",
+          "lines": [
+            229,
+            253
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardHermitianLatticesGluedSubspaceComplement.lean#L229-L253",
+          "declaration": "GlobalTheory.Mass.Glue.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.Glue.main": 210
+          }
+        },
+        {
+          "label": "Embedding all compatible lattices in the set of intermediates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardHermitianLatticesGluedSubspaceComplement.lean",
+          "lines": [
+            260,
+            276
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardHermitianLatticesGluedSubspaceComplement.lean#L260-L276",
+          "declaration": "GlobalTheory.Mass.Glue.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.Glue.main": 210
+          }
+        },
+        {
+          "label": "The two generator budgets and the exponent for the fixed-subspace count",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+          "lines": [
+            184,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean#L184-L206",
+          "declaration": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le",
+          "declaration_lines": {
+            "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le": 100
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "dualLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 55,
+        "spelling": "dualLattice"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.dual_latIn"
+    },
+    {
+      "callee": "lat_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 57,
+        "spelling": "lat_map"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.dual_latIn"
+    },
+    {
+      "callee": "GlobalTheory.T.witt_extension_totally_definite_hermitian",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 152,
+        "spelling": "GlobalTheory.T.witt_extension_totally_definite_hermitian"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "dual_latIn",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 166,
+        "spelling": "dual_latIn"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "idx_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 173,
+        "spelling": "idx_mul"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "idx_swap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 175,
+        "spelling": "idx_swap"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "idx_map_dvd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 182,
+        "spelling": "idx_map_dvd"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "GlobalTheory.T.lattice_quotient_gens_and_intermediate_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 183,
+        "spelling": "GlobalTheory.T.lattice_quotient_gens_and_intermediate_count"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "gens_swap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PrimitiveHermitianSublatticeDiscriminantGenerato.lean",
+        "line": 185,
+        "spelling": "gens_swap"
+      },
+      "caller": "GlobalTheory.Mass.PrimDisc.main"
+    },
+    {
+      "callee": "GlobalTheory.T.lattice_quotient_gens_and_intermediate_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+        "line": 95,
+        "spelling": "GlobalTheory.T.lattice_quotient_gens_and_intermediate_count"
+      },
+      "caller": "GlobalTheory.Mass.FixedSub.gens_rank"
+    },
+    {
+      "callee": "GlobalTheory.T.primitive_hermitian_sublattice_discriminant_generators",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+        "line": 155,
+        "spelling": "GlobalTheory.T.primitive_hermitian_sublattice_discriminant_generators"
+      },
+      "caller": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le"
+    },
+    {
+      "callee": "GlobalTheory.T.primitive_hermitian_sublattice_discriminant_generators",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+        "line": 192,
+        "spelling": "GlobalTheory.T.primitive_hermitian_sublattice_discriminant_generators"
+      },
+      "caller": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le"
+    },
+    {
+      "callee": "gens_rank",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+        "line": 194,
+        "spelling": "gens_rank"
+      },
+      "caller": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le"
+    },
+    {
+      "callee": "GlobalTheory.T.card_hermitianLattices_glued_subspace_complement",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbitStabilizerMassSubspaceCyclicDiscriminantLe.lean",
+        "line": 195,
+        "spelling": "GlobalTheory.T.card_hermitianLattices_glued_subspace_complement"
+      },
+      "caller": "GlobalTheory.Mass.FixedSub.orbMass_stabilizer_le"
+    },
+    {
+      "callee": "exists_scaled_span",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeQuotientGensAndIntermediateCount.lean",
+        "line": 178,
+        "spelling": "exists_scaled_span"
+      },
+      "caller": "GlobalTheory.Mass.LatticeGens.gens_and_count"
+    },
+    {
+      "callee": "exists_gens_of_between",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeQuotientGensAndIntermediateCount.lean",
+        "line": 179,
+        "spelling": "exists_gens_of_between"
+      },
+      "caller": "GlobalTheory.Mass.LatticeGens.gens_and_count"
+    },
+    {
+      "callee": "encard_between_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LatticeQuotientGensAndIntermediateCount.lean",
+        "line": 192,
+        "spelling": "encard_between_le"
+      },
+      "caller": "GlobalTheory.Mass.LatticeGens.gens_and_count"
+    },
+    {
+      "callee": "_root_.GlobalTheory.Mass.LatticeGens.gens_and_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardHermitianLatticesGluedSubspaceComplement.lean",
+        "line": 253,
+        "spelling": "_root_.GlobalTheory.Mass.LatticeGens.gens_and_count"
+      },
+      "caller": "GlobalTheory.Mass.Glue.main"
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GPD-01",
+      "GPD-02"
+    ],
+    [
+      "GPD-01",
+      "GPD-03"
+    ],
+    [
+      "GPD-02",
+      "GPD-03"
+    ],
+    [
+      "GPD-02",
+      "HCM-01"
+    ],
+    [
+      "GPD-03",
+      "HCM-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "The Stacks Project, finite torsion-free modules over a Dedekind domain, Lemma 15.22.11",
+      "url": "https://stacks.math.columbia.edu/tag/0AUW"
+    },
+    {
+      "title": "The Stacks Project, finite projective modules, Lemma 10.78.2",
+      "url": "https://stacks.math.columbia.edu/tag/00NX"
+    },
+    {
+      "title": "The Stacks Project, Chinese remainder theorem, Lemma 10.15.4",
+      "url": "https://stacks.math.columbia.edu/tag/00DT"
+    }
+  ],
+  "outstanding": []
+}

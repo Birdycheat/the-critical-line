@@ -141,6 +141,46 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Recover both projections by inner products and enumerate the residue pairs modulo T+1.
+for (const weight of [1, 2, 5]) {
+  const u = [1, 1], w = [-weight, 1];
+  const pair = (x, y) => x[0] * y[0] + weight * x[1] * y[1];
+  assert.equal(pair(u, w), 0);
+  const residuePairs = new Set();
+  for (let first = 0; first <= weight; first++) for (let second = 0; second <= weight; second++) {
+    const x = [first, second], m = weight + 1;
+    residuePairs.add([pair(x, u) % m, ((pair(x, w) / weight) % m + m) % m].join(","));
+  }
+  assert.equal(residuePairs.size, weight + 1);
+  for (let first = -2; first <= 2; first++) for (let second = -2; second <= 2; second++) {
+    const x = [first, second];
+    const display = lib.render("gluing-residues", {weight, first, second});
+    const fractions = [...display.matchAll(/<td>(.*?)<\/td>/g)].map(m => {
+      const [a, b = 1] = m[1].replace("−", "-").split("/").map(Number);
+      return a / b;
+    });
+    const [a, ar, b, br] = fractions;
+    close(a, pair(x, u) / pair(u, u), 1e-12);
+    close(b, pair(x, w) / pair(w, w), 1e-12);
+    close(ar, a - Math.floor(a), 1e-12);
+    close(br, b - Math.floor(b), 1e-12);
+    close(ar + br, Math.round(ar + br), 1e-12);
+    close(a - weight * b, first, 1e-12);
+    close(a + b, second, 1e-12);
+  }
+}
+// Enumerate integer points on each rational ray to recover its first generator.
+for (const [line, [x, y, q]] of Object.entries({axis: [1, 0, 1], thirds: [3, 4, 5], fifths: [5, 12, 13], eighths: [8, 15, 17]})) {
+  let primitive;
+  for (let i = 1; i <= q && !primitive; i++) {
+    for (let j = 0; j <= q; j++) if (i * y === j * x) { primitive = [i, j]; break; }
+  }
+  assert.equal(x * x + y * y, q * q);
+  const display = lib.render("rational-line-orbit", {line});
+  assert.deepEqual([...display.matchAll(/<dd>(.*?)<\/dd>/g)].map(match => match[1]), [
+    "(" + primitive.join(", ") + ")", String(primitive[0] ** 2 + primitive[1] ** 2), q === 1 ? "1" : q + "<sup>D</sup>",
+  ]);
+}
 // Multiply the side lengths of the real rectangular image, place by place.
 for (const degree of [1, 2]) for (const rank of [1, 2, 3]) for (const stretch of [-1, 0, 1]) {
   const scale = 2 ** stretch;
@@ -1407,5 +1447,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

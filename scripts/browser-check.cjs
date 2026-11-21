@@ -102,7 +102,12 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "parabolic-shell") {
+        if (id === "gluing-residues") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1/3", "1/3", "−1/3", "2/3"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "0"]);
+        } else if (id === "rational-line-orbit") {
+          assert.deepEqual(await fig.locator(".metrics dd").allTextContents(), ["(3, 4)", "25", "5D"]);
+        } else if (id === "parabolic-shell") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1", "1/16", "1/16", "16", "1/16", "1"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4", "4"]);
         } else if (id === "cartan-power") {

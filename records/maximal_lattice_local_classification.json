@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "MHC-01",
+      "chapter": "global",
+      "anchor": "global-maximal-local-defect",
+      "title": "The ambient determinant detects the single possible residue defect",
+      "hypotheses": "A finite-dimensional nondegenerate Hermitian space over a CM field unramified at finite places over its real subfield and a maximal integral full lattice.",
+      "statement": "At a split place a maximal lattice is self-dual. At an inert place its defect is zero or has length one and order q². The latter occurs exactly when the local Gram determinant has odd valuation.",
+      "equations": [
+        "global-maximal-defect-line"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The discriminant module at a bad prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeLocalStructureDiscriminan.lean",
+          "lines": [
+            511,
+            518
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeLocalStructureDiscriminan.lean#L511-L518",
+          "declaration": "GlobalTheory.MaxLatStruct.main",
+          "declaration_lines": {
+            "GlobalTheory.MaxLatStruct.main": 511
+          }
+        },
+        {
+          "label": "A single residue generator and the vector giving its norm",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeLocalStructureDiscriminan.lean",
+          "lines": [
+            529,
+            550
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeLocalStructureDiscriminan.lean#L529-L550",
+          "declaration": "GlobalTheory.MaxLatStruct.main",
+          "declaration_lines": {
+            "GlobalTheory.MaxLatStruct.main": 511
+          }
+        },
+        {
+          "label": "An orthogonal localized basis and its coordinates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsMaxVector.lean",
+          "lines": [
+            289,
+            328
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsMaxVector.lean#L289-L328",
+          "declaration": "GlobalTheory.MassOrth.main",
+          "declaration_lines": {
+            "GlobalTheory.MassOrth.main": 289
+          }
+        },
+        {
+          "label": "Detecting the bad place from a rational Gram determinant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeBadPrimesIffGramDet.lean",
+          "lines": [
+            99,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeBadPrimesIffGramDet.lean#L99-L117",
+          "declaration": "GlobalTheory.MaxLatDet.main",
+          "declaration_lines": {
+            "GlobalTheory.MaxLatDet.main": 99
+          }
+        },
+        {
+          "label": "The same places for two maximal lattices in the fixed space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            386,
+            399
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L386-L399",
+          "declaration": "GlobalTheory.Mass.MaxGenus.sameGenus",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.sameGenus": 386
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHC-02",
+      "chapter": "global",
+      "anchor": "global-maximal-unimodular-extension",
+      "title": "A marked unimodular extension absorbs the defect",
+      "hypotheses": "An inert bad place for a maximal lattice and a common fixed-field uniformizer π. A local orthogonal basis has exactly one entry a of valuation one.",
+      "statement": "L=M+R(cx+e)/π is self-dual for h⊥⟨π⟩ when c has norm congruent to −π/a. It contains e with a pairing witness of value one and intersects the original space in M.",
+      "equations": [
+        "global-maximal-gluing-vector"
+      ],
+      "dependencies": [
+        "MHC-01"
+      ],
+      "sources": [
+        {
+          "label": "Surjectivity of the residue norm with a nontrivial involution",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            114,
+            127
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L114-L127",
+          "declaration": "GlobalTheory.Mass.MaxGenus.norm_onto",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.norm_onto": 114
+          }
+        },
+        {
+          "label": "Choose a local norm congruence for the fixed auxiliary uniformizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            250,
+            275
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L250-L275",
+          "declaration": "GlobalTheory.Mass.MaxGenus.exists_ext",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.exists_ext": 250
+          }
+        },
+        {
+          "label": "The cross pairings and norm of the added vector are integral",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            276,
+            309
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L276-L309",
+          "declaration": "GlobalTheory.Mass.MaxGenus.exists_ext",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.exists_ext": 250
+          }
+        },
+        {
+          "label": "Coordinate verification of self-duality of the enlarged lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            50,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L50-L95",
+          "declaration": "GlobalTheory.Mass.MaxGenus.abs_unimod",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.abs_unimod": 50
+          }
+        },
+        {
+          "label": "The generator and the coordinate membership test",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            310,
+            332
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L310-L332",
+          "declaration": "GlobalTheory.Mass.MaxGenus.exists_ext",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.exists_ext": 250
+          }
+        },
+        {
+          "label": "Recovering the old lattice and a vector pairing to one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            359,
+            369
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L359-L369",
+          "declaration": "GlobalTheory.Mass.MaxGenus.exists_ext",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.exists_ext": 250
+          }
+        }
+      ]
+    },
+    {
+      "id": "MHC-03",
+      "chapter": "global",
+      "anchor": "global-maximal-primitive-line",
+      "title": "Fixing the primitive auxiliary vector identifies the original lattices",
+      "hypotheses": "Two maximal integral lattices in the same nondegenerate space over the stipulated unramified CM field, at any one finite place. In the inert correction the auxiliary vector has nonunit norm π and admits a pairing witness one.",
+      "statement": "Correcting the comparison of the two unimodular extensions by an integral isometry of the target fixes the auxiliary vector. Restriction identifies the localized maximal lattices, proving they lie in one genus.",
+      "equations": [
+        "global-maximal-integral-symmetry"
+      ],
+      "dependencies": [
+        "MHC-01",
+        "MHC-02",
+        "AFF-03"
+      ],
+      "sources": [
+        {
+          "label": "From the completed unimodular comparison to a rational isometry at the place",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean",
+          "lines": [
+            186,
+            227
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometryOfUnimodularLatticesAtPlace.lean#L186-L227",
+          "declaration": "GlobalTheory.Mass.UnimodLoc.exists_isom",
+          "declaration_lines": {
+            "GlobalTheory.Mass.UnimodLoc.exists_isom": 186
+          }
+        },
+        {
+          "label": "The integral rank-one isometry and its inverse",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+          "lines": [
+            28,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean#L28-L60",
+          "declaration": "GlobalTheory.Mass.LocWitt.refl",
+          "declaration_lines": {
+            "GlobalTheory.Mass.LocWitt.refl": 28
+          }
+        },
+        {
+          "label": "A unit difference sends one prescribed vector to the other",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+          "lines": [
+            88,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean#L88-L100",
+          "declaration": "GlobalTheory.Mass.LocWitt.abs_main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.LocWitt.abs_main": 62
+          }
+        },
+        {
+          "label": "The correction using a unit of prescribed trace in the nonunit-norm case",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+          "lines": [
+            102,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean#L102-L135",
+          "declaration": "GlobalTheory.Mass.LocWitt.abs_main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.LocWitt.abs_main": 62
+          }
+        },
+        {
+          "label": "The local isometry theorem with its two primitive pairing witnesses",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+          "lines": [
+            182,
+            217
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean#L182-L217",
+          "declaration": "GlobalTheory.Mass.LocWitt.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.LocWitt.main": 182
+          }
+        },
+        {
+          "label": "Restricting an isometry fixing the auxiliary vector",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            97,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L97-L112",
+          "declaration": "GlobalTheory.Mass.MaxGenus.restrict",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.restrict": 97
+          }
+        },
+        {
+          "label": "Compare, correct and intersect at one inert place",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            399,
+            415
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L399-L415",
+          "declaration": "GlobalTheory.Mass.MaxGenus.sameGenus",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.sameGenus": 386
+          }
+        },
+        {
+          "label": "From maximality to membership in the common genus",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+          "lines": [
+            418,
+            427
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean#L418-L427",
+          "declaration": "GlobalTheory.Mass.MaxGenus.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.MaxGenus.main": 418
+          }
+        },
+        {
+          "label": "Supplying a mark in that genus to the discriminant-order mass",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassIntegralLatticesDiscriminantOrderLe.lean",
+          "lines": [
+            121,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassIntegralLatticesDiscriminantOrderLe.lean#L121-L129",
+          "declaration": "GlobalTheory.Mass.SpaceMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.SpaceMass.main": 79
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.T.maximalHermitianLattice_badPrimes_iff_gramDet",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 391,
+        "spelling": "GlobalTheory.T.maximalHermitianLattice_badPrimes_iff_gramDet"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.T.maximalHermitianLattice_badPrimes_iff_gramDet",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 392,
+        "spelling": "GlobalTheory.T.maximalHermitianLattice_badPrimes_iff_gramDet"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.T.exists_isometry_of_unimodular_lattices_at_place",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 395,
+        "spelling": "GlobalTheory.T.exists_isometry_of_unimodular_lattices_at_place"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.T.maximalHermitianLattice_local_structure_discriminant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 399,
+        "spelling": "GlobalTheory.T.maximalHermitianLattice_local_structure_discriminant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.Mass.MaxGenus.exists_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 403,
+        "spelling": "exists_ext"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.Mass.MaxGenus.exists_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 404,
+        "spelling": "exists_ext"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.T.exists_isometry_of_unimodular_lattices_at_place",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 407,
+        "spelling": "GlobalTheory.T.exists_isometry_of_unimodular_lattices_at_place"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.Mass.LocWitt.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 409,
+        "spelling": "LocWitt.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callee": "GlobalTheory.Mass.MaxGenus.restrict",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 412,
+        "spelling": "restrict"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.main",
+      "callee": "GlobalTheory.Mass.MaxGenus.sameGenus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 427,
+        "spelling": "sameGenus"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.exists_ext",
+      "callee": "GlobalTheory.T.maximalHermitianLattice_local_structure_discriminant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 258,
+        "spelling": "GlobalTheory.T.maximalHermitianLattice_local_structure_discriminant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.exists_ext",
+      "callee": "GlobalTheory.Mass.MaxGenus.exists_norm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 271,
+        "spelling": "exists_norm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.exists_ext",
+      "callee": "GlobalTheory.Mass.MaxGenus.abs_unimod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 302,
+        "spelling": "abs_unimod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.MaxGenus.exists_norm",
+      "callee": "GlobalTheory.Mass.MaxGenus.norm_onto",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemGenusIffMaximalIntegralHermitianLattice.lean",
+        "line": 222,
+        "spelling": "norm_onto"
+      }
+    },
+    {
+      "caller": "GlobalTheory.MaxLatDet.main",
+      "callee": "GlobalTheory.MaxLatStruct.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeBadPrimesIffGramDet.lean",
+        "line": 101,
+        "spelling": "GlobalTheory.MaxLatStruct.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.MaxLatDet.main",
+      "callee": "GlobalTheory.MassOrth.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MaximalHermitianLatticeBadPrimesIffGramDet.lean",
+        "line": 112,
+        "spelling": "GlobalTheory.MassOrth.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.LocWitt.abs_main",
+      "callee": "GlobalTheory.Mass.LocWitt.refl",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+        "line": 91,
+        "spelling": "refl"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.LocWitt.abs_main",
+      "callee": "GlobalTheory.Mass.LocWitt.refl",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+        "line": 127,
+        "spelling": "refl"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.LocWitt.main",
+      "callee": "GlobalTheory.Mass.LocWitt.abs_main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MemHcompl.lean",
+        "line": 217,
+        "spelling": "abs_main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mass.SpaceMass.main",
+      "callee": "GlobalTheory.T.mem_genus_iff_maximalIntegralHermitianLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassIntegralLatticesDiscriminantOrderLe.lean",
+        "line": 127,
+        "spelling": "GlobalTheory.T.mem_genus_iff_maximalIntegralHermitianLattice"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "MHC-01",
+      "MHC-02"
+    ],
+    [
+      "MHC-01",
+      "MHC-03"
+    ],
+    [
+      "AFF-03",
+      "MHC-03"
+    ],
+    [
+      "MHC-02",
+      "MHC-03"
+    ],
+    [
+      "MHC-03",
+      "DML-01"
+    ],
+    [
+      "MHC-01",
+      "DML-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "W. T. Gan, J. P. Hanke and J.-K. Yu, On an exact mass formula of Shimura, §3, pp. 105–107, the local maximal lattices",
+      "url": "https://web.math.princeton.edu/~jonhanke/Web-02/Mass-Formula-of-Shimura/shimura-mass.pdf#page=6"
+    },
+    {
+      "title": "The Stacks Project, lemma 9.20.7, nondegeneracy of the trace pairing for a separable finite extension",
+      "url": "https://stacks.math.columbia.edu/tag/0BIL"
+    }
+  ],
+  "outstanding": [
+    "The rational isometry theorem comparing two unimodular lattices at one place is used in its semilocal form as explained in AFF-03. The determinant argument for the enlarged lattice gives the same conclusion as the source’s localized dual test. The dyadic example is local."
+  ]
+}

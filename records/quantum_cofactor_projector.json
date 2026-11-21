@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "QCP-01",
+      "chapter": "normalization",
+      "anchor": "normalization-quantum-column-alternation",
+      "title": "Successive unit shifts make the ordered quantum minor alternating in columns",
+      "hypotheses": "An associative unital complex algebra of operators and generators Eab satisfying the gl(m) matrix-unit commutators. In the application they act on a common smooth-vector space.",
+      "statement": "For the row-alternated, column-ordered minor with parameters u,u−1,…, the sign changes under each adjacent column interchange. A repeated column makes the minor zero.",
+      "definitions": [
+        "No factor is commuted past a prefix or suffix. For the two varied positions the sum of four ordered products equals (x−y−1)L, where L is the displayed linear combination of matrix units."
+      ],
+      "dependencies": [],
+      "equations": [
+        "normalization-quantum-generator-commutator",
+        "normalization-quantum-adjacent-pair"
+      ],
+      "sources": [
+        {
+          "declaration": "GlRel",
+          "label": "Matrix-unit commutators in an associative algebra",
+          "path": "src/Formalism/RealPlaceAnalysis/StatementA.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "declaration_lines": {
+            "GlRel": 10
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/StatementA.lean#L9-L13"
+        },
+        {
+          "declaration": "qminor",
+          "label": "Ordered column shifts and row-permutation expansion",
+          "path": "src/Formalism/RealPlaceAnalysis/StatementE.lean",
+          "lines": [
+            9,
+            18
+          ],
+          "declaration_lines": {
+            "qminor": 12
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/StatementE.lean#L9-L18"
+        },
+        {
+          "declaration": "quantumMinorRowSkew_holds",
+          "label": "Reindexing the alternating row sum",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/QuantumDetHighestWeightHolds.lean",
+          "lines": [
+            27,
+            38
+          ],
+          "declaration_lines": {
+            "quantumMinorRowSkew_holds": 27
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/QuantumDetHighestWeightHolds.lean#L27-L38"
+        },
+        {
+          "declaration": "shiftedGenerator_quadratic",
+          "label": "The two-column identity with parameter difference one",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+          "lines": [
+            27,
+            69
+          ],
+          "declaration_lines": {
+            "shiftedGenerator_quadratic": 27
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean#L27-L69"
+        },
+        {
+          "declaration": "quantumMinorTerm_adjacent_swap",
+          "label": "Pairing adjacent rows inside their common prefix and suffix",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+          "lines": [
+            132,
+            157
+          ],
+          "declaration_lines": {
+            "quantumMinorTerm_adjacent_swap": 132
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean#L132-L157"
+        },
+        {
+          "declaration": "quantumMinorColSkew_holds",
+          "label": "Adjacent swaps and the sign of an arbitrary column permutation",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+          "lines": [
+            164,
+            217
+          ],
+          "declaration_lines": {
+            "quantumMinorColSkew_holds": 192
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean#L164-L217"
+        }
+      ]
+    },
+    {
+      "id": "QCP-02",
+      "chapter": "normalization",
+      "anchor": "normalization-quantum-cofactor-identity",
+      "title": "Right multiplication of the quantum comatrix by the shifted generator matrix",
+      "hypotheses": "The same ordered minors and the column alternation of QCP-01; m=N+1.",
+      "statement": "C(u)((u−N)Id+E) is the diagonal matrix with the full Capelli determinant in every diagonal entry. The (i,j) entry of C deletes row j and column i.",
+      "definitions": [
+        "Laplace expansion groups terms by the row in the final column; the last operator stays on the right. The diagonal column permutation supplies the cancelling sign."
+      ],
+      "dependencies": [
+        "QCP-01"
+      ],
+      "equations": [
+        "normalization-quantum-comatrix-equation"
+      ],
+      "sources": [
+        {
+          "declaration": "quantumMinor_expand_last",
+          "label": "Laplace expansion with the last operator on the right",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+          "lines": [
+            270,
+            283
+          ],
+          "declaration_lines": {
+            "quantumMinor_expand_last": 270
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean#L270-L283"
+        },
+        {
+          "declaration": "quantumMinor_eq_zero_of_col_eq",
+          "label": "Vanishing with two equal columns over a complex algebra",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+          "lines": [
+            145,
+            151
+          ],
+          "declaration_lines": {
+            "quantumMinor_eq_zero_of_col_eq": 145
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean#L145-L151"
+        },
+        {
+          "declaration": "qComatrix_of",
+          "label": "Append the tested column and compare the cofactor signs",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+          "lines": [
+            285,
+            313
+          ],
+          "declaration_lines": {
+            "qComatrix_of": 285
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean#L285-L313"
+        },
+        {
+          "declaration": "qComatrix_of",
+          "label": "Diagonal and off-diagonal entries of the product",
+          "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+          "lines": [
+            314,
+            328
+          ],
+          "declaration_lines": {
+            "qComatrix_of": 285
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean#L314-L328"
+        },
+        {
+          "declaration": "Th",
+          "label": "The transposed cofactor indices and the elementary generator matrix",
+          "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+          "lines": [
+            225,
+            237
+          ],
+          "declaration_lines": {
+            "Th": 225
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean#L225-L237"
+        },
+        {
+          "declaration": "comat",
+          "label": "From the matrix identity to its action on columns of vectors",
+          "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+          "lines": [
+            266,
+            283
+          ],
+          "declaration_lines": {
+            "comat": 266
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean#L266-L283"
+        }
+      ]
+    },
+    {
+      "id": "QCP-03",
+      "chapter": "normalization",
+      "anchor": "normalization-quantum-projector-specialization",
+      "title": "At a simple root the comatrix extracts a single shifted eigensummand",
+      "hypotheses": "On smooth vectors, the Capelli determinant acts by ∏j(u+tj), where tj=λj−N/2. The signed tensor decomposes into distinct eigensummands as in STM-01.",
+      "statement": "At −ts the comatrix divided by ∏j≠s(tj−ts) is the s-projector. The scalar denominator is nonzero and its reciprocal has absolute value ≤1 for the regular integral parameter differences.",
+      "definitions": [
+        "C(u) has degree at most N; cancellation away from the one forbidden point gives equality there by polynomial interpolation.",
+        "In the two-dimensional defining representation the determinant is u²−1 and C(−1)=−E on the four-dimensional tensor, giving the spectral projector E/2."
+      ],
+      "dependencies": [
+        "QCP-02",
+        "STM-01"
+      ],
+      "equations": [
+        "normalization-quantum-cofactor-projector"
+      ],
+      "sources": [
+        {
+          "declaration": "cap_of",
+          "label": "The Capelli polynomial acts by the scalar prescribed by the infinitesimal character",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            13,
+            22
+          ],
+          "declaration_lines": {
+            "cap_of": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L13-L22"
+        },
+        {
+          "declaration": "root_of_ne",
+          "label": "An eigenvalue forces a root of the scalar determinant",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+          "lines": [
+            16,
+            28
+          ],
+          "declaration_lines": {
+            "root_of_ne": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean#L16-L28"
+        },
+        {
+          "declaration": "Th_pol",
+          "label": "Polynomial dependence of the comatrix entries",
+          "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+          "lines": [
+            352,
+            363
+          ],
+          "declaration_lines": {
+            "Th_pol": 352
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean#L352-L363"
+        },
+        {
+          "declaration": "th_eig",
+          "label": "Continuation to the point where cancellation is unavailable",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+          "lines": [
+            30,
+            51
+          ],
+          "declaration_lines": {
+            "th_eig": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean#L30-L51"
+        },
+        {
+          "declaration": "th_proj",
+          "label": "Evaluation picks one component of the smooth sum",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+          "lines": [
+            53,
+            66
+          ],
+          "declaration_lines": {
+            "th_proj": 53
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean#L53-L66"
+        },
+        {
+          "declaration": "exists_norm_le_one_p_eq_smul_Th",
+          "label": "Projection with denominator a product of nonzero integer gaps",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            86,
+            116
+          ],
+          "declaration_lines": {
+            "exists_norm_le_one_p_eq_smul_Th": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L86-L116"
+        },
+        {
+          "declaration": "dec_U",
+          "label": "Eigenvalues and the index of the actual shifted summand",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            129,
+            144
+          ],
+          "declaration_lines": {
+            "dec_U": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L129-L144"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "qminor",
+      "callee": "Tm",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/StatementE.lean",
+        "line": 15,
+        "spelling": "Tm"
+      }
+    },
+    {
+      "caller": "qdet",
+      "callee": "qminor",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/StatementE.lean",
+        "line": 18,
+        "spelling": "qminor"
+      }
+    },
+    {
+      "caller": "quantumMinorRowSkew_holds",
+      "callee": "qminor",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/QuantumDetHighestWeightHolds.lean",
+        "line": 29,
+        "spelling": "qminor"
+      }
+    },
+    {
+      "caller": "quantumMinorTerm_adjacent_swap",
+      "callee": "shiftedGenerator_quadratic",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+        "line": 151,
+        "spelling": "shiftedGenerator_quadratic"
+      }
+    },
+    {
+      "caller": "quantumMinorTerm_adjacent_swap",
+      "callee": "prod_ofFn_alternating_sum",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+        "line": 144,
+        "spelling": "prod_ofFn_alternating_sum"
+      }
+    },
+    {
+      "caller": "quantumMinor_adjacent_col_swap",
+      "callee": "quantumMinorTerm_adjacent_swap",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+        "line": 182,
+        "spelling": "quantumMinorTerm_adjacent_swap"
+      }
+    },
+    {
+      "caller": "quantumMinorColSkew_holds",
+      "callee": "quantumMinor_adjacent_col_swap",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ShiftedGeneratorEqIteSmulAdd.lean",
+        "line": 209,
+        "spelling": "quantumMinor_adjacent_col_swap"
+      }
+    },
+    {
+      "caller": "qComatrix_of",
+      "callee": "quantumMinor_expand_last",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+        "line": 291,
+        "spelling": "quantumMinor_expand_last"
+      }
+    },
+    {
+      "caller": "qComatrix_of",
+      "callee": "quantumMinor_eq_zero_of_col_eq",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+        "line": 327,
+        "spelling": "quantumMinor_eq_zero_of_col_eq"
+      }
+    },
+    {
+      "caller": "qComatrix_of",
+      "callee": "sign_cycleToLast",
+      "callsite": {
+        "path": "src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/GeneratorCommutatorQuantumDet.lean",
+        "line": 322,
+        "spelling": "sign_cycleToLast"
+      }
+    },
+    {
+      "caller": "comat",
+      "callee": "quantumMinorColSkew_holds",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 272,
+        "spelling": "quantumMinorColSkew_holds"
+      }
+    },
+    {
+      "caller": "comat",
+      "callee": "quantumMinorRowSkew_holds",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 272,
+        "spelling": "quantumMinorRowSkew_holds"
+      }
+    },
+    {
+      "caller": "comat",
+      "callee": "qComatrix_of",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 272,
+        "spelling": "qComatrix_of"
+      }
+    },
+    {
+      "caller": "comat",
+      "callee": "Th_apply",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 278,
+        "spelling": "Th_apply"
+      }
+    },
+    {
+      "caller": "comat",
+      "callee": "EE_apply",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 283,
+        "spelling": "EE_apply"
+      }
+    },
+    {
+      "caller": "th_mul",
+      "callee": "comat",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 19,
+        "spelling": "comat"
+      }
+    },
+    {
+      "caller": "root_of_ne",
+      "callee": "th_mul",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 25,
+        "spelling": "th_mul"
+      }
+    },
+    {
+      "caller": "th_eig",
+      "callee": "Th_pol",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 32,
+        "spelling": "Th_pol"
+      }
+    },
+    {
+      "caller": "th_eig",
+      "callee": "polyVanish",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 40,
+        "spelling": "polyVanish"
+      }
+    },
+    {
+      "caller": "th_eig",
+      "callee": "th_mul",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 45,
+        "spelling": "th_mul"
+      }
+    },
+    {
+      "caller": "th_proj",
+      "callee": "th_eig",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 58,
+        "spelling": "th_eig"
+      }
+    },
+    {
+      "caller": "th_proj",
+      "callee": "th_mul",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/RootOfNe.lean",
+        "line": 59,
+        "spelling": "th_mul"
+      }
+    },
+    {
+      "caller": "Th_pol",
+      "callee": "qminor_isPol",
+      "callsite": {
+        "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CapelliAbstractCharacter.lean",
+        "line": 356,
+        "spelling": "qminor_isPol"
+      }
+    },
+    {
+      "caller": "cap_of",
+      "callee": "discrete_series_infinitesimal_character",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 17,
+        "spelling": "discrete_series_infinitesimal_character"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "root_of_ne",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 92,
+        "spelling": "root_of_ne"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "one_le_diff",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 106,
+        "spelling": "one_le_diff"
+      }
+    },
+    {
+      "caller": "exists_norm_le_one_p_eq_smul_Th",
+      "callee": "th_proj",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 114,
+        "spelling": "th_proj"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "QCP-01",
+      "QCP-02"
+    ],
+    [
+      "QCP-02",
+      "QCP-03"
+    ],
+    [
+      "STM-01",
+      "QCP-03"
+    ],
+    [
+      "QCP-03",
+      "STM-03"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "A. I. Molev, Yangians and their applications, §2.6; Definition 2.26 and Proposition 2.27, equations (2.30)–(2.31)",
+      "url": "https://arxiv.org/pdf/math/0211288"
+    },
+    {
+      "title": "A. I. Molev, Sugawara Operators for Classical Lie Algebras, chapter 4: Casimir elements for gl(N), formula (4.37) and Corollary 4.6.2",
+      "url": "https://www.ams.org/bookstore/pspdf/surv-229-prev.pdf"
+    }
+  ],
+  "outstanding": [
+    "The common infinitesimal character of the discrete series is input to the scalar action of the central Capelli polynomial. The eigensummand decomposition is the one in STM-01. The algebraic identity does not by itself establish that smooth splitting or its analytic norm estimate."
+  ]
+}

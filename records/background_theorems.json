@@ -186,13 +186,15 @@
     {
       "id": "hermitian-local-global",
       "title": "Local classification determines a global Hermitian space",
-      "statement": "Let E/F be quadratic over number fields. Two nondegenerate Hermitian spaces over E of the same rank are isometric if their localizations are isometric everywhere. At nonsplit finite places the determinant modulo local norms distinguishes the two classes of a given positive rank. At real places becoming complex one uses the whole signature.",
-      "use": "To represent a given nonzero length in a plane, compare it with a diagonal plane whose first vector has the prescribed length. An isometry carries that vector into the given plane.",
+      "statement": "Let E/F be quadratic over number fields. Two nondegenerate Hermitian spaces over E of the same rank are isometric if their localizations are isometric everywhere. At nonsplit finite places the determinant modulo local norms distinguishes the two classes of a given positive rank. At real places becoming complex one uses the whole signature. For a global space the product of the local determinant signs is +1.",
+      "use": "To represent a given nonzero length in a plane, compare it with a diagonal plane whose first vector has the prescribed length. An isometry carries that vector into the given plane. For a definite subspace this classification identifies the rational space after adjoining one determinant line. The product condition also rules out a single nontrivial inert determinant sign.",
       "citation": "Benedict H. Gross, Incoherent definite spaces and Shimura varieties, §3, especially Theorem 3.1.",
       "url": "https://abel.math.harvard.edu/~gross/preprints/incoherent.pdf",
       "passages": [
         "lifts-binary-similitude-empty",
-        "global-adapted-model-class"
+        "global-adapted-model-class",
+        "global-subspace-defect-ideal",
+        "global-rational-subspace-orbit-count"
       ]
     },
     {
@@ -304,7 +306,8 @@
         "lifts-binary-product-tail-uniform",
         "global-deep-orbit-approximation",
         "global-flag-real-layer",
-        "lifts-isotropic-shell-volume"
+        "lifts-isotropic-shell-volume",
+        "global-primitive-gluing-generators"
       ]
     },
     {
@@ -387,7 +390,8 @@
       "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf#page=107",
       "passages": [
         "inputs-dyadic-signatures",
-        "global-adapted-finite-place"
+        "global-adapted-finite-place",
+        "global-subspace-defect-ideal"
       ]
     },
     {
@@ -494,7 +498,8 @@
         "inputs-common-transvections",
         "lifts-hilbert-cusp-rows",
         "global-flag-regulator-cover",
-        "inputs-face-real-gram"
+        "inputs-face-real-gram",
+        "global-primitive-line-short-vector"
       ]
     },
     {
@@ -702,7 +707,9 @@
       "passages": [
         "global-minor-label-count",
         "lifts-adelic-box-count",
-        "inputs-face-determinant-product"
+        "inputs-face-determinant-product",
+        "global-primitive-line-short-vector",
+        "global-primitive-line-packing"
       ]
     },
     {
@@ -778,7 +785,9 @@
         "global-adapted-flag-lattice",
         "global-marked-vector-orbits",
         "global-marked-maximal-lattices",
-        "global-near-integral-traces"
+        "global-near-integral-traces",
+        "global-primitive-projection-glue",
+        "global-primitive-gluing-generators"
       ]
     },
     {
@@ -814,7 +823,9 @@
         "global-discrete-series-derivatives",
         "normalization-compact-type-jets",
         "normalization-compact-type-compression",
-        "normalization-one-slot-types"
+        "normalization-one-slot-types",
+        "normalization-branching-derivative-energy",
+        "normalization-branching-translated-derivative"
       ]
     },
     {
@@ -827,7 +838,8 @@
       "passages": [
         "global-discrete-series-step-constant",
         "normalization-mixed-casimir-value",
-        "normalization-raising-casimir-gap"
+        "normalization-raising-casimir-gap",
+        "normalization-branching-derivative-energy"
       ]
     },
     {
@@ -840,7 +852,8 @@
       "passages": [
         "lifts-gram-column-recursion",
         "lifts-hermitian-orbit-mean",
-        "lifts-real-gram-lift"
+        "lifts-real-gram-lift",
+        "global-subspace-witt-extension"
       ]
     },
     {
@@ -864,7 +877,9 @@
       "citation": "The Stacks Project, Fields, Lemma 9.20.7.",
       "url": "https://stacks.math.columbia.edu/tag/0BIL",
       "passages": [
-        "global-adapted-finite-place"
+        "global-adapted-finite-place",
+        "global-maximal-local-defect",
+        "global-maximal-primitive-line"
       ]
     },
     {
@@ -1121,7 +1136,8 @@
       "url": "https://www.math.utah.edu/~ptrapa/math-library/schmid/atiyah-schmid.pdf#page=25",
       "passages": [
         "normalization-shifted-formal-degree",
-        "normalization-shifted-component-mass"
+        "normalization-shifted-component-mass",
+        "normalization-signed-branching-intertwiner"
       ]
     },
     {
@@ -1144,6 +1160,56 @@
       "url": "https://web.math.princeton.edu/~jonhanke/Web-02/Mass-Formula-of-Shimura/shimura-mass.pdf",
       "passages": [
         "global-discriminant-order-mass"
+      ]
+    },
+    {
+      "id": "prime-ideal-decomposition",
+      "title": "Factorization, norm and degrees of prime ideals",
+      "statement": "Every nonzero proper integral ideal in a number ring factors uniquely into prime ideals. The absolute norm is multiplicative. For a rational prime p the sum of the products of ramification index and residue degree over the primes above p equals the field degree D. The prime of residue degree f has absolute norm pᶠ.",
+      "use": "Factoring off one prime above a chosen divisor of the norm gives at most D choices. Iterating bounds the number of possible bad ideals and hence the number of rational orbit representatives.",
+      "citation": "J. S. Milne, Algebraic Number Theory, §§3–4, particularly Theorem 3.34 and the definition of the ideal norm.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
+      "passages": [
+        "global-subspace-defect-ideal",
+        "global-rational-subspace-orbit-count",
+        "global-marked-maximal-lattices",
+        "global-primitive-line-short-vector"
+      ]
+    },
+    {
+      "id": "capelli-comatrix",
+      "title": "The quantum comatrix identity",
+      "statement": "For the matrix of elementary generators of gl(m) the ordered column determinant with consecutive unit shifts admits a cofactor expansion. The signed comatrix on the left times the shifted generating matrix on the right is the diagonal matrix of that determinant.",
+      "use": "Alternating the columns and expanding the last one gives an operator identity on smooth vectors. Specialization at a simple root then recovers the required tensor projection.",
+      "citation": "A. I. Molev, Yangians and their applications, Definition 2.26 and Proposition 2.27, formulas (2.30)–(2.31), under the evaluation representation.",
+      "url": "https://arxiv.org/pdf/math/0211288",
+      "passages": [
+        "normalization-quantum-column-alternation",
+        "normalization-quantum-cofactor-identity"
+      ]
+    },
+    {
+      "id": "capelli-central-character",
+      "title": "The central character of the Capelli determinant",
+      "statement": "For gl(m) with column parameters u, u−1, …, u−m+1, the full Capelli determinant has central coefficients. At highest weight μ, with coordinates numbered from zero, its scalar is the product of u+μⱼ−j.",
+      "use": "Converting the highest weight to the infinitesimal character gives the m distinct factors in the projector calculation.",
+      "citation": "A. I. Molev, Sugawara Operators for Classical Lie Algebras, §4.6, formula (4.37) and Corollary 4.6.2.",
+      "url": "https://www.ams.org/bookstore/pspdf/surv-229-prev.pdf",
+      "passages": [
+        "normalization-quantum-projector-specialization",
+        "normalization-shifted-component-mass"
+      ]
+    },
+    {
+      "id": "signed-unitary-branching",
+      "title": "Signed interlacing for a discrete-series summand",
+      "statement": "For the restriction from U(p,q) to U(p−1,q), a discrete series of the smaller group occurs discretely precisely when the two signed Harish-Chandra parameters satisfy the signed interlacing law. In the merged decreasing lists, consecutive entries from the same group have opposite signs and consecutive entries from different groups have the same sign, with signs interpreted for the positive line removed here.",
+      "use": "This branching criterion identifies the occurrence required by the period. The chapter explains the propagation of a known occurrence through a lowering of an ambient parameter and the recovery of an intertwiner from a nonzero coefficient.",
+      "citation": "Hongyu He, On the Gan–Gross–Prasad conjecture for U(p,q), Definition 1 and Theorem 0.1, with the positive-line convention.",
+      "url": "https://www.math.lsu.edu/~hongyu/pub/ggp_hhe_final.pdf",
+      "passages": [
+        "normalization-signed-branching-walk",
+        "normalization-branching-period-moment"
       ]
     }
   ]

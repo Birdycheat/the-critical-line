@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BVD-01",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-derivative-energy",
+      "title": "Derivative energy through the compact types of a smooth lowest-type vector",
+      "hypotheses": "A signed unitary discrete series of rank m≥2 and regular λ on its Harish-Chandra lattice. The parameters satisfy |λa|≤B and gaps ≥100m³ across opposite signs. The starting lowest compact type is smooth.",
+      "statement": "For x in the kth layer above the lowest compact type, k≤S, the sum of squared matrix-unit derivative norms is at most 64m(B+S)²‖x‖².",
+      "definitions": [
+        "Λ=λ+ρn−ρc, and a weight μ in the kth layer lies within √2k of Λ.",
+        "Infinitesimal unitarity identifies the energy with the real quadratic form of 2ΩK−Ω."
+      ],
+      "dependencies": [
+        "DSD-01",
+        "DSD-02"
+      ],
+      "equations": [
+        "normalization-branching-derivative-energy-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "WordBd",
+          "label": "Real parameter bounds, smooth vectors and complex directional words",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean",
+          "lines": [
+            97,
+            103
+          ],
+          "declaration_lines": {
+            "WordBd": 97
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/HeBranching.lean#L97-L103"
+        },
+        {
+          "declaration": "stdGap_of",
+          "label": "The sufficient separation for the discrete-series input",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            204,
+            219
+          ],
+          "declaration_lines": {
+            "stdGap_of": 204
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L204-L219"
+        },
+        {
+          "declaration": "isDS_props_of_gap",
+          "label": "Full Casimir scalar, uniqueness of the lowest compact type and smoothness",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EquivSigLamOfIsDS.lean",
+          "lines": [
+            65,
+            77
+          ],
+          "declaration_lines": {
+            "isDS_props_of_gap": 65
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EquivSigLamOfIsDS.lean#L65-L77"
+        },
+        {
+          "declaration": "layer",
+          "label": "Layers produced by the noncompact matrix units",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasValK.lean",
+          "lines": [
+            15,
+            21
+          ],
+          "declaration_lines": {
+            "layer": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasValK.lean#L15-L21"
+        },
+        {
+          "declaration": "re_inner_casimirK_layer_le",
+          "label": "Compact Casimir bound and root shifts through a layer",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasimirGapAtNoncompactWeight.lean",
+          "lines": [
+            129,
+            138
+          ],
+          "declaration_lines": {
+            "re_inner_casimirK_layer_le": 129
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasimirGapAtNoncompactWeight.lean#L129-L138"
+        },
+        {
+          "declaration": "sum_sq_eq",
+          "label": "Signed adjoints and the sum of squares",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            18,
+            36
+          ],
+          "declaration_lines": {
+            "sum_sq_eq": 29
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L18-L36"
+        },
+        {
+          "declaration": "layer_bound",
+          "label": "Full and compact Casimirs on a vector in the layer",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            89,
+            126
+          ],
+          "declaration_lines": {
+            "layer_bound": 89
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L89-L126"
+        },
+        {
+          "declaration": "layer_bound",
+          "label": "The uniform constant 64 in the energy norm",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            128,
+            158
+          ],
+          "declaration_lines": {
+            "layer_bound": 89
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L128-L158"
+        }
+      ]
+    },
+    {
+      "id": "BVD-02",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-vector-derivatives",
+      "title": "Every complex derivative word appearing in a tensor cofactor has a common bound",
+      "hypotheses": "The setting of BVD-01, any vector v₀ in the lowest compact type, an integer cap S and a word of length r≤S in complex matrices of Frobenius norm ≤1.",
+      "statement": "The norm of the word applied to v₀ is ≤[8√m(B+S)]^r‖v₀‖. Taking S=m−1 supplies the derivative factors in each of the quantum cofactor minors.",
+      "definitions": [
+        "The order cap controls each one-step constant, while the actual length controls the power.",
+        "For the compact defining example U(4), Λ=(1,0,0,0), the energy on e₄ is 4 and a length-three word has norm 1."
+      ],
+      "dependencies": [
+        "BVD-01"
+      ],
+      "equations": [
+        "normalization-branching-derivative-word-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "norm_actM_le",
+          "label": "Cauchy–Schwarz in normalized matrix directions",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            38,
+            57
+          ],
+          "declaration_lines": {
+            "norm_actM_le": 38
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L38-L57"
+        },
+        {
+          "declaration": "actM_mem_layer",
+          "label": "A matrix direction moves up by at most one layer",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            160,
+            166
+          ],
+          "declaration_lines": {
+            "actM_mem_layer": 160
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L160-L166"
+        },
+        {
+          "declaration": "kFiniteWordBound_indefUnitary",
+          "label": "Identifying the smooth lowest compact type",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            245,
+            273
+          ],
+          "declaration_lines": {
+            "kFiniteWordBound_indefUnitary": 245
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L245-L273"
+        },
+        {
+          "declaration": "kFiniteWordBound_indefUnitary",
+          "label": "Irreducibility identifies the whole lowest type and gives the one-step bound",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            285,
+            326
+          ],
+          "declaration_lines": {
+            "kFiniteWordBound_indefUnitary": 245
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L285-L326"
+        },
+        {
+          "declaration": "kFiniteWordBound_indefUnitary",
+          "label": "Induction with a common order budget and the exact word length",
+          "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+          "lines": [
+            327,
+            358
+          ],
+          "declaration_lines": {
+            "kFiniteWordBound_indefUnitary": 245
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L327-L358"
+        },
+        {
+          "declaration": "comatrix_word_bound",
+          "label": "Selection of the quantitative indefinite-unitary word theorem",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+          "lines": [
+            4,
+            8
+          ],
+          "declaration_lines": {
+            "comatrix_word_bound": 6
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean#L4-L8"
+        },
+        {
+          "declaration": "comat_of",
+          "label": "Specialization to the elementary directions and cofactor minors",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+          "lines": [
+            148,
+            193
+          ],
+          "declaration_lines": {
+            "comat_of": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean#L148-L193"
+        },
+        {
+          "declaration": "moment_higher_estimate_holds",
+          "label": "The derivative theorem and the comatrix entering the mixed moment",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+          "lines": [
+            181,
+            189
+          ],
+          "declaration_lines": {
+            "moment_higher_estimate_holds": 181
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean#L181-L189"
+        }
+      ]
+    },
+    {
+      "id": "BVD-03",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-translated-derivative",
+      "title": "The second real derivative of the chosen translated period vector",
+      "hypotheses": "For real Lie words take m≥3, a lowest compact-type unit vector, |λa|≤B and opposing-sign gap ≥1000m³. For the period application choose a translate g₀ in the signed unitary group and a smaller-group unit Frobenius direction.",
+      "statement": "A real word of length at most m+2 costs the product of (8mB)² times each Frobenius direction norm. On π(g₀)v₀ the indicated second derivative is bounded by [(8mB)²‖g₀‖F²]².",
+      "definitions": [
+        "Apply the one-place bound with b=√B, so √m b²=√m B.",
+        "Conjugate each real direction by g₀⁻¹ and g₀. Invariance of the Frobenius norm under multiplication by signature and adjoint gives ‖g₀⁻¹‖F=‖g₀‖F."
+      ],
+      "dependencies": [
+        "DSD-02"
+      ],
+      "equations": [
+        "normalization-branching-translate-second-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "LieBound",
+          "label": "Statement for real Lie directions of unrestricted norm and bounded word length",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/OneMemNbh.lean",
+          "lines": [
+            49,
+            52
+          ],
+          "declaration_lines": {
+            "LieBound": 49
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/OneMemNbh.lean#L49-L52"
+        },
+        {
+          "declaration": "stepConst_le",
+          "label": "Comparison of the one-place step constant with the branching weight scale",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+          "lines": [
+            38,
+            64
+          ],
+          "declaration_lines": {
+            "stepConst_le": 38
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean#L38-L64"
+        },
+        {
+          "declaration": "GlobalTheory.SepReal.lieBound",
+          "label": "The lowest compact type and central character in the one-place estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+          "lines": [
+            87,
+            105
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SepReal.lieBound": 87
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean#L87-L105"
+        },
+        {
+          "declaration": "GlobalTheory.SepReal.lieBound",
+          "label": "Induction on words with the individual direction norms retained",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+          "lines": [
+            106,
+            128
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SepReal.lieBound": 87
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean#L106-L128"
+        },
+        {
+          "declaration": "derBounds_of",
+          "label": "The translated vector and its first two derivatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+          "lines": [
+            245,
+            253
+          ],
+          "declaration_lines": {
+            "derBounds_of": 225
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean#L245-L253"
+        },
+        {
+          "declaration": "derBounds_of",
+          "label": "Moving both directions back and bounding the second derivative",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+          "lines": [
+            267,
+            292
+          ],
+          "declaration_lines": {
+            "derBounds_of": 225
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean#L267-L292"
+        },
+        {
+          "declaration": "derBounds_of",
+          "label": "Taylor remainders and restored decay in the stabilizer direction",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+          "lines": [
+            369,
+            393
+          ],
+          "declaration_lines": {
+            "derBounds_of": 225
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean#L369-L393"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "stdGap_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 258,
+        "spelling": "stdGap_of"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "isDS_props_of_gap",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 260,
+        "spelling": "isDS_props_of_gap"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "le_four_mul",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 313,
+        "spelling": "le_four_mul"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "layer_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 325,
+        "spelling": "layer_bound"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "norm_actM_le",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 326,
+        "spelling": "norm_actM_le"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "actM_mem_layer",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 344,
+        "spelling": "actM_mem_layer"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "dsigC_eq_actM",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 347,
+        "spelling": "dsigC_eq_actM"
+      }
+    },
+    {
+      "caller": "kFiniteWordBound_indefUnitary",
+      "callee": "kLowSpan_kIrrHW",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 290,
+        "spelling": "kLowSpan_kIrrHW"
+      }
+    },
+    {
+      "caller": "layer_bound",
+      "callee": "casimir_genSub",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 94,
+        "spelling": "casimir_genSub"
+      }
+    },
+    {
+      "caller": "layer_bound",
+      "callee": "re_inner_casimirK_layer_le",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 95,
+        "spelling": "re_inner_casimirK_layer_le"
+      }
+    },
+    {
+      "caller": "layer_bound",
+      "callee": "sum_sq_eq",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 96,
+        "spelling": "sum_sq_eq"
+      }
+    },
+    {
+      "caller": "layer_bound",
+      "callee": "abs_rho_le",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 128,
+        "spelling": "abs_rho_le"
+      }
+    },
+    {
+      "caller": "sum_sq_eq",
+      "callee": "re_term",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 35,
+        "spelling": "re_term"
+      }
+    },
+    {
+      "caller": "re_inner_casimirK_layer_le",
+      "callee": "khw_layer_weight",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasimirGapAtNoncompactWeight.lean",
+        "line": 136,
+        "spelling": "khw_layer_weight"
+      }
+    },
+    {
+      "caller": "re_inner_casimirK_layer_le",
+      "callee": "degree_num",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasimirGapAtNoncompactWeight.lean",
+        "line": 137,
+        "spelling": "degree_num"
+      }
+    },
+    {
+      "caller": "re_inner_casimirK_layer_le",
+      "callee": "re_inner_casimirK_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/BochnerInequality/CasimirGapAtNoncompactWeight.lean",
+        "line": 133,
+        "spelling": "re_inner_casimirK_le"
+      }
+    },
+    {
+      "caller": "comatrix_word_bound",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+        "line": 6,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    },
+    {
+      "caller": "comatrix_word_bound",
+      "callee": "comat_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/ComatrixWordBound.lean",
+        "line": 6,
+        "spelling": "comat_of"
+      }
+    },
+    {
+      "caller": "comat_of",
+      "callee": "qminor_bd",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/BranchingComatrices/OneLeDiff.lean",
+        "line": 193,
+        "spelling": "qminor_bd"
+      }
+    },
+    {
+      "caller": "moment_higher_estimate_holds",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/SchurEigenProjections/HolomorphicMoments/MomentHigherEstimateHolds.lean",
+        "line": 181,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    },
+    {
+      "caller": "lieBound",
+      "callee": "stepBound_of_eigen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+        "line": 101,
+        "spelling": "GlobalTheory.StepBoundOneRep.stepBound_of_eigen"
+      }
+    },
+    {
+      "caller": "lieBound",
+      "callee": "lowChar",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+        "line": 97,
+        "spelling": "GlobalTheory.DSId.LowCharGap.lowChar"
+      }
+    },
+    {
+      "caller": "lieBound",
+      "callee": "isKTypeOf_lowKSub",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.Jet.MultGap.isKTypeOf_lowKSub"
+      }
+    },
+    {
+      "caller": "lieBound",
+      "callee": "stepConst_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+        "line": 118,
+        "spelling": "stepConst_le"
+      }
+    },
+    {
+      "caller": "lieBound",
+      "callee": "dR_eq_dAct",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKTypeLieWordNormBound.lean",
+        "line": 106,
+        "spelling": "dR_eq_dAct"
+      }
+    },
+    {
+      "caller": "derBounds_of",
+      "callee": "dR_rep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+        "line": 270,
+        "spelling": "GlobalTheory.SmLinSub.dR_rep"
+      }
+    },
+    {
+      "caller": "derBounds_of",
+      "callee": "taylor_der",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+        "line": 371,
+        "spelling": "taylor_der"
+      }
+    },
+    {
+      "caller": "derBounds_of",
+      "callee": "coef_hasDerivAt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+        "line": 373,
+        "spelling": "coef_hasDerivAt"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DSD-01",
+      "BVD-01"
+    ],
+    [
+      "DSD-02",
+      "BVD-01"
+    ],
+    [
+      "DSD-02",
+      "BVD-03"
+    ],
+    [
+      "BVD-01",
+      "BVD-02"
+    ],
+    [
+      "BVD-02",
+      "STM-03"
+    ],
+    [
+      "BVD-02",
+      "BPP-01"
+    ],
+    [
+      "BVD-03",
+      "TPD-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "M. F. Atiyah and W. Schmid, A geometric construction of the discrete series for semisimple Lie groups, Corollary (6.13) and Theorem (8.5); infinitesimal character and the lowest compact type",
+      "url": "https://www.math.utah.edu/~ptrapa/math-library/schmid/atiyah-schmid.pdf"
+    }
+  ],
+  "outstanding": [
+    "The existence, smoothness and uniqueness of the lowest type, its infinitesimal character, and the decomposition into compact highest weights are inputs. The associated compact Casimir and word spaces are developed also in the global chapter.",
+    "The estimates on complex words for the shifted moment and the short real words for the translated period have different direct providers and different separation thresholds. Integrability for the whole period requires the subgroup decay and power integral in addition to the derivative estimate."
+  ]
+}
