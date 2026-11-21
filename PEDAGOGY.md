@@ -156,3 +156,9 @@ The [four-point calculation](book.html#fig-hecke-four-point-approximation) ident
 
 
 The weight family now has an explicit finite sum. After the evaluation matrices are substituted, its selected summand reproduces the original form to the required precision. Every other summand is small. The [proof of polynomial separation](book.html#lifts-hecke-polynomial-pieces) explains how the two products of polynomials select one neighbourhood and then their union. In the example modulo three both selectors have degree one. Independent finite checks covered 4,372 selector values through modulus 2,187 and verified the trace-one rank-one construction on 1,020 primitive pairs modulo 4, 8, 16 and 32.
+
+## Seeing both bounds on a highest weight
+
+For the upper bound the reader moves both matrix arguments around the circle. For the lower bound the first argument must be the identity and the chosen component must take a nonzero value there. The rank-one example yields exponents −3 and 1 for the two tests. The [rank-two experiment](book.html#fig-weight-circle-spectrum) then lets the reader see which exponents a particular vector detects. This explains why the proof chooses a detecting vector for one inequality and uses all the coefficients of a nonzero vector for the other. The error on an individual weight follows by subtracting two consecutive partial sums. An example reaches twice the bound.
+
+In the determinant computation the reader tracks the same scalar from the value on a uniformizer to inverse Frobenius and to a Weil element of degree −1. In the geometric transfer the three roots 6, 10 and 14 illustrate the distinct roles of a common twist and a leading coefficient. The text states where the comparison theorems enter and which local tests may require a new choice of tower. Independent readings checked the local signs and the order of the existential choices against the sources.

@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "weight-circle-spectrum": {
+      title: "Which exponents occur when a circle acts on a vector?",
+      kind: "Circle exponents in a determinant-twisted symmetric cube",
+      section: "lifts",
+      params: [
+        choose("vector", "Vector", [["sum", "Sum of the four monomials"], ["highest", "Highest vector e₁³"], ["lowest", "Lowest vector e₂³"]], "sum"),
+        choose("circle", "Circle", [["t1", "t₁(z) = diag(z, 1)"], ["t2", "t₂(z) = diag(z, z)"]], "t1"),
+      ],
+      caption: "On the first circle only the highest monomial attains exponent 2. On the second circle all four monomials have exponent 1. A coefficient of zero removes that row from the selected vector.",
+      method: "Work in det⁻¹ ⊗ Sym³(ℂ²), of highest weight κ = (2, −1). The rows list e₁ʲe₂³⁻ʲ in order j = 0, 1, 2, 3, with the same determinant twist in each row. On diag(z, 1), the monomial contributes zʲ and the twist contributes z⁻¹. On diag(z, z), the monomial contributes z³ and the twist contributes z⁻². Read off the powers on rows whose coefficient is one. The upper bound sₖ(κ) is the sum of the first k entries of κ.",
+    },
     "hecke-four-point-approximation": {
       title: "Which functions on four points attain the error bound?",
       kind: "2-adic approximation on the cyclic group of order four",
@@ -1516,6 +1527,28 @@
   }
 
   function render(id, v) {
+    if (id === "weight-circle-spectrum") {
+      const monomials = ["e₂³", "e₁e₂²", "e₁²e₂", "e₁³"];
+      const coefficients = {sum: [1, 1, 1, 1], highest: [0, 0, 0, 1], lowest: [1, 0, 0, 0]}[v.vector];
+      const secondCoordinate = v.circle === "t2" ? 1 : 0;
+      const determinantExponent = 1 + secondCoordinate;
+      const exponents = monomials.map((_, j) => j + (3 - j) * secondCoordinate - determinantExponent);
+      const present = new Set();
+      const rows = monomials.map((monomial, j) => {
+        if (coefficients[j]) present.add(exponents[j]);
+        return '<tr><th scope="row"><var>' + monomial + '</var></th><td>' + String(exponents[j]).replace("-", "−") +
+          '</td><td>' + coefficients[j] + '</td></tr>';
+      });
+      const table = '<table class="carry-table"><caption>Monomial coordinates of the selected vector</caption>' +
+        '<thead><tr><th scope="col">Monomial</th><th scope="col">Exponent</th><th scope="col">Coefficient</th></tr></thead><tbody>' +
+        rows.join("") + '</tbody></table>';
+      const bound = 2 - secondCoordinate;
+      return table + metrics([
+        ["Exponents present", "{" + [...present].join(", ").replace("-", "−") + "}"],
+        ["Upper bound <var>s</var><sub>" + (v.circle === "t1" ? "1" : "2") + "</sub>(κ)", String(bound)],
+        ["Exponent of the highest vector", String(exponents[3])],
+      ]);
+    }
     if (id === "hecke-four-point-approximation") {
       const powers = [[1, 0], [0, 1], [-1, 0], [0, -1]];
       const normText = new Map([[0, "0"], [1/4, "1/2"], [1/2, "1/√2"]]);

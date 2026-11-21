@@ -127,6 +127,10 @@ async function run() {
         if (id === "hecke-four-point-approximation") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/√2", "1/√2", "Equal"]);
           assert.deepEqual(await fig.locator("tbody tr").nth(1).locator("td").allInnerTexts(), ["i", "1 − i", "1/√2"]);
+        } else if (id === "weight-circle-spectrum") {
+          assert.equal(await fig.locator("caption").innerText(), "Monomial coordinates of the selected vector");
+          assert.deepEqual(await fig.locator("tbody tr td:first-of-type").allInnerTexts(), ["−1", "0", "1", "2"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["{−1, 0, 1, 2}", "2", "2"]);
         } else if (id === "rank-weight-projectors") {
           assert.equal(await fig.locator("caption").innerText(), "Projectors for D = diag(0, 1, 1, 4)");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "0 → 1", "2"]);
@@ -340,6 +344,22 @@ async function run() {
     assert.equal(await fourPoint.getByRole("combobox", {name: "Function in P"}).inputValue(), "combination");
     assert.deepEqual(await fourPoint.locator(".metrics dd").allInnerTexts(), ["1/2", "1/√2", "Strictly smaller"]);
     assert.deepEqual(await fourPoint.locator("tbody tr").first().locator("td").allInnerTexts(), ["1", "0", "0"]);
+    await openFigure(page, base + "book.html#fig-weight-circle-spectrum");
+    const spectrum = page.locator("#fig-weight-circle-spectrum.ready");
+    for (const circle of ["t1", "t2"]) {
+      await spectrum.getByRole("combobox", {name: "Circle", exact: true}).selectOption(circle);
+      for (const [vector, support] of [["highest", "{2}"], ["sum", "{−1, 0, 1, 2}"], ["lowest", "{−1}"]]) {
+        await spectrum.getByRole("combobox", {name: "Vector", exact: true}).selectOption(vector);
+        const bound = circle === "t1" ? "2" : "1";
+        assert.deepEqual(await spectrum.locator(".metrics dd").allInnerTexts(), [circle === "t1" ? support : "{1}", bound, bound]);
+        const coefficients = {highest: ["0", "0", "0", "1"], sum: ["1", "1", "1", "1"], lowest: ["1", "0", "0", "0"]};
+        assert.deepEqual(await spectrum.locator("tbody tr td:last-child").allInnerTexts(), coefficients[vector]);
+      }
+    }
+    const spectrumLink = await spectrum.locator("[data-share]").getAttribute("href");
+    await openFigure(page, spectrumLink);
+    assert.equal(await spectrum.getByRole("combobox", {name: "Vector", exact: true}).inputValue(), "lowest");
+    assert.equal(await spectrum.getByRole("combobox", {name: "Circle", exact: true}).inputValue(), "t2");
     await openFigure(page, base + "book.html?progression-difference.y=8&progression-difference.chi=quadratic#fig-progression-difference");
     const difference = page.locator("#fig-progression-difference.ready");
     assert.deepEqual(await difference.locator("tbody tr").nth(7).locator("td").allInnerTexts(), ["log 2", "−1", "1", "−log 2"]);
@@ -612,6 +632,10 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    const staticSpectrum = plain.locator("#fig-weight-circle-spectrum");
+    assert.deepEqual(await staticSpectrum.locator("tbody tr td:first-of-type").allInnerTexts(), ["−1", "0", "1", "2"]);
+    assert.deepEqual(await staticSpectrum.locator(".metrics dd").allInnerTexts(), ["{−1, 0, 1, 2}", "2", "2"]);
+    assert.equal(await staticSpectrum.locator("tbody var").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
     const plainDifference = plain.locator("#fig-progression-difference");
     assert.equal(await plainDifference.locator("tbody tr").count(), 6);
     assert.deepEqual(await plainDifference.locator(".metrics dd").allInnerTexts(), ["2 log 2", "2/5 log 5", "2.0301"]);
