@@ -1,0 +1,976 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "TPD-01",
+      "chapter": "normalization",
+      "anchor": "normalization-transverse-period-decay",
+      "title": "Integrating a translated coefficient leaves a power of the moved column",
+      "hypotheses": "Discrete-series pair on signed unitary groups in dimensions n+1 and n with n≥3 and the stated large-gap interlacing hypotheses, opposite-sign separation 1000(n+1)³ and parameter bound B. The extension adds a positive unit coordinate. The translated lowest-type unit vector has ‖g₀‖F≤(8(n+1)B)^(10(n+1)).",
+      "statement": "For model Haar μ₀ on the stabilizer, every translate restricted to the subgroup lies in L¹, and its absolute integral is ≤μ₀(N₁/₄)ℬ(1000)‖gz‖₂^(−2n−7).",
+      "definitions": [
+        "m=n+1, ℬ(C)=exp(Cm⁴log(8mB)), N₁/₄={h:‖h−1‖F≤1/4}.",
+        "L=40m² powers are available, A=4n²+1 powers ensure convergence, and L−2A≥2n+7."
+      ],
+      "equations": [
+        "normalization-transverse-model-integral",
+        "normalization-transverse-powers"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Par",
+          "label": "Parameter range, interlacing after lowering, weight bound and Haar neighbourhood",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/ProjExists.lean",
+          "lines": [
+            52,
+            91
+          ],
+          "declaration_lines": {
+            "Par": 52
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/ProjExists.lean#L52-L91"
+        },
+        {
+          "declaration": "DecPow",
+          "label": "The lowest-type estimate with its power and prefactor",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/OneMemNbh.lean",
+          "lines": [
+            43,
+            49
+          ],
+          "declaration_lines": {
+            "DecPow": 46
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/OneMemNbh.lean#L43-L49"
+        },
+        {
+          "declaration": "decPow",
+          "label": "Converting large-gap decay to a Frobenius power",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKtypeCoefficientExplicitPowerDecay.lean",
+          "lines": [
+            118,
+            169
+          ],
+          "declaration_lines": {
+            "decPow": 118
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKtypeCoefficientExplicitPowerDecay.lean#L118-L169"
+        },
+        {
+          "declaration": "transit",
+          "label": "Transporting the distinguished vector by a bounded signed-unitary matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BoostDecompositionNormBoundOfEmbeddingLaws.lean",
+          "lines": [
+            76,
+            112
+          ],
+          "declaration_lines": {
+            "transit": 76
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BoostDecompositionNormBoundOfEmbeddingLaws.lean#L76-L112"
+        },
+        {
+          "declaration": "boost_of_embLaws",
+          "label": "Factoring off the stabilizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BoostDecompositionNormBoundOfEmbeddingLaws.lean",
+          "lines": [
+            133,
+            148
+          ],
+          "declaration_lines": {
+            "boost_of_embLaws": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BoostDecompositionNormBoundOfEmbeddingLaws.lean#L133-L148"
+        },
+        {
+          "declaration": "volBall",
+          "label": "Haar ball comparison in real dimension 2n²",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/VolumeOfBallBound.lean",
+          "lines": [
+            65,
+            103
+          ],
+          "declaration_lines": {
+            "volBall": 65
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/VolumeOfBallBound.lean#L65-L103"
+        },
+        {
+          "declaration": "powInt_of_volBall",
+          "label": "Majorizing the power integral on dyadic shells and summing",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NegativeNormPowerIntegrableOfBallVolume.lean",
+          "lines": [
+            85,
+            145
+          ],
+          "declaration_lines": {
+            "powInt_of_volBall": 85
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NegativeNormPowerIntegrableOfBallVolume.lean#L85-L145"
+        },
+        {
+          "declaration": "real_bound",
+          "label": "Splitting the negative power between the column length and the subgroup",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+          "lines": [
+            88,
+            123
+          ],
+          "declaration_lines": {
+            "real_bound": 88
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean#L88-L123"
+        },
+        {
+          "declaration": "const_bound",
+          "label": "Absorbing all numerical factors at a bounded translate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+          "lines": [
+            126,
+            162
+          ],
+          "declaration_lines": {
+            "const_bound": 126
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean#L126-L162"
+        },
+        {
+          "declaration": "intBounds_of",
+          "label": "Unitarity and conjugation of the lowest-type coefficient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+          "lines": [
+            166,
+            205
+          ],
+          "declaration_lines": {
+            "intBounds_of": 166
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean#L166-L205"
+        },
+        {
+          "declaration": "intBounds_of",
+          "label": "Left translation on the stabilizer and the two surviving powers",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+          "lines": [
+            206,
+            245
+          ],
+          "declaration_lines": {
+            "intBounds_of": 166
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean#L206-L245"
+        },
+        {
+          "declaration": "intBounds_of",
+          "label": "Absolute integrability, left invariance and the final model estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+          "lines": [
+            247,
+            286
+          ],
+          "declaration_lines": {
+            "intBounds_of": 166
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean#L247-L286"
+        }
+      ]
+    },
+    {
+      "id": "TPD-02",
+      "chapter": "normalization",
+      "anchor": "normalization-transverse-period-haar",
+      "title": "The diagonal eigenvalue measures the off-diagonal absolute integral in an adapted frame",
+      "hypotheses": "The controlled branching translate has ℬ(100)‖Pv‖≥1, the subgroup eigenvector estimate holds, and the formal degree d′ is taken for the same μ₀. On the arithmetic grid B=b² and log(8mb²)≤6 log b.",
+      "statement": "If coordinate reversal pushes the place measure to λτ μ₀, then cτ=λτ c₁>0 and Iτ(g)‖Dτgz‖₂^(2m+5)≤exp(q)|cτ|. One can take C=1812 for the simultaneous estimates and q=6Cm⁴log b.",
+      "definitions": [
+        "V₀≤ℬ(11)/d′, c₁≥‖Pv‖²/(2d′) and V₀≤c₁ℬ(212).",
+        "C₀=10, C₁=200+80C₀=1000, C₃=100+50C₀=600, C₂=11. The model uses C₁+C₃+C₂+201."
+      ],
+      "equations": [
+        "normalization-transverse-diagonal",
+        "normalization-transverse-framed"
+      ],
+      "dependencies": [
+        "TPD-01"
+      ],
+      "sources": [
+        {
+          "declaration": "RealInputE",
+          "label": "Diagonal scalar and translated integral in the simultaneous real statement",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchDefs.lean",
+          "lines": [
+            11,
+            19
+          ],
+          "declaration_lines": {
+            "RealInputE": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchDefs.lean#L11-L19"
+        },
+        {
+          "declaration": "EigMap",
+          "label": "Lower bounds for the projection and the diagonal eigenvalue",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchDefs.lean",
+          "lines": [
+            26,
+            35
+          ],
+          "declaration_lines": {
+            "EigMap": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchDefs.lean#L26-L35"
+        },
+        {
+          "declaration": "projLarge_of",
+          "label": "Producing the embedding and its adjoint from the projected translate",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            140,
+            179
+          ],
+          "declaration_lines": {
+            "projLarge_of": 140
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L140-L179"
+        },
+        {
+          "declaration": "eigMap_of",
+          "label": "Diagonal eigenvector and intertwining map for the projected translate",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            196,
+            223
+          ],
+          "declaration_lines": {
+            "eigMap_of": 196
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L196-L223"
+        },
+        {
+          "declaration": "realInputE_holds",
+          "label": "The branching suppliers used together in the full real-model theorem",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+          "lines": [
+            231,
+            235
+          ],
+          "declaration_lines": {
+            "realInputE_holds": 231
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean#L231-L235"
+        },
+        {
+          "declaration": "UpperTheory.Lit.Branch.volDeg",
+          "label": "Subgroup formal-degree comparison with exponent 11",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchVol.lean",
+          "lines": [
+            93,
+            115
+          ],
+          "declaration_lines": {
+            "UpperTheory.Lit.Branch.volDeg": 93
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchVol.lean#L93-L115"
+        },
+        {
+          "declaration": "derBounds_of",
+          "label": "Derivative estimate with exponent 100 + 50C₀",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean",
+          "lines": [
+            225,
+            237
+          ],
+          "declaration_lines": {
+            "derBounds_of": 225
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientDerivativeIntegralBoundsOfLa.lean#L225-L237"
+        },
+        {
+          "declaration": "UpperTheory.Lit.Branch.realInputE",
+          "label": "Suppliers, choice of translate, formal degree and eigenvector",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+          "lines": [
+            41,
+            85
+          ],
+          "declaration_lines": {
+            "UpperTheory.Lit.Branch.realInputE": 41
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean#L41-L85"
+        },
+        {
+          "declaration": "UpperTheory.Lit.Branch.realInputE",
+          "label": "One unit vector and the same positive scalar in both estimates",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+          "lines": [
+            92,
+            138
+          ],
+          "declaration_lines": {
+            "UpperTheory.Lit.Branch.realInputE": 41
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean#L92-L138"
+        },
+        {
+          "declaration": "realInputE_transport",
+          "label": "Identifying equal ranks in the real-model statement",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+          "lines": [
+            18,
+            58
+          ],
+          "declaration_lines": {
+            "realInputE_transport": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean#L18-L58"
+        },
+        {
+          "declaration": "rv",
+          "label": "Reversing the two coordinate indices of a matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/DiscreteSeriesModelOfDualParameter.lean",
+          "lines": [
+            62,
+            66
+          ],
+          "declaration_lines": {
+            "rv": 62
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/DiscreteSeriesModelOfDualParameter.lean#L62-L66"
+        },
+        {
+          "declaration": "haar_rev",
+          "label": "Pushforward of Haar and equivalence of absolute integrability",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHaarCoordinateReversalPositiveMultiple.lean",
+          "lines": [
+            17,
+            50
+          ],
+          "declaration_lines": {
+            "haar_rev": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHaarCoordinateReversalPositiveMultiple.lean#L17-L50"
+        },
+        {
+          "declaration": "act_of_eigen",
+          "label": "Conjugating the complex diagonal coefficient",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+          "lines": [
+            76,
+            105
+          ],
+          "declaration_lines": {
+            "act_of_eigen": 60
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean#L76-L105"
+        },
+        {
+          "declaration": "locOK_of_eigen",
+          "label": "Grid scale, adapted Gram frame and new Haar factor",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+          "lines": [
+            127,
+            157
+          ],
+          "declaration_lines": {
+            "locOK_of_eigen": 107
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean#L127-L157"
+        },
+        {
+          "declaration": "locOK_of_eigen",
+          "label": "Local coefficient and diagonal scalar in the arithmetic coordinates",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+          "lines": [
+            180,
+            203
+          ],
+          "declaration_lines": {
+            "locOK_of_eigen": 107
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean#L180-L203"
+        },
+        {
+          "declaration": "farClause",
+          "label": "Column identity, integral scaling and dimension shift",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TransversalCoefficientDecayAtRealPlace.lean",
+          "lines": [
+            55,
+            104
+          ],
+          "declaration_lines": {
+            "farClause": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TransversalCoefficientDecayAtRealPlace.lean#L55-L104"
+        }
+      ]
+    },
+    {
+      "id": "TPD-03",
+      "chapter": "normalization",
+      "anchor": "normalization-transverse-period-class",
+      "title": "The real product and the finite stabilizer volume give the bound for one rational class",
+      "hypotheses": "A Hermitian extension by a positive unit line, f real places with the local bounds, an adelic Haar measure, a self-dual lattice containing z, a nonzero level ideal, and rational γ with zγ=γz. For the identity pairing use a level-invariant cusp vector as in the bottom period.",
+      "statement": "For g=ι(x⁻¹)γ the absolute coefficient integral has weighted bound exp(fq)|c|. Here c=μf(K′)κ∏τcτ is the same scalar as in the identity contribution. The finite support Sg is empty or a single coset of K′.",
+      "definitions": [
+        "κ is the positive scalar comparing real Haar measure to the product over the f places. K′ is the preimage of the finite congruence subgroup.",
+        "The geometric weight multiplies ‖Dτι(xτ⁻¹)zγ,τ‖₂ over the real places and raises the product to 2m+5."
+      ],
+      "equations": [
+        "normalization-transverse-class-bound"
+      ],
+      "dependencies": [
+        "TPD-02"
+      ],
+      "sources": [
+        {
+          "declaration": "haar_prod",
+          "label": "Transport to the finite product of real groups and Fubini",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean",
+          "lines": [
+            23,
+            60
+          ],
+          "declaration_lines": {
+            "haar_prod": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean#L23-L60"
+        },
+        {
+          "declaration": "pack_of_loc",
+          "label": "Product of the local eigenvalues with the global Haar scalar",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean",
+          "lines": [
+            167,
+            189
+          ],
+          "declaration_lines": {
+            "pack_of_loc": 138
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean#L167-L189"
+        },
+        {
+          "declaration": "pack_of_loc",
+          "label": "Product of the absolute integrals and the total loss",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean",
+          "lines": [
+            191,
+            226
+          ],
+          "declaration_lines": {
+            "pack_of_loc": 138
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean#L191-L226"
+        },
+        {
+          "declaration": "packEx_of_eigen",
+          "label": "Global scale exponent and number of real places",
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+          "lines": [
+            205,
+            220
+          ],
+          "declaration_lines": {
+            "packEx_of_eigen": 205
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean#L205-L220"
+        },
+        {
+          "declaration": "haar_eq_map_prod",
+          "label": "Real and finite Haar factors whose product gives the chosen adelic measure",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AdelicUnitaryHaarEqMapProdRealFinite.lean",
+          "lines": [
+            15,
+            31
+          ],
+          "declaration_lines": {
+            "haar_eq_map_prod": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/AdelicUnitaryHaarEqMapProdRealFinite.lean#L15-L31"
+        },
+        {
+          "declaration": "vol_pos_lt_top",
+          "label": "Positivity and finiteness of the stabilizer level volume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/CongruencePreimageVolumeFinite.lean",
+          "lines": [
+            71,
+            99
+          ],
+          "declaration_lines": {
+            "vol_pos_lt_top": 71
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/CongruencePreimageVolumeFinite.lean#L71-L99"
+        },
+        {
+          "declaration": "term_clause",
+          "label": "Finite allowed set as one translated subgroup or the empty set",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+          "lines": [
+            248,
+            300
+          ],
+          "declaration_lines": {
+            "term_clause": 248
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean#L248-L300"
+        },
+        {
+          "declaration": "term_clause",
+          "label": "Absolute adelic integral and the framed image of the rational vector",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+          "lines": [
+            301,
+            341
+          ],
+          "declaration_lines": {
+            "term_clause": 248
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean#L301-L341"
+        },
+        {
+          "declaration": "adelicAt_of_real",
+          "label": "The common constant at the identity and the translated classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+          "lines": [
+            347,
+            361
+          ],
+          "declaration_lines": {
+            "adelicAt_of_real": 347
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean#L347-L361"
+        },
+        {
+          "declaration": "identity_dominates",
+          "label": "Where the sum invokes the per-class inequality",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PoincareSeriesIdentityTermDominates.lean",
+          "lines": [
+            61,
+            70
+          ],
+          "declaration_lines": {
+            "identity_dominates": 40
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PoincareSeriesIdentityTermDominates.lean#L61-L70"
+        },
+        {
+          "declaration": "identity_dominates",
+          "label": "Bounding the integrand with the cusp-form supremum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PoincareSeriesIdentityTermDominates.lean",
+          "lines": [
+            93,
+            113
+          ],
+          "declaration_lines": {
+            "identity_dominates": 40
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/PoincareSeriesIdentityTermDominates.lean#L93-L113"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "realInputE",
+      "callee": "translateCoefficientIntegralBounds_of_unitary_laws",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.translateCoefficientIntegralBounds_of_unitary_laws"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "unitary_stabiliser_embedding_norm_laws",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.unitary_stabiliser_embedding_norm_laws"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "boostDecompositionNormBound_of_embeddingLaws",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.boostDecompositionNormBound_of_embeddingLaws"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "negativeNormPowerIntegrable_of_ballVolume",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.negativeNormPowerIntegrable_of_ballVolume"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "volume_of_ball_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.volume_of_ball_bound"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "lowest_Ktype_coefficient_explicit_power_decay",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.lowest_Ktype_coefficient_explicit_power_decay"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "translateCoefficientDerivativeIntegralBounds_of_laws",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 48,
+        "spelling": "GlobalTheory.T.translateCoefficientDerivativeIntegralBounds_of_laws"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "volDeg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 50,
+        "spelling": "volDeg"
+      }
+    },
+    {
+      "caller": "realInputE",
+      "callee": "vol_arith",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchInput.lean",
+        "line": 100,
+        "spelling": "vol_arith"
+      }
+    },
+    {
+      "caller": "volDeg",
+      "callee": "formalDegree_le_of_neighbourhoodVolume",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchVol.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.T.formalDegree_le_of_neighbourhoodVolume"
+      }
+    },
+    {
+      "caller": "translateCoefficientIntegralBounds_of_unitary_laws",
+      "callee": "intBounds_main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLawsStatement.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.SepReal.intBounds_main"
+      }
+    },
+    {
+      "caller": "intBounds_main",
+      "callee": "intBounds_of",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+        "line": 286,
+        "spelling": "intBounds_of"
+      }
+    },
+    {
+      "caller": "intBounds_of",
+      "callee": "coef_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+        "line": 184,
+        "spelling": "coef_conj"
+      }
+    },
+    {
+      "caller": "intBounds_of",
+      "callee": "real_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+        "line": 238,
+        "spelling": "real_bound"
+      }
+    },
+    {
+      "caller": "intBounds_of",
+      "callee": "const_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+        "line": 260,
+        "spelling": "const_bound"
+      }
+    },
+    {
+      "caller": "intBounds_of",
+      "callee": "integral_mul_left_eq_self",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TranslateCoefficientIntegralBoundsOfUnitaryLaws.lean",
+        "line": 274,
+        "spelling": "integral_mul_left_eq_self"
+      }
+    },
+    {
+      "caller": "powInt_of_volBall",
+      "callee": "term_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/NegativeNormPowerIntegrableOfBallVolume.lean",
+        "line": 124,
+        "spelling": "term_le"
+      }
+    },
+    {
+      "caller": "volBall",
+      "callee": "double_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/VolumeOfBallBound.lean",
+        "line": 82,
+        "spelling": "double_count"
+      }
+    },
+    {
+      "caller": "boost_of_embLaws",
+      "callee": "transit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/BoostDecompositionNormBoundOfEmbeddingLaws.lean",
+        "line": 136,
+        "spelling": "transit"
+      }
+    },
+    {
+      "caller": "decPow",
+      "callee": "decGap_of_formulaGap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/LowestKtypeCoefficientExplicitPowerDecay.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.DecGapBound.decGap_of_formulaGap"
+      }
+    },
+    {
+      "caller": "locOK_of_eigen",
+      "callee": "realInputE_transport",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 114,
+        "spelling": "realInputE_transport"
+      }
+    },
+    {
+      "caller": "locOK_of_eigen",
+      "callee": "unitary_haar_coordinate_reversal_positive_multiple",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 139,
+        "spelling": "GlobalTheory.T.unitary_haar_coordinate_reversal_positive_multiple"
+      }
+    },
+    {
+      "caller": "locOK_of_eigen",
+      "callee": "translated_matrix_coefficient_in_adapted_frame",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 140,
+        "spelling": "GlobalTheory.T.translated_matrix_coefficient_in_adapted_frame"
+      }
+    },
+    {
+      "caller": "locOK_of_eigen",
+      "callee": "act_of_eigen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 198,
+        "spelling": "act_of_eigen"
+      }
+    },
+    {
+      "caller": "locOK_of_eigen",
+      "callee": "transversal_coefficient_decay_at_real_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 200,
+        "spelling": "GlobalTheory.T.transversal_coefficient_decay_at_real_place"
+      }
+    },
+    {
+      "caller": "packEx_of_eigen",
+      "callee": "locOK_of_eigen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 207,
+        "spelling": "locOK_of_eigen"
+      }
+    },
+    {
+      "caller": "packEx_of_eigen",
+      "callee": "realVectors_allPlaces_of_localData",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/RealBands/BranchPack.lean",
+        "line": 215,
+        "spelling": "GlobalTheory.T.realVectors_allPlaces_of_localData"
+      }
+    },
+    {
+      "caller": "unitary_haar_coordinate_reversal_positive_multiple",
+      "callee": "haar_rev",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnitaryHaarCoordinateReversalPositiveMultipleStatement.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.HaarRev.haar_rev"
+      }
+    },
+    {
+      "caller": "transversal_coefficient_decay_at_real_place",
+      "callee": "farClause",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TransversalCoefficientDecayAtRealPlaceStatement.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.PackLoc.farClause"
+      }
+    },
+    {
+      "caller": "realVectors_allPlaces_of_localData",
+      "callee": "pack_of_loc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalDataStatement.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.PackGlob.pack_of_loc"
+      }
+    },
+    {
+      "caller": "pack_of_loc",
+      "callee": "haar_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RealVectorsAllPlacesOfLocalData.lean",
+        "line": 171,
+        "spelling": "haar_prod"
+      }
+    },
+    {
+      "caller": "adelicAt_of_real",
+      "callee": "adelicUnitaryHaar_eq_map_prod_real_finite",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+        "line": 349,
+        "spelling": "GlobalTheory.T.adelicUnitaryHaar_eq_map_prod_real_finite"
+      }
+    },
+    {
+      "caller": "adelicAt_of_real",
+      "callee": "congruence_preimage_volume_finite",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+        "line": 353,
+        "spelling": "GlobalTheory.T.congruence_preimage_volume_finite"
+      }
+    },
+    {
+      "caller": "adelicAt_of_real",
+      "callee": "term_clause",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+        "line": 361,
+        "spelling": "term_clause"
+      }
+    },
+    {
+      "caller": "term_clause",
+      "callee": "coef_split",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+        "line": 290,
+        "spelling": "coef_split"
+      }
+    },
+    {
+      "caller": "term_clause",
+      "callee": "vanish",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/UnipotentPeriodAdelicClausesOfReal.lean",
+        "line": 341,
+        "spelling": "vanish"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "realInputE",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 232,
+        "spelling": "Branch.realInputE"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "projLarge_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 233,
+        "spelling": "Branch.projLarge_of"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "eigMap_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 235,
+        "spelling": "Branch.eigMap_of"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "bigProjP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 234,
+        "spelling": "PositivityTheory.RgHe.A.Pf.bigProjP"
+      }
+    },
+    {
+      "caller": "realInputE_holds",
+      "callee": "eigA",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/RealBranch.lean",
+        "line": 235,
+        "spelling": "GlobalTheory.CompanionTheory.RgHeA.eigA"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "TPD-01",
+      "TPD-02"
+    ],
+    [
+      "TPD-02",
+      "TPD-03"
+    ],
+    [
+      "TPD-03",
+      "POT-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Andrew V. Sutherland, 18.785 Number Theory I (Fall 2016), Lecture 13, Theorem 13.3 (Weil), uniqueness of Haar measure up to positive scaling",
+      "url": "https://math.mit.edu/classes/18.785/2016fa/LectureNotes13.pdf"
+    },
+    {
+      "title": "Terence Tao, An Epsilon of Room, I, Theorem 1.1.23 (Fubini–Tonelli for σ-finite measures)",
+      "url": "https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-117-tao3-epsilon1.pdf"
+    }
+  ],
+  "outstanding": [
+    "The explicit large-gap estimate on a lowest K-type, the bounded branching translate, and the branching eigenvector theorem enter as upstream results. The article derives the integrated transverse decay, the shell summation, diagonal normalization and the Haar comparisons.",
+    "The formal-degree small-neighbourhood inequality and the simultaneous derivative estimate are located in the primary sources. The derivative estimate only increases the common loss used by the package.",
+    "The adelic product decomposition and positivity and finiteness of the congruence-preimage volume enter TPD-03. The lattice counting, cusp-form bounds and choice of depth are separate steps in the proof of nonvanishing."
+  ]
+}

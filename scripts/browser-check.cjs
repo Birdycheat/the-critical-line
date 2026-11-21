@@ -102,7 +102,9 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "split-gram-phases") {
+        if (id === "convex-nerve-cut") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["A, B, AB", "B", "B, C, BC"]);
+        } else if (id === "split-gram-phases") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(0, 2)", "0", "(2, 0)", "0", "(3, 3)", "4", "(4, 4)", "1"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["i, −i", "2 of 4"]);
         } else if (id === "marked-ideal-weight") {

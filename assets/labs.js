@@ -16,6 +16,14 @@
     value,
   });
   const configs = {
+    "convex-nerve-cut": {
+      title: "Which faces survive a cut?",
+      kind: "The nerve of three closed intervals",
+      section: "inputs",
+      params: [range("cut", "Position of the cut", 0, 4, 0.5, 2)],
+      caption: "A label or pair appears on the slice exactly when it occurs on both closed halves. At the midpoint only B meets the slice. At 1 or 3 the slice also witnesses an edge and one half keeps every face.",
+      method: "A occupies [0,1], B occupies [1,3], and C occupies [3,4]. Intersect each interval and pairwise intersection with the left half, the cut point and the right half. The displayed pairs stand for their unordered label supports. Permuting or repeating an entry preserves its witness. The empty face has a witness in every nonempty slice.",
+    },
     "split-gram-phases": {
       title: "Which phase permits division in both components?",
       kind: "A split Hermitian denominator at 5",
@@ -1350,6 +1358,32 @@
   }
 
   function render(id, v) {
+    if (id === "convex-nerve-cut") {
+      const cut = Number(v.cut);
+      const intervals = [["A", 0, 1], ["B", 1, 3], ["C", 3, 4]];
+      const faces = [...intervals];
+      for (const [index, [name, low, high]] of intervals.entries()) {
+        for (const [other, start, end] of intervals.slice(index + 1)) {
+          if (Math.max(low, start) <= Math.min(high, end)) {
+            faces.push([name + other, Math.max(low, start), Math.min(high, end)]);
+          }
+        }
+      }
+      const touching = (low, high) => faces.filter(([, a, b]) => a <= high && low <= b)
+        .map(([label]) => label).join(", ");
+      const x = t => 38 + 65 * t;
+      const lines = intervals.map(([label, start, end], index) => {
+        const y = 23 + index * 27;
+        return '<text x="10" y="' + (y + 4) + '">' + label + '</text>' +
+          '<path d="M' + x(start) + ' ' + y + ' H' + x(end) + '" stroke="currentColor" stroke-width="2"/>' +
+          [start, end].map(t => '<circle cx="' + x(t) + '" cy="' + y + '" r="3" fill="currentColor"/>').join('');
+      }).join('');
+      const ticks = [0, 1, 2, 3, 4].map(t =>
+        '<text text-anchor="middle" x="' + x(t) + '" y="105">' + t + '</text>').join('');
+      return '<svg class="plot" viewBox="0 0 330 112" role="img" aria-label="Three closed intervals with a cut at ' + cut + '">' +
+        lines + '<path d="M' + x(cut) + ' 8 V89" stroke="#976342" stroke-dasharray="4 3"/>' + ticks + '</svg>' +
+        metrics([["Left half", touching(0, cut)], ["On the slice", touching(cut, cut)], ["Right half", touching(cut, 4)]]);
+    }
     if (id === "split-gram-phases") {
       const a = Number(v.first), b = Number(v.second);
       const phases = [["1", 1, 1], ["−1", 4, 4], ["i", 2, 3], ["−i", 3, 2]];

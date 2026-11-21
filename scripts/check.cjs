@@ -141,6 +141,16 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Enumerate every witness on the half-grid, including both endpoints of each interval.
+for (let halfStep = 0; halfStep <= 8; halfStep++) {
+  const labelsAt = ["A", "A", "AB", "B", "B", "B", "BC", "C", "C"];
+  const listFaces = values => ["A", "B", "C", "AB", "BC"].filter(face =>
+    values.some(labels => [...face].every(label => labels.includes(label)))).join(", ");
+  const result = lib.render("convex-nerve-cut", {cut: halfStep / 2});
+  const values = [...result.matchAll(/<dd>(.*?)<\/dd>/g)].map(match => match[1]);
+  assert.deepEqual(values, [listFaces(labelsAt.slice(0, halfStep + 1)),
+    listFaces([labelsAt[halfStep]]), listFaces(labelsAt.slice(halfStep))]);
+}
 // Reconstruct t as a Gaussian residue x + iy and multiply before splitting at 5.
 for (let a = 0; a < 5; a++) {
   for (let b = 0; b < 5; b++) {

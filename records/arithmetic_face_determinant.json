@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "NEX-01",
+      "chapter": "inputs",
+      "anchor": "inputs-face-real-gram",
+      "title": "A lattice minimum forces positivity of every local Hermitian form",
+      "statement": "For h with q_h(y)≥1 on every nonzero integral vector in 𝒪_L^N, the integral-basis real Gram G is positive definite, 1≤(4d)^d det G, and each local Hermitian matrix is positive definite.",
+      "hypotheses": "L totally complex, one complex embedding in each conjugate pair, N≥1, d=[L:ℚ]N, and q_h the sum of the local Hermitian quadratic forms counted once per pair.",
+      "correspondence": "The source extends nonnegativity from lattice points by homogeneity and continuity, applies a cube estimate to G+εI, passes to the determinant limit, and uses surjectivity in real embedding coordinates to test a single local place. The exposition proves the same cube bound directly using Minkowski and supplies the invertible-embedding-matrix justification for surjectivity.",
+      "dependencies": [],
+      "equations": [
+        "inputs-face-gram-lower"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KT.gramq",
+          "declaration_lines": {
+            "UpperTheory.V.KT.gramq": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/RealVec.lean",
+          "lines": [
+            6,
+            18
+          ],
+          "label": "Identification with the quadratic form in the integral basis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/RealVec.lean#L6-L18"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.grampsd",
+          "declaration_lines": {
+            "UpperTheory.V.KT.grampsd": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampsd.lean",
+          "lines": [
+            6,
+            48
+          ],
+          "label": "Extending nonnegativity to real coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampsd.lean#L6-L48"
+        },
+        {
+          "declaration": "PIW.AdelClassFin.hmk_box",
+          "declaration_lines": {
+            "PIW.AdelClassFin.hmk_box": 31
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean",
+          "lines": [
+            31,
+            89
+          ],
+          "label": "Minkowski’s theorem supplies a lattice point in the cube",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/AdelicClassFiniteness/HmkFactor.lean#L31-L89"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramlow_fin",
+          "declaration_lines": {
+            "UpperTheory.V.KT.gramlow_fin": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+          "lines": [
+            7,
+            41
+          ],
+          "label": "The point in the cube bounds the determinant of a positive definite form",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean#L7-L41"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.grampd",
+          "declaration_lines": {
+            "UpperTheory.V.KT.grampd": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+          "lines": [
+            8,
+            50
+          ],
+          "label": "Perturbation by a positive scalar matrix and the determinant limit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean#L8-L50"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.realsurj",
+          "declaration_lines": {
+            "UpperTheory.V.KT.realsurj": 23
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Realsurj.lean",
+          "lines": [
+            7,
+            27
+          ],
+          "label": "Real coefficients give arbitrary complex vectors at the chosen embeddings",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Realsurj.lean#L7-L27"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.rypos",
+          "declaration_lines": {
+            "UpperTheory.V.KT.rypos": 9
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+          "lines": [
+            9,
+            33
+          ],
+          "label": "Testing positive definiteness one complex place at a time",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean#L9-L33"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "NEX-02",
+      "chapter": "inputs",
+      "anchor": "inputs-face-determinant-product",
+      "title": "The product of local determinants in integral coordinates",
+      "statement": "With P the product of local Hermitian determinants, D the absolute discriminant of L, and d=[L:ℚ]N, one has 2^d det G=D^N P². For a feasible h, 1≤D^N d^d P. A matrix A of N independent common minimal integral columns has |N_{L/ℚ}(det A)|≤D^N d^d.",
+      "hypotheses": "L totally complex of positive degree, N≥1 and h a Hermitian family at one embedding per conjugate pair. The identity is algebraic for every such h. Positivity and the lower bound require q_h(y)≥1 on every nonzero integral vector. The frame consequence requires its columns to have q_h-value one.",
+      "correspondence": "The archival proof gives the conjugate embedding the transposed Hermitian block, factors a block determinant using the full embedding matrix, and combines the resulting identity with the real Gram lower bound. The normalized frame estimate subsequently applies Hadamard to the pullbacks. The imaginary off-diagonal example checks the factor 2^d and the finite index convention.",
+      "dependencies": [
+        "NEX-01"
+      ],
+      "equations": [
+        "inputs-face-discriminant-identity"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KT.det_emb",
+          "declaration_lines": {
+            "UpperTheory.V.KT.det_emb": 33
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            33,
+            47
+          ],
+          "label": "The absolute discriminant from the embedding matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L33-L47"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.blockdet",
+          "declaration_lines": {
+            "UpperTheory.V.KT.blockdet": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Blockdet.lean",
+          "lines": [
+            6,
+            26
+          ],
+          "label": "Factorization of the determinant for all embeddings and all columns",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Blockdet.lean#L6-L26"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramdet",
+          "declaration_lines": {
+            "UpperTheory.V.KT.gramdet": 49
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            49,
+            86
+          ],
+          "label": "Conjugate-transpose blocks and the real Gram factor of two",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L49-L86"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramdet",
+          "declaration_lines": {
+            "UpperTheory.V.KT.gramdet": 49
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            86,
+            100
+          ],
+          "label": "Pairing the real-valued Hermitian determinants",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L86-L100"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.detlow_num",
+          "declaration_lines": {
+            "UpperTheory.V.KT.detlow_num": 10
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+          "lines": [
+            10,
+            34
+          ],
+          "label": "Taking the positive square root in the numerical estimate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean#L10-L34"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.detlow",
+          "declaration_lines": {
+            "UpperTheory.V.KT.detlow": 36
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+          "lines": [
+            36,
+            81
+          ],
+          "label": "The positive product lower bound for a feasible family",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean#L36-L81"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.nrmle",
+          "declaration_lines": {
+            "UpperTheory.V.KT.nrmle": 35
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean",
+          "lines": [
+            35,
+            82
+          ],
+          "label": "The lower bound used to count the common minimal frames",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean#L35-L82"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.KT.grampd",
+      "callee": "UpperTheory.V.KT.grampsd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+        "line": 14,
+        "spelling": "UpperTheory.V.KT.grampsd"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.grampd",
+      "callee": "UpperTheory.V.KT.gramlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+        "line": 24,
+        "spelling": "UpperTheory.V.KT.gramlow"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramlow",
+      "callee": "UpperTheory.V.KT.gramlow_fin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+        "line": 51,
+        "spelling": "UpperTheory.V.KT.gramlow_fin"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramlow_fin",
+      "callee": "PIW.AdelClassFin.hmk_factor",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+        "line": 12,
+        "spelling": "PIW.AdelClassFin.hmk_factor"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramlow_fin",
+      "callee": "PIW.AdelClassFin.hmk_box",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramlow.lean",
+        "line": 19,
+        "spelling": "PIW.AdelClassFin.hmk_box"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.rypos",
+      "callee": "UpperTheory.V.KT.gramq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 13,
+        "spelling": "gramq"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.rypos",
+      "callee": "UpperTheory.V.KT.grampd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 16,
+        "spelling": "grampd"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.rypos",
+      "callee": "UpperTheory.V.KT.realsurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 20,
+        "spelling": "realsurj"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramdet",
+      "callee": "UpperTheory.V.KT.blockdet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 66,
+        "spelling": "UpperTheory.V.KT.blockdet"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramdet",
+      "callee": "UpperTheory.V.KT.det_emb",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 69,
+        "spelling": "UpperTheory.V.KT.det_emb"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.gramdet",
+      "callee": "UpperTheory.V.KT.prod_emb",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 70,
+        "spelling": "UpperTheory.V.KT.prod_emb"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.detlow",
+      "callee": "UpperTheory.V.KT.grampd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 51,
+        "spelling": "grampd"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.detlow",
+      "callee": "UpperTheory.V.KT.gramdet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 56,
+        "spelling": "gramdet"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.detlow",
+      "callee": "UpperTheory.V.KT.rypos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 60,
+        "spelling": "rypos"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.detlow",
+      "callee": "UpperTheory.V.KT.detlow_num",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 75,
+        "spelling": "UpperTheory.V.KT.detlow_num"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.nrmle",
+      "callee": "UpperTheory.V.KT.detlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean",
+        "line": 57,
+        "spelling": "detlow"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KT.nrmle",
+      "callee": "UpperTheory.V.KT.rypos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean",
+        "line": 42,
+        "spelling": "rypos"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "NEX-01",
+      "NEX-02"
+    ],
+    [
+      "NEX-02",
+      "HOB-01"
+    ]
+  ],
+  "outstanding": [
+    "The argument bounds a frame once N independent common minimal columns have been chosen. Existence of such a frame, the face orbit count and exactness of the chain complex require their own arguments."
+  ]
+}

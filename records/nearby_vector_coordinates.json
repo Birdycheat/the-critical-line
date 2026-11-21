@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "NVC-01",
+      "chapter": "inputs",
+      "anchor": "inputs-nearby-cramer",
+      "title": "Bounding one frame coordinate by replacing a Gram column",
+      "statement": "For a positive semidefinite Hermitian N by N matrix G with diagonal entries at most one and a complex vector c with c*Gc≤1, every coordinate satisfies |det G| |c_a|≤N!≤N^N.",
+      "hypotheses": "The chapter uses N≥1. The identity for the replacement determinant and the determinant-weighted estimate both allow G to be singular.",
+      "dependencies": [],
+      "equations": [],
+      "sources": [
+        {
+          "label": "Cauchy–Schwarz for the semidefinite Hermitian form",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+          "lines": [
+            24,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean#L24-L33",
+          "declaration": "cs_form",
+          "declaration_lines": {
+            "cs_form": 24
+          }
+        },
+        {
+          "label": "Unit entry bounds and the replacement determinant",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+          "lines": [
+            35,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean#L35-L68",
+          "declaration": "UpperTheory.V.KT.cramer",
+          "declaration_lines": {
+            "UpperTheory.V.KT.cramer": 35
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "NVC-02",
+      "chapter": "inputs",
+      "anchor": "inputs-nearby-vector-coordinates",
+      "title": "A single bound at every embedding for integral frame coordinates",
+      "statement": "Let A be a nonsingular integral N by N frame over a totally complex number field F, r=|Norm(det A)|, and B the integral matrix with AB=rI. For every y made minimal together with the columns of A by some feasible family of forms, |σ_w((By)_a)|≤N^N J² for every coordinate a and every complex place w, where J=|disc F|^N d^d and d=N[F:ℚ].",
+      "hypotheses": "The feasible family may depend on y. The global energy uses one representative per complex place. The integral matrix B is independent of that family and of y. The frame estimate gives both 1≤r≤J and J det G_w≥1 for the pulled-back local forms.",
+      "dependencies": [
+        "HOB-01",
+        "NVC-01"
+      ],
+      "equations": [],
+      "sources": [
+        {
+          "label": "The integral constants and nearby vectors",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/SmulStrictMono.lean",
+          "lines": [
+            244,
+            259
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/SmulStrictMono.lean#L244-L259",
+          "declaration": "nearVec",
+          "declaration_lines": {
+            "nearVec": 258
+          }
+        },
+        {
+          "label": "Existence and positivity of the integral scaled inverse",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean",
+          "lines": [
+            6,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean#L6-L19",
+          "declaration": "UpperTheory.V.KT.scinv",
+          "declaration_lines": {
+            "UpperTheory.V.KT.scinv": 6
+          }
+        },
+        {
+          "label": "Determinants and diagonals of the forms in the chosen frame",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean",
+          "lines": [
+            35,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/DetPull.lean#L35-L86",
+          "declaration": "UpperTheory.V.KT.nrmle",
+          "declaration_lines": {
+            "UpperTheory.V.KT.nrmle": 35
+          }
+        },
+        {
+          "label": "A coordinate bound after returning to the integral normalization",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearcoord.lean",
+          "lines": [
+            10,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearcoord.lean#L10-L64",
+          "declaration": "UpperTheory.V.KT.nearcoord",
+          "declaration_lines": {
+            "UpperTheory.V.KT.nearcoord": 10
+          }
+        },
+        {
+          "label": "The coordinate box and its injective parametrization",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearvec.lean",
+          "lines": [
+            9,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearvec.lean#L9-L38",
+          "declaration": "UpperTheory.V.KT.nearvec",
+          "declaration_lines": {
+            "UpperTheory.V.KT.nearvec": 9
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "cs_form",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+        "line": 49,
+        "spelling": "cs_form"
+      }
+    },
+    {
+      "callee": "cs_form",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+        "line": 53,
+        "spelling": "cs_form"
+      }
+    },
+    {
+      "callee": "Matrix.cramer_eq_adjugate_mulVec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+        "line": 55,
+        "spelling": "Matrix.cramer_eq_adjugate_mulVec"
+      }
+    },
+    {
+      "callee": "Matrix.det_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+        "line": 58,
+        "spelling": "Matrix.det_le"
+      }
+    },
+    {
+      "callee": "Nat.factorial_le_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Cramer.lean",
+        "line": 68,
+        "spelling": "Nat.factorial_le_pow"
+      }
+    },
+    {
+      "callee": "UpperTheory.V.KT.nrmle",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearcoord.lean",
+        "line": 15,
+        "spelling": "nrmle"
+      }
+    },
+    {
+      "callee": "UpperTheory.V.KT.scinv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearcoord.lean",
+        "line": 17,
+        "spelling": "scinv"
+      }
+    },
+    {
+      "callee": "UpperTheory.V.KT.cramer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearcoord.lean",
+        "line": 49,
+        "spelling": "cramer"
+      }
+    },
+    {
+      "callee": "UpperTheory.V.KT.nearcoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Nearvec.lean",
+        "line": 21,
+        "spelling": "nearcoord"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HOB-01",
+      "NVC-02"
+    ],
+    [
+      "NVC-01",
+      "NVC-02"
+    ],
+    [
+      "NVC-02",
+      "HOB-03"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Gilbert Strang, MIT 18.06, Lecture 20, Cramer’s rule, inverse matrix, and volume",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-20-cramers-rule-inverse-matrix-and-volume/"
+    }
+  ]
+}

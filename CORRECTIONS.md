@@ -114,3 +114,7 @@ The description of an iterated theta integral in the local chapter defines its s
 ### Normalizing a primitive column in a split algebra
 
 The shorter account of transverse compactness described a single largest coordinate. Over the two components of a split place the largest entries can occur at different indices. The revised argument exhibits those two pivots, carries along a functional pairing to one, and uses scalar one at all but finitely many places. Only after forming the normalized hyperbolic pair does it invoke the compact family of isometries on its Gram fibre. [Transverse compactness](book.html#lifts-isotropic-transverse) · [Split pivots](book.html#lifts-primitive-witness-local)
+
+### The threshold for a scalar count in an isotropic shell
+
+The upper branch of the two-radius comparison includes the threshold itself. In the half-Gaussian example its value there is 25 and the exact nonzero count is still zero. Four vectors enter later, at closed radius one half. The chapter now derives the dimension of the scalar count after pairing and specifies which branch applies at equality. [Dilation and the threshold](book.html#lifts-adelic-box-count)

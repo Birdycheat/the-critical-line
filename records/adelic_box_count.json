@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "ADB-01",
+      "chapter": "lifts",
+      "anchor": "lifts-adelic-box-coordinates",
+      "title": "A common finite denominator and an archimedean lattice",
+      "statement": "A compact family of vectors in (𝔸_F⊗_F E)^M lies in a coordinate box with one positive integer denominator N at all finite places and one archimedean ℓ¹ radius r>0. Within that denominator, the rational coordinate subgroup is (N⁻¹𝒪_F)^(2M), embedded in real dimension 2[F:ℚ]M.",
+      "hypotheses": "F is totally real and E/F is CM quadratic. Fix an F-basis of E. The local integral lattices are taken in the chosen coefficient basis of the two-dimensional algebra over F_v. They are compact open, including at split places.",
+      "correspondence": "The source treats tuples in the tensor-product coordinates, constructs the additive subgroup from all finite-place constraints, computes its archimedean norm and rank and bounds rational intersections with compact sets.",
+      "dependencies": [],
+      "equations": [
+        "lifts-adelic-box-factors"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.box": 21,
+            "GlobalTheory.CompanionTheory.SW.IsFlow": 24
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/HypJ.lean",
+          "lines": [
+            21,
+            27
+          ],
+          "label": "The two defining conditions of the box and the scalar flow",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/CountingDefinitions/AdelicEulerProducts/HypJ.lean#L21-L27",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.IsFlow"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BoxF.exhaust",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BoxF.exhaust": 222
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+          "lines": [
+            204,
+            234
+          ],
+          "label": "One finite denominator and one real radius cover a compact family",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean#L204-L234"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BoxF.box_facts",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BoxF.box_facts": 355
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+          "lines": [
+            355,
+            369
+          ],
+          "label": "Compact real and finite factors form an adelic box",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean#L355-L369"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Pack.intSub",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Pack.intSub": 14,
+            "GlobalTheory.CompanionTheory.SW.Pack.coord": 29,
+            "GlobalTheory.CompanionTheory.SW.Pack.norm_coord": 39,
+            "GlobalTheory.CompanionTheory.SW.Pack.finrank_coord": 48
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean",
+          "lines": [
+            14,
+            58
+          ],
+          "label": "The finite-coordinate subgroup and its real norm in the chosen basis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean#L14-L58",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Pack.coord",
+            "GlobalTheory.CompanionTheory.SW.Pack.norm_coord",
+            "GlobalTheory.CompanionTheory.SW.Pack.finrank_coord"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CocW.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CocW.main": 66
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RationalTuplesDiscreteCocompactAdelic.lean",
+          "lines": [
+            66,
+            87
+          ],
+          "label": "Finiteness of the rational tuples meeting a compact set",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RationalTuplesDiscreteCocompactAdelic.lean#L66-L87"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "ADB-02",
+      "chapter": "lifts",
+      "anchor": "lifts-adelic-box-packing",
+      "title": "Counting with two radii in the same finite box",
+      "statement": "For 0<r₀≤R the count P_N(R) of rational vectors, including zero, is at most (5R/r₀)^ν P_N(r₀) in real dimension ν=2[F:ℚ]M.",
+      "hypotheses": "Both boxes use the same positive finite denominator and the same coefficient basis. The count of the small box includes the origin.",
+      "correspondence": "The general theorem permits any additive coordinate map with counting measure. The chapter specializes to the rational lattice. Disjoint half-radius balls give the intermediate bound (3R/r₀)^ν for the number of centres; the published estimate of the large-ball count uses 5.",
+      "dependencies": [
+        "ADB-01"
+      ],
+      "equations": [
+        "lifts-adelic-box-ratio"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.finset_card_le_of_separated",
+          "declaration_lines": {
+            "GlobalTheory.finset_card_le_of_separated": 9,
+            "GlobalTheory.one_add_two_mul_div_pow_le": 42
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/FiniteInterClosedBallOfSeparated.lean",
+          "lines": [
+            9,
+            48
+          ],
+          "label": "Disjoint half-radius balls and the ratio of their volumes",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/FiniteInterClosedBallOfSeparated.lean#L9-L48",
+          "related_declarations": [
+            "GlobalTheory.one_add_two_mul_div_pow_le"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.card_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.card_le": 15,
+            "GlobalTheory.CompanionTheory.Adelic.Packing.exists_max_sep": 40,
+            "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.exists_near": 51
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean",
+          "lines": [
+            15,
+            74
+          ],
+          "label": "Separated centres and their covering property",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean#L15-L74",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.Adelic.Packing.exists_max_sep",
+            "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.exists_near"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Adelic.tsum_indicator_norm_le_packing",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Adelic.tsum_indicator_norm_le_packing": 81
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean",
+          "lines": [
+            81,
+            120
+          ],
+          "label": "Translation preserves the small-ball count and yields the coefficient five",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean#L81-L120"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Pack.box_packing",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Pack.box_packing": 60
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean",
+          "lines": [
+            60,
+            88
+          ],
+          "label": "Applying the real estimate to the finite-coordinate subgroup",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean#L60-L88"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "ADB-03",
+      "chapter": "lifts",
+      "anchor": "lifts-adelic-box-count",
+      "title": "A uniform cutoff and growth bound for the dilated rational count",
+      "statement": "For compact Ω and the scalar flow, the count of nonzero X∈E^M with τ(−x)X∈Ω vanishes for x<x₀ and is at most C exp(2[F:ℚ]M x) for x≥x₀. For Ω⊂B_N(r) one can choose x₀=log(r₀/r), C=(5r/r₀)^ν whenever the positive radius r₀≤1 gives P_N(r₀)=1.",
+      "hypotheses": "The scalar flow acts by exp(x) at the real places and by one at finite places. The radius r₀ is strictly below all positive real sizes in B_N(1), unless that set of nonzero vectors is empty. In the isotropic shell application the compact set is an image under the Hermitian pairing and M=1 in this counting theorem.",
+      "correspondence": "The source uses finiteness of rational tuples in a compact box to choose r₀. The additional choice min(1,d/(2N)) follows directly from the field norm of any nonzero integral coordinate. Equality at the threshold lies in the upper-bound branch. The Gaussian example verifies the cutoff and the first closed shell.",
+      "dependencies": [
+        "ADB-01",
+        "ADB-02"
+      ],
+      "equations": [
+        "lifts-adelic-box-flow-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatCount.sizeTup_ratTup_pos",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatCount.sizeTup_ratTup_pos": 44
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+          "lines": [
+            44,
+            70
+          ],
+          "label": "A nonzero rational vector has positive real size",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean#L44-L70"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.BoxF.box_facts",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.BoxF.box_facts": 355
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+          "lines": [
+            370,
+            380
+          ],
+          "label": "The flow changes only the real radius",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean#L370-L380"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatCount.count_le": 78
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+          "lines": [
+            78,
+            104
+          ],
+          "label": "The small radius, dilation direction, threshold and constant",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean#L78-L104"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatCount.count_le": 78
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+          "lines": [
+            105,
+            149
+          ],
+          "label": "The empty range and the bound at and above the threshold",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean#L105-L149"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le": 21
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+          "lines": [
+            26,
+            36
+          ],
+          "label": "The shell uses the continuous pairing to count one scalar",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean#L26-L36"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BoxF.box_facts",
+      "callee": "GlobalTheory.CompanionTheory.SW.BoxF.exhaust",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+        "line": 358,
+        "spelling": "exhaust"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BoxF.box_facts",
+      "callee": "GlobalTheory.CompanionTheory.SW.BoxF.size_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+        "line": 376,
+        "spelling": "size_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.BoxF.box_facts",
+      "callee": "GlobalTheory.CompanionTheory.SW.BoxF.projFin_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxesCompactExhaust.lean",
+        "line": 375,
+        "spelling": "projFin_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.card_le",
+      "callee": "GlobalTheory.finset_card_le_of_separated",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean",
+        "line": 25,
+        "spelling": "GlobalTheory.finset_card_le_of_separated"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Adelic.Packing.Sep.card_le",
+      "callee": "GlobalTheory.one_add_two_mul_div_pow_le",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.one_add_two_mul_div_pow_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Adelic.tsum_indicator_norm_le_packing",
+      "callee": "GlobalTheory.CompanionTheory.Adelic.Packing.exists_max_sep",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeBallCountRatioBound.lean",
+        "line": 89,
+        "spelling": "exists_max_sep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Pack.box_packing",
+      "callee": "GlobalTheory.T.lattice_ball_count_ratio_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean",
+        "line": 66,
+        "spelling": "GlobalTheory.T.lattice_ball_count_ratio_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Pack.box_packing",
+      "callee": "GlobalTheory.CompanionTheory.SW.Pack.finrank_coord",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicBoxLatticeCountRatio.lean",
+        "line": 68,
+        "spelling": "finrank_coord"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.T.adelic_boxes_compact_exhaust",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 82,
+        "spelling": "GlobalTheory.T.adelic_boxes_compact_exhaust"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.T.rational_tuples_discrete_cocompact_adelic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatCount.exists_pos_lt",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 86,
+        "spelling": "exists_pos_lt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatCount.sizeTup_ratTup_pos",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 90,
+        "spelling": "sizeTup_ratTup_pos"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callee": "GlobalTheory.T.adelic_box_lattice_count_ratio",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBounded.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.adelic_box_lattice_count_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.flow_lattice_count_bounded",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatCount.count_le",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FlowLatticeCountBoundedStatement.lean",
+        "line": 8,
+        "spelling": "GlobalTheory.CompanionTheory.SW.LatCount.count_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.IsoCount.mean_isotropic_count_le",
+      "callee": "GlobalTheory.T.flow_lattice_count_bounded",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HyperbolicFiniteVolumeIntegralBound.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.flow_lattice_count_bounded"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "ADB-01",
+      "ADB-02"
+    ],
+    [
+      "ADB-01",
+      "ADB-03"
+    ],
+    [
+      "ADB-02",
+      "ADB-03"
+    ],
+    [
+      "ADB-03",
+      "HVO-01"
+    ]
+  ],
+  "outstanding": [
+    "The Hermitian orbit mean also needs the parabolic shell volume and compact transverse representatives. Those geometric inputs are separate from the dilation count."
+  ]
+}

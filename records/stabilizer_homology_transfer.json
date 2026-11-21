@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SHT-01",
+      "chapter": "inputs",
+      "anchor": "inputs-stabilizer-homology-transfer",
+      "title": "A finite stabilizer kills its positive-degree integral homology by its order",
+      "statement": "For a transitive nonempty G-set X with stabilizer S, H_j(G,ℤ[X])≅H_j(S,ℤ) in all degrees. If S has finite order h, the norm and augmentation through ℤ[S] show that multiplication by h vanishes on H_j(S,ℤ) for j>0. Their degree-zero composite multiplies ℤ by h.",
+      "hypotheses": "G is a discrete group, X a left G-set and x a specified point. Coefficients on the stabilizer are integral and trivial in the application. Finiteness is required only for the norm of all elements and the order bound.",
+      "correspondence": "The text proves homological Shapiro by restricting a free resolution and identifies X with the left cosets G/S. The archive indexes induced generators by the inverse group element, then applies its homological Shapiro isomorphism. Both proofs of annihilation factor the order map through the regular coefficient module.",
+      "dependencies": [],
+      "equations": [
+        "inputs-stabilizer-shapiro"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KH.indPerm",
+          "declaration_lines": {
+            "UpperTheory.V.KH.indPerm": 67
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/IndPerm.lean",
+          "lines": [
+            16,
+            72
+          ],
+          "label": "From a transitive orbit to the induced integral module",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/IndPerm.lean#L16-L72"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.shapiro",
+          "declaration_lines": {
+            "UpperTheory.V.KH.shapiro": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Shapiro.lean",
+          "lines": [
+            6,
+            14
+          ],
+          "label": "Shapiro with the trivial stabilizer module in every degree",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Shapiro.lean#L6-L14"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.kill",
+          "declaration_lines": {
+            "UpperTheory.V.KH.kill": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImportsAlt.lean",
+          "lines": [
+            7,
+            47
+          ],
+          "label": "Norm, augmentation and the regular orbit with trivial stabilizer",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImportsAlt.lean#L7-L47"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.mapNsmul",
+          "declaration_lines": {
+            "UpperTheory.V.KH.mapNsmul": 5
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/MapNsmul.lean",
+          "lines": [
+            5,
+            28
+          ],
+          "label": "The two induced maps multiply homology classes by the group order",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/MapNsmul.lean#L5-L28"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SHT-02",
+      "chapter": "inputs",
+      "anchor": "inputs-permutation-homology-order",
+      "title": "The orbit and stabilizer bound on the order of permutation-module homology",
+      "statement": "For j>0, a finite group S of order h satisfies |H_j(S,ℤ)|≤h^(h^j). For a G-set X with at most A orbits and stabilizer orders at most s≥1, |H_j(G,ℤ[X])|≤s^(A·s^j).",
+      "hypotheses": "All stabilizers are finite. A and s are integer bounds. The number of elements in each orbit, and the order of G itself, may be infinite. Empty X gives the group of order one.",
+      "correspondence": "The rank bound uses all inhomogeneous bar tuples. Annihilation by h gives a surjection from the residues of the coefficients of a free cycle basis onto the homology. The text splits by orbit; the archive bounds the same product inductively by removing a single orbit and using the long exact sequence. The resolution of C₂ checks the first two degrees separately.",
+      "dependencies": [
+        "SHT-01"
+      ],
+      "equations": [
+        "inputs-stabilizer-order-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KH.subquot",
+          "declaration_lines": {
+            "UpperTheory.V.KH.subquot": 5
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Subquot.lean",
+          "lines": [
+            5,
+            40
+          ],
+          "label": "Counting residue coefficients in a basis of the cycles",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Subquot.lean#L5-L40"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.finGroup",
+          "declaration_lines": {
+            "UpperTheory.V.KH.finGroup": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+          "lines": [
+            7,
+            19
+          ],
+          "label": "Applying the order bound in the complex of tuples",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean#L7-L19"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.permTrans",
+          "declaration_lines": {
+            "UpperTheory.V.KH.permTrans": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+          "lines": [
+            8,
+            24
+          ],
+          "label": "A transitive orbit with a stabilizer of bounded order",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean#L8-L24"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.permSplit",
+          "declaration_lines": {
+            "UpperTheory.V.KH.permSplit": 5
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermSplit.lean",
+          "lines": [
+            5,
+            28
+          ],
+          "label": "Inclusion and projection for two invariant pieces",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermSplit.lean#L5-L28"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.permCard",
+          "declaration_lines": {
+            "UpperTheory.V.KH.permCard": 12
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+          "lines": [
+            12,
+            42
+          ],
+          "label": "The induction on the number of orbits and its empty case",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean#L12-L42"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.shift",
+          "declaration_lines": {
+            "UpperTheory.V.KH.shift": 14
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            14,
+            47
+          ],
+          "label": "The positive-degree orbit factor in the torsion bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L14-L47"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SHT-03",
+      "chapter": "inputs",
+      "anchor": "inputs-torsion-degree-shift",
+      "title": "The degree shift from stabilizer homology to torsion of the augmented module",
+      "statement": "Write K=ker(C₀→M) and C_p=ℤ[X_p]. For j≥1, the positive-degree segment of the long exact homology sequence gives |tors H_j(G,M)|≤s^(A s^j)·|tors H_(j−1)(G,K)|. Iteration with the degree-zero presentation gives b^A s^(j A s^j).",
+      "hypotheses": "The equivariant complex is exact at M and C₀,…,C_j, with X₀,…,X_j having at most A orbits and stabilizers of order at most s≥1. For the iterated bound the ℓ¹ length of every basis boundary C_(j+1)→C_j is at most b≥1. The finite torsion on the right follows by induction on homological degree for the shortened complex, starting with the degree-zero presentation.",
+      "correspondence": "The source takes K as the image of the first boundary, then uses its injection into C₀ and the surjection from C₁. It takes the second of the two long exact segments to bound middle torsion by the full order on the left times the right torsion order. Iterating the sharper per-step factors gives the displayed uniform estimate, which the source absorbs at each induction step.",
+      "dependencies": [
+        "SHT-02",
+        "HOM-01"
+      ],
+      "equations": [
+        "inputs-torsion-shift-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KH.imageRep",
+          "declaration_lines": {
+            "UpperTheory.V.KH.imageRep": 5
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImageRep.lean",
+          "lines": [
+            5,
+            26
+          ],
+          "label": "The surjection onto the image and the inclusion of the kernel",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImageRep.lean#L5-L26"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.les",
+          "declaration_lines": {
+            "UpperTheory.V.KH.les": 34
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/GroupHomologyLongExact.lean",
+          "lines": [
+            5,
+            42
+          ],
+          "label": "Both exact segments of the coefficient sequence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/GroupHomologyLongExact.lean#L5-L42"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.torsStep",
+          "declaration_lines": {
+            "UpperTheory.V.KH.torsStep": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsStep.lean",
+          "lines": [
+            6,
+            9
+          ],
+          "label": "The torsion comparison in the homology argument",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsStep.lean#L6-L9"
+        },
+        {
+          "declaration": "UpperTheory.Reformulated.B.Qf15.torsStep",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.Qf15.torsStep": 11
+          },
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/TorsStep.lean",
+          "lines": [
+            11,
+            41
+          ],
+          "label": "Counting the kernel and the image on torsion subgroups",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/TorsStep.lean#L11-L41"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.base",
+          "declaration_lines": {
+            "UpperTheory.V.KH.base": 9
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean",
+          "lines": [
+            9,
+            34
+          ],
+          "label": "Coinvariants and the degree-zero determinant estimate",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Imports.lean#L9-L34"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.shift",
+          "declaration_lines": {
+            "UpperTheory.V.KH.shift": 14
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            14,
+            47
+          ],
+          "label": "Shortening the complex and applying the comparison",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L14-L47"
+        },
+        {
+          "declaration": "UpperTheory.V.KH.mainFace",
+          "declaration_lines": {
+            "UpperTheory.V.KH.mainFace": 59
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+          "lines": [
+            49,
+            66
+          ],
+          "label": "The top boundary length in the augmented face complex",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean#L49-L66"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.KH.shapiro",
+      "callee": "UpperTheory.V.KH.indPerm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Shapiro.lean",
+        "line": 11,
+        "spelling": "indPerm"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shapiro",
+      "callee": "groupHomology.indIso",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/Shapiro.lean",
+        "line": 13,
+        "spelling": "groupHomology.indIso"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.kill",
+      "callee": "UpperTheory.V.KH.shapiro",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImportsAlt.lean",
+        "line": 34,
+        "spelling": "shapiro"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.kill",
+      "callee": "UpperTheory.V.KH.mapNsmul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/ImportsAlt.lean",
+        "line": 47,
+        "spelling": "mapNsmul"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.finGroup",
+      "callee": "UpperTheory.V.KH.subquot",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+        "line": 15,
+        "spelling": "subquot"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.finGroup",
+      "callee": "UpperTheory.V.KH.kill",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/FinGroup.lean",
+        "line": 18,
+        "spelling": "kill"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permTrans",
+      "callee": "UpperTheory.V.KH.shapiro",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+        "line": 15,
+        "spelling": "shapiro"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permTrans",
+      "callee": "UpperTheory.V.KH.finGroup",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermTrans.lean",
+        "line": 16,
+        "spelling": "finGroup"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.permEmpty",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 19,
+        "spelling": "permEmpty"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.orbStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 34,
+        "spelling": "orbStep"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.permSplit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 35,
+        "spelling": "permSplit"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.les",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 36,
+        "spelling": "les"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.permTrans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 37,
+        "spelling": "permTrans"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.permCard",
+      "callee": "UpperTheory.V.KH.cardStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/PermCard.lean",
+        "line": 39,
+        "spelling": "cardStep"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shift",
+      "callee": "UpperTheory.V.KH.permCard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 39,
+        "spelling": "permCard"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shift",
+      "callee": "UpperTheory.V.KH.imageRep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 29,
+        "spelling": "imageRep"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shift",
+      "callee": "UpperTheory.V.KH.les",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 40,
+        "spelling": "les"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shift",
+      "callee": "UpperTheory.V.KH.torsStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 41,
+        "spelling": "torsStep"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.shift",
+      "callee": "UpperTheory.V.KH.base",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 25,
+        "spelling": "base"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.main",
+      "callee": "UpperTheory.V.KH.shift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 54,
+        "spelling": "shift"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.mainFace",
+      "callee": "UpperTheory.V.KH.main",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/LogLeExp.lean",
+        "line": 65,
+        "spelling": "main"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.KH.torsStep",
+      "callee": "UpperTheory.Reformulated.B.Qf15.torsStep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/TorsionBoundsChains/TorsStep.lean",
+        "line": 9,
+        "spelling": "_root_.UpperTheory.Reformulated.B.Qf15.torsStep"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SHT-01",
+      "SHT-02"
+    ],
+    [
+      "SHT-02",
+      "SHT-03"
+    ],
+    [
+      "HOM-01",
+      "SHT-03"
+    ],
+    [
+      "SHT-03",
+      "HOM-02"
+    ]
+  ],
+  "outstanding": [
+    "The arithmetic application still requires its own face complex, exactness, orbit bound and stabilizer bound. Homological Shapiro and the coefficient long exact sequence are classical results with precise references in the text."
+  ]
+}
