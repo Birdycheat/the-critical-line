@@ -102,7 +102,14 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "galois-character-peeling") {
+        if (id === "frobenius-good-places") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["Yes", "Yes", "61", "5", "3"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "Witness"]);
+        } else if (id === "casimir-cutoff") {
+          assert.deepEqual(await fig.locator("tbody tr").nth(4).locator("td").allInnerTexts(), ["Yes", "Yes", "No"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["3/2", "0", "0"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3/11", "97/110"]);
+        } else if (id === "galois-character-peeling") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(1, 1)", "(−1, −1)", "(−1, −1)"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Equal", "2 of 4"]);
         } else if (id === "regular-unit-shift") {
@@ -528,6 +535,7 @@ async function run() {
     assert.ok(referenceLayout.indent >= referenceLayout.markerWidth, "Source list must fit its longest number");
     assert.equal(referenceLayout.split, "avoid");
     assert.deepEqual(await page.locator("#fig-kernel-order .metrics dd").allInnerTexts(), ["1 − i", "1 − i"]);
+    assert.deepEqual(await page.locator("#fig-casimir-cutoff .metrics dd").allInnerTexts(), ["3/11", "97/110"]);
     assert.deepEqual(await page.locator("#fig-minimum-scale .metrics dd").allInnerTexts(), ["45", "13", "e₁"]);
     assert.ok(await page.locator("#fig-central-period svg").isVisible());
     assert.deepEqual(await page.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
@@ -570,6 +578,7 @@ async function run() {
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
     assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
+    assert.deepEqual(await plain.locator("#fig-casimir-cutoff tbody tr").last().locator("td").allInnerTexts(), ["3/2", "0", "0"]);
     assert.deepEqual(await plain.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     const staticJacobi = plain.locator("#fig-jacobi-primes");
     assert.deepEqual(await plain.locator("#fig-inert-length .metrics dd").allInnerTexts(), ["1", "1", "9"]);

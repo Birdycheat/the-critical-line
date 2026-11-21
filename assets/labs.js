@@ -16,6 +16,28 @@
     value,
   });
   const configs = {
+    "frobenius-good-places": {
+      title: "Which prime still realizes the chosen Frobenius?",
+      kind: "Testing an inverse Frobenius on seventh roots of unity",
+      section: "lifts",
+      params: [
+        choose("prime", "Rational prime q", [3, 11, 17, 29, 61, 89].map(q => [String(q), String(q)]), "61"),
+        choose("omit", "Additional exclusion", [["none", "None"], ["61", "Places above 61"]], "none"),
+      ],
+      caption: "Look for a good place whose inverse Frobenius cubes a seventh root of unity. Once 61 is excluded, try 89. The smaller primes illustrate how a candidate can fail a different part of the test.",
+      method: "In E = ℚ(√5,i), each listed odd prime is unramified. The absolute residue degree is one when both 5 and −1 are squares modulo q, and two otherwise. If 5 is a nonsquare, the real residue field has degree two and contains a square root of −1. The good-place condition also asks that −1 be a square in ℚq. At a place of residue degree f the inverse Frobenius exponent is the inverse of q^f modulo 7. All listed primes are away from ℓ = 13.",
+    },
+    "casimir-cutoff": {
+      title: "Which directions survive the Casimir cutoff?",
+      kind: "A diagonal operator on three coordinates",
+      section: "normalization",
+      params: [
+        choose("amplitude", "First coordinate of the trial vector", [["3", "3"], ["4", "4"], ["5", "5"]], "3"),
+        choose("outer", "Largest eigenvalue of U/R", [["2", "2"], ["3", "3"]], "2"),
+      ],
+      caption: "Read down the middle column. The second axis belongs to the cut because N vanishes there. The witness Py has zero second coordinate because P also vanishes there. Its first coordinate shows that the cut contains a nonzero vector.",
+      method: "Write R = 2S and take U/R diagonal with entries 0, 1 and b. On an axis with entry u, T acts by t = 1/(1+u²). The positive and negative parts of T−½I act by P = max(t−½,0) and N = max(½−t,0). For the trial vector y = (a,1,1), weight the three diagonal entries by a², 1 and 1 and divide by a²+2 to obtain each mean.",
+    },
     "galois-character-peeling": {
       title: "Does this vector span the required character?",
       kind: "Testing a character on a four-element group",
@@ -1431,6 +1453,54 @@
   }
 
   function render(id, v) {
+    if (id === "frobenius-good-places") {
+      const prime = Number(v.prime);
+      const residues = new Set(Array.from({length: prime}, (_, r) => r * r % prime));
+      const realSplits = residues.has(5 % prime);
+      const squareMinusOne = residues.has(prime - 1);
+      const degree = realSplits && squareMinusOne ? 1 : 2;
+      const relativeSplit = !realSplits || squareMinusOne;
+      const good = relativeSplit && squareMinusOne;
+      const norm = prime ** degree;
+      const inverse = [1, 2, 3, 4, 5, 6].find(k => (k * norm) % 7 === 1);
+      const excluded = v.omit === "61" && prime === 61;
+      const rows = [
+        ["Split over the real subfield?", relativeSplit ? "Yes" : "No"],
+        ["Is −1 a square in ℚ<sub>" + prime + "</sub>?", squareMinusOne ? "Yes" : "No"],
+        ["Absolute norm", String(norm)],
+        ["Arithmetic exponent mod 7", String(norm % 7)],
+        ["Inverse exponent mod 7", String(inverse)],
+      ];
+      const table = '<table class="carry-table"><caption>A place above ' + prime +
+        '</caption><thead><tr><th scope="col">Local test</th><th scope="col">Value</th></tr></thead><tbody>' +
+        rows.map(([label, value]) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>').join("") +
+        '</tbody></table>';
+      const outcome = excluded ? "Excluded" : !good ? "Outside the good set" :
+        inverse === 3 ? "Witness" : "Different exponent";
+      return table + metrics([["Absolute residue degree", String(degree)], ["Test after exclusions", outcome]]);
+    }
+    if (id === "casimir-cutoff") {
+      const a = Number(v.amplitude), b = Number(v.outer);
+      const denominators = [1, 2, 1 + b * b];
+      const trial = [a, 1, 1];
+      const rows = [
+        ["U/R", [0, 1, b]],
+        ["T", denominators.map(d => reducedFraction(1, d))],
+        ["P", denominators.map(d => reducedFraction(Math.max(2 - d, 0), 2 * d))],
+        ["N", denominators.map(d => reducedFraction(Math.max(d - 2, 0), 2 * d))],
+        ["Axis in ker N?", denominators.map(d => d <= 2 ? "Yes" : "No")],
+        ["Trial y", trial],
+        ["Witness Py", denominators.map((d, i) => reducedFraction(trial[i] * Math.max(2 - d, 0), 2 * d))],
+      ];
+      const table = '<table class="carry-table"><caption>Diagonal actions and vector coordinates</caption>' +
+        '<thead><tr><th scope="col">On each axis</th><th scope="col">e₁</th><th scope="col">e₂</th><th scope="col">e₃</th></tr></thead><tbody>' +
+        rows.map(([name, entries]) => '<tr><th scope="row">' + name + '</th>' +
+          entries.map(entry => "<td>" + entry + "</td>").join("") + "</tr>").join("") + "</tbody></table>";
+      const normSquared = a * a + 2;
+      const commonDenominator = 2 * denominators[2];
+      const meanT = reducedFraction(a * a * commonDenominator + denominators[2] + 2, normSquared * commonDenominator);
+      return table + metrics([["Mean of U/R (≤ 1/2)", reducedFraction(1 + b, normSquared)], ["Mean of T (≥ 3/4)", meanT]]);
+    }
     if (id === "galois-character-peeling") {
       const [a, b] = v.element.split("").map(Number);
       const alpha = (-1) ** a, beta = (-1) ** b;

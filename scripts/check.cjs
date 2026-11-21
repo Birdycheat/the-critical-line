@@ -141,6 +141,40 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Norms and exponents are computed here from this biquadratic field's splitting classes.
+for (const [prime, relative, square, norm, inverse] of [
+  [3, "Yes", "No", 9, 4], [11, "No", "No", 121, 4], [17, "Yes", "Yes", 289, 4],
+  [29, "Yes", "Yes", 29, 1], [61, "Yes", "Yes", 61, 3], [89, "Yes", "Yes", 89, 3],
+]) {
+  for (const omit of ["none", "61"]) {
+    const display = lib.render("frobenius-good-places", {prime, omit});
+    const cells = [...display.matchAll(/<td>([^<]+)<\/td>/g)].map(m => m[1]);
+    assert.deepEqual(cells, [relative, square, String(norm), String(norm % 7), String(inverse)]);
+    const verdict = prime === 61 && omit === "61" ? "Excluded" :
+      square === "No" ? "Outside the good set" : inverse === 3 ? "Witness" : "Different exponent";
+    assert.deepEqual([...display.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]), [prime === norm ? "1" : "2", verdict]);
+  }
+}
+// The squared coordinate weights give both normalized expectations over the rationals.
+for (const [amplitude, outer, meanU, meanT] of [
+  [3, 2, "3/11", "97/110"], [3, 3, "4/11", "48/55"],
+  [4, 2, "1/6", "167/180"], [4, 3, "2/9", "83/90"],
+  [5, 2, "1/9", "257/270"], [5, 3, "4/27", "128/135"],
+]) {
+  const display = lib.render("casimir-cutoff", {amplitude, outer});
+  const rows = [...display.matchAll(/<tr><th scope="row">[^<]+<\/th>(.*?)<\/tr>/g)]
+    .map(row => [...row[1].matchAll(/<td>([^<]+)<\/td>/g)].map(cell => cell[1]));
+  assert.deepEqual(rows, [
+    ["0", "1", String(outer)], ["1", "1/2", outer === 2 ? "1/5" : "1/10"],
+    ["1/2", "0", "0"], ["0", "0", outer === 2 ? "3/10" : "2/5"],
+    ["Yes", "Yes", "No"], [String(amplitude), "1", "1"],
+    [amplitude === 4 ? "2" : amplitude + "/2", "0", "0"],
+  ]);
+  assert.deepEqual([...display.matchAll(/<dd>(.*?)<\/dd>/g)].map(m => m[1]), [meanU, meanT]);
+  const [uNum, uDen] = meanU.split("/").map(Number);
+  const [tNum, tDen] = meanT.split("/").map(Number);
+  assert.ok(2 * uNum <= uDen && 4 * tNum >= 3 * tDen);
+}
 // Directly enumerate which coordinate signs fix each proposed character vector.
 for (const element of ["00", "01", "10", "11"]) {
   for (const candidate of ["pure", "mixed"]) {
@@ -1497,5 +1531,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

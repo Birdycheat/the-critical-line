@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GGP-01",
+      "chapter": "lifts",
+      "anchor": "lifts-good-places-degree-one",
+      "title": "Almost every prime of absolute residue degree one passes both splitting tests",
+      "hypotheses": "A CM field E contains x with x² = −d for an integer d > 0. A finite place w of residue degree one over ℚ lies over q ∤ 2d.",
+      "statement": "The prime w and its complex conjugate are different, and −d is a square in ℚ_q. These two conditions define the set Q_d of allowed places. The exceptional prime divisors of 2d are finite.",
+      "equations": [
+        "lifts-good-places-predicate"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Field, rational square condition and selected places",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/ApartAllEmpty.lean",
+          "lines": [
+            16,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/ApartAllEmpty.lean#L16-L25",
+          "declaration": "GlobalTheory.CongL.UsPl",
+          "declaration_lines": {
+            "GlobalTheory.CongL.UsPl": 24
+          }
+        },
+        {
+          "label": "Splitting is tested over the maximal real subfield",
+          "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/BaseChangeDefiniteUnitary.lean",
+          "lines": [
+            126,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/BaseChangeDefiniteUnitary.lean#L126-L128",
+          "declaration": "GlobalTheory.UnitaryBC.IsSplitAt",
+          "declaration_lines": {
+            "GlobalTheory.UnitaryBC.IsSplitAt": 126
+          }
+        },
+        {
+          "label": "An integral imaginary square root gives a rational residue in degree one",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean",
+          "lines": [
+            90,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean#L90-L128",
+          "declaration": "UpperTheory.Gal.Int.Core.oneUs_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.oneUs_holds": 90
+          }
+        },
+        {
+          "label": "Conjugation distinguishes the two primes",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean",
+          "lines": [
+            129,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean#L129-L165",
+          "declaration": "UpperTheory.Gal.Int.Core.oneUs_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.oneUs_holds": 90
+          }
+        },
+        {
+          "label": "The simple residue root lifts to the rational completion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean",
+          "lines": [
+            166,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/OneUsHolds.lean#L166-L191",
+          "declaration": "UpperTheory.Gal.Int.Core.oneUs_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.oneUs_holds": 90
+          }
+        },
+        {
+          "label": "Inserting the cofinite degree-one criterion in descent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+          "lines": [
+            28,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean#L28-L35",
+          "declaration": "UpperTheory.Gal.Int.Core.joinAll_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.joinAll_holds": 35
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Conjugation forces a contradiction at an absolute degree-one prime fixed by it. The simple root in the rational residue field lifts at primes away from 2d.",
+      "review": "Finite-field tests distinguished splitting over the real field from the square condition over the rational completion."
+    },
+    {
+      "id": "GGP-02",
+      "chapter": "lifts",
+      "anchor": "lifts-good-places-spherical",
+      "title": "One automorphic vector supplies spherical local data outside finitely many split places",
+      "hypotheses": "An irreducible automorphic representation of the definite unitary group has a nonzero smooth vector, open finite-adelic stabilizer and the local component at a split place.",
+      "statement": "For all but finitely many w, splitting implies that the source admits a Satake multiset at w. The finite exceptions may be chosen from one vector and its conjugate-place coordinates.",
+      "equations": [
+        "lifts-good-places-stabilizer"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Entry differences split into two integral contributions",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean",
+          "lines": [
+            44,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean#L44-L65",
+          "declaration": "GlobalTheory.BCT.GlobLev.entry_eq_one_add",
+          "declaration_lines": {
+            "GlobalTheory.BCT.GlobLev.entry_eq_one_add": 44
+          }
+        },
+        {
+          "label": "A common open neighborhood for the entries of a matrix and its inverse",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean",
+          "lines": [
+            99,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean#L99-L138",
+          "declaration": "GlobalTheory.BCT.GlobLev.eventually_locU_mem",
+          "declaration_lines": {
+            "GlobalTheory.BCT.GlobLev.eventually_locU_mem": 99
+          }
+        },
+        {
+          "label": "Recovering membership in the finite-adelic stabilizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean",
+          "lines": [
+            139,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean#L139-L156",
+          "declaration": "GlobalTheory.BCT.GlobLev.eventually_locU_mem",
+          "declaration_lines": {
+            "GlobalTheory.BCT.GlobLev.eventually_locU_mem": 99
+          }
+        },
+        {
+          "label": "Recovering a local eigenvector in a finite sum of copies",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlace.lean",
+          "lines": [
+            19,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlace.lean#L19-L56",
+          "declaration": "GlobalTheory.SplitEigen.exists_eigen_of_mem_iSup",
+          "declaration_lines": {
+            "GlobalTheory.SplitEigen.exists_eigen_of_mem_iSup": 19
+          }
+        },
+        {
+          "label": "Using the split local component and its isotypic span",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlace.lean",
+          "lines": [
+            58,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlace.lean#L58-L92",
+          "declaration": "GlobalTheory.SplitEigen.exists_locComp_eigen",
+          "declaration_lines": {
+            "GlobalTheory.SplitEigen.exists_locComp_eigen": 58
+          }
+        },
+        {
+          "label": "A spherical irreducible representation has a Satake multiset",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/SatakeParameterSphericalProductSpehQuotients.lean",
+          "lines": [
+            267,
+            269
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/SatakeParameterSphericalProductSpehQuotients.lean#L267-L269",
+          "declaration": "GlobalTheory.SatInd.exists_hasSatGL_of_isIrreducible",
+          "declaration_lines": {
+            "GlobalTheory.SatInd.exists_hasSatGL_of_isIrreducible": 267
+          }
+        },
+        {
+          "label": "From one nonzero global vector to almost-everywhere Satake data",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSatAE.lean",
+          "lines": [
+            16,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSatAE.lean#L16-L42",
+          "declaration": "UpperTheory.Gal.TP.Sub.satAE_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.satAE_holds": 16
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Openness of the stabilizer gives a compact local stabilizer outside finitely many paired coordinates. The projection from a finite sum of local copies produces a nonzero spherical vector.",
+      "review": "The exceptions include the conjugate places because the local compact group acts at both coordinates."
+    },
+    {
+      "id": "GGP-03",
+      "chapter": "lifts",
+      "anchor": "lifts-good-places-dense",
+      "title": "The allowed inverse Frobenius elements meet every finite Galois restriction",
+      "hypotheses": "Let Ω be an algebraic closure of the CM field E with x² = −d, let ℓ be prime and let S be any finite set of places.",
+      "statement": "For every finite Galois L/E in Ω and h in Gal(L/E), an inverse Frobenius from a place of absolute degree one in Q_d outside S and away from ℓ restricts to h. The union of these lifts is dense in Gal(Ω/E).",
+      "equations": [
+        "lifts-good-places-fibre"
+      ],
+      "dependencies": [
+        "GGP-01"
+      ],
+      "sources": [
+        {
+          "label": "The exact density requirement and orientation of Frobenius",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            22,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L22-L26",
+          "declaration": "UpperTheory.Gal.TP.GoodGuard",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.GoodGuard": 22
+          }
+        },
+        {
+          "label": "A prime ideal has prime norm precisely in absolute residue degree one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/AbsNormPrimeIffInertiaDegEqOneAndFiniteRamified.lean",
+          "lines": [
+            8,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/AbsNormPrimeIffInertiaDegEqOneAndFiniteRamified.lean#L8-L34",
+          "declaration": "GlobalTheory.absNorm_prime_iff_inertiaDeg_eq_one_and_finite_ramified",
+          "declaration_lines": {
+            "GlobalTheory.absNorm_prime_iff_inertiaDeg_eq_one_and_finite_ramified": 8
+          }
+        },
+        {
+          "label": "A prescribed Frobenius in a finite quotient outside a finite set",
+          "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChebotarevDegreeOneIffCheb.lean",
+          "lines": [
+            12,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChebotarevDegreeOneIffCheb.lean#L12-L18",
+          "declaration": "GlobalTheory.Published.ChebotarevDegreeOne",
+          "declaration_lines": {
+            "GlobalTheory.Published.ChebotarevDegreeOne": 12
+          }
+        },
+        {
+          "label": "The degree-one existence input used in the selected derivation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ChebotarevDegreeOne.lean",
+          "lines": [
+            17,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ChebotarevDegreeOne.lean#L17-L43",
+          "declaration": "GlobalTheory.Published.chebotarevDegreeOne'",
+          "declaration_lines": {
+            "GlobalTheory.Published.chebotarevDegreeOne'": 17
+          }
+        },
+        {
+          "label": "Every open neighborhood contains a coset of an open normal subgroup",
+          "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChebotarevDegreeOneIffCheb.lean",
+          "lines": [
+            51,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChebotarevDegreeOneIffCheb.lean#L51-L61",
+          "declaration": "GlobalTheory.Published.ChebotarevDegreeOne.dense",
+          "declaration_lines": {
+            "GlobalTheory.Published.ChebotarevDegreeOne.dense": 51
+          }
+        },
+        {
+          "label": "Only finitely many primes lie over the coefficient prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsSplitAtOfDegOne.lean",
+          "lines": [
+            53,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsSplitAtOfDegOne.lean#L53-L58",
+          "declaration": "GlobalTheory.CongEx.eventually_not_mem_l",
+          "declaration_lines": {
+            "GlobalTheory.CongEx.eventually_not_mem_l": 53
+          }
+        },
+        {
+          "label": "Removing the two finite exceptions and inverting Frobenius",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+          "lines": [
+            16,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean#L16-L28",
+          "declaration": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.goodGuard_usPl": 16
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Positive Chebotarev density survives exclusion of the absolute higher-degree primes. Changing the prime in the extension realizes the specified element of the finite quotient.",
+      "review": "Two distinct norms, 61 and 89, realize the inverse exponent 3. Permitted places of degree two were also tested."
+    },
+    {
+      "id": "GGP-04",
+      "chapter": "lifts",
+      "anchor": "lifts-good-places-common-data",
+      "title": "One common set of primes tests both odd-rank matches",
+      "hypotheses": "The odd-rank companions satisfy their weak Satake matches on Q_d. Two lifts with a common algebraic twist and finite auxiliary character lists satisfy their split-place identities.",
+      "statement": "Outside a finite union of exceptions, both lifts admit compatible Frobenius and Satake multisets with the same normalized and twisted source part. Their common places still supply a dense set of inverse Frobenius elements.",
+      "equations": [
+        "lifts-good-places-common-multiset"
+      ],
+      "dependencies": [
+        "LFT-05",
+        "GGP-02",
+        "GGP-03",
+        "OCI-03"
+      ],
+      "sources": [
+        {
+          "label": "A continuous Hecke character is trivial on almost all local unit groups",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/HeckeCharacterUnramifiedAeAndExistsLevel.lean",
+          "lines": [
+            60,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/HeckeCharacterUnramifiedAeAndExistsLevel.lean#L60-L91",
+          "declaration": "GlobalTheory.Mem.UnrAe.finite_ramified",
+          "declaration_lines": {
+            "GlobalTheory.Mem.UnrAe.finite_ramified": 78
+          }
+        },
+        {
+          "label": "Algebraic normalization and the inverse-Frobenius convention",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/AutomorphicForms/BlochKatoSelmerVanishes.lean",
+          "lines": [
+            69,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AutomorphicForms/BlochKatoSelmerVanishes.lean#L69-L75",
+          "declaration": "UpperTheory.V.Af.algSat",
+          "declaration_lines": {
+            "UpperTheory.V.Af.algSat": 74
+          }
+        },
+        {
+          "label": "Two odd-rank weak attachments and continuous rank-one characters",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            103,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L103-L117",
+          "declaration": "UpperTheory.Gal.TP.atPlaceQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.atPlaceQ": 103
+          }
+        },
+        {
+          "label": "One exceptional set for the source, both lifts and both lists of characters",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            118,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L118-L142",
+          "declaration": "UpperTheory.Gal.TP.atPlaceQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.atPlaceQ": 103
+          }
+        },
+        {
+          "label": "The common normalized part yields the augmented characteristic polynomial",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            52,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L52-L86",
+          "declaration": "UpperTheory.Gal.TP.frobIdQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.frobIdQ": 52
+          }
+        },
+        {
+          "label": "The separate local test and untwisting at a prescribed place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            142,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L142-L174",
+          "declaration": "UpperTheory.Gal.TP.atPlaceQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.atPlaceQ": 103
+          }
+        },
+        {
+          "label": "Field assumptions and the set used by the odd-rank descent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimWU3.lean",
+          "lines": [
+            60,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimWU3.lean#L60-L72",
+          "declaration": "UpperTheory.Gal.Int.Core.AllUd",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.AllUd": 69
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The two lifts are compared after taking the union of their exceptions, the source exceptions and the conductors. At these remaining places their polynomials have the same source part.",
+      "review": "The prescribed good-place condition was distinguished from the subset used for any individual finite quotient."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinAll_holds",
+      "callee": "UpperTheory.Gal.Int.Core.oneUs_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 35,
+        "spelling": "oneUs_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinAll_of",
+      "callee": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 28,
+        "spelling": "goodGuard_usPl"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+      "callee": "GlobalTheory.Published.ChebotarevDegreeOne.dense",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.Published.ChebotarevDegreeOne.dense"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+      "callee": "GlobalTheory.Published.chebotarevDegreeOne'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.Published.chebotarevDegreeOne'"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+      "callee": "GlobalTheory.CongEx.eventually_not_mem_l",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.CongEx.eventually_not_mem_l"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.goodGuard_usPl",
+      "callee": "GlobalTheory.absNorm_prime_iff_inertiaDeg_eq_one_and_finite_ramified",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 24,
+        "spelling": "GlobalTheory.absNorm_prime_iff_inertiaDeg_eq_one_and_finite_ramified"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Published.ChebotarevDegreeOne.dense",
+      "callee": "GlobalTheory.Published.chebotarevDegreeOne_iff_cheb",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChebotarevDegreeOneIffCheb.lean",
+        "line": 59,
+        "spelling": "chebotarevDegreeOne_iff_cheb"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BCT.GlobLev.eventually_locU_mem",
+      "callee": "GlobalTheory.BCT.GlobLev.entry_eq_one_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean",
+        "line": 137,
+        "spelling": "entry_eq_one_add"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BCT.GlobLev.eventually_locU_mem",
+      "callee": "GlobalTheory.BCT.GlobLev.entry_eq_one_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefi.lean",
+        "line": 138,
+        "spelling": "entry_eq_one_add"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.eventually_localIntegralPoints_mem_openSubgroup_definiteUnitary",
+      "callee": "GlobalTheory.BCT.GlobLev.eventually_locU_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EventuallyLocalIntegralPointsMemOpenSubgroupDefiStatement.lean",
+        "line": 12,
+        "spelling": "GlobalTheory.BCT.GlobLev.eventually_locU_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.exists_localComponent_eigenvector_splitPlace",
+      "callee": "GlobalTheory.SplitEigen.exists_locComp_eigen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlaceStatement.lean",
+        "line": 13,
+        "spelling": "GlobalTheory.SplitEigen.exists_locComp_eigen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SplitEigen.exists_locComp_eigen",
+      "callee": "GlobalTheory.SplitEigen.exists_eigen_of_mem_iSup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLocalComponentEigenvectorSplitPlace.lean",
+        "line": 81,
+        "spelling": "exists_eigen_of_mem_iSup"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.satAE_holds",
+      "callee": "GlobalTheory.T.eventually_localIntegralPoints_mem_openSubgroup_definiteUnitary",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSatAE.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.eventually_localIntegralPoints_mem_openSubgroup_definiteUnitary"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.satAE_holds",
+      "callee": "GlobalTheory.T.exists_localComponent_eigenvector_splitPlace",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSatAE.lean",
+        "line": 35,
+        "spelling": "GlobalTheory.T.exists_localComponent_eigenvector_splitPlace"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.satAE_holds",
+      "callee": "GlobalTheory.SatInd.exists_hasSatGL_of_isIrreducible",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSatAE.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.SatInd.exists_hasSatGL_of_isIrreducible"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.subtractQ_holds",
+      "callee": "UpperTheory.Gal.TP.Sub.satAE_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 32,
+        "spelling": "Sub.satAE_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.atPlaceQ",
+      "callee": "GlobalTheory.Mem.UnrAe.unr_ae_and_level",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+        "line": 124,
+        "spelling": "GlobalTheory.Mem.UnrAe.unr_ae_and_level"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mem.UnrAe.unr_ae_and_level",
+      "callee": "GlobalTheory.Mem.UnrAe.finite_ramified",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/HeckeCharacterUnramifiedAeAndExistsLevel.lean",
+        "line": 124,
+        "spelling": "finite_ramified"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Mem.UnrAe.finite_ramified",
+      "callee": "GlobalTheory.Mem.UnrAe.tendsto_localIdele",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/HeckeCharacterUnramifiedAeAndExistsLevel.lean",
+        "line": 89,
+        "spelling": "tendsto_localIdele"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.atPlaceQ",
+      "callee": "UpperTheory.Gal.TP.frobIdQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+        "line": 131,
+        "spelling": "frobIdQ"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GGP-01",
+      "GGP-03"
+    ],
+    [
+      "LFT-05",
+      "GGP-04"
+    ],
+    [
+      "GGP-02",
+      "GGP-04"
+    ],
+    [
+      "GGP-03",
+      "GGP-04"
+    ],
+    [
+      "GGP-04",
+      "GCP-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Andrew V. Sutherland, Number Theory I, Lecture 9, Lemma 9.15 (Hensel lifting of a simple root)",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes9.pdf#page=5"
+    },
+    {
+      "title": "Jayce R. Getz, An introduction to automorphic representations, Theorem 7.5 (Flath’s factorization)",
+      "url": "https://sites.math.duke.edu/~jgetz/aut_reps.pdf#page=36"
+    },
+    {
+      "title": "Ichirō Satake, Theory of spherical functions on reductive algebraic groups over p-adic fields, Theorems 2 and 3",
+      "url": "https://www.numdam.org/item/PMIHES_1963__18__5_0.pdf#page=26"
+    },
+    {
+      "title": "Andrew V. Sutherland, Number Theory I, Lecture 28, Theorem 28.9 (Chebotarev density)",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes28.pdf#page=6"
+    },
+    {
+      "title": "Andrew V. Sutherland, Number Theory I, Lecture 7, Proposition 7.18 (the Frobenius conjugacy class)",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes7.pdf#page=7"
+    },
+    {
+      "title": "D. Flath, Decomposition of representations into tensor products, Theorem 2, p. 181",
+      "url": "https://doi.org/10.1090/pspum/033.1/546596"
+    }
+  ],
+  "outstanding": []
+}

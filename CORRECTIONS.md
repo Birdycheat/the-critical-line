@@ -126,3 +126,11 @@ The count at each minor size carries the number of columns in one word's source 
 ### The set of split places in Galois subtraction
 
 The earlier summary said that the construction is repeated at every split place. In the argument used to obtain the common companion, a specified set of split places has Frobenius classes dense after any finite exclusion. The local conclusion is obtained at each place in that set with the requisite data. The related statement covering all split places uses its own hypotheses. [Recovering the even-dimensional representation](book.html#lifts-subtract)
+
+### The space and the vector retained by the Casimir cut
+
+The bound on the initial vector's mean Casimir defect alone does not persist under differentiation. The nonnegative part of the shifted bounded inverse supplies one nonzero vector. The kernel of its negative part supplies the space on which the bound holds through all subsequent derivatives. A threshold coordinate can belong to this kernel and have zero image under the positive part. The finite compact starting space for raising is the image of the original finite space. [From the mean to the invariant bound](book.html#normalization-casimir-window) · [The threshold example](book.html#fig-casimir-cutoff)
+
+### Reconstructing a companion with fixed auxiliary places
+
+The limiting representation is constructed for one fixed pair of auxiliary places. Its independence of a finite list of imposed tests follows within that construction. Passing from one auxiliary pair to another uses a separate isomorphism argument. The domains of the approximating identities are open dense subsets of the Galois group, with Frobenius elements chosen inside the necessary finite intersections. [Trace construction](book.html#lifts-odd-companion-trace) · [Local transport](book.html#lifts-odd-companion-three-places)
