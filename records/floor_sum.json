@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BFL-01",
+      "title": "A signed carry gives the difference of two Bernoulli coefficients",
+      "chapter": "inputs",
+      "anchor": "inputs-bernoulli-carry",
+      "statement": "For F>1, k=e+1≥2, b prime to F and each unit representative u, put y=[bu] and θ=2⌊bu/F⌋−(b−1). With D=2k·primorial(k+1) and C the normalized Bernoulli coefficient, D[(bu)^e θ+2(C(y)−b^kC(u))] is an integer multiple of F.",
+      "dependencies": [],
+      "equations": [
+        "inputs-bernoulli-polynomial",
+        "inputs-bernoulli-pointwise"
+      ],
+      "sources": [
+        {
+          "declaration": "th_eq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+          "lines": [
+            10,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean#L10-L42"
+        },
+        {
+          "declaration": "UpperTheory.V.Bern.bcoef",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/MapGenBChar.lean",
+          "lines": [
+            9,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/MapGenBChar.lean#L9-L18"
+        },
+        {
+          "declaration": "UpperTheory.V.Stk.stickelbergerBernoulliCoeff_expansion_mod_denominator",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/StickelbergerElements/StickelbergerBernoulliCoeffExpansionModDenominat.lean",
+          "lines": [
+            7,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/StickelbergerElements/StickelbergerBernoulliCoeffExpansionModDenominat.lean#L7-L23"
+        },
+        {
+          "declaration": "UpperTheory.V.Bern.b_primden",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/Primden.lean",
+          "lines": [
+            6,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/Primden.lean#L6-L18"
+        },
+        {
+          "declaration": "UpperTheory.V.Stk.exists_binomial_expansion_mod_sq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/StickelbergerElements/ExistsBinomialExpansionModSq.lean",
+          "lines": [
+            5,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/StickelbergerElements/ExistsBinomialExpansionModSq.lean#L5-L16"
+        },
+        {
+          "declaration": "pointwise",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+          "lines": [
+            44,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean#L44-L74"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The pointwise integer identity precedes summation over the permuted unit residues. The level correction and the strict bound on ℓ^m enter the separate comparison with the lifted scalar.",
+      "review": "A second source reader checked the carry sign, denominator, character permutation, level factor and strict norm comparison, and reproduced 240 at F=5. The nine displayed parameter settings have exact integer checks."
+    },
+    {
+      "id": "BFL-02",
+      "title": "Summing the carries and recovering the primitive valuation",
+      "chapter": "inputs",
+      "anchor": "inputs-bernoulli-congruence",
+      "statement": "For an odd prime ℓ and level F=f_{ℓ′}ℓ^m, k=e+1≥2 and a primitive character of the selected parity, let χ be its induced character at F. The signed-carry sum S satisfies D[χ(b)b^e S−2(χ(b)b^k−1)T_F]≡0 modulo ℓ^m, where T_F is the generalized Bernoulli value at F divided by k. When χ(b)b^k−1 is a unit and m meets the strict depth condition, the lifted scalar z has the same ℓ-adic norm as the primitive Bernoulli value divided by k.",
+      "dependencies": [
+        "BFL-01"
+      ],
+      "equations": [
+        "inputs-bernoulli-congruence"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ML.zCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+          "lines": [
+            103,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean#L103-L124"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.zCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+          "lines": [
+            125,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean#L125-L146"
+        },
+        {
+          "declaration": "UpperTheory.V.Bern.b_level",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/GeneralizedBernoulliChangeLevel.lean",
+          "lines": [
+            55,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/GeneralizedBernoulliChangeLevel.lean#L55-L60"
+        },
+        {
+          "declaration": "ze_gen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            123,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L123-L142"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.zEval",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            235,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L235-L258"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.zEval",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            194,
+            209
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L194-L209"
+        },
+        {
+          "declaration": "ze_an",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            144,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L144-L161"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.zEval",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            259,
+            272
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L259-L272"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.zEval",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+          "lines": [
+            273,
+            287
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean#L273-L287"
+        },
+        {
+          "declaration": "prim_case",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PrimCase.lean",
+          "lines": [
+            149,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PrimCase.lean#L149-L153"
+        }
+      ],
+      "status": "independently reviewed",
+      "correspondence": "The pointwise integer identity precedes summation over the permuted unit residues. The level correction and the strict bound on ℓ^m enter the separate comparison with the lifted scalar.",
+      "review": "A second source reader checked the carry sign, denominator, character permutation, level factor and strict norm comparison, and reproduced 240 at F=5. The nine displayed parameter settings have exact integer checks."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "prim_case",
+      "callee": "UpperTheory.V.ML.zEval",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PrimCase.lean",
+        "line": 150
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zEval",
+      "callee": "UpperTheory.V.ML.zCong",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+        "line": 235
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zCong",
+      "callee": "pointwise",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 119
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zCong",
+      "callee": "genB_units",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 113
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zCong",
+      "callee": "norm_chi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 141
+      }
+    },
+    {
+      "caller": "pointwise",
+      "callee": "th_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 52
+      }
+    },
+    {
+      "caller": "pointwise",
+      "callee": "UpperTheory.V.Stk.stickelbergerBernoulliCoeff_expansion_mod_denominator",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 53
+      }
+    },
+    {
+      "caller": "pointwise",
+      "callee": "UpperTheory.V.Stk.exists_binomial_expansion_mod_sq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/GenBUnits.lean",
+        "line": 59
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stk.stickelbergerBernoulliCoeff_expansion_mod_denominator",
+      "callee": "UpperTheory.V.Bern.b_primden",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/StickelbergerElements/StickelbergerBernoulliCoeffExpansionModDenominat.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zEval",
+      "callee": "ze_gen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+        "line": 274
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.zEval",
+      "callee": "ze_an",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+        "line": 275
+      }
+    },
+    {
+      "caller": "ze_gen",
+      "callee": "UpperTheory.V.Bern.b_level",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean",
+        "line": 128
+      }
+    }
+  ]
+}

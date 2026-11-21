@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CYE-01",
+      "title": "The signed divisor of a Jacobi product",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclotomic-elements-jacobi",
+      "statement": "For a degree-one prime P above p∤N in K_N, J=∏_{1≤j<b}Jac(χ,χ^j) gives X_P=c(J)/J with exponent θ_N(t) at σ_t⁻¹P. The sum controlling membership vanishes exactly when the residues add without a carry.",
+      "hypotheses": "N≥1, 0≤b<N, p prime, reduction O_K→F_p and lifted χ on F_p× as in xJac. For each factor 0<1,j,1+j<N. At b=0 or 1 the product is empty.",
+      "definitions": [
+        "Jacobi sum",
+        "least residue",
+        "fractional ideal",
+        "carry"
+      ],
+      "sources": [
+        {
+          "declaration": "th; IsX",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean",
+          "lines": [
+            9,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/IsAdmissiblePrimeListNil.lean#L9-L18"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+          "lines": [
+            12,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean#L12-L35"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            130,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L130-L151"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.jacDvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean",
+          "lines": [
+            6,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean#L6-L19"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.splitProd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean",
+          "lines": [
+            8,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean#L8-L18"
+        },
+        {
+          "declaration": "xJac_span",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            104,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L104-L114"
+        },
+        {
+          "declaration": "xJac_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            55,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L55-L81"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.ffsum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/FfsumPow.lean",
+          "lines": [
+            42,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/FfsumPow.lean#L42-L68"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.ffsum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/FfsumPow.lean",
+          "lines": [
+            69,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/FfsumPow.lean#L69-L82"
+        },
+        {
+          "declaration": "xJac_step; xJac_sum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            83,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L83-L102"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            145,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L145-L160"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            166,
+            184
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L166-L184"
+        }
+      ],
+      "dependencies": [],
+      "equations": [
+        "inputs-cyclotomic-elements-ideal"
+      ],
+      "correspondence": "The no-carry count e(t) is the exponent of P_t in J. Conjugation exchanges t and −t, so c(J)/J has exponent e(−t)−e(t). Finite-field power sums justify the criterion; the example uses p=11,N=5,b=3.",
+      "status": "mathematical proof reconstructed",
+      "review": "A second reader confirmed the inverse orientation, the signed subtraction, the special case b=0 and the exponents of the numerical example."
+    },
+    {
+      "id": "CYE-02",
+      "title": "Principalization for every ideal class and its ambiguity",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclotomic-elements-class",
+      "statement": "For every nonzero integral ideal 𝔞 of K_N there is X with (X)=∏(σ_t⁻¹𝔞)^θ_N(t) and Xc(X)=1. For any two such solutions X′=wX with w^(2N)=1.",
+      "hypotheses": "N≥1 and 0≤b<N for existence. The uniqueness statement applies for any b and two solutions for the same nonzero ideal. The chosen auxiliary degree-one prime represents [𝔞]⁻¹ outside primes dividing N.",
+      "definitions": [
+        "ideal class",
+        "principal fractional ideal",
+        "complex conjugation",
+        "algebraic unit"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ML.xEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+          "lines": [
+            12,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean#L12-L35"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+          "lines": [
+            37,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean#L37-L55"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.degOne",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean",
+          "lines": [
+            8,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/DegOne.lean#L8-L21"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xMul",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XMulConjIMul.lean",
+          "lines": [
+            57,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XMulConjIMul.lean#L57-L80"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xUniq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XUniqConj.lean",
+          "lines": [
+            41,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XUniqConj.lean#L41-L62"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xUniq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XUniqConj.lean",
+          "lines": [
+            63,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XUniqConj.lean#L63-L84"
+        },
+        {
+          "declaration": "XO; xo_ex; xo_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            103,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L103-L125"
+        }
+      ],
+      "dependencies": [
+        "CYE-01"
+      ],
+      "equations": [],
+      "correspondence": "A solution for (y)=𝔞P is the product of its inverse conjugates with floor exponents. Divide by X_P. Equal principal ideals make the quotient of two solutions a unit; its conjugate absolute values impose cyclotomic torsion.",
+      "status": "mathematical proof reconstructed",
+      "review": "A second reader confirmed the inverse-class choice, division order and torsion exponent against xEx, xMul and xUniq."
+    },
+    {
+      "id": "CYE-03",
+      "title": "Distribution of the floor weights in the norm",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclotomic-elements-level",
+      "statement": "For upper ideal 𝔞′, upper solution X′ and solution X for its relative norm, Norm(X′)=ξ_n X/σ_q⁻¹(X) with ξ_n in K_N and ξ_n^(2N)=1.",
+      "hypotheses": "q prime, q∤N, b<q, N≥1, 𝔞′≠0, and both IsX conditions. xNormDiv itself requires b<q; the selected xEx inputs also have b<N.",
+      "definitions": [
+        "cyclotomic norm",
+        "fibre of unit residues",
+        "distribution of floor weights"
+      ],
+      "sources": [
+        {
+          "declaration": "halfSum; UpperTheory.V.ML.thDist",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ThDist.lean",
+          "lines": [
+            131,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ThDist.lean#L131-L145"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xNormDiv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean",
+          "lines": [
+            272,
+            289
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean#L272-L289"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xNormDiv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean",
+          "lines": [
+            290,
+            305
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean#L290-L305"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xNormDiv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean",
+          "lines": [
+            317,
+            338
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean#L317-L338"
+        }
+      ],
+      "dependencies": [
+        "CYE-02"
+      ],
+      "equations": [
+        "inputs-cyclotomic-elements-distribution"
+      ],
+      "correspondence": "Omitting the single nonunit lift subtracts the u⁻¹t term. The field norm groups upper ideal factors by this fibre. Both generators satisfy the conjugation equation, placing their ratio in the lower roots of unity.",
+      "status": "mathematical proof reconstructed",
+      "review": "A second reader verified equality of the fractional ideals, conjugation norm one and the 2N bound in the smaller field."
+    },
+    {
+      "id": "CYE-04",
+      "title": "The simultaneous residue congruence and the relative exponent",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclotomic-elements-residue",
+      "statement": "One ξ_c in K_qN of order dividing 2qN gives X′≡ξ_c σ_q⁻¹(X) at every prime over q. For the selected starting elements at d,qd, the lower X is X_d^s and ℓ∤s.",
+      "hypotheses": "q prime, q∤N, b<N and b<q, 𝔞′ coprime to (q), upper and relative-norm lower IsX solutions. In the selected application N=Fd, q::L admissible, r prime ≡1 mod F and d the product of L.",
+      "definitions": [
+        "relative residue degree",
+        "reduction of cyclotomic characters",
+        "principal-ideal congruence",
+        "root of unity"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.ML.xCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean",
+          "lines": [
+            99,
+            103
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean#L99-L103"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean",
+          "lines": [
+            115,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean#L115-L138"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCongJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongJac.lean",
+          "lines": [
+            114,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongJac.lean#L114-L137"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCongJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongJac.lean",
+          "lines": [
+            143,
+            170
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongJac.lean#L143-L170"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCongPrin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean",
+          "lines": [
+            128,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean#L128-L146"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCongPrin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean",
+          "lines": [
+            177,
+            205
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean#L177-L205"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCongPrin",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean",
+          "lines": [
+            206,
+            220
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean#L206-L220"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean",
+          "lines": [
+            157,
+            188
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean#L157-L188"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xCong",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean",
+          "lines": [
+            189,
+            203
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean#L189-L203"
+        },
+        {
+          "declaration": "UpperTheory.relNorm_cyclotomic_prime_eq_pow_dvd_orderOf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RelNormCyclotomicPrimeEqPowDvdOrderOf.lean",
+          "lines": [
+            8,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RelNormCyclotomicPrimeEqPowDvdOrderOf.lean#L8-L29"
+        },
+        {
+          "declaration": "UpperTheory.admissible_prime_not_dvd_orderOf_and_not_dvd_level",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean",
+          "lines": [
+            6,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AdmissiblePrimeNotDvdOrderOfAndNotDvdLevel.lean#L6-L26"
+        },
+        {
+          "declaration": "xo_ord",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            136,
+            148
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L136-L148"
+        },
+        {
+          "declaration": "xo_pair",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            150,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L150-L174"
+        },
+        {
+          "declaration": "xo_pair",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            175,
+            187
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L175-L187"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.laxEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean",
+          "lines": [
+            212,
+            231
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean#L212-L231"
+        }
+      ],
+      "dependencies": [
+        "CYE-01",
+        "CYE-02",
+        "CYE-03"
+      ],
+      "equations": [],
+      "correspondence": "The Jacobi comparison fixes the root before any place is chosen. Dividing the principal representative by the prime representative inverts this root. The residue degree makes the two comparisons feed the same s to laxEx and then DYS-01.",
+      "status": "mathematical proof reconstructed",
+      "review": "A second reader checked the inverse root, its uniformity over places, both root orders and the relative residue-degree exponent. The Frobenius relation for reduced principal products was checked against xCongPrin."
+    }
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstruction from pinned written definitions, lemma bodies and named call sites. The summary inequalities reorganize positive factors and average the exact mass identity. No local extraction of elaborated proof terms.",
+  "claims": [
+    {
+      "id": "MSF-01",
+      "chapter": "global",
+      "title": "The normalized local formal degree at one place",
+      "anchor": "global-mass-interlace",
+      "statement": "For every word u and every infinite place ρ, log(dρ F_r/V(u)) ≥ (k−1)∑_j log b_j + log(2/3) − 5kL. Consequently, subtracting k∑_j log w_jρ leaves at least −7kL−k−1.",
+      "hypotheses": "At an admissible DataA family point in the eventual large-gap range, ε>0, L=x^ε≥1, r=k+m−1, m+3≤k, 44≤m≤min(x,k), Δ≥1, 2(log 8+1+log x)≤L, log(2k)≤L. Row and column parameters interlace; c_i≥0, and adjacent c and b gaps are at least one. The formal degree is taken in the prescribed normalization. Its gap condition uses signature (P,Q), tolerance η=1/3 with exp(−r)≤η<1/2, and opposite-sign gaps at least 8192 min(P,Q)(PQ)^3 log(r)/η².",
+      "definitions": [
+        "Vandermonde product of a descending vector",
+        "Weyl factorial product",
+        "formal degree",
+        "interlacing parameters"
+      ],
+      "equations": [
+        "global-mass-vand"
+      ],
+      "dependencies": [
+        "CNT-02"
+      ],
+      "sources": [
+        {
+          "declaration": "DataB",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean",
+          "lines": [
+            500,
+            516
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/StandardLattice.lean#L500-L516"
+        },
+        {
+          "declaration": "RowsA / DataA",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            115,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L115-L124"
+        },
+        {
+          "declaration": "spectralGapLowerBound / SigmaDegreeTwoSidedBoundOfGap",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            73,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L73-L81"
+        },
+        {
+          "declaration": "theorem_three_of_weyl_gapped_multiplicity / theorem_three_rows_of_real_place",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean",
+          "lines": [
+            125,
+            144
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean#L125-L144"
+        },
+        {
+          "declaration": "theorem_three_rows_of_real_place / explicit_bound_family",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean",
+          "lines": [
+            175,
+            201
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean#L175-L201"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            169,
+            179
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L169-L179"
+        },
+        {
+          "declaration": "vandN_mul_prod_pow_le_vandN_rowPar",
+          "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+          "lines": [
+            67,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean#L67-L110"
+        },
+        {
+          "declaration": "vandN_le_pow_mul_pow_mul_vandN_of_interlace",
+          "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+          "lines": [
+            112,
+            144
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean#L112-L144"
+        },
+        {
+          "declaration": "vandN_le_pow_mul_pow_mul_vandN_of_interlace",
+          "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+          "lines": [
+            165,
+            203
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean#L165-L203"
+        },
+        {
+          "declaration": "VandPlace_holds",
+          "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+          "lines": [
+            241,
+            289
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean#L241-L289"
+        },
+        {
+          "declaration": "VandPlace",
+          "path": "src/Formalism/LogVandermondeBounds/VandPlace.lean",
+          "lines": [
+            7,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/VandPlace.lean#L7-L13"
+        },
+        {
+          "declaration": "place_dimension_lower_bound",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+          "lines": [
+            98,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean#L98-L145"
+        },
+        {
+          "declaration": "log_weight_minus_log_b_bound",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+          "lines": [
+            54,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean#L54-L96"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            228,
+            262
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L228-L262"
+        }
+      ],
+      "correspondence": "The row's cross-block factors give ∏ b_j^(k−1), its negative-negative gaps cost nothing. Strip the 2k−3 endpoint factors from V(u); the remaining gaps inject into nonadjacent c gaps, and every unused c gap is at least one. Divide and take logs; the dimension comparison supplies 2/3, the place estimate budgets 5kL, and replacing (k−1)log b by k log w over the m terms costs ≤k+2kL. The algebra example has V(4,0,−3,−5)=7560 and V(6,2,−1)=84.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independent reader checked the example (ratio 90), 2/3, 5kL, k+2kL and the need for m/x≤1; its small ranks only model the interlacing comparison."
+    },
+    {
+      "id": "MSF-02",
+      "chapter": "global",
+      "title": "The Euler and discriminant costs in the lower mass bound",
+      "anchor": "global-mass-budget",
+      "statement": "log X_u ≥ S+m log(g₀g₁)−11L, where S=f⁻¹∑_ρ∑_j log(w_jρ v/π). Before division by k, a sufficient budget is 8kL+(m−1)L/2+m+2+k≤11kL.",
+      "hypotheses": "For fixed FamP(ε) with ε>0 and fixed C₀,C_Y there is x₀ uniform in the allowed x≥x₀, index i, every Δ,w satisfying DataA and every word. Positive mass ratio and matching base volume, unramified CM field of degree 2f, f≥1, π≤v, log(2v)≤L and the local/size hypotheses of MSF-01. The type-prime products are indexed by exactly two primes and the mass Euler terms by k<M≤r.",
+      "definitions": [
+        "mass Euler product",
+        "residue degree",
+        "half root discriminant",
+        "normalized word scale",
+        "family threshold"
+      ],
+      "equations": [
+        "global-mass-loss"
+      ],
+      "dependencies": [
+        "CNT-01",
+        "CNT-02",
+        "MSF-01"
+      ],
+      "sources": [
+        {
+          "declaration": "LemmaFiveOneIdentity / lowS / Conclusion5Sharp",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean",
+          "lines": [
+            126,
+            148
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeOfExplicitAndCompact.lean#L126-L148"
+        },
+        {
+          "declaration": "cmField_unramified_massIdentity / massIdentity_holds",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+          "lines": [
+            47,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean#L47-L60"
+        },
+        {
+          "declaration": "log_l_value_field_bound",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/GlobalBoundRefinements.lean",
+          "lines": [
+            1250,
+            1273
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/GlobalBoundRefinements.lean#L1250-L1273"
+        },
+        {
+          "declaration": "sum_weights_over_prime_le_half_degree",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean",
+          "lines": [
+            271,
+            301
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean#L271-L301"
+        },
+        {
+          "declaration": "euler_factor_log_bound",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean",
+          "lines": [
+            305,
+            334
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean#L305-L334"
+        },
+        {
+          "declaration": "partial_sums_log_euler_factor_le",
+          "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean",
+          "lines": [
+            336,
+            373
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean#L336-L373"
+        },
+        {
+          "declaration": "log_zetaR_le_one",
+          "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/LogRatioLowerBoundOfLogVandermondeGap.lean",
+          "lines": [
+            26,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LogVandermondeBounds/LogVandermondeProofs/LogRatioLowerBoundOfLogVandermondeGap.lean#L26-L32"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            181,
+            226
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L181-L226"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            228,
+            262
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L228-L262"
+        },
+        {
+          "declaration": "upper_weight_bound_eventually",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            267,
+            300
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L267-L300"
+        },
+        {
+          "declaration": "log_X_lower_arithmetic",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+          "lines": [
+            147,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean#L147-L178"
+        },
+        {
+          "declaration": "ramified_rank_lines_of_free",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            302,
+            316
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L302-L316"
+        },
+        {
+          "declaration": "division_level_prime_family",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            425,
+            453
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L425-L453"
+        },
+        {
+          "declaration": "count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            113,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L113-L124"
+        }
+      ],
+      "correspondence": "At prime p the absolute logarithmic weight of ideal P is bounded by (f(P/p)/2)[−log(1−p^(−M))]. The sum of those weights is controlled by f and the Euler product for ζ(M). Thus after averaging, r−k=m−1 Euler terms cost at most m−1. Discard the nonnegative m(m−1)/2 surpluses on log(v/π) and log(g₀g₁); the remaining discriminant cost is kL+(m−1)L/2 and the two primes cost ≤2. Add the local cost 7kL+k+1 and divide by k.",
+      "status": "mathematical proof reconstructed",
+      "review": "Independent reader checked the f normalization, m−1 Euler increments, the two-prime remainder, the signs of the discarded terms and the bound 11; the arithmetic rearrangement agrees with log_X_lower_arithmetic."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "division_level_prime_family",
+      "callee": "ramified_rank_lines_of_free",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 431
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "gapB_ev",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 433
+      }
+    },
+    {
+      "caller": "ramified_rank_lines_of_free",
+      "callee": "upper_weight_bound_eventually",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 316
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "explicit_gap_le_general_gap",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 177
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "massIdentity_holds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 186
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "log_zetaR_le_one",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 187
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "place_dimension_lower_bound",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 242
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "log_weight_minus_log_b_bound",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 248
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "family_of_global_statements",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 267
+      }
+    },
+    {
+      "caller": "upper_weight_bound_eventually",
+      "callee": "log_X_lower_arithmetic",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 300
+      }
+    },
+    {
+      "caller": "place_dimension_lower_bound",
+      "callee": "VandPlace_holds",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+        "line": 111
+      }
+    },
+    {
+      "caller": "place_dimension_lower_bound",
+      "callee": "dim_weyl_line_eq",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogWeightMinusLogBBound.lean",
+        "line": 119
+      }
+    },
+    {
+      "caller": "VandPlace_holds",
+      "callee": "vandN_le_pow_mul_pow_mul_vandN_of_interlace",
+      "callsite": {
+        "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+        "line": 260
+      }
+    },
+    {
+      "caller": "VandPlace_holds",
+      "callee": "vandN_mul_prod_pow_le_vandN_rowPar",
+      "callsite": {
+        "path": "src/Formalism/LogVandermondeBounds/LogVandermondeProofs/VandNSuccRight.lean",
+        "line": 261
+      }
+    },
+    {
+      "caller": "theorem_three_rows_of_real_place",
+      "callee": "formal_degree_of_eq",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean",
+        "line": 187
+      }
+    },
+    {
+      "caller": "theorem_three_rows_of_real_place",
+      "callee": "dimV_eq_fdegHC",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean",
+        "line": 188
+      }
+    },
+    {
+      "caller": "explicit_bound_family",
+      "callee": "lowest_K_type_mult_one_of_gaps",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TheoremThreeFamilyOfGappedMultiplicity.lean",
+        "line": 201
+      }
+    },
+    {
+      "caller": "massIdentity_holds",
+      "callee": "cmField_unramified_massIdentity",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "cmField_unramified_massIdentity",
+      "callee": "log_l_value_field_bound",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ThickPlacesCorollaryOfAnyTranslate.lean",
+        "line": 49
+      }
+    },
+    {
+      "caller": "log_l_value_field_bound",
+      "callee": "partial_sums_log_euler_factor_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/GlobalBoundRefinements.lean",
+        "line": 1256
+      }
+    },
+    {
+      "caller": "partial_sums_log_euler_factor_le",
+      "callee": "euler_factor_log_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean",
+        "line": 355
+      }
+    },
+    {
+      "caller": "partial_sums_log_euler_factor_le",
+      "callee": "sum_weights_over_prime_le_half_degree",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/HookFormulaTorsion/SumWeightsOverPrimeLeHalfDegree.lean",
+        "line": 367
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CNT-02",
+      "MSF-01"
+    ],
+    [
+      "MSF-01",
+      "MSF-02"
+    ],
+    [
+      "CNT-01",
+      "MSF-02"
+    ],
+    [
+      "CNT-02",
+      "MSF-02"
+    ]
+  ],
+  "outstanding": [
+    "The family supplies the row and column data, the eventual opposite-sign separation and the fixed normalization of the formal degree. The analytic proof of its uniform comparison, including the matrix coefficient integral and lowest-K-type multiplicity, is outside this derivation.",
+    "The exact Siegel mass increments and the automorphic covolume-to-mass identification are inputs. The upper bound for X_u and the prime-existence theorem imposing the small window remain separate."
+  ],
+  "review_scope": "Archimedean dimension comparison and its finite-place mass budget, including the local example, source normalization and family quantifiers."
+}

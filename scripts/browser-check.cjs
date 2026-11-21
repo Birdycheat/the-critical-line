@@ -92,7 +92,9 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "rank-grid") {
+        if (id === "floor-sum") {
+          assert.equal(await fig.locator("table caption").innerText(), "Signed contributions at level 5");
+        } else if (id === "rank-grid") {
           assert.equal(await fig.locator("table caption").innerText(), "Basis vector at (2, 3)");
         } else {
           assert.ok(await fig.locator("svg").getAttribute("aria-label"));
@@ -116,6 +118,10 @@ async function run() {
     assert.equal(await grid.locator("caption").innerText(), "Basis vector at (4, 2)");
     const selectedRow = grid.getByRole("rowheader", { name: "4", exact: true }).locator("..");
     assert.deepEqual(await selectedRow.locator("td").allInnerTexts(), ["+1", "0", "0", "−1", "0"]);
+    await page.goto(base + "book.html?floor-sum.depth=3&floor-sum.multiplier=4#fig-floor-sum");
+    const floorSum = page.locator("#fig-floor-sum.ready");
+    assert.equal(await floorSum.locator("table caption").innerText(), "Signed contributions at level 125");
+    assert.equal(await floorSum.locator(".metrics dd").first().innerText(), "7810");
     await page.goto(base + "index.html");
     await page.locator(".mobile-menu-button").press("Enter");
     assert.equal(await page.locator("#book-menu").isVisible(), true);

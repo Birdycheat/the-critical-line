@@ -2,6 +2,11 @@
 
 ## 21 November 2026
 
+- Count5 bounds the prime level Tᵤ attached to each word. The cardinality of the word set enters the slope penalty. The prime sum in the fifth clause of IdentU and its matched main term agree separately across sampled indices and stages.
+- The exponent in the cohomological allowance belongs to the raw measurement scale b. At fixed x, exp(x^ε/2) is √b and can be absorbed before normalizing the combined measurements. Carrying the same [Z,Z^(3/2)] interval into logarithmic coordinates makes the positive-part majorant explicit.
+- In the primitive-character evaluation the signed carry is 2⌊bu/F⌋−(b−1). Reindexing by b gives the factor χ(b)b^k−1. The ℓ-adic norm conclusion needs that factor to be a unit and a strict depth bound. The calculation underlying the ideal generator uses different root-of-unity ambiguities for the field norm and the simultaneous residue congruence.
+- The discriminant-place contraction counts the non-top boxes and a shared top-row allowance. The column bound has one denominator charge per lift and a separate credit at the first lift. For Count5 the endpoint gaps, formal degrees, mass factors and two prime indices are combined before division by fk to obtain the 11L loss.
+
 - For the split local doubling integral, the twist records the signed sum of elementary divisors while decay records their absolute sum. Absolute convergence is justified by summing upper bounds for individual lattices. In the rank-two example the number of primitive maps must be divided by the number of units in the local quotient.
 - Distinguished the six prime classes from the separate condition that a place be free of the level. Rational lifting allows a zero target. The proof of a nonzero evaluation concerns the whole adjusted base-tuple map.
 - The free residue-group action supplies a rank deficit for the real frame. The two auxiliary local indices supply an absolute size contribution to Count5, and the normalized Vandermonde variation controls differences between words.

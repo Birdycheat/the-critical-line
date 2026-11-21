@@ -199,6 +199,27 @@ for (let j = 0; j < 48; j++) {
   previousBall = ball;
 }
 close(shellSum, 65 / 54, 1e-14);
+// Evaluate the two original floors independently of the grouped signed carries.
+for (const depth of [1, 2, 3]) {
+  const level = 5 ** depth;
+  for (const b of [2, 3, 4]) {
+    const state = lib.bernoulliCarries(depth, b);
+    let sum = 0;
+    let scaledBernoulli = 0;
+    for (let u = 1; u < level; u++) {
+      if (u % 5 === 0) continue;
+      sum += u * (Math.floor(u * b / level) - Math.floor((level - u) * b / level));
+      // 12F · F·B₂(u/F)/2
+      scaledBernoulli += 6 * u * u - 6 * u * level + level * level;
+    }
+    assert.equal(scaledBernoulli, -4 * level);
+    assert.equal(state.sum, sum);
+    assert.equal(state.cleared, 24 * b * sum - 4 * (b * b - 1) * scaledBernoulli / level);
+    assert.equal(state.cleared % level, 0);
+    assert.equal(state.valuation, b === 4 ? 1 : 0);
+  }
+}
+assert.equal(lib.bernoulliCarries(1, 2).cleared, 240);
 // Recover the primitive and imprimitive cubic Bernoulli values from the
 // residue sums. The character has values +1 and -1 on the two units.
 const bernoulli3 = (x) => x * (x - 0.5) * (x - 1);
@@ -208,5 +229,5 @@ assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums, nine signed rank grids and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums at all nine carry settings, nine signed rank grids and all 289 marked-window states.",
 );

@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "floor-sum": {
+      title: "Read a Bernoulli value from the carries",
+      kind: "Exact finite sum",
+      section: "inputs",
+      params: [
+        choose("depth", "Level F", [["1", "5"], ["2", "25"], ["3", "125"]], "1"),
+        choose("multiplier", "Multiplier b", [["2", "2"], ["3", "3"], ["4", "4"]], "2"),
+      ],
+      caption: "Group the units u by the quotient j in bu = Fj + y. Within a group the signed carry θ is constant. Multiply it by the sum of the representatives to obtain that row’s contribution to S.",
+      method: "Fix the trivial primitive character, ℓ = 5 and k = 2. At every displayed level T is −1/3. With D = 24 the congruence becomes 24bS + 16(b² − 1) ≡ 0 modulo F. Enumerate all units 1 ≤ u < F and compute each floor exactly. The choices b = 2 and 3 make b² − 1 a 5-adic unit. The choice b = 4 still satisfies the congruence and tests what happens to the valuation when that hypothesis fails.",
+    },
     "rank-grid": {
       title: "Complete a zero-sum grid",
       kind: "Ramified rank",
@@ -359,6 +370,24 @@
     const x = q ** (-s - 0.5);
     return { split: (1 + x) / (1 - x), inert: 1, normalizer: 1 / (1 - x * x) };
   }
+  function bernoulliCarries(depth, multiplier) {
+    const level = 5 ** depth;
+    const groups = Array.from({ length: multiplier }, (_, quotient) => ({
+      quotient,
+      carry: 2 * quotient - (multiplier - 1),
+      representatives: 0,
+    }));
+    for (let u = 1; u < level; u++) {
+      if (u % 5 === 0) continue;
+      const quotient = Math.floor((multiplier * u) / level);
+      groups[quotient].representatives += u;
+    }
+    const sum = groups.reduce((total, group) => total + group.carry * group.representatives, 0);
+    const cleared = 24 * multiplier * sum + 16 * (multiplier ** 2 - 1);
+    let valuation = 0;
+    for (let integer = sum; integer > 0 && integer % 5 === 0; integer /= 5) valuation++;
+    return { level, groups, sum, cleared, valuation };
+  }
   const residueUnits = [2, 3, 4, 1];
   function rankGrid(row, column) {
     const difference = (unit, selected) => Number(unit === selected) - Number(unit === 1);
@@ -445,6 +474,22 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "floor-sum") {
+      const multiplier = Number(v.multiplier);
+      const { level, groups, sum, cleared, valuation } = bernoulliCarries(Number(v.depth), multiplier);
+      const rows = groups.map(({ quotient, carry, representatives }) =>
+        "<tr><th scope=\"row\">" + quotient + "</th><td>" + carry + "</td><td>" + representatives +
+        "</td><td>" + carry * representatives + "</td></tr>"
+      ).join("");
+      const unitTest = (multiplier ** 2 - 1) % 5 === 0
+        ? "Here 5 divides b² − 1. The congruence holds, and S is divisible by 5 although T is a 5-adic unit."
+        : "Here b² − 1 is a 5-adic unit. Both S and T have 5-adic valuation zero.";
+      return '<table class="carry-table"><caption>Signed contributions at level ' + level + '</caption><thead><tr>' +
+        '<th scope="col">Quotient j</th><th scope="col">Carry θ</th><th scope="col">Sum of u</th>' +
+        '<th scope="col">Contribution</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        metrics([["Sum S", String(sum)], ["Cleared difference", cleared + " = " + (cleared / level) + " × " + level],
+          ["Valuation of S", String(valuation)]]) + "<p>" + unitTest + "</p>";
+    }
     if (id === "rank-grid") {
       const row = Number(v.row);
       const column = Number(v.column);
@@ -1165,6 +1210,7 @@
     upperTail,
     eulerQuotients,
     rankGrid,
+    bernoulliCarries,
     selectWindow,
     centeringRatio,
   };

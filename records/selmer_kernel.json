@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspected written definitions and the chosen proof bodies in the pinned archive. Using r₂ for complex-place pairs, e for the positive twist, N for the twisted norm and f for its twist valuation. No local extraction of elaborated proof terms.",
+  "claims": [
+    {
+      "id": "SEL-01",
+      "chapter": "inputs",
+      "title": "Why a unit determinant pays for q to the complex rank",
+      "anchor": "inputs-selmer-kernel",
+      "statement": "Let C be the ideal class group modulo δ=(γ⁻¹−a) and E the integral unit group modulo the image of δ and all roots of unity. |EqHom|≤|C|ℓ, |W|=|E||C| and |E|(a−1)=(a^n−1)^r₂. Consequently |EqHom| q^r₂ ≤ |W|ℓ ℓ^(c+f), with f=vℓ(e).",
+      "hypotheses": "Totally complex fixed base field L′; γ generates Gal(F/L′) and acts on a primitive ℓ^ν-th root by 1+ℓ^c; n=ord γ=ℓ^(ν−c), 1≤c≤ν, c≥2 when ℓ=2, a=(1+ℓ^c)^e with e≥1, q=ℓ^ν, r₂ the number of complex places of L′. All divisor and class groups here belong to the upper field F.",
+      "definitions": [
+        "EqHom",
+        "E",
+        "W",
+        "ℓ-part of an order",
+        "quotient class group",
+        "logarithmic unit lattice"
+      ],
+      "equations": [],
+      "dependencies": [
+        "DET-01",
+        "DET-03"
+      ],
+      "sources": [
+        {
+          "declaration": "EqHom",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean",
+          "lines": [
+            120,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/HasVal.lean#L120-L139"
+        },
+        {
+          "declaration": "Few / gens / SCount / SFew",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean",
+          "lines": [
+            117,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean#L117-L136"
+        },
+        {
+          "declaration": "Dat.del / nm / W / EQ / ClQ / SelInv and IsDat",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TwoLe.lean",
+          "lines": [
+            34,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TwoLe.lean#L34-L65"
+        },
+        {
+          "declaration": "card_addMonoidHom_zmod_prime_pow_le_pow_factorization",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/EqHomLe.lean",
+          "lines": [
+            29,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/EqHomLe.lean#L29-L71"
+        },
+        {
+          "declaration": "eqHomLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/EqHomLe.lean",
+          "lines": [
+            117,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/EqHomLe.lean#L117-L139"
+        },
+        {
+          "declaration": "card_ker_eq_coker / exists_psi / cardW",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardKerEqCoker.lean",
+          "lines": [
+            42,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardKerEqCoker.lean#L42-L68"
+        },
+        {
+          "declaration": "cardW",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardKerEqCoker.lean",
+          "lines": [
+            149,
+            180
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardKerEqCoker.lean#L149-L180"
+        },
+        {
+          "declaration": "cardEQ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+          "lines": [
+            36,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean#L36-L46"
+        },
+        {
+          "declaration": "cardEQ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+          "lines": [
+            71,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean#L71-L98"
+        },
+        {
+          "declaration": "places",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/Places.lean",
+          "lines": [
+            5,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/Places.lean#L5-L21"
+        },
+        {
+          "declaration": "unitLat",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/UnitLat.lean",
+          "lines": [
+            93,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/UnitLat.lean#L93-L122"
+        },
+        {
+          "declaration": "permDet",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PermDet.lean",
+          "lines": [
+            130,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PermDet.lean#L130-L158"
+        },
+        {
+          "declaration": "latDet",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/LatDet.lean",
+          "lines": [
+            5,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/LatDet.lean#L5-L18"
+        },
+        {
+          "declaration": "cardEQ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+          "lines": [
+            98,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean#L98-L128"
+        },
+        {
+          "declaration": "lte",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TorsionExponentBound.lean",
+          "lines": [
+            52,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TorsionExponentBound.lean#L52-L68"
+        },
+        {
+          "declaration": "sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            81,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L81-L111"
+        }
+      ],
+      "correspondence": "A character's extension to the divisor group kills principal divisors and δ of any divisor. Evaluate on singleton primes to recover the original function. For finite class group the kernel and cokernel of δ have equal orders. The modulus-free determinant calculation adjoins a trivial ℤ-line to log units, giving r₂ full cycles of length n and an auxiliary (a−1) factor on the constant line. Applying LTE gives vℓ(|E|)+c+f=(ν+f)r₂, and weakening (ν+f)r₂≥νr₂ accounts for the factor in the stated inequality.",
+      "status": "mathematical proof reconstructed",
+      "review": "Checked the gamma inverse on divisors and units, finite character bound, both valuations and the determinant factor from the extra line. Small example at ℓ=3,c=2,e=3,ν=3 has v₃(1000−1)=3 and v₃(1000³−1)=4."
+    },
+    {
+      "id": "SEL-02",
+      "chapter": "inputs",
+      "title": "The uniform ℓ-primary kernel cost",
+      "anchor": "inputs-selmer-kernel-count",
+      "statement": "|EqHom|q^r₂ ≤ B ℓ^X with X=(b+f)g+c+f, g=2[L′:ℚ]+⌊log₂ h(L′)⌋+2. For the detecting-cycle count B=q^r₂ T_(2e+1)T_(2e), cancel q^r₂ to obtain a bound on |EqHom| uniform in ν.",
+      "hypotheses": "At any layer as in SEL-01; any b,B≥0 with Few for the twisted norm raised to ℓ^b. The K-theoretic application takes b=2e+(2e+1)(c+2e+1), 2e+1<min(ℓ^c,r₂). L′,c,e,ℓ,b and the torsion groups are fixed before the layer precision.",
+      "definitions": [
+        "twisted norm",
+        "norm kernel",
+        "roots-of-unity ambiguity",
+        "base Selmer classes",
+        "group killed by a power of ℓ"
+      ],
+      "equations": [
+        "inputs-selmer-kernel-count"
+      ],
+      "dependencies": [
+        "SEL-01",
+        "DET-03",
+        "STB-02"
+      ],
+      "sources": [
+        {
+          "declaration": "Few / gens / SCount / SFew",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean",
+          "lines": [
+            117,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/LemmaKOfSteps.lean#L117-L136"
+        },
+        {
+          "declaration": "Dat.del / nm / W / EQ / ClQ / SelInv and IsDat",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TwoLe.lean",
+          "lines": [
+            34,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TwoLe.lean#L34-L65"
+        },
+        {
+          "declaration": "kerF_tele / kerF_nm_del / kerF_del_nm",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean",
+          "lines": [
+            5,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean#L5-L32"
+        },
+        {
+          "declaration": "kerF",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean",
+          "lines": [
+            48,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean#L48-L65"
+        },
+        {
+          "declaration": "kerF",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean",
+          "lines": [
+            88,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean#L88-L128"
+        },
+        {
+          "declaration": "lte",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TorsionExponentBound.lean",
+          "lines": [
+            52,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/TorsionExponentBound.lean#L52-L68"
+        },
+        {
+          "declaration": "card_tors / pCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean",
+          "lines": [
+            5,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean#L5-L45"
+        },
+        {
+          "declaration": "pCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean",
+          "lines": [
+            57,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean#L57-L92"
+        },
+        {
+          "declaration": "selInj",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInj.lean",
+          "lines": [
+            44,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInj.lean#L44-L52"
+        },
+        {
+          "declaration": "exists_rep_of_mem_selInv_ordP_dvd_actU_eq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+          "lines": [
+            65,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean#L65-L101"
+        },
+        {
+          "declaration": "norm_pow_eq_inv_norm_pow_of_actU_eq_mul_pow / selInvLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+          "lines": [
+            145,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean#L145-L185"
+        },
+        {
+          "declaration": "h90",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/ActU.lean",
+          "lines": [
+            6,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/ActU.lean#L6-L34"
+        },
+        {
+          "declaration": "selInvLe_lemma_5",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+          "lines": [
+            104,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean#L104-L135"
+        },
+        {
+          "declaration": "selInvLe",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+          "lines": [
+            203,
+            227
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean#L203-L227"
+        },
+        {
+          "declaration": "selLCard",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean",
+          "lines": [
+            135,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean#L135-L151"
+        },
+        {
+          "declaration": "units_card",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean",
+          "lines": [
+            93,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean#L93-L112"
+        },
+        {
+          "declaration": "selLCard",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean",
+          "lines": [
+            176,
+            215
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean#L176-L215"
+        },
+        {
+          "declaration": "selLCard",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean",
+          "lines": [
+            217,
+            249
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean#L217-L249"
+        },
+        {
+          "declaration": "sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            16,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L16-L55"
+        },
+        {
+          "declaration": "sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            56,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L56-L78"
+        },
+        {
+          "declaration": "sCount",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+          "lines": [
+            81,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean#L81-L111"
+        },
+        {
+          "declaration": "sNum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+          "lines": [
+            218,
+            241
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean#L218-L241"
+        }
+      ],
+      "correspondence": "The two orders a^n−1 and q have valuation difference f independent of ν. The telescoping relation yields an annihilator ℓ^b(a^n−1)/q for ker f_norm and hence exponent ≤ℓ^(b+f) on its ℓ-part. Bound |W[ℓ^s]| inductively by |W[ℓ]|^s. An invariant class determines a root-of-unity exponent mod ℓ and an ℓth root of a fixed norm in L′; together these allow at most ℓ² choices. Hilbert 90 and unramified valuations away from ℓ show each fiber is covered by the base-field Selmer classes. At the base, units, ℓ-killed ideal classes and the valuations at primes dividing ℓ give bounds ℓ^D, ℓ^⌊log₂ h⌋ and ℓ^D. The two ℓ-adic costs and the image size now combine exactly as sCount.",
+      "status": "mathematical proof reconstructed",
+      "review": "The comparison concerns the ℓ-primary portion of the kernel. The full annihilator may contain a prime-to-ℓ factor. The norm used for the pair (t,Norm(v)) is the ordinary field norm, distinct from the powered twisted norm used by Few."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "sNum",
+      "callee": "hCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 232
+      }
+    },
+    {
+      "caller": "sNum",
+      "callee": "hFew",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 231
+      }
+    },
+    {
+      "caller": "sNum",
+      "callee": "hSha",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/NumThree.lean",
+        "line": 241
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.lte",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 20
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.cardEQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 26
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.cardW",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 27
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.eqHomLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.kerF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 51
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.fewLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.selLCard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.selInvLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 57
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.selInj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 66
+      }
+    },
+    {
+      "caller": "sCount",
+      "callee": "Ct.pCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts.lean",
+        "line": 71
+      }
+    },
+    {
+      "caller": "cardEQ",
+      "callee": "places",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+        "line": 40
+      }
+    },
+    {
+      "caller": "cardEQ",
+      "callee": "unitLat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+        "line": 105
+      }
+    },
+    {
+      "caller": "cardEQ",
+      "callee": "permDet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "cardEQ",
+      "callee": "latDet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+        "line": 109
+      }
+    },
+    {
+      "caller": "cardEQ",
+      "callee": "card_prod",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/CardEQ.lean",
+        "line": 121
+      }
+    },
+    {
+      "caller": "kerF",
+      "callee": "kerF_del_nm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/KerFDelNm.lean",
+        "line": 65
+      }
+    },
+    {
+      "caller": "pCount",
+      "callee": "card_tors",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/PCount.lean",
+        "line": 84
+      }
+    },
+    {
+      "caller": "eqHomLe",
+      "callee": "card_addMonoidHom_zmod_prime_pow_le_pow_factorization",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/EqHomLe.lean",
+        "line": 139
+      }
+    },
+    {
+      "caller": "selInvLe",
+      "callee": "exists_units_generator_of_finOrder_units",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+        "line": 165
+      }
+    },
+    {
+      "caller": "selInvLe",
+      "callee": "selInvLe_lemma_5",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+        "line": 211
+      }
+    },
+    {
+      "caller": "selInvLe_lemma_5",
+      "callee": "h90",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+        "line": 119
+      }
+    },
+    {
+      "caller": "selInvLe_lemma_5",
+      "callee": "unram",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelInvLe.lean",
+        "line": 124
+      }
+    },
+    {
+      "caller": "h90",
+      "callee": "groupCohomology.exists_div_of_norm_eq_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/ActU.lean",
+        "line": 11
+      }
+    },
+    {
+      "caller": "selLCard",
+      "callee": "units_card",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SelmerOrderCounts/SelLCard.lean",
+        "line": 179
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DET-01",
+      "SEL-01"
+    ],
+    [
+      "SEL-01",
+      "SEL-02"
+    ],
+    [
+      "DET-03",
+      "SEL-02"
+    ],
+    [
+      "STB-02",
+      "SEL-02"
+    ]
+  ],
+  "outstanding": [
+    "The Dirichlet unit theorem underlying the logarithmic lattice, Hilbert Theorem 90, unramifiedness of the cyclotomic layer away from ℓ, class-group finiteness and the source's abstract lattice-index theorem are the independent arithmetic inputs.",
+    "Bounding the homology torsion orders, passing from uniform finite-layer EqHom counts to the cohomological length and controlling the enlargement of the base field are separate steps."
+  ],
+  "review_scope": "An independent reader checked the unit determinant and its constant line, the two root and norm choices, Hilbert 90 descent and the unramified-place condition, removal of q from the norm-kernel valuation, and the final exponent. The numerical example was independently checked at depths 2, 3 and 4."
+}
