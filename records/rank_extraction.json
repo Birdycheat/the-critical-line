@@ -276,8 +276,8 @@
       "chapter": "lifts",
       "anchor": "lifts-rank-root-spaces",
       "title": "Which parts of a tangent matrix can the weights distinguish?",
-      "hypotheses": "The selected tangent has m lacunary eigenvalues and every tangent satisfies the same degree bound. The last application assumes scalar corners for products in the tangent-generated algebra and the stated row identity across components.",
-      "statement": "Interpolation in the commutator isolates each off-diagonal corner of the tangent space. The degree bound forces its diagonal actions to be scalar on each eigenspace. Under the stated product and row conditions for the tangent-generated algebra, taking its span with the group gives scalar global corners. A translate argument on irreducible summands supplies the nilpotence test.",
+      "hypotheses": "The selected tangent has m lacunary eigenvalues and every tangent satisfies the degree bound m.",
+      "statement": "Interpolation in the commutator isolates each off-diagonal block of a tangent matrix. Separating the shifted spectra forces every diagonal block to act by a scalar.",
       "equations": [
         "lifts-rank-commutator"
       ],
@@ -285,6 +285,15 @@
         "REX-03"
       ],
       "sources": [
+        {
+          "label": "The bracket of invariant derivations and closure of the tangent space",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/TanLiePf.lean",
+          "lines": [
+            11,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/TanLiePf.lean#L11-L43"
+        },
         {
           "label": "Disjoint means distinguish the nonzero ordered differences",
           "path": "src/Development/EtaleCohomology/DivisorCycles/GradePf.lean",
@@ -311,95 +320,25 @@
             120
           ],
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/DiagScalar2.lean#L59-L120"
-        },
-        {
-          "label": "The structure of the tangent algebra and the additional condition on the group action",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean",
-          "lines": [
-            47,
-            64
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean#L47-L64"
-        },
-        {
-          "label": "Passage to an algebra containing the full image, with the nilpotence criterion",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/DivPlus.lean",
-          "lines": [
-            41,
-            55
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/DivPlus.lean#L41-L55"
-        },
-        {
-          "label": "Forming the algebra spanned by one tangent-algebra factor and one group element",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
-          "lines": [
-            24,
-            43
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L24-L43",
-          "declaration": "LateralTheory.DivDb.BigCorner₂.RR",
-          "declaration_lines": {
-            "LateralTheory.DivDb.BigCorner₂.RR": 41
-          }
-        },
-        {
-          "label": "Replacing a nonzero diagonal corner by a scalar corner in the smaller algebra",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
-          "lines": [
-            48,
-            75
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L48-L75",
-          "declaration": "LateralTheory.DivDb.BigCorner₂.corner_gen",
-          "declaration_lines": {
-            "LateralTheory.DivDb.BigCorner₂.corner_gen": 48
-          }
-        },
-        {
-          "label": "Preservation of invariant subspaces for the full algebra",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
-          "lines": [
-            107,
-            114
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L107-L114",
-          "declaration": "LateralTheory.DivDb.BigCorner₂.BigCorner_of",
-          "declaration_lines": {
-            "LateralTheory.DivDb.BigCorner₂.BigCorner_of": 107
-          }
-        },
-        {
-          "label": "Semisimplicity and invariant complements in the general nilpotence test",
-          "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
-          "lines": [
-            51,
-            87
-          ],
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean#L51-L87",
-          "declaration": "LateralTheory.DivDb.SemisPf.Semis_of",
-          "declaration_lines": {
-            "LateralTheory.DivDb.SemisPf.Semis_of": 51
-          }
         }
       ],
       "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
       "status": "mathematical proof reconstructed",
-      "review": "The assertions about tangents are distinguished from assumptions on the full group."
+      "review": "The diagonal estimate is applied after subtracting the individual off-diagonal blocks."
     },
     {
       "id": "REX-05",
       "chapter": "lifts",
       "anchor": "lifts-rank-matrix-units",
       "title": "How do the blocks give a representation of dimension m?",
-      "hypotheses": "A global matrix algebra containing the image and the projectors has scalar diagonal corners and the stated nilpotence test.",
+      "hypotheses": "The preceding constructions give the full image algebra scalar diagonal blocks and the nilpotence test. The given representation is continuous and semisimple.",
       "statement": "Once the full group belongs to the stated algebra, compatible matrix units give an m-dimensional coefficient representation, its individual copies in the original space and injections in the two required directions.",
       "equations": [
-        "lifts-rank-unit-product",
         "lifts-rank-unit-copies"
       ],
       "dependencies": [
-        "REX-04"
+        "REX-10",
+        "REX-14"
       ],
       "sources": [
         {
@@ -457,7 +396,7 @@
       "chapter": "lifts",
       "anchor": "lifts-rank-component-cycles",
       "title": "What happens when a group element permutes the weight spaces?",
-      "hypotheses": "The tangent yields m lacunary eigenvalues and the stated projector-conjugacy, off-diagonal inclusion and unit-factorization results hold for the tangent-generated algebra.",
+      "hypotheses": "A semisimple representation has the uniform degree bound m and a tangent with m lacunary eigenvalues. The subgroup is normal of finite index.",
       "statement": "A finite-index subgroup retains the tangent at the identity. After correction by elementary units and a diagonal perturbation in its closure, each permutation cycle supplies its length in distinct eigenvalues and different cycles have disjoint spectra.",
       "equations": [
         "lifts-rank-cycle-vector"
@@ -465,7 +404,9 @@
       "dependencies": [
         "REX-02",
         "REX-03",
-        "REX-04"
+        "REX-08",
+        "REX-11",
+        "REX-12"
       ],
       "sources": [
         {
@@ -653,6 +594,512 @@
       "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
       "status": "mathematical proof reconstructed",
       "review": "The finite-index subgroup and its matrix closure are distinguished from the full group and from the extracted module."
+    },
+    {
+      "id": "REX-08",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-envelope-products",
+      "title": "Why is each diagonal block of a product scalar?",
+      "hypotheses": "The tangent space is closed under brackets and REX-04 isolates its off-diagonal blocks and gives scalar diagonal blocks.",
+      "statement": "The same block statements hold throughout the associative algebra generated by the tangents. Its spectral projectors are polynomials in the selected tangent.",
+      "equations": [
+        "lifts-rank-path-product"
+      ],
+      "dependencies": [
+        "REX-04"
+      ],
+      "sources": [
+        {
+          "label": "Decomposing a product into its intermediate weight spaces",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+          "lines": [
+            22,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean#L22-L36",
+          "declaration": "LateralTheory.DivDb.AlgStruct₂.decomp",
+          "declaration_lines": {
+            "LateralTheory.DivDb.AlgStruct₂.decomp": 22
+          }
+        },
+        {
+          "label": "Closure under multiplication for distinct endpoints and returning blocks",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+          "lines": [
+            52,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean#L52-L93",
+          "declaration": "LateralTheory.DivDb.AlgStruct₂.S_mul",
+          "declaration_lines": {
+            "LateralTheory.DivDb.AlgStruct₂.S_mul": 52
+          }
+        },
+        {
+          "label": "From tangent matrices to every element of the generated algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+          "lines": [
+            95,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean#L95-L132",
+          "declaration": "LateralTheory.DivDb.AlgStruct₂.S_of_mem",
+          "declaration_lines": {
+            "LateralTheory.DivDb.AlgStruct₂.S_of_mem": 95
+          }
+        },
+        {
+          "label": "Spectral projectors and the simultaneous conclusions for blocks",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/StructPf.lean",
+          "lines": [
+            20,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/StructPf.lean#L20-L33"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The round trip is recovered from one diagonal block of the commutator. The product itself need not belong to the Lie algebra."
+    },
+    {
+      "id": "REX-09",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-envelope-radical",
+      "title": "What guarantees an inverse for a nonzero block?",
+      "hypotheses": "The image representation is finite dimensional and semisimple. The associative algebra is generated by the tangent space of the image closure.",
+      "statement": "The algebra preserves invariant subspaces and is normalized by the group. Its radical acts by zero, and each nonzero x has a left multiple that is not nilpotent.",
+      "equations": [
+        "lifts-rank-radical-image"
+      ],
+      "dependencies": [
+        "REX-08"
+      ],
+      "sources": [
+        {
+          "label": "Conjugation preserves the tangent-generated algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+          "lines": [
+            36,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean#L36-L72",
+          "declaration": "LateralTheory.DivDb.EnvStab₂.lie_conj",
+          "declaration_lines": {
+            "LateralTheory.DivDb.EnvStab₂.lie_conj": 36
+          }
+        },
+        {
+          "label": "Equations for an invariant subspace pass to tangents",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+          "lines": [
+            79,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean#L79-L113",
+          "declaration": "LateralTheory.DivDb.EnvStab₂.lie_keeps",
+          "declaration_lines": {
+            "LateralTheory.DivDb.EnvStab₂.lie_keeps": 79
+          }
+        },
+        {
+          "label": "The invariant complement kills the image of the radical test",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+          "lines": [
+            51,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean#L51-L87",
+          "declaration": "LateralTheory.DivDb.SemisPf.Semis_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.SemisPf.Semis_of": 51
+          }
+        },
+        {
+          "label": "Radical nilpotence forces the invariant image to vanish",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+          "lines": [
+            88,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean#L88-L132"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The complement is selected for the group representation before its stability under the tangent-generated algebra is used."
+    },
+    {
+      "id": "REX-10",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-block-coordinates",
+      "title": "When is a space of block maps one-dimensional?",
+      "hypotheses": "A unital matrix algebra contains a complete orthogonal family of nonzero projectors with scalar corners and satisfies the nilpotence test.",
+      "statement": "Every nonzero space of block maps is one-dimensional and contains an isomorphism. The coefficients give a product of full matrix algebras.",
+      "equations": [
+        "lifts-rank-unit-product"
+      ],
+      "dependencies": [
+        "REX-08",
+        "REX-09"
+      ],
+      "sources": [
+        {
+          "label": "Partners and the dimension of a nonzero space of block maps",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean",
+          "lines": [
+            52,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean#L52-L107",
+          "declaration": "LateralTheory.DivDb.MatrixUnitConstruction.partner",
+          "declaration_lines": {
+            "LateralTheory.DivDb.MatrixUnitConstruction.partner": 52
+          }
+        },
+        {
+          "label": "The identity and product rules for block coefficients",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/MinCongr.lean",
+          "lines": [
+            46,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/MinCongr.lean#L46-L94",
+          "declaration": "LateralTheory.DivDb.RepPf.coef_mul",
+          "declaration_lines": {
+            "LateralTheory.DivDb.RepPf.coef_mul": 57
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "This lemma applies first to A and then, after the row identity, to the larger algebra R."
+    },
+    {
+      "id": "REX-11",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-idempotent-conjugacy",
+      "title": "How can one change all the weight projectors at once?",
+      "hypotheses": "Two complete systems in the product matrix algebra each have scalar corners.",
+      "statement": "A unit and a permutation conjugate the two systems, fixing all indices for which the corresponding mixed corner is nonzero.",
+      "equations": [
+        "lifts-rank-envelope-matrix-model"
+      ],
+      "dependencies": [
+        "REX-10"
+      ],
+      "sources": [
+        {
+          "label": "A nonzero block map has a partner and spans its block",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean",
+          "lines": [
+            52,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean#L52-L107",
+          "declaration": "LateralTheory.DivDb.MatrixUnitConstruction.partner",
+          "declaration_lines": {
+            "LateralTheory.DivDb.MatrixUnitConstruction.partner": 52
+          }
+        },
+        {
+          "label": "The source obtains equal numbers of matching projectors directly from traces",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+          "lines": [
+            117,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean#L117-L161",
+          "declaration": "LateralTheory.DivDb.ConjugateIdempotents.count",
+          "declaration_lines": {
+            "LateralTheory.DivDb.ConjugateIdempotents.count": 117
+          }
+        },
+        {
+          "label": "Matching the remaining labels after fixing all possible diagonal pairs",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+          "lines": [
+            187,
+            247
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean#L187-L247"
+        },
+        {
+          "label": "Assembling the internal change of basis and its inverse",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+          "lines": [
+            248,
+            294
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean#L248-L294"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Ranks are computed on the coefficient spaces. The corresponding projection on the original representation can have larger image."
+    },
+    {
+      "id": "REX-12",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-unit-factorization",
+      "title": "Which part of the change of basis moves the weight spaces?",
+      "hypotheses": "The tangent-generated algebra has its product decomposition in the weight projectors.",
+      "statement": "Row additions in each coefficient block express a unit as an ordered product of off-diagonal transvections followed by diagonal scalings.",
+      "equations": [
+        "lifts-rank-unit-factor-form"
+      ],
+      "dependencies": [
+        "REX-10"
+      ],
+      "sources": [
+        {
+          "label": "Lifting transvections and diagonal matrices in each matrix factor",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/UnitFactorizationTheorem.lean",
+          "lines": [
+            260,
+            331
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/UnitFactorizationTheorem.lean#L260-L331",
+          "declaration": "LateralTheory.DivDb.UnitFactorizationTheorem.Ψ_trans",
+          "declaration_lines": {
+            "LateralTheory.DivDb.UnitFactorizationTheorem.Ψ_trans": 260
+          }
+        },
+        {
+          "label": "Assembling the factorization across all classes",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/UnitFactorizationTheorem.lean",
+          "lines": [
+            333,
+            368
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/UnitFactorizationTheorem.lean#L333-L368",
+          "declaration": "LateralTheory.DivDb.UnitFactorizationTheorem.main",
+          "declaration_lines": {
+            "LateralTheory.DivDb.UnitFactorizationTheorem.main": 333
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Adding a lower row supplies a missing pivot without moving earlier pivots."
+    },
+    {
+      "id": "REX-13",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-component-row",
+      "title": "When does the tangent algebra contain a whole row of a group matrix?",
+      "hypotheses": "A semisimple representation has the uniform degree bound and a tangent with the prescribed m lacunary weights.",
+      "statement": "A nonzero return through a group matrix forces its entire corresponding row to agree with a row from the tangent-generated algebra.",
+      "equations": [
+        "lifts-rank-row-criterion",
+        "lifts-rank-row-witness"
+      ],
+      "dependencies": [
+        "REX-06",
+        "REX-09",
+        "REX-11",
+        "REX-12"
+      ],
+      "sources": [
+        {
+          "label": "Disjoint spectra on cycle supports and hypotheses on the tangent-generated algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/OpenCoset.lean",
+          "lines": [
+            71,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/OpenCoset.lean#L71-L82"
+        },
+        {
+          "label": "The row implication with the full group quantifier and its use in the enlarged algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean",
+          "lines": [
+            51,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean#L51-L60"
+        },
+        {
+          "label": "The chosen permutation fixes every label with a nonzero mixed corner",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+          "lines": [
+            276,
+            294
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean#L276-L294"
+        },
+        {
+          "label": "The exclusions run over all return eigenvalues",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/GenSpecProof.lean",
+          "lines": [
+            138,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/GenSpecProof.lean#L138-L166"
+        },
+        {
+          "label": "Correction of the group matrix, disjoint cycle spectra and the annihilator bound on the corrected element",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/SumMulSum.lean",
+          "lines": [
+            112,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SumMulSum.lean#L112-L155"
+        },
+        {
+          "label": "Eigenvectors obtained from one full turn around a cycle",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+          "lines": [
+            70,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean#L70-L136",
+          "declaration": "LateralTheory.DivDb.CycleCount₂.cyc",
+          "declaration_lines": {
+            "LateralTheory.DivDb.CycleCount₂.cyc": 70
+          }
+        },
+        {
+          "label": "Exhausting the roots of the annihilator and isolating the eigenvalue of a fixed label",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+          "lines": [
+            175,
+            225
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean#L175-L225",
+          "declaration": "LateralTheory.DivDb.CycleCount₂.fixed_scalar",
+          "declaration_lines": {
+            "LateralTheory.DivDb.CycleCount₂.fixed_scalar": 175
+          }
+        },
+        {
+          "label": "Injectivity of the remaining factor on the fixed space and scalar action there",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+          "lines": [
+            226,
+            266
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean#L226-L266",
+          "declaration": "LateralTheory.DivDb.CycleCount₂.CycleCount_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.CycleCount₂.CycleCount_of": 261
+          }
+        },
+        {
+          "label": "Conjugating the corner witness and recovering the entire row with an element of the tangent-generated algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/SumMulSum.lean",
+          "lines": [
+            156,
+            176
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SumMulSum.lean#L156-L176"
+        },
+        {
+          "label": "Assembly of the cycle count, torus point, degree and component criterion",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinKey.lean",
+          "lines": [
+            37,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinKey.lean#L37-L51",
+          "declaration": "LateralTheory.Fin.Key.etale_generic_spectrum_of_key",
+          "declaration_lines": {
+            "LateralTheory.Fin.Key.etale_generic_spectrum_of_key": 37
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "A fixed two-dimensional block can carry a single eigenvalue with a nontrivial Jordan part. The degree bound eliminates that possibility."
+    },
+    {
+      "id": "REX-14",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-full-corners",
+      "title": "Why can we adjoin every group matrix and keep scalar corners?",
+      "hypotheses": "The tangent-generated algebra has scalar diagonal blocks, is normalized by the group and preserves its invariant subspaces. The row criterion holds.",
+      "statement": "The span of its products with group matrices is a unital algebra with scalar diagonal blocks. In an irreducible group summand a nonzero image vector can be translated linearly back to its preimage, giving the nilpotence test.",
+      "equations": [],
+      "dependencies": [
+        "REX-08",
+        "REX-09",
+        "REX-13"
+      ],
+      "sources": [
+        {
+          "label": "The structure of the tangent algebra and the additional condition on the group action",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean",
+          "lines": [
+            47,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCount.lean#L47-L64"
+        },
+        {
+          "label": "Passage to an algebra containing the full image, with the nilpotence criterion",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/DivPlus.lean",
+          "lines": [
+            41,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/DivPlus.lean#L41-L55"
+        },
+        {
+          "label": "Forming the algebra spanned by one tangent-algebra factor and one group element",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
+          "lines": [
+            24,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L24-L43",
+          "declaration": "LateralTheory.DivDb.BigCorner₂.RR",
+          "declaration_lines": {
+            "LateralTheory.DivDb.BigCorner₂.RR": 41
+          }
+        },
+        {
+          "label": "Replacing a nonzero diagonal corner by a scalar corner in the smaller algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
+          "lines": [
+            48,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L48-L75",
+          "declaration": "LateralTheory.DivDb.BigCorner₂.corner_gen",
+          "declaration_lines": {
+            "LateralTheory.DivDb.BigCorner₂.corner_gen": 48
+          }
+        },
+        {
+          "label": "Preservation of invariant subspaces for the full algebra",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean",
+          "lines": [
+            107,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/BigCorner2.lean#L107-L114",
+          "declaration": "LateralTheory.DivDb.BigCorner₂.BigCorner_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.BigCorner₂.BigCorner_of": 107
+          }
+        },
+        {
+          "label": "Semisimplicity and invariant complements in the general nilpotence test",
+          "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+          "lines": [
+            51,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean#L51-L87",
+          "declaration": "LateralTheory.DivDb.SemisPf.Semis_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.SemisPf.Semis_of": 51
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The group matrices now belong to the same algebra in which the coefficient representation will be formed."
     }
   ],
   "written_source_calls": [
@@ -853,6 +1300,213 @@
         "line": 14,
         "spelling": "LateralTheory.DivDb.FinDense_of"
       }
+    },
+    {
+      "caller": "LateralTheory.DivDb.AlgStruct₂.decomp",
+      "callee": "LateralTheory.DivDb.AlgStruct₂.pp'",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+        "line": 27,
+        "spelling": "pp'"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.AlgStruct₂.S_mul",
+      "callee": "LateralTheory.DivDb.AlgStruct₂.decomp",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+        "line": 56,
+        "spelling": "decomp"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.AlgStruct₂.S_mul",
+      "callee": "LateralTheory.DivDb.AlgStruct₂.pp'",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+        "line": 60,
+        "spelling": "pp'"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.AlgStruct₂.S_of_mem",
+      "callee": "LateralTheory.DivDb.AlgStruct₂.expand",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+        "line": 101,
+        "spelling": "expand"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.AlgStruct₂.S_of_mem",
+      "callee": "LateralTheory.DivDb.AlgStruct₂.corner_comm",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/AlgStruct2.lean",
+        "line": 112,
+        "spelling": "corner_comm"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.EnvStab₂.lie_conj",
+      "callee": "LateralTheory.DivDb.EnvStab₂.conjL",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+        "line": 39,
+        "spelling": "conjL"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.EnvStab₂.lie_conj",
+      "callee": "LateralTheory.DivDb.EnvStab₂.img_cases",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+        "line": 42,
+        "spelling": "img_cases"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.EnvStab₂.lie_keeps",
+      "callee": "LateralTheory.DivDb.EnvStab₂.lamL",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+        "line": 85,
+        "spelling": "lamL"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.EnvStab₂.lie_keeps",
+      "callee": "LateralTheory.DivDb.EnvStab₂.img_cases",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CoeMulInv.lean",
+        "line": 88,
+        "spelling": "img_cases"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.SemisPf.Semis_of",
+      "callee": "LateralTheory.DivDb.SemisPf.nil_conj",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+        "line": 66,
+        "spelling": "nil_conj"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.SemisPf.Semis_of",
+      "callee": "LateralTheory.DivDb.SemisPf.inv_mul_rho",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+        "line": 67,
+        "spelling": "inv_mul_rho"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.MatrixUnitConstruction.partner",
+      "callee": "LateralTheory.DivDb.MatrixUnitConstruction.Pr",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean",
+        "line": 54,
+        "spelling": "Pr"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.MatrixUnitConstruction.partner",
+      "callee": "LateralTheory.DivDb.MatrixUnitConstruction.idem",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean",
+        "line": 91,
+        "spelling": "idem"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.RepPf.coef_mul",
+      "callee": "LateralTheory.DivDb.RepPf.coef_spec",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/MinCongr.lean",
+        "line": 71,
+        "spelling": "coef_spec"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.MatrixUnitConstruction.partner",
+      "callee": "LateralTheory.DivDb.MatrixUnitConstruction.idemL",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/MatUnitsOf.lean",
+        "line": 91,
+        "spelling": "idemL"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ConjugateIdempotents.count",
+      "callee": "LateralTheory.DivDb.ConjugateIdempotents.Iso",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+        "line": 118,
+        "spelling": "Iso"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ConjugateIdempotents.count",
+      "callee": "LateralTheory.DivDb.ConjugateIdempotents.trace_ne_zero",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ConjugateIdempotents.lean",
+        "line": 160,
+        "spelling": "trace_ne_zero"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.CycleCount₂.cyc",
+      "callee": "LateralTheory.DivDb.CycleCount₂.intertw",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+        "line": 80,
+        "spelling": "intertw"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.CycleCount₂.cyc",
+      "callee": "LateralTheory.DivDb.CycleCount₂.fixSp",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+        "line": 81,
+        "spelling": "fixSp"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.CycleCount₂.fixed_scalar",
+      "callee": "LateralTheory.DivDb.CycleCount₂.aeval_eig",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+        "line": 184,
+        "spelling": "aeval_eig"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.CycleCount₂.CycleCount_of",
+      "callee": "LateralTheory.DivDb.CycleCount₂.eigs",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+        "line": 263,
+        "spelling": "eigs"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.CycleCount₂.CycleCount_of",
+      "callee": "LateralTheory.DivDb.CycleCount₂.fixed_scalar",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCount2.lean",
+        "line": 264,
+        "spelling": "fixed_scalar"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.SemisPf.Semis_of",
+      "callee": "LateralTheory.DivDb.SemisPf.mul_inv_rho",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/SemisPf.lean",
+        "line": 71,
+        "spelling": "mul_inv_rho"
+      }
     }
   ],
   "derivation_edges": [
@@ -877,12 +1531,12 @@
       "REX-04"
     ],
     [
-      "REX-04",
+      "REX-10",
       "REX-05"
     ],
     [
-      "REX-05",
-      "OGA-03"
+      "REX-14",
+      "REX-05"
     ],
     [
       "REX-02",
@@ -893,7 +1547,15 @@
       "REX-06"
     ],
     [
-      "REX-04",
+      "REX-08",
+      "REX-06"
+    ],
+    [
+      "REX-11",
+      "REX-06"
+    ],
+    [
+      "REX-12",
       "REX-06"
     ],
     [
@@ -909,6 +1571,62 @@
       "REX-07"
     ],
     [
+      "REX-04",
+      "REX-08"
+    ],
+    [
+      "REX-08",
+      "REX-09"
+    ],
+    [
+      "REX-08",
+      "REX-10"
+    ],
+    [
+      "REX-09",
+      "REX-10"
+    ],
+    [
+      "REX-10",
+      "REX-11"
+    ],
+    [
+      "REX-10",
+      "REX-12"
+    ],
+    [
+      "REX-06",
+      "REX-13"
+    ],
+    [
+      "REX-09",
+      "REX-13"
+    ],
+    [
+      "REX-11",
+      "REX-13"
+    ],
+    [
+      "REX-12",
+      "REX-13"
+    ],
+    [
+      "REX-08",
+      "REX-14"
+    ],
+    [
+      "REX-09",
+      "REX-14"
+    ],
+    [
+      "REX-13",
+      "REX-14"
+    ],
+    [
+      "REX-05",
+      "OGA-03"
+    ],
+    [
       "REX-07",
       "OGA-03"
     ]
@@ -921,9 +1639,17 @@
     {
       "title": "The Stacks Project, Theorem 10.34.1, Hilbert Nullstellensatz",
       "url": "https://stacks.math.columbia.edu/tag/00FV"
+    },
+    {
+      "title": "Etingof et al., Introduction to representation theory, Lemma 2.8 and Proposition 2.11",
+      "url": "https://math.mit.edu/~etingof/replect.pdf#page=26"
+    },
+    {
+      "title": "MIT 18.700, Gaussian elimination, Theorem 4.8",
+      "url": "https://ocw.mit.edu/courses/18-700-linear-algebra-fall-2013/b144082f6883d02faeec26d7f708c63e_MIT18_700F13_gauss.pdf#page=16"
     }
   ],
   "outstanding": [
-    "The scalar corners for all products in the tangent-generated algebra, the row identity across components, the conjugacy and unit factorization used to permute projectors, and the geometric comparisons remain to be derived."
+    "The geometric realization, local comparisons and determinant data furnishing the hypotheses of the extraction theorem are still to be reconstructed."
   ]
 }

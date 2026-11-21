@@ -10,7 +10,7 @@
       "chapter": "lifts",
       "anchor": "lifts-word-polynomial-approximation",
       "title": "From a small error of Hecke eigenforms to all integral polynomials",
-      "hypotheses": "A bounded separating frame for the fixed weight and level has been chosen, and each selected integral Hecke operator preserves every uniform bound in the frame. A joint eigenform can be approximated there by a finite sum of joint eigenforms in the prescribed family with arbitrarily small relative error.",
+      "hypotheses": "Use the integral frame for the weighted denominator condition and the relative density theorem at fixed level away from the auxiliary place. The selected operators act by scalars on the relevant joint systems.",
       "statement": "One finite list of systems and coefficients for each tolerance approximates evaluation of all integer polynomials in their eigenvalues, including simultaneously in all the chosen coordinates.",
       "equations": [
         "lifts-polynomial-frame-bound"
@@ -18,7 +18,10 @@
       "definitions": [
         "A Hecke system lists the simultaneous eigenvalues in the selected operator coordinates."
       ],
-      "dependencies": [],
+      "dependencies": [
+        "HIF-01",
+        "HIF-02"
+      ],
       "sources": [
         {
           "declaration": "GlobalTheory.Cong.PolyApprox",
@@ -362,6 +365,253 @@
       "status": "mathematical proof reconstructed",
       "correspondence": "The field belongs to the original rational operator system. The existence of a finite-dimensional space of conjugate automorphic forms is a separate automorphic input.",
       "review": "Each extension of an embedding distinguishes its finite generating set inside the full tuple. The example over ℚ₅ attains the bound."
+    },
+    {
+      "id": "HIF-01",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-integral-frame",
+      "title": "Which evaluations keep a Hecke error small?",
+      "hypotheses": "A definite unitary group has positive rank. The algebraic weight is given in its polynomial model, and each finite Hecke translation satisfies the weighted denominator condition.",
+      "statement": "Transporting the integral coefficient ball gives separating evaluations. Every form is bounded on them and each selected operator preserves their common bound.",
+      "equations": [
+        "lifts-hecke-transported-evaluation",
+        "lifts-hecke-integral-translate"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The exact denominator condition used for contraction at fixed weight",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundAlt.lean",
+          "lines": [
+            27,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundAlt.lean#L27-L39",
+          "declaration": "UpperTheory.Gal.Gen.DenomLe",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.DenomLe": 27
+          }
+        },
+        {
+          "label": "Weight size and the local denominator test",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsIntegralOpW.lean",
+          "lines": [
+            15,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/IsIntegralOpW.lean#L15-L29"
+        },
+        {
+          "label": "Comparison of the finite and archimedean coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NormMapIntegerLeOne.lean",
+          "lines": [
+            56,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NormMapIntegerLeOne.lean#L56-L106",
+          "declaration": "UpperTheory.Gal.Gen.kappa_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.kappa_pf": 56
+          }
+        },
+        {
+          "label": "Degree, determinant twist and bound on the weight action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RhoBound.lean",
+          "lines": [
+            8,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RhoBound.lean#L8-L26",
+          "declaration": "UpperTheory.Gal.Gen.rhoBound_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.rhoBound_pf": 8
+          }
+        },
+        {
+          "label": "The unitary double-class representatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DefiniteUnitaryClassSetFinite.lean",
+          "lines": [
+            250,
+            252
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DefiniteUnitaryClassSetFinite.lean#L250-L252",
+          "declaration": "GlobalTheory.DefU.ClassFin.classSet_finite",
+          "declaration_lines": {
+            "GlobalTheory.DefU.ClassFin.classSet_finite": 250
+          }
+        },
+        {
+          "label": "Transport of the coefficient ball and evaluation on a double class",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean",
+          "lines": [
+            19,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean#L19-L51"
+        },
+        {
+          "label": "Boundedness and detection",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean",
+          "lines": [
+            52,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean#L52-L87"
+        },
+        {
+          "label": "Term-by-term contraction of the integral Hecke sum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean",
+          "lines": [
+            88,
+            120
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/FrameW.lean#L88-L120"
+        },
+        {
+          "label": "One scalar for both global and placewise denominator conditions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean",
+          "lines": [
+            141,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean#L141-L172",
+          "declaration": "UpperTheory.Gal.Int.Cong.exists_scale",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Cong.exists_scale": 141
+          }
+        },
+        {
+          "label": "The five properties used to assemble the integral evaluation theorem",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+          "lines": [
+            132,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean#L132-L141",
+          "declaration": "UpperTheory.Gal.Gen.frameW_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.frameW_holds": 141
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Right multiplication changes the weight test by the inverse matrix on the right. One finite multiplier can clear all terms in a given operator."
+    },
+    {
+      "id": "HIF-02",
+      "chapter": "lifts",
+      "anchor": "lifts-hecke-fixed-level-density",
+      "title": "Where do the forms satisfying the local tests come from?",
+      "hypotheses": "The weight and the level away from a split auxiliary place above ℓ are fixed. The local counting estimates, equivariant tower labels, finite-group approximation lemma and automorphic decomposition apply.",
+      "statement": "After refining at the auxiliary place, admissible forms approximate a fixed form with uniform pointwise relative error. Iteration and a finite decomposition give the list used in simultaneous Hecke tests.",
+      "equations": [
+        "lifts-hecke-density-residual",
+        "lifts-hecke-density-label"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The relative error, local tests and level away from the auxiliary place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GenDataEmpty.lean",
+          "lines": [
+            36,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/GenDataEmpty.lean#L36-L69"
+        },
+        {
+          "label": "Small complex coefficient norm and the identity action on a failed test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean",
+          "lines": [
+            8,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/NeglAt.lean#L8-L38",
+          "declaration": "UpperTheory.Gal.Gen.neglAt_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.neglAt_pf": 8
+          }
+        },
+        {
+          "label": "Summing the one-place dimension estimates at a common depth",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountGen.lean",
+          "lines": [
+            39,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/CountGen.lean#L39-L86",
+          "declaration": "UpperTheory.Gal.Gen.countGen_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.countGen_pf": 39
+          }
+        },
+        {
+          "label": "The local tower, finite quotient and equivariant labels",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepPf.lean",
+          "lines": [
+            10,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepPf.lean#L10-L63"
+        },
+        {
+          "label": "Multiplication by label functions, the dimension bound and the correction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepCore.lean",
+          "lines": [
+            13,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/StepCore.lean#L13-L56"
+        },
+        {
+          "label": "The finite-group estimate from the group determinant and ultrametric separation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean",
+          "lines": [
+            13,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/AlgPf.lean#L13-L52"
+        },
+        {
+          "label": "Iteration of the relative error",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DenseGen.lean",
+          "lines": [
+            14,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/DenseGen.lean#L14-L51",
+          "declaration": "UpperTheory.Gal.Gen.denseGen_pf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.denseGen_pf": 14
+          }
+        },
+        {
+          "label": "The finite sum in the selected automorphic representations",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/PartFacts.lean",
+          "lines": [
+            37,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/PartFacts.lean#L37-L47"
+        },
+        {
+          "label": "The chain from the one-place estimates to density and polynomial approximation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+          "lines": [
+            119,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean#L119-L131",
+          "declaration": "UpperTheory.Gal.Gen.ell_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Gen.ell_holds": 119
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The auxiliary local level can vary. A fixed full level alone would not justify the density assertion."
     }
   ],
   "written_source_calls": [
@@ -589,9 +839,287 @@
         "line": 10,
         "spelling": "GlobalTheory.orbit_finite_mem_finite_ext"
       }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_pf",
+      "callee": "UpperTheory.Gal.Gen.DegLe",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RhoBound.lean",
+        "line": 9,
+        "spelling": "UpperTheory.Gal.Gen.DegLe"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_pf",
+      "callee": "UpperTheory.Gal.Gen.BlockBound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/RhoBound.lean",
+        "line": 9,
+        "spelling": "UpperTheory.Gal.Gen.BlockBound"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.exists_scale",
+      "callee": "UpperTheory.Gal.Gen.IntW",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean",
+        "line": 142,
+        "spelling": "IntW"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Cong.exists_scale",
+      "callee": "UpperTheory.Gal.Gen.denomBdd_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CongruenceOddLevel/ExistsTestOp.lean",
+        "line": 144,
+        "spelling": "denomBdd_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.countGen_holds",
+      "callee": "UpperTheory.Gal.Gen.countGen_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 126,
+        "spelling": "countGen_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.countGen_holds",
+      "callee": "UpperTheory.Gal.Gen.count_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 126,
+        "spelling": "count_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.countGen_holds",
+      "callee": "UpperTheory.Gal.Gen.neglAt_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 126,
+        "spelling": "neglAt_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.stepCore_holds",
+      "callee": "UpperTheory.Gal.Gen.stepCore_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 127,
+        "spelling": "stepCore_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.stepCore_holds",
+      "callee": "UpperTheory.Gal.Gen.algC_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 127,
+        "spelling": "algC_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.stepCore_holds",
+      "callee": "UpperTheory.Gal.Gen.codim_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 127,
+        "spelling": "codim_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.stepCore_holds",
+      "callee": "UpperTheory.Gal.Gen.partFacts_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 127,
+        "spelling": "partFacts_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.step_holds",
+      "callee": "UpperTheory.Gal.Gen.step_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 129,
+        "spelling": "step_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.step_holds",
+      "callee": "UpperTheory.Gal.Gen.tower_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 129,
+        "spelling": "tower_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.step_holds",
+      "callee": "UpperTheory.Gal.Gen.ell_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 129,
+        "spelling": "ell_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.step_holds",
+      "callee": "UpperTheory.Gal.Gen.countGen_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 129,
+        "spelling": "countGen_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.step_holds",
+      "callee": "UpperTheory.Gal.Gen.stepCore_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 129,
+        "spelling": "stepCore_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.denseGen_holds",
+      "callee": "UpperTheory.Gal.Gen.denseGen_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 130,
+        "spelling": "denseGen_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.denseGen_holds",
+      "callee": "UpperTheory.Gal.Gen.step_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 130,
+        "spelling": "step_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.denseGen_holds",
+      "callee": "UpperTheory.Gal.Gen.partFacts_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 130,
+        "spelling": "partFacts_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callee": "UpperTheory.Gal.Gen.rhoBound_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 138,
+        "spelling": "rhoBound_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callee": "UpperTheory.Gal.Gen.degLe_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 138,
+        "spelling": "degLe_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callee": "UpperTheory.Gal.Gen.blockBound_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 138,
+        "spelling": "blockBound_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callee": "UpperTheory.Gal.Gen.detBound_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 138,
+        "spelling": "detBound_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callee": "UpperTheory.Gal.Gen.sizeLe_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 138,
+        "spelling": "sizeLe_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.frameW_pf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "frameW_pf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.kappa_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "kappa_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.denomBdd_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "denomBdd_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.rhoBound_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "rhoBound_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.latFacts_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "latFacts_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Gen.frameW_holds",
+      "callee": "UpperTheory.Gal.Gen.levelEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SeparatingAlgebras/BlockBoundTheorem.lean",
+        "line": 141,
+        "spelling": "levelEx_holds"
+      }
     }
   ],
   "derivation_edges": [
+    [
+      "HIF-01",
+      "HPA-01"
+    ],
+    [
+      "HIF-02",
+      "HPA-01"
+    ],
     [
       "HPA-01",
       "HPA-02"
@@ -602,6 +1130,6 @@
     ]
   ],
   "outstanding": [
-    "The integral frame construction, density of forms with prescribed genericity, local auxiliary type, and existence of lacunary change of weight remain mathematical inputs. Where the odd-rank limiting argument needs fixed-weight crystalline closure and simultaneous local Weil moment closure, those inputs are separate."
+    "The density argument uses the one-place dimension estimate on the auxiliary tower, an equivariant labelling of its quotients, a finite ℓ-group approximation lemma and the automorphic decomposition. The local auxiliary type and existence of lacunary change of weight remain inputs. The finite-dimensional span used in coefficient-field rationality also needs its own construction."
   ]
 }

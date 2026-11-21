@@ -7,14 +7,15 @@
       "chapter": "global",
       "anchor": "global-diagonal-minors",
       "title": "Summing the zero-label diagonal subseries over pairs of positive ranks",
-      "statement": "For each diagonal word u, separate the nonidentity zero-Gram terms by flag-intersection defect and leading-minor list. A positive Gram estimate bounds their squared Hilbert–Schmidt norm by a sum of products of vector norms. The fixed-label bound leaves a summable majorant over each list and rank.",
+      "statement": "For each diagonal word u, separate the nonidentity zero-Gram terms by flag-intersection defect and leading-minor list. A positive Gram estimate bounds their squared Hilbert–Schmidt norm by a sum of products of vector norms. The fixed-label bound leaves a summable majorant over each list and rank. Counting finite sets of pairs on one row contributes the row mass once. Summing the two lists gives a square, so the normalized diagonal error is linear in the number of columns.",
       "hypotheses": "Selected tied arithmetic data, absolute convergence, orthogonality across distinct rows, Gram upper bound, vanishing for irrelevant terms, positive rank on relevant nonidentity terms, type, minor and finite-label count estimates for the two-word kernel.",
       "dependencies": [
         "OAM-02",
         "MLC-03"
       ],
       "equations": [
-        "global-diagonal-label-balance"
+        "global-diagonal-label-balance",
+        "global-diagonal-paired-label-estimate"
       ],
       "sources": [
         {
@@ -124,6 +125,59 @@
             46
           ],
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RowsOther.lean#L35-L46"
+        },
+        {
+          "label": "The estimate for a finite set of pairs with two prescribed lists",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DimFormC.lean",
+          "lines": [
+            40,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DimFormC.lean#L40-L45",
+          "declaration": "Formalism.L2.SG.KappaOffDiagonal.TypeAt",
+          "declaration_lines": {
+            "Formalism.L2.SG.KappaOffDiagonal.TypeAt": 40
+          }
+        },
+        {
+          "label": "Partitioning by the two lists and summing the resulting product",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanTermANonneg.lean",
+          "lines": [
+            144,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanTermANonneg.lean#L144-L172"
+        },
+        {
+          "label": "The Gram normalization times the row mass and local dimension is at most the word dimension",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DimFormC.lean",
+          "lines": [
+            80,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DimFormC.lean#L80-L82",
+          "declaration": "Formalism.L2.SG.KappaOffDiagonal.DimFormC",
+          "declaration_lines": {
+            "Formalism.L2.SG.KappaOffDiagonal.DimFormC": 80
+          }
+        },
+        {
+          "label": "Normalizing by the word dimension",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/RowsPos.lean",
+          "lines": [
+            160,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/RowsPos.lean#L160-L182"
+        },
+        {
+          "label": "Transport to the Hilbert–Schmidt norm",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+          "lines": [
+            34,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean#L34-L43"
         }
       ],
       "status": "reconstructed and independently cross-reviewed",
@@ -272,5 +326,6 @@
   ],
   "outstanding": [
     "OAM explains the geometric amplitude at one positive rank and realized label. The positive-rank criterion for relevant nonidentity terms and the dimension/mass comparison enter through the listed suppliers. The shell count and its uniform weighted bound are derived in the minor-list section. The estimate on K_uu−B_uu−I uses the independent diagonal row bound."
-  ]
+  ],
+  "written_source_calls": []
 }
