@@ -1,0 +1,786 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Inspected the arithmetically selected SPU construction and its use in bStarOdd. Mathematical arguments are derived from pinned source bodies; the rank-one Gaussian example is independent.",
+  "claims": [
+    {
+      "id": "TPK-01",
+      "chapter": "inputs",
+      "title": "Both lattice minima force a compact set of orbit representatives",
+      "anchor": "inputs-thick-compact",
+      "statement": "For fixed totally complex L, rank N≥1 and c>0, one compact K inside the cone meets every GL_N(𝒪_L)-orbit of positive h satisfying λ(h),λ∨(h)≥c.",
+      "hypotheses": "λ measures the unconstrained minimum over nonzero vectors of 𝒪_L^N, with the sum over infinite places taken once per place. The input transference bound has squared covering radius at most C/λ∨(h).",
+      "definitions": [
+        "D=10ρ and ρ=C/c.",
+        "For a fixed full-rank integral B, impose q_h(v)≥c for each nonzero integral v and q_h(B_j)≤D for each column.",
+        "I₀(L,N) denotes the constant in the determinant lower estimate. A bound on the absolute field norm of det A controls the finite list of integral matrices up to left multiplication by Γ."
+      ],
+      "equations": [
+        "inputs-thick-spanning"
+      ],
+      "dependencies": [],
+      "correspondence": "The transference estimate lets a lattice vector v approximate an appropriately scaled perpendicular to the kernel of any proposed annihilator of the short vectors. q_h(z)=4ρ and q_h(z−v)≤ρ force f(v)≠0 and q_h(v)≤10ρ by the parallelogram identity. Choose N L-independent short vectors. A determinant product bound |Norm(det A)|≤I₀(L,N)(D/c)^(N r₂) gives a finite list B up to integral left multiplication. For each B the Gram coordinates have sup norm ≤2D and recover the form by invertibility; the inequalities define a closed subset lying inside the cone by rypos.",
+      "sources": [
+        {
+          "declaration": "Basic, Trans and Thick",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            41,
+            67
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L41-L67"
+        },
+        {
+          "declaration": "Thick and Proper",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            95,
+            101
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L95-L101"
+        },
+        {
+          "declaration": "pf_GTrans, arithmetic transference in integral coordinates",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean",
+          "lines": [
+            104,
+            118
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GTrans.lean#L104-L118"
+        },
+        {
+          "declaration": "pf_TransZ, integer transference supplier",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean",
+          "lines": [
+            48,
+            52
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/TransZ.lean#L48-L52"
+        },
+        {
+          "declaration": "thKB and thKB_subset_pos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            30,
+            32
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L30-L32"
+        },
+        {
+          "declaration": "thKB_subset_pos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            76,
+            86
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L76-L86"
+        },
+        {
+          "declaration": "isCompact_thKB_of_det_ne_zero",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            133,
+            170
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L133-L170"
+        },
+        {
+          "declaration": "spans_setOf_q_le_ten_mul_of_covering, annihilator and perpendicular",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            180,
+            215
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L180-L215"
+        },
+        {
+          "declaration": "Scaled point, closest lattice vector and the parallelogram identity",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            239,
+            266
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L239-L266"
+        },
+        {
+          "declaration": "nrmDet_le_mul_div_pow_of_q_le and determinant lower estimate",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            305,
+            332
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L305-L332"
+        },
+        {
+          "declaration": "pf_GThick, finite orbits of integral column matrices",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            355,
+            402
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L355-L402"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Checked the selected supplier and destination, the stated scope and the distinction between uniform exponents and dimension-dependent bounds."
+    },
+    {
+      "id": "TPK-02",
+      "chapter": "inputs",
+      "title": "Normalize the bump where its orbit sum reaches one, then pull back",
+      "anchor": "inputs-thick-weights",
+      "statement": "A smooth arithmetic-equivariant map F takes the full positive cone to forms with both minima uniformly positive. A normalized bump ψ on a compact neighborhood of K satisfies ∑γ ψ(γ⁻¹F(h))=1, with locally finite translates and finitely many relative group elements for intersecting closed supports.",
+      "hypotheses": "Γ is GL_N(𝒪_L) for a fixed totally complex field and positive rank. The arithmetic map uses normalized determinant, a smooth Γ-invariant proxy for the dual minimum, and the positive primal and dual lower bounds of ret. On the thick images the orbit meets K. For the orbit sum of the bump alone, the conclusion requires the orbit to meet K.",
+      "definitions": [
+        "nf(h)=P(h)^(−1/(N[L:ℚ]))h where P=∏_w Re(det h_w)^mult(w).",
+        "μ(h) lies between λ∨(h)/4 and 4λ∨(h). ret μ(h)=μ(h)h+Σ_j ρ(4^j μ(h))term(4^j,h), with term a smoothed average of rank-one outer products divided by (4^j)².",
+        "F=(ret μ)∘nf. For b≥1 on K, b≥0 supported in K′, S(k)=Σγ b(γ⁻¹k) is locally finite on the cone and invariant. ψ=b/g(S); g is smooth, bounded below by 1/2 and the identity for S≥1."
+      ],
+      "equations": [
+        "inputs-thick-orbit-sum"
+      ],
+      "dependencies": [
+        "TPK-01"
+      ],
+      "correspondence": "Properness controls integral inverses by their finitely many possible columns on a compact. It gives both a locally fixed finite list for the orbit sum and the global finite set of relative labels when translated supports overlap. An orbit hitting K has S≥1 so its ψ-sum equals 1. At N=1 and L=ℚ(i), Γ has four elements, all fixing every Hermitian scalar. The sum is over those four labels and every pulled-back weight is exactly 1/4.",
+      "sources": [
+        {
+          "declaration": "ret, rho, zed and term",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            17,
+            35
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L17-L35"
+        },
+        {
+          "declaration": "nu_cmp, only two adjacent scales contribute to the smooth minimum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GSmMin.lean",
+          "lines": [
+            223,
+            249
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GSmMin.lean#L223-L249"
+        },
+        {
+          "declaration": "gSmMin, smooth invariant dual minimum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GSmMin.lean",
+          "lines": [
+            443,
+            461
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GSmMin.lean#L443-L461"
+        },
+        {
+          "declaration": "pf_GRLow, uniform primal minimum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/QRNonneg.lean",
+          "lines": [
+            125,
+            146
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/QRNonneg.lean#L125-L146"
+        },
+        {
+          "declaration": "pf_GRDual, uniform dual minimum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRDual.lean",
+          "lines": [
+            120,
+            140
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRDual.lean#L120-L140"
+        },
+        {
+          "declaration": "gP and its scaling; arithmetic invariance",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+          "lines": [
+            43,
+            90
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean#L43-L90"
+        },
+        {
+          "declaration": "pf_GNrm, determinant scaling and equivariance",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+          "lines": [
+            107,
+            148
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean#L107-L148"
+        },
+        {
+          "declaration": "pf_GProper, finite possible inverse columns",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean",
+          "lines": [
+            144,
+            175
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProper.lean#L144-L175"
+        },
+        {
+          "declaration": "gb_g and its positive smooth cutoff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            10,
+            35
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L10-L35"
+        },
+        {
+          "declaration": "pf_GBump, seed and invariance",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            70,
+            114
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L70-L114"
+        },
+        {
+          "declaration": "Local finiteness, smooth orbit sum and denominator",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            115,
+            145
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L115-L145"
+        },
+        {
+          "declaration": "Bounds and normalization for ψ",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            146,
+            179
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L146-L179"
+        },
+        {
+          "declaration": "pf_GFin, choosing the lower bounds and composing maps",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            11,
+            51
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L11-L51"
+        },
+        {
+          "declaration": "Local finiteness, sum one and control of overlaps of closed supports",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            52,
+            88
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L52-L88"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Checked the selected supplier and destination, the stated scope and the distinction between uniform exponents and dimension-dependent bounds."
+    },
+    {
+      "id": "TPK-03",
+      "chapter": "inputs",
+      "title": "A single geometric sum supplies one power of height",
+      "anchor": "inputs-thick-exponent",
+      "statement": "One natural exponent a=1 is admissible for all N≥1. The moving-frame derivative norm of the final partition generator is ≤N Cψ Cr Cn(1+c₀⁻¹)H(x), with H(x) the inverse product of the primal and dual minima at x⋅I. Constants may vary with L,N.",
+      "hypotheses": "Relative closeness Clδ is |q_k(z)−q_h(z)|≤δ q_h(z) for every real z. The normalization and ret estimates apply when their own input relative error is ≤1/4, so the composition uses δ≤1/[4(Cn+1)]. Scalar normalization preserves the product of minima. SHt supplies c₀>0 with ht x≥c₀ at every moving frame.",
+      "definitions": [
+        "The common exponent a in SPU precedes N. The derivative constant need not do so.",
+        "In PfGRLip the lower scale 4^lo>3λ/64 bounds the full reciprocal sum by (4/3)64/(3λ)=256/(9λ). The single-scale absolute variation of the averaged matrix is ≤C δ q_h(z)/4^j.",
+        "Relative to ret(h) the factor μ(h)≥cλ∨(h) supplies the second denominator. The terms due to variations of the cutoff and μ are estimated in the same proof."
+      ],
+      "equations": [],
+      "dependencies": [
+        "TPK-02"
+      ],
+      "correspondence": "Combine the relative Lipschitz estimates for nf, ret and ψ. The derivative lemma tests h+t(x⋅v), giving relative error N t‖v‖ before passing to a difference quotient in the moving frame. c₀≤H absorbs the additive one. The caller sPU=sPU_of sHt_of uses this partition in sSurj_of, and SWhit turns m iterative differentiations into H^m at a=1.",
+      "sources": [
+        {
+          "declaration": "SHt, SPU and SWhit quantifiers",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            83,
+            102
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L83-L102"
+        },
+        {
+          "declaration": "pf_GNrm, positive rank normalization and Cn=3",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+          "lines": [
+            107,
+            119
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean#L107-L119"
+        },
+        {
+          "declaration": "pf_GNrm, determinant comparison of relative errors",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+          "lines": [
+            149,
+            184
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean#L149-L184"
+        },
+        {
+          "declaration": "TLip and RLip specifications",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            85,
+            93
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L85-L93"
+        },
+        {
+          "declaration": "pf_GRLip_lemma_6, relative error and reciprocal-scale sum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+          "lines": [
+            97,
+            148
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean#L97-L148"
+        },
+        {
+          "declaration": "Accumulating the change of the averaged rank-one term",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+          "lines": [
+            203,
+            211
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean#L203-L211"
+        },
+        {
+          "declaration": "pf_GRLip, window where the two corrected matrices can change",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+          "lines": [
+            412,
+            451
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean#L412-L451"
+        },
+        {
+          "declaration": "pf_GRLip, assembly from one-scale estimates",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+          "lines": [
+            474,
+            499
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean#L474-L499"
+        },
+        {
+          "declaration": "d_key and pf_DerB, the factor N in frame coordinates",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+          "lines": [
+            17,
+            59
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean#L17-L59"
+        },
+        {
+          "declaration": "ht_lower, an actual lower bound",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+          "lines": [
+            183,
+            189
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean#L183-L189"
+        },
+        {
+          "declaration": "sHt_of, height properties by rank",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean",
+          "lines": [
+            6,
+            9
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean#L6-L9"
+        },
+        {
+          "declaration": "pf_GFin, final derivative constant and height power",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            87,
+            129
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L87-L129"
+        },
+        {
+          "declaration": "sPU_of, algebraic dependencies for the partition",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+          "lines": [
+            23,
+            30
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean#L23-L30"
+        },
+        {
+          "declaration": "sPU, actual height provider",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+          "lines": [
+            32,
+            35
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean#L32-L35"
+        },
+        {
+          "declaration": "bStarOdd consumes the analytic suppliers",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/FinalOdd.lean",
+          "lines": [
+            8,
+            11
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/FinalOdd.lean#L8-L11"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Checked the selected supplier and destination, the stated scope and the distinction between uniform exponents and dimension-dependent bounds."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "TPK-01",
+      "TPK-02"
+    ],
+    [
+      "TPK-02",
+      "TPK-03"
+    ],
+    [
+      "TPK-03",
+      "CFM-03"
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "bStarOdd",
+      "callee": "sPU",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/FinalOdd.lean",
+        "line": 10
+      }
+    },
+    {
+      "caller": "sPU",
+      "callee": "sPU_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "sPU",
+      "callee": "sHt_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "sHt_of",
+      "callee": "ht_lower",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean",
+        "line": 8
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 24
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GTrans",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_TransZ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GProper",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "gSmMin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GRSmooth",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GRLow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GRDual",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GRLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GThick",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GBump",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GNrm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_DerB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30
+      }
+    },
+    {
+      "caller": "gSmMin",
+      "callee": "nu_cmp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GSmMin.lean",
+        "line": 454
+      }
+    },
+    {
+      "caller": "pf_GRLow",
+      "callee": "term_low",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/QRNonneg.lean",
+        "line": 145
+      }
+    },
+    {
+      "caller": "pf_GThick",
+      "callee": "hnf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 364
+      }
+    },
+    {
+      "caller": "pf_GThick",
+      "callee": "isCompact_thKB_of_det_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 367
+      }
+    },
+    {
+      "caller": "pf_GThick",
+      "callee": "exbasis",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 375
+      }
+    },
+    {
+      "caller": "pf_GThick",
+      "callee": "spans_setOf_q_le_ten_mul_of_covering",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 375
+      }
+    },
+    {
+      "caller": "pf_GThick",
+      "callee": "nrmDet_le_mul_div_pow_of_q_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 376
+      }
+    },
+    {
+      "caller": "nrmDet_le_mul_div_pow_of_q_le",
+      "callee": "detlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 330
+      }
+    },
+    {
+      "caller": "pf_GBump",
+      "callee": "exists_contDiff_support_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 75
+      }
+    },
+    {
+      "caller": "pf_GBump",
+      "callee": "finsum_comp_equiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 114
+      }
+    },
+    {
+      "caller": "pf_GBump",
+      "callee": "contDiff_gb_g_and_half_le_and_eq_of_one_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+        "line": 133
+      }
+    },
+    {
+      "caller": "pf_GRLip",
+      "callee": "pf_GRLip_lemma_6",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+        "line": 474
+      }
+    },
+    {
+      "caller": "pf_DerB",
+      "callee": "d_key",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+        "line": 56
+      }
+    }
+  ],
+  "outstanding": [
+    "Treated the integer transference proof TZ.core, the Hermite-normal-form representative theorem hnf and lower determinant estimate detlow as named suppliers. The section states the corrected form's primal and dual minimum bounds from pf_GRLow and pf_GRDual. Their single-scale lower bound term_low, the complete dual-minimum argument, and every variation term for the smoothing cutoff are outside this chapter's reconstructed argument. The local smooth bump existence theorem and eigenvalue/determinant perturbation estimates remain named inputs. The exponent has a rank-independent witness; no uniform multiplicative constant in rank is asserted."
+  ],
+  "review_scope": "Pin, named calls, quantifier order, group action and Gaussian normalization. Selected mathematical reconstruction of the written proofs, without a new Lean build or an elaborated-term trace."
+}

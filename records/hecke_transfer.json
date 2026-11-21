@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HTF-01",
+      "chapter": "inputs",
+      "title": "Recognizing inherited Hecke cosets by a residue line",
+      "anchor": "inputs-hecke-transfer",
+      "statement": "The right cosets of S_N=Γ_N∩q⁻¹Γ_N q are indexed injectively by the line of c⁻¹e₁ modulo π. A line belonging to a coset comes from size n exactly when its last r coordinates vanish. The index is finite and at least N.",
+      "hypotheses": [
+        "The totally complex arithmetic field and positive degree m<r₂ of the stable period comparison. For the coset counts alone use a principal prime (π), sizes n≥1 and N=n+r with r≥1. The stabilizer comparison uses the arithmetic affine-block homology and evaluation hypotheses in pKey."
+      ],
+      "equations": [
+        "inputs-hecke-transfer-share"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.mem_Gq_iff",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+          "lines": [
+            55,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean#L55-L92"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.finite_cosets",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+          "lines": [
+            138,
+            152
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean#L138-L152"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pIndex",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+          "lines": [
+            177,
+            207
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean#L177-L207"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.exists_clear",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+          "lines": [
+            246,
+            269
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean#L246-L269"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pLow",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+          "lines": [
+            291,
+            318
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean#L291-L318"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.keyGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+          "lines": [
+            183,
+            209
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean#L183-L209"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Conjugation tests the first column; coordinate swaps give the lower bound. Pivoting in the smaller block is the construction used in pLow.",
+      "review": "An independent source reading checked the use of c⁻¹e₁ for S_Nc, the injections and the binary count. The written finiteness proof uses the columns of chosen representatives. The line criterion follows directly from subgroup membership."
+    },
+    {
+      "id": "HTF-02",
+      "chapter": "inputs",
+      "title": "Stabilizer transfer recovers the complementary share of the period",
+      "anchor": "inputs-hecke-transfer-proof",
+      "statement": "For a cycle stabilized from size n, the size N Hecke average is (1−I_n/I_N) times the original period plus (I_n/I_N) times its smaller-size Hecke average. Stabilizer vanishing applies to each complementary difference on its own stabilizer; their sum vanishes on the whole cycle.",
+      "hypotheses": [
+        "A totally complex arithmetic field, positive degree m<r₂, n≥1, r≥1, a principal prime (π), an arithmetic-invariant closed homogeneous cocycle F, a cycle z in size n, and the evaluation, transfer and affine-block inputs of pKey. The lower bound on the residue norm is needed for the separate contraction estimate."
+      ],
+      "equations": [
+        "inputs-hecke-transfer-share"
+      ],
+      "dependencies": [
+        "HTF-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pKey",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+          "lines": [
+            13,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean#L13-L27"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.keyGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+          "lines": [
+            92,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean#L92-L111"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.keyGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+          "lines": [
+            138,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean#L138-L177"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.keyGen",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+          "lines": [
+            183,
+            209
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean#L183-L209"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pStabVan",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean",
+          "lines": [
+            249,
+            280
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean#L249-L280"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pStabVan",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean",
+          "lines": [
+            313,
+            339
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean#L313-L339"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pTransfer",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean",
+          "lines": [
+            14,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean#L14-L35"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.pTransfer",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean",
+          "lines": [
+            36,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean#L36-L75"
+        },
+        {
+          "declaration": "PositivityTheory.KB.AffineStabilizerVanishing.assemble",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean",
+          "lines": [
+            224,
+            246
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean#L224-L246"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sHecke_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/SHeckeOf.lean",
+          "lines": [
+            9,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/SHeckeOf.lean#L9-L12"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "pKey supplies a lower nonzero coordinate to the affine-block theorem. keyGen applies transfer to the family of differences, counts the inherited cosets and normalizes. assemble applies the identity to each iterate.",
+      "review": "A separate source reading checked the right action, the direction of transport, the primitive on all tuples and the complementary coefficient. The small example illustrates the weights independently of stable homology."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "pIndex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 15
+      }
+    },
+    {
+      "callee": "pStabK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 17
+      }
+    },
+    {
+      "callee": "keyGen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "pGqStab",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "pLow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "pStabVan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PKey.lean",
+        "line": 26
+      }
+    },
+    {
+      "callee": "finite_cosets",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+        "line": 179
+      }
+    },
+    {
+      "callee": "exists_clear",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/PermMatrixMulApply.lean",
+        "line": 312
+      }
+    },
+    {
+      "callee": "aff_gamma",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean",
+        "line": 251
+      }
+    },
+    {
+      "callee": "hAff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Affine.lean",
+        "line": 335
+      }
+    },
+    {
+      "callee": "hC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "dC_translate",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean",
+        "line": 65
+      }
+    },
+    {
+      "callee": "hE",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Transfer.lean",
+        "line": 68
+      }
+    },
+    {
+      "callee": "hvan",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+        "line": 173
+      }
+    },
+    {
+      "callee": "hT'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/KeyGenAlt.lean",
+        "line": 177
+      }
+    },
+    {
+      "callee": "hKey",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Assemble.lean",
+        "line": 233
+      }
+    },
+    {
+      "callee": "pKey",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/SHeckeOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "pTransfer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/SHeckeOf.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "pIndex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/SHeckeOf.lean",
+        "line": 12
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HTF-01",
+      "HTF-02"
+    ]
+  ],
+  "outstanding": [
+    "The affine-block homology comparison used on the stabilizer is a separate arithmetic input."
+  ]
+}

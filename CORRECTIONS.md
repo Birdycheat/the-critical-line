@@ -2,6 +2,10 @@
 
 ## 21 November 2026
 
+- The formal degree, the rescaling of the joint polynomial and the pushforward of Haar measure all affect the value of the real-place factor. Strict positivity also needs the separate argument on the shared compact type.
+- A stabilizer can fix a Hermitian form while contributing several labels to a partition. For the Gaussian units there are four equal weights. In the Hecke transfer, the primitive for an orbit representative is defined on tuples in the entire smaller group and invariant under the stabilizer; this allows it to be translated to all labels in the orbit.
+- In odd degree only one real part or imaginary part of the cyclic trace can survive at one place. The degree-three trace on three tangent vectors demonstrates the sign and scaling. Establishing a period then requires integration on an arithmetic cycle.
+
 - Three written dependencies in the prescribed-prime argument omitted the trailing apostrophe of the wrapper actually called in Lean. The register now gives each wrapper’s exact identifier. The source-line check distinguishes a name ending in an apostrophe from the unprimed name.
 
 - The finite Satake identity determines an average over the cosets in a double class. On the twelve terms of the rank-two example the induced values at α = 1 are 1/3, 1 and 3, while the normalized zonal coefficient is 2/3 on the class. When the original coefficient is zero at the identity, testing its Hecke equation on each double-class indicator gives its vanishing everywhere.
