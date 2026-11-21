@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the concrete SPU/SWhit and Stokes suppliers, the weighted insertion and its homotopy, the signed group/affine-simplex telescoping proof, pairing with bar cycles, overlaps and the moving-frame majoration. The one-dimensional example checks the orientation in an explicit linear group action.",
+  "claims": [
+    {
+      "id": "CFM-01",
+      "chapter": "inputs",
+      "title": "A partition contracts the group differential and produces a closed form",
+      "anchor": "inputs-cocycle-differentials",
+      "statement": "For a left-invariant homogeneous degree-m cocycle and the selected smooth partition, the recursion η₀=c, η_{j+1}=dKη_j preserves vanishing of the group coboundary and gives a closed smooth top form on the positive cone, independent of the remaining group argument.",
+      "hypotheses": "Positive degree m=k+1. The abstract construction works on an open convex real domain preserved by the specified linear group action. The action translates a smooth function φ to locally finite weights which sum to 1. Arithmetic invariance of the resulting form also uses equivariance of the translates and diagonal invariance of the input cocycle.",
+      "definitions": [
+        "ψ_γ(h)=φ(A_{γ⁻¹}h), where A is the arithmetic action on the Hermitian matrices.",
+        "δ deletes one group argument with alternating signs. K first inserts γ and sums against ψ_γ at h. The exterior differential d differentiates in h.",
+        "At j form degree is j and group degree m−j, so at j=m only one group argument remains."
+      ],
+      "equations": [
+        "inputs-cocycle-recursion"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "psi, Kf, eta, delG, dC' and intS'",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SimplexMem.lean",
+          "lines": [
+            11,
+            36
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SimplexMem.lean#L11-L36"
+        },
+        {
+          "declaration": "Hyp and Coc",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SimplexMem.lean",
+          "lines": [
+            38,
+            48
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SimplexMem.lean#L38-L48"
+        },
+        {
+          "declaration": "hyp_of: open convex cone and actual partition hypotheses",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            35,
+            49
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L35-L49"
+        },
+        {
+          "declaration": "delG_cons: alternating faces after insertion",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean",
+          "lines": [
+            22,
+            28
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean#L22-L28"
+        },
+        {
+          "declaration": "pLoc and finsum_psi: neighborhood-finiteness of weights",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean",
+          "lines": [
+            41,
+            69
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean#L41-L69"
+        },
+        {
+          "declaration": "pHom: δK+Kδ=id",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean",
+          "lines": [
+            71,
+            83
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean#L71-L83"
+        },
+        {
+          "declaration": "pSmooth and pClosed",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/Smooth.lean",
+          "lines": [
+            48,
+            78
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/Smooth.lean#L48-L78"
+        },
+        {
+          "declaration": "extDeriv_delG",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ExtDerivDelG.lean",
+          "lines": [
+            15,
+            23
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ExtDerivDelG.lean#L15-L23"
+        },
+        {
+          "declaration": "pCoc: induction on form degree",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ExtDerivDelG.lean",
+          "lines": [
+            25,
+            58
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ExtDerivDelG.lean#L25-L58"
+        },
+        {
+          "declaration": "eta_top",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean",
+          "lines": [
+            36,
+            51
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean#L36-L51"
+        },
+        {
+          "declaration": "sWhit_of: recursion and comparison",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            81,
+            97
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L81-L97"
+        },
+        {
+          "declaration": "Integral cocycle, arithmetic invariance and equal-modulus scalars",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            98,
+            127
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L98-L127"
+        }
+      ],
+      "correspondence": "At j=0 the exterior differential vanishes because c is constant in the cone variable. Later dη_j=0 by d²=0. Since δ and d commute on these finite sums, the degree j+1 satisfies δη_{j+1}=dδKη_j=dη_j. The last group deletion subtracts two degree-m forms, showing equality for any two labels.",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked the group and exterior differentials, the sign recurrence, the degree-one integral and the distinction between the general cocycle construction and the arithmetic scalar hypotheses."
+    },
+    {
+      "id": "CFM-02",
+      "chapter": "inputs",
+      "title": "Stokes moves the remaining group faces to the simplex boundary",
+      "anchor": "inputs-cocycle-stokes",
+      "statement": "The signed substitution δB_j=W_j+(−1)^(m−1−j)W_{j+1} yields c=δb+sW_m as homogeneous cochains. In degree m the form ω=sη_m has exactly the periods of c on arithmetic cycles.",
+      "hypotheses": "Fix o in the cone (o=I in the application). Stokes for C¹ differential forms on affine simplices in the open convex cone. The homogeneous data and equivariance make the correction b left-invariant. Its coboundary vanishes after evaluation on a bar cycle with zero boundary.",
+      "definitions": [
+        "W_j is the integral of η_j(g₀,…,g_{m−j}) on the j-simplex with vertices A_{g_{m−j}}o,…,A_{g_m}o.",
+        "B_j on g₀,…,g_{m−1} integrates Kη_j(g₀,…,g_{m−1−j}) on the j-simplex with vertices A_{g_{m−1−j}}o,…,A_{g_{m−1}}o.",
+        "W₀=c. The computed telescoping signs obey s₀=1 and s_{j+1}=s_j(−1)^(m−j). Thus for this recurrence s_m=(−1)^(m(m+1)/2); sWhit_of requests only the resulting witness s=±1.",
+        "The concrete Stokes proof writes the exterior derivative as an alternating sum of directional derivatives and integrates each along a coordinate interval. The upper face is re-expressed with its shifted base vertex."
+      ],
+      "equations": [
+        "inputs-cocycle-telescope"
+      ],
+      "dependencies": [
+        "CFM-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Stk, Wf and Bf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean",
+          "lines": [
+            13,
+            22
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean#L13-L22"
+        },
+        {
+          "declaration": "chain: homotopy applied to the early deleted labels",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean",
+          "lines": [
+            56,
+            95
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean#L56-L95"
+        },
+        {
+          "declaration": "chain: the later faces and affine simplex Stokes",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean",
+          "lines": [
+            96,
+            137
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean#L96-L137"
+        },
+        {
+          "declaration": "Bf_inv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+          "lines": [
+            84,
+            102
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean#L84-L102"
+        },
+        {
+          "declaration": "tele: b changes by sB_j and the sign changes",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+          "lines": [
+            113,
+            137
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean#L113-L137"
+        },
+        {
+          "declaration": "pComp: recover c and the integral of a single top form",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+          "lines": [
+            174,
+            198
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean#L174-L198"
+        },
+        {
+          "declaration": "pComp: remaining terms assemble to dC' b",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+          "lines": [
+            198,
+            213
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean#L198-L213"
+        },
+        {
+          "declaration": "lc_dC and pEv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EvEqLc.lean",
+          "lines": [
+            48,
+            85
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EvEqLc.lean#L48-L85"
+        },
+        {
+          "declaration": "sWhit_of: evaluation of the comparison on a cycle",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            129,
+            150
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L129-L150"
+        },
+        {
+          "declaration": "sWhit and its concrete Stokes supplier",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+          "lines": [
+            32,
+            36
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean#L32-L36"
+        },
+        {
+          "declaration": "sStokes_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/SStokesOf.lean",
+          "lines": [
+            8,
+            10
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/SStokesOf.lean#L8-L10"
+        },
+        {
+          "declaration": "asm: oriented simplex Stokes statement",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean",
+          "lines": [
+            58,
+            65
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean#L58-L65"
+        },
+        {
+          "declaration": "asm: slicing a partial derivative",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean",
+          "lines": [
+            97,
+            128
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean#L97-L128"
+        },
+        {
+          "declaration": "asm: sum of oriented boundary faces",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean",
+          "lines": [
+            130,
+            179
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/PInsertNth.lean#L130-L179"
+        }
+      ],
+      "correspondence": "The first deletions remove group entries from Kη_j, the last deletions remove vertices of the affine simplex; the shared face cancels. The explicit substitution starts at W₀ and ends with W_m, leaving a single invariant coboundary. Pairing with a cycle kills this term by the chain–cochain identity. The sWhit_of binder _hEv does not occur in its proof body; that body uses pEv directly. The independent degree-one model has Kc(b)=b−A(t), η₁=−dA and s₁=−1, so ω=dA and its period on [2] is 2.",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked the group and exterior differentials, the sign recurrence, the degree-one integral and the distinction between the general cocycle construction and the arithmetic scalar hypotheses."
+    },
+    {
+      "id": "CFM-03",
+      "chapter": "inputs",
+      "title": "The arithmetic partition supplies the growth and initial scalar invariance",
+      "anchor": "inputs-cocycle-height",
+      "statement": "At the selected arithmetic partition the moving frame of the resulting m-form has norm ≤C height^(am). One uniform exponent works in every matrix size N≥1, and the body of pf_GFin exhibits a=1. The form already has invariance under scalar tuples with equal absolute values.",
+      "hypotheses": "The field for SPU is totally complex and fixed before choosing a. N and the smooth partition are chosen before the input cocycle is realized. The size of the derivative constant, finite overlaps and values of c on relevant finite tuples can depend on N and c. General SWhit takes an invariant nonnegative weight Ht supplied as height^a. Full scalar-tuple invariance is obtained in the next central-average step.",
+      "definitions": [
+        "The smooth partition generator is φ=ψ∘ret∘nf in pf_GFin. The normalized/retracted points have primal and dual lattice minima bounded below, so their arithmetic translates reach a compact region covered by the chosen bump.",
+        "There is a finite set O of relative labels whose translated support closures meet. At a point with at least one active label γ₀ the others inject into O by γ↦γ₀⁻¹γ.",
+        "If the moving derivatives of every weight are bounded by M, then the recurrence in claim yields C_{j+1}=|O|(j+1)C_j for the bound ‖η_j‖≤C_j M^j on the active tuples. Common left translation bounds the initial values of c on finitely many relative tuples.",
+        "The height lower bound c₀>0 turns 1+ht into (1+c₀⁻¹)ht. Homogeneity under a common positive dilation of the Hermitian coordinates gives equal-modulus scalar invariance."
+      ],
+      "equations": [
+        "inputs-cocycle-recursion"
+      ],
+      "dependencies": [
+        "CFM-01",
+        "CFM-02"
+      ],
+      "sources": [
+        {
+          "declaration": "PU: local finiteness, sum, overlap, homogeneity, boundedness and derivative",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean",
+          "lines": [
+            168,
+            178
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ActLPos.lean#L168-L178"
+        },
+        {
+          "declaration": "SPU and SWhit",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            88,
+            102
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L88-L102"
+        },
+        {
+          "declaration": "sPU_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+          "lines": [
+            23,
+            30
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean#L23-L30"
+        },
+        {
+          "declaration": "pf_GFin: choose a=1 then N, smooth minima, thick set and bump",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            11,
+            22
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L11-L22"
+        },
+        {
+          "declaration": "pf_GFin: equivariance, smoothness and local finiteness",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            36,
+            65
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L36-L65"
+        },
+        {
+          "declaration": "pf_GFin: unit sum, support overlap and homogeneity",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            66,
+            89
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L66-L89"
+        },
+        {
+          "declaration": "pf_GFin: normalization of the derivative bound",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            103,
+            129
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L103-L129"
+        },
+        {
+          "declaration": "claim: from finitely many cocycle values to the inductive constants",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean",
+          "lines": [
+            98,
+            123
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean#L98-L123"
+        },
+        {
+          "declaration": "claim: closed-form cancellation and the finite overlap bound",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean",
+          "lines": [
+            137,
+            174
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean#L137-L174"
+        },
+        {
+          "declaration": "claim and pBound: the growth exponent",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean",
+          "lines": [
+            179,
+            194
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean#L179-L194"
+        },
+        {
+          "declaration": "sWhit_of: equal absolute values of the central scalars",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            119,
+            127
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L119-L127"
+        },
+        {
+          "declaration": "sWhit_of: derivative estimate after transporting the frame",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+          "lines": [
+            151,
+            183
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean#L151-L183"
+        },
+        {
+          "declaration": "lem_form: SWhit output and height^(am)",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            12,
+            29
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L12-L29"
+        },
+        {
+          "declaration": "lem_form and key: central average and height moment",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            40,
+            55
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L40-L55"
+        }
+      ],
+      "correspondence": "Finite overlap bounds both the number of surviving first-derivative terms and the normalized relative labels inserted into the cocycle. Closedness eliminates terms that differentiate η_j in the alternating sum. The actual realization then replaces the uniform derivative majorant by max(Cφ,0) height^a and fixes the exponent am needed for L².",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked the group and exterior differentials, the sign recurrence, the degree-one integral and the distinction between the general cocycle construction and the arithmetic scalar hypotheses."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "lem_form",
+      "callee": "hWhit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 22
+      }
+    },
+    {
+      "caller": "sWhit",
+      "callee": "sWhit_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "sWhit",
+      "callee": "sStokes_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 34
+      }
+    },
+    {
+      "caller": "sPU",
+      "callee": "sPU_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 32
+      }
+    },
+    {
+      "caller": "sPU_of",
+      "callee": "pf_GFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29
+      }
+    },
+    {
+      "caller": "sStokes_of",
+      "callee": "StokesSlices.asm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/StokesSimplices/SStokesOf.lean",
+        "line": 10
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "hyp_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 83
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "pHom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 89
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "pCoc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 90
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "pComp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 93
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "eta_top",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 117
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "pEv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 139
+      }
+    },
+    {
+      "caller": "sWhit_of",
+      "callee": "pBound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ActHomApply.lean",
+        "line": 153
+      }
+    },
+    {
+      "caller": "pHom",
+      "callee": "finsum_psi",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean",
+        "line": 73
+      }
+    },
+    {
+      "caller": "pHom",
+      "callee": "delG_cons",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/SkipSuccAbove.lean",
+        "line": 79
+      }
+    },
+    {
+      "caller": "pCoc",
+      "callee": "extDeriv_delG",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/ExtDerivDelG.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "pClosed",
+      "callee": "extDeriv_extDeriv_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/Smooth.lean",
+        "line": 72
+      }
+    },
+    {
+      "caller": "pComp",
+      "callee": "tele",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+        "line": 177
+      }
+    },
+    {
+      "caller": "tele",
+      "callee": "chain",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean",
+        "line": 129
+      }
+    },
+    {
+      "caller": "chain",
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EtaTop.lean",
+        "line": 114
+      }
+    },
+    {
+      "caller": "pEv",
+      "callee": "lc_dC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/EvEqLc.lean",
+        "line": 83
+      }
+    },
+    {
+      "caller": "pBound",
+      "callee": "claim",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean",
+        "line": 193
+      }
+    },
+    {
+      "caller": "claim",
+      "callee": "nr_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/AltSmulRightComp.lean",
+        "line": 161
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CFM-01",
+      "CFM-02"
+    ],
+    [
+      "CFM-01",
+      "CFM-03"
+    ],
+    [
+      "CFM-02",
+      "CFM-03"
+    ],
+    [
+      "CFM-03",
+      "IVR-02"
+    ]
+  ],
+  "outstanding": [
+    "The smoothing/retraction estimates for primal and dual lattice minima, compactness in the thick region, the normalized bump construction and arithmetic properness used in pf_GFin are treated at their stated interfaces. Detailed preliminary lemmas for coordinate slicing and alternation enter the affine Stokes proof. The arithmetic central average and the subsequent spectral/period estimates form separate steps."
+  ],
+  "review_scope": "The evidence concerns declared proof bodies in the pinned archive. No Lean build or inspection of elaborated proof terms. The circle-coordinate example verifies the cochain comparison only."
+}

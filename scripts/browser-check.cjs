@@ -10,6 +10,10 @@ if (!modulePath || !output)
     "Pass the Playwright module path and a temporary output directory.",
   );
 const { chromium } = require(modulePath);
+async function openFigure(page, address) {
+  await page.goto(address);
+  await page.locator(new URL(address).hash + ".ready").waitFor();
+}
 async function run() {
   fs.mkdirSync(output, { recursive: true });
   const browser = await chromium.launch({ channel: "chrome", headless: true });
@@ -45,6 +49,7 @@ async function run() {
     assert.equal(await page.locator("#how-to-read").count(), 1);
     const mode = page.locator("#source-mode");
     const sourceTitle = page.locator(".source-citation .source-title").first();
+    await mode.waitFor({ state: "visible" });
     assert.equal(await sourceTitle.isVisible(), false);
     await mode.press("Enter");
     assert.equal(await sourceTitle.isVisible(), true);
@@ -92,9 +97,41 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "inert-cell") {
+        if (id === "central-period") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
+          assert.ok(await fig.locator("svg").isVisible());
+          assert.ok(await fig.locator("svg path.ink").isVisible());
+          // A horizontal SVG path has a zero-height DOM rectangle even when
+          // Chrome paints its stroke. Check its painted style and its span.
+          assert.ok(await fig.locator("svg path.dash").evaluate(path => {
+            const style = getComputedStyle(path);
+            const box = path.getBoundingClientRect();
+            const svg = path.ownerSVGElement.getBoundingClientRect();
+            return style.display !== "none" && style.visibility === "visible" &&
+              Number(style.opacity) > 0 && Number(style.strokeOpacity) > 0 &&
+              style.stroke !== "none" && parseFloat(style.strokeWidth) > 0 &&
+              style.strokeDasharray !== "none" && box.width > 0.75 * svg.width &&
+              box.top > svg.top && box.top < svg.bottom;
+          }), "Central average reference line is not painted across the plot");
+          assert.equal(await fig.locator("svg").evaluate(svg => {
+            const bounds = svg.getBoundingClientRect();
+            return [...svg.querySelectorAll("text")].every(label => {
+              const box = label.getBoundingClientRect();
+              return box.left >= bounds.left && box.right <= bounds.right &&
+                box.top >= bounds.top && box.bottom <= bounds.bottom;
+            });
+          }), true, "Central period plot labels extend past its view at width " + width);
+        } else if (id === "mobius-product") {
+          assert.equal(await fig.locator("table caption").innerText(), "Factor pairs for n = 6");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["2", "0", "−2"]);
+          assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["1", "1", "d > Y", "0"]);
+        } else if (id === "inert-cell") {
           assert.equal(await fig.locator("table caption").innerText(), "One inert cell at q = 3, a = 0");
           assert.deepEqual(await fig.locator("tbody tr").last().locator("td").allInnerTexts(), ["9", "9", "78"]);
+        } else if (id === "satake-average") {
+          assert.equal(await fig.locator("svg circle").count(), 12);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/3", "1", "3"]);
+          assert.deepEqual(await fig.locator("[data-result] strong").allInnerTexts(), ["8", "2/3"]);
         } else if (id === "inert-length") {
           assert.equal(await fig.locator("table caption").innerText(), "Rows of 3G modulo 3 at s = 1, t = 0");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1", "1", "9"]);
@@ -141,11 +178,33 @@ async function run() {
         "book overflows " + width,
       );
     }
-    await page.goto(base + "book.html?flag-average.q=2&flag-average.points=triangle#fig-flag-average");
+    await openFigure(page, base + "book.html?central-period.start=0&central-period.length=0.25#fig-central-period");
+    const central = page.locator("#fig-central-period.ready");
+    assert.deepEqual(await central.locator(".metrics dd").allInnerTexts(), ["[0, 1/4]", "1/2 + 1/(2π) ≈ 0.6592", "1/2"]);
+    await central.locator('input[name="start"]').press("ArrowRight");
+    assert.deepEqual(await central.locator(".metrics dd").allInnerTexts(), ["[1/8, 3/8]", "1/2", "1/2"]);
+    assert.match(await central.locator("[data-result]").innerText(), /coincide on this open arc/);
+    const centralLink = new URL(await central.locator("[data-share]").getAttribute("href"));
+    assert.equal(centralLink.searchParams.get("central-period.start"), "0.125");
+    assert.equal(centralLink.searchParams.get("central-period.length"), "0.25");
+    await central.locator('select[name="length"]').press("Home");
+    assert.deepEqual(await central.locator(".metrics dd").allInnerTexts(), ["[1/8, 9/8]", "2", "2"]);
+    await openFigure(page, base + "book.html?flag-average.q=2&flag-average.points=triangle#fig-flag-average");
     const flags = page.locator("#fig-flag-average.ready");
     assert.equal(await flags.locator("table caption").innerText(), "Line averages over 𝔽₂");
     assert.deepEqual(await flags.locator("tbody td").allInnerTexts(), ["1", "−2/3", "2", "−1/3", "1", "0", "2", "1/3", "1", "2/3"]);
-    await page.goto(base + "book.html?inert-length.s=2&inert-length.t=2#fig-inert-length");
+    await openFigure(page, base + "book.html?satake-average.alpha=3#fig-satake-average");
+    const satake = page.locator("#fig-satake-average.ready");
+    assert.deepEqual(await satake.locator(".metrics dd").allInnerTexts(), ["1", "1", "1"]);
+    assert.deepEqual(await satake.locator("[data-result] strong").allInnerTexts(), ["12", "1"]);
+    await satake.getByRole("combobox", {name: "Satake parameter α"}).press("End");
+    assert.deepEqual(await satake.locator(".metrics dd").allInnerTexts(), ["−1/3", "1", "−3"]);
+    const satakeShare = new URL(await satake.locator("[data-share]").getAttribute("href"));
+    assert.equal(satakeShare.searchParams.get("satake-average.alpha"), "-1");
+    assert.equal(satakeShare.hash, "#fig-satake-average");
+    await openFigure(page, satakeShare.href);
+    assert.deepEqual(await satake.locator("[data-result] strong").allInnerTexts(), ["−4", "−1/3"]);
+    await openFigure(page, base + "book.html?inert-length.s=2&inert-length.t=2#fig-inert-length");
     const inertLength = page.locator("#fig-inert-length.ready");
     assert.deepEqual(await inertLength.locator(".metrics dd").allInnerTexts(), ["2", "2", "81"]);
     assert.deepEqual(await inertLength.locator("tbody tr").first().locator("td").allInnerTexts(), ["0", "0", "2", "1 + 2i"]);
@@ -157,15 +216,19 @@ async function run() {
     assert.equal(inertShare.hash, "#fig-inert-length");
     assert.equal(inertShare.searchParams.get("inert-length.s"), "2");
     assert.equal(inertShare.searchParams.has("inert-length.t"), false);
-    await page.goto(inertShare.href);
+    await openFigure(page, inertShare.href);
     assert.equal(await inertLength.locator("table caption").innerText(), "Rows of 3G modulo 3 at s = 2, t = 0");
-    await page.goto(base + "book.html?inert-cell.q=5&inert-cell.diagonal=-1&inert-cell.excess=3#fig-inert-cell");
+    await openFigure(page, base + "book.html?inert-cell.q=5&inert-cell.diagonal=-1&inert-cell.excess=3#fig-inert-cell");
     const cell = page.locator("#fig-inert-cell.ready");
     assert.equal(await cell.locator("table caption").innerText(), "One inert cell at q = 5, a = −1");
     assert.deepEqual(await cell.locator("tbody tr").last().locator("td").allInnerTexts(), ["25", "125", "2500"]);
-    await page.goto(base + "book.html?kernel.k=160&kernel.s=3&kernel.width=0.1#fig-kernel");
+    await openFigure(page, base + "book.html?kernel.k=160&kernel.s=3&kernel.width=0.1#fig-kernel");
     assert.equal(await page.locator("#fig-kernel.ready .metrics dd").last().innerText(), "2.172e-28%");
-    await page.goto(base + "book.html?ramp.x=30&ramp.chi=four#fig-ramp");
+    await openFigure(page, base + "book.html?mobius-product.n=4#fig-mobius-product");
+    const product = page.locator("#fig-mobius-product.ready");
+    assert.deepEqual(await product.locator(".metrics dd").allInnerTexts(), ["2", "0", "0"]);
+    await product.getByRole("slider").press("Home");
+    assert.deepEqual(await product.locator(".metrics dd").allInnerTexts(), ["1", "1", "1"]);
     const proofPage = await context.newPage();
     await proofPage.goto(base + "book.html#inputs-flag-gap");
     const proof = proofPage.locator("#inputs-flag-gap");
@@ -174,18 +237,18 @@ async function run() {
     await proofPage.locator("#outline-local-counts").evaluate(e => { e.open = true; });
     await proofPage.locator('#outline-local-counts a[href="#inputs-flag-gap"]').click();
     assert.ok(await proof.locator("p").first().isVisible(), "Repeated link must reopen its proof");
-    await proofPage.goto(base + "book.html?reflection.side=left#fig-reflection");
+    await openFigure(proofPage, base + "book.html?reflection.side=left#fig-reflection");
     const reflection = proofPage.locator("#fig-reflection.ready");
     assert.ok((await reflection.locator("[data-result]").innerText()).includes("a zero of ψ⁻¹ at 0.76 − i"));
     await reflection.getByRole("combobox", {name:"Starting zero of ψ"}).press("Home");
     assert.ok((await reflection.locator("[data-result]").innerText()).includes("a zero of ψ⁻¹ at 0.24 − i"));
-    await proofPage.goto(base + "book.html?padic.d=27#fig-padic");
+    await openFigure(proofPage, base + "book.html?padic.d=27#fig-padic");
     assert.deepEqual(await proofPage.locator("#fig-padic.ready .metrics dd").allInnerTexts(), ["6","13/12","59/12"]);
     await proofPage.close();
-    await page.locator("#fig-ramp.ready").waitFor();
+    await openFigure(page, base + "book.html?ramp.x=30&ramp.chi=four#fig-ramp");
     assert.equal(await page.locator("#field-ramp-x").inputValue(), "30");
     assert.equal(await page.locator("#field-ramp-chi").inputValue(), "four");
-    await page.goto(base + "book.html?jacobi-primes.p=19&jacobi-primes.root=upper#fig-jacobi-primes");
+    await openFigure(page, base + "book.html?jacobi-primes.p=19&jacobi-primes.root=upper#fig-jacobi-primes");
     const jacobi = page.locator("#fig-jacobi-primes.ready");
     assert.equal(await jacobi.getByRole("combobox", { name: "Rational prime p" }).inputValue(), "19");
     const definingRoot = jacobi.getByRole("combobox", { name: "Root defining χ" });
@@ -200,12 +263,12 @@ async function run() {
     assert.equal(lowerLink.searchParams.get("jacobi-primes.p"), "19");
     assert.equal(lowerLink.searchParams.has("jacobi-primes.root"), false);
     const sharedJacobi = await context.newPage();
-    await sharedJacobi.goto(upperLink);
+    await openFigure(sharedJacobi, upperLink);
     const restored = sharedJacobi.locator("#fig-jacobi-primes.ready");
     assert.equal(await restored.getByRole("combobox", { name: "Root defining χ" }).inputValue(), "upper");
     assert.deepEqual(await restored.locator(".metrics dd").allInnerTexts(), ["8", "6", "3"]);
     await sharedJacobi.close();
-    await page.goto(base + "book.html?split-endpoint.q=4&split-endpoint.degree=3#fig-split-endpoint");
+    await openFigure(page, base + "book.html?split-endpoint.q=4&split-endpoint.degree=3#fig-split-endpoint");
     const endpoint = page.locator("#fig-split-endpoint.ready");
     const endpointDegree = endpoint.getByRole("slider", { name: "Degree k in T = X²" });
     assert.equal(await endpoint.getByRole("combobox", { name: "Residue-field size q" }).inputValue(), "4");
@@ -215,16 +278,16 @@ async function run() {
     assert.deepEqual(await endpoint.locator("tbody td").allInnerTexts(), ["1", "1", "1"]);
     await endpointDegree.press("ArrowRight");
     assert.deepEqual(await endpoint.locator("tbody tr").last().locator("td").allInnerTexts(), ["5", "5", "0"]);
-    await page.goto(base + "book.html?rank-grid.row=4&rank-grid.column=2#fig-rank-grid");
+    await openFigure(page, base + "book.html?rank-grid.row=4&rank-grid.column=2#fig-rank-grid");
     const grid = page.locator("#fig-rank-grid.ready table");
     assert.equal(await grid.locator("caption").innerText(), "Basis vector at (4, 2)");
     const selectedRow = grid.getByRole("rowheader", { name: "4", exact: true }).locator("..");
     assert.deepEqual(await selectedRow.locator("td").allInnerTexts(), ["+1", "0", "0", "−1", "0"]);
-    await page.goto(base + "book.html?prism.twist=2&prism.weight=2&prism.gluing=3#fig-prism");
+    await openFigure(page, base + "book.html?prism.twist=2&prism.weight=2&prism.gluing=3#fig-prism");
     const prism = page.locator("#fig-prism.ready");
     assert.equal(await prism.locator(".metrics dd").last().innerText(), "2");
     assert.equal(await prism.locator("tbody tr").count(), 5);
-    await page.goto(base + "book.html?gram-pair.a=1.5&gram-pair.h=0.6&gram-pair.column=second#fig-gram-pair");
+    await openFigure(page, base + "book.html?gram-pair.a=1.5&gram-pair.h=0.6&gram-pair.column=second#fig-gram-pair");
     const gram = page.locator("#fig-gram-pair.ready");
     assert.equal(await gram.getByRole("combobox", { name: "Column kept in each word" }).inputValue(), "second");
     assert.deepEqual(await gram.locator("tbody td").allInnerTexts(), ["1.5625", "0", "0", "0", "0.81", "0"]);
@@ -232,7 +295,7 @@ async function run() {
     await gram.getByRole("combobox", { name: "Column kept in each word" }).press("Home");
     assert.deepEqual(await gram.locator("tbody td").allInnerTexts(), ["1.5625", "1.5625", "0", "0", "0.81", "0.81"]);
     assert.deepEqual(await gram.locator(".metrics dd").allInnerTexts(), ["0.9", "0.78125", "1.5625"]);
-    await page.goto(base + "book.html?floor-sum.depth=3&floor-sum.multiplier=4#fig-floor-sum");
+    await openFigure(page, base + "book.html?floor-sum.depth=3&floor-sum.multiplier=4#fig-floor-sum");
     const floorSum = page.locator("#fig-floor-sum.ready");
     assert.equal(await floorSum.locator("table caption").innerText(), "Signed contributions at level 125");
     assert.equal(await floorSum.locator(".metrics dd").first().innerText(), "7810");
@@ -310,11 +373,16 @@ async function run() {
     }
     await page.goto(base + "print.html");
     await page.emulateMedia({ media: "print" });
+    assert.ok(await page.locator("#fig-central-period svg").isVisible());
+    assert.deepEqual(await page.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
     assert.ok(await page.locator("#fig-inert-length table").isVisible());
+    assert.ok(await page.locator("#fig-satake-average svg").isVisible());
+    assert.deepEqual(await page.locator("#fig-satake-average [data-result] strong").allInnerTexts(), ["8", "2/3"]);
     assert.deepEqual(await page.locator("#fig-inert-length .metrics dd").allInnerTexts(), ["1", "1", "9"]);
     assert.equal(await page.locator(".site-header").isVisible(), false);
     assert.ok(await page.locator("#fig-jacobi-primes table").isVisible());
     assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
+    assert.deepEqual(await page.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
       format: "A4",
@@ -327,14 +395,19 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    assert.ok(await plain.locator("#fig-central-period svg").isVisible());
+    assert.deepEqual(await plain.locator("#fig-central-period .metrics dd").allInnerTexts(), ["[0, 1]", "2", "2"]);
     assert.equal(await plain.locator("#source-mode").isVisible(), false);
     assert.ok(await plain.locator(".source-citation .source-title").first().isVisible());
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
     assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
+    assert.deepEqual(await plain.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     const staticJacobi = plain.locator("#fig-jacobi-primes");
     assert.deepEqual(await plain.locator("#fig-inert-length .metrics dd").allInnerTexts(), ["1", "1", "9"]);
     assert.equal(await plain.locator("#fig-inert-length tbody tr").count(), 3);
+    assert.equal(await plain.locator("#fig-satake-average svg circle").count(), 12);
+    assert.deepEqual(await plain.locator("#fig-satake-average [data-result] strong").allInnerTexts(), ["8", "2/3"]);
     assert.equal(await staticJacobi.locator("caption").innerText(), "Two primes above 7");
     assert.deepEqual(await staticJacobi.locator(".metrics dd").allInnerTexts(), ["2", "0", "3"]);
     assert.deepEqual(await staticJacobi.locator("tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);

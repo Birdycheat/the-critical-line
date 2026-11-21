@@ -16,6 +16,38 @@
     value,
   });
   const configs = {
+    "central-period": {
+      title: "Which intervals keep their integral under central averaging?",
+      kind: "Periods of a differential form",
+      section: "inputs",
+      params: [
+        range("start", "Starting coordinate s", 0, 0.875, 0.125, 0),
+        choose("length", "Interval length", [["1", "1 · full cycle"], ["0.25", "1/4 · open arc"], ["0.5", "1/2 · open arc"]], "1"),
+      ],
+      caption: "The solid curve is the original coefficient 2 + cos(2πx). The dashed line is its central average 2. Compare their integrals on a full cycle, then move a quarter arc from s = 0 to s = 1/8.",
+      method: "In the two-place unit example the central action translates x by a full turn. On an interval from s to s + L the averaged integral is 2L. For the original form add [sin(2π(s + L)) − sin(2πs)]/(2π). At eighth-turn endpoints these sine values are 0, ±1 or ±√2/2, so equality is decided exactly. The plotted curve joins 97 samples. Decimal integral values are rounded to four places.",
+    },
+    "mobius-product": {
+      title: "Which divisor terms survive truncation?",
+      kind: "Exact integer computation",
+      section: "inputs",
+      params: [
+        choose("cuts", "Lengths (Y, N)", [["2-4", "(2, 4)"], ["3-4", "(3, 4)"], ["4-6", "(4, 6)"], ["5-8", "(5, 8)"], ["6-8", "(6, 8)"]], "3-4"),
+        range("n", "Product index n", 1, 48, 1, 6),
+      ],
+      caption: "Compare n = 3 and n = 6 at lengths (3, 4). The entry for d = 1 changes from retained to omitted. Which cancellation does the product lose?",
+      method: "List every positive factorization n = db. The product retains d ≤ Y and b ≤ N. A retained pair contributes μ(d), which is zero if d has a squared prime factor and otherwise alternates with the number of its distinct prime factors. The last column gives the contribution to the truncated polynomial. This finite calculation illustrates the coefficient identity at small lengths. The analytic zero detector chooses its lengths from the height of the box.",
+    },
+    "satake-average": {
+      title: "Average twelve cosets in one Hecke class",
+      kind: "Inert Satake transform",
+      section: "lifts",
+      params: [
+        choose("alpha", "Satake parameter α", ["1", "1/2", "2", "1/3", "3", "-1"].map(x => [x, x.replace("-", "−")]), "1"),
+      ],
+      caption: "Each dot is the induced value φ on one coset of K diag(3,1/3) K. The dashed line is the mean of all twelve. Compare α = 2 with 1/2, then try α = 3 to make every dot meet the line.",
+      method: "In the rank-two inert unitary group over ℚ₃(i), a coset of diagonal exponent a has value (α/3)ᵃ. There are nine exponents +1, two zero and one −1 in this double class. Every coset has Haar volume one. Their sum is the Hecke eigenvalue of the indicator, and division by twelve gives the normalized zonal value. The nonzero parameters here define local induced functions. Applying the calculation to a representation requires a K-fixed Hecke eigenvector with that parameter and a bi-invariant matrix coefficient nonzero at the identity. Occurrence in a given unitary automorphic representation is a separate input.",
+    },
     "inert-length": {
       title: "Find the length by reducing two rows",
       kind: "Inert lattice over ℤ₃[i]",
@@ -663,7 +695,140 @@
     visitLine(0, 0, 1);
     return [...histogram].sort(([a], [b]) => a - b);
   }
+  function mobius(integer) {
+    let remainder = integer;
+    let sign = 1;
+    for (let factor = 2; factor * factor <= remainder; factor++) {
+      if (remainder % factor !== 0) continue;
+      remainder /= factor;
+      if (remainder % factor === 0) return 0;
+      sign = -sign;
+    }
+    return remainder === 1 ? sign : -sign;
+  }
+
+  function centralPeriod(start, length) {
+    const first = Math.round(8 * start);
+    const span = Math.round(8 * length);
+    // An even eighth has sine 0 or ±1. An odd eighth has sine ±√2/2.
+    // All offered lengths advance an even number of eighths.
+    const signs = [0, 1, 1, 1, 0, -1, -1, -1];
+    const change = signs[(first + span) % 8] - signs[first];
+    const mean = 2 * length;
+    const meanExact = reducedFraction(span, 4);
+    const turn = (first % 2 === 0) ? 1 : Math.SQRT1_2;
+    const original = mean + change * turn / (2 * Math.PI);
+    let originalExact = meanExact;
+    if (change !== 0) {
+      let magnitude = "1/(2π)";
+      if (first % 2 === 1) magnitude = "√2/(2π)";
+      else if (Math.abs(change) === 2) magnitude = "1/π";
+      originalExact += (change > 0 ? " + " : " − ") + magnitude;
+    }
+    return { original, originalExact, mean, meanExact, equal: change === 0 };
+  }
+
   function render(id, v) {
+    if (id === "central-period") {
+      const start = Number(v.start), length = Number(v.length);
+      const result = centralPeriod(start, length);
+      const left = 38, right = 346, low = 126, high = 46;
+      const x = t => left + t * (right - left);
+      const y = value => low - (value - 1) * (low - high) / 2;
+      const points = Array.from({length: 97}, (_, i) => {
+        const t = i / 96;
+        return x(t).toFixed(2) + " " + y(2 + Math.cos(2 * Math.PI * (start + length * t))).toFixed(2);
+      });
+      const interval = "[" + reducedFraction(8 * start, 8) + ", " + reducedFraction(8 * (start + length), 8) + "]";
+      const title = "Original and centrally averaged coefficients on " + interval;
+      let axes = "";
+      for (const value of [1, 2, 3]) {
+        axes += '<path class="grid" d="M' + left + ' ' + y(value) + 'H' + right + '"/>' +
+          '<text x="28" y="' + (y(value) + 5) + '" text-anchor="end">' + value + '</text>';
+      }
+      for (const t of [0, 0.5, 1]) {
+        axes += '<path class="faint" d="M' + x(t) + ' ' + high + 'V' + low + '"/>' +
+          '<text x="' + x(t) + '" y="150" text-anchor="middle">' + reducedFraction(16 * (start + t * length), 16) + '</text>';
+      }
+      const svg = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="0 0 386 182">' +
+        '<title>' + title + '</title><desc>Solid curve, original form. Dashed horizontal line, averaged form. ' +
+        'The integral of each form is given below.</desc>' + axes +
+        '<text x="38" y="22">Coefficient</text><text x="192" y="176" text-anchor="middle">Unit coordinate x</text>' +
+        '<path class="ink" d="M' + points.join(" L") + '"/><path class="dash" d="M' + left + ' ' + y(2) + 'H' + right + '"/></svg>';
+      let equality = "The integrals differ on this open arc.";
+      if (length === 1) equality = "A full unit cycle has integral 2 for every starting point.";
+      else if (result.equal) equality = "The integrals coincide on this open arc because its endpoint sines agree. Moving the starting point can change the equality.";
+      const originalText = result.originalExact + (result.equal ? "" : " ≈ " + result.original.toFixed(4));
+      return svg + metrics([["Interval", interval], ["Original integral", originalText], ["Averaged integral", result.meanExact]]) +
+        "<p>" + equality + "</p>";
+    }
+    if (id === "mobius-product") {
+      const [Y, N] = v.cuts.split("-").map(Number);
+      let rows = "", retained = 0, truncated = 0, full = 0;
+      for (let d = 1; d <= v.n; d++) {
+        if (v.n % d !== 0) continue;
+        const b = v.n / d, value = mobius(d);
+        const include = d <= Y && b <= N;
+        const excluded = d > Y && b > N ? "d > Y, b > N" : d > Y ? "d > Y" : "b > N";
+        full += value;
+        if (include) {
+          retained++;
+          truncated += value;
+        }
+        rows += '<tr><th scope="row">' + d + "</th><td>" + b + "</td><td>" + fmt(value) +
+          "</td><td>" + (include ? "Retained" : excluded) + "</td><td>" + fmt(include ? value : 0) + "</td></tr>";
+      }
+      let explanation;
+      if (v.n === 1) explanation = "The pair (1, 1) supplies the constant coefficient in the product identity.";
+      else if (v.n <= Y) explanation = "All divisor pairs fit both cutoffs. Their Möbius weights sum to zero.";
+      else if (retained === 0) explanation = "No factor pair fits both lengths, so the product has no term at this index.";
+      else if (truncated === 0) explanation = "The retained weights still sum to zero beyond the initial cancellation range.";
+      else explanation = "The full divisor sum is zero. Omitting factor pairs at the cutoffs leaves a nonzero coefficient.";
+      return '<table class="carry-table"><caption>Factor pairs for n = ' + v.n +
+        '</caption><thead><tr><th scope="col">d</th><th scope="col">b</th><th scope="col">μ(d)</th>' +
+        '<th scope="col">Cutoffs</th><th scope="col">Term</th></tr></thead><tbody>' + rows + "</tbody></table>" +
+        metrics([["Pairs retained", retained], ["Full divisor sum", fmt(full)], ["Coefficient a(n)", fmt(truncated)]]) +
+        "<p>" + explanation + "</p>";
+    }
+    if (id === "satake-average") {
+      const [p, q = 1] = v.alpha.split("/").map(Number);
+      const sign = Math.sign(p);
+      // Keep positive denominators for the exact labels, including negative parameters.
+      const groups = [
+        {exponent: 1, count: 9, top: p, bottom: 3 * q},
+        {exponent: 0, count: 2, top: 1, bottom: 1},
+        {exponent: -1, count: 1, top: 3 * q * sign, bottom: Math.abs(p)},
+      ];
+      const sumTop = sign * (3 * p * p + 2 * p * q + 3 * q * q);
+      const sumBottom = Math.abs(p) * q;
+      const mean = reducedFraction(sumTop, 12 * sumBottom);
+      const values = groups.map(group => group.top / group.bottom);
+      const low = Math.min(0, ...values), high = Math.max(...values);
+      const y = value => (109 - 83 * (value - low) / (high - low)).toFixed(2);
+      const axis = n => groups.find(group => group.top / group.bottom === n);
+      const tick = n => axis(n) ? reducedFraction(axis(n).top, axis(n).bottom) : "0";
+      let dots = "", index = 0;
+      for (const group of groups) {
+        for (let j = 0; j < group.count; j++) {
+          dots += '<circle cx="' + (43 + 28 * index++) + '" cy="' + y(group.top / group.bottom) +
+            '" r="4.4" fill="var(--math-green)"/>';
+        }
+      }
+      const title = "Twelve induced values at α = " + reducedFraction(p, q) + ", with zonal mean " + mean;
+      const meanY = y(sumTop / (12 * sumBottom));
+      const chart = '<svg class="plot" role="img" aria-label="' + title + '" viewBox="0 0 385 137">' +
+        '<title>' + title + '</title><desc>The three groups contain nine, two and one cosets. Exact values follow the chart.</desc>' +
+        '<path class="grid" d="M34 26H368 M34 109H368"/><path class="faint" d="M281 18V114 M337 18V114"/>' +
+        '<text x="29" y="30" text-anchor="end">' + tick(high) + '</text><text x="29" y="113" text-anchor="end">' +
+        tick(low) + '</text><path class="dash" d="M34 ' + meanY + 'H368"/>' + dots +
+        '<text x="155" y="130" text-anchor="middle">a = +1</text><text x="309" y="130" text-anchor="middle">0</text>' +
+        '<text x="351" y="130" text-anchor="middle">−1</text></svg>';
+      return chart + metrics(groups.map(group => [
+        group.count + (group.count === 1 ? " coset" : " cosets") + " at a = " + fmt(group.exponent),
+        reducedFraction(group.top, group.bottom),
+      ])) + '<p>Hecke sum <strong>' + reducedFraction(sumTop, sumBottom) + '</strong>. ' +
+        'Zonal mean on this double class <strong>' + mean + '</strong>.</p>';
+    }
     if (id === "inert-length") {
       const s = Number(v.s), t = Number(v.t);
       const imaginary = ["0", "i", "2i"][t];
@@ -1521,6 +1686,7 @@
   }
   const api = {
     configs,
+    centralPeriod,
     render,
     defaults,
     normal,

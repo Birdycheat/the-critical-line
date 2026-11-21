@@ -16,6 +16,14 @@
     "reference": "reference.html#plate"
   },
   "figures": {
+    "central-period": {
+      "claim_ids": ["CAV-01", "CAV-02"],
+      "specification": "configs['central-period']",
+      "static_state": "book.html#fig-central-period",
+      "print_state": "print.html#fig-central-period",
+      "objective": "Compare the period on a full unit cycle with the integral on a movable open arc, including open arcs where cancellation gives equality at particular basepoints.",
+      "numerical_method": "The sine difference in the antiderivative is evaluated exactly at eighth-turn endpoints and the result is also rounded to four places when irrational. The solid coefficient curve is drawn through 97 samples."
+    },
     "rank-grid": {
       "claim_ids": [
         "RKT-02",
@@ -186,7 +194,12 @@
       "numerical_method": "Exact integer arithmetic for all units modulo 5, 25 or 125, multipliers 2, 3 and 4, trivial primitive character and k = 2."
     },
     "jacobi-primes": {
-      "claim_ids": ["JAC-01", "JAC-02", "CRL-01", "CRL-02"],
+      "claim_ids": [
+        "JAC-01",
+        "JAC-02",
+        "CRL-01",
+        "CRL-02"
+      ],
       "specification": "configs['jacobi-primes']",
       "static_state": "book.html#fig-jacobi-primes",
       "print_state": "print.html#fig-jacobi-primes",
@@ -194,7 +207,10 @@
       "numerical_method": "Count products in {1,ω,ω²} at p = 7, 13 and 19 using the defining power congruence. Reduce in the integral basis (1,ω), multiply the conjugates and evaluate at both roots. All computations are exact. Independent tests enumerate powers of a primitive generator for all six settings."
     },
     "split-endpoint": {
-      "claim_ids": ["SPE-01", "SPE-02"],
+      "claim_ids": [
+        "SPE-01",
+        "SPE-02"
+      ],
       "specification": "configs['split-endpoint']",
       "static_state": "book.html#fig-split-endpoint",
       "print_state": "print.html#fig-split-endpoint",
@@ -202,7 +218,10 @@
       "numerical_method": "At residue size 2, 3, 4 or 5, compare the coefficient recurrence with Hermite counts for every excess length through 6. Apply the quadratic correction by convolution. The largest uncorrected coefficient is 19531."
     },
     "gram-pair": {
-      "claim_ids": ["GRM-01", "GRM-03"],
+      "claim_ids": [
+        "GRM-01",
+        "GRM-03"
+      ],
       "specification": "configs['gram-pair']",
       "static_state": "book.html#fig-gram-pair",
       "print_state": "print.html#fig-gram-pair",
@@ -221,8 +240,19 @@
       "objective": "Recover the weight power and the scalar gluing index from the actual alternating prism.",
       "numerical_method": "Enumerate all 5ᵉ cyclic words and every insertion in F₁₁× at twist one or two. Products of integer carries and logarithmic indices are reduced modulo five."
     },
+    "satake-average": {
+      "claim_ids": ["ISV-01", "ISV-02", "ISV-03"],
+      "specification": "configs['satake-average']",
+      "static_state": "book.html#fig-satake-average",
+      "print_state": "print.html#fig-satake-average",
+      "objective": "See how twelve right-K cosets with three induced weights determine the zonal value on one entire double class. Reciprocal parameters can give different weights and the same mean.",
+      "numerical_method": "For the selected exact rational α, calculate nine copies of α/3, two of 1 and one of 3/α. Sum in rational arithmetic and divide by twelve. Floating point is used only for chart coordinates. The six-setting test independently filters the rank-two matrix representatives by their minimum entry valuation."
+    },
     "inert-length": {
-      "claim_ids": ["ILT-01", "ILT-03"],
+      "claim_ids": [
+        "ILT-01",
+        "ILT-03"
+      ],
       "specification": "configs['inert-length']",
       "static_state": "book.html#fig-inert-length",
       "print_state": "print.html#fig-inert-length",
@@ -230,7 +260,13 @@
       "numerical_method": "For s ∈ {1,2} and t ∈ {0,1,2}, reduce the entries in 𝔽₃[i]/(i²+1). Subtract s times row 3 from row 1, count the pivots, and take nine to that power to find the quotient size. The independent test enumerates every residue-field row combination of the scaled matrix."
     },
     "inert-cell": {
-      "claim_ids": ["IZS-01", "IZS-02", "IRW-01", "IRW-02", "ICI-01"],
+      "claim_ids": [
+        "IZS-01",
+        "IZS-02",
+        "IRW-01",
+        "IRW-02",
+        "ICI-01"
+      ],
       "specification": "configs['inert-cell']",
       "static_state": "book.html#fig-inert-cell",
       "print_state": "print.html#fig-inert-cell",
@@ -238,12 +274,25 @@
       "numerical_method": "With middle rank one and standard middle lattice, evaluate the exact ball counts, then difference successive cumulative counts. The smallest shell starts at length |a|."
     },
     "flag-average": {
-      "claim_ids": ["FIN-01", "FIN-02", "FIN-03"],
+      "claim_ids": [
+        "FIN-01",
+        "FIN-02",
+        "FIN-03"
+      ],
       "specification": "configs['flag-average']",
       "static_state": "book.html#fig-flag-average",
       "print_state": "print.html#fig-flag-average",
       "objective": "Compare the distribution of signed line averages for three point configurations and recover the incidence norm on the mean-zero subspace.",
       "numerical_method": "Enumerate every normalized homogeneous line over the four displayed finite fields. Count by signed sum and use integer arithmetic for both squared norms. The approximate ratio is rounded to four significant digits."
+    },
+    "mobius-product": {
+      "specification": "configs[\"mobius-product\"]",
+      "claim_ids": [
+        "ZDB-01"
+      ],
+      "static_state": "book.html#fig-mobius-product",
+      "print_state": "print.html#fig-mobius-product",
+      "objective": "Separate cancellation over the full divisor set from the coefficient that remains after the two length restrictions."
     }
   }
 }

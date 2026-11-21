@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FMA-01",
+      "chapter": "inputs",
+      "title": "The mean tensor is fixed by the stabilizer of the identity",
+      "anchor": "inputs-frame-choice",
+      "statement": "The normalized integral over D of F(y)=fr ω′(y) is unchanged by precomposition with the action of any u fixing the identity in ∏GL_N(ℂ).",
+      "hypotheses": [
+        "N≥1, a continuous form on the positive cone with arithmetic and central invariance as in SMean, integrable moving frame on an arithmetic fundamental domain of positive finite Haar measure."
+      ],
+      "equations": [
+        "inputs-frame-transport"
+      ],
+      "dependencies": [
+        "CAV-02",
+        "HMT-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SMean",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean",
+          "lines": [
+            131,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridgeAlt.lean#L131-L136"
+        },
+        {
+          "declaration": "PositivityTheory.KB.MeanLatticeAction.mean_shift",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+          "lines": [
+            21,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean#L21-L35"
+        },
+        {
+          "declaration": "PositivityTheory.KB.MeanLatticeAction.exists_ofS_actL_eq_of_fixes_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+          "lines": [
+            72,
+            107
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean#L72-L107"
+        },
+        {
+          "declaration": "PositivityTheory.KB.MeanLatticeAction.mean_inv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+          "lines": [
+            124,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean#L124-L151"
+        },
+        {
+          "declaration": "PositivityTheory.KB.JoinReconstruction.key",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            63,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L63-L80"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Correct the determinant of a stabilizer by a unit-modulus Nth root at every place, then shift the integrand on the right. Left arithmetic invariance identifies the integrals on the two fundamental domains.",
+      "review": "A separate source reading confirmed the side of translation, the unitary determinant root, the trace example, and the distinct use of the two Hecke rates."
+    },
+    {
+      "id": "FMA-02",
+      "chapter": "inputs",
+      "title": "Transporting the tensor gives an invariant form and a mean-zero remainder",
+      "anchor": "inputs-frame-average",
+      "statement": "At h=A_g I define ω̄(h)=M∘A_(g⁻¹). This gives a well-defined invariant form on the positive cone with constant moving frame M. On the domain, every scalar coefficient of ω′−ω̄ has integral zero and is square-integrable.",
+      "hypotheses": [
+        "The hypotheses of FMA-01 and the square-integrability obtained from the height moment.",
+        "The separate invariant-form regularity theorem supplies Good for the later period argument."
+      ],
+      "equations": [
+        "inputs-frame-transport"
+      ],
+      "dependencies": [
+        "FMA-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.exists_actL_one_eq_of_mem_Pos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+          "lines": [
+            157,
+            176
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean#L157-L176"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sMean_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+          "lines": [
+            178,
+            222
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean#L178-L222"
+        },
+        {
+          "declaration": "PositivityTheory.KB.JoinReconstruction.lem_Lz",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemLz.lean",
+          "lines": [
+            11,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemLz.lean#L11-L32"
+        },
+        {
+          "declaration": "PositivityTheory.KB.JoinReconstruction.lem_Lz",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemLz.lean",
+          "lines": [
+            33,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemLz.lean#L33-L61"
+        },
+        {
+          "declaration": "PositivityTheory.KB.sInv_of",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PermutationSigns/SInvOf.lean",
+          "lines": [
+            5,
+            6
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PermutationSigns/SInvOf.lean#L5-L6"
+        },
+        {
+          "declaration": "PositivityTheory.KB.JoinReconstruction.key",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+          "lines": [
+            80,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean#L80-L108"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The stabilizer fixes M, so two choices of g give identical transport. Evaluation on a fixed tuple commutes with the normalized integral. The period comparison uses Hecke iteration after this construction.",
+      "review": "A separate source reading confirmed the side of translation, the unitary determinant root, the trace example, and the distinct use of the two Hecke rates."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "exists_ofS_actL_eq_of_fixes_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+        "line": 130
+      }
+    },
+    {
+      "callee": "mean_shift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+        "line": 151
+      }
+    },
+    {
+      "callee": "mean_inv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+        "line": 187
+      }
+    },
+    {
+      "callee": "exists_actL_one_eq_of_mem_Pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/MeanLatticeCounts/CountableLatS.lean",
+        "line": 212
+      }
+    },
+    {
+      "callee": "hMean",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 80
+      }
+    },
+    {
+      "callee": "hInv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 81
+      }
+    },
+    {
+      "callee": "lem_Lz",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 84
+      }
+    },
+    {
+      "callee": "lem_bound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/IteratedHeckeBounds/LemForm.lean",
+        "line": 103
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FMA-01",
+      "FMA-02"
+    ]
+  ],
+  "outstanding": [
+    "The invariant-form regularity and closed-simplex-integral theorem is applied separately to the transported tensor. Arithmetic-period equality uses the two Hecke rates and homological stability."
+  ]
+}

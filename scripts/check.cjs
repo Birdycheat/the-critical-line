@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, "..");
 const lib = require("../assets/labs.js");
 const { zeta } = require("./plate.cjs");
 const names = ["index", "book", "experiments", "atlas", "reference", "print"];
-const ledger = new Set();
+const ledger = new Map();
 for (const name of fs
   .readdirSync(path.join(root, "records"))
   .filter((n) => n.endsWith(".json"))) {
@@ -15,9 +15,19 @@ for (const name of fs
   );
   for (const c of record.claims || record.targets || []) {
     assert.ok(!ledger.has(c.id), "Duplicate claim " + c.id);
-    ledger.add(c.id);
+    ledger.set(c.id, c.dependencies || []);
   }
 }
+// A backward reading route must end at a supplied input.
+const finished = new Set();
+function checkRoute(id, path) {
+  if (finished.has(id)) return;
+  assert.ok(ledger.has(id), "Unknown claim on route " + [...path, id].join(" → "));
+  assert.ok(!path.includes(id), "Cycle in claim dependencies: " + [...path, id].join(" → "));
+  for (const input of ledger.get(id)) checkRoute(input, [...path, id]);
+  finished.add(id);
+}
+for (const id of ledger.keys()) checkRoute(id, []);
 for (const [f, s] of Object.entries(
   require("../records/figures.json").figures,
 )) {
@@ -53,6 +63,50 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Composite Simpson quadrature of the original coefficient gives a check
+// independent of the eighth-turn antiderivative used by the figure.
+{
+  const lab = lib.configs["central-period"];
+  const { min, max, step } = lab.params[0];
+  let states = 0, openEqualities = 0;
+  for (let start = min; start <= max; start += step) {
+    for (const [choice] of lab.params[1].options) {
+      const length = Number(choice), panels = 256;
+      const width = length / panels;
+      let sum = 0;
+      for (let j = 0; j <= panels; j++) {
+        const weight = j === 0 || j === panels ? 1 : (j % 2 ? 4 : 2);
+        sum += weight * (2 + Math.cos(2 * Math.PI * (start + j * width)));
+      }
+      const reference = sum * width / 3;
+      const result = lib.centralPeriod(start, length);
+      const output = lib.render("central-period", {start, length: choice});
+      // Equal endpoint sines mean either a full turn or an interval
+      // centered at 1/4 modulo 1/2 (a zero of the cosine).
+      const equal = length === 1 || (16 * start + 8 * length) % 8 === 4;
+      assert.equal(result.equal, equal);
+      close(result.original, reference, 1e-9);
+      assert.equal(result.mean, 2 * length);
+      if (equal) {
+        assert.equal(result.original, result.mean);
+        assert.equal(result.originalExact, result.meanExact);
+        if (length === 1) assert.equal(result.originalExact, "2");
+        else {
+          openEqualities++;
+          assert.ok(output.includes("coincide on this open arc"));
+        }
+      } else {
+        assert.ok(output.includes("≈ " + reference.toFixed(4)));
+        assert.ok(output.includes("differ on this open arc"));
+      }
+      assert.equal((output.match(/class="ink" d="[^"]+"/g) || []).length, 1);
+      assert.ok(output.includes('class="dash"'));
+      states++;
+    }
+  }
+  assert.equal(states, 24);
+  assert.equal(openEqualities, 4);
+}
 for (const [id, c] of Object.entries(lib.configs)) {
   assert.ok(ids["book.html"].has("fig-" + id));
   for (const p of c.params) {
@@ -65,6 +119,31 @@ for (const [id, c] of Object.entries(lib.configs)) {
         id + ": " + JSON.stringify(state),
       );
     }
+  }
+}
+// Multiply the two short Dirichlet polynomials directly, using Möbius
+// coefficients obtained independently from the divisor-sum recurrence.
+for (const [cuts] of lib.configs["mobius-product"].params[0].options) {
+  const [Y, N] = cuts.split("-").map(Number);
+  const mu = [0, 1];
+  const pairs = Array(49).fill(0), coefficient = Array(49).fill(0);
+  for (let d = 2; d <= Y; d++) {
+    let previous = 0;
+    for (let divisor = 1; divisor < d; divisor++)
+      if (d % divisor === 0) previous += mu[divisor];
+    mu[d] = -previous;
+  }
+  for (let d = 1; d <= Y; d++) {
+    for (let b = 1; b <= N; b++) {
+      pairs[d*b]++;
+      coefficient[d*b] += mu[d];
+    }
+  }
+  for (let n = 1; n <= 48; n++) {
+    const rendered = lib.render("mobius-product", { cuts, n });
+    const totals = [...rendered.matchAll(/<dd>([^<]+)<\/dd>/g)]
+      .map(match => Number(match[1].replace("−", "-")));
+    assert.deepEqual(totals, [pairs[n], Number(n === 1), coefficient[n]]);
   }
 }
 // Count corner residues by solving their trace equation. In both quadratic
@@ -112,6 +191,45 @@ for (const q of [2, 3, 5, 25]) {
     assert.ok(output.includes("sum to " + lineSquares + "/" + (q+1)**2));
   }
 }
+function checkSatakeAverage() {
+  const fraction = (a, b) => {
+    let x = Math.abs(a), y = Math.abs(b);
+    while (y) [x, y] = [y, x % y];
+    return [Math.sign(b) * a / x, Math.abs(b) / x];
+  };
+  const label = ([a, b]) => (b === 1 ? String(a) : a + "/" + b).replace("-", "−");
+  const classes = [];
+  for (let a = -2; a <= 2; a++) {
+    for (let j = 0; j < 9; j++) {
+      // The corner is i*j/9 modulo i Z3. The diagonal alone excludes |a|>1.
+      const cornerVal = j === 0 ? Infinity : j % 3 === 0 ? -1 : -2;
+      if (Math.min(a, -a, a + cornerVal) === -1) classes.push(a);
+    }
+  }
+  const exponents = [1, 0, -1];
+  assert.deepEqual(exponents.map(a => classes.filter(e => e === a).length), [9, 2, 1]);
+  for (const [alpha] of lib.configs["satake-average"].params[0].options) {
+    const [n, d = 1] = alpha.split("/").map(Number);
+    const power = a => a === 0 ? [1, 1] : a > 0 ? fraction(n, 3*d) : fraction(3*d, n);
+    let sum = [0, 1];
+    for (const a of classes) {
+      const [p, q] = power(a);
+      sum = fraction(sum[0] * q + p * sum[1], sum[1] * q);
+    }
+    const output = lib.render("satake-average", {alpha});
+    assert.deepEqual([...output.matchAll(/<dd>([^<]+)<\/dd>/g)].map(m => m[1]), exponents.map(a => label(power(a))));
+    assert.deepEqual([...output.matchAll(/<strong>([^<]+)<\/strong>/g)].map(m => m[1]), [label(sum), label(fraction(sum[0], 12*sum[1]))]);
+    const ys = [...output.matchAll(/<circle cx="[^"]+" cy="([^"]+)"/g)].map(m => m[1]);
+    assert.equal(ys.length, 12);
+    assert.equal(new Set(ys).size, alpha === "3" ? 1 : 3);
+    const values = classes.slice().sort((a,b) => b-a).map(a => {const [p,q] = power(a); return p/q});
+    const high = Math.max(...values), low = Math.min(0, ...values);
+    const y = v => (109 - 83 * (v - low)/(high - low)).toFixed(2);
+    assert.deepEqual(ys, values.map(y));
+    assert.ok(output.includes('class="dash" d="M34 ' + y(sum[0]/(12*sum[1])) + 'H368"'));
+  }
+}
+checkSatakeAverage();
 function checkInertLength() {
   // Enumerate the row image of the scaled matrix itself over F3[i], i² = −1.
   const mod = n => ((n % 3) + 3) % 3;
@@ -419,8 +537,12 @@ for (const a of [2, 3, 4]) {
 }
 assert.equal(distinctGridStates.size, 9);
 for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes(lib.render("central-period", lib.defaults("central-period"))),
+    "Missing complete default central period figure in " + name);
   assert.ok(html[name].includes(lib.render("inert-length", lib.defaults("inert-length"))),
     "Missing complete default inert lattice experiment in " + name);
+  assert.ok(html[name].includes(lib.render("satake-average", lib.defaults("satake-average"))),
+    "Missing complete default Satake coset average in " + name);
   assert.ok(html[name].includes(lib.render("jacobi-primes", lib.defaults("jacobi-primes"))),
     "Missing complete default cubic Jacobi experiment in " + name);
   assert.ok(html[name].includes('<caption>Endpoint coefficients through degree 7 in X (q = 2)</caption>'),
@@ -499,5 +621,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

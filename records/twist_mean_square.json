@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned written declarations and selected proof bodies, including ordered pairs, the exceptional character sum, Page uniqueness, and parameter absorption. Independent two-prime test.",
+  "claims": [
+    {
+      "id": "TMS-01",
+      "chapter": "inputs",
+      "title": "A covariance depends on the outside odd part, up to a constant sign",
+      "anchor": "inputs-twist-pairs",
+      "statement": "For q in the progression with q>nn′, the product (n/q)(n′/q) equals σ(q/s) for a sign σ independent of q, where s is the product of primes p∤m of odd valuation in nn′. Thus the square expansion can be bounded using the absolute value of ∑q(q/s).",
+      "hypotheses": "The positive modulus is divisible by 8, a is coprime to it, each q is prime in that residue class, 1≤n,n′≤N and q>N². The same κ with |κ(n)|≤1 is used throughout P.",
+      "definitions": [
+        "Λ is the von Mangoldt function, c_n=Λ(n)min(1,y/n).",
+        "s_p is the sum of all positive weights with base prime p. R sums the weights of prime powers with even exponent or whose base divides m."
+      ],
+      "equations": [
+        "inputs-twist-reciprocity"
+      ],
+      "dependencies": [],
+      "correspondence": "Quadratic reciprocity fixes the reciprocity and modulus signs when q stays in the residue class. The unclipped complex coefficient κ(n)conj(κ(n′)) is independent of q, so the absolute value may be taken after the prime average. The sign example checks that an unreduced nonsquare product can give a constant −1.",
+      "sources": [
+        {
+          "declaration": "cN and PPset",
+          "path": "src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean",
+          "lines": [
+            23,
+            51
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean#L23-L51"
+        },
+        {
+          "declaration": "S, admitted and MeanSq",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+          "lines": [
+            13,
+            27
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean#L13-L27"
+        },
+        {
+          "declaration": "soutPart, sP and RR",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean",
+          "lines": [
+            48,
+            55
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean#L48-L55"
+        },
+        {
+          "declaration": "jacobi_class",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqJac.lean",
+          "lines": [
+            141,
+            166
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqJac.lean#L141-L166"
+        },
+        {
+          "declaration": "abs_pair_sum_eq",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqMain.lean",
+          "lines": [
+            38,
+            53
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqMain.lean#L38-L53"
+        },
+        {
+          "declaration": "meanSq_abs, finite expansion and reciprocity",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+          "lines": [
+            15,
+            31
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean#L15-L31"
+        },
+        {
+          "declaration": "meanSqK, proving q>N²",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            79,
+            106
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L79-L106"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the definitions, the arithmetic cases and source calls. Independent numerical check at 53 and 101."
+    },
+    {
+      "id": "TMS-02",
+      "chapter": "inputs",
+      "title": "Only one squarefree modulus can retain a close aligned zero",
+      "anchor": "inputs-twist-exception",
+      "statement": "For ε,A,B>0 and all sufficiently large Y depending on them, every admitted U,m,a has one n★ such that every odd squarefree s>1 coprime to m, s≤Y^A, s≠n★, satisfies |∑_{q∈P}(q/s)|≤Y^(−B)|P|. The caller uses A=800K and B=K+1.",
+      "hypotheses": "The admitted progression has 8|m, m>0, gcd(a,m)=1, (log Y)²log m/4≤log U and Y^(ε/6)≤log U≤Y^(ε/5)(log Y)². The written proof invokes the relative prime-number theorem in progressions, the Dirichlet zero-free theorem and the exceptional-zero bound supplying the lower population estimate.",
+      "definitions": [
+        "An exceptional pair χ,β at modulus ms consists of a nonprincipal quadratic character and its real L-zero near 1.",
+        "Alignment means χ(u)=(u/s) for every u≡1 mod m coprime to s. The cutoff for the close zero uses D=mY^A, common to all s.",
+        "The denominator s★ indexes a quadratic symbol in a covariance. It is selected for the whole progression before κ and y."
+      ],
+      "equations": [],
+      "dependencies": [],
+      "correspondence": "The uniform li(U)/φ(ms) part of the progression main term sums to zero against the nonprincipal Jacobi character. For misalignment, multiplication by a unit of the fiber makes the exceptional sum its own negative. For aligned cases outside the single exception β≤1−c₀/log D gives a sufficiently small li(U^β). Page uniqueness at the product modulus and the separation of distinct squarefree Jacobi symbols show that at most one s can be close and aligned. twistK sets n★=0 if none exists. The progression floor and the relative PNT error absorb the √U lower-cutoff term.",
+      "sources": [
+        {
+          "declaration": "IsExcPair, mainAP and PNTAPRelW",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean",
+          "lines": [
+            29,
+            46
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean#L29-L46"
+        },
+        {
+          "declaration": "twistK, statement and analytic inputs",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            148,
+            171
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L148-L171"
+        },
+        {
+          "declaration": "page_across by raising both characters to a common modulus",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean",
+          "lines": [
+            37,
+            65
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean#L37-L65"
+        },
+        {
+          "declaration": "Jacobi separation, a discriminating unit",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean",
+          "lines": [
+            96,
+            113
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean#L96-L113"
+        },
+        {
+          "declaration": "jacobi_separate",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean",
+          "lines": [
+            133,
+            140
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqOrth.lean#L133-L140"
+        },
+        {
+          "declaration": "main_twist_bound, aligned and non-aligned contributions",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+          "lines": [
+            130,
+            149
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean#L130-L149"
+        },
+        {
+          "declaration": "Non-alignment forces vanishing",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+          "lines": [
+            182,
+            219
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean#L182-L219"
+        },
+        {
+          "declaration": "twist_one and progression errors",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+          "lines": [
+            221,
+            240
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean#L221-L240"
+        },
+        {
+          "declaration": "twistK, classification and uniqueness across moduli",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            249,
+            275
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L249-L275"
+        },
+        {
+          "declaration": "twistK, logarithmic integral and absorption",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+          "lines": [
+            312,
+            353
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean#L312-L353"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the definitions, the arithmetic cases and source calls. Independent numerical check at 53 and 101."
+    },
+    {
+      "id": "TMS-03",
+      "chapter": "inputs",
+      "title": "The two pair costs and the absolute mean-square constant",
+      "anchor": "inputs-twist-budget",
+      "statement": "The covariance sum is bounded by |P|[∑s_p²+R²+2B²+2BR+ηT²]. With Z=(Y^K)^400, w=Y^(ε/5), η=Y^(−K−1), it is therefore ≤Cy log(y)|P| for Y≤y≤Y^K. A single C works before ε,K are chosen.",
+      "hypotheses": "0<ε≤1, K≥1, eventual Y after fixing ε,K, U,m,a admitted. Every prime dividing m is ≤w or >Z, N=⌊Z⌋, and κ is any one common bounded sequence. A coefficient can depend on the common y in each application.",
+      "definitions": [
+        "T=∑c_n, B=C₂ log y≥s_p, R sums even powers or modulus bases, s_p sums all powers with that base."
+      ],
+      "equations": [
+        "inputs-twist-assembly"
+      ],
+      "dependencies": [
+        "TMS-01",
+        "TMS-02"
+      ],
+      "correspondence": "pairs_one pays Σs_p² for identical bases and R² for different bases with both residual parts empty. For exceptional r prime pairs_r_prime pays s_r²+2s_rR; for a composite r the complementary factors and the two orders cost at most 2B². Other pairs cost ηT². Positive arithmetic estimates give R≤5C₁√y, Σs_p²≤C₃y log y, and T≤C₄y log Z. The eventual bounds (log Z)²≤Y and y≤Y^K give ηT²≤C₄²y. The written constant is C₃+25C₁²+4C₂²+20C₁C₂+C₄². StagePow applies the resulting common-height bound before the derivative/variable-height argument.",
+      "sources": [
+        {
+          "declaration": "pairs_one",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+          "lines": [
+            255,
+            305
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean#L255-L305"
+        },
+        {
+          "declaration": "pairs_r_prime and its prime bound",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+          "lines": [
+            134,
+            139
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean#L134-L139"
+        },
+        {
+          "declaration": "pairs_r_not_prime",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+          "lines": [
+            195,
+            200
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean#L195-L200"
+        },
+        {
+          "declaration": "pairs_r, common bound",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+          "lines": [
+            307,
+            323
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean#L307-L323"
+        },
+        {
+          "declaration": "meansq_split",
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqMainB.lean",
+          "lines": [
+            9,
+            35
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqMainB.lean#L9-L35"
+        },
+        {
+          "declaration": "meanSq_abs",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+          "lines": [
+            8,
+            14
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean#L8-L14"
+        },
+        {
+          "declaration": "The two ordered-pair estimates in meanSq_abs",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+          "lines": [
+            53,
+            58
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean#L53-L58"
+        },
+        {
+          "declaration": "RR_le, squares and modulus factors",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/RRLe.lean",
+          "lines": [
+            28,
+            99
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/RRLe.lean#L28-L99"
+        },
+        {
+          "declaration": "exists_primePowerSum_le_mul_log, C₂ can be 3",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/SumMinLeDiv.lean",
+          "lines": [
+            71,
+            101
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/SumMinLeDiv.lean#L71-L101"
+        },
+        {
+          "declaration": "Damped prime tail for the sum of squared weights",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/SPsqLe.lean",
+          "lines": [
+            42,
+            75
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/SPsqLe.lean#L42-L75"
+        },
+        {
+          "declaration": "sPsq_le, small and large primes",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/SPsqLe.lean",
+          "lines": [
+            161,
+            171
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/SPsqLe.lean#L161-L171"
+        },
+        {
+          "declaration": "sum_cN_le from the von Mangoldt harmonic sum",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/SumCNLe.lean",
+          "lines": [
+            8,
+            27
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/SumCNLe.lean#L8-L27"
+        },
+        {
+          "declaration": "meanSqK, absolute constant and thresholds",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            51,
+            64
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L51-L64"
+        },
+        {
+          "declaration": "Weights and pair bound at fixed y",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            128,
+            163
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L128-L163"
+        },
+        {
+          "declaration": "Absorption of ηT² and final constant",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+          "lines": [
+            191,
+            221
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean#L191-L221"
+        },
+        {
+          "declaration": "stage, selection of moment constant and thresholds",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+          "lines": [
+            48,
+            56
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean#L48-L56"
+        },
+        {
+          "declaration": "bs_sum_D_le and bs_block",
+          "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+          "lines": [
+            146,
+            166
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean#L146-L166"
+        }
+      ],
+      "status": "reconstructed from pinned written proof",
+      "review": "Read the definitions, the arithmetic cases and source calls. Independent numerical check at 53 and 101."
+    }
+  ],
+  "derivation_edges": [
+    [
+      "TMS-01",
+      "TMS-03"
+    ],
+    [
+      "APC-01",
+      "TMS-02"
+    ],
+    [
+      "TMS-02",
+      "TMS-03"
+    ],
+    [
+      "TMS-03",
+      "PRP-02"
+    ]
+  ],
+  "written_source_calls": [
+    {
+      "caller": "stage",
+      "callee": "meanSqK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 50
+      }
+    },
+    {
+      "caller": "stage",
+      "callee": "bad_share",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "RR_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "exists_primePowerSum_le_mul_log",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 56
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "sPsq_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 57
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "sum_cN_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 58
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "twistK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 63
+      }
+    },
+    {
+      "caller": "meanSqK",
+      "callee": "meanSq_abs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+        "line": 139
+      }
+    },
+    {
+      "caller": "meanSq_abs",
+      "callee": "meansq_expand",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+        "line": 19
+      }
+    },
+    {
+      "caller": "meanSq_abs",
+      "callee": "abs_pair_sum_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+        "line": 25
+      }
+    },
+    {
+      "caller": "abs_pair_sum_eq",
+      "callee": "jacobi_class",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqMain.lean",
+        "line": 42
+      }
+    },
+    {
+      "caller": "meanSq_abs",
+      "callee": "meansq_split",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+        "line": 31
+      }
+    },
+    {
+      "caller": "meanSq_abs",
+      "callee": "pairs_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+        "line": 54
+      }
+    },
+    {
+      "caller": "meanSq_abs",
+      "callee": "pairs_r",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean",
+        "line": 55
+      }
+    },
+    {
+      "caller": "pairs_r",
+      "callee": "pairs_r_prime",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+        "line": 314
+      }
+    },
+    {
+      "caller": "pairs_r",
+      "callee": "pairs_r_not_prime",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+        "line": 318
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "pnt_progressions_relative_weak_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 154
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "zFRDirichlet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 155
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "excBound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 156
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "count_a",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 157
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "page_across",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 158
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "jacobi_separate",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 264
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "liX_pow_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 328
+      }
+    },
+    {
+      "caller": "twistK",
+      "callee": "twist_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+        "line": 329
+      }
+    },
+    {
+      "caller": "twist_one",
+      "callee": "twist_decomp",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+        "line": 232
+      }
+    },
+    {
+      "caller": "twist_one",
+      "callee": "main_twist_bound",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqTwistB.lean",
+        "line": 234
+      }
+    }
+  ],
+  "outstanding": [
+    "The deeper proofs supplying the relative prime-number theorem in progressions, the Dirichlet zero-free region and its exceptional-zero bound are used at their written interfaces here. The arithmetic majorants also use a von Mangoldt summatory majorant, its harmonic sum estimate and a prime tail bound. The variable-height transfer and the distinct zero-density sieve for the selected family are reconstructed in PRP-02."
+  ],
+  "review_scope": "Inspected pinned source text. This is a human reconstruction of selected mathematical and written-declaration dependencies, without a Lean elaboration trace or new build. The numerical calculation tests the signed symbol identity only."
+}

@@ -30,7 +30,10 @@ def main():
     links=Links()
     for page in ROOT.glob('*.html'):
         links.feed(page.read_text('utf8'))
+    written_calls = []
     for file in (ROOT/'records').glob('*.json'):
+        record = json.loads(file.read_text('utf8'))
+        written_calls.extend((file.name, call) for call in record.get('written_source_calls', []))
         links.links.update(re.findall(r'https://github\.com/[^\s"<>]+/blob/[a-f0-9]{40}/[^\s"<>]+\.lean(?:#L\d+(?:-L\d+)?)?',file.read_text('utf8')))
     ix=sqlite3.connect((args.index/'archive-index.sqlite').as_uri()+'?mode=ro',uri=True) if args.index else None
     @lru_cache(maxsize=None)
@@ -54,6 +57,21 @@ def main():
         a,b=int(m[4] or 1),int(m[5] or m[4] or 1)
         if not (1<=a<=b<=len(src)): errors.append(f'Outside {len(src)} lines: {url}')
         count+=1
+    # A written name can be namespace-qualified in the ledger and unqualified
+    # in Lean. Match its complete final identifier, including any trailing prime.
+    primary = corpus['primary_mirror']['url'].removeprefix('https://github.com/').rstrip('/')
+    for filename, call in written_calls:
+        site = call['callsite']
+        repo, pin = repos[site.get('repository', primary)]
+        if site.get('commit', pin) != pin:
+            errors.append(f"{filename}: unexpected revision for {site['path']}")
+            continue
+        source_lines = lines(repo, pin, site['path'])
+        line = site['line']
+        identifier = call['callee'].rsplit('.', 1)[-1]
+        pattern = rf"(?<![\w']){re.escape(identifier)}(?![\w'])"
+        if not 1 <= line <= len(source_lines) or not re.search(pattern, source_lines[line - 1]):
+            errors.append(f"{filename}: {identifier} missing at {site['path']}:{line}")
     if errors: raise ValueError('\n'.join(errors))
-    print(f'Found every cited source and checked {count} pinned URLs and their line ranges.')
+    print(f'Checked {count} pinned URLs and their line ranges, and {len(written_calls)} written call names at the recorded source lines.')
 if __name__=='__main__':main()

@@ -2,6 +2,13 @@
 
 ## 21 November 2026
 
+- Three written dependencies in the prescribed-prime argument omitted the trailing apostrophe of the wrapper actually called in Lean. The register now gives each wrapper’s exact identifier. The source-line check distinguishes a name ending in an apostrophe from the unprimed name.
+
+- The finite Satake identity determines an average over the cosets in a double class. On the twelve terms of the rank-two example the induced values at α = 1 are 1/3, 1 and 3, while the normalized zonal coefficient is 2/3 on the class. When the original coefficient is zero at the identity, testing its Hecke equation on each double-class indicator gives its vanishing everywhere.
+- The central unit-torus average preserves the original periods by a basepoint prism. The subsequent Haar average gives a tensor at the identity, which transports to an invariant form because the stabilizer fixes it. Equality of the periods of this invariant form uses the two Hecke rates. In the initial cocycle-to-form construction the orientation sign already matters in degree one.
+- The zero-density estimate counts primitive characters that admit a zero. It chooses one zero per character and sets aside at most one character of conductor one. The quadratic-twist second moment allows an exceptional squarefree part as well as the ordinary square class. Its common-height bound precedes the argument that allows each prime to select a different height.
+- In the height-two logarithm comparison the Frobenius on the coefficients must also act on a substituted series. At p = 5 a Teichmüller unit of order 31 makes the error from omitting that action visible in degree 25.
+
 - The quotient in the inert integral consists of cosets gK, obtained by multiplying on the right by K. A representative for each smaller coset is fixed before comparing radical coordinates. Diagonal matrices with outer valuations +1 and −1 can have the same length and the same double coset while giving distinct terms. Either of the two final columns can be the only one that detects a denominator.
 - A surface of smaller dimension can have zero ambient volume. The cohomological period estimate first averages the vertices of a closed cycle, then uses an ambient density bound. The local constant depends on the cycle and can be chosen before the form and the iteration. In cusp reduction the real diagonal parameter is the degree root of the idèle norm, as the Gaussian rational line of height 2 and real parameter √2 illustrates.
 

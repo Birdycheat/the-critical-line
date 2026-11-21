@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "The two uses of substitution in the inert elliptic logarithm comparison were traced through their selected suppliers to the coefficient recurrence, Frobenius congruence and its gain under pth powers. Independent checks use a Teichmüller lift in the unramified cubic extension at 5 and the binomial coefficient (625 choose 5).",
+  "claims": [
+    {
+      "id": "LST-01",
+      "chapter": "normalization",
+      "title": "The coefficient denominator and the congruence of the two substituted arguments",
+      "anchor": "normalization-log-substitution",
+      "statement": "For a zero-constant logarithm of integral functional-equation type and n=q^k m>0 with q not dividing m, p^k f_n and p^k τ(f_n) are integral. For integral α, α(T)^q and (τα)(T^q) agree modulo p. Their nth powers agree modulo p^(1+hk) when q=p^h with h≥1.",
+      "hypotheses": "A characteristic-zero ultrametric field with |p|<1, prime p, q=p^h for h≥1, and a coefficient endomorphism inducing the q-power operation modulo p on the valuation ring. HTC uses the complete unramified field, τ=σ² and h=2.",
+      "definitions": [
+        "the integral-error condition Δf=f(T)−(τf)(T^q)/p",
+        "the recurrence at indices divisible by q",
+        "coefficientwise divisibility of a power series",
+        "the binomial gain when raising congruent integral arguments to the pth power"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "IntegralSubst, CoeffBound, PowCongr and FrobCongr",
+          "path": "src/Formalism/TorsionNormIteration/InvIntegralOfClass.lean",
+          "lines": [
+            40,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InvIntegralOfClass.lean#L40-L61"
+        },
+        {
+          "declaration": "sigma_norm_le_one and coeff_split",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            17,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L17-L32"
+        },
+        {
+          "declaration": "coeffBound, preservation of the coefficient bound under the lift",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            53,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L53-L74"
+        },
+        {
+          "declaration": "coeffBound, induction at divisible and nondivisible indices",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            75,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L75-L95"
+        },
+        {
+          "declaration": "main, the lift reduced modulo p",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MemSpanOfNormLe.lean",
+          "lines": [
+            85,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/MemSpanOfNormLe.lean#L85-L106"
+        },
+        {
+          "declaration": "main, agreement of raised and Frobenius-expanded arguments",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MemSpanOfNormLe.lean",
+          "lines": [
+            108,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/MemSpanOfNormLe.lean#L108-L136"
+        },
+        {
+          "declaration": "powp_step, expansion of the difference",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            147,
+            164
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L147-L164"
+        },
+        {
+          "declaration": "powp_step and powpj, divisibility and iteration",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            172,
+            199
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L172-L199"
+        },
+        {
+          "declaration": "pow_sub_pow_bd and powCongr, the remaining power",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+          "lines": [
+            201,
+            232
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean#L201-L232"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "The height-two specialization gives 1+2k in the difference of powers. At p=5, q=25 and n=25 the degree-630 coefficient for α=T+T² is (625 choose 5)=782083984500, of 5-adic valuation 3."
+    },
+    {
+      "id": "LST-02",
+      "chapter": "normalization",
+      "title": "Integral substitution preserves functional-equation type",
+      "anchor": "normalization-log-substitution",
+      "statement": "If f has zero constant term and integral Δf and α is integral with zero constant term, then Δ(f∘α) is integral. In the height-two case the correction from the n=q^k m summand, including the outer division by p, is divisible by p^k. This applies both to α=εT and to the truncated inverse-coordinate substitutions.",
+      "hypotheses": "As in LST-01. The zero constant term makes every affected coefficient a finite sum under formal substitution. The cited theorem permits several formal variables in α, and the active comparison uses one variable.",
+      "definitions": [
+        "A=α(T)^q and B=(τα)(T^q)",
+        "the finite sum of τ(f_n)(A^n−B^n)/p",
+        "the normalized elliptic logarithm and its integral test polynomials"
+      ],
+      "equations": [
+        "normalization-log-substitution-error"
+      ],
+      "dependencies": [
+        "LST-01"
+      ],
+      "sources": [
+        {
+          "declaration": "FunEqSubst_of, definitions and well-defined substitutions",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+          "lines": [
+            43,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean#L43-L65"
+        },
+        {
+          "declaration": "FunEqSubst_of, exact decomposition of the error",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+          "lines": [
+            67,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean#L67-L79"
+        },
+        {
+          "declaration": "FunEqSubst_of, integral first summand and coefficientwise Frobenius congruence",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+          "lines": [
+            81,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean#L81-L96"
+        },
+        {
+          "declaration": "FunEqSubst_of, using the denominator bound and the power gain",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+          "lines": [
+            98,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean#L98-L121"
+        },
+        {
+          "declaration": "FunEqSubst_of, paying for the outer division by p",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+          "lines": [
+            122,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean#L122-L137"
+        },
+        {
+          "declaration": "funEqSubst and funEqHom, selected proofs",
+          "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+          "lines": [
+            17,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/LubinTateExample.lean#L17-L26"
+        },
+        {
+          "declaration": "fin_integral, normalization by the unit and the comparison",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+          "lines": [
+            149,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean#L149-L166"
+        },
+        {
+          "declaration": "funEqInv, substitution hypothesis at an integral truncation",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean",
+          "lines": [
+            66,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean#L66-L76"
+        },
+        {
+          "declaration": "invIntegralOfClass, truncation and isolating the next coefficient",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean",
+          "lines": [
+            208,
+            229
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean#L208-L229"
+        },
+        {
+          "declaration": "FunEqHom_of', the integral inverse-coordinate supplier",
+          "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean",
+          "lines": [
+            110,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean#L110-L117"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "review": "The linear test in W(𝔽₁₂₅) at degree 25 distinguishes the true coefficient Frobenius from the identity. A residue of order 31 is fixed by cubed arithmetic Frobenius but changes under its square, and its Teichmüller lift has τu=u²⁵. The incorrect linear coefficient correction has valuation −1."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "fin_integral",
+      "callee": "Formalism.LT.funEqSubst",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+        "line": 155
+      }
+    },
+    {
+      "caller": "fin_integral",
+      "callee": "Formalism.LT.funEqHom",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgFinA.lean",
+        "line": 165
+      }
+    },
+    {
+      "caller": "funEqSubst",
+      "callee": "FunEqSubst_of",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "funEqSubst",
+      "callee": "CoeffBound_valid",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "funEqSubst",
+      "callee": "PowCongr_valid",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "funEqSubst",
+      "callee": "FrobCongr_valid",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+        "line": 18
+      }
+    },
+    {
+      "caller": "funEqHom",
+      "callee": "funEqSubst",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/LubinTateExample.lean",
+        "line": 26
+      }
+    },
+    {
+      "caller": "powpj",
+      "callee": "powp_step",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/SigmaNormLeOne.lean",
+        "line": 198
+      }
+    },
+    {
+      "caller": "FunEqSubst_of",
+      "callee": "h5",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+        "line": 106
+      }
+    },
+    {
+      "caller": "FunEqSubst_of",
+      "callee": "h6",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/NormSigmaLeOne.lean",
+        "line": 110
+      }
+    },
+    {
+      "caller": "funEqInv",
+      "callee": "hk",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/MapSubtypeInjective.lean",
+        "line": 75
+      }
+    },
+    {
+      "caller": "invIntegralOfClass",
+      "callee": "hP",
+      "callsite": {
+        "path": "src/Formalism/TorsionNormIteration/InverseIntegralClasses/InvInt.lean",
+        "line": 223
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LST-01",
+      "LST-02"
+    ],
+    [
+      "LST-02",
+      "HTC-03"
+    ]
+  ],
+  "outstanding": [
+    "The coefficient-ring Frobenius lift, the corrected normalization unit ε, the elliptic functional equation and the formal compositional inverse are the separately identified inputs in HTC. The substitution proof does not require completeness in the characteristic-zero ultrametric theorem."
+  ]
+}
