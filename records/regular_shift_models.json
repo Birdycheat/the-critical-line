@@ -1,0 +1,915 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "RTC-01",
+      "chapter": "normalization",
+      "anchor": "normalization-regular-shift-models",
+      "title": "Building the discrete series at each regular shifted weight",
+      "hypotheses": "The group is U(p,q) with 1≤q≤p, m=p+q. The discrete series π has a strictly decreasing Harish-Chandra parameter λ with the required weight lattice and opposite-sign gap h≥200m³.",
+      "statement": "A lowering at s gives a model with the original signature precisely at a regular shifted parameter. Compact-finite tensor coefficients are finite sums of shifted coefficients, and each shifted model supplies a nonzero diagonal coefficient expressible using the tensor.",
+      "definitions": [
+        "K-finite means that the span of all compact translates of the vector is finite-dimensional.",
+        "On a lowest compact type the normalized kernel supplies coefficient functions in L²(G). Their differential span and Hilbert closure realize the shifted model."
+      ],
+      "dependencies": [
+        "RTC-04"
+      ],
+      "equations": [
+        "normalization-regular-coefficient-expansion"
+      ],
+      "sources": [
+        {
+          "declaration": "CompanionTheory.Zuck.thr_le",
+          "label": "The cubic gap threshold",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ZuckermanLibraryBounds.lean",
+          "lines": [
+            16,
+            29
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.thr_le": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ZuckermanLibraryBounds.lean#L16-L29"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_family",
+          "label": "One uniform allowance for admissible unit shifts",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+          "lines": [
+            34,
+            52
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_family": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean#L34-L52"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.jfun",
+          "label": "Scalar functions from the lowest compact type",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EqZeroOfDatumEmbeddingEqZero.lean",
+          "lines": [
+            37,
+            45
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.jfun": 37,
+            "ReciprocityTheory.ChartRestriction.DS.datumV": 43
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EqZeroOfDatumEmbeddingEqZero.lean#L37-L45",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.datumV"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.Hlam",
+          "label": "The Hilbert closure and restricted regular action",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/DatumEmbeddingMemHlam.lean",
+          "lines": [
+            104,
+            113
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.Hlam": 104,
+            "ReciprocityTheory.ChartRestriction.DS.sigLam": 111
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/DatumEmbeddingMemHlam.lean#L104-L113",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.sigLam"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.isDS_sigLam",
+          "label": "Irreducibility, square integrability and lowest type of the model",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/IsDSSigLam.lean",
+          "lines": [
+            34,
+            42
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.isDS_sigLam": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/IsDSSigLam.lean#L34-L42"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_pole",
+          "label": "The obstruction at a singular shift",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+          "lines": [
+            54,
+            76
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_pole": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean#L54-L76"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_toSum_core",
+          "label": "Finite expansion by nonzero eigenspaces",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+          "lines": [
+            78,
+            122
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_toSum_core": 78
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean#L78-L122"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_ofSum_core",
+          "label": "Recovering a coefficient of a shifted model in the tensor",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+          "lines": [
+            124,
+            148
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_ofSum_core": 124
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean#L124-L148"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_zuckd_nc",
+          "label": "Transport of both coefficient identities to the given discrete series",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+          "lines": [
+            222,
+            280
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_zuckd_nc": 222
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean#L222-L280"
+        }
+      ]
+    },
+    {
+      "id": "RTC-02",
+      "chapter": "normalization",
+      "anchor": "normalization-regular-shift-averaging",
+      "title": "Obtaining and separating smooth tensor maps by averaging",
+      "hypotheses": "Under the hypotheses of the regular shift theorem, use an inversion-invariant Haar measure on the unitary group. The compact-finite coefficient identities hold and the original coefficient has decay of order m²+2 in the group size.",
+      "statement": "An inverse tensor coefficient averaged against a translated vector in a shifted model gives a smooth intertwining map. For every regular shift there is a nonzero map, and the common kernel of all maps to all shifted models is zero.",
+      "definitions": [
+        "The test coefficient evaluates one coordinate of A(g⁻¹)x against a smooth test vector.",
+        "The formal degree dπ is defined for the same Haar measure as both integrals."
+      ],
+      "dependencies": [
+        "RTC-01"
+      ],
+      "equations": [
+        "normalization-regular-averaging-map",
+        "normalization-regular-recover-coordinate"
+      ],
+      "sources": [
+        {
+          "declaration": "CompanionTheory.Zuck.CoefIn",
+          "label": "The two directions of comparison have different quantifiers",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/IsSimpleFam.lean",
+          "lines": [
+            208,
+            215
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.CoefIn": 208,
+            "CompanionTheory.Zuck.CoefOf": 212
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/IsSimpleFam.lean#L208-L215",
+          "related_declarations": [
+            "CompanionTheory.Zuck.CoefOf"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.integrable_gN",
+          "label": "An integrable power of the group size",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            183,
+            216
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.integrable_gN": 183
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L183-L216"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.schur_GM",
+          "label": "Mixed Schur orthogonality with one Haar measure",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            219,
+            225
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.schur_GM": 219
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L219-L225"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.cf",
+          "label": "Coefficient of an inverse action on a column",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            233,
+            238
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.cf": 233,
+            "CompanionTheory.D.gk.FinalFormK.cf_eq": 236
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L233-L238",
+          "related_declarations": [
+            "CompanionTheory.D.gk.FinalFormK.cf_eq"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.cf_bound",
+          "label": "One degree of growth and an integrable remaining power",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            252,
+            279
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.cf_bound": 252
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L252-L279"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.exists_pr",
+          "label": "Averaging, equivariance and smoothness",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            298,
+            340
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.exists_pr": 298
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L298-L340"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.occurrence_induction",
+          "label": "A nonzero diagonal coefficient yields a nonzero map",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            353,
+            378
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.occurrence_induction": 353
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L353-L378"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.injectivity_induction",
+          "label": "Cancellation of the finite-dimensional matrices followed by cyclicity",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            388,
+            458
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.injectivity_induction": 388
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L388-L458"
+        },
+        {
+          "declaration": "CompanionTheory.Zuck.injV",
+          "label": "Applying the two comparisons at a regular shift",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean",
+          "lines": [
+            176,
+            185
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.injV": 176
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean#L176-L185"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.kfin_sm",
+          "label": "Compact-finite vectors of the discrete series are smooth",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+          "lines": [
+            349,
+            352
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.kfin_sm": 349
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean#L349-L352"
+        }
+      ]
+    },
+    {
+      "id": "RTC-03",
+      "chapter": "normalization",
+      "anchor": "normalization-regular-shift-multiplicity",
+      "title": "Why each regular shifted coordinate occurs just once",
+      "hypotheses": "With the same regular parameter and gap, the averaging maps separate smooth tensors for the defining and dual defining representations, including the required reverse and second regular shifts.",
+      "statement": "A second lowering has a Casimir scalar different from the scalar required of a trace-zero double tensor. Contraction thus detects every intertwiner from π to the defining tensor with πs. Schur’s lemma bounds that space by one dimension. Tensor adjunction and joint separation give a direct sum with one copy of each regular model.",
+      "definitions": [
+        "The quadratic Casimir scalar is the sum of squares of the Harish-Chandra coordinates minus a fixed rank constant.",
+        "Contraction on V⊗V* is the trace. The fixed reverse inclusion and a variable forward map yield an endomorphism of the shifted model after contraction."
+      ],
+      "dependencies": [
+        "RTC-02"
+      ],
+      "equations": [
+        "normalization-regular-second-shift"
+      ],
+      "sources": [
+        {
+          "declaration": "CompanionTheory.Zuck.casG_shift",
+          "label": "The scalar after one and two shifts",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean",
+          "lines": [
+            100,
+            123
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.casG_shift": 100,
+            "CompanionTheory.Zuck.cas_ne": 113
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean#L100-L123",
+          "related_declarations": [
+            "CompanionTheory.Zuck.cas_ne"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+          "label": "Reverse translation, tensor adjunction and the application of multiplicity one",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+          "lines": [
+            23,
+            64
+          ],
+          "declaration_lines": {
+            "PositivityTheory.UnitaryDecomposition.DecA.decReg": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean#L23-L64"
+        },
+        {
+          "declaration": "CompanionTheory.Zuck.qMat_vr",
+          "label": "The quadratic cross term on a vector and a covector",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean",
+          "lines": [
+            74,
+            82
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.qMat_vr": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean#L74-L82"
+        },
+        {
+          "declaration": "CompanionTheory.Zuck.multOne_of",
+          "label": "Contraction detects an intertwiner by the two partial Casimirs",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean",
+          "lines": [
+            90,
+            155
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.multOne_of": 90
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean#L90-L155"
+        },
+        {
+          "declaration": "CompanionTheory.Zuck.decomposition_of_injective",
+          "label": "Normalizing the projections and exhausting the smooth tensor",
+          "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/DecompositionOfInjective.lean",
+          "lines": [
+            14,
+            55
+          ],
+          "declaration_lines": {
+            "CompanionTheory.Zuck.decomposition_of_injective": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/DecompositionOfInjective.lean#L14-L55"
+        },
+        {
+          "declaration": "PositivityTheory.UnitaryDecomposition.DecB.dec_U",
+          "label": "Checking the threshold and splitting at the regular indices",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+          "lines": [
+            45,
+            65
+          ],
+          "declaration_lines": {
+            "PositivityTheory.UnitaryDecomposition.DecB.dec_U": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean#L45-L65"
+        },
+        {
+          "declaration": "CompanionTheory.D.gk.FinalFormK.kerZero'",
+          "label": "A nonzero smooth kernel vector and approximation of all derivatives",
+          "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/LieAlgebraHomomorphism.lean",
+          "lines": [
+            185,
+            219
+          ],
+          "declaration_lines": {
+            "CompanionTheory.D.gk.FinalFormK.kerZero'": 185
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/LieAlgebraHomomorphism.lean#L185-L219"
+        }
+      ]
+    },
+    {
+      "id": "RTC-04",
+      "chapter": "normalization",
+      "anchor": "normalization-regular-shift-residues",
+      "title": "Using finite moments and positivity to exclude a singular lowering",
+      "hypotheses": "The hypotheses of regular tensor translation hold on the tensor generated by the lowest compact type. The finite spectral decomposition, the central-character moments and the positive partial-trace formula are available there.",
+      "statement": "A candidate pole for the negative dual tensor differential has a nonzero eigenspace precisely when the product of the unit-lowering residue factors is nonzero. A tie with the next weight forces one factor to vanish.",
+      "definitions": [
+        "The partial trace sums the diagonal entries as operators on the original module.",
+        "Lagrange interpolation on the finite union of both spectral supports recovers the total weight at each individual value."
+      ],
+      "dependencies": [],
+      "equations": [
+        "normalization-regular-residue-moments"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.eeVd",
+          "label": "The sign of the dual tensor differential",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean",
+          "lines": [
+            19,
+            24
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.eeVd": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean#L19-L24"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.resSeries",
+          "label": "The formal generating series and its candidate poles",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Resolvent.lean",
+          "lines": [
+            16,
+            21
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.resSeries": 16,
+            "ReciprocityTheory.ChartRestriction.DS.poleVd": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Resolvent.lean#L16-L21",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.poleVd"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.ratioVd",
+          "label": "The residues for a unit lowering",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Residue.lean",
+          "lines": [
+            11,
+            15
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.ratioVd": 15
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Residue.lean#L11-L15"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+          "label": "Finite spectral projectors and equality of their partial-trace moments",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+          "lines": [
+            103,
+            155
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.pm_core": 94
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean#L103-L155"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.moment_fibre",
+          "label": "Polynomial interpolation isolates the weight at one value",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/MomentMatch.lean",
+          "lines": [
+            22,
+            46
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.moment_fibre": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/MomentMatch.lean#L22-L46"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core",
+          "label": "The positive sum of squared norms for a lowest-type test vector",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean",
+          "lines": [
+            74,
+            99
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tf_trace_core": 59
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormulaI.lean#L74-L99"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg",
+          "label": "Vanishing propagates from the lowest compact type to the generated tensor",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+          "lines": [
+            97,
+            135
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg": 89
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean#L97-L135"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.pole_zero",
+          "label": "A zero residue is equivalent to absence of eigenvectors",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatch.lean",
+          "lines": [
+            45,
+            77
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.pole_zero": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatch.lean#L45-L77"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.ccA_ratio_zero",
+          "label": "A colliding shifted parameter makes one numerator zero",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+          "lines": [
+            71,
+            83
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.ccA_ratio_zero": 71
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean#L71-L83"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_family",
+      "callee": "cns_data'",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 47,
+        "spelling": "cns_data'"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_zuckd_nc",
+      "callee": "cns_family",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 231,
+        "spelling": "cns_family"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_zuckd_nc",
+      "callee": "cns_toSum_core",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 252,
+        "spelling": "cns_toSum_core"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_zuckd_nc",
+      "callee": "cns_ofSum_core",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 265,
+        "spelling": "cns_ofSum_core"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_pole",
+      "callee": "pole_match",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 72,
+        "spelling": "pole_match"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_pole",
+      "callee": "pole_zero",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 76,
+        "spelling": "pole_zero"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_toSum_core",
+      "callee": "ee_decomp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 97,
+        "spelling": "ee_decomp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_toSum_core",
+      "callee": "cns_pole",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 108,
+        "spelling": "cns_pole"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_toSum_core",
+      "callee": "cns_term",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 111,
+        "spelling": "cns_term"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_ofSum_core",
+      "callee": "cc_gk",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 141,
+        "spelling": "cc_gk"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_ofSum_core",
+      "callee": "coef_of_emb",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 145,
+        "spelling": "coef_of_emb"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.occurrence_induction",
+      "callee": "schur_GM",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 359,
+        "spelling": "schur_GM"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.occurrence_induction",
+      "callee": "exists_pr",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 363,
+        "spelling": "exists_pr"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.injectivity_induction",
+      "callee": "exists_kfin",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 392,
+        "spelling": "exists_kfin"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.injectivity_induction",
+      "callee": "schur_GM",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 394,
+        "spelling": "schur_GM"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.injectivity_induction",
+      "callee": "exists_pr",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 406,
+        "spelling": "exists_pr"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.exists_pr",
+      "callee": "cf_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 302,
+        "spelling": "cf_bound"
+      }
+    },
+    {
+      "caller": "CompanionTheory.D.gk.FinalFormK.exists_pr",
+      "callee": "integrable_gN",
+      "callsite": {
+        "path": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/OrbitDerivatives/EtaleClosedPointLiftsSimpleRootsMonic.lean",
+        "line": 304,
+        "spelling": "integrable_gN"
+      }
+    },
+    {
+      "caller": "CompanionTheory.Zuck.cas_ne",
+      "callee": "casG_shift",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/ShiftApply.lean",
+        "line": 117,
+        "spelling": "casG_shift"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+      "callee": "injV",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 31,
+        "spelling": "injV"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+      "callee": "gap_shift",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 31,
+        "spelling": "gap_shift"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+      "callee": "shift_shift",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 32,
+        "spelling": "shift_shift"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+      "callee": "iso_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 35,
+        "spelling": "iso_of"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecA.decReg",
+      "callee": "cas_ne",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/CasApply.lean",
+        "line": 56,
+        "spelling": "cas_ne"
+      }
+    },
+    {
+      "caller": "PositivityTheory.UnitaryDecomposition.DecB.dec_U",
+      "callee": "decReg",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/CasimirDecomposition/UnitaryDecompositionExists.lean",
+        "line": 63,
+        "spelling": "decReg"
+      }
+    },
+    {
+      "caller": "CompanionTheory.Zuck.multOne_of",
+      "callee": "qMat_vr",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean",
+        "line": 113,
+        "spelling": "qMat_vr"
+      }
+    },
+    {
+      "caller": "CompanionTheory.Zuck.multOne_of",
+      "callee": "hom_cas",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ZuckermanCommutation/ZuckermanFunctors/MultOne.lean",
+        "line": 131,
+        "spelling": "hom_cas"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+      "callee": "ee_decomp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+        "line": 115,
+        "spelling": "ee_decomp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+      "callee": "trace_nonneg",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+        "line": 121,
+        "spelling": "trace_nonneg"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+      "callee": "resSeries_coeff_succ",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+        "line": 143,
+        "spelling": "resSeries_coeff_succ"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+      "callee": "pm_char",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+        "line": 146,
+        "spelling": "pm_char"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pm_core",
+      "callee": "moment_fibre",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatchA.lean",
+        "line": 152,
+        "spelling": "moment_fibre"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.pole_zero",
+      "callee": "pm_core",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PoleMatch.lean",
+        "line": 55,
+        "spelling": "pm_core"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_pole",
+      "callee": "ccA_ratio_zero",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerB.lean",
+        "line": 75,
+        "spelling": "ccA_ratio_zero"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.trace_nonneg",
+      "callee": "tf_trace_core",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/TraceFormula.lean",
+        "line": 108,
+        "spelling": "tf_trace_core"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RTC-01",
+      "RTC-02"
+    ],
+    [
+      "RTC-02",
+      "RTC-03"
+    ],
+    [
+      "RTC-03",
+      "STM-01"
+    ],
+    [
+      "RTC-04",
+      "RTC-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Gregg Zuckerman, Tensor products of finite and infinite dimensional representations of semisimple Lie groups, Annals of Mathematics 106 (1977), 295–308",
+      "url": "https://annals.math.princeton.edu/articles/196-1/p05"
+    },
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, Journal of Functional Analysis 21 (1976), 209–243",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    }
+  ],
+  "outstanding": [
+    "The construction of the normalized lowest-type kernels, the spectral decomposition before matching its poles, the positive partial-trace formula on each coefficient space, and the embedding of a regular algebraic model have distinct upstream proofs. The regular/singular pole criterion, smooth-model assembly, averaging and multiplicity are reconstructed here."
+  ]
+}

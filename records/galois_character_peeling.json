@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GCP-01",
+      "chapter": "lifts",
+      "anchor": "lifts-galois-character-transfer",
+      "title": "A single simultaneous intertwiner transfers the prescribed character into the first lift",
+      "hypotheses": "Two semisimple representations and two lists of rank-one characters over an algebraically closed field of characteristic zero. In the Galois application all objects are continuous, the two lifted Satake multisets have a common part and the chosen split primes have dense inverse Frobenius classes outside every finite set.",
+      "statement": "The augmented direct sums are isomorphic as group representations. A character on the first list gives a common eigenvector in the first lift whenever it differs as a global character from every character on the second list.",
+      "equations": [
+        "lifts-galois-character-augmented",
+        "lifts-galois-character-projection"
+      ],
+      "dependencies": [
+        "LFT-05"
+      ],
+      "sources": [
+        {
+          "label": "The allowed split places and density after finite exclusions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            22,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L22-L33",
+          "declaration": "UpperTheory.Gal.TP.GoodGuard",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.GoodGuard": 22
+          }
+        },
+        {
+          "label": "A common local multiset gives the global polynomial identity",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            52,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L52-L86",
+          "declaration": "UpperTheory.Gal.TP.frobIdQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.frobIdQ": 52
+          }
+        },
+        {
+          "label": "Extending the identity in the coefficient-field topology",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PDenseId.lean",
+          "lines": [
+            13,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PDenseId.lean#L13-L35",
+          "declaration": "UpperTheory.Gal.TP.Sub.denseId_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.denseId_holds": 12
+          }
+        },
+        {
+          "label": "Brauer–Nesbitt in matrix form",
+          "path": "src/Formalism/SharpRestriction/LevelLetterCocycles/ExistsInertiaCharpolyFactorOfTameType.lean",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/LevelLetterCocycles/ExistsInertiaCharpolyFactorOfTameType.lean#L29-L55",
+          "declaration": "Formalism.MainNotions.SumRepresentations.brauerNesbitt_matrix",
+          "declaration_lines": {
+            "Formalism.MainNotions.SumRepresentations.brauerNesbitt_matrix": 29
+          }
+        },
+        {
+          "label": "One fixed isomorphism transfers a simultaneous eigenvector",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PEigTransfer.lean",
+          "lines": [
+            13,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PEigTransfer.lean#L13-L34",
+          "declaration": "UpperTheory.Gal.TP.Sub.eigTransfer_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.eigTransfer_holds": 13
+          }
+        },
+        {
+          "label": "Character coordinates and their projections",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PEigSum.lean",
+          "lines": [
+            18,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PEigSum.lean#L18-L66",
+          "declaration": "UpperTheory.Gal.TP.Sub.eigSum_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.eigSum_holds": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "GCP-02",
+      "chapter": "lifts",
+      "anchor": "lifts-galois-character-complement",
+      "title": "Removing one invariant line leaves the same comparison with one fewer entry",
+      "hypotheses": "The first lift is semisimple, contains the transferred line and has dimension at least one. Both lists satisfy cross-list disjointness and the augmented identity holds at every group element.",
+      "statement": "A fixed invariant complement loses one dimension, remains semisimple and continuous when the original representation is continuous, and satisfies the shortened identity. Repetition within a list is allowed.",
+      "equations": [
+        "lifts-galois-character-block",
+        "lifts-galois-character-cancel"
+      ],
+      "dependencies": [
+        "GCP-01"
+      ],
+      "sources": [
+        {
+          "label": "The general single-character subtraction statement",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean",
+          "lines": [
+            53,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean#L53-L57",
+          "declaration": "UpperTheory.Gal.TP.Sub.PeelOne",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.PeelOne": 53
+          }
+        },
+        {
+          "label": "Complement, adapted basis and block diagonalization",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSplitLine.lean",
+          "lines": [
+            100,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PSplitLine.lean#L100-L132",
+          "declaration": "UpperTheory.Gal.TP.Sub.splitLine_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.splitLine_holds": 100
+          }
+        },
+        {
+          "label": "Transfer, semisimplicity of the remainder and monic cancellation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelOne.lean",
+          "lines": [
+            13,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelOne.lean#L13-L42",
+          "declaration": "UpperTheory.Gal.TP.Sub.peelOne_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.peelOne_holds": 13
+          }
+        },
+        {
+          "label": "Continuity of a direct summand under fixed conjugacy",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PContLeft.lean",
+          "lines": [
+            36,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PContLeft.lean#L36-L51",
+          "declaration": "UpperTheory.Gal.TP.Sub.contLeft_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.contLeft_holds": 36
+          }
+        },
+        {
+          "label": "Recursion on the length of the first list",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean",
+          "lines": [
+            17,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean#L17-L35",
+          "declaration": "UpperTheory.Gal.TP.Sub.peelAll_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.peelAll_holds": 17
+          }
+        }
+      ]
+    },
+    {
+      "id": "GCP-03",
+      "chapter": "lifts",
+      "anchor": "lifts-galois-character-local",
+      "title": "The same residual representation preserves prescribed local data at every applicable place",
+      "hypotheses": "Fix ℓ and the coefficient embedding. Give the lifted row and its individual character lines at a place with compatible multisets of Frobenius parameters and filtered jumps. For the automorphic application assume the prescribed odd-rank local statements and the two-lift theorem.",
+      "statement": "A rank-n continuous semisimple residual representation satisfies every consequent local comparison for that choice of lifts. Twisting back and identifying weakly attached representatives yields a common representation at every permitted split place carrying Satake data.",
+      "equations": [
+        "lifts-galois-character-multisets",
+        "lifts-galois-character-untwist"
+      ],
+      "dependencies": [
+        "GCP-02"
+      ],
+      "sources": [
+        {
+          "label": "One residual representation precedes every local test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean",
+          "lines": [
+            115,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean#L115-L121",
+          "declaration": "UpperTheory.Gal.TP.Sub.PeelAll",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.PeelAll": 115
+          }
+        },
+        {
+          "label": "Removing one occurrence from each multiset in the induction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean",
+          "lines": [
+            36,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PPeelAll.lean#L36-L51",
+          "declaration": "UpperTheory.Gal.TP.Sub.peelAll_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.peelAll_holds": 17
+          }
+        },
+        {
+          "label": "Restriction to a summand away from and above ℓ",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PClSub.lean",
+          "lines": [
+            36,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PClSub.lean#L36-L64",
+          "declaration": "UpperTheory.Gal.TP.Sub.clSub_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.clSub_holds": 36
+          }
+        },
+        {
+          "label": "The two odd-rank lifts feed the comparison and the extraction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            103,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L103-L145",
+          "declaration": "UpperTheory.Gal.TP.atPlaceQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.atPlaceQ": 103
+          }
+        },
+        {
+          "label": "Restoring normalized parameters and embedding-indexed jumps",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            146,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L146-L174",
+          "declaration": "UpperTheory.Gal.TP.atPlaceQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.atPlaceQ": 103
+          }
+        },
+        {
+          "label": "Identifying weak representatives on the dense set",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            88,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L88-L101",
+          "declaration": "UpperTheory.Gal.TP.weakIsoQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.weakIsoQ": 88
+          }
+        },
+        {
+          "label": "Existence and strong local data on the specified set of split places",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            195,
+            209
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L195-L209",
+          "declaration": "UpperTheory.Gal.TP.subtractQ_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.subtractQ_of": 200
+          }
+        },
+        {
+          "label": "Using subtraction for the even-rank case",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+          "lines": [
+            211,
+            220
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean#L211-L220",
+          "declaration": "UpperTheory.Gal.TP.allCoreQ_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.allCoreQ_of": 216
+          }
+        },
+        {
+          "label": "Subtraction used in the odd-rank descent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+          "lines": [
+            31,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean#L31-L35",
+          "declaration": "UpperTheory.Gal.Int.Core.subtractQ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.subtractQ_holds": 31
+          }
+        },
+        {
+          "label": "Assembling single-character extraction and local inheritance",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+          "lines": [
+            43,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean#L43-L51",
+          "declaration": "UpperTheory.Gal.TP.Sub.peelAll",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.peelAll": 49
+          }
+        },
+        {
+          "label": "The corresponding formulation on all split places",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean",
+          "lines": [
+            182,
+            189
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractOf.lean#L182-L189",
+          "declaration": "UpperTheory.Gal.TP.Sub.subtract_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.TP.Sub.subtract_of": 182
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.eigTransfer_holds",
+      "callee": "Formalism.MainNotions.SumRepresentations.brauerNesbitt_matrix",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PEigTransfer.lean",
+        "line": 20,
+        "spelling": "Formalism.MainNotions.SumRepresentations.brauerNesbitt_matrix"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.atPlaceQ",
+      "callee": "UpperTheory.Gal.TP.frobIdQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+        "line": 131,
+        "spelling": "frobIdQ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.peelAll_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "peelAll_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.peelOne_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "peelOne_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.eigTransfer_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "eigTransfer_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.eigSum_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "eigSum_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.splitLine_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "splitLine_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.sSLeft_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "sSLeft_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.cpFacts_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "cpFacts_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.dgFacts_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 50,
+        "spelling": "dgFacts_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.contLeft_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 51,
+        "spelling": "contLeft_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.clConj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 51,
+        "spelling": "clConj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callee": "UpperTheory.Gal.TP.Sub.clSub",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 51,
+        "spelling": "clSub"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.clSub",
+      "callee": "UpperTheory.Gal.TP.Sub.clSub_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/SubtractHolds.lean",
+        "line": 45,
+        "spelling": "clSub_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.clSub_holds",
+      "callee": "GlobalTheory.T.weilDeligneParamAboveL_directSum_potSemistable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PClSub.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.weilDeligneParamAboveL_directSum_potSemistable"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.Sub.clSub_holds",
+      "callee": "GlobalTheory.PstLaws.unr_wdAt_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SplitLineSubtraction/PClSub.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.PstLaws.unr_wdAt_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.subtractQ_of",
+      "callee": "UpperTheory.Gal.TP.atPlaceQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+        "line": 206,
+        "spelling": "atPlaceQ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.TP.subtractQ_of",
+      "callee": "UpperTheory.Gal.TP.weakIsoQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/CoreAtQIffRowQ.lean",
+        "line": 209,
+        "spelling": "weakIsoQ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.subtractQ_holds",
+      "callee": "UpperTheory.Gal.TP.subtractQ_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 32,
+        "spelling": "subtractQ_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.subtractQ_holds",
+      "callee": "UpperTheory.Gal.TP.Sub.peelAll",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 32,
+        "spelling": "Sub.peelAll"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinAll_holds",
+      "callee": "UpperTheory.Gal.Int.Core.subtractQ_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 35,
+        "spelling": "subtractQ_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinAll_of",
+      "callee": "UpperTheory.Gal.TP.allCoreQ_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinAll.lean",
+        "line": 28,
+        "spelling": "allCoreQ_of"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LFT-05",
+      "GCP-01"
+    ],
+    [
+      "GCP-01",
+      "GCP-02"
+    ],
+    [
+      "GCP-02",
+      "GCP-03"
+    ],
+    [
+      "GCP-03",
+      "LFT-07"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "Andrew V. Sutherland, Number Theory I, Lecture 28, Theorem 28.9 (Chebotarev density)",
+      "url": "https://math.mit.edu/classes/18.785/2021fa/LectureNotes28.pdf"
+    },
+    {
+      "title": "Pavel Etingof et al., Introduction to Representation Theory, Theorems 2.5(ii) and 2.17(i) (simultaneous density and independence of characters)",
+      "url": "https://math.mit.edu/~etingof/replect.pdf#page=24"
+    },
+    {
+      "title": "Laurent Berger, Représentations p-adiques et équations différentielles (de Rham implies potentially semistable)",
+      "url": "https://arxiv.org/abs/math/0102179"
+    },
+    {
+      "title": "Jean-Marc Fontaine, Représentations ℓ-adiques potentiellement semi-stables, Astérisque 223 (1994), §§2.1.1, 2.3.3 (good reduction and the Deligne module)",
+      "url": "https://www.numdam.org/article/AST_1994__223__321_0.pdf"
+    }
+  ],
+  "outstanding": []
+}

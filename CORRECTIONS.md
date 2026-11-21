@@ -118,3 +118,11 @@ The shorter account of transverse compactness described a single largest coordin
 ### The threshold for a scalar count in an isotropic shell
 
 The upper branch of the two-radius comparison includes the threshold itself. In the half-Gaussian example its value there is 25 and the exact nonzero count is still zero. Four vectors enter later, at closed radius one half. The chapter now derives the dimension of the scalar count after pairing and specifies which branch applies at equality. [Dilation and the threshold](book.html#lifts-adelic-box-count)
+
+### The dimension retained in the minor-list sum
+
+The count at each minor size carries the number of columns in one word's source space. The common row dimension enters later, when all words map into the same row space. The text now keeps those two quantities distinct before summing ordered word pairs. [The end of the list count](book.html#global-diagonal-rank-sum) · [The common row map](book.html#global-minor-frame-rank)
+
+### The set of split places in Galois subtraction
+
+The earlier summary said that the construction is repeated at every split place. In the argument used to obtain the common companion, a specified set of split places has Frobenius classes dense after any finite exclusion. The local conclusion is obtained at each place in that set with the requisite data. The related statement covering all split places uses its own hypotheses. [Recovering the even-dimensional representation](book.html#lifts-subtract)

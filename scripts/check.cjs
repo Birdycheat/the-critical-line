@@ -141,6 +141,56 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Directly enumerate which coordinate signs fix each proposed character vector.
+for (const element of ["00", "01", "10", "11"]) {
+  for (const candidate of ["pure", "mixed"]) {
+    const display = lib.render("galois-character-peeling", {element, candidate});
+    const tests = [...display.matchAll(/<dd>(.*?)<\/dd>/g)].map(m => m[1]);
+    const equal = candidate === "pure" || ["00", "11"].includes(element);
+    assert.deepEqual(tests, [equal ? "Equal" : "Different", candidate === "pure" ? "4 of 4" : "2 of 4"]);
+  }
+}
+// Test strict ordering and the eigenvalue independently of the rendering branch.
+for (const gap of [1, 2, 3]) {
+  for (const position of [1, 2, 3]) {
+    const html = lib.render("regular-unit-shift", {gap, position});
+    const cells = [...html.matchAll(/<td>(-?\d+)<\/td>/g)].map(m => Number(m[1]));
+    assert.deepEqual(cells.slice(3), [6000 + gap - Number(position === 1), 6000 - Number(position === 2), position === 3 ? -1 : 0]);
+    const collision = position === 1 && gap === 1;
+    const result = [...html.matchAll(/<dd>(.*?)<\/dd>/g)].map(m => m[1]);
+    assert.deepEqual(result.slice(0, 2), [collision ? "Two equal entries" : "Regular", collision ? "No summand" : String([6001 + gap, 6001, 1][position - 1])]);
+  }
+}
+// Partial fractions at a point away from the poles independently test the displayed weights.
+for (const gap of [1, 2, 3]) {
+  const poles = [-6001 - gap, -6001, -1];
+  const residues = poles.map((_, i) => {
+    const html = lib.render("regular-unit-shift", {gap, position: i + 1});
+    const fraction = [...html.matchAll(/<dd>(.*?)<\/dd>/g)][2][1];
+    const [a, b = 1] = fraction.split("/").map(Number);
+    return a / b;
+  });
+  close(residues.reduce((a, b) => a + b), 3, 1e-12);
+  for (const u of [-6000.5, -5999.5, -0.5]) {
+    const original = poles.reduce((product, a) => product * (1 + 1 / (u - a)), 1) - 1;
+    close(residues.reduce((sum, r, i) => sum + r / (u - poles[i]), 0), original, 1e-12);
+  }
+}
+// Compute the discriminant from the Gram entry and the field degree in each plane.
+for (const [prime, a, b] of [[11, 3, 1], [59, 3, 5], [83, 9, 1]]) {
+  assert.equal(a * a + 2 * b * b, prime);
+  assert.equal(prime % 12, 11);
+  for (const plane of ["standard", "defect"]) {
+    const html = lib.render("hyperplane-mass-stratum", {prime, plane});
+    const cells = [...html.matchAll(/<td>([^<]*)<\/td>/g)].map(m => m[1]);
+    const [order, badProduct, index] = cells.slice(1).map(Number);
+    assert.equal(order, prime ** 4);
+    assert.equal((badProduct * index) ** 2, order);
+    assert.equal(plane === "standard" ? index : badProduct, prime ** 2);
+    const bound = [...html.matchAll(/<dd>(.*?)<\/dd>/g)].map(m => m[1]);
+    assert.deepEqual(bound, [badProduct === 1 ? "1" : "1/" + order, String(badProduct ** 2)]);
+  }
+}
 // Recover both projections by inner products and enumerate the residue pairs modulo T+1.
 for (const weight of [1, 2, 5]) {
   const u = [1, 1], w = [-weight, 1];
@@ -1447,5 +1497,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

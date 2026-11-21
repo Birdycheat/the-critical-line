@@ -102,7 +102,14 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "gluing-residues") {
+        if (id === "galois-character-peeling") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(1, 1)", "(−1, −1)", "(−1, −1)"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Equal", "2 of 4"]);
+        } else if (id === "regular-unit-shift") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Two equal entries", "No summand", "0"]);
+        } else if (id === "hyperplane-mass-stratum") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["e₂", "14641", "1", "121"]);
+        } else if (id === "gluing-residues") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["1/3", "1/3", "−1/3", "2/3"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "0"]);
         } else if (id === "rational-line-orbit") {

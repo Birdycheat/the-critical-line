@@ -1,0 +1,720 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "IBO-01",
+      "chapter": "normalization",
+      "anchor": "normalization-initial-branching-moment",
+      "title": "A translated highest vector follows the small diagonal to square-root accuracy",
+      "hypotheses": "The fixed compression frame places the small diagonal d′ in the upper block of the conjugate of diag(d). Let π have admissible parameter λ+td at t≥1 with the stated opposite-sign gap.",
+      "statement": "A conjugated unit lowest-type highest vector η satisfies Qₜ(η) ≤ C₀t. The order-t diagonal error cancels exactly, while squared root derivatives grow at most linearly.",
+      "equations": [
+        "normalization-initial-branching-energy"
+      ],
+      "dependencies": [
+        "IBO-04"
+      ],
+      "sources": [
+        {
+          "label": "Fixed diagonal and off-diagonal constants",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean",
+          "lines": [
+            66,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean#L66-L86",
+          "declaration": "PositivityTheory.RgHe3.second_moment_of_bounds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.second_moment_of_bounds": 66
+          }
+        },
+        {
+          "label": "Separate derivative bounds at compact and noncompact roots",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RootInnerBounds/RootBoundOfSquareIdentity.lean",
+          "lines": [
+            31,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RootInnerBounds/RootBoundOfSquareIdentity.lean#L31-L69",
+          "declaration": "PositivityTheory.RgHe3.root_bound_of_square_identity",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.root_bound_of_square_identity": 31
+          }
+        },
+        {
+          "label": "The compact and full Casimir difference is affine in the scale",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean",
+          "lines": [
+            98,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean#L98-L115",
+          "declaration": "PositivityTheory.RgHe3.second_moment_of_bounds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.second_moment_of_bounds": 66
+          }
+        },
+        {
+          "label": "Trace cancellation of the order-t diagonal after conjugation",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean",
+          "lines": [
+            139,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean#L139-L165",
+          "declaration": "PositivityTheory.RgHe3.second_moment_of_bounds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.second_moment_of_bounds": 66
+          }
+        },
+        {
+          "label": "Collecting the squared errors in the subgroup block",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean",
+          "lines": [
+            178,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean#L178-L197",
+          "declaration": "PositivityTheory.RgHe3.second_moment_of_bounds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.second_moment_of_bounds": 66
+          }
+        }
+      ]
+    },
+    {
+      "id": "IBO-02",
+      "chapter": "normalization",
+      "anchor": "normalization-initial-branching-trial",
+      "title": "Projection to a finite sum of compact types preserves the trial inequality",
+      "hypotheses": "Keep the same fixed directions and frame, with C₀ from the second moment. The ambient Casimir is scalar, and smooth compact-finite vectors are dense.",
+      "statement": "Some nonzero subgroup-smooth, compact-finite x satisfies Qₜ(x) ≤ (8C₀+8)t‖x‖². The compact approximation can be chosen separately at each scale.",
+      "equations": [
+        "normalization-initial-branching-projection",
+        "normalization-initial-branching-trial-quotient"
+      ],
+      "dependencies": [
+        "IBO-01"
+      ],
+      "sources": [
+        {
+          "label": "Discrete-series compact highest vector and density",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/DiscreteSeriesData/DiscreteSeriesDataHolds.lean",
+          "lines": [
+            35,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/DiscreteSeriesData/DiscreteSeriesDataHolds.lean#L35-L70",
+          "declaration": "PositivityTheory.RgHe3.discrete_series_data_holds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.discrete_series_data_holds": 35
+          }
+        },
+        {
+          "label": "The nearest projection and its compact-stable range",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/ApproximationLemma/ApproximationOfSquareIdentity.lean",
+          "lines": [
+            31,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/ApproximationLemma/ApproximationOfSquareIdentity.lean#L31-L54",
+          "declaration": "PositivityTheory.RgHe3.approximation_of_square_identity",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.approximation_of_square_identity": 31
+          }
+        },
+        {
+          "label": "The Casimir identity bounds the derivative error",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/ApproximationLemma/ApproximationOfSquareIdentity.lean",
+          "lines": [
+            55,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/ApproximationLemma/ApproximationOfSquareIdentity.lean#L55-L65",
+          "declaration": "PositivityTheory.RgHe3.approximation_of_square_identity",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.approximation_of_square_identity": 31
+          }
+        },
+        {
+          "label": "Restriction and the trial translated vector",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+          "lines": [
+            58,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean#L58-L76",
+          "declaration": "PositivityTheory.RgHe3.trial_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.trial_of_inputs": 50
+          }
+        },
+        {
+          "label": "Scale-dependent approximation tolerance",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+          "lines": [
+            77,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean#L77-L106",
+          "declaration": "PositivityTheory.RgHe3.trial_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.trial_of_inputs": 50
+          }
+        },
+        {
+          "label": "Lower norm bound and compact finiteness on restriction",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+          "lines": [
+            107,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean#L107-L138",
+          "declaration": "PositivityTheory.RgHe3.trial_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.trial_of_inputs": 50
+          }
+        },
+        {
+          "label": "The two quarter-scale errors and the normalized trial quotient",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+          "lines": [
+            142,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean#L142-L166",
+          "declaration": "PositivityTheory.RgHe3.trial_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.trial_of_inputs": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "IBO-03",
+      "chapter": "normalization",
+      "anchor": "normalization-initial-branching-constituent",
+      "title": "A distant occurring parameter is within a square root of the prescribed direction",
+      "hypotheses": "The subgroup has rank n, the direction d′ is strictly decreasing with gaps ≥1, and the scales are sufficiently large with λ+td a regular gapped ambient parameter.",
+      "statement": "For each such π there is a regular μ′ occurring in π restricted to H with every coordinate within (√(2C)+J+n)√t of td′, where C=8C₀+8 and J=ceil(C)+1. Equivalent models of the same smaller discrete series also embed.",
+      "equations": [
+        "normalization-initial-branching-far-bound"
+      ],
+      "dependencies": [
+        "IBO-02"
+      ],
+      "sources": [
+        {
+          "label": "Choosing a torus weight and compact Casimir at bounded energy",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/CasimirCommutation/CommCasimirCasimirK.lean",
+          "lines": [
+            159,
+            184
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/CasimirCommutation/CommCasimirCasimirK.lean#L159-L184",
+          "declaration": "PositivityTheory.RgHe3.comp_proof",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.comp_proof": 159
+          }
+        },
+        {
+          "label": "Invariant Casimir cut from one small expectation",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RealInnerProducts/CasimirBoundOfInputs.lean",
+          "lines": [
+            153,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RealInnerProducts/CasimirBoundOfInputs.lean#L153-L172",
+          "declaration": "PositivityTheory.RgHe3.casimir_bound_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.casimir_bound_of_inputs": 153
+          }
+        },
+        {
+          "label": "Compact raising and squared weight error",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RootDotNonnegativity/AscentOfSquareIdentity.lean",
+          "lines": [
+            133,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RootDotNonnegativity/AscentOfSquareIdentity.lean#L133-L155",
+          "declaration": "PositivityTheory.RgHe3.ascent_of_square_identity",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.ascent_of_square_identity": 133
+          }
+        },
+        {
+          "label": "Bounded descent to a compact type with no first lowering",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FrobeniusSpanDescent/CasimirAndRootBounds.lean",
+          "lines": [
+            88,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FrobeniusSpanDescent/CasimirAndRootBounds.lean#L88-L92",
+          "declaration": "PositivityTheory.RgHe3.mem_span_of_frobenius_mem_span",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.mem_span_of_frobenius_mem_span": 88
+          }
+        },
+        {
+          "label": "The spectral cut and the compact highest weight",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/SquareAbsoluteBounds/DiscreteSeriesBoundOfInputs.lean",
+          "lines": [
+            39,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/SquareAbsoluteBounds/DiscreteSeriesBoundOfInputs.lean#L39-L60",
+          "declaration": "PositivityTheory.RgHe3.discrete_series_bound_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.discrete_series_bound_of_inputs": 24
+          }
+        },
+        {
+          "label": "Conversion to a regular parameter and the occurrence conclusion",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/SquareAbsoluteBounds/DiscreteSeriesBoundOfInputs.lean",
+          "lines": [
+            61,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/SquareAbsoluteBounds/DiscreteSeriesBoundOfInputs.lean#L61-L81",
+          "declaration": "PositivityTheory.RgHe3.discrete_series_bound_of_inputs",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.discrete_series_bound_of_inputs": 24
+          }
+        },
+        {
+          "label": "Identifying the generated Hilbert space with a discrete-series model",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean",
+          "lines": [
+            37,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean#L37-L62",
+          "declaration": "PositivityTheory.RgHe3.identity_holds",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.identity_holds": 31
+          }
+        },
+        {
+          "label": "A fixed step limit and a sufficient scale independent of the model",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarWeightBounds/LargeParameterSqrtBound.lean",
+          "lines": [
+            33,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarWeightBounds/LargeParameterSqrtBound.lean#L33-L59",
+          "declaration": "PositivityTheory.RgHe3.far_of_trial_bound",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.far_of_trial_bound": 33
+          }
+        },
+        {
+          "label": "Strict root-drop inequality, weight error and all smaller realizations",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarWeightBounds/LargeParameterSqrtBound.lean",
+          "lines": [
+            70,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarWeightBounds/LargeParameterSqrtBound.lean#L70-L110",
+          "declaration": "PositivityTheory.RgHe3.far_of_trial_bound",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.far_of_trial_bound": 33
+          }
+        },
+        {
+          "label": "Inputs to the distant occurrence and its use at the start of the descent",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+          "lines": [
+            31,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean#L31-L44",
+          "declaration": "PositivityTheory.RgHe3.far_closed",
+          "declaration_lines": {
+            "PositivityTheory.RgHe3.far_closed": 31
+          }
+        }
+      ]
+    },
+    {
+      "id": "IBO-04",
+      "chapter": "normalization",
+      "anchor": "normalization-initial-branching-frame",
+      "title": "Signed residues construct the normal and the compressed Hermitian operator",
+      "hypotheses": "The combined big and small directions are distinct and satisfy signed interlacing. The ambient signature has one additional positive coordinate.",
+      "statement": "The signed residues of the ratio of the two spectral polynomials determine a positive unit normal. On its perpendicular the distinct small roots give an orthogonal eigenbasis of the prescribed signature.",
+      "equations": [
+        "normalization-initial-branching-residues"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Sign parity of the combined list",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/InterlacingSignatureParity.lean",
+          "lines": [
+            169,
+            190
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/InterlacingSignatureParity.lean#L169-L190",
+          "declaration": "GlobalTheory.CompanionTheory.RgHeFrame.SignWord.heSign",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHeFrame.SignWord.heSign": 169
+          }
+        },
+        {
+          "label": "Computing the signs of the two residue factors",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionCoefficientSigns.lean",
+          "lines": [
+            37,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionCoefficientSigns.lean#L37-L66",
+          "declaration": "GlobalTheory.CompanionTheory.RgHeSign.pfSign",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHeSign.pfSign": 37
+          }
+        },
+        {
+          "label": "Polynomial identity for the partial fractions",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionDiagonalIdentity.lean",
+          "lines": [
+            32,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionDiagonalIdentity.lean#L32-L53",
+          "declaration": "GlobalTheory.CompanionTheory.RgHe.Frame.prod_eq_partial_fraction",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHe.Frame.prod_eq_partial_fraction": 32
+          }
+        },
+        {
+          "label": "Diagonal pairing from the derivative at a small root",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionSquareIdentity.lean",
+          "lines": [
+            85,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionSquareIdentity.lean#L85-L99",
+          "declaration": "GlobalTheory.CompanionTheory.RgHeFrame.pfDer",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHeFrame.pfDer": 85
+          }
+        },
+        {
+          "label": "Pairings of distinct small eigenvectors vanish",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionOffDiagonalIdentity.lean",
+          "lines": [
+            10,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/PartialFractionOffDiagonalIdentity.lean#L10-L24",
+          "declaration": "GlobalTheory.CompanionTheory.RgHeFrame.pfOrth",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHeFrame.pfOrth": 10
+          }
+        },
+        {
+          "label": "A unitary basis change realizes the prescribed small diagonal block",
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsUnitaryInterlacingRealization.lean",
+          "lines": [
+            146,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ExistsUnitaryInterlacingRealization.lean#L146-L174",
+          "declaration": "GlobalTheory.CompanionTheory.RgHeFrame.build",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.RgHeFrame.build": 146
+          }
+        },
+        {
+          "label": "Using the signed positions to construct the unitary frame",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+          "lines": [
+            44,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean#L44-L69",
+          "declaration": "PositivityTheory.RgHe.FrameA.frame",
+          "declaration_lines": {
+            "PositivityTheory.RgHe.FrameA.frame": 44
+          }
+        },
+        {
+          "label": "The compressed diagonal trace identity",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+          "lines": [
+            78,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean#L78-L94",
+          "declaration": "PositivityTheory.RgHe.FrameA.frame",
+          "declaration_lines": {
+            "PositivityTheory.RgHe.FrameA.frame": 44
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "isDerivedOn_smE",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/TraceSingleMoments/SecondMomentOfBounds.lean",
+        "line": 88,
+        "spelling": "isDerivedOn_smE"
+      },
+      "caller": "PositivityTheory.RgHe3.second_moment_of_bounds"
+    },
+    {
+      "callee": "casimirK_khwVec",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/RootInnerBounds/RootBoundOfSquareIdentity.lean",
+        "line": 37,
+        "spelling": "casimirK_khwVec"
+      },
+      "caller": "PositivityTheory.RgHe3.root_bound_of_square_identity"
+    },
+    {
+      "callee": "isDerivedOn_smE",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+        "line": 74,
+        "spelling": "isDerivedOn_smE"
+      },
+      "caller": "PositivityTheory.RgHe3.trial_of_inputs"
+    },
+    {
+      "callee": "isInfUnitary_of_isDerivedOn",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+        "line": 76,
+        "spelling": "isInfUnitary_of_isDerivedOn"
+      },
+      "caller": "PositivityTheory.RgHe3.trial_of_inputs"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.trialData.sum_emb_le",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+        "line": 140,
+        "spelling": "sum_emb_le"
+      },
+      "caller": "PositivityTheory.RgHe3.trial_of_inputs"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.trialData.term_le",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/NormDifferenceBounds/TrialOfInputs.lean",
+        "line": 149,
+        "spelling": "term_le"
+      },
+      "caller": "PositivityTheory.RgHe3.trial_of_inputs"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.NormTraceLemmas.abs_le_of_nsq",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/SquareAbsoluteBounds/DiscreteSeriesBoundOfInputs.lean",
+        "line": 56,
+        "spelling": "NormTraceLemmas.abs_le_of_nsq"
+      },
+      "caller": "PositivityTheory.RgHe3.discrete_series_bound_of_inputs"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.FarParameters.large_parameter_sqrt_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarWeightBounds/LargeParameterSqrtBound.lean",
+        "line": 52,
+        "spelling": "FarParameters.large_parameter_sqrt_bound"
+      },
+      "caller": "PositivityTheory.RgHe3.far_of_trial_bound"
+    },
+    {
+      "callee": "casimir_eq_casVal_of_no",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean",
+        "line": 41,
+        "spelling": "casimir_eq_casVal_of_no"
+      },
+      "caller": "PositivityTheory.RgHe3.identity_holds"
+    },
+    {
+      "callee": "arb_datum",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean",
+        "line": 53,
+        "spelling": "arb_datum"
+      },
+      "caller": "PositivityTheory.RgHe3.identity_holds"
+    },
+    {
+      "callee": "data_unitary_equiv",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean",
+        "line": 55,
+        "spelling": "data_unitary_equiv"
+      },
+      "caller": "PositivityTheory.RgHe3.identity_holds"
+    },
+    {
+      "callee": "data_closGen_eq_top",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/IdentityLemma/IdentityHolds.lean",
+        "line": 57,
+        "spelling": "data_closGen_eq_top"
+      },
+      "caller": "PositivityTheory.RgHe3.identity_holds"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.square_identity_holds",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 32,
+        "spelling": "square_identity_holds"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.trial_of_inputs",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 35,
+        "spelling": "trial_of_inputs"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.second_moment_of_bounds",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 35,
+        "spelling": "second_moment_of_bounds"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.approximation_of_square_identity",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 35,
+        "spelling": "approximation_of_square_identity"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.discrete_series_bound_of_inputs",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 38,
+        "spelling": "discrete_series_bound_of_inputs"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.casimir_bound_of_inputs",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 39,
+        "spelling": "casimir_bound_of_inputs"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.mem_span_of_frobenius_mem_span",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 40,
+        "spelling": "mem_span_of_frobenius_mem_span"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.identity_holds",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 41,
+        "spelling": "identity_holds"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "PositivityTheory.RgHe3.far_of_trial_bound",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/FarClosed.lean",
+        "line": 42,
+        "spelling": "far_of_trial_bound"
+      },
+      "caller": "PositivityTheory.RgHe3.far_closed"
+    },
+    {
+      "callee": "GlobalTheory.T.interlacing_signature_parity",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.T.interlacing_signature_parity"
+      },
+      "caller": "PositivityTheory.RgHe.FrameA.frame"
+    },
+    {
+      "callee": "GlobalTheory.T.partial_fraction_coefficient_signs",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.partial_fraction_coefficient_signs"
+      },
+      "caller": "PositivityTheory.RgHe.FrameA.frame"
+    },
+    {
+      "callee": "GlobalTheory.T.exists_unitary_interlacing_realization",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+        "line": 69,
+        "spelling": "GlobalTheory.T.exists_unitary_interlacing_realization"
+      },
+      "caller": "PositivityTheory.RgHe.FrameA.frame"
+    },
+    {
+      "callee": "GlobalTheory.T.trace_diagonal_block_conjugate_formula",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/EmbeddedFrames/Assembly.lean",
+        "line": 84,
+        "spelling": "GlobalTheory.T.trace_diagonal_block_conjugate_formula"
+      },
+      "caller": "PositivityTheory.RgHe.FrameA.frame"
+    }
+  ],
+  "derivation_edges": [
+    [
+      "IBO-04",
+      "IBO-01"
+    ],
+    [
+      "IBO-01",
+      "IBO-02"
+    ],
+    [
+      "IBO-02",
+      "IBO-03"
+    ],
+    [
+      "IBO-03",
+      "SBO-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "P. Etingof, Representations of Lie Groups, lecture 4, Corollary 4.7",
+      "url": "https://ocw.mit.edu/courses/18-757-representations-of-lie-groups-fall-2023/mit18_757_f23_lec04.pdf"
+    },
+    {
+      "title": "Hongyu He, On the Gan–Gross–Prasad conjecture for U(p,q), Theorem 0.1",
+      "url": "https://www.math.lsu.edu/~hongyu/pub/ggp_hhe_final.pdf"
+    }
+  ],
+  "outstanding": [
+    "Expand the invariant Casimir cut on the smooth restricted representation and the unitary identification of the closure generated by the terminal compact type."
+  ]
+}

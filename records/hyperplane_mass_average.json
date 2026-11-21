@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HMA-01",
+      "chapter": "global",
+      "anchor": "global-hyperplane-defect-sets",
+      "title": "The number of bad-prime sets at one determinant divisor",
+      "hypotheses": "A totally definite Hermitian space over a CM field of degree D = 2f, unramified over its real field at finite places. Choose a hyperplane dimension j ≥ 1 and exact determinant d ≥ 1.",
+      "statement": "If m is the product of the residue sizes in the real field at the bad primes of a maximal enlargement, then m divides d, the lattice index is d/m, and at most m^log₂D sets of bad primes occur for that m.",
+      "equations": [
+        "global-hyperplane-defect-index"
+      ],
+      "dependencies": [
+        "RSO-01",
+        "RSO-02"
+      ],
+      "sources": [
+        {
+          "label": "A family of bad-prime sets over each product and its cardinality",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            13,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L13-L40",
+          "declaration": "GlobalTheory.Mass.TotalMass.count_sets",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.count_sets": 13
+          }
+        },
+        {
+          "label": "Removing a prime divides the product by at least two",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            41,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L41-L60",
+          "declaration": "GlobalTheory.Mass.TotalMass.count_sets",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.count_sets": 13
+          }
+        },
+        {
+          "label": "Every admissible set arises from one of the smaller products",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            61,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L61-L82",
+          "declaration": "GlobalTheory.Mass.TotalMass.count_sets",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.count_sets": 13
+          }
+        },
+        {
+          "label": "The square order of a maximal lattice selects a divisor of the exact determinant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            215,
+            236
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L215-L236",
+          "declaration": "GlobalTheory.Mass.TotalMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.main": 178
+          }
+        },
+        {
+          "label": "Orbit coverage by matching bad primes and extending the isometry",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            237,
+            261
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L237-L261",
+          "declaration": "GlobalTheory.Mass.TotalMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.main": 178
+          }
+        }
+      ]
+    },
+    {
+      "id": "HMA-02",
+      "chapter": "global",
+      "anchor": "global-hyperplane-stratum-mass",
+      "title": "A maximal discriminant retains a denominator in the hyperplane mass",
+      "hypotheses": "Fix one realized hyperplane U with bad-prime product m under the assumptions of the preceding count. Let Mⱼ be the orthonormal reference mass.",
+      "statement": "The mass of integral lattice classes of discriminant order d² inside U is at most Mⱼ d^(j+λ)/m^λ, where λ = log₂(2f).",
+      "equations": [
+        "global-hyperplane-one-stratum"
+      ],
+      "dependencies": [
+        "HMA-01",
+        "DML-01",
+        "DML-02"
+      ],
+      "sources": [
+        {
+          "label": "The orthonormal reference identifies the maximal-genus constant",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            95,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L95-L110",
+          "declaration": "GlobalTheory.Mass.TotalMass.space_mass",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.space_mass": 84
+          }
+        },
+        {
+          "label": "Marking a maximal enlargement covers the original lattice classes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            116,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L116-L133",
+          "declaration": "GlobalTheory.Mass.TotalMass.space_mass",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.space_mass": 84
+          }
+        },
+        {
+          "label": "Every given maximal lattice contributes sublattices of one fixed index",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            134,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L134-L158",
+          "declaration": "GlobalTheory.Mass.TotalMass.space_mass",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.space_mass": 84
+          }
+        },
+        {
+          "label": "Rewriting the sublattice allowance to retain the denominator",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            160,
+            176
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L160-L176",
+          "declaration": "GlobalTheory.Mass.TotalMass.real_eq",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.real_eq": 160
+          }
+        },
+        {
+          "label": "Mass bound for one chosen representative and its bad-prime product",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            262,
+            276
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L262-L276",
+          "declaration": "GlobalTheory.Mass.TotalMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.main": 178
+          }
+        }
+      ]
+    },
+    {
+      "id": "HMA-03",
+      "chapter": "global",
+      "anchor": "global-hyperplane-summed-mass",
+      "title": "A uniform contribution per divisor bounds the sum over hyperplanes",
+      "hypotheses": "Fix j ≥ 1, d ≥ 1 and the same definite Hermitian space. For the application to row lattices, T is the completely split level prime and t = T^f.",
+      "statement": "Summing the fixed-order masses over a rational orbit cover costs at most Mⱼ d^(j+2+log₂ f). The uniform perpendicular-line and gluing bounds multiply this sum in the marked row numerator.",
+      "equations": [
+        "global-hyperplane-total-mass"
+      ],
+      "dependencies": [
+        "HMA-01",
+        "HMA-02",
+        "LMC-02",
+        "HLG-02"
+      ],
+      "sources": [
+        {
+          "label": "The degree exponent is one plus the logarithm of the real degree",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            186,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L186-L198",
+          "declaration": "GlobalTheory.Mass.TotalMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.main": 178
+          }
+        },
+        {
+          "label": "Summing over labels and then over their positive products",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+          "lines": [
+            277,
+            304
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean#L277-L304",
+          "declaration": "GlobalTheory.Mass.TotalMass.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.TotalMass.main": 178
+          }
+        },
+        {
+          "label": "The sharp sum on rational representatives",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponentStatement.lean",
+          "lines": [
+            9,
+            10
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponentStatement.lean#L9-L10",
+          "declaration": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le",
+          "declaration_lines": {
+            "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le": 9
+          }
+        },
+        {
+          "label": "Taking the orbit cover into the marked ambient mass",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            133,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L133-L145",
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.main": 133
+          }
+        },
+        {
+          "label": "Separate line and gluing bounds are uniform in the hyperplane",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            149,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L149-L177",
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.main": 133
+          }
+        },
+        {
+          "label": "Three factors give the numerator before normalization",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+          "lines": [
+            175,
+            186
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean#L175-L186",
+          "declaration": "GlobalTheory.Mass.PrimMeanOne.main",
+          "declaration_lines": {
+            "GlobalTheory.Mass.PrimMeanOne.main": 133
+          }
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "Formalism.SLP.P.CountO.primes_card",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 32,
+        "spelling": "Formalism.SLP.P.CountO.primes_card"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.count_sets"
+    },
+    {
+      "callee": "Prime.dvd_finset_prod_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 63,
+        "spelling": "Prime.dvd_finset_prod_iff"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.count_sets"
+    },
+    {
+      "callee": "Ideal.exists_isMaximal_dvd_of_dvd_absNorm'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 75,
+        "spelling": "Ideal.exists_isMaximal_dvd_of_dvd_absNorm'"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.count_sets"
+    },
+    {
+      "callee": "GlobalTheory.T.exists_maximal_integralHermitianLattice_orthonormal_maximal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 97,
+        "spelling": "GlobalTheory.T.exists_maximal_integralHermitianLattice_orthonormal_maximal"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.hermitianGenusMass_eq_orbitStabilizerMass",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 103,
+        "spelling": "GlobalTheory.T.hermitianGenusMass_eq_orbitStabilizerMass"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.hermitianLatticeDiscriminantOrder_ne_zero_unimodular",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.T.hermitianLatticeDiscriminantOrder_ne_zero_unimodular"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.maximalLatticeLocalFactorProduct_pos_and_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 110,
+        "spelling": "GlobalTheory.T.maximalLatticeLocalFactorProduct_pos_and_le"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.orbitStabilizerMass_eq_weightedSum_fibres"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.mem_genus_iff_maximalIntegralHermitianLattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 131,
+        "spelling": "GlobalTheory.T.mem_genus_iff_maximalIntegralHermitianLattice"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.encard_sublattices_of_index_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 138,
+        "spelling": "GlobalTheory.T.encard_sublattices_of_index_le"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.space_mass"
+    },
+    {
+      "callee": "GlobalTheory.T.witt_extension_totally_definite_hermitian",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 180,
+        "spelling": "GlobalTheory.T.witt_extension_totally_definite_hermitian"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.TotalMass.count_sets",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 181,
+        "spelling": "count_sets"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.MaxLatStruct.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 219,
+        "spelling": "GlobalTheory.MaxLatStruct.main"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.DiscOrder.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 220,
+        "spelling": "GlobalTheory.Mass.DiscOrder.main"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.T.definite_hermitian_isometric_of_same_bad_primes",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 243,
+        "spelling": "GlobalTheory.T.definite_hermitian_isometric_of_same_bad_primes"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.TotalMass.space_mass",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 273,
+        "spelling": "space_mass"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.TotalMass.real_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponent.lean",
+        "line": 275,
+        "spelling": "real_eq"
+      },
+      "caller": "GlobalTheory.Mass.TotalMass.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.TotalMass.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TotalMassLatticesOrbitsSubspacesSharpExponentStatement.lean",
+        "line": 10,
+        "spelling": "GlobalTheory.Mass.TotalMass.main"
+      },
+      "caller": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le"
+    },
+    {
+      "callee": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 136,
+        "spelling": "GlobalTheory.T.exists_subspaceReps_sum_orbitMass_le"
+      },
+      "caller": "GlobalTheory.Mass.PrimMeanOne.main"
+    },
+    {
+      "callee": "GlobalTheory.T.primitive_sublattices_move_with_isometries",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 143,
+        "spelling": "GlobalTheory.T.primitive_sublattices_move_with_isometries"
+      },
+      "caller": "GlobalTheory.Mass.PrimMeanOne.main"
+    },
+    {
+      "callee": "GlobalTheory.Mass.PrimMeanOne.orbMass_stabilizer_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 166,
+        "spelling": "orbMass_stabilizer_le"
+      },
+      "caller": "GlobalTheory.Mass.PrimMeanOne.main"
+    },
+    {
+      "callee": "GlobalTheory.T.totalMass_integralLattices_bounded_det_line",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrbMassStabilizerLe.lean",
+        "line": 167,
+        "spelling": "GlobalTheory.T.totalMass_integralLattices_bounded_det_line"
+      },
+      "caller": "GlobalTheory.Mass.PrimMeanOne.main"
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RSO-01",
+      "HMA-01"
+    ],
+    [
+      "RSO-02",
+      "HMA-01"
+    ],
+    [
+      "HMA-01",
+      "HMA-02"
+    ],
+    [
+      "DML-01",
+      "HMA-02"
+    ],
+    [
+      "DML-02",
+      "HMA-02"
+    ],
+    [
+      "HMA-01",
+      "HMA-03"
+    ],
+    [
+      "HMA-02",
+      "HMA-03"
+    ],
+    [
+      "LMC-02",
+      "HMA-03"
+    ],
+    [
+      "HLG-02",
+      "HMA-03"
+    ],
+    [
+      "HMA-03",
+      "PGM-03"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "J. S. Milne, Algebraic Number Theory, Theorems 3.34 and 6.4, and Example 8.18",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf"
+    }
+  ],
+  "outstanding": []
+}

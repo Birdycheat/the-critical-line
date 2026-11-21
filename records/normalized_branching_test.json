@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "NBT-01",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-test-translate",
+      "title": "Finding a smooth test that detects a given occurrence",
+      "hypotheses": "G=U(p,q) and H=U(p−1,q) satisfy the separated branching hypotheses. A discrete series σ occurs in π|H through a nonzero bounded H-map. Fix Haar measure, its reciprocal formal degree κ>0, and a unit vector w in the lowest compact type of σ.",
+      "statement": "There exists a smooth unit ambient vector η, obtained by translating an ambient lowest-type vector, for which the smaller-group coefficient average Rη is nonzero.",
+      "definitions": [
+        "The coefficient φ(h) is the complex conjugate of ⟨w,σ(h)w⟩. The gap bound gives its absolute integrability.",
+        "The linear functional L(a)=⟨jw,Ra⟩ is continuous in the ambient Hilbert norm."
+      ],
+      "dependencies": [],
+      "equations": [
+        "normalization-branching-test-detector"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.coef_int",
+          "label": "Absolute integrability of the diagonal coefficient at the given gap",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/OfIntegralHolds.lean",
+          "lines": [
+            26,
+            38
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.coef_int": 26
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/OfIntegralHolds.lean#L26-L38"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.apply_ne_zero",
+          "label": "Irreducibility gives injectivity of a nonzero bounded intertwiner",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/ApplyNeZero.lean",
+          "lines": [
+            14,
+            26
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.apply_ne_zero": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/ApplyNeZero.lean#L14-L26"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+          "label": "A bounded functional and its nonzero value on the original copy",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+          "lines": [
+            13,
+            61
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean#L13-L61"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+          "label": "A smooth translate detected by the functional",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+          "lines": [
+            63,
+            97
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean#L63-L97"
+        }
+      ]
+    },
+    {
+      "id": "NBT-02",
+      "chapter": "normalization",
+      "anchor": "normalization-branching-test-normalization",
+      "title": "Normalizing the occurrence for a single test vector",
+      "hypotheses": "Fix w, κ, π, σ and a smooth η as in the test-translate result, with Rη nonzero. The Haar measure is invariant under inversion.",
+      "statement": "There exists an isometric H-intertwiner i such that ⟨η,iw⟩ is a positive real number and ⟨η,Ra⟩=κ⟨η,iw⟩⟨iw,a⟩ for every ambient a. The copy i and the first test vector are selected together, allowing further copies of σ.",
+      "definitions": [
+        "R is integration against φ in the ambient restriction. R*=R and R²=κR.",
+        "For r=‖Rη‖ the unnormalized intertwiner J has Jw=Rη, and J*J=r²Id. Its normalization is i=J/r."
+      ],
+      "dependencies": [
+        "NBT-01",
+        "SBO-03"
+      ],
+      "equations": [
+        "normalization-branching-test-product"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.UnitaryDecomposition.exists_intertwiner",
+          "label": "An intertwiner whose value at the unit vector is its averaged coefficient",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ExistsIntertwiner.lean",
+          "lines": [
+            23,
+            43
+          ],
+          "declaration_lines": {
+            "PositivityTheory.UnitaryDecomposition.exists_intertwiner": 23
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/ExistsIntertwiner.lean#L23-L43"
+        },
+        {
+          "declaration": "PositivityTheory.UnitaryDecomposition.idem_avg",
+          "label": "The symmetric convolution identity for the averaged vector",
+          "path": "src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean",
+          "lines": [
+            16,
+            38
+          ],
+          "declaration_lines": {
+            "PositivityTheory.UnitaryDecomposition.idem_avg": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/BranchingTraces/ContinuousEmb.lean#L16-L38"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.isom_of",
+          "label": "The scalar of the positive endomorphism J*J",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/ApplyNeZero.lean",
+          "lines": [
+            28,
+            49
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.isom_of": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/ApplyNeZero.lean#L28-L49"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+          "label": "Convolution and the vector representing the test functional",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+          "lines": [
+            95,
+            119
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean#L95-L119"
+        },
+        {
+          "declaration": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+          "label": "Scalar normalization and the equality for every second vector",
+          "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+          "lines": [
+            120,
+            151
+          ],
+          "declaration_lines": {
+            "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel": 13
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean#L120-L151"
+        }
+      ]
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "inv_inv_of_haar",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 16,
+        "spelling": "inv_inv_of_haar"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "coef_int",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 17,
+        "spelling": "coef_int"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "apply_ne_zero",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 51,
+        "spelling": "apply_ne_zero"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "exists_lowK_unit",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 63,
+        "spelling": "exists_lowK_unit"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "kFiniteWordBound_indefUnitary",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 65,
+        "spelling": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "irr_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 84,
+        "spelling": "irr_of"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "exists_intertwiner",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 95,
+        "spelling": "exists_intertwiner"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "idem_avg",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 111,
+        "spelling": "idem_avg"
+      }
+    },
+    {
+      "caller": "PositivityTheory.RgHe.LowestKTypeUnitIntegral.lowestKTypeModel",
+      "callee": "isom_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/LowestKTypeModels/LowestKTypeModel.lean",
+        "line": 120,
+        "spelling": "isom_of"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "NBT-01",
+      "NBT-02"
+    ],
+    [
+      "SBO-03",
+      "NBT-02"
+    ],
+    [
+      "NBT-02",
+      "SBO-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, Journal of Functional Analysis 21 (1976), 209–243",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    }
+  ],
+  "outstanding": [
+    "Occurrence of the smaller representation at the start of the move is a hypothesis. The obtained ambient translate need not obey the later quantitative size bound used at the target."
+  ]
+}

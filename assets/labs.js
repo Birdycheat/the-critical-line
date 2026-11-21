@@ -16,6 +16,39 @@
     value,
   });
   const configs = {
+    "galois-character-peeling": {
+      title: "Does this vector span the required character?",
+      kind: "Testing a character on a four-element group",
+      section: "lifts",
+      params: [
+        choose("element", "Group element (a,b)", [["11", "(1,1)"], ["10", "(1,0)"], ["01", "(0,1)"], ["00", "(0,0)"]], "11"),
+        choose("candidate", "Vector in the enlarged space", [["mixed", "eα + eβ"], ["pure", "eα"]], "mixed"),
+      ],
+      caption: "At (1,1) the two characters agree. A vector with a component in the added β-line can pass that test. Compare its image at (1,0) before deciding which line belongs to the α-subrepresentation.",
+      method: "Use C₂ × C₂ in characteristic zero. Define α(a,b)=(−1)^a and β(a,b)=(−1)^b. In (α ⊕ 1) ⊕ β the displayed vectors have zero component on the trivial line. A vector spans α exactly when its image equals α(g)v for every g. The final count checks all four group elements by this equality.",
+    },
+    "regular-unit-shift": {
+      title: "Which of three shifted models survive?",
+      kind: "Lowering a weight of U(2,1)",
+      section: "normalization",
+      params: [
+        choose("gap", "Gap between the two positive weights", [["1", "1"], ["2", "2"], ["3", "3"]], "1"),
+        choose("position", "Coordinate to lower", [["1", "First (+)"], ["2", "Second (+)"], ["3", "Third (−)"]], "1"),
+      ],
+      caption: "The minimum gap between opposite signs is initially 6000. Only the two positive entries can meet after one lowering. A surviving shift gives the eigenvalue of Ω and the partial-trace scalar of its projector. A zero partial trace removes the shift.",
+      method: "Use the integral parameter (6000+a,6000,0) with signs (+,+,−). Subtract one at the selected position and test strict decreasing order on the resulting tuple. For an allowed shift s the differential eigenvalue is the original λs+(3−1)/2. The partial-trace scalar is the product, over t≠s, of (λs−1−λt)/(λs−λt). The prescribed opposite-sign gap is 200·3³=5400.",
+    },
+    "hyperplane-mass-stratum": {
+      title: "How can two planes have the same discriminant order?",
+      kind: "Two contributions to the sum over hyperplanes",
+      section: "global",
+      params: [
+        choose("prime", "Rational prime", [["11", "11"], ["59", "59"], ["83", "83"]], "11"),
+        choose("plane", "Plane and chosen lattice", [["standard", "Coordinate plane, smaller lattice"], ["defect", "Tilted plane, maximal lattice"]], "standard"),
+      ],
+      caption: "For a fixed prime the two examples have the same discriminant order. Switching planes moves a factor from the index of the lattice to the product of the bad residue sizes. Multiplying the two final entries bounds the total allowance at this value of m by 1 after division by B.",
+      method: "Use the standard Hermitian space over ℚ(ζ₁₂). Each listed prime p is 11 modulo 12 and equals a²+2b². The tilted plane is spanned by e₁ and a e₂+b(1+i)e₃. Its full lattice in these generators has Gram matrix diag(1,p). In the coordinate plane use 𝔓e₁+Re₂ with N(𝔓)=p². Both have d=p². The normalized allowance for an individual defect label is 1/m², and at most m² labels have this size. The displayed p is a defect prime in the tilted plane.",
+    },
     "gluing-residues": {
       title: "Which two fractions can come from one lattice vector?",
       kind: "Orthogonal projections and their residues",
@@ -1398,6 +1431,53 @@
   }
 
   function render(id, v) {
+    if (id === "galois-character-peeling") {
+      const [a, b] = v.element.split("").map(Number);
+      const alpha = (-1) ** a, beta = (-1) ** b;
+      const betaComponent = v.candidate === "mixed" ? 1 : 0;
+      const formatVector = (x, y) => "(" + String(x).replace("-", "−") + ", " + String(y).replace("-", "−") + ")";
+      const actual = formatVector(alpha, beta * betaComponent);
+      const target = formatVector(alpha, alpha * betaComponent);
+      const elements = [[0, 0], [1, 0], [0, 1], [1, 1]];
+      const passed = elements.filter(([u, w]) => (-1) ** u * betaComponent === (-1) ** w * betaComponent).length;
+      return '<table class="carry-table"><caption>Coordinates on the α-line and the added β-line</caption><tbody>' +
+        '<tr><th scope="row">Test vector v</th><td>' + formatVector(1, betaComponent) + '</td></tr>' +
+        '<tr><th scope="row">Actual image ρ(g)v</th><td>' + actual + '</td></tr>' +
+        '<tr><th scope="row">Required image α(g)v</th><td>' + target + '</td></tr></tbody></table>' +
+        metrics([["At the selected element", actual === target ? "Equal" : "Different"], ["Elements satisfying the test", passed + " of 4"]]);
+    }
+    if (id === "regular-unit-shift") {
+      const original = [6000 + Number(v.gap), 6000, 0];
+      const selected = Number(v.position) - 1;
+      const shifted = original.map((weight, i) => weight - Number(i === selected));
+      const regular = shifted.every((weight, i) => i === 0 || shifted[i - 1] > weight);
+      let numerator = 1, denominator = 1;
+      for (let i = 0; i < original.length; i++) {
+        if (i === selected) continue;
+        const difference = original[selected] - original[i];
+        numerator *= difference - 1;
+        denominator *= difference;
+      }
+      const residue = reducedFraction(numerator * Math.sign(denominator), Math.abs(denominator));
+      const cells = weights => weights.map(weight => "<td>" + weight + "</td>").join("");
+      const table = '<table class="carry-table"><caption>Weights in decreasing position order</caption><thead><tr><th scope="col">Parameter</th><th scope="col">1 (+)</th><th scope="col">2 (+)</th><th scope="col">3 (−)</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Original</th>' + cells(original) + '</tr><tr><th scope="row">After lowering</th>' + cells(shifted) + '</tr></tbody></table>';
+      return table + metrics([["Shifted model", regular ? "Regular" : "Two equal entries"], ["Differential eigenvalue", regular ? String(original[selected] + 1) : "No summand"], ["Partial-trace scalar", residue]]);
+    }
+    if (id === "hyperplane-mass-stratum") {
+      const prime = Number(v.prime);
+      const [a, b] = {11: [3, 1], 59: [3, 5], 83: [9, 1]}[prime];
+      const d = prime * prime;
+      const tilted = v.plane === "defect";
+      const m = tilted ? d : 1;
+      const secondVector = tilted ? a + "e₂ + " + (b === 1 ? "" : b) + "(1+i)e₃" : "e₂";
+      return '<table class="carry-table"><caption>One plane in the standard three-dimensional space</caption><tbody>' +
+        '<tr><th scope="row">Second spanning vector</th><td>' + secondVector + '</td></tr>' +
+        '<tr><th scope="row">Discriminant order d²</th><td>' + d * d + '</td></tr>' +
+        '<tr><th scope="row">Bad-place product m</th><td>' + m + '</td></tr>' +
+        '<tr><th scope="row">Index d/m</th><td>' + d / m + '</td></tr></tbody></table>' +
+        metrics([["Mass bound per label, divided by B", reducedFraction(1, m * m)], ["Upper bound on label count", String(m * m)]]);
+    }
     if (id === "gluing-residues") {
       const T = Number(v.weight), s = Number(v.first), t = Number(v.second);
       const denominator = T + 1;
