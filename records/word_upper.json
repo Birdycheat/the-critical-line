@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned written arguments and checked source calls. The intermediate arithmetic estimates are derived in the exposition.",
+  "claims": [
+    {
+      "id": "WUP-01",
+      "chapter": "global",
+      "title": "The absolute upper word-scale budget",
+      "anchor": "global-word-upper",
+      "statement": "For all words in the eventual admissible family, log X_u≤(15+3C_Y)mL. The short multiplicative window then bounds the selected prime logarithm by log X_u+1.",
+      "hypotheses": "44≤m≤k, r=k+m−1, L≥9, log(2k)≤L, log g_i≤C_Y L, positive f, the mass and volume identities, two-sided real-place formal degree under the source gap, the admissible weights and a word prime in the stated window.",
+      "definitions": [
+        "word scale",
+        "upper formal-degree estimate",
+        "factorial product",
+        "prime-level window"
+      ],
+      "equations": [
+        "global-word-upper-budget"
+      ],
+      "dependencies": [
+        "CNT-01",
+        "CNT-02",
+        "FDG-02",
+        "SIE-02"
+      ],
+      "sources": [
+        {
+          "declaration": "part_five_family_of_mass_volume",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            318,
+            346
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L318-L346"
+        },
+        {
+          "declaration": "the Euler and level terms",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            347,
+            377
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L347-L377"
+        },
+        {
+          "declaration": "place_dimension_upper_bound",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean",
+          "lines": [
+            22,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean#L22-L60"
+        },
+        {
+          "declaration": "log_factorial_product_difference",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean",
+          "lines": [
+            65,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean#L65-L86"
+        },
+        {
+          "declaration": "upper bound on all infinite places",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            379,
+            423
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L379-L423"
+        },
+        {
+          "declaration": "log_X_upper_arithmetic",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean",
+          "lines": [
+            88,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/LogFactorialProductDifference.lean#L88-L138"
+        },
+        {
+          "declaration": "division_level_prime_family",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            425,
+            453
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L425-L453"
+        },
+        {
+          "declaration": "count_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            59,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L59-L86"
+        },
+        {
+          "declaration": "chosen prime upper bound",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            125,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L125-L129"
+        }
+      ],
+      "correspondence": "Divide the six-term mass identity by fkmL. Two terms have nonpositive sign. The surviving four costs are ≤3/2, 1/(kL), 3C_Y and 12+12/L. The constant part is ≤1337/90<15.",
+      "status": "mathematical proof reconstructed",
+      "review": "Separate reader reproduced all six signs, the factorial estimate and 1337/90; the X estimate is uniform before the prime is selected."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "family_of_global_statements",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 329
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "place_dimension_upper_bound",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 409
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "log_factorial_product_difference",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 410
+      }
+    },
+    {
+      "caller": "part_five_family_of_mass_volume",
+      "callee": "log_X_upper_arithmetic",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 422
+      }
+    },
+    {
+      "caller": "division_level_prime_family",
+      "callee": "part_five_family_of_mass_volume",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 432
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CNT-01",
+      "WUP-01"
+    ],
+    [
+      "CNT-02",
+      "WUP-01"
+    ],
+    [
+      "FDG-02",
+      "WUP-01"
+    ],
+    [
+      "SIE-02",
+      "WUP-01"
+    ]
+  ],
+  "outstanding": [
+    "The existence of the prime in the short level window and the upper place-dimension estimate beyond its logarithmic budget are deeper inputs."
+  ],
+  "review_scope": "A separate source reader checked the normalizations, order of quantifiers and arithmetic against the original archive."
+}

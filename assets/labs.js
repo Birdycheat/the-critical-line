@@ -16,6 +16,29 @@
     value,
   });
   const configs = {
+    "split-endpoint": {
+      title: "Count the paths to one split lattice",
+      kind: "Split Euler factor",
+      section: "lifts",
+      params: [
+        choose("q", "Residue-field size q", [2, 3, 4, 5].map(q => [String(q), String(q)]), "2"),
+        range("degree", "Degree k in T = X²", 0, 6, 1, 2),
+      ],
+      caption: "Keep the rank-two endpoint (2, −1) fixed. An intermediate lattice of excess length k contributes at degree 3 + 2k in X. Compare its multiplicity with the coefficient that survives the Euler correction.",
+      method: "After removing X³, write T = X². Multiplying the uncorrected series 1/((1−T)(1−qT)) by 1−qT gives 1/(1−T), whose coefficients are all 1. Hence aₖ = 1 + q aₖ₋₁ for k ≥ 0, with zero coefficients at negative indices. Independently, dual Hermite forms with diagonal exponents (u, k−u) have qᵘ choices of their one upper-right entry, for 0 ≤ u ≤ k. Multiply the uncorrected series by 1−(q+1)T+qT² to obtain the last column. All displayed counts are exact integers.",
+    },
+    "gram-pair": {
+      title: "Measure two period frames",
+      kind: "Normalized Gram matrices",
+      section: "global",
+      params: [
+        choose("a", "First-column scale a", [["0.5", "½"], ["1", "1"], ["1.5", "3/2"]], "1"),
+        choose("h", "Directional overlap h", [["0", "0"], ["0.6", "3/5"], ["1", "1"]], "0.6"),
+        choose("column", "Column kept in each word", [["first", "First"], ["second", "Second"]], "first"),
+      ],
+      caption: "Compare each word with an orthonormal frame, then measure the overlap between the two words. The full calculation uses both columns in each word. The restricted calculation keeps the same single column in both.",
+      method: "In ℝ⁴ take P₁ = 2[a e₁, e₂] and P₂ = 3[h e₁ + √(1−h²) e₃, e₄]. The eᵢ form the standard orthonormal basis. Divide P₁ by √4 and P₂ by √9 before forming the Gram blocks Kᵤᵥ. Subtract the identity from each diagonal block and sum the squares of all entries to get Q. Restricting each word to a column takes the corresponding row and column of every block. This finite model illustrates the normalization and the isometric restriction.",
+    },
     prism: {
       title: "Insert the gluing element into the cyclic word",
       kind: "Finite-field calculation",
@@ -401,6 +424,33 @@
     return { level, groups, sum, cleared, valuation };
   }
   const residueUnits = [2, 3, 4, 1];
+  function splitEndpointCoefficients(q, degree) {
+    const rows = [];
+    let previous = 0, twoBack = 0;
+    for (let k = 0; k <= degree; k++) {
+      const before = 1 + q * previous;
+      let hermite = 0;
+      for (let u = 0; u <= k; u++) hermite += q ** u;
+      const after = before - (q + 1) * previous + q * twoBack;
+      rows.push({ k, xDegree: 3 + 2 * k, before, hermite, after });
+      twoBack = previous;
+      previous = before;
+    }
+    return rows;
+  }
+  function gramPair(a, h, column) {
+    // In normalized coordinates the three blocks are diag(a²,1), I and diag(ah,0).
+    const diagonal = (a * a - 1) ** 2;
+    const overlap = a * h;
+    const cross = overlap ** 2;
+    const keepFirst = column === "first";
+    return {
+      full: [diagonal, 0, cross],
+      retained: [keepFirst ? diagonal : 0, 0, keepFirst ? cross : 0],
+      overlap,
+      retainedOverlap: keepFirst ? overlap : 0,
+    };
+  }
   function rankGrid(row, column) {
     const difference = (unit, selected) => Number(unit === selected) - Number(unit === 1);
     return residueUnits.map(h =>
@@ -508,6 +558,44 @@
       .join("") +
     "</dl>";
   function render(id, v) {
+    if (id === "split-endpoint") {
+      const q = Number(v.q), degree = Number(v.degree);
+      const rows = splitEndpointCoefficients(q, degree);
+      const selected = rows[degree];
+      const body = rows.map(row =>
+        '<tr><th scope="row">' + row.xDegree + "</th><td>" + row.before +
+        "</td><td>" + row.hermite + "</td><td>" + row.after + "</td></tr>"
+      ).join("");
+      const previous = rows[degree - 1]?.before ?? 0;
+      const twoBack = rows[degree - 2]?.before ?? 0;
+      return '<table class="carry-table"><caption>Endpoint coefficients through degree ' +
+        selected.xDegree + ' in X (q = ' + q + ')</caption><thead><tr><th scope="col">Degree in X</th>' +
+        '<th scope="col">Before</th><th scope="col">Hermite count</th><th scope="col">After</th>' +
+        '</tr></thead><tbody>' + body + '</tbody></table>' +
+        "<p>At degree " + selected.xDegree + " the corrected coefficient is " +
+        selected.before + " − " + (q + 1) + " × " + previous + " + " + q + " × " + twoBack +
+        " = <strong>" + selected.after + "</strong>.</p>";
+    }
+    if (id === "gram-pair") {
+      const a = Number(v.a), h = Number(v.h);
+      const result = gramPair(a, h, v.column);
+      const which = v.column === "first" ? "First" : "Second";
+      const blocks = ["K₁₁ − I", "K₂₂ − I", "K₁₂"];
+      const rows = blocks.map((block, i) =>
+        '<tr><th scope="row">' + block + "</th><td>" + fmt(result.full[i], 8) +
+        "</td><td>" + fmt(result.retained[i], 8) + "</td></tr>"
+      ).join("");
+      return "<p>Dividing the period matrices by 2 and 3 gives the normalized columns " +
+        "[a e₁, e₂] and [h e₁ + √(1−h²) e₃, e₄]. Their first columns have inner product " +
+        fmt(result.overlap, 8) + ". Their second columns are orthogonal.</p>" +
+        '<table class="carry-table"><caption>Squared Gram errors with ' + which.toLowerCase() +
+        ' columns retained</caption><thead><tr><th scope="col">Block</th>' +
+        '<th scope="col">Full Q</th><th scope="col">Retained Q</th></tr></thead><tbody>' +
+        rows + "</tbody></table>" +
+        metrics([["Retained inner product", fmt(result.retainedOverlap, 8)],
+          ["Full mean Q(K₁₁ − I) / 2", fmt(result.full[0] / 2, 8)],
+          ["Retained mean Q(K₁₁ − I) / 1", fmt(result.retained[0], 8)]]);
+    }
     if (id === "prism") {
       const twist = Number(v.twist), weight = Number(v.weight), gluingLog = Number(v.gluing);
       const positions = prismInsertions(twist, weight, gluingLog);
@@ -1261,6 +1349,8 @@
     upperTail,
     eulerQuotients,
     rankGrid,
+    splitEndpointCoefficients,
+    gramPair,
     bernoulliCarries,
     prismInsertions,
     selectWindow,

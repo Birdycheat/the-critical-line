@@ -115,7 +115,7 @@
       "chapter": "inputs",
       "title": "How the r₂ coordinate bound reaches the Bockstein fiber",
       "anchor": "inputs-stable-place-tests",
-      "statement": "Over the ring of integers of a totally complex L′, with m odd, m<r₂ and n≥2m+4, the integral rank of the span of zSeq outputs in H_m(GL_{ℓ^(m−1)n}) is at most r₂. For m=3, n=10, ℓ=2, L′=ℚ(ζ₁₅), the free contribution to a q-torsion evaluation target has cardinality at most q^4.",
+      "statement": "Over the ring of integers of a totally complex L′, with m odd, m<r₂ and n≥2m+4, the integral rank of the span of zSeq outputs in H_m(GL_{ℓ^(m−1)n}) is at most r₂. For m=3, n=10, ℓ=2, L′=ℚ(ζ₂₀), the free contribution to a q-torsion evaluation target has cardinality at most q^4.",
       "hypotheses": "Ordinary degree-m homological stability over the Dedekind ring of integers. In addition to stable injectivity the proof uses separation by real cocycles and representation of their cycle evaluations by invariant forms after further stabilization. Integral rank counts torsion-free directions. The separate torsion factors and field enlargement retain their hypotheses in the degree-two application.",
       "definitions": [
         "stable homology range",
@@ -128,13 +128,17 @@
         "inputs-detecting-cap"
       ],
       "dependencies": [
-        "STB-01"
+        "STB-01",
+        "IVR-02"
       ],
       "sources": [
         {
           "declaration": "zVal",
           "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/TorsionRankCounts/PhiZSeq.lean",
-          "lines": [23, 35],
+          "lines": [
+            23,
+            35
+          ],
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/TorsionRankCounts/PhiZSeq.lean#L23-L35"
         },
         {
@@ -440,10 +444,14 @@
     [
       "STB-02",
       "DET-03"
+    ],
+    [
+      "IVR-02",
+      "STB-02"
     ]
   ],
   "outstanding": [
-    "The analytic construction realizing stable cocycles by globally invariant forms uses Hecke comparisons, height and moment estimates, and averaging. Its proof remains a separate input here.",
+    "IVR-01–02 give the two-rate Hecke period argument and the comparison with a globally invariant form. Deep suppliers include the spectral gap, height moments and homological stability.",
     "Lower-level invariant-theory decomposition and the induction for homological stability are cited at their actual suppliers."
   ],
   "review_scope": "The scoped example and recurrence concern the selected homology span. Finiteness of the torsion in consecutive degrees remains the separate geometric argument."

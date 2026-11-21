@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Pinned written arguments and checked source calls. The intermediate arithmetic estimates are derived in the exposition.",
+  "claims": [
+    {
+      "id": "GRM-01",
+      "chapter": "global",
+      "title": "What the two period correlations measure",
+      "anchor": "global-gram-frame",
+      "statement": "On the full source spaces, the normalized Gram K_uv=(c_u c_v)^(−1/2) P_u*P_v splits off a geometric subseries B_uv. For u≠v that subseries vanishes. For u=v the two squared error budgets are ξd_u and Γd_u²/D*.",
+      "hypotheses": "Selected admissible data, kernel expansion and absolute convergence, the local types, diagonal positivity and the selected different-word and row bounds. D*>0.",
+      "definitions": [
+        "unfolding constant",
+        "Hilbert–Schmidt square",
+        "geometric Gram label"
+      ],
+      "equations": [
+        "global-gram-normalization",
+        "global-gram-diagonal"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "hsNormSq, c0, Kmat, KExpansion, KOf",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean",
+          "lines": [
+            324,
+            349
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean#L324-L349"
+        },
+        {
+          "declaration": "Kpp",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean",
+          "lines": [
+            52,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean#L52-L55"
+        },
+        {
+          "declaration": "Theorem_E_iff_lift",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/ThmSOwn.lean",
+          "lines": [
+            37,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/ThmSOwn.lean#L37-L49"
+        },
+        {
+          "declaration": "construction of the four estimates",
+          "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+          "lines": [
+            149,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean#L149-L161"
+        },
+        {
+          "declaration": "Gam, eta0, xK",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean",
+          "lines": [
+            25,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean#L25-L37"
+        }
+      ],
+      "correspondence": "Select the terms by label and identity. Removing an identically zero cross-word contribution gives the full cross-word bound. The two diagonal estimates still have to be added.",
+      "status": "mathematical proof reconstructed",
+      "review": "A separate reader checked the indices and distinction between the geometric subseries and the ramified-column inclusion."
+    },
+    {
+      "id": "GRM-02",
+      "chapter": "global",
+      "title": "Uniform decay of the squared diagonal error",
+      "anchor": "global-gram-split",
+      "statement": "Under the dimension proviso, Q(K_uu−I)≤d_u(2C₀/Γ+2exp(−kf log k)); the square root of the parenthesized error is ≤exp(−x^(ε/8)) at one common family threshold. The total row dimension is at most (1+exp(−c₇rf log r))D*.",
+      "hypotheses": "Positive reference D*, C₀≥1, 1/C₀≤d_uΓ²/D*≤C₀, k≥8log Γ, log Γ=CΓm⁵fL, L=x^ε, ε>0, independent total-row point count.",
+      "definitions": [
+        "dimension proviso",
+        "full target dimension",
+        "diagonal deviation"
+      ],
+      "equations": [
+        "global-gram-error"
+      ],
+      "dependencies": [
+        "GRM-01"
+      ],
+      "sources": [
+        {
+          "declaration": "diag_unproj",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            144,
+            184
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L144-L184"
+        },
+        {
+          "declaration": "linkS_concl",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            186,
+            204
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L186-L204"
+        },
+        {
+          "declaration": "adm7",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean",
+          "lines": [
+            105,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean#L105-L106"
+        },
+        {
+          "declaration": "eF_nonneg_and_le_exp_neg",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            206,
+            247
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L206-L247"
+        },
+        {
+          "declaration": "linkS_of_standing_hypotheses",
+          "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+          "lines": [
+            628,
+            651
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean#L628-L651"
+        }
+      ],
+      "correspondence": "Write the diagonal deviation as a sum, square using the factor 2, and apply the upper dimension proviso. With y=x^(ε/8), both exponential errors are dominated by exp(−CΓy⁸); choose the scale before the word or index. Use the upper half of the independent relative point count.",
+      "status": "mathematical proof reconstructed",
+      "review": "A second reading checked the factor two, the square root, the reference size and the target dimension."
+    },
+    {
+      "id": "GRM-03",
+      "chapter": "global",
+      "title": "A common row basis and isometric column restrictions",
+      "anchor": "global-gram-basis",
+      "statement": "Parseval recovers all normalized period Grams in one row basis. In that basis the chosen ramified columns form isometric restrictions. Their common arithmetic top rows agree up to one row change, wordwise column changes, and possibly simultaneous conjugation.",
+      "hypotheses": "Full orthonormal bases, the chosen Bessel identity, compatible number-field embedding, nonnegative unfolding constant, positive full word dimension and e₀<1.",
+      "definitions": [
+        "Parseval identity",
+        "adjoint of a period operator",
+        "ramified subspace"
+      ],
+      "equations": [],
+      "dependencies": [
+        "GRM-02"
+      ],
+      "sources": [
+        {
+          "declaration": "MatS_at",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            725,
+            738
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L725-L738"
+        },
+        {
+          "declaration": "Hilbert–Schmidt coordinates and gram_PMat",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1025,
+            1053
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1025-L1053"
+        },
+        {
+          "declaration": "conjT_map and the normalized Gram",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1055,
+            1108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1055-L1108"
+        },
+        {
+          "declaration": "blockReal_at_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1283,
+            1315
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1283-L1315"
+        },
+        {
+          "declaration": "unfolding_constant_pos_of_diagonal",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1317,
+            1346
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1317-L1346"
+        },
+        {
+          "declaration": "matKF_of",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+          "lines": [
+            1358,
+            1381
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L1358-L1381"
+        },
+        {
+          "declaration": "linkGLOBAL7_items",
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            714,
+            721
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L714-L721"
+        }
+      ],
+      "correspondence": "Use Parseval on common rows, retain the isometric columns, and identify the arithmetic block by Bessel. A zero unfolding constant would force error d_u>e₀d_u.",
+      "status": "mathematical proof reconstructed",
+      "review": "Separate reader checked the contradiction and the distinction between the two invertible lattice coordinate changes and the isometry."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "link construction",
+      "callee": "theoremS_link_concrete",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSPos.lean",
+        "line": 158
+      }
+    },
+    {
+      "caller": "diag_unproj",
+      "callee": "hsNormSq_add_le",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 154
+      }
+    },
+    {
+      "caller": "linkS_concl",
+      "callee": "diag_unproj",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 200
+      }
+    },
+    {
+      "caller": "linkS_of_standing_hypotheses",
+      "callee": "eF_nonneg_and_le_exp_neg",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 647
+      }
+    },
+    {
+      "caller": "linkS_of_standing_hypotheses",
+      "callee": "linkS_concl",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+        "line": 649
+      }
+    },
+    {
+      "caller": "blockReal_at_of",
+      "callee": "exists_rowBasis",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+        "line": 1286
+      }
+    },
+    {
+      "caller": "unfolding_constant_pos_of_diagonal",
+      "callee": "hs_neg_id",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+        "line": 1344
+      }
+    },
+    {
+      "caller": "matKF_of",
+      "callee": "blockReal_at_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+        "line": 1380
+      }
+    },
+    {
+      "caller": "linkGLOBAL7_items",
+      "callee": "matKF_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 719
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GRM-01",
+      "GRM-02"
+    ],
+    [
+      "GRM-02",
+      "GRM-03"
+    ]
+  ],
+  "outstanding": [
+    "The geometric type vanishing, positive diagonal kernel, individual nongeneric row majorants, different-word theorem and independent relative point count are used at their suppliers."
+  ],
+  "review_scope": "A separate source reader checked the normalizations, order of quantifiers and arithmetic against the original archive."
+}

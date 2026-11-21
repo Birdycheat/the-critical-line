@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+    "mathlib_repository": "leanprover-community/mathlib4",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "evidence": "Read the main repository's JacDvd and its written callers in the original archive. Read the two exact Mathlib blobs at its pinned commit (JacobiSum/Basic.lean and GaussSum.lean). The calculation over F₇ is a direct specialization at M=3,b=2. No elaborated proof terms are asserted.",
+  "claims": [
+    {
+      "id": "JAC-01",
+      "chapter": "inputs",
+      "title": "The inverse-character partner of a Jacobi sum",
+      "anchor": "inputs-jacobi-divisibility",
+      "statement": "For multiplicative characters χ,φ on F_p with values in a characteristic-zero integral domain, if χ,φ and χφ are all nontrivial, the product J(χ,φ)J(χ⁻¹,φ⁻¹) equals p in the domain. Thus J(χ,φ) divides p and is nonzero.",
+      "hypotheses": "p prime, R a commutative characteristic-zero integral domain, characters zero at zero and nonzero character values units. Mathlib proves the field identity for a finite source field and target field of different characteristic. It extends the target to obtain a primitive additive character; the two factor identities descend through injective ring maps.",
+      "definitions": [
+        "multiplicative character at zero",
+        "Jacobi sum",
+        "Gauss sum",
+        "inverse additive character",
+        "finite field orthogonality",
+        "divisibility in the coefficient ring"
+      ],
+      "equations": [
+        "inputs-jacobi-product"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.Stick.jacDvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean",
+          "lines": [
+            6,
+            25
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean#L6-L25"
+        },
+        {
+          "declaration": "jacobiSum_mul_nontrivial",
+          "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+          "lines": [
+            165,
+            183
+          ],
+          "repository": "leanprover-community/mathlib4",
+          "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/JacobiSum/Basic.lean#L165-L183"
+        },
+        {
+          "declaration": "jacobiSum_mul_jacobiSum_inv",
+          "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+          "lines": [
+            199,
+            223
+          ],
+          "repository": "leanprover-community/mathlib4",
+          "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/JacobiSum/Basic.lean#L199-L223"
+        },
+        {
+          "declaration": "jacobiSum_mul_jacobiSum_inv",
+          "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+          "lines": [
+            224,
+            235
+          ],
+          "repository": "leanprover-community/mathlib4",
+          "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/JacobiSum/Basic.lean#L224-L235"
+        },
+        {
+          "declaration": "gaussSum_mul_aux / gaussSum_mul_gaussSum_eq_card",
+          "path": "Mathlib/NumberTheory/GaussSum.lean",
+          "lines": [
+            175,
+            201
+          ],
+          "repository": "leanprover-community/mathlib4",
+          "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/GaussSum.lean#L175-L201"
+        }
+      ],
+      "correspondence": "First group the convolution by t=x+y. The t=0 term vanishes by nontriviality of χφ and scaling x by t gives Gψ(χφ)J=Gψ(χ)Gψ(φ). In the Gauss product with the inverse additive character take x=uy. At y=0 the added term sums to zero by nontriviality of the multiplicative character. Additive orthogonality then leaves only u=1. Multiply the convolution identities for (χ,φ,ψ) and (χ⁻¹,φ⁻¹,ψ⁻¹) and cancel the nonzero scalar p, not a character sign. The quotient in the original R is itself a Jacobi sum.",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader checked both pinned Mathlib proofs, the vanishing at t=0, the inverse additive character and the cancellation at the nonzero cardinal."
+    },
+    {
+      "id": "JAC-02",
+      "chapter": "inputs",
+      "title": "Why a single residual zero gives exactly one prime factor",
+      "anchor": "inputs-jacobi-seven",
+      "statement": "Each J_j on the cyclotomic construction route divides p in O_K. Since (p) splits as distinct degree-one primes, its order at a tested prime is one and the two Jacobi partners split that order between them. The separate finite-field residue test determines which partner vanishes. Multiplication adds orders over j.",
+      "hypotheses": "Cyclotomic K=ℚ(μ_M), residue map O_K→F_p with p coprime to M, and a lifted character χ taking Mth-root values and reducing to x^((p−1)/M) on nonzero x. For terms in the product 1≤j<b<M, χ,χ^j,χ^(j+1) are nontrivial. The Eisenstein example has M=3, b=2, p=7, χ(3)=ω; the specified prime sends ω to 2.",
+      "definitions": [
+        "cyclotomic coefficient ring",
+        "split rational prime",
+        "ramification exponent",
+        "prime factorization of the Jacobi product"
+      ],
+      "equations": [
+        "inputs-jacobi-product"
+      ],
+      "dependencies": [
+        "JAC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "xJac_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            33,
+            51
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L33-L51"
+        },
+        {
+          "declaration": "xJac_one",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            65,
+            81
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L65-L81"
+        },
+        {
+          "declaration": "xJac_span",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            104,
+            114
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L104-L114"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            130,
+            151
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L130-L151"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xJac",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+          "lines": [
+            145,
+            166
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean#L145-L166"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.splitProd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean",
+          "lines": [
+            8,
+            31
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/SplitProd.lean#L8-L31"
+        },
+        {
+          "declaration": "UpperTheory.V.ML.xEx",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+          "lines": [
+            25,
+            40
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean#L25-L40"
+        },
+        {
+          "declaration": "UpperTheory.V.Stick.jacDvd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean",
+          "lines": [
+            6,
+            25
+          ],
+          "repository": "Deicyde/riemann-hypothesis",
+          "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean#L6-L25"
+        }
+      ],
+      "correspondence": "xJac_one verifies the three nontrivialities for each residue pair; xJac selects exponents 1,j and computes the product of their principal ideals via xJac_span. For p=7, J(χ,χ)=2+3ω² is the factor at the prime ω↦2, while J(χ⁻¹,χ⁻¹)=2+3ω is the factor at ω↦4. This elementary calculation demonstrates the divisor direction and complementary prime orders. No claim that the product over all j itself divides p.",
+      "status": "mathematical proof reconstructed",
+      "review": "An independent reader verified the finite-field exponents 2,0,2,0,2, both complementary residues, the product 7, and the individual-divisor use in xJac."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.V.ML.xEx",
+      "callee": "xJac",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean",
+        "line": 35
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.xJac",
+      "callee": "xJac_one",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 142
+      }
+    },
+    {
+      "caller": "UpperTheory.V.ML.xJac",
+      "callee": "xJac_span",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 150
+      }
+    },
+    {
+      "caller": "xJac_one",
+      "callee": "jacDvd",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 66
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.jacDvd",
+      "callee": "jacobiSum_mul_jacobiSum_inv",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean",
+        "line": 22
+      }
+    },
+    {
+      "caller": "UpperTheory.V.Stick.jacDvd",
+      "callee": "jacobiSum_ringHomComp",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/StickelbergerTheorem/JacDvd.lean",
+        "line": 23
+      }
+    },
+    {
+      "caller": "jacobiSum_mul_jacobiSum_inv",
+      "callee": "FiniteField.primitiveChar",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "line": 208
+      }
+    },
+    {
+      "caller": "jacobiSum_mul_jacobiSum_inv",
+      "callee": "jacobiSum_mul_nontrivial",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "line": 232
+      }
+    },
+    {
+      "caller": "jacobiSum_mul_jacobiSum_inv",
+      "callee": "gaussSum_mul_gaussSum_eq_card",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "line": 234
+      }
+    },
+    {
+      "caller": "jacobiSum_mul_nontrivial",
+      "callee": "MulChar.sum_eq_zero_of_ne_one",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "line": 173
+      }
+    },
+    {
+      "caller": "gaussSum_mul_gaussSum_eq_card",
+      "callee": "gaussSum_mul_aux",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/GaussSum.lean",
+        "line": 196
+      }
+    },
+    {
+      "caller": "gaussSum_mul_gaussSum_eq_card",
+      "callee": "sum_mulShift",
+      "callsite": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "path": "Mathlib/NumberTheory/GaussSum.lean",
+        "line": 199
+      }
+    },
+    {
+      "caller": "xJac_span",
+      "callee": "splitProd",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 108
+      }
+    },
+    {
+      "caller": "xJac_span",
+      "callee": "sqfree",
+      "callsite": {
+        "repository": "Deicyde/riemann-hypothesis",
+        "commit": "e50d09817ad81469f737e8f637561e6ccf86c670",
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean",
+        "line": 109
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "JAC-01",
+      "JAC-02"
+    ],
+    [
+      "JAC-02",
+      "CYE-01"
+    ],
+    [
+      "CYE-01",
+      "CYE-02"
+    ]
+  ],
+  "outstanding": [
+    "Finite-field character orthogonality and existence of a primitive additive character after adjoining roots of unity are library inputs; the proof here opens the two character sum manipulations that use them.",
+    "The integral character lift, complete splitting and distinction of the primes over p, explicit residue carry test, and existence of degree-one primes in chosen ideal classes are separate inputs in the cyclotomic-element construction. CYE-01–04 describe their uses.",
+    "The divisibility supplies one local exponent calculation in the reciprocity argument. Character-component length bounds also use the primitive-character arithmetic and Poitou–Tate reciprocity of REC-01–03/MIN-02. The Bernoulli denominator clearing in MBF-01 is independent."
+  ],
+  "review_scope": "In-archive applications and the directly called, pinned Mathlib proof. Arithmetic examples illustrate a single Jacobi factor, separate from the subsequent Bernoulli denominator or Kummer length statements."
+}

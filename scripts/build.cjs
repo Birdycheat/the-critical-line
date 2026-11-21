@@ -283,7 +283,10 @@ save(
   ),
 );
 const expanded = book
-  .replace(/<details([^>]*)>/g, '<section class="printed-detail">')
+  .replace(/<details\b([^>]*)>/g, (_, attributes) => {
+    const id = attributes.match(/\s+id="[^"]*"/);
+    return '<section class="printed-detail"' + (id ? id[0] : "") + ">";
+  })
   .replaceAll("</details>", "</section>")
   .replace(/<summary>/g, "<h4>")
   .replaceAll("</summary>", "</h4>")

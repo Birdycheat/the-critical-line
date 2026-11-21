@@ -2,6 +2,12 @@
 
 ## 21 November 2026
 
+- The constant spherical coefficient at a split prime of residue size three in rank two has Satake parameters √3 and 1/√3. Its series starts 1+8X+38X². The two-move Euler correction instead counts paths to one fixed lattice, and its rank-two example uses residue size two.
+- A ramified theta entry may have a denominator. The scalar that clears its readings locally has order ⌈eB⌉. After the stabilizer-weighted sum and final period, a floor controls a negative-power shift of the input lattice for the integral dual pairing.
+- A nondegenerate Jacobi sum divides the rational prime p. Its explicit quotient is its inverse-character partner. The earlier phrase about divisibility by p reversed this implication. The F₇ example identifies each partner at the two primes above 7.
+- The degree-three dyadic example now uses ℚ(ζ₂₀), with four complex places and a square root of −1. The four free generators allowed by the rank bound contribute a factor of at most q⁴. The matching factor cancels in the character count, leaving torsion and the kernel estimate.
+- The full target dimension in the frame argument is integral; D* is its predicted positive real size. The comparison uses the upper half of the independent two-sided point count. An invertible arithmetic basis change and an isometric restriction of columns serve different purposes.
+
 - At an inert unramified place, equality of finite double-coset sums passes to the infinite sum because the original coefficient is constant on each double coset. Its sum of absolute values on that block is bounded by the corresponding sum for the induced spherical model.
 - Positive rank at the base tuple supplies a coordinate to lift. Period separation uses a single archimedean pair across the lines, with finite tests chosen for each line. Both properties enter the proof that the common coefficient scalar is nonzero.
 - In the finite cyclic construction the lower word has degree 2e for the positive twist e. Remove common powers of ℓ from a relation in a free abelian cover before projecting to finite homology. The determinant interpolation acts on α by inverse conjugates; reindexing its evaluation produces positive powers of κᵉ.

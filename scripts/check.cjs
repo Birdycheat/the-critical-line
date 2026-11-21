@@ -37,6 +37,9 @@ for (const [n, s] of Object.entries(html)) {
   ids[n] = new Set(all);
   assert.equal(all.length, ids[n].size, "Duplicate anchors in " + n);
 }
+for (const match of html["book.html"].matchAll(/<details\b[^>]*\sid="([^"]+)"/g)) {
+  assert.ok(ids["print.html"].has(match[1]), "Missing printed example anchor " + match[1]);
+}
 for (const [n, s] of Object.entries(html)) {
   for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const val = m[1];
@@ -64,6 +67,72 @@ for (const [id, c] of Object.entries(lib.configs)) {
     }
   }
 }
+function checkSplitEndpoint() {
+  for (const q of [2, 3, 4, 5]) {
+    for (let degree = 0; degree <= 6; degree++) {
+      const rows = lib.splitEndpointCoefficients(q, degree);
+      const rendered = lib.render("split-endpoint", { q: String(q), degree });
+      const displayed = [...rendered.matchAll(/<td>(\d+)<\/td>/g)].map(match => Number(match[1]));
+      assert.equal(rows.length, degree + 1);
+      assert.equal(displayed.length, 3 * rows.length);
+      for (let k = 0; k <= degree; k++) {
+        const expected = (q ** (k + 1) - 1) / (q - 1);
+        const corrected = Number(k === 0);
+        assert.deepEqual(rows[k], { k, xDegree: 3 + 2 * k, before: expected, hermite: expected, after: corrected });
+        assert.deepEqual(displayed.slice(3 * k, 3 * k + 3), [expected, expected, corrected]);
+      }
+      const xDegree = 3 + 2 * degree;
+      assert.ok(rendered.includes("<caption>Endpoint coefficients through degree " + xDegree + " in X (q = " + q + ")</caption>"));
+    }
+  }
+}
+checkSplitEndpoint();
+function checkGramPair() {
+  for (const a of [0.5, 1, 1.5]) {
+    for (const h of [0, 0.6, 1]) {
+      const words = [
+        [[2 * a, 0, 0, 0], [0, 2, 0, 0]],
+        [[3 * h, 0, 3 * Math.sqrt(1 - h * h), 0], [0, 0, 0, 3]],
+      ];
+      const c = [4, 9];
+      function entry(u, v, i, j) {
+        const dot = words[u][i].reduce((sum, coordinate, k) => sum + coordinate * words[v][j][k], 0);
+        return dot / Math.sqrt(c[u] * c[v]);
+      }
+      function squaredErrors(indices) {
+        return [[0, 0], [1, 1], [0, 1]].map(([u, v]) => {
+          let error = 0;
+          for (const i of indices)
+            for (const j of indices)
+              error += (entry(u, v, i, j) - Number(u === v && i === j)) ** 2;
+          return error;
+        });
+      }
+      for (const [column, index] of [["first", 0], ["second", 1]]) {
+        const gram = lib.gramPair(a, h, column);
+        const full = squaredErrors([0, 1]), retained = squaredErrors([index]);
+        const table = lib.render("gram-pair", { a: String(a), h: String(h), column });
+        const cells = [...table.matchAll(/<td>([^<]+)<\/td>/g)].map(match => Number(match[1]));
+        assert.equal(cells.length, 6);
+        for (let block = 0; block < 3; block++) {
+          close(gram.full[block], full[block], 1e-12);
+          close(gram.retained[block], retained[block], 1e-12);
+          close(cells[2 * block], full[block], 1e-12);
+          close(cells[2 * block + 1], retained[block], 1e-12);
+        }
+        close(gram.overlap, entry(0, 1, 0, 0), 1e-12);
+        close(gram.retainedOverlap, entry(0, 1, index, index), 1e-12);
+        const metrics = [...table.matchAll(/<dd>([^<]+)<\/dd>/g)].map(match => Number(match[1]));
+        assert.equal(metrics.length, 3);
+        close(metrics[0], entry(0, 1, index, index), 1e-12);
+        close(metrics[1], full[0] / 2, 1e-12);
+        close(metrics[2], retained[0], 1e-12);
+        assert.ok(table.includes("<caption>Squared Gram errors with " + column + " columns retained</caption>"));
+      }
+    }
+  }
+}
+checkGramPair();
 assert.equal(lib.primeBase(1), 0);
 for (const twist of [1, 2]) {
   for (const weight of [0, 1, 2, 3, 4]) {
@@ -168,6 +237,10 @@ for (const a of [2, 3, 4]) {
 }
 assert.equal(distinctGridStates.size, 9);
 for (const name of ["book.html", "print.html"]) {
+  assert.ok(html[name].includes('<caption>Endpoint coefficients through degree 7 in X (q = 2)</caption>'),
+    "Missing default split Euler table in " + name);
+  assert.ok(html[name].includes('<caption>Squared Gram errors with first columns retained</caption>'),
+    "Missing readable default Gram table in " + name);
   assert.ok(html[name].includes('<table class="rank-grid"><caption>Basis vector at (2, 3)</caption>'),
     "Missing readable default rank grid in " + name);
 }
@@ -241,5 +314,5 @@ assert.ok(lib.upperTail(100, 115) < lib.upperTail(100, 90));
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, Bernoulli sums at all nine carry settings, nine signed rank grids, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, Mellin quadrature, factorial valuations, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );
