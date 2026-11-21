@@ -97,7 +97,12 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "fourier-rank") {
+        if (id === "height-grid") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["675", "1,296"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["9 (k = 2)", "5 (k = 1)", "5 (k = 1)", "3 (k = 0)"]);
+        } else if (id === "trace-cycles") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "2"]);
+        } else if (id === "fourier-rank") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 · invertible", "9, 9, 9", "0"]);
         } else if (id === "shear-rounding") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["(2/5, 2/5)", "4/5", "1/5"]);

@@ -16,6 +16,28 @@
     value,
   });
   const configs = {
+    "height-grid": {
+      title: "How many grid points must one height label allow?",
+      kind: "Counting rational centres",
+      section: "lifts",
+      params: [
+        range("u", "First depth u", 0, 3, 1, 1),
+        range("v", "Second depth v", 0, 3, 1, 0),
+      ],
+      caption: "Each entry lists the number of candidate numerators for one scalar coordinate of a rank-two centre. Multiply the four entries to count all candidates. Several candidates may describe the same centre.",
+      method: "Use one real place, R = 1 and label μ = (u,v). At depth k = μᵢ + μⱼ the numerator runs over all integers from −2ᵏ to 2ᵏ. The list size 2·2ᵏ+1 is at most 3·2ᵏ. Multiplying gives the uniform bound 3⁴·4²⁽ᵘ⁺ᵛ⁾. A further multiplicity bound is needed for the number of rational cosets using each centre.",
+    },
+    "trace-cycles": {
+      title: "How does a permutation turn into a product of traces?",
+      kind: "Tensor contractions at two inputs",
+      section: "inputs",
+      params: [
+        range("copies", "Identical blocks d", 1, 3, 1, 1),
+        choose("place", "Places of the inputs", [["same", "Same place"], ["distinct", "Distinct places"]], "same"),
+      ],
+      caption: "Follow each cycle of the permutation and multiply the matrices encountered along it. Take one trace per cycle. Repeating the matrices in d blocks shows why two cycles and one cycle scale differently.",
+      method: "The two input matrices are A = [[1,1],[1,0]] and B = [[0,1],[1,3]]. Put d copies of each on the diagonal. For distinct places, they occupy disjoint coordinate spaces. For the identity permutation sum AᵢᵢBⱼⱼ over i,j. For the swap sum AᵢⱼBⱼᵢ. These are contractions of tensors with the chosen inputs. The two-input example precedes alternation.",
+    },
     "fourier-rank": {
       title: "Can every invertible frequency miss a nonzero function?",
       kind: "Fourier transform on 27 matrices",
@@ -752,6 +774,32 @@
     return remainder === 1 ? sign : -sign;
   }
 
+  function heightGrid(u, v) {
+    const depths = [2 * u, u + v, u + v, 2 * v];
+    const counts = depths.map(k => 2 * 2 ** k + 1);
+    const candidates = counts.reduce((product, count) => product * count, 1);
+    const bound = 81 * 4 ** (2 * (u + v));
+    return { depths, counts, candidates, bound };
+  }
+  function traceCycles(copies, samePlace) {
+    const a = [[1, 1], [1, 0]], b = [[0, 1], [1, 3]];
+    const blockSize = 2 * copies, shift = samePlace ? 0 : blockSize;
+    const dimension = blockSize + shift;
+    function entry(matrix, offset, i, j) {
+      i -= offset;
+      j -= offset;
+      if (i < 0 || i >= blockSize || j < 0 || j >= blockSize || Math.floor(i / 2) !== Math.floor(j / 2)) return 0;
+      return matrix[i % 2][j % 2];
+    }
+    let identity = 0, swap = 0;
+    for (let i = 0; i < dimension; i++) {
+      for (let j = 0; j < dimension; j++) {
+        identity += entry(a, 0, i, i) * entry(b, shift, j, j);
+        swap += entry(a, 0, i, j) * entry(b, shift, j, i);
+      }
+    }
+    return { identity, swap };
+  }
   function fourierRank(a, b, c) {
     const counts = [0, 0, 0];
     for (let x = 0; x < 3; x++) {
@@ -855,6 +903,29 @@
   }
 
   function render(id, v) {
+    if (id === "height-grid") {
+      const u = Number(v.u), second = Number(v.v);
+      const { depths, counts, candidates, bound } = heightGrid(u, second);
+      const entry = i => '<td>' + counts[i] + ' (k = ' + depths[i] + ')</td>';
+      return '<table class="carry-table"><caption>Choices by ordered pair of coordinates</caption>' +
+        '<thead><tr><th scope="col">Row</th><th scope="col">Column 1</th><th scope="col">Column 2</th></tr></thead>' +
+        '<tbody><tr><th scope="row">1</th>' + entry(0) + entry(1) + '</tr><tr><th scope="row">2</th>' + entry(2) + entry(3) + '</tr></tbody></table>' +
+        metrics([["Candidate tuples", candidates.toLocaleString("en-US")], ["Uniform bound", bound.toLocaleString("en-US")]]) +
+        '<p>For μ = (' + u + ', ' + second + '), the four list sizes multiply to ' + counts.join(' × ') + '.</p>';
+    }
+    if (id === "trace-cycles") {
+      const copies = Number(v.copies), same = v.place === "same";
+      const t = traceCycles(copies, same);
+      const readings = [1, 2, 3].map(d => {
+        const values = traceCycles(d, same);
+        return '<tr><th scope="row">' + d + (d === copies ? ' · selected' : '') + '</th><td>' + values.identity + '</td><td>' + values.swap + '</td></tr>';
+      }).join("");
+      return '<table class="carry-table"><caption>Contractions after repeating the two matrices</caption><thead><tr><th scope="col">Blocks</th>' +
+        '<th scope="col">Identity (1)(2)</th><th scope="col">Swap (12)</th></tr></thead><tbody>' + readings + '</tbody></table>' +
+        metrics([["Two cycles · tr(A) tr(B)", t.identity], ["One cycle · tr(AB)", t.swap]]) +
+        '<p>' + (same ? 'The identity can choose its two blocks independently. The swap needs both indices in the same block.' :
+          'The identity still has one trace at each place. In the swap contraction every term connects disjoint matrix blocks and vanishes.') + '</p>';
+    }
     if (id === "fourier-rank") {
       const a = Number(v.a), b = Number(v.b), c = Number(v.c);
       const counts = fourierRank(a, b, c);
@@ -1916,6 +1987,8 @@
     minimumScale,
     shearRounding,
     fourierRank,
+    heightGrid,
+    traceCycles,
     render,
     defaults,
     normal,

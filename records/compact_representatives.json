@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Read the pinned Gram-determinant, finite-residue and compact-union proofs and checked the source calls. A second reader independently checked the rank, constants, scaled inverse and residue example.",
+  "claims": [
+    {
+      "id": "FCR-01",
+      "chapter": "inputs",
+      "title": "Squared column bounds and the real Gram determinant bound the norm of a frame",
+      "anchor": "inputs-compact-determinant",
+      "statement": "Write d=N[L:ℚ] and r=[L:ℚ]/2. A nonsingular integral frame A with every column of squared length at most D satisfies 1≤|Norm(det A)|≤I₀(D/c)^(Nr), where I₀=|disc L|^N d^d.",
+      "hypotheses": "L is totally complex, N≥1, h is positive definite at all complex places and c,D>0. The lower squared bound c holds on every nonzero integral vector. The upper inequality itself holds for arbitrary integral A satisfying the column bounds; the lower bound 1 uses det A≠0.",
+      "definitions": [
+        "P(h)=∏_w det h_w uses one representative of each complex place.",
+        "The real Gram matrix in integral coordinates of k=h/c has dimension d.",
+        "The combined conjugate embeddings give 2^d det G=|disc L|^N P(k)^2."
+      ],
+      "equations": [
+        "inputs-compact-norm-bound"
+      ],
+      "dependencies": [
+        "LTR-01"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.normSq_det_mul_re_det_le_pow_of_posDef",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            268,
+            293
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L268-L293"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.nrmDet_le_mul_div_pow_of_q_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            295,
+            323
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L295-L323"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramdet",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            33,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L33-L51"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramdet",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            54,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L54-L75"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.gramdet",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+          "lines": [
+            84,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean#L84-L100"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.grampd",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+          "lines": [
+            8,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean#L8-L25"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.detlow_num",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+          "lines": [
+            10,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean#L10-L34"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.detlow",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+          "lines": [
+            51,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean#L51-L81"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.nrmDet_le_mul_div_pow_of_q_le",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            324,
+            353
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L324-L353"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The local Gram determinant is |w(det A)|² det h_w≤D^N by Hadamard. Its product is |Norm(det A)|P(h). For k=h/c the primal minimum gives 1≤(4d)^d det G. The Gram determinant identity, d≥2, and |disc L|≥1 imply I₀P(k)≥1. Rescaling yields P(h)≥c^(Nr)/I₀. The determinant lemma in the source separately covers d=0.",
+      "review": "An independent source reading confirmed the factors 2^d and |disc L|^N and the exponent Nr. The real dimension has no d=1 branch for a totally complex field."
+    },
+    {
+      "id": "FCR-02",
+      "chapter": "inputs",
+      "title": "Scaled inverse residues give a finite list under left multiplication",
+      "anchor": "inputs-compact-residues",
+      "statement": "For any number field L of degree e, integers N,J≥0, there is a list S of at most J^(1+eN²) integral N-by-N matrices. For each A with det A≠0 and |Norm(det A)|≤J, there exists g∈GL_N(𝒪_L) with gA∈S.",
+      "hypotheses": "The argument uses the full ring of integers in an arbitrary number field and requires no assumption on its infinite places. At fixed determinant norm I the stratum has I≥1; J=0 gives the empty list.",
+      "definitions": [
+        "For |Norm(det A)|=I, the scaled inverse U=IA⁻¹ has integral entries since I∈(det A).",
+        "The matrix U modulo I𝒪_L has at most I^(eN²) possible values.",
+        "An orbit may occur for multiple residues; agreement of residues supplies an orbit witness."
+      ],
+      "equations": [
+        "inputs-compact-left-change"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "UpperTheory.V.KT.scinv",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean",
+          "lines": [
+            6,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean#L6-L19"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.hnfone",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean",
+          "lines": [
+            8,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean#L8-L40"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.hnfeq",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfeq.lean",
+          "lines": [
+            6,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfeq.lean#L6-L41"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.hnfone",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean",
+          "lines": [
+            41,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean#L41-L66"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.hnf",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnf.lean",
+          "lines": [
+            7,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnf.lean#L7-L40"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Equal residues yield IA⁻¹−IA′⁻¹=IX. Then A′A⁻¹=Id+A′X and AA′⁻¹=Id−AX are inverse integral matrices. One lift per attained residue suffices. Sum the bounds for 1≤I≤J. The source may send an unattained key to zero and filters for nonzero determinant for the compact union.",
+      "review": "Independently checked the order of left multiplication, the pointwise fixed-norm exponent and the exponent of the union. In the Gaussian worked example U−U′=2E₁₂ recovers g=Id+(1+i)E₁₂ and its inverse."
+    },
+    {
+      "id": "FCR-03",
+      "chapter": "inputs",
+      "title": "The finite matrix list indexes compact sets meeting all thick orbits",
+      "anchor": "inputs-compact-pieces",
+      "statement": "For every totally complex L, N≥1 and c>0 there exists a compact K inside the positive cone. Every positive h with λ(h),λ∨(h)≥c has a translate in K. The construction uses at most J^(1+[L:ℚ]N²) compact pieces for J=ceil(I₀(D/c)^(Nr)) and D=10C_T/c.",
+      "hypotheses": "C_T=C_T(L,N) is the squared covering estimate constant. Both minima are squared and taken over the nonzero integral lattice. The list and K can be chosen independently of the form h.",
+      "definitions": [
+        "For nonsingular B on the finite list, impose lower constraints q_k(v)≥c for every integral v≠0 and upper constraints q_k(B_j)≤D for each column.",
+        "A field basis of short columns need not be an integral basis.",
+        "The finite family indexes sets of forms; each such set can hold a continuum of forms."
+      ],
+      "equations": [],
+      "dependencies": [
+        "FCR-01",
+        "FCR-02",
+        "LTR-03"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.Thick",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean",
+          "lines": [
+            95,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/Smoothing.lean#L95-L97"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.exbasis",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Exbasis.lean",
+          "lines": [
+            6,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Exbasis.lean#L6-L28"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GThick",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            355,
+            377
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L355-L377"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.thKB_subset_pos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            76,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L76-L91"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.exists_injective_linearMap_gram_of_det_ne_zero",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            104,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L104-L130"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.isCompact_thKB_of_det_ne_zero",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            133,
+            170
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L133-L170"
+        },
+        {
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GThick",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+          "lines": [
+            375,
+            402
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean#L375-L402"
+        },
+        {
+          "declaration": "UpperTheory.V.KT.rypos",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+          "lines": [
+            9,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean#L9-L36"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The covering estimate supplies N independent columns via the short spanning argument. A row change sends A to B while the inverse acts on the arguments of the transported form. The constraints on k are closed. The lattice lower bound implies local positivity and the upper bounds give sup norm at most 2D in the injective coordinates B_w* k_w B_w. The inverse on their range is continuous. The finite union of such compact subsets meets each required orbit.",
+      "review": "Checked that for B=gA the identity is q_(g·h)(B_j)=q_h(A_j). The compactness theorem quantifies over positive rank even though the finite matrix lemma applies also in rank zero."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "callee": "blockdet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 66
+      }
+    },
+    {
+      "callee": "det_emb",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 69
+      }
+    },
+    {
+      "callee": "prod_emb",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 70
+      }
+    },
+    {
+      "callee": "map_det",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Gramdet.lean",
+        "line": 86
+      }
+    },
+    {
+      "callee": "grampsd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+        "line": 14
+      }
+    },
+    {
+      "callee": "gramlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Grampd.lean",
+        "line": 24
+      }
+    },
+    {
+      "callee": "gramq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 41
+      }
+    },
+    {
+      "callee": "grampd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 51
+      }
+    },
+    {
+      "callee": "gramdet",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 56
+      }
+    },
+    {
+      "callee": "rypos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 60
+      }
+    },
+    {
+      "callee": "detlow_num",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Detlow.lean",
+        "line": 75
+      }
+    },
+    {
+      "callee": "absNorm_mem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "mul_adjugate",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean",
+        "line": 18
+      }
+    },
+    {
+      "callee": "adjugate_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Scinv.lean",
+        "line": 19
+      }
+    },
+    {
+      "callee": "absNorm_span_singleton",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "scinv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "hnfeq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnfone.lean",
+        "line": 62
+      }
+    },
+    {
+      "callee": "hnfone",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnf.lean",
+        "line": 25
+      }
+    },
+    {
+      "callee": "card_biUnion_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Hnf.lean",
+        "line": 29
+      }
+    },
+    {
+      "callee": "exists_linearIndependent",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Exbasis.lean",
+        "line": 11
+      }
+    },
+    {
+      "callee": "linearIndependent_cols_iff_isUnit",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Exbasis.lean",
+        "line": 27
+      }
+    },
+    {
+      "callee": "gramq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 13
+      }
+    },
+    {
+      "callee": "grampd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 16
+      }
+    },
+    {
+      "callee": "realsurj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Rypos.lean",
+        "line": 20
+      }
+    },
+    {
+      "callee": "rypos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 85
+      }
+    },
+    {
+      "callee": "exists_injective_linearMap_gram_of_det_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 136
+      }
+    },
+    {
+      "callee": "thKB_subset_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 156
+      }
+    },
+    {
+      "callee": "hadam",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 283
+      }
+    },
+    {
+      "callee": "normSq_det_mul_re_det_le_pow_of_posDef",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 316
+      }
+    },
+    {
+      "callee": "detlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 330
+      }
+    },
+    {
+      "callee": "prod_normSq_embedding_eq_abs_norm_of_isTotallyComplex",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 339
+      }
+    },
+    {
+      "callee": "hnf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 364
+      }
+    },
+    {
+      "callee": "isCompact_thKB_of_det_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 367
+      }
+    },
+    {
+      "callee": "thKB_subset_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 368
+      }
+    },
+    {
+      "callee": "hTr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 373
+      }
+    },
+    {
+      "callee": "exbasis",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 375
+      }
+    },
+    {
+      "callee": "spans_setOf_q_le_ten_mul_of_covering",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 375
+      }
+    },
+    {
+      "callee": "nrmDet_le_mul_div_pow_of_q_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 376
+      }
+    },
+    {
+      "callee": "hS",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 380
+      }
+    },
+    {
+      "callee": "hcol",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GThick.lean",
+        "line": 401
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LTR-01",
+      "FCR-01"
+    ],
+    [
+      "FCR-01",
+      "FCR-03"
+    ],
+    [
+      "FCR-02",
+      "FCR-03"
+    ],
+    [
+      "LTR-03",
+      "FCR-03"
+    ],
+    [
+      "FCR-03",
+      "TPK-01"
+    ]
+  ],
+  "outstanding": [
+    "The property that a compact subset meets each thick orbit is used by the separate bump construction and overlap estimate in TPK-02."
+  ]
+}

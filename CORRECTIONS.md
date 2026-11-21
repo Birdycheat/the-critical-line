@@ -2,6 +2,11 @@
 
 ## 21 November 2026
 
+- At one height label the product of the dyadic list sizes counts candidate centres. A separate injection into relative rational matrices bounds the multiplicity per centre. Neither count by itself is the cardinality of the coset fibre.
+- The determinant and inverse-matrix residues classify a finite set of possible column matrices up to an integral left change of basis. The families of positive forms parametrized by them can still vary continuously.
+- The colored swap in the unitary commutant can act nontrivially when its slots have distinct places. Its contraction with inputs supported on the two distinct blocks vanishes. The commutant assertion gives a spanning family, including in small dimension where its members can be dependent.
+- In the inert CM argument n is the degree of the multiplier: there are n−1 nonidentity kernel points. The prime-to-p coordinate bound concerns the larger full n-torsion. The induction on the formal multiplier uses the extra power of T inside the substitution and divides only by 2.
+
 - Equality of the invertible Fourier coefficients alone leaves singular frequencies undetected. In the lower Siegel–Weil range the vanishing argument acts first on a convolution. Recovering the original Fock value uses a test with nonzero scalar on the vacuum.
 - The two coordinate roundings for a positive lattice form are coupled through the off-diagonal entries. In the basis (1,1+i) of ℤ[i], ignoring the shear at (2/5,2/5) gives squared distance 4/5. Correcting for it gives 1/5.
 - For a realized minor label the maximum defining its size includes its terminal nonzero minor. The positive terminal sizes multiply to the square root of the normalized ideal norm. In the orbital bound the unipotent covolume belongs to the word and the stabilizer volume belongs to the term.

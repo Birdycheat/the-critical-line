@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "corpus": "primary_mirror",
+  "claims": [
+    {
+      "id": "CME-01",
+      "chapter": "normalization",
+      "anchor": "normalization-cm-kernel",
+      "title": "The CM kernel has prime-to-p order and integral coordinates",
+      "statement": "For the rescaled lattice, the n−1 nonzero kernel representatives have coordinates in the valuation ring, where n=(d+1)/4. The multiplier and its conjugate are units.",
+      "hypotheses": "Good model, CM stability, d≡3 mod 4, p≥5 prime, p∤d and −d nonsquare mod p.",
+      "equations": [],
+      "dependencies": [
+        "CIM-02"
+      ],
+      "sources": [
+        {
+          "declaration": "Rescaling the lattice to the good model",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgAnLat.lean",
+          "lines": [
+            11,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgAnLat.lean#L11-L28"
+        },
+        {
+          "declaration": "The degree and the unit multiplier",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+          "lines": [
+            13,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean#L13-L36"
+        },
+        {
+          "declaration": "Counting the kernel representatives",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+          "lines": [
+            38,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean#L38-L52"
+        },
+        {
+          "declaration": "Kernel points are killed by a prime-to-p integer",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+          "lines": [
+            75,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean#L75-L92"
+        },
+        {
+          "declaration": "A product bound gives integrality at every representative",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean",
+          "lines": [
+            24,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean#L24-L51"
+        },
+        {
+          "declaration": "Periodicity and the Weierstrass equation",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean",
+          "lines": [
+            52,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean#L52-L72"
+        },
+        {
+          "declaration": "The curve identity from the kernel translates",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgAnEndo.lean",
+          "lines": [
+            11,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgAnEndo.lean#L11-L21"
+        },
+        {
+          "declaration": "The coordinate hypotheses for the kernel formula",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/CurveEndoAll.lean",
+          "lines": [
+            48,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/CurveEndoAll.lean#L48-L54"
+        }
+      ],
+      "correspondence": "The torus kernel has size n. If p divided n, −d would be square. Each point of the kernel is killed by n, and the product bound controls every nonzero n-torsion coordinate.",
+      "status": "mathematical proof reconstructed"
+    },
+    {
+      "id": "CME-02",
+      "chapter": "normalization",
+      "anchor": "normalization-cm-induction",
+      "title": "The shifted coordinate identity proves the endomorphism integral",
+      "statement": "If A,V are integral with constant term one and the good-model identity A(αTg)=g²V holds with g(0)=1, then g and M=αTg are integral.",
+      "hypotheses": "A field of characteristic zero with coefficient subring R containing α and 1/2. For the geometric application the valid curve and kernel data supply the coordinate identity.",
+      "equations": [
+        "normalization-cm-velu",
+        "normalization-cm-coefficient"
+      ],
+      "dependencies": [
+        "CME-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Integrality of the corrected coordinate sum",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            94,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L94-L100"
+        },
+        {
+          "declaration": "Constant and linear terms of the multiplier series",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            102,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L102-L125"
+        },
+        {
+          "declaration": "Cancelling the common factor in the coordinate equation",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            139,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L139-L155"
+        },
+        {
+          "declaration": "The degree shift in a substitution",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            17,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L17-L41"
+        },
+        {
+          "declaration": "Recovering the next coefficient from the square",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            43,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L43-L68"
+        },
+        {
+          "declaration": "The induction proving integrality",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            70,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L70-L92"
+        },
+        {
+          "declaration": "Applying the coefficient argument to the geometric data",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+          "lines": [
+            157,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean#L157-L168"
+        },
+        {
+          "declaration": "The supplied integral endomorphism theorem",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/PhNormFromDatum.lean",
+          "lines": [
+            28,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/PhNormFromDatum.lean#L28-L28"
+        },
+        {
+          "declaration": "The integral endomorphism on the good model",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+          "lines": [
+            91,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean#L91-L115"
+        },
+        {
+          "declaration": "The integral action and its conjugate in the height-two argument",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            40,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L40-L60"
+        },
+        {
+          "declaration": "The signed sum of translated coordinates",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/VeluIntegral.lean",
+          "lines": [
+            8,
+            10
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/VeluIntegral.lean#L8-L10"
+        }
+      ],
+      "correspondence": "In degree k the substituted side only needs terms of g of degree below k. On the square side collect the two terms g₀g_k. Division by the unit 2 closes the induction. end_integral supplies Aint in the Frobenius datum.",
+      "status": "mathematical proof reconstructed"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "good_lattice",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 58
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "end_not_dvd",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 65
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "end_unit",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 68
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "kerRepsExist",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 79
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "end_card",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 80
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "endo_curve",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 81
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "tor_integral",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 86
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "gauss_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean",
+        "line": 47
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "le_one_of_prod_max_le_one",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgTorInt.lean",
+        "line": 51
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "curveEndoR",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 95
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "endIntFromDatum",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/EndIntegral.lean",
+        "line": 112
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "integral_endomorphism_from_datum",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/PhNormFromDatum.lean",
+        "line": 28
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "exists_mulBy_eq",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 161
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "veluXFromZ",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 162
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "velu_x_coordinate_integral",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 165
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "int_of_eq",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 141
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "coeff_of_sq",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 88
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "below_subst",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/SecondCoefficientNorms/BinomialSeriesCoefficients/IntegralEndomorphismFromDatum.lean",
+        "line": 90
+      }
+    },
+    {
+      "caller": "CM endomorphism on the good model",
+      "callee": "end_integral",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 49
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "CIM-02",
+      "CME-01"
+    ],
+    [
+      "CME-01",
+      "CME-02"
+    ],
+    [
+      "CME-02",
+      "HTC-01"
+    ]
+  ],
+  "outstanding": [
+    "The analytic elliptic addition formula, integral translated coordinate expansions, and Gauss bound for the torsion product are upstream suppliers."
+  ]
+}

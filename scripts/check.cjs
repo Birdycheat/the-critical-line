@@ -63,6 +63,28 @@ for (const [n, s] of Object.entries(html)) {
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Count integer numerators by membership in the scaled interval.
+for (let u = 0; u <= 3; u++) {
+  for (let v = 0; v <= 3; v++) {
+    const grid = lib.heightGrid(u, v);
+    const label = [u, v];
+    const counts = label.flatMap(i => label.map(j => {
+      let count = 0;
+      for (let numerator = -64; numerator <= 64; numerator++) {
+        if (Math.abs(numerator / 2 ** (i + j)) <= 1) count++;
+      }
+      return count;
+    }));
+    assert.deepEqual(grid.counts, counts);
+    assert.equal(grid.candidates, counts.reduce((x, y) => x * y, 1));
+    assert.ok(grid.candidates <= grid.bound);
+  }
+}
+// A repeated block contributes one factor of d for each trace cycle.
+for (const d of [1, 2, 3]) {
+  assert.deepEqual(lib.traceCycles(d, true), {identity: 3 * d * d, swap: 2 * d});
+  assert.deepEqual(lib.traceCycles(d, false), {identity: 3 * d * d, swap: 0});
+}
 // Orthogonality characterizes each frequency independently of its phase count.
 let invertibleFrequencies = 0;
 for (let a = 0; a < 3; a++) {
@@ -719,5 +741,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );
