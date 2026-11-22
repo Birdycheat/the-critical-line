@@ -145,7 +145,11 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "iwahori-translated-slopes") {
+        if (id === "trace-lattice-primes") {
+          assert.equal(await fig.locator("caption").innerText(), "Tests modulo 5");
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["2, 3", "25 of 25", "Yes", "No"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4734976", "Satisfied"]);
+        } else if (id === "iwahori-translated-slopes") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(12, 1), (3, 1)", "X² − 13X + 9", "0 and 1", "−4, −2"]);
           assert.match(await fig.locator('[role="status"]').textContent(), /Eigenvalue valuations of g: −4, −2/);
         } else if (id === "hecke-four-point-approximation") {

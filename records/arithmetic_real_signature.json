@@ -1,0 +1,755 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "ARS-01",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-real-signature",
+      "title": "The signature of the standard Hermitian form",
+      "hypotheses": "A CM field with a chosen complex embedding τ₀, a nonzero real integral coefficient c negative at [τ₀] and positive elsewhere, and rank n ≥ 1.",
+      "statement": "The Hermitian form with diagonal entries −c, −c², …, −c² has signature (1,n−1) at [τ₀] and (0,n) at every other infinite place.",
+      "equations": [
+        "lifts-geometric-inertia-indices"
+      ],
+      "dependencies": [
+        "ATD-04"
+      ],
+      "sources": [
+        {
+          "label": "The Hermitian coefficients and the integral trace form",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean",
+          "lines": [
+            58,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean#L58-L71",
+          "declaration": "UpperTheory.Gal.W2.Seed.Arith.H",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.Arith.dg": 58,
+            "UpperTheory.Gal.W2.Seed.Arith.hd": 60,
+            "UpperTheory.Gal.W2.Seed.Arith.H": 62,
+            "UpperTheory.Gal.W2.Seed.Arith.EF": 64,
+            "UpperTheory.Gal.W2.Seed.Arith.EF_apply": 71
+          },
+          "related_declarations": [
+            "UpperTheory.Gal.W2.Seed.Arith.dg",
+            "UpperTheory.Gal.W2.Seed.Arith.hd",
+            "UpperTheory.Gal.W2.Seed.Arith.EF",
+            "UpperTheory.Gal.W2.Seed.Arith.EF_apply"
+          ]
+        },
+        {
+          "label": "The signs of the diagonal coefficients at every embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PHdSign.lean",
+          "lines": [
+            7,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PHdSign.lean#L7-L53",
+          "declaration": "UpperTheory.Gal.W2.Seed.pHdSign",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pHdSign": 7
+          }
+        },
+        {
+          "label": "Inertia indices from the diagonal eigenvalue multiset",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardSubtypeEqOfMultiset.lean",
+          "lines": [
+            32,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardSubtypeEqOfMultiset.lean#L32-L38",
+          "declaration": "GlobalTheory.LKTrip.sigPosH_sigNegH_diagonal",
+          "declaration_lines": {
+            "GlobalTheory.LKTrip.sigPosH_sigNegH_diagonal": 32
+          }
+        },
+        {
+          "label": "The two signatures, including rank one",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSigSt.lean",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSigSt.lean#L29-L55",
+          "declaration": "UpperTheory.Gal.W2.Seed.pSigSt",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pSigSt": 29
+          }
+        },
+        {
+          "label": "The signature supplied to the setup",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+          "lines": [
+            64,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean#L64-L64",
+          "declaration": "UpperTheory.Gal.W2.Seed.SigSt_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.SigSt_holds": 64
+          }
+        }
+      ],
+      "correspondence": "The pinned source passages establish the ingredients and their use in the geometric setup.",
+      "status": "mathematical proof reconstructed",
+      "review": "Counting a real diagonal in an eigenbasis also covers rank one. Conjugation preserves the signature."
+    },
+    {
+      "id": "ARS-02",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-real-polarization",
+      "title": "The polarized complex structure and its scalar traces",
+      "hypotheses": "The rank-n arithmetic trace form, the quadratic CM type cut out by ω, and a purely imaginary δ in the trace codifferent with negative imaginary part on the selected type.",
+      "statement": "Multiplication by the signed imaginary unit in real embedding coordinates gives J² = −1, preserves the alternating form F, and makes F(Jx,x) positive for x ≠ 0. Ordinary and J-twisted scalar traces recover the real and imaginary parts of the prescribed complex trace.",
+      "equations": [
+        "lifts-geometric-polarized-trace",
+        "lifts-geometric-complex-structure-traces"
+      ],
+      "dependencies": [
+        "ARS-01",
+        "ATD-02",
+        "ATD-04"
+      ],
+      "sources": [
+        {
+          "label": "One embedding of the selected type at each infinite place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+          "lines": [
+            93,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean#L93-L129",
+          "declaration": "UpperTheory.Gal.W2.Seed.pTraceType",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pTraceType": 93
+          }
+        },
+        {
+          "label": "Evaluation coordinates for the real trace lattice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PRealIso.lean",
+          "lines": [
+            65,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PRealIso.lean#L65-L83",
+          "declaration": "UpperTheory.Gal.W2.Seed.pRealIso",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pRealIso": 65
+          }
+        },
+        {
+          "label": "The complex structure and the choice of the positive coordinate",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+          "lines": [
+            53,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean#L53-L105",
+          "declaration": "UpperTheory.Gal.W2.Seed.pDomSt",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pDomSt": 53
+          }
+        },
+        {
+          "label": "Preservation of the form, positivity and commutation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+          "lines": [
+            106,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean#L106-L146",
+          "declaration": "UpperTheory.Gal.W2.Seed.pDomSt",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pDomSt": 53
+          }
+        },
+        {
+          "label": "Ordinary and twisted real traces of a scalar",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+          "lines": [
+            147,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean#L147-L169",
+          "declaration": "UpperTheory.Gal.W2.Seed.pDomSt",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pDomSt": 53
+          }
+        },
+        {
+          "label": "Positive definiteness for the two choices of embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+          "lines": [
+            139,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean#L139-L172",
+          "declaration": "UpperTheory.Gal.W2.Seed.pOrient",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pOrient": 169
+          }
+        },
+        {
+          "label": "Separate providers for the finite-place data and the real trace identities",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+          "lines": [
+            65,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean#L65-L66",
+          "declaration": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.AtPEx_holds": 65,
+            "UpperTheory.Gal.W2.Seed.DomSt_holds": 66
+          },
+          "related_declarations": [
+            "UpperTheory.Gal.W2.Seed.AtPEx_holds"
+          ]
+        }
+      ],
+      "correspondence": "The pinned source passages establish the ingredients and their use in the geometric setup.",
+      "status": "mathematical proof reconstructed",
+      "review": "The two orientations give the same positive diagonal. Over ℚ(i,√2) in rank three, the scalar i gives twisted real trace 8."
+    },
+    {
+      "id": "ARS-03",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-real-compactness",
+      "title": "The parity hypotheses in the arithmetic compactness criterion",
+      "hypotheses": "The arithmetic datum at a good prime, odd positive rank n, and even degree of the maximal real subfield over ℚ.",
+      "statement": "The datum has one marked embedding and scalar-order multiplicity one. The group has one place with positive index one and odd rank. The field degree is at least four, which establishes the numerical compactness condition.",
+      "equations": [
+        "lifts-geometric-compactness-degree"
+      ],
+      "dependencies": [
+        "ARS-01"
+      ],
+      "sources": [
+        {
+          "label": "The five arithmetic hypotheses for the geometric step",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/IntegOfMem.lean",
+          "lines": [
+            193,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/IntegOfMem.lean#L193-L198",
+          "declaration": "UpperTheory.Gal.Int.Geo.Sc",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.Sc": 193
+          }
+        },
+        {
+          "label": "The numerical alternatives for the compactness condition",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/CompactBIffCompact.lean",
+          "lines": [
+            10,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/CompactBIffCompact.lean#L10-L12",
+          "declaration": "GlobalTheory.UPel.HT.Datum.CompactB",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.Datum.CompactB": 10,
+            "GlobalTheory.UPel.HT.Datum.compactB_iff_compact": 12
+          },
+          "related_declarations": [
+            "GlobalTheory.UPel.HT.Datum.compactB_iff_compact"
+          ]
+        },
+        {
+          "label": "The order, its multiplicity and the number of distinguished embeddings",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean",
+          "lines": [
+            145,
+            169
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean#L145-L169",
+          "declaration": "UpperTheory.Gal.W2.Seed.Arith.datum",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.Arith.datum": 135
+          }
+        },
+        {
+          "label": "Counting places from the signature and applying the degree inequality",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSetupBasic.lean",
+          "lines": [
+            6,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSetupBasic.lean#L6-L25",
+          "declaration": "UpperTheory.Gal.W2.Seed.pSetupBasic",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pSetupBasic": 6
+          }
+        },
+        {
+          "label": "The real-degree calculation and the odd-rank hypothesis",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PScOf.lean",
+          "lines": [
+            6,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PScOf.lean#L6-L18",
+          "declaration": "UpperTheory.Gal.G1.pScOf",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.pScOf": 6
+          }
+        },
+        {
+          "label": "Constructing the setup at a good prime before imposing the two parities",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean",
+          "lines": [
+            39,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/DatExOf.lean#L39-L52",
+          "declaration": "UpperTheory.Gal.G1.datEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.G1.datEx_of": 39
+          }
+        }
+      ],
+      "correspondence": "The pinned source passages establish the ingredients and their use in the geometric setup.",
+      "status": "mathematical proof reconstructed",
+      "review": "Even real degree is used to obtain the sufficient strict inequality. The odd-rank condition is passed to the group separately."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SigSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.HdSign_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 64,
+        "spelling": "HdSign_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.HdSign_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pHdSign",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 45,
+        "spelling": "pHdSign"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SigSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pSigSt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 64,
+        "spelling": "pSigSt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pSigSt",
+      "callee": "GlobalTheory.LKTrip.sigPosH_sigNegH_diagonal",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSigSt.lean",
+        "line": 44,
+        "spelling": "sigPosH_sigNegH_diagonal"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKTrip.sigPosH_sigNegH_diagonal",
+      "callee": "GlobalTheory.SigDiag.card_subtype_eq_of_multiset",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardSubtypeEqOfMultiset.lean",
+        "line": 37,
+        "spelling": "GlobalTheory.SigDiag.card_subtype_eq_of_multiset"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKTrip.sigPosH_sigNegH_diagonal",
+      "callee": "GlobalTheory.SigDiag.eigenvalues_multiset_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardSubtypeEqOfMultiset.lean",
+        "line": 36,
+        "spelling": "GlobalTheory.SigDiag.eigenvalues_multiset_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pSigSt",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PSigSt.0.UpperTheory.Gal.W2.Seed.card_signs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSigSt.lean",
+        "line": 47,
+        "spelling": "card_signs"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.TraceType_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "TraceType_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.TraceType_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 56,
+        "spelling": "pTraceType"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.sum_conj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 96,
+        "spelling": "sum_conj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.RealIso_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "RealIso_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.RealIso_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pRealIso",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 63,
+        "spelling": "pRealIso"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pRealIso",
+      "callee": "NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PRealIso.lean",
+        "line": 78,
+        "spelling": "InfinitePlace.card_add_two_mul_card_eq_rank"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pDomSt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "pDomSt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pDomSt",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PDomSt.0.UpperTheory.Gal.W2.Seed.pDomSt_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+        "line": 167,
+        "spelling": "pDomSt_sum"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SetupEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.Orient_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 69,
+        "spelling": "Orient_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.Orient_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pOrient",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 62,
+        "spelling": "pOrient"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrient",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.orient_core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+        "line": 172,
+        "spelling": "UpperTheory.Gal.W2.Seed.Ori.orient_core"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.orient_core",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.posDiag",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+        "line": 151,
+        "spelling": "posDiag"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.DiagTrace_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "DiagTrace_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DiagTrace_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pDiagTrace",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 42,
+        "spelling": "pDiagTrace"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.FormCoord_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "FormCoord_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.FormCoord_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pFormCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 60,
+        "spelling": "pFormCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.datEx_holds",
+      "callee": "UpperTheory.Gal.G1.ScOf_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PDatEx.lean",
+        "line": 13,
+        "spelling": "ScOf_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G1.ScOf_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.SetupBasic_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/ExistsAuxiliaryPrime.lean",
+        "line": 16,
+        "spelling": "SetupBasic_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SetupBasic_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pSetupBasic",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 55,
+        "spelling": "pSetupBasic"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pSetupBasic",
+      "callee": "Fintype.card_eq_one_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSetupBasic.lean",
+        "line": 22,
+        "spelling": "Fintype.card_eq_one_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G1.ScOf_holds",
+      "callee": "UpperTheory.Gal.G1.pScOf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/ExistsAuxiliaryPrime.lean",
+        "line": 16,
+        "spelling": "pScOf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G1.pScOf",
+      "callee": "Algebra.IsQuadraticExtension.finrank_eq_two",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicHensel/PScOf.lean",
+        "line": 12,
+        "spelling": "Algebra.IsQuadraticExtension.finrank_eq_two"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.datEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.SetupEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PDatEx.lean",
+        "line": 13,
+        "spelling": "SetupEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SetupEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.SigSt_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 69,
+        "spelling": "SigSt_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.Pl.datEx_holds",
+      "callee": "UpperTheory.Gal.G1.datEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PrimeLevelLocalization/PDatEx.lean",
+        "line": 13,
+        "spelling": "datEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pHdSign",
+      "callee": "NumberField.InfinitePlace.mk_eq_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PHdSign.lean",
+        "line": 18,
+        "spelling": "InfinitePlace.mk_eq_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.tau_im",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 97,
+        "spelling": "tau_im"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.trace_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 100,
+        "spelling": "trace_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.tau_cases",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 108,
+        "spelling": "tau_cases"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.rho_ne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 110,
+        "spelling": "rho_ne"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "Complex.add_conj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 115,
+        "spelling": "Complex.add_conj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PTraceType.0.UpperTheory.Gal.W2.Seed.conj_mem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 120,
+        "spelling": "conj_mem"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTraceType",
+      "callee": "NumberField.InfinitePlace.mk_eq_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTraceType.lean",
+        "line": 124,
+        "spelling": "InfinitePlace.mk_eq_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pRealIso",
+      "callee": "NumberField.IsTotallyComplex.nrRealPlaces_eq_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PRealIso.lean",
+        "line": 80,
+        "spelling": "IsTotallyComplex.nrRealPlaces_eq_zero"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pDomSt",
+      "callee": "NumberField.InfinitePlace.mk_eq_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+        "line": 65,
+        "spelling": "InfinitePlace.mk_eq_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pDomSt",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PDomSt.0.UpperTheory.Gal.W2.Seed.pDomSt_term",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+        "line": 132,
+        "spelling": "pDomSt_term"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pDomSt",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.PDomSt.0.UpperTheory.Gal.W2.Seed.pDomSt_theta_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PDomSt.lean",
+        "line": 145,
+        "spelling": "pDomSt_theta_mul"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.orient_core",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.gram_diag",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+        "line": 144,
+        "spelling": "gram_diag"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.orient_core",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.real_abs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+        "line": 149,
+        "spelling": "real_abs"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.orient_core",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.POrient.0.UpperTheory.Gal.W2.Seed.Ori.hd_ne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrient.lean",
+        "line": 149,
+        "spelling": "hd_ne"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.DomSt_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.HdSign_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 66,
+        "spelling": "HdSign_holds"
+      }
+    }
+  ]
+}

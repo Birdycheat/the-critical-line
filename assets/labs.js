@@ -23,6 +23,17 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "trace-lattice-primes": {
+      title: "Which primes preserve the Gaussian trace lattice?",
+      kind: "The trace dual of ℤ[i]",
+      section: "lifts",
+      params: [
+        choose("prime", "Prime q", ["2", "3", "5", "13", "17"].map(q => [q, q]), "5"),
+        choose("denominator", "Common denominator y", [["34", "34"], ["170", "170"]], "34"),
+      ],
+      caption: "Keep the Gaussian lattice and its form fixed. Change the prime to test splitting and perfection. Then keep q = 5 and change the denominator used to certify perfection.",
+      method: "For δ = −17i, pairing a + bi with 1 and i gives (34b, 34a). This map reaches the full dual modulo q exactly when 34 is invertible. The real coefficient c = −64 must also be a unit. The bound D = y² · 4096 uses the index of cℤ[i] in ℤ[i]. Both choices of y clear the trace-dual denominators.",
+    },
     "iwahori-translated-slopes": {
       title: "Which eigenvalue valuations change under the central translation?",
       kind: "A two-dimensional Iwahori double coset",
@@ -1758,6 +1769,27 @@
   }
 
   function render(id, v) {
+    if (id === "trace-lattice-primes") {
+      const prime = Number(v.prime);
+      const denominator = Number(v.denominator);
+      const defect = denominator ** 2 * 4096;
+      const roots = Array.from({length: prime}, (_, r) => r).filter(r => (r * r + 1) % prime === 0);
+      const rootText = roots.length === 2 ? roots.join(", ") : roots.length === 1 ? roots[0] + " (double)" : "None";
+      const imageSize = 34 % prime === 0 ? 1 : prime ** 2;
+      const unit = 64 % prime !== 0;
+      const good = roots.length === 2 && imageSize === prime ** 2 && unit;
+      const rows = [
+        ["Roots of X² + 1", rootText],
+        ["Trace image in the dual", imageSize + " of " + prime ** 2],
+        ["Is −64 a unit?", unit ? "Yes" : "No"],
+        ["Does q divide D?", defect % prime === 0 ? "Yes" : "No"],
+      ];
+      const body = rows.map(([label, value]) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>').join("");
+      const announcement = "At " + prime + " the trace image has size " + imageSize + ".";
+      return '<table class="carry-table" data-announcement="' + announcement + '"><caption>Tests modulo ' + prime +
+        '</caption><thead><tr><th scope="col">Test</th><th scope="col">Value</th></tr></thead><tbody>' + body +
+        '</tbody></table>' + metrics([["Bound D", String(defect)], ["Geometric prime conditions", good ? "Satisfied" : "Fail"]]);
+    }
     if (id === "iwahori-translated-slopes") {
       const p = Number(v.prime);
       const m = Number(v.power);
