@@ -1,0 +1,2437 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "ORV-01",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-primary-blocks",
+      "title": "Why does a reducible characteristic polynomial put the centralizer in two blocks?",
+      "hypotheses": "An invertible operator on a nonzero finite-dimensional space over k has separable reducible characteristic polynomial.",
+      "statement": "Two complementary nonzero primary spaces put the operator and its full centralizer in the block diagonal Levi.",
+      "equations": [
+        "lifts-orbital-primary-projections",
+        "lifts-orbital-block-centralizer"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Factorization and complementary polynomial kernels",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+          "lines": [
+            31,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean#L31-L63",
+          "declaration": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi": 31
+          }
+        },
+        {
+          "label": "Every eigenvalue occurs in the minimal polynomial",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsPowerBasisOfCharpolySeparable.lean",
+          "lines": [
+            15,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsPowerBasisOfCharpolySeparable.lean#L15-L42",
+          "declaration": "GlobalTheory.UnitLemma.charpoly_dvd_minpoly_of_separable",
+          "declaration_lines": {
+            "GlobalTheory.UnitLemma.charpoly_dvd_minpoly_of_separable": 15
+          }
+        },
+        {
+          "label": "Each block has positive dimension",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+          "lines": [
+            64,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean#L64-L85",
+          "declaration": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi": 31
+          }
+        },
+        {
+          "label": "The two bases and the direction of conjugation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+          "lines": [
+            86,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean#L86-L118",
+          "declaration": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi": 31
+          }
+        },
+        {
+          "label": "A commuting matrix preserves both kernels",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+          "lines": [
+            119,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean#L119-L166",
+          "declaration": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi": 31
+          }
+        },
+        {
+          "label": "Choosing the Levi for the local orbital sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+          "lines": [
+            127,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean#L127-L146",
+          "declaration": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp": 117
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Singularity descends from a splitting field to k."
+    },
+    {
+      "id": "ORV-02",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-sylvester",
+      "title": "How does conjugation turn into a rectangular change of variables?",
+      "hypotheses": "Use that block parabolic and any parabolic conjugate of the operator, with diagonal blocks A and B.",
+      "statement": "Unipotent conjugation is affine linear in the rectangular coordinate, with invertible linear part because the two block spectra are disjoint.",
+      "equations": [
+        "lifts-orbital-sylvester-conjugation",
+        "lifts-orbital-constant-term"
+      ],
+      "dependencies": [
+        "ORV-01"
+      ],
+      "sources": [
+        {
+          "label": "Addition, inverses and coordinates on the unipotent radical",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            17,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L17-L39",
+          "declaration": "GlobalTheory.OrbDesc.NSum.coord",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.coord": 17
+          }
+        },
+        {
+          "label": "The Sylvester kernel and the two characteristic polynomials",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            184,
+            203
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L184-L203",
+          "declaration": "GlobalTheory.OrbDesc.NSum.sylvester",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.sylvester": 184
+          }
+        },
+        {
+          "label": "The diagonal blocks and the formula for the linear map",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            205,
+            230
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L205-L230",
+          "declaration": "GlobalTheory.OrbDesc.NSum.exists_conj",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.exists_conj": 205
+          }
+        },
+        {
+          "label": "Invertibility and the conjugation identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            231,
+            246
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L231-L246",
+          "declaration": "GlobalTheory.OrbDesc.NSum.exists_conj",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.exists_conj": 205
+          }
+        },
+        {
+          "label": "The zero constant term in every two-block decomposition",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+          "lines": [
+            18,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean#L18-L22",
+          "declaration": "UpperTheory.Gal.Spc.NoConst",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.NoConst": 18
+          }
+        },
+        {
+          "label": "Transport of the test and its translated constant terms",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+          "lines": [
+            94,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean#L94-L115",
+          "declaration": "GlobalTheory.OrbDesc.conj_props",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.conj_props": 94
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The upper right block of the conjugate may be nonzero."
+    },
+    {
+      "id": "ORV-03",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-unipotent-measure",
+      "title": "What does one coset contribute to the constant-term integral?",
+      "hypotheses": "Over a nonarchimedean local field the compactly supported locally constant bi-level-invariant test has zero translated constant terms.",
+      "statement": "The unipotent sum vanishes. Its common cell volume is the Haar measure of the image of the level lattice under the rectangular change of coordinate.",
+      "equations": [
+        "lifts-orbital-unipotent-quotient",
+        "lifts-orbital-haar-fibre-sum"
+      ],
+      "dependencies": [
+        "ORV-02"
+      ],
+      "sources": [
+        {
+          "label": "The compact open coordinate subgroup and continuity of linear changes",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            49,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L49-L85",
+          "declaration": "GlobalTheory.OrbDesc.NSum.lam",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.lam": 49
+          }
+        },
+        {
+          "label": "Haar measure and measurability of compact open cells",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            121,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L121-L158",
+          "declaration": "GlobalTheory.OrbDesc.NSum.exists_haar",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.exists_haar": 121
+          }
+        },
+        {
+          "label": "Integration on finitely many additive cosets",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            160,
+            176
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L160-L176",
+          "declaration": "GlobalTheory.OrbDesc.NSum.integral_step",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.integral_step": 160
+          }
+        },
+        {
+          "label": "The group quotient and the image of the level under the linear isomorphism",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            250,
+            279
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L250-L279",
+          "declaration": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero": 250
+          }
+        },
+        {
+          "label": "Both directions of the correspondence between the quotient and its cells",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            280,
+            305
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L280-L305",
+          "declaration": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero": 250
+          }
+        },
+        {
+          "label": "Vanishing after cancellation of the positive finite volume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+          "lines": [
+            306,
+            311
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean#L306-L311",
+          "declaration": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero": 250
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The example detects the Jacobian when it contracts and when it expands a lattice."
+    },
+    {
+      "id": "ORV-04",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-fibre-weights",
+      "title": "How many times does a unipotent fibre visit each orbit?",
+      "hypotheses": "N is normal in P, the abelian subgroup T lies in P, and the test is left T-invariant and right L-invariant. The comparison indices are finite.",
+      "statement": "In one coarse fibre the weighted fine-orbit sum equals the raw unipotent sum times one relative weight.",
+      "equations": [
+        "lifts-orbital-index-weight",
+        "lifts-orbital-fibre-recount"
+      ],
+      "dependencies": [
+        "ORV-03"
+      ],
+      "sources": [
+        {
+          "label": "Right cosets and the action of the coarse stabilizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+          "lines": [
+            79,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean#L79-L104",
+          "declaration": "GlobalTheory.OrbDesc.volRat_of_le",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.volRat_of_le": 79
+          }
+        },
+        {
+          "label": "The stabilizer of a fine representative",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+          "lines": [
+            116,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean#L116-L142",
+          "declaration": "GlobalTheory.OrbDesc.exists_mul_of_mem_sup",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.exists_mul_of_mem_sup": 116
+          }
+        },
+        {
+          "label": "Counting the lifts by a subgroup index",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+          "lines": [
+            143,
+            181
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean#L143-L181",
+          "declaration": "GlobalTheory.OrbDesc.ncard_fibre_eq_relIndex",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.ncard_fibre_eq_relIndex": 131
+          }
+        },
+        {
+          "label": "Regrouping by the coarse double coset",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+          "lines": [
+            183,
+            230
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean#L183-L230",
+          "declaration": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums": 183
+          }
+        },
+        {
+          "label": "The common weight times the unipotent sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+          "lines": [
+            242,
+            262
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean#L242-L262",
+          "declaration": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums": 183
+          }
+        },
+        {
+          "label": "Multiplication of relative indices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocPartMul.lean",
+          "lines": [
+            11,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocPartMul.lean#L11-L39"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The fine stabilizer fixes a right coset. Its index counts the multiplicity of that orbit in the raw sum."
+    },
+    {
+      "id": "ORV-05",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-parabolic-sum",
+      "title": "Why does the full local orbital sum vanish?",
+      "hypotheses": "A local invertible matrix has separable reducible characteristic polynomial. The compactly supported locally constant bi-level-invariant test has zero constant terms on all translates of conjugate proper two-block unipotent groups.",
+      "statement": "The ordinary local orbital sum vanishes.",
+      "equations": [
+        "lifts-orbital-local-integrand"
+      ],
+      "dependencies": [
+        "ORV-01",
+        "ORV-03",
+        "ORV-04"
+      ],
+      "sources": [
+        {
+          "label": "Compactness of the projected level",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+          "lines": [
+            84,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean#L84-L106",
+          "declaration": "GlobalTheory.OrbDesc.StabIndex.bdiagHom",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.StabIndex.bdiagHom": 84
+          }
+        },
+        {
+          "label": "The fine stabilizer has finite index",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+          "lines": [
+            160,
+            199
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean#L160-L199",
+          "declaration": "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero": 134
+          }
+        },
+        {
+          "label": "Moving a parabolic fibre to the outer double coset",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean",
+          "lines": [
+            14,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean#L14-L39",
+          "declaration": "GlobalTheory.OrbDesc.mk_out_of_le",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.mk_out_of_le": 14
+          }
+        },
+        {
+          "label": "Representatives, weights and vanishing on each piece",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean",
+          "lines": [
+            48,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean#L48-L109",
+          "declaration": "GlobalTheory.OrbDesc.dsum_eq_zero_of_par",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.dsum_eq_zero_of_par": 34
+          }
+        },
+        {
+          "label": "Transport of the hypothesis on constant terms",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+          "lines": [
+            96,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean#L96-L115",
+          "declaration": "GlobalTheory.OrbDesc.conj_props",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.conj_props": 94
+          }
+        },
+        {
+          "label": "Changing the basis and applying the parabolic computation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+          "lines": [
+            117,
+            176
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean#L117-L176",
+          "declaration": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp": 117
+          }
+        },
+        {
+          "label": "The local vanishing theorem",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+          "lines": [
+            194,
+            215
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean#L194-L215",
+          "declaration": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp": 117
+          }
+        },
+        {
+          "label": "The ordinary orbital sum and its level average",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+          "lines": [
+            13,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean#L13-L30",
+          "declaration": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+          "declaration_lines": {
+            "GlobalTheory.OrbDesc.orbK_eq_twOrbU": 13
+          }
+        },
+        {
+          "label": "Applying the vanishing theorem at the ordinary level",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+          "lines": [
+            35,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean#L35-L47",
+          "declaration": "GlobalTheory.LKCount.orbK_eq_zero_of_cusp",
+          "declaration_lines": {
+            "GlobalTheory.LKCount.orbK_eq_zero_of_cusp": 35
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The projection to the Levi gives a finite stabilizer index. The unipotent sum itself has finite support."
+    },
+    {
+      "id": "ORV-06",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-adelic-slices",
+      "title": "How does cancellation at one place eliminate an adelic orbital term?",
+      "hypotheses": "At the split place the group and level are products. The centralizer is abelian, the local characteristic polynomial separable reducible, and all local slices of the Hecke test have zero constant terms.",
+      "statement": "The adelic orbital sum away from p vanishes.",
+      "equations": [
+        "lifts-orbital-fixed-slice"
+      ],
+      "dependencies": [
+        "ORV-05"
+      ],
+      "sources": [
+        {
+          "label": "The split place, product level and vanishing of each slice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+          "lines": [
+            26,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean#L26-L48",
+          "declaration": "UpperTheory.Gal.Spc.Pl",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.Pl": 26
+          }
+        },
+        {
+          "label": "Product double classes",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            25,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L25-L46",
+          "declaration": "UpperTheory.Gal.Spc.map_conj_inf_of_comm",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.map_conj_inf_of_comm": 25
+          }
+        },
+        {
+          "label": "The product of the two relative weights",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            48,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L48-L83",
+          "declaration": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices": 48
+          }
+        },
+        {
+          "label": "Fixing the complementary class in the orbital sum",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            84,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L84-L114",
+          "declaration": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices": 48
+          }
+        },
+        {
+          "label": "Compact support and local constancy of the slices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            122,
+            146
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L122-L146",
+          "declaration": "UpperTheory.Gal.Spc.isLocallyConstant_of_right_inv",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.isLocallyConstant_of_right_inv": 122
+          }
+        },
+        {
+          "label": "Transport to the chosen splitting",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            154,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L154-L177",
+          "declaration": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices": 154
+          }
+        },
+        {
+          "label": "The local characteristic polynomial and the vanishing of each slice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            183,
+            213
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L183-L213",
+          "declaration": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices": 154
+          }
+        },
+        {
+          "label": "Application of local vanishing to the product",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+          "lines": [
+            221,
+            236
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean#L221-L236",
+          "declaration": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices": 154
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Cancellation holds on each complementary double class even for a test which is not a pure tensor."
+    },
+    {
+      "id": "ORV-07",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-marked-stabilizer",
+      "title": "Why does each marking have only finitely many symmetries?",
+      "hypotheses": "A regular marked pair has a positive eigenline at the unique infinite place of positive index one. Fix the two finite local markings subject to the indicated level hypotheses.",
+      "statement": "The rational stabilizer of both markings is finite.",
+      "equations": [
+        "lifts-orbital-marked-stabilizer-level"
+      ],
+      "dependencies": [
+        "HFP-05"
+      ],
+      "sources": [
+        {
+          "label": "The number of infinite places of positive index one",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsCyclotomicExtensionQI.lean",
+          "lines": [
+            496,
+            500
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/IsCyclotomicExtensionQI.lean#L496-L500"
+        },
+        {
+          "label": "The marked eigenvalue theorem and the action of the involution on the generating root",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BetaTwistedInvolutionEqComplexConjOfMarked.lean",
+          "lines": [
+            9,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BetaTwistedInvolutionEqComplexConjOfMarked.lean#L9-L39"
+        },
+        {
+          "label": "Arithmetic finiteness in a field and then in a finite reduced algebra",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            37,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L37-L130",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.units_field",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.units_field": 37
+          }
+        },
+        {
+          "label": "Regularity, the reduced centralizer algebra and the inverse unit",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            132,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L132-L163",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.fm_reduced",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.fm_reduced": 132
+          }
+        },
+        {
+          "label": "Uniform bounds on rational coordinates away from the distinguished prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/BoundQ.lean",
+          "lines": [
+            24,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/BoundQ.lean#L24-L61",
+          "declaration": "UpperTheory.Gal.Spc.boundQ",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.boundQ": 24
+          }
+        },
+        {
+          "label": "Bounds at both places over the distinguished prime and the bounded-powers argument",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            164,
+            202
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L164-L202",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite": 148
+          }
+        },
+        {
+          "label": "Compatibility of the marked involution with complex conjugation and injection of the stabilizer",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            203,
+            230
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L203-L230",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite": 148
+          }
+        },
+        {
+          "label": "Finiteness of norm-similitude units subject to integral bounds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RatIntOfIsIntegral.lean",
+          "lines": [
+            12,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RatIntOfIsIntegral.lean#L12-L56"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Check the absolute values of the element and its inverse, the multiplier and the archimedean embeddings."
+    },
+    {
+      "id": "ORV-08",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-marked-vanishing",
+      "title": "How does a vanishing orbital sum remove a marked pair?",
+      "hypotheses": "The minimal polynomial of a regular marked pair is reducible over the center. Every split-place slice of the chosen Hecke test has zero constant terms.",
+      "statement": "The weighted contribution from this marked pair vanishes.",
+      "equations": [
+        "lifts-orbital-marked-mass",
+        "lifts-orbital-marked-point-sum"
+      ],
+      "dependencies": [
+        "ORV-06",
+        "ORV-07",
+        "ORV-10"
+      ],
+      "sources": [
+        {
+          "label": "The relative indices, both orbital measures, the mass and the weighted point sum",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointSide.lean",
+          "lines": [
+            13,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/PointSide.lean#L13-L46",
+          "declaration": "GlobalTheory.LKCount.vol",
+          "declaration_lines": {
+            "GlobalTheory.LKCount.vol": 13
+          }
+        },
+        {
+          "label": "How the mass changes through two finite-index intersections",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MassMulVolumeCommensurable.lean",
+          "lines": [
+            212,
+            248
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MassMulVolumeCommensurable.lean#L212-L248"
+        },
+        {
+          "label": "Grouping double cosets, finite support and invariance of the reference volume",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KottwitzPointCountOneClassCommensurable.lean",
+          "lines": [
+            143,
+            193
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KottwitzPointCountOneClassCommensurable.lean#L143-L193"
+        },
+        {
+          "label": "The counting identity and the product of ordinary and twisted orbital factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KottwitzPointCountOneClassCommensurable.lean",
+          "lines": [
+            196,
+            277
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/KottwitzPointCountOneClassCommensurable.lean#L196-L277"
+        },
+        {
+          "label": "The two support cases in the implication from the ordinary orbital sum to the point term",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            232,
+            251
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L232-L251",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.pointSum_zero",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.pointSum_zero": 232
+          }
+        },
+        {
+          "label": "Norm witness, twisted centralizer, Frobenius-stable indicator and injective joint embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            253,
+            288
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L253-L288",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero": 253
+          }
+        },
+        {
+          "label": "Characteristic polynomial in the split factor and vanishing for every marked pair with reducible polynomial",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+          "lines": [
+            290,
+            321
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean#L290-L321",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.charpoly_at_self",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.charpoly_at_self": 290
+          }
+        },
+        {
+          "label": "The split cuspidal place and the additional support condition at an auxiliary place",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+          "lines": [
+            75,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean#L75-L87",
+          "declaration": "UpperTheory.Gal.Spc.VanForms",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.VanForms": 81
+          }
+        },
+        {
+          "label": "Cuspidality and regularity of the assembled Hecke test used in the comparison",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            210,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L210-L218",
+          "declaration": "UpperTheory.Gal.Spc.specOfF",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specOfF": 179
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Regrouping by the two local centralizers gives the orbital factors. A proper monic factorization persists after scalar extension."
+    },
+    {
+      "id": "ORV-09",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-definite-support",
+      "title": "Which rational elements can contribute on the definite side?",
+      "hypotheses": "The definite Hecke test has regular support at one split place and cuspidal slices at another. The rational polynomial fails the separable, irreducible, full-degree condition.",
+      "statement": "Every such definite representative has zero orbital term.",
+      "equations": [
+        "lifts-orbital-definite-product",
+        "lifts-orbital-definite-dichotomy"
+      ],
+      "dependencies": [
+        "ORV-06",
+        "ORV-10"
+      ],
+      "sources": [
+        {
+          "label": "The compatible matrix realizations, group decomposition and product level",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+          "lines": [
+            26,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean#L26-L48",
+          "declaration": "UpperTheory.Gal.Spc.Pl",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.Pl": 26
+          }
+        },
+        {
+          "label": "The two test hypotheses and the necessary condition on definite elements",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+          "lines": [
+            74,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean#L74-L87",
+          "declaration": "UpperTheory.Gal.Spc.ForPlaces",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.ForPlaces": 74
+          }
+        },
+        {
+          "label": "The finite adelic identification acts by conjugacy in the matrix realization",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+          "lines": [
+            19,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean#L19-L34",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.atHom",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.atHom": 19
+          }
+        },
+        {
+          "label": "A repeated characteristic root excludes every conjugate from the support",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCharpolyNotSeparable.lean",
+          "lines": [
+            6,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCharpolyNotSeparable.lean#L6-L24",
+          "declaration": "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable",
+          "declaration_lines": {
+            "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable": 6
+          }
+        },
+        {
+          "label": "A separable realized characteristic polynomial forces full degree and separability",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CharpolyDvdPowOfAevalEqZero.lean",
+          "lines": [
+            33,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CharpolyDvdPowOfAevalEqZero.lean#L33-L56",
+          "declaration": "GlobalTheory.SepCharpoly.not_separable_charpoly",
+          "declaration_lines": {
+            "GlobalTheory.SepCharpoly.not_separable_charpoly": 33
+          }
+        },
+        {
+          "label": "The degree bound and preservation of a nontrivial factorization",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CentralSimpleAlgebraEmbeddingsConjugate.lean",
+          "lines": [
+            152,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CentralSimpleAlgebraEmbeddingsConjugate.lean#L152-L174",
+          "declaration": "GlobalTheory.VanishNonEll.natDegree_minpoly_le",
+          "declaration_lines": {
+            "GlobalTheory.VanishNonEll.natDegree_minpoly_le": 152
+          }
+        },
+        {
+          "label": "The matrix characteristic polynomial in every full-degree realization",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CharpolyAlgHomEqMapMinpoly.lean",
+          "lines": [
+            47,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CharpolyAlgHomEqMapMinpoly.lean#L47-L77",
+          "declaration": "GlobalTheory.charpoly_algHom_eq_map_minpoly",
+          "declaration_lines": {
+            "GlobalTheory.charpoly_algHom_eq_map_minpoly": 47
+          }
+        },
+        {
+          "label": "The rational algebra centralizer and the algebra generated by the element",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NatDegreeMinpolyLeBaseChange.lean",
+          "lines": [
+            52,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NatDegreeMinpolyLeBaseChange.lean#L52-L100",
+          "declaration": "GlobalTheory.CentSep.centralizer_eq_adjoin",
+          "declaration_lines": {
+            "GlobalTheory.CentSep.centralizer_eq_adjoin": 52
+          }
+        },
+        {
+          "label": "Base change of the commutator kernel and commutativity of its image",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BaseChangeCentralizerComm.lean",
+          "lines": [
+            13,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BaseChangeCentralizerComm.lean#L13-L53",
+          "declaration": "GlobalTheory.LKCentAf.commute_of_centralizer",
+          "declaration_lines": {
+            "GlobalTheory.LKCentAf.commute_of_centralizer": 46
+          }
+        },
+        {
+          "label": "Commuting matrices preserve the simple eigenspaces",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AlgebraicRealisationHolomorphicMap.lean",
+          "lines": [
+            44,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AlgebraicRealisationHolomorphicMap.lean#L44-L100",
+          "declaration": "GlobalTheory.CentSep.centraliser_comm_of_separable",
+          "declaration_lines": {
+            "GlobalTheory.CentSep.centraliser_comm_of_separable": 86
+          }
+        },
+        {
+          "label": "The local group at unramified degree one",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AlgebraMapQrOneBijective.lean",
+          "lines": [
+            62,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AlgebraMapQrOneBijective.lean#L62-L76",
+          "declaration": "GlobalTheory.TorCls.AtP.inclG_one_bijective",
+          "declaration_lines": {
+            "GlobalTheory.TorCls.AtP.inclG_one_bijective": 62
+          }
+        },
+        {
+          "label": "The finite adelic centralizer in the chosen identification",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+          "lines": [
+            36,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean#L36-L88",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.toAfF_cent_comm",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.toAfF_cent_comm": 36
+          }
+        },
+        {
+          "label": "The centralizers of the local matrix factors at the rational prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+          "lines": [
+            90,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean#L90-L122",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.twisted_centralizer_commutative",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.twisted_centralizer_commutative": 90
+          }
+        },
+        {
+          "label": "The two cases and the application of cuspidality",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+          "lines": [
+            127,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean#L127-L153",
+          "declaration": "UpperTheory.Gal.Spc.vanForms",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.vanForms": 127
+          }
+        },
+        {
+          "label": "The product with the local indicator and the repeated-root case",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+          "lines": [
+            153,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean#L153-L191",
+          "declaration": "UpperTheory.Gal.Spc.vanForms",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.vanForms": 127
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "First test regular support. In the separable case transfer the global polynomial to the cuspidal place."
+    },
+    {
+      "id": "ORV-10",
+      "chapter": "lifts",
+      "anchor": "lifts-orbital-cuspidal-character",
+      "title": "Why does the initial Hecke test have zero constant term on every slice?",
+      "hypotheses": "At a split factor the chosen compact type has open character kernel, finite level index and the property that every smooth irreducible representation containing the type is cuspidal. The splitting and level admit the stated slice factorization.",
+      "statement": "The normalized character test is idempotent and all its slices have zero constant term. Left convolution by Hecke functions and finite linear combinations preserve the vanishing.",
+      "equations": [
+        "lifts-orbital-character-idempotent",
+        "lifts-orbital-character-translation",
+        "lifts-orbital-character-convolution"
+      ],
+      "dependencies": [
+        "HFT-12"
+      ],
+      "sources": [
+        {
+          "label": "The split projection, the two levels and the type character",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HeckeTraceEq.lean",
+          "lines": [
+            30,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HeckeTraceEq.lean#L30-L42",
+          "declaration": "UpperTheory.Gal.W2.Seed.tyFn",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.tyFn": 30
+          }
+        },
+        {
+          "label": "The inverse character, the level index and right equivariance",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HeckeTraceEq.lean",
+          "lines": [
+            56,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HeckeTraceEq.lean#L56-L66",
+          "declaration": "UpperTheory.Gal.W2.Seed.TyLev.tf",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.TyLev.tf": 60
+          }
+        },
+        {
+          "label": "Admissibility and finite double-coset support of the initial test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfAdm.lean",
+          "lines": [
+            94,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfAdm.lean#L94-L126",
+          "declaration": "UpperTheory.Gal.W2.Seed.pTfAdm",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pTfAdm": 94
+          }
+        },
+        {
+          "label": "The finite coset count for convolution with the projector",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfIdem.lean",
+          "lines": [
+            115,
+            147
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfIdem.lean#L115-L147",
+          "declaration": "UpperTheory.Gal.W2.Seed.pTfIdem",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pTfIdem": 145
+          }
+        },
+        {
+          "label": "Transfer of the local cuspidal type and the open kernel to the split factor",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/ContinuousInvT.lean",
+          "lines": [
+            31,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/ContinuousInvT.lean#L31-L75",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.ContinuousInvT.0.tyTop_of",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.ContinuousInvT.0.tyTop_of": 31
+          }
+        },
+        {
+          "label": "The cyclic quotient and the representations detected by a nonzero radical integral",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+          "lines": [
+            123,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean#L123-L160",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.noTerm",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.noTerm": 123
+          }
+        },
+        {
+          "label": "An irreducible quotient with a nonzero vector of the prescribed character",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+          "lines": [
+            203,
+            253
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean#L203-L253",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core": 151
+          }
+        },
+        {
+          "label": "Convolution by a function with vanishing translated integrals annihilates the generator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+          "lines": [
+            255,
+            309
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean#L255-L309",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core": 151
+          }
+        },
+        {
+          "label": "Positive volume if the character were trivial on a conjugated radical",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+          "lines": [
+            373,
+            427
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean#L373-L427",
+          "declaration": "UpperTheory.Gal.Spc.typeSlice",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.typeSlice": 373
+          }
+        },
+        {
+          "label": "The determinant cut and the finite sum of squared matrix coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+          "lines": [
+            441,
+            513
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean#L441-L513",
+          "declaration": "UpperTheory.Gal.Spc.typeSlice",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.typeSlice": 373
+          }
+        },
+        {
+          "label": "The type function and its character under multiplication",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CuspidalCompactCharacterVanishing.lean",
+          "lines": [
+            18,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CuspidalCompactCharacterVanishing.lean#L18-L46",
+          "declaration": "GlobalTheory.typeFunction_constantTerm_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.typeFunction_constantTerm_eq_zero": 18
+          }
+        },
+        {
+          "label": "The additive translation that forces the integral to vanish",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CuspidalCompactCharacterVanishing.lean",
+          "lines": [
+            63,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CuspidalCompactCharacterVanishing.lean#L63-L90",
+          "declaration": "GlobalTheory.typeFunction_constantTerm_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.typeFunction_constantTerm_eq_zero": 18
+          }
+        },
+        {
+          "label": "Factorization of an admitted slice and cancellation of its constant terms",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AdmCusp.lean",
+          "lines": [
+            9,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AdmCusp.lean#L9-L33",
+          "declaration": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm": 9
+          }
+        },
+        {
+          "label": "The concrete identity test, its level and idempotence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+          "lines": [
+            66,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean#L66-L86",
+          "declaration": "UpperTheory.Gal.Spc.specData",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specData": 64
+          }
+        },
+        {
+          "label": "The two places, the product splitting and the proof for the initial test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+          "lines": [
+            95,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean#L95-L119",
+          "declaration": "UpperTheory.Gal.Spc.specData",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specData": 64
+          }
+        },
+        {
+          "label": "Integrability and linearity on each slice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean",
+          "lines": [
+            145,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean#L145-L178",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.hecke_integrable",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.hecke_integrable": 145
+          }
+        },
+        {
+          "label": "Finite right cosets and the left convolution ideal",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean",
+          "lines": [
+            179,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean#L179-L218",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.noConst_conv",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.noConst_conv": 179
+          }
+        },
+        {
+          "label": "Persistence for powers, words and finite polynomials",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            79,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L79-L115",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecOfF.0.UpperTheory.Gal.Spc.C_pow",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecOfF.0.UpperTheory.Gal.Spc.C_pow": 79
+          }
+        },
+        {
+          "label": "The initial slice condition in the conditional spectral theorem",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+          "lines": [
+            167,
+            186
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean#L167-L186",
+          "declaration": "UpperTheory.Gal.Spc.SpecOfF",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.SpecOfF": 167
+          }
+        },
+        {
+          "label": "Independent regular-support input and application of the spectral theorem",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+          "lines": [
+            120,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean#L120-L153",
+          "declaration": "UpperTheory.Gal.Spc.specData",
+          "declaration_lines": {
+            "UpperTheory.Gal.Spc.specData": 64
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Translation in the unipotent coordinate multiplies the integral by a nontrivial character value. A three-element quotient checks its inverse and the level normalization."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+      "callee": "GlobalTheory.OrbDesc.natDegree_pos_of_not_isUnit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+        "line": 53,
+        "spelling": "natDegree_pos_of_not_isUnit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+      "callee": "GlobalTheory.UnitLemma.charpoly_dvd_minpoly_of_separable",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+        "line": 66,
+        "spelling": "GlobalTheory.UnitLemma.charpoly_dvd_minpoly_of_separable"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+      "callee": "GlobalTheory.OrbDesc.commute_aeval_of_commute",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+        "line": 126,
+        "spelling": "commute_aeval_of_commute"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.exists_conj_cent_le_blockLevi",
+      "callee": "GlobalTheory.OrbDesc.side",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsConjCentralizerLeBlockDiagonalLevi.lean",
+        "line": 141,
+        "spelling": "side"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.exists_conj_centralizer_le_blockDiagonalLevi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 129,
+        "spelling": "GlobalTheory.T.exists_conj_centralizer_le_blockDiagonalLevi"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.charpoly_conj_sep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 132,
+        "spelling": "charpoly_conj_sep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.centralizer_separable_commutative",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 133,
+        "spelling": "GlobalTheory.T.centralizer_separable_commutative"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.twOrbU_eq_dsum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 146,
+        "spelling": "twOrbU_eq_dsum"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.exists_conj",
+      "callee": "GlobalTheory.OrbDesc.side",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 212,
+        "spelling": "side"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.exists_conj",
+      "callee": "GlobalTheory.OrbDesc.NSum.sylvester",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 236,
+        "spelling": "sylvester"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.conj_props",
+      "callee": "GlobalTheory.OrbDesc.uGL",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 111,
+        "spelling": "GlobalTheory.OrbDesc.uGL"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.exists_haar",
+      "callee": "GlobalTheory.OrbDesc.NSum.exists_haar_of_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 122,
+        "spelling": "exists_haar_of_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.exists_haar",
+      "callee": "GlobalTheory.OrbDesc.NSum.measurable_of_continuous",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 123,
+        "spelling": "measurable_of_continuous"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.exists_haar",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 261,
+        "spelling": "exists_haar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.exists_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 262,
+        "spelling": "exists_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.continuous_of_linear",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 263,
+        "spelling": "continuous_of_linear"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.lam_open_compact",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 265,
+        "spelling": "lam_open_compact"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.coord",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 281,
+        "spelling": "coord"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.blockUni",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 286,
+        "spelling": "blockUni"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.uGL_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 286,
+        "spelling": "uGL_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.uGL_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 298,
+        "spelling": "uGL_add"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.NSum.finsum_conj_eq_zero",
+      "callee": "GlobalTheory.OrbDesc.NSum.integral_step",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinsumUnipotentConjEqZeroOfConstantTermZero.lean",
+        "line": 308,
+        "spelling": "integral_step"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.ncard_fibre_eq_relIndex",
+      "callee": "GlobalTheory.OrbDesc.exists_mul_of_mem_sup",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 167,
+        "spelling": "exists_mul_of_mem_sup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+      "callee": "GlobalTheory.OrbDesc.dsum",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 194,
+        "spelling": "dsum"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+      "callee": "GlobalTheory.OrbDesc.finsum_eq_zero_of_fibres",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 195,
+        "spelling": "finsum_eq_zero_of_fibres"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+      "callee": "GlobalTheory.OrbDesc.ncard_fibre_eq_relIndex",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 217,
+        "spelling": "ncard_fibre_eq_relIndex"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+      "callee": "GlobalTheory.OrbDesc.volRat_of_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 228,
+        "spelling": "volRat_of_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_fibre_sums",
+      "callee": "GlobalTheory.OrbDesc.finsum_comp_eq_ncard",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DsumEqZeroOfFibreSums.lean",
+        "line": 242,
+        "spelling": "finsum_comp_eq_ncard"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero",
+      "callee": "GlobalTheory.OrbDesc.StabIndex.isClosed_blockPar",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+        "line": 164,
+        "spelling": "isClosed_blockPar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero",
+      "callee": "GlobalTheory.OrbDesc.StabIndex.bdiagHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+        "line": 165,
+        "spelling": "bdiagHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero",
+      "callee": "GlobalTheory.OrbDesc.StabIndex.continuous_bdiagHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+        "line": 170,
+        "spelling": "continuous_bdiagHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.StabIndex.relIndex_twCent_inf_ne_zero",
+      "callee": "GlobalTheory.OrbDesc.StabIndex.relIndex_ne_zero_of_subset_compact",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelIndexNeZeroCentralizerParabolicCosetStabilize.lean",
+        "line": 171,
+        "spelling": "relIndex_ne_zero_of_subset_compact"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_par",
+      "callee": "GlobalTheory.OrbDesc.locPart_inf_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean",
+        "line": 73,
+        "spelling": "locPart_inf_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.dsum_eq_zero_of_par",
+      "callee": "GlobalTheory.OrbDesc.mk_out_of_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PelUniformisedGeometricFree.lean",
+        "line": 91,
+        "spelling": "mk_out_of_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.doubleCosetVolumeWeightedSum_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 146,
+        "spelling": "GlobalTheory.T.doubleCosetVolumeWeightedSum_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.twCent_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 146,
+        "spelling": "twCent_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.blockPar",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 152,
+        "spelling": "blockPar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.orbit_sum_vanishes_of_parabolic_sums",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 168,
+        "spelling": "GlobalTheory.T.orbit_sum_vanishes_of_parabolic_sums"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.relIndex_ne_zero_centralizer_parabolicCosetStabilizer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 194,
+        "spelling": "GlobalTheory.T.relIndex_ne_zero_centralizer_parabolicCosetStabilizer"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.conj_props",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 197,
+        "spelling": "conj_props"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callee": "GlobalTheory.T.finsum_unipotentConj_eq_zero_of_constantTerm_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TwOrbUEqZeroOfCusp.lean",
+        "line": 208,
+        "spelling": "GlobalTheory.T.finsum_unipotentConj_eq_zero_of_constantTerm_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+      "callee": "GlobalTheory.LKCount.orbK",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.LKCount.orbK"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+      "callee": "GlobalTheory.LKCount.orbC",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.LKCount.orbC"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+      "callee": "GlobalTheory.OrbDesc.avg_const'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 25,
+        "spelling": "avg_const'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+      "callee": "GlobalTheory.LKCount.vol",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 26,
+        "spelling": "GlobalTheory.LKCount.vol"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCount.orbK_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.orbK_eq_twOrbU",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 46,
+        "spelling": "GlobalTheory.OrbDesc.orbK_eq_twOrbU"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCount.orbK_eq_zero_of_cusp",
+      "callee": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCusp.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.OrbDesc.twOrbU_eq_zero_of_cusp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+      "callee": "UpperTheory.Gal.Spc.oTerm_inv_of_comm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 73,
+        "spelling": "oTerm_inv_of_comm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+      "callee": "GlobalTheory.LKCount.orbK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 89,
+        "spelling": "orbK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+      "callee": "UpperTheory.Gal.Spc.finsum_mul_eq_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 101,
+        "spelling": "finsum_mul_eq_zero"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "GlobalTheory.VanishNonEll.map_twCent_id",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 174,
+        "spelling": "GlobalTheory.VanishNonEll.map_twCent_id"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "GlobalTheory.VanishNonEll.orbK_congr_equiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 184,
+        "spelling": "GlobalTheory.VanishNonEll.orbK_congr_equiv"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "UpperTheory.Gal.Spc.oTerm_inv_of_comm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 185,
+        "spelling": "oTerm_inv_of_comm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "GlobalTheory.CentSep.centraliser_comm_of_separable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 195,
+        "spelling": "GlobalTheory.CentSep.centraliser_comm_of_separable"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "GlobalTheory.LKCount.orbK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 207,
+        "spelling": "orbK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "GlobalTheory.LKCount.orbK_eq_zero_of_cusp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 233,
+        "spelling": "orbK_eq_zero_of_cusp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.orbK_eq_zero_of_cuspSlices",
+      "callee": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/OrbZero.lean",
+        "line": 235,
+        "spelling": "orbK_prod_eq_zero_of_slices"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "GlobalTheory.T.centralizer_element_padic_bounded",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 169,
+        "spelling": "GlobalTheory.T.centralizer_element_padic_bounded"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "GlobalTheory.T.conjugate_place_lies_over",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 170,
+        "spelling": "GlobalTheory.T.conjugate_place_lies_over"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "GlobalTheory.T.centralizer_scalar_padic_bounded",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 181,
+        "spelling": "GlobalTheory.T.centralizer_scalar_padic_bounded"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "UpperTheory.Gal.Spc.boundQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 191,
+        "spelling": "UpperTheory.Gal.Spc.boundQ"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.fm_reduced",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 203,
+        "spelling": "fm_reduced"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.fm_finite",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 204,
+        "spelling": "fm_finite"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.units_finite",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 205,
+        "spelling": "units_finite"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.stab_finite",
+      "callee": "GlobalTheory.T.betaTwistedInvolution_eq_complexConj_of_marked",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 205,
+        "spelling": "GlobalTheory.T.betaTwistedInvolution_eq_complexConj_of_marked"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.pointSum_zero",
+      "callee": "GlobalTheory.T.kottwitz_pointCount_one_class_commensurable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 244,
+        "spelling": "GlobalTheory.T.kottwitz_pointCount_one_class_commensurable"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero",
+      "callee": "GlobalTheory.T.similitudePair_regular_image_at_p",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 258,
+        "spelling": "GlobalTheory.T.similitudePair_regular_image_at_p"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero",
+      "callee": "GlobalTheory.T.map_centralizer_regular_twistedCentraliser",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 259,
+        "spelling": "GlobalTheory.T.map_centralizer_regular_twistedCentraliser"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero",
+      "callee": "GlobalTheory.T.unitarySimilitudeIntegralSubgroup_commensurated_frobenius",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 260,
+        "spelling": "GlobalTheory.T.unitarySimilitudeIntegralSubgroup_commensurated_frobenius"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.termAt_zero",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanPairs.0.UpperTheory.Gal.Spc.pointSum_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanPairs.lean",
+        "line": 286,
+        "spelling": "pointSum_zero"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "UpperTheory.Gal.LocalSmoothExtension.polyFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 212,
+        "spelling": "polyFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "UpperTheory.Gal.Spc.powFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 212,
+        "spelling": "powFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecOfF.0.UpperTheory.Gal.Spc.C_poly",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 213,
+        "spelling": "C_poly"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specOfF",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecOfF.0.UpperTheory.Gal.Spc.C_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 213,
+        "spelling": "C_pow"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.ForPlaces",
+      "callee": "UpperTheory.Gal.Spc.Split",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSlice.lean",
+        "line": 78,
+        "spelling": "Split"
+      }
+    },
+    {
+      "caller": "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable",
+      "callee": "GlobalTheory.LKCount.orbK",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCharpolyNotSeparable.lean",
+        "line": 11,
+        "spelling": "GlobalTheory.LKCount.orbK"
+      }
+    },
+    {
+      "caller": "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable",
+      "callee": "GlobalTheory.LKCount.orbC",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/OrbKEqZeroOfCharpolyNotSeparable.lean",
+        "line": 11,
+        "spelling": "GlobalTheory.LKCount.orbC"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.toAfF_cent_comm",
+      "callee": "GlobalTheory.CentSep.centralizer_eq_adjoin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.CentSep.centralizer_eq_adjoin"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.toAfF_cent_comm",
+      "callee": "GlobalTheory.LKCentAf.commute_of_centralizer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 75,
+        "spelling": "GlobalTheory.LKCentAf.commute_of_centralizer"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.twisted_centralizer_commutative",
+      "callee": "GlobalTheory.charpoly_algHom_eq_map_minpoly",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 101,
+        "spelling": "GlobalTheory.charpoly_algHom_eq_map_minpoly"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.twisted_centralizer_commutative",
+      "callee": "GlobalTheory.TorCls.AtP.inclG_one_bijective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.TorCls.AtP.inclG_one_bijective"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.twisted_centralizer_commutative",
+      "callee": "GlobalTheory.CentSep.centraliser_comm_of_separable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.CentSep.centraliser_comm_of_separable"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "GlobalTheory.SepCharpoly.not_separable_charpoly",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 131,
+        "spelling": "GlobalTheory.SepCharpoly.not_separable_charpoly"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "GlobalTheory.VanishNonEll.natDegree_minpoly_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 132,
+        "spelling": "GlobalTheory.VanishNonEll.natDegree_minpoly_le"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "GlobalTheory.charpoly_algHom_eq_map_minpoly",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 140,
+        "spelling": "GlobalTheory.charpoly_algHom_eq_map_minpoly"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.VanForms.0.UpperTheory.Gal.Spc.charpoly_at_toAfF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 141,
+        "spelling": "charpoly_at_toAfF"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "UpperTheory.Gal.Spc.orbK_prod_eq_zero_of_slices",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 153,
+        "spelling": "orbK_prod_eq_zero_of_slices"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "GlobalTheory.LKCount.orbK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 170,
+        "spelling": "orbK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "UpperTheory.Gal.Spc.finsum_mul_eq_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 184,
+        "spelling": "finsum_mul_eq_zero"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.vanForms",
+      "callee": "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/VanForms.lean",
+        "line": 185,
+        "spelling": "GlobalTheory.orbK_eq_zero_of_charpoly_not_separable"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTfAdm",
+      "callee": "UpperTheory.Gal.W2.Seed.TyLev.tf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfAdm.lean",
+        "line": 100,
+        "spelling": "TyLev.tf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pTfAdm",
+      "callee": "UpperTheory.Gal.W2.Seed.tyFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PTfAdm.lean",
+        "line": 121,
+        "spelling": "tyFn"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.ContinuousInvT.0.tyTop_of",
+      "callee": "GlobalTheory.LKGeo.KNLevel.exists_level_eq_KN",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/ContinuousInvT.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.LKGeo.KNLevel.exists_level_eq_KN"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.noTerm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 204,
+        "spelling": "noTerm"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core",
+      "callee": "GlobalTheory.DZero.exists_irrRep_quotient_of_finite_gen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 232,
+        "spelling": "GlobalTheory.DZero.exists_irrRep_quotient_of_finite_gen"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.typeSlice",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.slice_compact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 389,
+        "spelling": "slice_compact"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.typeSlice",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.TypeSliceAlt.0.UpperTheory.Gal.Spc.core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 425,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.typeSlice",
+      "callee": "GlobalTheory.SuperCusp.exists_smooth_form_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 445,
+        "spelling": "GlobalTheory.SuperCusp.exists_smooth_form_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.typeSlice",
+      "callee": "GlobalTheory.CuspCutCoef.isCuspFn_cutCoef",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/TypeSliceAlt.lean",
+        "line": 455,
+        "spelling": "GlobalTheory.CuspCutCoef.isCuspFn_cutCoef"
+      }
+    },
+    {
+      "caller": "GlobalTheory.typeFunction_constantTerm_eq_zero",
+      "callee": "GlobalTheory.typeFunction_unip_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CuspidalCompactCharacterVanishing.lean",
+        "line": 80,
+        "spelling": "typeFunction_unip_add"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm",
+      "callee": "UpperTheory.Gal.W2.Seed.tyFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AdmCusp.lean",
+        "line": 12,
+        "spelling": "UpperTheory.Gal.W2.Seed.tyFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm",
+      "callee": "GlobalTheory.typeFunction_constantTerm_eq_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AdmCusp.lean",
+        "line": 23,
+        "spelling": "GlobalTheory.typeFunction_constantTerm_eq_zero"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm",
+      "callee": "UpperTheory.Gal.Spc.typeSlice",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/AdmCusp.lean",
+        "line": 26,
+        "spelling": "UpperTheory.Gal.Spc.typeSlice"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.tyTop",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 68,
+        "spelling": "UpperTheory.Gal.Spc.tyTop"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.W2.Seed.pTfIdem",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 76,
+        "spelling": "pTfIdem"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.W2.Seed.pTfAdm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 76,
+        "spelling": "pTfAdm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecData.0.UpperTheory.Gal.Spc.span_fix",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 82,
+        "spelling": "UpperTheory.Gal.Spc.span_fix"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.splitC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 111,
+        "spelling": "UpperTheory.Gal.Spc.splitC"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 115,
+        "spelling": "UpperTheory.Gal.Spc.cuspIrr_kFinite_rep_eq_centralCuspForm"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.noConst_conv",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.left_mul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean",
+        "line": 193,
+        "spelling": "left_mul"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.noConst_conv",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.CuspIdeal.0.UpperTheory.Gal.Spc.hecke_integrable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/CuspIdeal.lean",
+        "line": 206,
+        "spelling": "hecke_integrable"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ScalarCommutation.SpecOfF.0.UpperTheory.Gal.Spc.C_pow",
+      "callee": "UpperTheory.Gal.Spc.powFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecOfF.lean",
+        "line": 86,
+        "spelling": "powFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.powFn",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 123,
+        "spelling": "powFn"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.SpecOfF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 145,
+        "spelling": "UpperTheory.Gal.Spc.SpecOfF"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.Spc.specOfF",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 145,
+        "spelling": "UpperTheory.Gal.Spc.specOfF"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Spc.specData",
+      "callee": "UpperTheory.Gal.G1.FinCls_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ScalarCommutation/SpecData.lean",
+        "line": 148,
+        "spelling": "UpperTheory.Gal.G1.FinCls_holds"
+      }
+    }
+  ]
+}

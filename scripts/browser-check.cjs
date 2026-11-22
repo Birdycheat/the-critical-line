@@ -22,6 +22,7 @@ async function assertVectorWeights(page) {
 }
 const defaultCrystallineColumns = ["2", "−2", "−2i", "−2i", "−2i", "−2i"];
 const defaultWeilOperator = ["n₂ = 1","t2","n₁ = 0","t","t13","t14","1/t","t15","t15"];
+const defaultOrbitalFibre = ["−1/5","−1/5","−1","D, 1","ℤ₅","5","1","(1/5)ℤ₅ ∖ ℤ₅","20","4"];
 async function assertRenderedFont(session, selector, postScriptName) {
   const { root } = await session.send("DOM.getDocument");
   const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
@@ -138,6 +139,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "orbital-unipotent-fibre") {
+          assert.deepEqual(await fig.locator("tbody td").allTextContents(),defaultOrbitalFibre);
+          assert.equal(await fig.locator('[role="status"]').textContent(),"Image coordinate −1/5. Test value 1. Image cell mass 1/5. Fibre sum 0. Integral 0.");
         } else if (id === "signed-weil-operator") {
           assert.deepEqual(await fig.locator("tbody td").allTextContents(),defaultWeilOperator);
           assert.equal(await fig.locator('[role="status"]').textContent(),"Signed exponent 1. Input t to the power 2. Output t. Both cleared products are t to the power 15.");
@@ -445,6 +449,35 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-orbital-unipotent-fibre");
+    const orbital=page.locator("#fig-orbital-unipotent-fibre.ready");
+    const orbitalCases={
+      units:[["0","0","0","K, −4"],["−1","−1","0","K, −4"],["−1/5","−1/5","−1","D, 1"],["−1/25","−1/25","−2","Outside the support, 0"]],
+      split:[["0","0","−1","D, 1"],["24/125","24/25","−2","Outside the support, 0"],["24/625","24/125","−3","Outside the support, 0"],["24/3125","24/625","−4","Outside the support, 0"]],
+    };
+    const splitSupport=["Empty","0","0","(1/25)ℤ₅","1","25"];
+    for(const width of [320,390]) {
+      await page.setViewportSize({width,height:844});
+      for(const slice of ["units","split"]){
+        await orbital.getByRole("combobox",{name:"Diagonal matrix"}).selectOption(slice);
+        for(const [index,coset] of ["zero","1","2","3"].entries()){
+          await orbital.getByRole("combobox",{name:"Representative X modulo ℤ₅"}).selectOption(coset);
+          assert.deepEqual(await orbital.locator("tbody td").allTextContents(),
+            orbitalCases[slice][index].concat(slice==="units"?defaultOrbitalFibre.slice(4):splitSupport));
+          const summary=await orbital.locator('[role="status"]').textContent();
+          assert.ok(summary.includes("Image coordinate "+orbitalCases[slice][index][0]+"."));
+          assert.ok(summary.endsWith(slice==="units"?"Fibre sum 0. Integral 0.":"Fibre sum 1. Integral 25."));
+          assert.ok(await orbital.locator("table").evaluateAll(tables=>tables.length===2&&tables.every(t=>
+            t.getBoundingClientRect().right<=t.closest("figure").getBoundingClientRect().right+1)));
+        }
+      }
+    }
+    const orbitalLink=new URL(await orbital.locator("[data-share]").getAttribute("href"));
+    assert.equal(orbitalLink.searchParams.get("orbital-unipotent-fibre.slice"),"split");
+    assert.equal(orbitalLink.searchParams.get("orbital-unipotent-fibre.coset"),"3");
+    await openFigure(page,orbitalLink.href);
+    assert.deepEqual(await orbital.locator("tbody td").allTextContents(),orbitalCases.split[3].concat(splitSupport));
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-signed-weil-operator");
     const signedWeil=page.locator("#fig-signed-weil-operator.ready");
@@ -1011,6 +1044,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-ordinary-line-cancellation .metrics dd").allInnerTexts(), ["3", "3"]);
     assert.deepEqual(await page.locator("#fig-crystalline-invariant-columns tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.deepEqual(await page.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
+    assert.deepEqual(await page.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
     await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
@@ -1028,6 +1062,7 @@ async function run() {
     await assertVectorWeights(plain);
     const staticCrystalline = plain.locator("#fig-crystalline-invariant-columns");
     assert.deepEqual(await plain.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
+    assert.deepEqual(await plain.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
     assert.deepEqual(await staticCrystalline.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.ok(await staticCrystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
     const staticSaturation = plain.locator("#fig-integral-lattice-saturation");

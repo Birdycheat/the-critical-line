@@ -23,6 +23,17 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "orbital-unipotent-fibre": {
+      title: "Does the unipotent fibre cancel on both translates?",
+      kind: "Two slices of one test on GL₂(ℚ₅)",
+      section: "lifts",
+      params: [
+        choose("slice", "Diagonal matrix", [["units", "diag(1, 6)"], ["split", "diag(5, 1/5)"]], "units"),
+        choose("coset", "Representative X modulo ℤ₅", [["zero", "0"], ["1", "1/5"], ["2", "1/25"], ["3", "1/125"]], "2"),
+      ],
+      caption: "Set K = GL₂(ℤ₅) and D = K diag(1/5, 5) K. The same test f has value −4 on K, +1 on D and zero elsewhere. Change the upper-right entry of the identity matrix to X to obtain u(X). It belongs to K exactly when X lies in Λ = ℤ₅. For γ = diag(A, B), the conjugate u(X)⁻¹γu(X) equals γu(Y), where Y = Φ(X) = (1 − B/A)X.",
+      method: "Normalize additive Haar measure by μ(ℤ₅) = 1. In both slices the determinant is a unit, so the least valuation among A, B and AY determines the two elementary divisors. A minimum of 0 gives K and a minimum of −1 gives D. For diag(1, 6), the image cells are translates of 5ℤ₅. The shell (1/5)ℤ₅ ∖ ℤ₅ has mass 5 − 1 = 4. For diag(5, 1/5), the image of ℤ₅ under multiplication by 24/25 is (1/25)ℤ₅, since 24 is a 5-adic unit. This whole cell contributes +1. Cuspidality requires vanishing on every translate.",
+    },
     "signed-weil-operator": {
       title: "Which Frobenius iterate is the input?",
       kind: "A Frobenius model on the rational function field",
@@ -1712,6 +1723,41 @@
   }
 
   function render(id, v) {
+    if (id === "orbital-unipotent-fibre") {
+      const unitSlice = v.slice === "units", zero = v.coset === "zero";
+      const depth = zero ? 0 : Number(v.coset);
+      const denominator = 5 ** depth;
+      const yNumerator = zero ? 0 : unitSlice ? -5 : 24;
+      const yDenominator = unitSlice ? denominator : 25 * denominator;
+      const y = reducedFraction(yNumerator, yDenominator);
+      const upperRight = reducedFraction(yNumerator * (unitSlice ? 1 : 5), yDenominator);
+      const least = unitSlice ? Math.min(0, 1 - depth) : -1 - depth;
+      const support = least === 0 ? "K" : least === -1 ? "D" : "Outside the support";
+      const term = least === 0 ? -4 : least === -1 ? 1 : 0;
+      const unitCells = unitSlice ? 5 : 0, outerCells = unitSlice ? 20 : 1;
+      const cellSum = -4 * unitCells + outerCells, integral = unitSlice ? cellSum / 5 : 25 * cellSum;
+      const cellMass = unitSlice ? "1/5" : "25";
+      const status = "Image coordinate " + y + ". Test value " + term + ". Image cell mass " + cellMass +
+        ". Fibre sum " + cellSum + ". Integral " + integral + ".";
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>';
+      const supportRow = (name, domain, cells, mass) => '<tr><th scope="row"><var>' + name + '</var></th><td>' +
+        domain + '</td><td>' + cells + '</td><td>' + mass + '</td></tr>';
+      return '<p>For γ = ' + (unitSlice ? 'diag(1, 6)' : 'diag(5, 1/5)') + ', Φ(<var>X</var>) = ' +
+        (unitSlice ? '−5<var>X</var>' : '(24/25)<var>X</var>') +
+        '. The cell Φ(Λ) = ' + (unitSlice ? '5ℤ₅' : '(1/25)ℤ₅') + ' and each of its translates have Haar mass ' +
+        cellMass + '.</p><table class="carry-table" data-announcement="' + status +
+        '"><caption>The conjugate at <var>X</var> = ' + (zero ? '0' : '1/' + denominator) + '</caption><tbody>' +
+        row('Image coordinate <var>Y</var>', y) + row('Upper-right entry <var>AY</var>', upperRight) +
+        row('Least entry valuation', String(least).replace("-", "−")) +
+        row('Support and test value', (least >= -1 ? '<var>' + support + '</var>' : support) + ', ' + String(term).replace("-", "−")) +
+        '</tbody></table><table class="carry-table"><caption>All cells in the support</caption>' +
+        '<thead><tr><th scope="col">Class</th><th scope="col">Range of <var>Y</var></th><th scope="col">Cells</th><th scope="col">Mass</th></tr></thead><tbody>' +
+        supportRow('K', unitSlice ? 'ℤ₅' : 'Empty', unitCells, unitSlice ? 1 : 0) +
+        supportRow('D', unitSlice ? '(1/5)ℤ₅ ∖ ℤ₅' : '(1/25)ℤ₅', outerCells, unitSlice ? 4 : 25) +
+        '</tbody></table><p>The fibre sum is (−4) × ' + unitCells + ' + ' + outerCells + ' = ' + cellSum +
+        '. Multiplication by the cell mass gives an integral of ' + integral + '. ' +
+        (unitSlice ? 'This verifies cancellation on this translate.' : 'This nonzero integral rules out cuspidality of the test.') + '</p>';
+    }
     if (id === "signed-weil-operator") {
       const alpha = Number(v.degree), n1 = Math.max(-alpha, 0), n2 = Math.max(alpha, 0);
       const input = 2 ** n2, output = 2 ** n1;

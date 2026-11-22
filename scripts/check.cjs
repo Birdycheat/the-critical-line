@@ -345,6 +345,53 @@ function gaussianTimes(text, n) {
   }
   return result;
 }
+// Work with a common denominator 625 for both diagonal matrices and every unipotent parameter.
+// Outside (1/125)Z₅ the upper entry (A−B)X or AY has valuation below −1 in either slice.
+{
+  function classify(a,b,upper) {
+    const entries=[125*a, upper, 125*b];
+    const integral=entries.every(x=>x%625===0);
+    const inScaledLattice=entries.every(x=>x%125===0);
+    let common=0, divisor=5;
+    while(entries.every(x=>x%divisor===0)){common++;divisor*=5;}
+    return {least:common-4,term:integral ? -4 : inScaledLattice ? 1 : 0};
+  }
+  const plain=html=>html.replace(/<[^>]+>/g,"").replaceAll("−","-");
+  function checkFraction(text,numerator,denominator) {
+    const [a,b="1"]=text.split("/");
+    assert.ok(Number(a)*denominator===Number(b)*numerator,text);
+  }
+  for(const [slice,a,b] of [["units",5,30],["split",25,1]]) {
+    const cells=[], yMass=[];
+    for(let residue=0;residue<125;residue++) {
+      // For X=residue/125 the upper entry of u(-X)γu(X) is (A−B)X.
+      cells.push(classify(a,b,(a-b)*residue));
+      // Instead integrate γu(Y) with Y=residue/125 on full-mass Z₅ cosets.
+      yMass.push(classify(a,b,a*residue));
+    }
+    const count=(list,term)=>list.filter(z=>z.term===term).length;
+    const sum=list=>list.reduce((s,z)=>s+z.term,0);
+    assert.deepEqual([count(cells,-4),count(cells,1),count(yMass,-4),count(yMass,1)],slice==="units"?[5,20,1,4]:[0,1,0,25]);
+    for(const [coset,r] of [["zero",0],["1",25],["2",5],["3",1]]) {
+      const output=lib.render("orbital-unipotent-fibre",{slice,coset});
+      const values=Array.from(output.matchAll(/<td>(.*?)<\/td>/g),m=>plain(m[1]));
+      const z=cells[r], support=z.term===-4?"K":z.term===1?"D":"Outside the support";
+      checkFraction(values[0],(a-b)*r,125*a);
+      checkFraction(values[1],(a-b)*r,625);
+      assert.deepEqual(values.slice(2,4),[String(z.least),support+", "+z.term]);
+      assert.deepEqual([values[5],values[6],values[8],values[9]].map(Number),
+        [count(cells,-4),count(yMass,-4),count(cells,1),count(yMass,1)]);
+      const announcement=output.match(/data-announcement="([^"]+)"/)[1];
+      checkFraction(announcement.match(/Image cell mass (\S+)\./)[1],count(yMass,1),count(cells,1));
+      assert.ok(announcement.endsWith("Fibre sum "+sum(cells)+". Integral "+sum(yMass)+"."));
+      assert.equal(sum(cells)*count(yMass,1),sum(yMass)*count(cells,1));
+    }
+  }
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-orbital-unipotent-fibre"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("orbital-unipotent-fibre", lib.defaults("orbital-unipotent-fibre"))));
+}
 // Evaluate each displayed monomial by substitution without using its exponent formula.
 {
   function evaluateMonomial(markup, t) {
