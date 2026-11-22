@@ -1,0 +1,1323 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SWO-01",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-rectangular-precision",
+      "title": "How accurately must a rectangular Frobenius equation hold?",
+      "hypotheses": "In the integral crystalline ring, the rectangular error is zero modulo the parameter; its Frobenius recursion has entrywise error divisible by a sufficiently high power of ℓ. Fix the loss c and the desired precision M.",
+      "statement": "There is an input precision independent of the two ranks for which the initial error is divisible by ℓ^M.",
+      "equations": [
+        "lifts-weil-rectangular-input",
+        "lifts-weil-rectangular-iterate",
+        "lifts-weil-rectangular-error-update"
+      ],
+      "dependencies": [
+        "CRS-01"
+      ],
+      "sources": [
+        {
+          "label": "Quantifiers of the rectangular precision lemma",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean",
+          "lines": [
+            44,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean#L44-L47",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.ZeroAp",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.ZeroAp": 44
+          }
+        },
+        {
+          "label": "Divisibility from divided powers and the eventual growth estimate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+          "lines": [
+            52,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean#L52-L83",
+          "declaration": "GlobalTheory.AcrisPow.dvd_X_pow",
+          "declaration_lines": {
+            "GlobalTheory.AcrisPow.dvd_X_pow": 52
+          }
+        },
+        {
+          "label": "The input precision and the inhomogeneous equation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean",
+          "lines": [
+            8,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean#L8-L34",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds": 8
+          }
+        },
+        {
+          "label": "Induction and cancellation at the selected index",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean",
+          "lines": [
+            35,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean#L35-L78",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds": 8
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Iteration keeps separate the parameter term and the original ℓ-adic error. Torsion-freeness is needed when cancelling the accumulated power. A truncated polynomial model at 3 shows that input precision 9 can fail while 27 suffices."
+    },
+    {
+      "id": "SWO-02",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-rectangular-section",
+      "title": "Where does the exponent 3H enter the comparison of two sections?",
+      "hypotheses": "Two height-H frames have integral normalized sections using the same exponent. The rectangular comparison intertwines the two coefficient matrices modulo a sufficiently large power of ℓ.",
+      "statement": "The moving evaluation composed with the layer section agrees modulo ℓ^M with the target section composed with the constant evaluation.",
+      "equations": [
+        "lifts-weil-rectangular-section-link",
+        "lifts-weil-rectangular-evaluated-errors",
+        "lifts-weil-rectangular-section-recurrence",
+        "lifts-weil-rectangular-height-loss"
+      ],
+      "dependencies": [
+        "SWO-01",
+        "CRS-02",
+        "CRS-03"
+      ],
+      "sources": [
+        {
+          "label": "The two evaluations and all the section identities",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/JointApproxOfMem.lean",
+          "lines": [
+            64,
+            74
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/JointApproxOfMem.lean#L64-L74",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.uC",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.uC": 64
+          }
+        },
+        {
+          "label": "Statement of the recurrence and the section comparison",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean",
+          "lines": [
+            58,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean#L58-L72",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.LinkRec",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.LinkRec": 58
+          }
+        },
+        {
+          "label": "The unit which normalizes the coefficient to the third height power",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkRec.lean",
+          "lines": [
+            6,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkRec.lean#L6-L23",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkRec_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkRec_holds": 6
+          }
+        },
+        {
+          "label": "The two errors in their original multiplication order",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkRec.lean",
+          "lines": [
+            24,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkRec.lean#L24-L55",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkRec_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkRec_holds": 6
+          }
+        },
+        {
+          "label": "Choice of precision before exponents and ranks, and agreement at the parameter origin",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+          "lines": [
+            36,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean#L36-L63",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds": 36
+          }
+        },
+        {
+          "label": "Both evaluations, the inhomogeneous recurrence, and initial divisibility by the parameter",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+          "lines": [
+            64,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean#L64-L97",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds": 36
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Keeping the three factors of height gives the clearing exponent 3H, independent of the ranks."
+    },
+    {
+      "id": "SWO-03",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-rectangular-frame",
+      "title": "How does a comparison of two frames descend to their integral period matrices?",
+      "hypotheses": "At a chosen precision, integral crystalline-frame bases have a rectangular comparison in the Witt ring of the tilt field, with one height and one primitive period.",
+      "statement": "Divisibility descends to the appropriate smaller rings. The projected integral period matrices agree to any prescribed precision with the target matrix times the constant evaluation.",
+      "equations": [
+        "lifts-weil-rectangular-frame-input",
+        "lifts-weil-rectangular-frame-congruences",
+        "lifts-weil-rectangular-frame-frobenius-difference",
+        "lifts-weil-rectangular-frame-product"
+      ],
+      "dependencies": [
+        "SWO-02",
+        "ILL-04",
+        "ILL-06"
+      ],
+      "sources": [
+        {
+          "label": "The height, the invertible Witt basis and its Frobenius equation",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/TrivIsCr.lean",
+          "lines": [
+            54,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/TrivIsCr.lean#L54-L70"
+        },
+        {
+          "label": "The two coefficient rings in the comparison of frames",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean",
+          "lines": [
+            49,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean#L49-L56",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.LinkA",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.LinkA": 49
+          }
+        },
+        {
+          "label": "Reflection of divisibility by powers of the prime in integral Witt vectors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ThetaConjBoundedCompatibleBreuilKisinFrames.lean",
+          "lines": [
+            97,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ThetaConjBoundedCompatibleBreuilKisinFrames.lean#L97-L115"
+        },
+        {
+          "label": "The nonzero reduction of the evaluated parameter",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinEvWIsUnitInjectiveDvd.lean",
+          "lines": [
+            15,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinEvWIsUnitInjectiveDvd.lean#L15-L32"
+        },
+        {
+          "label": "Detection of divisibility in the power-series ring by the reduced evaluation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinEvWIsUnitInjectiveDvd.lean",
+          "lines": [
+            34,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinEvWIsUnitInjectiveDvd.lean#L34-L64"
+        },
+        {
+          "label": "Expansion of the Frobenius difference and cancellation of the target basis",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean",
+          "lines": [
+            10,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean#L10-L45",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.link_core",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.link_core": 10
+          }
+        },
+        {
+          "label": "Descent one prime at a time and the integral period congruence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean",
+          "lines": [
+            47,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean#L47-L81",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.pow_dvd_of_ev",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.pow_dvd_of_ev": 47
+          }
+        },
+        {
+          "label": "Descent of the second congruence to the power-series coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean",
+          "lines": [
+            82,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean#L82-L98",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkA_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkA_holds": 62
+          }
+        },
+        {
+          "label": "Selection of input precision and the two evaluated congruences",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean",
+          "lines": [
+            10,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean#L10-L31",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds": 10
+          }
+        },
+        {
+          "label": "The two terms of the period matrix comparison",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean",
+          "lines": [
+            32,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean#L32-L40",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds": 10
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The two descents use distinct ring maps. The frame Frobenius equations provide the input for comparing the sections."
+    },
+    {
+      "id": "SWO-04",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-signed-operator",
+      "title": "How can one integral matrix represent either direction of Frobenius?",
+      "hypotheses": "Fix a crystalline frame of height H, its common section exponent κ, and the two nonnegative iterates associated to one signed absolute Weil exponent.",
+      "statement": "An explicit integral matrix V and scalar s satisfy Vφ₂(U)=sφ₁(U). The same s is a unit after localization and works independently of the lattice rank.",
+      "equations": [
+        "lifts-weil-signed-factors",
+        "lifts-weil-signed-scalar",
+        "lifts-weil-signed-action"
+      ],
+      "dependencies": [
+        "CRS-03",
+        "CRS-05"
+      ],
+      "sources": [
+        {
+          "label": "The positive and negative parts of the absolute Frobenius exponent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            54,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L54-L65",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of": 13
+          }
+        },
+        {
+          "label": "The operator equation and the two scalar factors",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean",
+          "lines": [
+            12,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean#L12-L35",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2": 12
+          }
+        },
+        {
+          "label": "One integral frame and its normalized invariant matrix",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+          "lines": [
+            48,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean#L48-L70",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.one",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.one": 48
+          }
+        },
+        {
+          "label": "The products of the opposite matrices and invertibility after localization",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean",
+          "lines": [
+            66,
+            89
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean#L66-L89",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds": 66
+          }
+        },
+        {
+          "label": "The common scalar after applying the two powers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean",
+          "lines": [
+            92,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean#L92-L111",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds": 66
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The extra factor φ₂(h) enters twice in the product before division by φ₂(a)^H. Both signs and the zero exponent are tested in rank one."
+    },
+    {
+      "id": "SWO-05",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-signed-layer",
+      "title": "Why do the integral operators agree after projection?",
+      "hypotheses": "The target and layer frames have common height, a rectangular link at arbitrarily fine precision, and the iterates fix the unramified base coefficients.",
+      "statement": "At every precision M one can choose a layer of index at least M whose integral operator commutes with projection modulo ℓ^M.",
+      "equations": [
+        "lifts-weil-rectangular-operator-difference"
+      ],
+      "dependencies": [
+        "SWO-03",
+        "SWO-04"
+      ],
+      "sources": [
+        {
+          "label": "The projected integral period matrices",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean",
+          "lines": [
+            23,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkZHolds.lean#L23-L40",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkZ_holds": 10
+          }
+        },
+        {
+          "label": "The Weil action fixes the unramified base field at the absolute exponent",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixOfHolds.lean",
+          "lines": [
+            8,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixOfHolds.lean#L8-L26",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.FixOfHolds.0.fix_aux",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.FixOfHolds.0.fix_aux": 8
+          }
+        },
+        {
+          "label": "The constant evaluation belongs to the Galois-fixed crystalline scalars",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixWHolds.lean",
+          "lines": [
+            20,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixWHolds.lean#L20-L42",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.fixW_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.fixW_holds": 11
+          }
+        },
+        {
+          "label": "Carry fixation back to the integral ring",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixWHolds.lean",
+          "lines": [
+            43,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixWHolds.lean#L43-L57",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.fixW_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.fixW_holds": 11
+          }
+        },
+        {
+          "label": "Apply each iterate to the same two rectangular factors",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+          "lines": [
+            27,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean#L27-L46",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.map_link",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.map_link": 27
+          }
+        },
+        {
+          "label": "Rectangular multiplication keeping both errors integral",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkOp.lean",
+          "lines": [
+            9,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/LinkOp.lean#L9-L32",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkOp_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkOp_holds": 8
+          }
+        },
+        {
+          "label": "Use one target operator for all the layer congruences",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+          "lines": [
+            72,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean#L72-L102",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.opEx_holds": 72
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The two normalized errors involve the same two rectangular matrices. Their products have integral outer factors even though the two ranks may differ."
+    },
+    {
+      "id": "SWO-06",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-column-coordinates",
+      "title": "How does a column of a period matrix give a period of the representation we want?",
+      "hypotheses": "Fix a finite local coefficient model and integral lattice action that reads the matrix columns equivariantly. U is an invertible crystalline period matrix for that lattice.",
+      "statement": "Each physical column of the matrices paired with a period column gives a Galois-fixed semistable tensor. Its Frobenius iterates and their componentwise evaluation have explicit coordinates.",
+      "equations": [
+        "lifts-weil-invariant-column-tensor"
+      ],
+      "dependencies": [
+        "CRS-05",
+        "CRS-06"
+      ],
+      "sources": [
+        {
+          "label": "Coordinate evaluation is balanced over the rational local field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordEx.lean",
+          "lines": [
+            13,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordEx.lean#L13-L30",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordEx.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.coordPair",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordEx.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.coordPair": 13
+          }
+        },
+        {
+          "label": "Integral scalars and sums under the constant-polynomial inclusion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+          "lines": [
+            17,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean#L17-L31",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.smul_symm",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.smul_symm": 17
+          }
+        },
+        {
+          "label": "Column equivariance and invariance of the semistable tensor",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+          "lines": [
+            33,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean#L33-L51",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds": 33
+          }
+        },
+        {
+          "label": "All nonnegative Frobenius iterates of the column period",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+          "lines": [
+            52,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean#L52-L57",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds": 33
+          }
+        },
+        {
+          "label": "A finite coefficient model and the action on each matrix column",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+          "lines": [
+            59,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean#L59-L84",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds": 57
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "There are a physical rows and columns, d lattice basis matrices and d period columns. The tensor balances first over the rational local field, then over the unramified scalars."
+    },
+    {
+      "id": "SWO-07",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-signed-coordinates",
+      "title": "How does the Weil action change the Frobenius exponent in those coordinates?",
+      "hypotheses": "Potential semistability gives an invertible Frobenius on the period space. Fix a complex coefficient identification and a Weil element of exponent α=n₂−n₁.",
+      "statement": "The coordinate map factors through the complex quotient imposing the unramified scalar relations. The Weil action takes the class of φ^n₂(m) to the class of φ^n₁(m) for a semistable invariant period m.",
+      "equations": [
+        "lifts-weil-coordinate-quotient",
+        "lifts-weil-coordinate-iterate"
+      ],
+      "dependencies": [
+        "SWO-06"
+      ],
+      "sources": [
+        {
+          "label": "Extension of the coordinate rule to the scalar tensor product",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean",
+          "lines": [
+            7,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean#L7-L29",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.letter_lift",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.letter_lift": 7
+          }
+        },
+        {
+          "label": "The unramified scalar relations lie in its kernel",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean",
+          "lines": [
+            30,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean#L30-L45",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.letter_lift",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.letter_lift": 7
+          }
+        },
+        {
+          "label": "The two compatible scalar actions on the coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean",
+          "lines": [
+            47,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean#L47-L71",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.coord_smul",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.coord_smul": 47
+          }
+        },
+        {
+          "label": "The map on potentially semistable periods and its complex scalar rule",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean",
+          "lines": [
+            88,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoordWD.lean#L88-L112",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.fD",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.CoordWD.0.fD": 88
+          }
+        },
+        {
+          "label": "The invariant period and the invertible Frobenius on its potentially semistable space",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean",
+          "lines": [
+            8,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean#L8-L31",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.WeilPhi.0.weilPhi_core",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.WeilPhi.0.weilPhi_core": 8
+          }
+        },
+        {
+          "label": "Cancel the signed exponent and use invariance under the local Galois action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean",
+          "lines": [
+            32,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean#L32-L51",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.weilPhi_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.weilPhi_holds": 48
+          }
+        },
+        {
+          "label": "Read the same columns before and after the Weil action",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            75,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L75-L93",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds": 64
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The unramified action and the coefficient-field action have different origins. Two opposite exponents give a direct test of the sign."
+    },
+    {
+      "id": "SWO-08",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-coordinate-trace",
+      "title": "How can we read a trace from vectors that reconstruct the identity?",
+      "hypotheses": "A k-vector space of dimension a has additive coordinates in S^a compatible with a ring map from k to the commutative ring S. Fixed finite weights recover each standard coordinate vector.",
+      "statement": "For any linear operator, summing the transformed coordinates on the diagonal with the same weights gives the image of its trace.",
+      "equations": [
+        "lifts-weil-weighted-trace"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Coordinate expansions give two square matrices whose product is the identity",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean",
+          "lines": [
+            7,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean#L7-L28",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds": 7
+          }
+        },
+        {
+          "label": "Coordinates of the images after applying the linear operator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean",
+          "lines": [
+            28,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean#L28-L47",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds": 7
+          }
+        },
+        {
+          "label": "Cyclicity of the matrix trace gives the scalar trace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean",
+          "lines": [
+            48,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLinHolds.lean#L48-L56",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLin_holds": 7
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The coordinate matrices are square. Their one-sided inverse is two-sided by the determinant identity and the adjugate formula."
+    },
+    {
+      "id": "SWO-09",
+      "chapter": "lifts",
+      "anchor": "lifts-weil-tested-trace",
+      "title": "Which trace does the integral operator actually measure?",
+      "hypotheses": "Use a crystalline finite coefficient model of positive dimension a, a rank-d integral matrix lattice that represents the a-by-a identity, its invariant period basis and an operator with Vφ₂(U)=sφ₁(U).",
+      "statement": "For each unramified-linear functional λ, the ordinary basis traces evaluated against Ve sum to s times the tested local Weil trace. The formula applies to the target and separately to every auxiliary component.",
+      "equations": [
+        "lifts-weil-tested-frame",
+        "lifts-weil-tested-measurement"
+      ],
+      "dependencies": [
+        "SWO-04",
+        "SWO-06",
+        "SWO-07",
+        "SWO-08"
+      ],
+      "sources": [
+        {
+          "label": "A finite coefficient extension containing every basis entry and the coefficient just below the leading term",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+          "lines": [
+            14,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean#L14-L28",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.exists_ext",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.exists_ext": 14
+          }
+        },
+        {
+          "label": "The Weil polynomial gives the dimension and trace of the coefficient model",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+          "lines": [
+            38,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean#L38-L55",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.charPol_eq",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.charPol_eq": 38
+          }
+        },
+        {
+          "label": "Enlarge a crystalline model and restrict the column equivariance identities",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+          "lines": [
+            57,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean#L57-L76",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds": 57
+          }
+        },
+        {
+          "label": "Solve once and distribute the weights in the tensor product",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            14,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L14-L36",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_solve",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_solve": 14
+          }
+        },
+        {
+          "label": "Before and after the Weil action in one set of coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            64,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L64-L93",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds": 64
+          }
+        },
+        {
+          "label": "Recover all standard vectors and apply the coordinate trace formula",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            94,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L94-L114",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds": 64
+          }
+        },
+        {
+          "label": "Sum the physical diagonal of each basis matrix",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            115,
+            127
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L115-L127",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds": 64
+          }
+        },
+        {
+          "label": "Apply the functional to the scalar factor and compare constant coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TestTr.lean",
+          "lines": [
+            7,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TestTr.lean#L7-L32",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.testTr_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.testTr_holds": 7
+          }
+        },
+        {
+          "label": "Transport the trace identity back from the coefficient model",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+          "lines": [
+            97,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean#L97-L108",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds": 57
+          }
+        },
+        {
+          "label": "The target and every auxiliary component use the same scalar",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            63,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L63-L70",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of": 13
+          }
+        },
+        {
+          "label": "Compare the two coefficient models over their compositum",
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/PadicHodgeTheory/PstExact.lean",
+          "lines": [
+            293,
+            301
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PadicHodgeTheory/PstExact.lean#L293-L301"
+        },
+        {
+          "label": "Potentially semistable periods over the enlarged field decompose into coordinate periods",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsPotentiallySemistableCoefficientFieldEnlarge.lean",
+          "lines": [
+            40,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsPotentiallySemistableCoefficientFieldEnlarge.lean#L40-L65"
+        },
+        {
+          "label": "The two dimension counts under finite coefficient extension",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsPotentiallySemistableCoefficientFieldEnlarge.lean",
+          "lines": [
+            80,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/IsPotentiallySemistableCoefficientFieldEnlarge.lean#L80-L99"
+        },
+        {
+          "label": "Coordinate projections commute with all matrices over the smaller field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            195,
+            218
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L195-L218"
+        },
+        {
+          "label": "The induced map is equivariant and surjective on complex period quotients",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            259,
+            291
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L259-L291"
+        },
+        {
+          "label": "Compare dimensions on the two potentially semistable models",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            310,
+            324
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L310-L324"
+        },
+        {
+          "label": "Equal dimensions of the embedding summands and their sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            228,
+            253
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L228-L253"
+        },
+        {
+          "label": "Crystalline models are potentially semistable",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PotSemistableOfPotCrystallineDecompositionGroup.lean",
+          "lines": [
+            34,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PotSemistableOfPotCrystallineDecompositionGroup.lean#L34-L57"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Coefficient extension, recovery of all identity columns and injectivity for constant polynomials are separate steps. The identity compares scalars in the crystalline ring before any finite-layer error estimate."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.AcrisPow.dvd_X_pow",
+      "callee": "GlobalTheory.AcrisPow.dvd_pow_acris0",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+        "line": 58,
+        "spelling": "dvd_pow_acris0"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean",
+        "line": 11,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds",
+      "callee": "GlobalTheory.T.primePow_dvd_tiltUniformizer_pow_acris_eventually",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean",
+        "line": 12,
+        "spelling": "GlobalTheory.T.primePow_dvd_tiltUniformizer_pow_acris_eventually"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.zeroAp_holds",
+      "callee": "GlobalTheory.CrZero.pow_cancel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ZeroAp.lean",
+        "line": 76,
+        "spelling": "GlobalTheory.CrZero.pow_cancel"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+        "line": 42,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.DvdMulEntriesRight.0.map_smul_ringHom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+        "line": 68,
+        "spelling": "map_smul_ringHom"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.DvdMulEntriesRight.0.map_intertwine",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+        "line": 78,
+        "spelling": "map_intertwine"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.DvdMulEntriesRight.0.dvd_mul_entries_left",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+        "line": 95,
+        "spelling": "dvd_mul_entries_left"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkQ_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.DvdMulEntriesRight.0.dvd_mul_entries_right",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/DvdMulEntriesRight.lean",
+        "line": 95,
+        "spelling": "dvd_mul_entries_right"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkA_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.link_core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean",
+        "line": 82,
+        "spelling": "link_core"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.linkA_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.PowDvdOfEv.0.pow_dvd_of_ev",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowDvdOfEv.lean",
+        "line": 96,
+        "spelling": "pow_dvd_of_ev"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+      "callee": "UpperTheory.Gal.ClosedPhiFromClosedTrace.FixUr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+        "line": 55,
+        "spelling": "FixUr"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2",
+      "callee": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsPerU",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean",
+        "line": 14,
+        "spelling": "IsPerU"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.one",
+      "callee": "GlobalTheory.T.breuilKisinPreframe_bounded_poles",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+        "line": 63,
+        "spelling": "GlobalTheory.T.breuilKisinPreframe_bounded_poles"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.one",
+      "callee": "GlobalTheory.BcrisInv.map_smul_matrix",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+        "line": 67,
+        "spelling": "GlobalTheory.BcrisInv.map_smul_matrix"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpOneHolds.0.opOne_comm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean",
+        "line": 77,
+        "spelling": "opOne_comm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpOneHolds.0.opOne_pow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean",
+        "line": 79,
+        "spelling": "opOne_pow"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opOne_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpOneHolds.0.opOne_core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpOneHolds.lean",
+        "line": 85,
+        "spelling": "opOne_core"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.fixW_holds",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FixWHolds.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.map_link",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.phi_zC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+        "line": 35,
+        "spelling": "phi_zC"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opEx_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.OpExHolds.0.map_link",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+        "line": 92,
+        "spelling": "map_link"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.opEx_holds",
+      "callee": "GlobalTheory.BcrisInv.map_smul_matrix",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/OpExHolds.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.BcrisInv.map_smul_matrix"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.actQ_symm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+        "line": 45,
+        "spelling": "actQ_symm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.smul_Cst",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+        "line": 47,
+        "spelling": "smul_Cst"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.sum_Cst",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+        "line": 51,
+        "spelling": "sum_Cst"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.colInv_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.ColInv.0.phiB_symm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ColInv.lean",
+        "line": 57,
+        "spelling": "phiB_symm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.exists_ext",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+        "line": 61,
+        "spelling": "exists_ext"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.weilPhi_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.WeilPhi.0.weilPhi_core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean",
+        "line": 51,
+        "spelling": "weilPhi_core"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.coord_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+        "line": 84,
+        "spelling": "coord_sum"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_solve",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+        "line": 70,
+        "spelling": "exists_solve"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.key_sum",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+        "line": 100,
+        "spelling": "key_sum"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tieRep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TieRep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.tmul_zB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+        "line": 101,
+        "spelling": "tmul_zB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.finrank_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+        "line": 99,
+        "spelling": "finrank_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TraceEqNextCoeff.0.wdTr_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+        "line": 103,
+        "spelling": "wdTr_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.tie_holds",
+      "callee": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsTr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TraceEqNextCoeff.lean",
+        "line": 105,
+        "spelling": "IsTr"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+      "callee": "UpperTheory.Gal.ClosedPhiFromClosedTrace.wdTr",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+        "line": 67,
+        "spelling": "wdTr"
+      }
+    }
+  ]
+}

@@ -23,6 +23,14 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "signed-weil-operator": {
+      title: "Which Frobenius iterate is the input?",
+      kind: "A Frobenius model on the rational function field",
+      section: "lifts",
+      params: [range("degree", "Signed exponent α", -2, 2, 1, 1)],
+      caption: "In the rational function field ℚ(t), the model Frobenius φ fixes ℚ and substitutes t² for t. Start with U = t and write α = n₂ − n₁, where n₁ = max(−α, 0) and n₂ = max(α, 0). Multiply the input by V/s and follow it to the output. Both iterates use ordinary substitution.",
+      method: "Take height H = 1, κ = 0, a = t², Z = aU = t³ and Z′ = t. Their product is h = a² = t⁴. Write φ₁ and φ₂ for the iterates with indices n₁ and n₂. Then V = φ₂(h)φ₁(Z)φ₂(Z′) and s = φ₂(a)³φ₁(a). The last two rows check the defining equation Vφ₂(U) = sφ₁(U) before division. The fraction V/s acts by multiplication on the displayed input in ℚ(t).",
+    },
     "crystalline-invariant-columns": {
       title: "Which columns does the Galois action fix?",
       kind: "Conjugation over ℚ(i)",
@@ -1704,6 +1712,31 @@
   }
 
   function render(id, v) {
+    if (id === "signed-weil-operator") {
+      const alpha = Number(v.degree), n1 = Math.max(-alpha, 0), n2 = Math.max(alpha, 0);
+      const input = 2 ** n2, output = 2 ** n1;
+      const operator = 4 * input + 3 * output + input;
+      const scalar = 6 * input + 2 * output;
+      const monomial = exponent => {
+        if (exponent === 0) return "1";
+        const magnitude = Math.abs(exponent);
+        const power = "<var>t</var>" + (magnitude === 1 ? "" : "<sup>" + magnitude + "</sup>");
+        return exponent < 0 ? "1/" + power : power;
+      };
+      const spokenPower = n => n === 1 ? "t" : "t to the power " + n;
+      const status = "Signed exponent " + alpha + ". Input " + spokenPower(input) + ". Output " +
+        spokenPower(output) + ". Both cleared products are " + spokenPower(operator + input) + ".";
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>';
+      return '<table class="carry-table" data-announcement="' + status + '"><caption>Input and output of multiplication by <var>V</var>/<var>s</var></caption>' +
+        '<thead><tr><th scope="col">Column</th><th scope="col">Iterate</th><th scope="col">Value</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Input</th><td><var>n</var>₂ = ' + n2 + '</td><td>' + monomial(input) + '</td></tr>' +
+        '<tr><th scope="row">Output</th><td><var>n</var>₁ = ' + n1 + '</td><td>' + monomial(output) + '</td></tr></tbody></table>' +
+        '<table class="carry-table"><caption>Checking the scalar equation</caption><tbody>' +
+        row('Operator <var>V</var>', monomial(operator)) + row('Scalar <var>s</var>', monomial(scalar)) +
+        row('Multiplier <var>V</var>/<var>s</var>', monomial(operator - scalar)) +
+        row('Input × <var>V</var>', monomial(operator + input)) +
+        row('Output × <var>s</var>', monomial(scalar + output)) + '</tbody></table>';
+    }
     if (id === "crystalline-invariant-columns") {
       const values = {one:[1, 0], two:[2, 0], i:[0, 1], sum:[1, 1]};
       const w = values[v.scalar], coefficient = values[v.coefficient];

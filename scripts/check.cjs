@@ -345,6 +345,45 @@ function gaussianTimes(text, n) {
   }
   return result;
 }
+// Evaluate each displayed monomial by substitution without using its exponent formula.
+{
+  function evaluateMonomial(markup, t) {
+    if (markup === "1") return [1n,1n];
+    const match = markup.match(/^(1\/)?<var>t<\/var>(?:<sup>(\d+)<\/sup>)?$/);
+    assert.ok(match,markup);
+    const power = t ** BigInt(match[2] || 1);
+    return match[1] ? [1n,power] : [power,1n];
+  }
+  for (let alpha=-2; alpha<=2; alpha++) {
+    const rendered=lib.render("signed-weil-operator",{degree:alpha});
+    const cells=Array.from(rendered.matchAll(/<td>(.*?)<\/td>/g), hit=>hit[1]);
+    assert.equal(cells.length,9);
+    const [n2,n1]=[cells[0],cells[2]].map(cell=>Number(cell.split(" = ")[1]));
+    assert.equal(n2-n1,alpha);
+    assert.equal(Math.min(n2,n1),0);
+    for (const t of [2n,3n]) {
+      const iterate = (f,n) => {
+        let point=t;
+        for(let step=0; step<n; step++) point=point*point;
+        return f(point);
+      };
+      const U=x=>x, a=x=>x*x, Z=x=>a(x)*U(x), h=x=>a(x)*a(x), complement=x=>h(x)/Z(x);
+      const input=iterate(U,n2), output=iterate(U,n1);
+      const operator=iterate(h,n2)*iterate(Z,n1)*iterate(complement,n2);
+      const scalar=iterate(a,n2)**3n*iterate(a,n1);
+      const expected=[[1,input],[3,output],[4,operator],[5,scalar],[7,operator*input],[8,scalar*output]];
+      for (const [index,value] of expected) assert.deepEqual(evaluateMonomial(cells[index],t),[value,1n]);
+      const [top,bottom]=evaluateMonomial(cells[6],t);
+      assert.equal(top*scalar,bottom*operator);
+      assert.equal(input*top,output*bottom);
+      assert.equal(operator*input,scalar*output);
+    }
+  }
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-signed-weil-operator"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("signed-weil-operator", lib.defaults("signed-weil-operator"))));
+}
 // On the rational basis (1,i), twisted conjugation is diag(-1,1).
 {
   const phase = {one:[1,0], i:[0,1], sum:[1,1]};

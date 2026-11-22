@@ -21,6 +21,7 @@ async function assertVectorWeights(page) {
   assert.deepEqual(weights, ["400"], "All displayed basis-vector entries must have regular weight");
 }
 const defaultCrystallineColumns = ["2", "−2", "−2i", "−2i", "−2i", "−2i"];
+const defaultWeilOperator = ["n₂ = 1","t2","n₁ = 0","t","t13","t14","1/t","t15","t15"];
 async function assertRenderedFont(session, selector, postScriptName) {
   const { root } = await session.send("DOM.getDocument");
   const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
@@ -137,6 +138,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "signed-weil-operator") {
+          assert.deepEqual(await fig.locator("tbody td").allTextContents(),defaultWeilOperator);
+          assert.equal(await fig.locator('[role="status"]').textContent(),"Signed exponent 1. Input t to the power 2. Output t. Both cleared products are t to the power 15.");
         } else if (id === "crystalline-invariant-columns") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
           assert.equal(await fig.getByRole("status").textContent(), "Scalar factor −1. The selected multiple goes from −2i to −2i. The product moves. The normalized column is fixed. Its selected multiple is fixed.");
@@ -441,6 +445,33 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-signed-weil-operator");
+    const signedWeil=page.locator("#fig-signed-weil-operator.ready");
+    const signedCases=[
+      ["n₂ = 0","t","n₁ = 2","t4","t17","t14","t3","t18","t18"],
+      ["n₂ = 0","t","n₁ = 1","t2","t11","t10","t","t12","t12"],
+      ["n₂ = 0","t","n₁ = 0","t","t8","t8","1","t9","t9"],
+      defaultWeilOperator,
+      ["n₂ = 2","t4","n₁ = 0","t","t23","t26","1/t3","t27","t27"],
+    ];
+    for(const width of [320,390]) {
+      await page.setViewportSize({width,height:844});
+      const slider=signedWeil.getByRole("slider",{name:"Signed exponent α"});
+      await slider.press("Home");
+      for(const [index,cells] of signedCases.entries()){
+        if(index) await slider.press("ArrowRight");
+        assert.deepEqual(await signedWeil.locator("tbody td").allTextContents(),cells);
+        assert.ok((await signedWeil.locator('[role="status"]').textContent()).startsWith("Signed exponent " + (index-2) + "."));
+        assert.ok(await signedWeil.locator("table").evaluateAll(tables=>tables.length===2 && tables.every(t=>
+          t.getBoundingClientRect().right<=t.closest("figure").getBoundingClientRect().right+1)));
+      }
+      assert.ok(await signedWeil.locator("th var").evaluateAll(vars=>vars.length>0&&vars.every(v=>getComputedStyle(v).fontWeight==="400")));
+    }
+    const weilLink=new URL(await signedWeil.locator("[data-share]").getAttribute("href"));
+    assert.equal(weilLink.searchParams.get("signed-weil-operator.degree"),"2");
+    await openFigure(page,weilLink.href);
+    assert.deepEqual(await signedWeil.locator("tbody td").allTextContents(),signedCases[4]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-crystalline-invariant-columns");
     const crystalline = page.locator("#fig-crystalline-invariant-columns.ready");
@@ -979,6 +1010,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     assert.deepEqual(await page.locator("#fig-ordinary-line-cancellation .metrics dd").allInnerTexts(), ["3", "3"]);
     assert.deepEqual(await page.locator("#fig-crystalline-invariant-columns tbody td").allInnerTexts(), defaultCrystallineColumns);
+    assert.deepEqual(await page.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
@@ -995,6 +1027,7 @@ async function run() {
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
     const staticCrystalline = plain.locator("#fig-crystalline-invariant-columns");
+    assert.deepEqual(await plain.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     assert.deepEqual(await staticCrystalline.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.ok(await staticCrystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
     const staticSaturation = plain.locator("#fig-integral-lattice-saturation");
