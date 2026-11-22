@@ -23,6 +23,17 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "crystalline-invariant-columns": {
+      title: "Which columns does the Galois action fix?",
+      kind: "Conjugation over ℚ(i)",
+      section: "lifts",
+      params: [
+        choose("scalar", "Frame scalar w", [["one", "1"], ["i", "i"], ["sum", "1 + i"]], "i"),
+        choose("coefficient", "Column coefficient a", [["one", "1"], ["two", "2"], ["i", "i"], ["sum", "1 + i"]], "one"),
+      ],
+      caption: "Let g be complex conjugation. It acts on scalars by conjugation and on columns by T(z) = −g(z). Compare the product XQ with the normalized column U = XQ/w, then test the multiple aU.",
+      method: "Take Q = 1 − i, Γ = −i and X = w(1 − i). Then Γg(Q) = Q and wT(X) = g(w)XΓ. Multiplying the two identities gives T(XQ) = [g(w)/w]XQ. Division by w therefore gives T(U) = U. Since T(aU) = g(a)U and U is nonzero, aU is fixed exactly when a belongs to ℚ. This quadratic-field calculation models the scalar cancellation in the period matrix.",
+    },
     "integral-lattice-saturation": {
       title: "Which columns generate the integral lattice?",
       kind: "A diagonal basis and its integral span",
@@ -1693,6 +1704,30 @@
   }
 
   function render(id, v) {
+    if (id === "crystalline-invariant-columns") {
+      const values = {one:[1, 0], two:[2, 0], i:[0, 1], sum:[1, 1]};
+      const w = values[v.scalar], coefficient = values[v.coefficient];
+      const multiply = ([a, b], [c, d]) => [a * c - b * d, a * d + b * c];
+      const conjugateW = [w[0], -w[1]], normW = w[0] ** 2 + w[1] ** 2;
+      const divideByW = z => multiply(z, conjugateW).map(entry => entry / normW);
+      const Q = [1, -1], X = multiply(w, Q), product = multiply(X, Q);
+      const U = divideByW(product), multiple = multiply(coefficient, U);
+      const display = ([a, b]) => complexFraction(a, b, 1);
+      const transform = ([a, b]) => [-a, b];
+      const factor = display(divideByW(conjugateW));
+      const row = (name, z) => '<tr><th scope="row">' + name + '</th><td>' + display(z) +
+        '</td><td>' + display(transform(z)) + '</td></tr>';
+      const summary = (product[0] === 0 ? "The product is fixed." : "The product moves.") +
+        " The normalized column is fixed. " + (multiple[0] === 0 ? "Its selected multiple is fixed." : "Its selected multiple moves.");
+      const announcement = "Scalar factor " + factor + ". The selected multiple goes from " + display(multiple) +
+        " to " + display(transform(multiple)) + ". " + summary;
+      return '<p>Here <var>X</var> = ' + display(X) + ', <var>Q</var> = 1 − i, and the factor <var>g</var>(<var>w</var>)/<var>w</var> = ' +
+        factor + '.</p><table class="carry-table" data-announcement="' + announcement +
+        '"><caption>Before and after the twisted action</caption><thead><tr><th scope="col">Column</th>' +
+        '<th scope="col">Value</th><th scope="col">After action</th></tr></thead><tbody>' +
+        row('Product <var>XQ</var>', product) + row('Normalized <var>U</var>', U) +
+        row('Multiple <var>aU</var>', multiple) + '</tbody></table><p>' + summary + '</p>';
+    }
     if (id === "integral-lattice-saturation") {
       const a = Number(v.power), r = Number(v.loss), n = Number(v.precision);
       const modulus = 3 ** n, scalar = 3 ** r, target = scalar % modulus;

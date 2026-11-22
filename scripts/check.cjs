@@ -331,22 +331,61 @@ for (const page of ["book.html", "print.html"]) {
   const figure = html[page].match(/<figure\b[^>]*\bid="fig-translated-trace-precision"[^>]*>[\s\S]*?<\/figure>/);
   assert.ok(figure && figure[0].includes(lib.render("translated-trace-precision", lib.defaults("translated-trace-precision"))));
 }
+function gaussianTimes(text, n) {
+  const fraction = text.match(/^\((.+)\)\/(\d+)$/);
+  if (fraction) return gaussianTimes(fraction[1], n / Number(fraction[2]));
+  const result = [0, 0];
+  for (const term of text.replaceAll("−", "-").replaceAll(" ", "").match(/[+-]?[^+-]+/g)) {
+    const imaginary = term.endsWith("i");
+    const coefficient = imaginary ? term.slice(0, -1) : term;
+    const [top, bottom = "1"] = coefficient.split("/");
+    const scaled = n * (top === "-" ? -1 : top === "+" || top === "" ? 1 : Number(top)) / Number(bottom);
+    assert.ok(Number.isInteger(scaled), text);
+    result[Number(imaginary)] += scaled;
+  }
+  return result;
+}
+// On the rational basis (1,i), twisted conjugation is diag(-1,1).
+{
+  const phase = {one:[1,0], i:[0,1], sum:[1,1]};
+  const coefficients = {...phase, two:[2,0]};
+  const Q = [1,-1], gamma = [0,-1];
+  const conjugate = ([a,b]) => [a,0-b];
+  const transform = ([a,b]) => [0-a,b];
+  const equal = (z,t) => z[0] === t[0] && z[1] === t[1];
+  assert.ok(equal(gaussianMultiply(gamma, conjugate(Q)), Q));
+  let settings = 0, fixedProducts = 0, fixedMultiples = 0;
+  for (const [scalar,w] of Object.entries(phase)) for (const [coefficient,a] of Object.entries(coefficients)) {
+    const output = lib.render("crystalline-invariant-columns", {scalar, coefficient});
+    const context = output.match(/<var>X<\/var> = ([^,]+), .*?<var>w<\/var> = ([^<]+)\.<\/p>/);
+    assert.ok(context);
+    const X = gaussianTimes(context[1],1), ratio = gaussianTimes(context[2],1);
+    assert.ok(equal(gaussianMultiply(w, ratio), conjugate(w)));
+    assert.ok(equal(gaussianMultiply(w, transform(X)), gaussianMultiply(conjugate(w), gaussianMultiply(X, gamma))));
+    const cells = [...output.matchAll(/<td>([^<]+)<\/td>/g)].map(cell => gaussianTimes(cell[1],1));
+    assert.equal(cells.length,6);
+    const [product, productImage, U, UImage, multiple, multipleImage] = cells;
+    assert.ok(equal(product, gaussianMultiply(X,Q)) && equal(product, gaussianMultiply(w,U)));
+    assert.ok(equal(productImage, transform(product)) && equal(productImage, gaussianMultiply(ratio,product)));
+    assert.ok(equal(U,[0,-2]) && equal(UImage,transform(U)));
+    assert.ok(equal(multiple,gaussianMultiply(a,U)) && equal(multipleImage,transform(multiple)));
+    const fixedProduct = equal(product,productImage), fixedMultiple = equal(multiple,multipleImage);
+    assert.equal(fixedProduct,w[1] === 0);
+    assert.equal(fixedMultiple,a[1] === 0);
+    const message = output.match(/data-announcement="([^"]+)"/)[1];
+    assert.ok(message.startsWith("Scalar factor " + context[2] + "."));
+    assert.ok(message.includes(fixedProduct ? "The product is fixed." : "The product moves."));
+    assert.ok(message.endsWith(fixedMultiple ? "Its selected multiple is fixed." : "Its selected multiple moves."));
+    fixedProducts += Number(fixedProduct); fixedMultiples += Number(fixedMultiple); settings++;
+  }
+  assert.deepEqual([settings,fixedProducts,fixedMultiples],[12,4,6]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-crystalline-invariant-columns"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("crystalline-invariant-columns", lib.defaults("crystalline-invariant-columns"))));
+}
 // Count the kernel on E[N] and check the denominator of each displayed trace weight.
 {
-  function gaussianTimes(text, n) {
-    const fraction = text.match(/^\((.+)\)\/(\d+)$/);
-    if (fraction) return gaussianTimes(fraction[1], n / Number(fraction[2]));
-    const result = [0, 0];
-    for (const term of text.replaceAll("−", "-").replaceAll(" ", "").match(/[+-]?[^+-]+/g)) {
-      const imaginary = term.endsWith("i");
-      const coefficient = imaginary ? term.slice(0, -1) : term;
-      const [top, bottom = "1"] = coefficient.split("/");
-      const scaled = n * (top === "-" ? -1 : top === "+" || top === "" ? 1 : Number(top)) / Number(bottom);
-      assert.ok(Number.isInteger(scaled), text);
-      result[Number(imaginary)] += scaled;
-    }
-    return result;
-  }
   let settings = 0, labelsTested = 0, identitySettings = 0;
   for (let a = -4; a <= 4; a++) for (let b = -4; b <= 4; b++) {
     const norm = (1 - a) ** 2 + b * b;

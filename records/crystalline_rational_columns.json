@@ -1,0 +1,1458 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "CRS-01",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-growth",
+      "title": "How many powers of ℓ divide an iterate of the parameter?",
+      "hypotheses": "Use a local Breuil–Kisin datum with Eisenstein polynomial E of degree e. The period ring is the ℓ-adically completed divided-power envelope and the image of E lies in its divided-power ideal.",
+      "statement": "For every fixed c and M the power v^(ℓⁿ−1) is divisible in the crystalline ring by ℓ^(cn+M) for all sufficiently large n.",
+      "equations": [
+        "lifts-period-crystalline-growth-bound"
+      ],
+      "dependencies": [
+        "ILL-06"
+      ],
+      "sources": [
+        {
+          "label": "The Eisenstein parameter, its evaluation, Frobenius and the kernel of θ",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean",
+          "lines": [
+            19,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean#L19-L38"
+        },
+        {
+          "label": "From the divided powers to a multiple of the prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+          "lines": [
+            54,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean#L54-L88",
+          "declaration": "GlobalTheory.AcrisFrobE.coe_natCast0",
+          "declaration_lines": {
+            "GlobalTheory.AcrisFrobE.coe_natCast0": 54
+          }
+        },
+        {
+          "label": "Torsion-freeness, completeness and the evaluated Eisenstein element",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+          "lines": [
+            94,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean#L94-L105",
+          "declaration": "GlobalTheory.AcrisFrobE.main",
+          "declaration_lines": {
+            "GlobalTheory.AcrisFrobE.main": 94
+          }
+        },
+        {
+          "label": "Divisibility of the parameter to degree bℓ and the eventual bound",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+          "lines": [
+            52,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean#L52-L83",
+          "declaration": "GlobalTheory.AcrisPow.dvd_X_pow",
+          "declaration_lines": {
+            "GlobalTheory.AcrisPow.dvd_X_pow": 52
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The divided power of order ℓ gives v^(eℓ) in ℓR. Keep one factor of v before absorbing the linear loss."
+    },
+    {
+      "id": "CRS-02",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-normalization",
+      "title": "How do the two Frobenius evaluations compare?",
+      "hypotheses": "The height-H coefficient matrices satisfy AA′=E^{2H}I. Compare Frobenius evaluation of each series at the parameter with Frobenius evaluation of its constant term.",
+      "statement": "After division by the two unit factors the normalized matrix pairs have product ℓ^{2H}I. Multiplying their forward difference by ℓ gives entrywise divisibility by v^ℓ.",
+      "equations": [
+        "lifts-period-crystalline-normalized-pairs"
+      ],
+      "dependencies": [
+        "CRS-01",
+        "ILL-06"
+      ],
+      "sources": [
+        {
+          "label": "The unit δ(E), the constant term and compatibility with Frobenius",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean",
+          "lines": [
+            19,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean#L19-L36"
+        },
+        {
+          "label": "The two divided powers used to lift the unit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+          "lines": [
+            57,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean#L57-L88",
+          "declaration": "GlobalTheory.AcrisFrobE.exists_dpow",
+          "declaration_lines": {
+            "GlobalTheory.AcrisFrobE.exists_dpow": 57
+          }
+        },
+        {
+          "label": "The Frobenius value of E is the prime times a unit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+          "lines": [
+            94,
+            136
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean#L94-L136",
+          "declaration": "GlobalTheory.AcrisFrobE.main",
+          "declaration_lines": {
+            "GlobalTheory.AcrisFrobE.main": 94
+          }
+        },
+        {
+          "label": "Reversal of a scalar matrix product over a torsion-free ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            62,
+            77
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L62-L77",
+          "declaration": "GlobalTheory.CrisSec.comm_of_mul",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.comm_of_mul": 62
+          }
+        },
+        {
+          "label": "The two evaluations and their normalized matrix products",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            303,
+            344
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L303-L344",
+          "declaration": "GlobalTheory.CrisSec.phiSection",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.phiSection": 302
+          }
+        },
+        {
+          "label": "The difference estimate with its factor of the prime",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            345,
+            359
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L345-L359",
+          "declaration": "GlobalTheory.CrisSec.phiSection",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.phiSection": 302
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The factorial at order ℓ² and the Frobenius of E show that the moving denominator is ℓ times a unit. The factor ℓ in the comparison is retained."
+    },
+    {
+      "id": "CRS-03",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-section",
+      "title": "How do the Frobenius iterates give an integral section?",
+      "hypotheses": "Fix the local datum and height. The growth inequality holds in the ℓ-torsion-free complete crystalline ring.",
+      "statement": "Two integral matrices intertwine the moving and constant Frobenius coefficients, reduce to the same power of ℓ times the identity modulo v and multiply to the square of that scalar times the identity. The exponent can be chosen uniformly in the rank.",
+      "equations": [
+        "lifts-period-crystalline-section-identities",
+        "lifts-period-crystalline-section-iteration",
+        "lifts-period-crystalline-section-difference",
+        "lifts-period-crystalline-section-tail"
+      ],
+      "dependencies": [
+        "CRS-01",
+        "CRS-02"
+      ],
+      "sources": [
+        {
+          "label": "The order of the factors in each Frobenius iterate",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            18,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L18-L24",
+          "declaration": "GlobalTheory.CrisSec.T",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.T": 18
+          }
+        },
+        {
+          "label": "The difference estimate and the residue at a finite stage",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            79,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L79-L114",
+          "declaration": "GlobalTheory.CrisSec.tseq",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.tseq": 79
+          }
+        },
+        {
+          "label": "Completeness and the integral correction series",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            120,
+            183
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L120-L183",
+          "declaration": "GlobalTheory.CrisSec.lim",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.lim": 120
+          }
+        },
+        {
+          "label": "The growth bound and the shift of both sequences",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            185,
+            215
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L185-L215",
+          "declaration": "GlobalTheory.CrisSec.core",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.core": 185
+          }
+        },
+        {
+          "label": "The product and the Frobenius identity at finite stages",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            216,
+            256
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L216-L256",
+          "declaration": "GlobalTheory.CrisSec.core",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.core": 185
+          }
+        },
+        {
+          "label": "The two limits, their residues and the final scaling",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            257,
+            296
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L257-L296",
+          "declaration": "GlobalTheory.CrisSec.core",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.core": 185
+          }
+        },
+        {
+          "label": "The integral section for the two evaluations",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            302,
+            315
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L302-L315",
+          "declaration": "GlobalTheory.CrisSec.phiSection",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.phiSection": 302
+          }
+        },
+        {
+          "label": "Substitution of the two units into the normalized identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            360,
+            376
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L360-L376",
+          "declaration": "GlobalTheory.CrisSec.phiSection",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.phiSection": 302
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Shift past a common cutoff before dividing the iterates. Sum the integral corrections after extracting v and compute the product prior to taking the limit."
+    },
+    {
+      "id": "CRS-04",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-defect",
+      "title": "Why does the crystalline congruence give an exactly invariant section?",
+      "hypotheses": "The frame satisfies both Frobenius–Galois compatibility and the crystalline congruence. Use the two integral matrices and scalar from the Frobenius section.",
+      "statement": "The twisted Galois defect of the section is zero for every local Galois element.",
+      "equations": [
+        "lifts-period-crystalline-defect-definition",
+        "lifts-period-crystalline-defect-commutator",
+        "lifts-period-crystalline-defect-recurrence",
+        "lifts-period-crystalline-defect-iteration"
+      ],
+      "dependencies": [
+        "CRS-03",
+        "ILL-07",
+        "ILL-09"
+      ],
+      "sources": [
+        {
+          "label": "The moving and constant evaluations and the section",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+          "lines": [
+            302,
+            344
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean#L302-L344",
+          "declaration": "GlobalTheory.CrisSec.phiSection",
+          "declaration_lines": {
+            "GlobalTheory.CrisSec.phiSection": 302
+          }
+        },
+        {
+          "label": "The Frobenius–Galois identity and the fixed constant coefficients",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+          "lines": [
+            54,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean#L54-L94",
+          "declaration": "GlobalTheory.CrTop.crys_of_frame",
+          "declaration_lines": {
+            "GlobalTheory.CrTop.crys_of_frame": 46
+          }
+        },
+        {
+          "label": "The integral defect identity and its scalar factors",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+          "lines": [
+            65,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean#L65-L92",
+          "declaration": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+          "declaration_lines": {
+            "GlobalTheory.FrobeniusDefect.frobenius_defect_eq": 65
+          }
+        },
+        {
+          "label": "The matrix products and cancellation in the integral ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+          "lines": [
+            93,
+            154
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean#L93-L154",
+          "declaration": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+          "declaration_lines": {
+            "GlobalTheory.FrobeniusDefect.frobenius_defect_eq": 65
+          }
+        },
+        {
+          "label": "The exact right factor and the reduction of the correction",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+          "lines": [
+            96,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean#L96-L131",
+          "declaration": "GlobalTheory.CrTop.crys_of_frame",
+          "declaration_lines": {
+            "GlobalTheory.CrTop.crys_of_frame": 46
+          }
+        },
+        {
+          "label": "The Galois action preserves divisibility by the evaluated parameter",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/GaloisActionExtendsToAinfDiscRings.lean",
+          "lines": [
+            13,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/GaloisActionExtendsToAinfDiscRings.lean#L13-L32",
+          "declaration": "GlobalTheory.BSP.dvd_σF_self",
+          "declaration_lines": {
+            "GlobalTheory.BSP.dvd_σF_self": 13
+          }
+        },
+        {
+          "label": "Reduction of the transformed section and final cancellation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+          "lines": [
+            131,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean#L131-L155",
+          "declaration": "GlobalTheory.CrTop.crys_of_frame",
+          "declaration_lines": {
+            "GlobalTheory.CrTop.crys_of_frame": 46
+          }
+        },
+        {
+          "label": "Iteration, cancellation of the loss and separatedness",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean",
+          "lines": [
+            33,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean#L33-L86",
+          "declaration": "GlobalTheory.BKLim.acris_frob_eq_zero",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.acris_frob_eq_zero": 33
+          }
+        },
+        {
+          "label": "Divided powers of a generator of the period ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+          "lines": [
+            57,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean#L57-L88",
+          "declaration": "GlobalTheory.AcrisFrobE.exists_dpow",
+          "declaration_lines": {
+            "GlobalTheory.AcrisFrobE.exists_dpow": 57
+          }
+        },
+        {
+          "label": "A growing parameter exponent absorbs any prescribed linear loss",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+          "lines": [
+            54,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean#L54-L83",
+          "declaration": "GlobalTheory.AcrisPow.main",
+          "declaration_lines": {
+            "GlobalTheory.AcrisPow.main": 70
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Reduction provides the first factor of v. Frobenius raises its exponent; divided powers absorb the linear denominator, and ℓ-adic separation gives exact vanishing."
+    },
+    {
+      "id": "CRS-05",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-columns",
+      "title": "Which columns give the crystalline periods of the representation?",
+      "hypotheses": "The integral frame provides opposite period matrices whose product is τ^{2H}I. The period τ is primitive, and the chosen period datum identifies the crystalline ring with its Galois action.",
+      "statement": "After normalization the product of the period matrix and the section is an invertible invariant matrix over the crystalline period ring. Its columns give a basis of crystalline periods over the maximal unramified subfield.",
+      "equations": [
+        "lifts-period-crystalline-normalized-columns",
+        "lifts-period-crystalline-column-action"
+      ],
+      "dependencies": [
+        "CRS-04",
+        "ILL-04"
+      ],
+      "sources": [
+        {
+          "label": "The two conditions on a primitive period",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean",
+          "lines": [
+            91,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean#L91-L93"
+        },
+        {
+          "label": "Localization of the crystalline ring at the element defined by the root system",
+          "path": "src/Development/AbelianVarietyTheory/CrystallinePeriods/CrisLoc.lean",
+          "lines": [
+            22,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/CrystallinePeriods/CrisLoc.lean#L22-L24"
+        },
+        {
+          "label": "The image of the cyclotomic factor is a unit",
+          "path": "src/Development/AbelianVarietyTheory/CrystallinePeriods/CrisLoc.lean",
+          "lines": [
+            36,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/CrystallinePeriods/CrisLoc.lean#L36-L42"
+        },
+        {
+          "label": "The normalized product of the Frobenius transform of Y and the section",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvariantUnitMatrixBcrisFrame.lean",
+          "lines": [
+            22,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvariantUnitMatrixBcrisFrame.lean#L22-L50",
+          "declaration": "GlobalTheory.BcrisInv.invariant_unit",
+          "declaration_lines": {
+            "GlobalTheory.BcrisInv.invariant_unit": 22
+          }
+        },
+        {
+          "label": "Invertibility and the full action on the normalized basis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvariantUnitMatrixBcrisFrame.lean",
+          "lines": [
+            51,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvariantUnitMatrixBcrisFrame.lean#L51-L93",
+          "declaration": "GlobalTheory.BcrisInv.invariant_unit",
+          "declaration_lines": {
+            "GlobalTheory.BcrisInv.invariant_unit": 22
+          }
+        },
+        {
+          "label": "Invariant columns and the invariant scalar field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean",
+          "lines": [
+            14,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean#L14-L41",
+          "declaration": "GlobalTheory.BKLim.isCrys_of_bcris_matrix",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.isCrys_of_bcris_matrix": 14
+          }
+        },
+        {
+          "label": "Basis coordinates and the dimension criterion",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean",
+          "lines": [
+            42,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean#L42-L79",
+          "declaration": "GlobalTheory.BKLim.isCrys_of_bcris_matrix",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.isCrys_of_bcris_matrix": 14
+          }
+        },
+        {
+          "label": "Returning the spanning periods to the evaluation representation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean",
+          "lines": [
+            85,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean#L85-L115",
+          "declaration": "GlobalTheory.ReadPass.crys_pass",
+          "declaration_lines": {
+            "GlobalTheory.ReadPass.crys_pass": 85
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The two opposite products prove invertibility and the scalar transforms under the ring action. Fixed coefficients are identified using the fixed-ring theorem."
+    },
+    {
+      "id": "CRS-06",
+      "chapter": "lifts",
+      "anchor": "lifts-period-crystalline-evaluation",
+      "title": "How do periods of a matrix lattice reach the original representation?",
+      "hypotheses": "The rationalized matrix lattice contains the identity and the local group acts by left multiplication. The target has a finite field of definition.",
+      "statement": "For each target vector there is an equivariant evaluation taking the identity to that vector. Images of the crystalline periods of the matrix lattice span all of the target after extension to the period ring.",
+      "equations": [
+        "lifts-period-crystalline-evaluation-map"
+      ],
+      "dependencies": [
+        "CRS-05",
+        "OCI-01"
+      ],
+      "sources": [
+        {
+          "label": "A linear retraction to the local coefficient field and the evaluation map",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean",
+          "lines": [
+            19,
+            37
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean#L19-L37",
+          "declaration": "GlobalTheory.ReadPass.exists_read_map",
+          "declaration_lines": {
+            "GlobalTheory.ReadPass.exists_read_map": 19
+          }
+        },
+        {
+          "label": "Equivariance of evaluation and the role of the identity matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean",
+          "lines": [
+            39,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean#L39-L75",
+          "declaration": "GlobalTheory.ReadPass.exists_read_map",
+          "declaration_lines": {
+            "GlobalTheory.ReadPass.exists_read_map": 19
+          }
+        },
+        {
+          "label": "Spanning periods descend through a family of equivariant maps",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean",
+          "lines": [
+            85,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DeRhamCrystallineOfLatticeReads.lean#L85-L115",
+          "declaration": "GlobalTheory.ReadPass.crys_pass",
+          "declaration_lines": {
+            "GlobalTheory.ReadPass.crys_pass": 85
+          }
+        },
+        {
+          "label": "The dimension criterion for the source lattice",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean",
+          "lines": [
+            59,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrystallineOfInvariantUnitBcrisMatrix.lean#L59-L79",
+          "declaration": "GlobalTheory.BKLim.isCrys_of_bcris_matrix",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.isCrys_of_bcris_matrix": 14
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "An entrywise linear retraction to the local coefficient field commutes with the local matrices. Different vectors may require different evaluation maps."
+    },
+    {
+      "id": "CRS-07",
+      "chapter": "lifts",
+      "anchor": "lifts-period-weil-trace-functional",
+      "title": "How can one test an algebraic trace with unramified scalars?",
+      "hypotheses": "Let F be an intermediate field between the ℓ-adic field and its algebraic closure. A finite set of elements and a specified element z all have norm at most one.",
+      "statement": "There is an F-linear functional into F taking integral values on the finite set and giving a value at z of norm at least |z| and at most one.",
+      "equations": [
+        "lifts-period-weil-trace-functional-bounds",
+        "lifts-period-weil-trace-pivot"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Integral coordinates after the maximal pivot exchange",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean",
+          "lines": [
+            56,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean#L56-L81",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_coeffs_after_update",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_coeffs_after_update": 56
+          }
+        },
+        {
+          "label": "The finite integral independent family by successive exchanges",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean",
+          "lines": [
+            100,
+            156
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean#L100-L156",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_independent_spanning_family",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_independent_spanning_family": 100
+          }
+        },
+        {
+          "label": "Adjoining an element outside the span",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean",
+          "lines": [
+            156,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean#L156-L185",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.intBasis_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.intBasis_holds": 184
+          }
+        },
+        {
+          "label": "Extend the selected coordinate to a linear functional",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FuncHolds.lean",
+          "lines": [
+            22,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FuncHolds.lean#L22-L53",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.func_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.func_holds": 10
+          }
+        },
+        {
+          "label": "The ultrametric lower bound for the value on the specified difference",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FuncHolds.lean",
+          "lines": [
+            53,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FuncHolds.lean#L53-L70",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.func_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.func_holds": 10
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "An exchange at a maximal coordinate preserves all previously bounded coordinates. Taking a maximal coordinate of z gives the required lower bound."
+    },
+    {
+      "id": "CRS-08",
+      "chapter": "lifts",
+      "anchor": "lifts-period-weil-trace-errors",
+      "title": "Where do the three errors in a Weil trace come from?",
+      "hypotheses": "At one matched layer the target and auxiliary traces are represented by the stated identities for every unramified-linear functional, with one common integral scalar. The projection matches identity vectors and period operators to the given precision.",
+      "statement": "The weighted trace discrepancy is the exact sum of the operator and identity-vector error, the basis-trace errors, and the negative scalar-coordinate error.",
+      "equations": [
+        "lifts-period-weil-trace-realizations",
+        "lifts-period-weil-trace-residuals",
+        "lifts-period-weil-trace-three-errors"
+      ],
+      "dependencies": [
+        "CRS-07"
+      ],
+      "sources": [
+        {
+          "label": "Traces tested against all linear functionals into the unramified scalars",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/JointApproxOfMem.lean",
+          "lines": [
+            85,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/JointApproxOfMem.lean#L85-L90"
+        },
+        {
+          "label": "Identity, congruences and norms at one precision",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean",
+          "lines": [
+            129,
+            148
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasisAlt.lean#L129-L148",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.TrId",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.TrId": 129
+          }
+        },
+        {
+          "label": "Insert the weighted functional and expand the intertwining error",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrIdHolds.lean",
+          "lines": [
+            9,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrIdHolds.lean#L9-L31",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trId_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trId_holds": 7
+          }
+        },
+        {
+          "label": "Exchange the finite sums and subtract the scalar approximation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrIdHolds.lean",
+          "lines": [
+            33,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrIdHolds.lean#L33-L54",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trId_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trId_holds": 7
+          }
+        },
+        {
+          "label": "Existence assertion for the common scalar and compatible operators",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean",
+          "lines": [
+            45,
+            54
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean#L45-L54",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.OpEx2",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.OpEx2": 45
+          }
+        },
+        {
+          "label": "Application of the operator and trace realization theorems at a Weil element",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            54,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L54-L70",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of": 13
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "A weight outside the unramified subfield acts on the argument of the functional. The rank-one example checks all three signs using ordinary integers."
+    },
+    {
+      "id": "CRS-09",
+      "chapter": "lifts",
+      "anchor": "lifts-period-weil-trace-separation",
+      "title": "Why does agreement at arbitrarily high precision determine the trace?",
+      "hypotheses": "One target trace and a common integral scalar, invertible over the crystalline period ring, work for all precisions. At every precision a layer gives the required integral intertwining and both scalar estimates.",
+      "statement": "The realized Weil trace equals the prescribed scalar. In the application the compatible period-operator and trace realization theorems supply the hypotheses.",
+      "equations": [
+        "lifts-period-weil-trace-fixed-dividend"
+      ],
+      "dependencies": [
+        "CRS-07",
+        "CRS-08",
+        "CRS-06"
+      ],
+      "sources": [
+        {
+          "label": "Two exponents fixed before selecting a layer",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean#L19-L39",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds": 8
+          }
+        },
+        {
+          "label": "One finite set containing all scaled errors and the target discrepancy",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+          "lines": [
+            97,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean#L97-L124",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds": 83
+          }
+        },
+        {
+          "label": "Lift bounded unramified scalars using roots of unity of prime-to-residue order",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsLiftsOfNormLeOne.lean",
+          "lines": [
+            15,
+            33
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsLiftsOfNormLeOne.lean#L15-L33",
+          "declaration": "GlobalTheory.ExpImage.exists_lifts_of_norm_le_one",
+          "declaration_lines": {
+            "GlobalTheory.ExpImage.exists_lifts_of_norm_le_one": 15
+          }
+        },
+        {
+          "label": "Multiply by an integral lift of the inverse coordinate up to a fixed power",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+          "lines": [
+            124,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean#L124-L161",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds": 83
+          }
+        },
+        {
+          "label": "The injection from the integral crystalline ring into the localized ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FrobeniusPeriodRingInjective.lean",
+          "lines": [
+            432,
+            440
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FrobeniusPeriodRingInjective.lean#L432-L440"
+        },
+        {
+          "label": "Separatedness and cancellation on the fixed scalar",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean",
+          "lines": [
+            39,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean#L39-L57",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds": 8
+          }
+        },
+        {
+          "label": "The same finite-layer weights keep the extra scalar coordinate",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoverJ.lean",
+          "lines": [
+            110,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoverJ.lean#L110-L124",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.coverJ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.coverJ_holds": 23
+          }
+        },
+        {
+          "label": "Crystallinity and restriction of the global cover",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            13,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L13-L24",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of": 13
+          }
+        },
+        {
+          "label": "Both directions of Frobenius and passage to individual powers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            54,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L54-L79",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.congPhi_of_closedTr",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.congPhi_of_closedTr": 72
+          }
+        },
+        {
+          "label": "The two signed Frobenius exponents in the definition of the operator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean",
+          "lines": [
+            12,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean#L12-L16",
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2": 12
+          }
+        },
+        {
+          "label": "The Weil action on a Frobenius translate of an invariant period",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean",
+          "lines": [
+            28,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/WeilPhi.lean#L28-L46"
+        },
+        {
+          "label": "The tested identity realizes the trace of the Weil representation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean",
+          "lines": [
+            94,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TieRep.lean#L94-L126"
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The functional can change with the layer. Two fixed exponents convert detection of a nonzero difference into divisibility of the same integral scalar by every power of ℓ."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.AcrisFrobE.main",
+      "callee": "GlobalTheory.AcrisFrobE.exists_div_l",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+        "line": 105,
+        "spelling": "exists_div_l"
+      }
+    },
+    {
+      "caller": "GlobalTheory.AcrisPow.dvd_X_pow",
+      "callee": "GlobalTheory.AcrisPow.dvd_pow_acris0",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+        "line": 58,
+        "spelling": "dvd_pow_acris0"
+      }
+    },
+    {
+      "caller": "GlobalTheory.AcrisFrobE.exists_dpow",
+      "callee": "GlobalTheory.AcrisFrobE.isUnit_natCast_ainfP",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisTorsionFreeCompleteFrobeniusProperties.lean",
+        "line": 60,
+        "spelling": "isUnit_natCast_ainfP"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.comm_of_mul",
+      "callee": "GlobalTheory.CrisSec.pow_canc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 67,
+        "spelling": "pow_canc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.phiSection",
+      "callee": "GlobalTheory.AcrisFrobE.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 305,
+        "spelling": "GlobalTheory.AcrisFrobE.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.tseq",
+      "callee": "GlobalTheory.CrisSec.T_succ",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 91,
+        "spelling": "T_succ"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.tseq",
+      "callee": "GlobalTheory.CrisSec.map_smul'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 97,
+        "spelling": "map_smul'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.tseq",
+      "callee": "GlobalTheory.CrisSec.map_sub'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 97,
+        "spelling": "map_sub'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.lim",
+      "callee": "GlobalTheory.CrisSec.smod_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 137,
+        "spelling": "smod_iff"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.comm_of_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 193,
+        "spelling": "comm_of_mul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.tseq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 206,
+        "spelling": "tseq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.smul_canc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 208,
+        "spelling": "smul_canc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.shift",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 214,
+        "spelling": "shift"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.T_succ",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 221,
+        "spelling": "T_succ"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.map_one_smul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 229,
+        "spelling": "map_one_smul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.map_smul'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 240,
+        "spelling": "map_smul'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.core",
+      "callee": "GlobalTheory.CrisSec.haus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 247,
+        "spelling": "haus"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.phiSection",
+      "callee": "GlobalTheory.AcrisPow.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 360,
+        "spelling": "GlobalTheory.AcrisPow.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisSec.phiSection",
+      "callee": "GlobalTheory.CrisSec.core",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusSectionAcrisBreuilKisin.lean",
+        "line": 361,
+        "spelling": "GlobalTheory.CrisSec.core"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.CrTop.map_smul_ring",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 75,
+        "spelling": "map_smul_ring"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.T.frobenius_equation_of_twisted_cocycle_defect",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.T.frobenius_equation_of_twisted_cocycle_defect"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.nzd_unit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 79,
+        "spelling": "nzd_unit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.nzd_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 85,
+        "spelling": "nzd_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.mul_comm_of_nzd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 87,
+        "spelling": "mul_comm_of_nzd"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.map_smul_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 89,
+        "spelling": "map_smul_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.smul_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 94,
+        "spelling": "smul_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.mul_left_of",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 98,
+        "spelling": "mul_left_of"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.left_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 102,
+        "spelling": "left_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FrobeniusDefect.frobenius_defect_eq",
+      "callee": "GlobalTheory.FrobeniusDefect.nzd_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrobeniusEquationOfTwistedCocycleDefect.lean",
+        "line": 103,
+        "spelling": "nzd_mul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.BSP.galois_discMap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 133,
+        "spelling": "galois_discMap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.T.acris_frobenius_matrix_eq_zero_of_dvd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 149,
+        "spelling": "GlobalTheory.T.acris_frobenius_matrix_eq_zero_of_dvd"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.CrTop.smul_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 152,
+        "spelling": "smul_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrTop.crys_of_frame",
+      "callee": "GlobalTheory.CrTop.pow_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsCrysOfCrystallineBreuilKisinFrame.lean",
+        "line": 152,
+        "spelling": "pow_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.acris_frob_eq_zero",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.acris_frob_eq_zero",
+      "callee": "GlobalTheory.CrZero.eq_zero_of_forall_dvd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean",
+        "line": 73,
+        "spelling": "eq_zero_of_forall_dvd"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.acris_frob_eq_zero",
+      "callee": "GlobalTheory.T.primePow_dvd_tiltUniformizer_pow_acris_eventually",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean",
+        "line": 74,
+        "spelling": "GlobalTheory.T.primePow_dvd_tiltUniformizer_pow_acris_eventually"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.acris_frob_eq_zero",
+      "callee": "GlobalTheory.CrZero.pow_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/AcrisFrobeniusMatrixEqZeroOfDvd.lean",
+        "line": 84,
+        "spelling": "pow_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.AcrisPow.main",
+      "callee": "GlobalTheory.AcrisPow.eventually_lt_two_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+        "line": 74,
+        "spelling": "eventually_lt_two_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.AcrisPow.main",
+      "callee": "GlobalTheory.AcrisPow.dvd_X_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PrimePowDvdTiltUniformizerPowAcrisEventually.lean",
+        "line": 81,
+        "spelling": "dvd_X_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BcrisInv.invariant_unit",
+      "callee": "GlobalTheory.BcrisInv.map_smul_matrix",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvariantUnitMatrixBcrisFrame.lean",
+        "line": 43,
+        "spelling": "map_smul_matrix"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_independent_spanning_family",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.linearIndependent_update_sum_of_ne_zero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean",
+        "line": 129,
+        "spelling": "linearIndependent_update_sum_of_ne_zero"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_independent_spanning_family",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.IntBasis.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_bounded_coeffs_after_update",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IntBasis.lean",
+        "line": 153,
+        "spelling": "exists_bounded_coeffs_after_update"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.OpEx2",
+      "callee": "UpperTheory.Gal.ClosedPhiFromClosedTrace.IsOp2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/IsOp2One.lean",
+        "line": 52,
+        "spelling": "IsOp2"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TrStep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.u_alg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+        "line": 111,
+        "spelling": "u_alg"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TrStep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.exists_iB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+        "line": 113,
+        "spelling": "exists_iB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TrStep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.scale",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+        "line": 118,
+        "spelling": "scale"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TrStep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.core",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+        "line": 124,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ExpImage.exists_lifts_of_norm_le_one",
+      "callee": "GlobalTheory.T.exists_eq_sum_padicInt_mul_rootsOfUnity",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsLiftsOfNormLeOne.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.T.exists_eq_sum_padicInt_mul_rootsOfUnity"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trStep_holds",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ClosedPhiFunctoriality.TrStep.0.UpperTheory.Gal.ClosedPhiFromClosedTrace.iB_zC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrStep.lean",
+        "line": 124,
+        "spelling": "iB_zC"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean",
+        "line": 51,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds",
+      "callee": "GlobalTheory.CrZero.eq_zero_of_forall_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean",
+        "line": 52,
+        "spelling": "GlobalTheory.CrZero.eq_zero_of_forall_dvd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.trLim_holds",
+      "callee": "GlobalTheory.CrZero.pow_cancel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/TrLimHolds.lean",
+        "line": 53,
+        "spelling": "GlobalTheory.CrZero.pow_cancel"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+      "callee": "GlobalTheory.LimitTop.closedAtL",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+        "line": 17,
+        "spelling": "GlobalTheory.LimitTop.closedAtL"
+      }
+    }
+  ]
+}

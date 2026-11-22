@@ -20,6 +20,7 @@ async function assertVectorWeights(page) {
   const weights = await cells.evaluateAll(nodes => [...new Set(nodes.map(node => getComputedStyle(node).fontWeight))]);
   assert.deepEqual(weights, ["400"], "All displayed basis-vector entries must have regular weight");
 }
+const defaultCrystallineColumns = ["2", "−2", "−2i", "−2i", "−2i", "−2i"];
 async function assertRenderedFont(session, selector, postScriptName) {
   const { root } = await session.send("DOM.getDocument");
   const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
@@ -136,6 +137,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "crystalline-invariant-columns") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
+          assert.equal(await fig.getByRole("status").textContent(), "Scalar factor −1. The selected multiple goes from −2i to −2i. The product moves. The normalized column is fixed. Its selected multiple is fixed.");
         } else if (id === "integral-lattice-saturation") {
           assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["(u−1, 0)", "No", "No", "0", "3", "No"]);
           assert.equal(await fig.locator('[role="status"]').textContent(), "The vector is outside the integral span. The matrix congruence has no solution.");
@@ -437,6 +441,29 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-crystalline-invariant-columns");
+    const crystalline = page.locator("#fig-crystalline-invariant-columns.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height:844});
+      for (const [scalar,factor,product,image] of [["one","1","−2i","−2i"],["i","−1","2","−2"],["sum","−i","2 − 2i","−2 − 2i"]]) {
+        await crystalline.getByRole("combobox", {name:"Frame scalar w"}).selectOption(scalar);
+        for (const [coefficient,multiple,acted] of [["one","−2i","−2i"],["two","−4i","−4i"],["i","2","−2"],["sum","2 − 2i","−2 − 2i"]]) {
+          await crystalline.getByRole("combobox", {name:"Column coefficient a"}).selectOption(coefficient);
+          assert.deepEqual(await crystalline.locator("tbody td").allInnerTexts(), [product,image,"−2i","−2i",multiple,acted]);
+          assert.equal(await crystalline.getByRole("status").textContent(),
+            "Scalar factor " + factor + ". The selected multiple goes from " + multiple + " to " + acted + ". " +
+            await crystalline.locator("[data-result] p").last().textContent());
+          assert.ok(await crystalline.locator("table").evaluate(el =>
+            el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+        }
+      }
+      assert.ok(await crystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
+    }
+    const columnLink = new URL(await crystalline.locator("[data-share]").getAttribute("href"));
+    for (const key of ["scalar","coefficient"]) assert.equal(columnLink.searchParams.get("crystalline-invariant-columns." + key),"sum");
+    await openFigure(page,columnLink.href);
+    assert.deepEqual(await crystalline.locator("tbody td").allInnerTexts(), ["2 − 2i","−2 − 2i","−2i","−2i","2 − 2i","−2 − 2i"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-integral-lattice-saturation");
     const saturation = page.locator("#fig-integral-lattice-saturation.ready");
@@ -951,6 +978,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
     assert.deepEqual(await page.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     assert.deepEqual(await page.locator("#fig-ordinary-line-cancellation .metrics dd").allInnerTexts(), ["3", "3"]);
+    assert.deepEqual(await page.locator("#fig-crystalline-invariant-columns tbody td").allInnerTexts(), defaultCrystallineColumns);
     await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
@@ -966,6 +994,9 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticCrystalline = plain.locator("#fig-crystalline-invariant-columns");
+    assert.deepEqual(await staticCrystalline.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
+    assert.ok(await staticCrystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
     const staticSaturation = plain.locator("#fig-integral-lattice-saturation");
     assert.deepEqual(await staticSaturation.locator("tbody td").allTextContents(), ["(u−1, 0)","No","No","0","3","No"]);
     const staticWitnesses = plain.locator("#fig-period-witness-compatibility");
