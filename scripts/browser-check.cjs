@@ -79,8 +79,8 @@ async function run() {
     });
     assert.ok(loadedFaces.every(Boolean), "All five declared font faces must load");
     assert.equal(
-      await page.locator(".site-header .brand").innerText(),
-      "Andréa Gourion",
+      await page.locator(".site-header .brand").count(),
+      0,
     );
     await page.locator("#slice-change").press("Enter");
     assert.equal(await page.locator("#slice-label").innerText(), "σ = 0");

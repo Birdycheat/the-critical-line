@@ -66,20 +66,8 @@ def build_card():
     pad_x = 58 * S
     top_y = 40 * S
 
-    # Header rule and brand
-    # Small geometric simplex emblem
-    cx, cy, r = pad_x + 15 * S, top_y + 15 * S, 15 * S
-    pts = [
-        (cx, cy - r),
-        (cx + int(r * 0.92), cy + int(r * 0.65)),
-        (cx - int(r * 0.92), cy + int(r * 0.65)),
-    ]
-    ap = (cx + int(r * 0.18), cy - int(r * 0.08))
-    draw.polygon(pts, outline=INK, width=int(1.4 * S))
-    for vx, vy in pts:
-        draw.line([ap, (vx, vy)], fill=INK, width=int(1.1 * S))
-
-    draw.text((pad_x + 40 * S, top_y + 1 * S), "ANDRÉA GOURION  ·  THE CRITICAL LINE", font=f_reg(20), fill=INK)
+    # Header rule and monograph title (no personal logo or name in top bar)
+    draw.text((pad_x, top_y + 1 * S), "THE CRITICAL LINE", font=f_reg(20), fill=INK)
     right_tag = "OPEN COLLABORATIVE EDITION · CC BY-NC 4.0"
     tw = draw.textlength(right_tag, font=f_reg(17))
     draw.text((W - pad_x - tw, top_y + 4 * S), right_tag, font=f_reg(17), fill=COPPER)

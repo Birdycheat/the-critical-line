@@ -43,10 +43,6 @@ function runningHead(current) {
   return `
     <header class="site-header">
       <div class="page-shell header-inner">
-        <a class="brand" href="https://andreagourion.com/" aria-label="Andréa Gourion home">
-          <img class="brand-symbol" src="assets/simplex-header.svg" width="42" height="42" alt="">
-          <span class="brand-copy"><strong>Andréa Gourion</strong></span>
-        </a>
         <span class="contents-title" id="menu-heading" hidden>Contents</span>
         <nav class="desktop-nav" aria-label="Book navigation">${navLinks(current)}</nav>
         <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="book-menu" hidden>Menu</button>
@@ -280,7 +276,7 @@ function home(chapters, plot, stats = {}) {
     <section class="page-shell opening" aria-labelledby="hero-title">
       <div class="opening-hero">
         <div class="opening-title"><h1 id="hero-title">The Riemann Hypothesis</h1>
-          <p class="byline"><span class="sc">Edited by Andréa Gourion · Open collaborative reconstruction</span></p>
+          <p class="byline"><span class="sc">Open collaborative reconstruction</span></p>
           <p><a class="button" href="book.html#target">Begin reading</a></p>
           <p class="hero-secondary"><a href="#reading-tracks">Three reading tracks</a> · <a href="chapter-01.html">Fast chapter 1</a> · <a href="contribute.html">Contribute (Tiers A / B / C)</a> · <a href="explorer.html" hreflang="fr" lang="fr">Lire en français</a></p>
         </div>
