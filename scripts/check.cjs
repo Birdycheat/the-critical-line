@@ -141,6 +141,93 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Reduce products in the integral basis 1, θ, β, θβ, then count witnesses in that basis.
+{
+  function integralProduct(x, y) {
+    const out = [0, 0, 0, 0];
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        const thetaPower = i % 2 + j % 2;
+        const betaPower = Math.floor(i / 2) + Math.floor(j / 2);
+        const index = thetaPower % 2;
+        const coefficient = x[i] * y[j] * (thetaPower === 2 ? 2 : 1);
+        if (betaPower === 2) {
+          out[index] -= 2 * coefficient;
+          out[index + 2] += coefficient;
+        } else out[index + 2 * betaPower] += coefficient;
+      }
+    }
+    return out;
+  }
+  function determinant(rows) {
+    if (rows.length === 1) return rows[0][0];
+    return rows[0].reduce((sum, c, j) => {
+      const minor = rows.slice(1).map(row => row.filter((_, i) => i !== j));
+      return sum + (j % 2 ? -1 : 1) * c * determinant(minor);
+    }, 0);
+  }
+  const mod2 = n => (n % 2 + 2) % 2;
+  const encode = x => x.reduce((code, c, i) => code + mod2(c) * 2 ** i, 0);
+  const codes = Array.from({length: 16}, (_, n) => n);
+  const vectors = codes.map(n => [0, 1, 2, 3].map(i => (n >> i) & 1));
+  const normElement = [1, 0, -1, 1]; // 1 − β + βθ, before reduction.
+  const columns = [1, 2, 4, 8].map(n => integralProduct(normElement, vectors[n]));
+  assert.equal(determinant(columns), 18); // det of a transpose is unchanged.
+  const mul = vectors.map(x => vectors.map(y => encode(integralProduct(x, y))));
+  const e = 4, a = 8, d = mul[e][a], complement = 1 ^ e;
+  const coordinates = vectors.map(([c, t, b, tb]) => [mod2(c + b) + 2 * mod2(t + tb), c + 2 * t]);
+  const options = ["0", "1", "eta", "sum"];
+  const labels = ["0", "1", "η", "1 + η"];
+  const show = n => "(" + coordinates[n].map(i => labels[i]).join(", ") + ")";
+  const fromText = new Map(codes.map(n => [show(n), n]));
+  assert.equal(fromText.size, 16);
+  let products = 0, settings = 0, candidates = 0, witnesses = 0;
+  for (const x of codes) {
+    for (const y of codes) {
+      assert.deepEqual(lib.ramifiedProduct(coordinates[x], coordinates[y]), coordinates[mul[x][y]]);
+      products++;
+    }
+    for (const relation of ["generate", "project", "split"]) {
+      const solutions = [];
+      for (const u of codes) {
+        if (relation === "split") {
+          for (const v of codes) {
+            if ((mul[a][u] ^ mul[complement][v]) === x) solutions.push([u, v]);
+            candidates++;
+          }
+        } else {
+          const coefficient = relation === "generate" ? a : d;
+          if (mul[e][x] === mul[coefficient][u]) solutions.push([u]);
+          candidates++;
+        }
+      }
+      const hypothesis = relation === "generate" ? mod2(vectors[x][0] + vectors[x][2]) === 0 :
+        mul[relation === "project" ? a : d][x] === 0;
+      assert.equal(solutions.length, hypothesis ? (relation === "split" ? 32 : 8) : 0);
+      const [first, second] = coordinates[x].map(i => options[i]);
+      const display = lib.render("ramified-residues", {first, second, relation});
+      const metricValues = [...display.matchAll(/<dd>([^<]*)<\/dd>/g)].map(m => m[1]);
+      assert.deepEqual(metricValues, [hypothesis ? "Holds" : "Fails", String(solutions.length)]);
+      const rows = new Map([...display.matchAll(/<th scope="row"><var>([^<]*)<\/var><\/th><td>([^<]*)<\/td>/g)]
+        .map(m => [m[1], m[2]]));
+      assert.equal(rows.get("x"), show(x));
+      if (relation === "generate") assert.equal(rows.get("x mod 𝔴"), String(mod2(vectors[x][0] + vectors[x][2])));
+      else assert.equal(rows.get(relation === "project" ? "ax" : "dx"), show(mul[relation === "project" ? a : d][x]));
+      const displayedWitness = relation === "split" ? [rows.get("u"), rows.get("v")] : [rows.get("u")];
+      if (solutions.length) {
+        assert.ok(solutions.some(candidate => candidate.every((n, i) => n === fromText.get(displayedWitness[i]))));
+      } else assert.ok(displayedWitness.every(v => v === "None"));
+      settings++;
+      witnesses += solutions.length;
+    }
+  }
+  assert.deepEqual([products, settings, candidates, witnesses], [256, 48, 4608, 384]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-ramified-residues"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("ramified-residues", {first: "eta", second: "sum", relation: "split"})),
+    "Missing static ramified-residue example in " + page);
+}
 // Enumerate the two-generator submodule and its alternating form over the dual numbers.
 {
   let settings = 0, graphVectors = 0, orderedPairs = 0;
@@ -1852,5 +1939,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

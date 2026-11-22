@@ -314,7 +314,12 @@
         "global-primitive-gluing-generators",
         "lifts-ordinary-local-tangent",
         "lifts-ordinary-separating-eigenvector",
-        "lifts-ordinary-graph-signature"
+        "lifts-ordinary-graph-signature",
+        "lifts-ordinary-place-projector",
+        "lifts-ordinary-parameter-products",
+        "lifts-ordinary-ramified-example",
+        "lifts-ordinary-auxiliary-ideal",
+        "lifts-ordinary-character-multiplicity"
       ]
     },
     {
@@ -720,7 +725,9 @@
         "lifts-adelic-box-count",
         "inputs-face-determinant-product",
         "global-primitive-line-short-vector",
-        "global-primitive-line-packing"
+        "global-primitive-line-packing",
+        "lifts-ordinary-ramified-example",
+        "lifts-ordinary-auxiliary-ideal"
       ]
     },
     {
@@ -1206,7 +1213,11 @@
         "global-primitive-line-short-vector",
         "global-line-mass-ideals",
         "global-hyperplane-defect-sets",
-        "lifts-geometric-level-tests"
+        "lifts-geometric-level-tests",
+        "lifts-ordinary-place-projector",
+        "lifts-ordinary-parameter-products",
+        "lifts-ordinary-auxiliary-ideal",
+        "lifts-ordinary-ideal-torsion-degree"
       ]
     },
     {
@@ -1813,7 +1824,8 @@
       "citation": "The Stacks Project, Section 29.49.",
       "url": "https://stacks.math.columbia.edu/tag/02K9",
       "passages": [
-        "lifts-integral-forgetting-degree"
+        "lifts-integral-forgetting-degree",
+        "lifts-ordinary-ideal-torsion-degree"
       ]
     },
     {
@@ -1901,7 +1913,9 @@
       "url": "https://www.numdam.org/article/ASENS_1969_4_2_1_63_0.pdf",
       "passages": [
         "lifts-ordinary-deep-hodge-pullback",
-        "lifts-ordinary-deep-frobenius-image"
+        "lifts-ordinary-deep-frobenius-image",
+        "lifts-ordinary-cohomology-annihilator",
+        "lifts-ordinary-frobenius-multiplicities"
       ]
     },
     {
@@ -1970,6 +1984,73 @@
       "url": "https://stacks.math.columbia.edu/tag/02KH",
       "passages": [
         "lifts-ordinary-variation-descent"
+      ]
+    },
+    {
+      "id": "prime-power-quotient-localization",
+      "title": "Prime-power quotients and localization",
+      "statement": "If 𝔭 is a maximal ideal of a domain C, localization at 𝔭 identifies C/𝔭ⁿ with C𝔭/(𝔭C𝔭)ⁿ. For a number ring the latter is a quotient of a discrete valuation ring.",
+      "use": "Computes the kernels of the local uniformizer and its complementary power in the ring modulo q.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Lemma 3.10.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=51",
+      "passages": [
+        "lifts-ordinary-ring-annihilators"
+      ]
+    },
+    {
+      "id": "projective-free-summand",
+      "title": "Projective modules as direct summands of free modules",
+      "statement": "A module is projective if and only if it embeds into a free module by a linear map with a linear retraction.",
+      "use": "Apply the ring identities coordinate by coordinate in the free module and send the witnesses back along the retraction.",
+      "citation": "The Stacks Project, Lemma 10.77.2.",
+      "url": "https://stacks.math.columbia.edu/tag/05CF",
+      "passages": [
+        "lifts-ordinary-projective-annihilators"
+      ]
+    },
+    {
+      "id": "local-flatness-tor-residue",
+      "title": "Local criterion for flatness",
+      "statement": "Let R→S be a local map between Noetherian local rings and M a finite S-module. Vanishing of Tor₁ over R between its residue field and M implies that M is flat over R.",
+      "use": "The crystalline lift proves the needed injection for the maximal ideal, hence Tor vanishes on each Artinian local factor.",
+      "citation": "The Stacks Project, Lemma 10.99.7.",
+      "url": "https://stacks.math.columbia.edu/tag/00MK",
+      "passages": [
+        "lifts-ordinary-cohomology-annihilator"
+      ]
+    },
+    {
+      "id": "dieudonne-witt-free",
+      "title": "Dieudonné module of a divisible group over a perfect field",
+      "statement": "The Dieudonné module of a q-divisible group over a perfect field of characteristic q is free of finite rank over the Witt ring, with rank equal to the height of the group.",
+      "use": "Reduction modulo q² gives a free lift in which the kernel of multiplication by q is exactly its image.",
+      "citation": "C.-L. Chai and F. Oort, Moduli of abelian varieties and p-divisible groups, Definition 4.29, Theorem 4.33 and Remark 4.34.",
+      "url": "https://cims.nyu.edu/~tschinke/books/cmi-chai-oort/CMIPchaioort.pdf#page=41",
+      "passages": [
+        "lifts-ordinary-cohomology-annihilator"
+      ]
+    },
+    {
+      "id": "abelian-endomorphism-degree-polynomial",
+      "title": "The characteristic polynomial of an abelian-variety endomorphism",
+      "statement": "For an endomorphism u of an abelian variety the degree of [b]−u at integer b, taken as zero when this difference is not an isogeny, is given by an integral polynomial. At every prime ℓ different from the characteristic it is the characteristic polynomial of the action on the Tate module.",
+      "use": "Calculates the norm power for a coefficient endomorphism and identifies the integral polynomial from the marked prime-to-characteristic lattice.",
+      "citation": "J. S. Milne, Abelian Varieties, Proposition 10.20 and definition of the degree polynomial in §10.",
+      "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf#page=56",
+      "passages": [
+        "lifts-ordinary-ideal-torsion-degree",
+        "lifts-ordinary-frobenius-multiplicities"
+      ]
+    },
+    {
+      "id": "abelian-crystalline-characteristic-polynomial",
+      "title": "The degree polynomial on the rational Dieudonné module",
+      "statement": "In positive characteristic the integral degree polynomial of an abelian-variety endomorphism becomes its characteristic polynomial on the rational Dieudonné module of the associated divisible group over an algebraically closed field.",
+      "use": "Reducing the polynomial on the integral Dieudonné lattice identifies the de Rham multiplicities read from the prime-to-characteristic lattice.",
+      "citation": "J. L. Kass, Notes on Abelian Schemes, Corollary 2. For reduction in degree one, T. Oda, The first de Rham cohomology group and Dieudonné modules, Corollary 5.11.",
+      "url": "https://people.ucsc.edu/~jelkass/files/AbelianSchemes.pdf#page=4",
+      "passages": [
+        "lifts-ordinary-frobenius-multiplicities"
       ]
     }
   ]

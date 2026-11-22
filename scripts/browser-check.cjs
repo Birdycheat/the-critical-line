@@ -136,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "ramified-residues") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Holds", "32"]);
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(η, 1 + η)", "(0, 0)", "(1, 0)", "(0, 1 + η)"]);
+          assert.equal(await fig.getByRole("status").textContent(), "Hypothesis satisfied. 32 ordered pairs.");
         } else if (id === "polarized-graph") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["f₂", "[f₂]", "f₁", "[f₁]"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 − 1 ≡ 0", "Yes"]);
@@ -412,6 +416,32 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
     await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-ramified-residues");
+    const ramified = page.locator("#fig-ramified-residues.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      for (const [first, second, relation, cells, values] of [
+        ["eta", "sum", "split", ["(η, 1 + η)", "(0, 0)", "(1, 0)", "(0, 1 + η)"], ["Holds", "32"]],
+        ["1", "sum", "split", ["(1, 1 + η)", "(η, 0)", "None", "None"], ["Fails", "0"]],
+        ["eta", "0", "generate", ["(η, 0)", "0", "(1, 0)"], ["Holds", "8"]],
+        ["sum", "1", "project", ["(1 + η, 1)", "(η, 0)", "None"], ["Fails", "0"]],
+        ["0", "1", "project", ["(0, 1)", "(0, 0)", "(0, 0)"], ["Holds", "8"]],
+      ]) {
+        await ramified.getByRole("combobox", {name: "Coordinate at 𝔴", exact: true}).selectOption(first);
+        await ramified.getByRole("combobox", {name: "Coordinate at 𝔳", exact: true}).selectOption(second);
+        await ramified.getByRole("combobox", {name: "Equation", exact: true}).selectOption(relation);
+        assert.deepEqual(await ramified.locator("tbody td").allInnerTexts(), cells);
+        assert.deepEqual(await ramified.locator(".metrics dd").allInnerTexts(), values);
+        assert.ok(await ramified.locator("table").evaluate(t => t.getBoundingClientRect().right <= t.closest("figure").getBoundingClientRect().right + 1));
+      }
+    }
+    const ramifiedLink = new URL(await ramified.locator("[data-share]").getAttribute("href"));
+    for (const [key, expected] of [["first", "0"], ["second", "1"], ["relation", "project"]])
+      assert.equal(ramifiedLink.searchParams.get("ramified-residues." + key), expected);
+    await openFigure(page, ramifiedLink.href);
+    assert.deepEqual(await ramified.locator(".metrics dd").allInnerTexts(), ["Holds", "8"]);
+    assert.deepEqual(await ramified.locator("tbody td").allInnerTexts(), ["(0, 1)", "(0, 0)", "(0, 0)"]);
+    await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-polarized-graph");
     const plane = page.locator("#fig-polarized-graph.ready");
     await plane.getByRole("combobox", {name: "Direction (a, b)", exact: true}).selectOption("opposite");
@@ -640,6 +670,14 @@ async function run() {
     await assertRenderedFont(fontSession, "math mi", "LatinModernMath-Regular");
     await assertRenderedFont(fontSession, "#lifts-rank-root-spaces + p", "CriticalLineMathScripts-Regular");
     assert.equal(await page.locator("h4 i").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
+    for (const [heading, symbol] of [
+      [page.locator("strong").filter({hasText: "The model at an allowed weight"}), "ν"],
+      [page.locator("#normalization-signed-branching-lambda-step"), "λ"],
+    ]) {
+      const vector = heading.locator("i, var");
+      assert.equal(await vector.textContent(), symbol);
+      assert.equal(await vector.evaluate(el => getComputedStyle(el).fontWeight), "400");
+    }
     const summaryVariables = page.locator("summary i, summary var");
     assert.ok(await summaryVariables.count() > 0);
     assert.ok(await summaryVariables.evaluateAll(nodes => nodes.every(node => getComputedStyle(node).fontWeight === "400")));
@@ -735,6 +773,10 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticRamified = plain.locator("#fig-ramified-residues");
+    assert.deepEqual(await staticRamified.locator("tbody td").allInnerTexts(), ["(η, 1 + η)", "(0, 0)", "(1, 0)", "(0, 1 + η)"]);
+    assert.deepEqual(await staticRamified.locator(".metrics dd").allInnerTexts(), ["Holds", "32"]);
+    assert.equal(await staticRamified.locator("tbody var").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
     const staticPlane = plain.locator("#fig-polarized-graph");
     assert.deepEqual(await staticPlane.locator("tbody td").allInnerTexts(), ["f₂", "[f₂]", "f₁", "[f₁]"]);
     assert.deepEqual(await staticPlane.locator(".metrics dd").allInnerTexts(), ["1 − 1 ≡ 0", "Yes"]);

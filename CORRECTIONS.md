@@ -196,3 +196,9 @@ Two deformations of the same abelian variety can have distinct first-order Hodge
 ### Regular weight for components of a displayed vector
 
 The signed nonzero components in the integral basis-vector table previously inherited a heavier weight than its zero entries. All components now use the same regular face. Their signs and the existing colors distinguish the values. Mathematical variables in disclosure headings also use regular weight. [The signed basis-vector table](book.html#fig-rank-grid)
+
+### Which module and which Frobenius
+
+Annihilator identities in the coefficient ring need a reason to persist in cohomology. The new proof first passes to a free module, then to a projective summand, and exchanges the two tests under vector-space duality. The separate proof of the character multiplicities uses the bijection on the regular coefficient algebra obtained by raising scalars to their qth powers. The Frobenius acting on primitive cohomology can kill a Hodge class. [Transport of the two kernels](book.html#lifts-ordinary-cohomology-annihilator) · [Comparison of multiplicities](book.html#lifts-ordinary-frobenius-multiplicities)
+
+In the normalization chapter the Greek letters ν and λ name vectors of weights. Marking the symbols in the model introduction and the lowering question keeps them at regular weight inside the bold text on screen and in print.

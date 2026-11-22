@@ -15,7 +15,20 @@
     options,
     value,
   });
+  const ramifiedCoordinates = [["0", "0"], ["1", "1"], ["eta", "η"], ["sum", "1 + η"]];
   const configs = {
+    "ramified-residues": {
+      title: "Which residues admit a witness at the ramified place?",
+      kind: "Coefficient equations in a product of two local rings",
+      section: "lifts",
+      params: [
+        choose("first", "Coordinate at 𝔴", ramifiedCoordinates, "eta"),
+        choose("second", "Coordinate at 𝔳", ramifiedCoordinates, "sum"),
+        choose("relation", "Equation", [["generate", "ex = au"], ["project", "ex = du"], ["split", "x = au + (1 − e)v"]], "split"),
+      ],
+      caption: "Choose a residue x in S × S, where S = 𝔽₂[η]/(η²). The projector is e = (1, 0). The two integral coefficients a and d both reduce to (η, 0). Test each equation with its own hypothesis.",
+      method: "Multiplication by η sends h + jη to hη for h and j in 𝔽₂. Thus the first coordinate of x must have zero constant term in all three tests. When it does, its η coefficient fixes the constant term of the first coordinate of u. The remaining bit there and the four possibilities at 𝔳 give eight choices of u. In the decomposition, the second coordinate of v is prescribed and its first coordinate is free, giving four choices for each u.",
+    },
     "polarized-graph": {
       title: "When does the moving plane stay isotropic?",
       kind: "First-order lifts of a Lagrangian plane",
@@ -1591,7 +1604,43 @@
     return result || "0";
   }
 
+  // A coordinate of F₂[η]/(η²) is encoded by its constant bit plus twice its η bit.
+  function ramifiedProduct(x, y) {
+    return x.map((coordinate, i) => {
+      const h = coordinate % 2, j = Math.floor(coordinate / 2);
+      const k = y[i] % 2, m = Math.floor(y[i] / 2);
+      return h * k + 2 * ((h * m + j * k) % 2);
+    });
+  }
+
   function render(id, v) {
+    if (id === "ramified-residues") {
+      const index = key => ramifiedCoordinates.findIndex(option => option[0] === key);
+      const value = pair => "(" + pair.map(i => ramifiedCoordinates[i][1]).join(", ") + ")";
+      const x = [index(v.first), index(v.second)];
+      const splitting = v.relation === "split";
+      const tests = {
+        generate: ["ex = au", "x ∈ 𝔴/(2)", "x mod 𝔴"],
+        project: ["ex = du", "ax = 0", "ax"],
+        split: ["x = au + (1 − e)v", "dx = 0", "dx"],
+      };
+      const [equation, hypothesis, quantity] = tests[v.relation];
+      const product = ramifiedProduct([2, 0], x);
+      const atPlace = x[0] % 2;
+      const generating = v.relation === "generate";
+      const holds = generating ? atPlace === 0 : product[0] === 0;
+      const count = holds ? (splitting ? 32 : 8) : 0;
+      const u = holds ? value([Math.floor(x[0] / 2), 0]) : "None";
+      const row = (key, shown) => '<tr><th scope="row"><var>' + key + '</var></th><td>' + shown + '</td></tr>';
+      const announcement = (holds ? "Hypothesis satisfied. " : "Hypothesis fails. ") + count +
+        (splitting ? " ordered pairs." : " witnesses.");
+      const table = '<table class="carry-table" data-announcement="' + announcement + '">' +
+        '<caption>' + equation + ' in S × S</caption><thead><tr><th scope="col">Quantity</th><th scope="col">Value</th></tr></thead><tbody>' +
+        row("x", value(x)) + row(quantity, generating ? String(atPlace) : value(product)) +
+        row("u", u) + (splitting ? row("v", holds ? value([0, x[1]]) : "None") : "") + '</tbody></table>';
+      return table + metrics([["Hypothesis <var>" + hypothesis + "</var>", holds ? "Holds" : "Fails"],
+        [splitting ? "Ordered pairs (u, v)" : "Witnesses u", String(count)]]);
+    }
     if (id === "polarized-graph") {
       const prime = Number(v.prime);
       const [a, b] = {same: [1, 1], first: [1, 0], opposite: [1, -1], zero: [0, 0]}[v.direction];
@@ -3449,6 +3498,7 @@
     heightGrid,
     traceCycles,
     render,
+    ramifiedProduct,
     defaults,
     normal,
     contributions,
