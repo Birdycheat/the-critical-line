@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "ordinary-frobenius-coefficients": {
+      title: "Which terms survive cubing modulo t⁴?",
+      kind: "Cubing a truncated polynomial over a field of nine elements",
+      section: "lifts",
+      params: [
+        choose("coefficient", "Coefficient", [["one", "1"], ["omega", "ω"], ["sum", "1 + ω"]], "omega"),
+        choose("degree", "Degree in t", [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]], "1"),
+      ],
+      caption: "Choose one term of a polynomial in 𝔽₉[t]/(t⁴), where ω² = −1. Follow it through the dual numbers and back. Cubing a sum adds the individual outputs.",
+      method: "The first map sends t to ε with ε² = 0. The second map cubes each surviving coefficient and sends ε to t³. Since ω³ = −ω, cubing a coefficient a + bω gives a − bω for a and b in 𝔽₃. A term of degree two or three would reach degree six or nine under cubing, so it vanishes modulo t⁴.",
+    },
     "ordinary-torsion-reduction": {
       title: "What does one special torsion point retain?",
       kind: "Roots of unity in a finite flat group scheme",
@@ -1569,6 +1580,25 @@
   }
 
   function render(id, v) {
+    if (id === "ordinary-frobenius-coefficients") {
+      const degree = Number(v.degree);
+      const [coefficient, cube] = {one: ["1", "1"], omega: ["ω", "−ω"], sum: ["1 + ω", "1 − ω"]}[v.coefficient];
+      function term(c, variable) {
+        if (!variable) return c;
+        if (c === "1") return variable;
+        if (c.includes(" ")) return "(" + c + ")" + variable;
+        return c + variable;
+      }
+      const input = term(coefficient, ["", "t", "t²", "t³"][degree]);
+      const restriction = degree < 2 ? term(coefficient, degree ? "ε" : "") : "0";
+      const image = degree < 2 ? term(cube, degree ? "t³" : "") : "0";
+      return '<table class="carry-table" data-announcement="Restriction ' + restriction + '. Cube ' + image + '.">' +
+        '<caption>One term under the two ring maps</caption>' +
+        '<thead><tr><th scope="col">Step</th><th scope="col">Ring</th><th scope="col">Term</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Input</th><td>𝔽₉[t]/(t⁴)</td><td>' + input + '</td></tr>' +
+        '<tr><th scope="row">Restrict by τ</th><td>𝔽₉[ε]/(ε²)</td><td>' + restriction + '</td></tr>' +
+        '<tr><th scope="row">Apply j</th><td>𝔽₉[t]/(t⁴)</td><td>' + image + '</td></tr></tbody></table>';
+    }
     if (id === "ordinary-torsion-reduction") {
       const q = Number(v.q);
       const e = Number(v.e);

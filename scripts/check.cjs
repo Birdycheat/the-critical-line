@@ -141,6 +141,49 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Compare j after restriction with multiplication in F9[t]/(t^4).
+// Encode a + bω by a + 3b, with both coefficients reduced modulo three.
+{
+  const mod3 = n => (n % 3 + 3) % 3;
+  function add(x, y) {
+    return mod3(x % 3 + y % 3) + 3 * mod3(Math.floor(x / 3) + Math.floor(y / 3));
+  }
+  function multiply(x, y) {
+    const a = x % 3, b = Math.floor(x / 3), c = y % 3, d = Math.floor(y / 3);
+    return mod3(a * c - b * d) + 3 * mod3(a * d + b * c);
+  }
+  function product(P, R) {
+    const out = [0, 0, 0, 0];
+    for (let i = 0; i < 4; i++)
+      for (let j = 0; i + j < 4; j++)
+        out[i + j] = add(out[i + j], multiply(P[i], R[j]));
+    return out;
+  }
+  const conjugate = x => x % 3 + 3 * mod3(-Math.floor(x / 3));
+  const outputs = new Set();
+  for (let index = 0; index < 9 ** 4; index++) {
+    const z = Array.from({length: 4}, (_, i) => Math.floor(index / 9 ** i) % 9);
+    const cube = product(product(z, z), z);
+    assert.deepEqual(cube, [conjugate(z[0]), 0, 0, conjugate(z[1])]);
+    outputs.add(cube.join(","));
+  }
+  assert.equal(outputs.size, 81);
+  const constants = {1: "1", 6: "−ω", 7: "1 − ω"};
+  const cubicTerms = {1: "t³", 6: "−ωt³", 7: "(1 − ω)t³"};
+  for (const [choice, c] of [["one", 1], ["omega", 3], ["sum", 4]]) {
+    for (let d = 0; d < 4; d++) {
+      const z = [0, 0, 0, 0];
+      z[d] = c;
+      const cube = product(product(z, z), z);
+      const n = cube.findIndex(Boolean);
+      let expected = "0";
+      if (n === 0) expected = constants[cube[n]];
+      if (n === 3) expected = cubicTerms[cube[n]];
+      const displayed = lib.render("ordinary-frobenius-coefficients", {coefficient: choice, degree: String(d)});
+      assert.ok(displayed.endsWith("<td>" + expected + "</td></tr></tbody></table>"));
+    }
+  }
+}
 // Count roots by direct multiplication in the truncated polynomial ring.
 for (const q of [2, 3, 5]) {
   for (const e of [1, 2, 4, 6]) {
@@ -1735,5 +1778,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

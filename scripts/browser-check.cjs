@@ -130,6 +130,13 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "ordinary-frobenius-coefficients") {
+          const outputs = fig.locator("tbody tr td:last-child");
+          assert.deepEqual(await outputs.allInnerTexts(), ["ωt", "ωε", "−ωt³"]);
+          await fig.getByRole("combobox", {name: "Degree in t"}).selectOption("2");
+          assert.deepEqual(await outputs.allInnerTexts(), ["ωt²", "0", "0"]);
+          assert.equal(await fig.getByRole("status").textContent(), "Restriction 0. Cube 0.");
+          await fig.locator("button.reset").click();
         } else if (id === "ordinary-torsion-reduction") {
           assert.equal(await fig.locator("tbody tr:last-child td:last-child").innerText(), "9");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "2"]);
@@ -694,6 +701,7 @@ async function run() {
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
+    assert.deepEqual(await plain.locator("#fig-ordinary-frobenius-coefficients tbody tr td:last-child").allInnerTexts(), ["ωt", "ωε", "−ωt³"]);
     const staticTorsion = plain.locator("#fig-ordinary-torsion-reduction");
     assert.deepEqual(await staticTorsion.locator("tbody tr td:last-child").allInnerTexts(), ["3", "1", "9"]);
     const staticOrdinary = plain.locator("#fig-ordinary-line-cancellation");

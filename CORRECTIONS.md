@@ -184,3 +184,7 @@ The generic cover may miss whole components. The generic quotient comparison use
 The distinguished special subgroup for a subspace of dimension j has length Qʲ. When the subspace contains the reduction line, it has Qʲ⁻¹ geometric points. Each local factor then has length Q. This is where the relative Frobenius comparison needs infinitesimal points as well as field-valued points. The comparison identifies the larger quotient with the smaller quotient followed by relative Frobenius. [Reduced kernels](book.html#lifts-ordinary-reduced-quotient) · [The extra length](book.html#lifts-ordinary-frobenius-quotient)
 
 Properness extends a specified generic torsion point uniquely. The lift of a specified special torsion point uses flatness and an algebraically closed fraction field, and several lifts may occur. Counting these latter fibres recovers the one-dimensional reduction kernel. [The two extensions](book.html#lifts-ordinary-torsion-sections)
+
+### The two orders of composition in the tangent test
+
+Restriction to the dual numbers keeps the constant and linear coefficients. The return map sends the linear term to degree Q and raises each coefficient to its Qth power. Composing in this order gives Frobenius on the longer ring. Reversing the maps gives only the Qth power of the constant term. At length Q an ordinary tangent can still be nonzero. It cannot have the lift with injective return map needed in the longer case. [The ring calculation](book.html#lifts-ordinary-two-composites)
