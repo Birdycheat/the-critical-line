@@ -1,0 +1,1849 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GOK-01",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-generic-point",
+      "title": "What does a deformation at the generic point of the special fibre remember?",
+      "hypotheses": "A smooth scheme over a discrete valuation ring and a local test ring centred at a generic point of the special fibre are given. The base maximal ideal maps to zero.",
+      "statement": "The map from the local test scheme factors through the residue field of that generic point. Two such factorizations can have different infinitesimal parts.",
+      "equations": [
+        "lifts-ordinary-residue-stalk"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Reducedness of the smooth closed fibre",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean",
+          "lines": [
+            11,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean#L11-L18"
+        },
+        {
+          "label": "radicality in the local ring",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean",
+          "lines": [
+            45,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean#L45-L67"
+        },
+        {
+          "label": "genericity identifies the only prime over the closed point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean",
+          "lines": [
+            69,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean#L69-L109"
+        },
+        {
+          "label": "A map from a local ring centred at the generic point factors through its residue field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean",
+          "lines": [
+            113,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/RadicalStalk.lean#L113-L131",
+          "declaration": "UpperTheory.Gal.Ord.gen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.gen": 113
+          }
+        },
+        {
+          "label": "Flatness carries the generic-point condition to the moduli base",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MGenDown.lean",
+          "lines": [
+            30,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MGenDown.lean#L30-L40",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.genDown_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.genDown_of": 30
+          }
+        },
+        {
+          "label": "Application to a field and its dual numbers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+          "lines": [
+            140,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean#L140-L151",
+          "declaration": "UpperTheory.Gal.Ord.ordGen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ordGen": 68
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The special local ring is a field because the smooth special fibre is reduced at its minimal prime."
+    },
+    {
+      "id": "GOK-02",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-deformation",
+      "title": "Why is the geometric generic point ordinary at the chosen place?",
+      "hypotheses": "The canonical unitary moduli scheme has algebra degree one, admissible level and coefficient place. The refined torsion alternative, coefficient calculations, deformation realization and crystalline comparisons apply.",
+      "statement": "At any geometric generic point of a special component the distinguished torsion has Q^(n−1) geometric points.",
+      "equations": [
+        "lifts-ordinary-torsion-count",
+        "lifts-ordinary-frobenius-span",
+        "lifts-ordinary-moving-direction"
+      ],
+      "dependencies": [
+        "GOK-01",
+        "GIC-01"
+      ],
+      "sources": [
+        {
+          "label": "The ordinary-point theorem used by the integral congruence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/QuotObjLink.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/QuotObjLink.lean#L9-L13",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.esGen_link",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.esGen_link": 9
+          }
+        },
+        {
+          "label": "the geometric test point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            43,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L43-L60",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of": 43
+          }
+        },
+        {
+          "label": "the precise point-count definition",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsTjCorrDiagModel.lean",
+          "lines": [
+            252,
+            255
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsTjCorrDiagModel.lean#L252-L255"
+        },
+        {
+          "label": "Hypotheses, residue field and local point alternative",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+          "lines": [
+            68,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean#L68-L97",
+          "declaration": "UpperTheory.Gal.Ord.ordGen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ordGen": 68
+          }
+        },
+        {
+          "label": "Primitive de Rham classes, the dual and its filtration",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsKSValueOneOfRetraction.lean",
+          "lines": [
+            339,
+            354
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/IsKSValueOneOfRetraction.lean#L339-L354"
+        },
+        {
+          "label": "Local coefficient parameters and the Frobenius span",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/IsConst.lean",
+          "lines": [
+            13,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/IsConst.lean#L13-L41",
+          "declaration": "UpperTheory.Gal.Ord.frobN",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.frobN": 35
+          }
+        },
+        {
+          "label": "existence of the parameters",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotMem.lean",
+          "lines": [
+            255,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotMem.lean#L255-L258",
+          "declaration": "UpperTheory.Gal.Ord.par",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.par": 255
+          }
+        },
+        {
+          "label": "the point count or a liftable tangent vector",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/ExistsStalkFactor.lean",
+          "lines": [
+            267,
+            285
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/ExistsStalkFactor.lean#L267-L285",
+          "declaration": "UpperTheory.Gal.Ord.cnt",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.cnt": 267
+          }
+        },
+        {
+          "label": "the Frobenius consequence in the second case",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/Point.lean",
+          "lines": [
+            59,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/Point.lean#L59-L72",
+          "declaration": "UpperTheory.Gal.Ord.point",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.point": 16
+          }
+        },
+        {
+          "label": "The local linear data including the line and the annihilator relations",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/IsConst.lean",
+          "lines": [
+            71,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/IsConst.lean#L71-L86"
+        },
+        {
+          "label": "their geometric source",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/CohHomNatCastZero.lean",
+          "lines": [
+            127,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/CohHomNatCastZero.lean#L127-L141",
+          "declaration": "UpperTheory.Gal.Ord.lin",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.lin": 127
+          }
+        },
+        {
+          "label": "the separating functional",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotLeSpanImage.lean",
+          "lines": [
+            269,
+            275
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotLeSpanImage.lean#L269-L275",
+          "declaration": "UpperTheory.Gal.Ord.alg2",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.alg2": 269
+          }
+        },
+        {
+          "label": "construction using an eigenvector outside the image span",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotLeSpanImage.lean",
+          "lines": [
+            334,
+            380
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/NotLeSpanImage.lean#L334-L380",
+          "declaration": "UpperTheory.Gal.Ord.alg2",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.alg2": 269
+          }
+        },
+        {
+          "label": "application to the Hodge subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+          "lines": [
+            98,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean#L98-L119",
+          "declaration": "UpperTheory.Gal.Ord.ordGen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ordGen": 68
+          }
+        },
+        {
+          "label": "Constraints on the tangent operator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean",
+          "lines": [
+            28,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean#L28-L41"
+        },
+        {
+          "label": "the explicit operator and its nonzero class",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean",
+          "lines": [
+            66,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean#L66-L112"
+        },
+        {
+          "label": "the pairing, the Lie calculation and evaluation",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean",
+          "lines": [
+            114,
+            139
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean#L114-L139",
+          "declaration": "UpperTheory.Gal.Ord.ks",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ks": 114
+          }
+        },
+        {
+          "label": "realization of an admissible Kodaira–Spencer direction",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorRealiseKodairaSpencerDirectionStatement.lean",
+          "lines": [
+            7,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorRealiseKodairaSpencerDirectionStatement.lean#L7-L9",
+          "declaration": "GlobalTheory.T.harrisTaylor_realise_kodairaSpencer_direction",
+          "declaration_lines": {
+            "GlobalTheory.T.harrisTaylor_realise_kodairaSpencer_direction": 8
+          }
+        },
+        {
+          "label": "The deformation is represented and has the prescribed centre",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+          "lines": [
+            120,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean#L120-L151",
+          "declaration": "UpperTheory.Gal.Ord.ordGen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ordGen": 68
+          }
+        },
+        {
+          "label": "comparison of the two first-order coefficients",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+          "lines": [
+            152,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean#L152-L174",
+          "declaration": "UpperTheory.Gal.Ord.ordGen",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.ordGen": 68
+          }
+        },
+        {
+          "label": "descent of the Frobenius-span condition and ascent to the dual numbers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/PullFrobIter.lean",
+          "lines": [
+            166,
+            187
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/PullFrobIter.lean#L166-L187",
+          "declaration": "UpperTheory.Gal.Ord.desc",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.desc": 166
+          }
+        },
+        {
+          "label": "the filtered lift with zero first-order coefficient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/DualZeroOfSpan.lean",
+          "lines": [
+            91,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/DualZeroOfSpan.lean#L91-L128",
+          "declaration": "UpperTheory.Gal.Ord.estep",
+          "declaration_lines": {
+            "UpperTheory.Gal.Ord.estep": 118
+          }
+        },
+        {
+          "label": "Equality of first-order coefficients modulo the original filtration",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HodgeFiltrationLiftDeterminesModFilStatement.lean",
+          "lines": [
+            7,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HodgeFiltrationLiftDeterminesModFilStatement.lean#L7-L9",
+          "declaration": "GlobalTheory.T.hodgeFiltration_lift_determines_mod_fil",
+          "declaration_lines": {
+            "GlobalTheory.T.hodgeFiltration_lift_determines_mod_fil": 8
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The forbidden alternative gives coefficients 0 and D(x) outside Fil for the same lift class modulo Fil."
+    },
+    {
+      "id": "GOK-03",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-torsion-sections",
+      "title": "Which torsion points can be followed through reduction?",
+      "hypotheses": "The unitary datum has algebra degree one, the test valuation ring has algebraically closed fraction field with q nonzero, and the distinguished torsion is finite flat.",
+      "statement": "There are Q^n integral torsion sections. Restriction identifies them with the generic torsion and every special torsion point lifts.",
+      "equations": [],
+      "dependencies": [
+        "GIC-01"
+      ],
+      "sources": [
+        {
+          "label": "The module of sections annihilated by the ideal",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MWModEx.lean",
+          "lines": [
+            29,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MWModEx.lean#L29-L52",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.wModEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.wModEx_of": 29
+          }
+        },
+        {
+          "label": "Characteristic zero in the fraction field and the generic torsion count",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean",
+          "lines": [
+            14,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean#L14-L56",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.rankN_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.rankN_of": 14
+          }
+        },
+        {
+          "label": "The tangent test and the scalar isogeny degree",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+          "lines": [
+            158,
+            186
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean#L158-L186",
+          "declaration": "GlobalTheory.UPel.HT.ES.CharZeroCount.tan_eq_one_charZero",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CharZeroCount.tan_eq_one_charZero": 158
+          }
+        },
+        {
+          "label": "A principal power of the prime ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+          "lines": [
+            59,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean#L59-L81",
+          "declaration": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_maximal",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_maximal": 59
+          }
+        },
+        {
+          "label": "Cardinalities along the powers of the ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+          "lines": [
+            93,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean#L93-L108",
+          "declaration": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_maximal",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_maximal": 59
+          }
+        },
+        {
+          "label": "Divisibility and the count for the ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+          "lines": [
+            229,
+            251
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean#L229-L251",
+          "declaration": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_killedBy_charZero",
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CharZeroCount.card_killedBy_charZero": 192
+          }
+        },
+        {
+          "label": "The valuative extension of generic points and its uniqueness",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MValPtsX.lean",
+          "lines": [
+            10,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MValPtsX.lean#L10-L31",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.valPtsX_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.valPtsX_of": 10
+          }
+        },
+        {
+          "label": "Evaluation on the killed sections and recovery of the rank",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean",
+          "lines": [
+            54,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean#L54-L90",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.rankN_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.rankN_of": 14
+          }
+        },
+        {
+          "label": "The finite flat torsion subgroup and the image of reduction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+          "lines": [
+            100,
+            127
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean#L100-L127",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.lineC_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.lineC_of": 73
+          }
+        },
+        {
+          "label": "Affine finite flat algebra over the valuation ring",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MAlgOf.lean",
+          "lines": [
+            10,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MAlgOf.lean#L10-L32",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.algOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.algOf_of": 10
+          }
+        },
+        {
+          "label": "A prime below the prescribed point and the embedding into the fraction field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftPt.lean",
+          "lines": [
+            13,
+            55
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftPt.lean#L13-L55",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.liftPt_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.liftPt_of": 11
+          }
+        },
+        {
+          "label": "Integrality and recovery of the chosen residue homomorphism",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftPt.lean",
+          "lines": [
+            55,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftPt.lean#L55-L85",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.liftPt_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.liftPt_of": 11
+          }
+        },
+        {
+          "label": "Passing the lifted point back along the Cartesian square",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftFF.lean",
+          "lines": [
+            13,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLiftFF.lean#L13-L45",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.liftFF_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.liftFF_of": 10
+          }
+        },
+        {
+          "label": "Choosing an element of ideal valuation one and the multiplication map",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean",
+          "lines": [
+            8,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean#L8-L44",
+          "declaration": "GlobalTheory.torsion_pow_card_succ",
+          "declaration_lines": {
+            "GlobalTheory.torsion_pow_card_succ": 8
+          }
+        },
+        {
+          "label": "Coprime ideals give an onto map with fixed kernel",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean",
+          "lines": [
+            45,
+            97
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean#L45-L97",
+          "declaration": "GlobalTheory.torsion_pow_card_succ",
+          "declaration_lines": {
+            "GlobalTheory.torsion_pow_card_succ": 8
+          }
+        },
+        {
+          "label": "Induction on the ideal power",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean",
+          "lines": [
+            98,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean#L98-L126",
+          "declaration": "GlobalTheory.torsion_pow_card",
+          "declaration_lines": {
+            "GlobalTheory.torsion_pow_card": 108
+          }
+        },
+        {
+          "label": "The norm-degree theorem with a free torsion module and the tangent hypothesis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AbelianSchemeCardKernelEqNormPowStatement.lean",
+          "lines": [
+            11,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AbelianSchemeCardKernelEqNormPowStatement.lean#L11-L13",
+          "declaration": "GlobalTheory.T.abelianScheme_card_kernel_eq_norm_pow",
+          "declaration_lines": {
+            "GlobalTheory.T.abelianScheme_card_kernel_eq_norm_pow": 12
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Properness extends a prescribed generic point uniquely. Flatness and integral closedness lift a prescribed special point."
+    },
+    {
+      "id": "GOK-04",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-reduction-line",
+      "title": "Why do points with the same reduction differ by exactly one line?",
+      "hypotheses": "The special point is ordinary, the torsion and isogeny comparisons apply, and the test valuation ring has algebraically closed fraction field.",
+      "statement": "Reduction has a one-dimensional kernel C independent of the Hecke index. Integral sections of the type-j correspondence correspond to j-dimensional subspaces of the common torsion space.",
+      "equations": [
+        "lifts-ordinary-reduction-cardinality"
+      ],
+      "dependencies": [
+        "GOK-02",
+        "GOK-03"
+      ],
+      "sources": [
+        {
+          "label": "A root in the residue field of the valuation ring",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MResClosed.lean",
+          "lines": [
+            10,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MResClosed.lean#L10-L35",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.resClosed_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.resClosed_of": 10
+          }
+        },
+        {
+          "label": "The rank of the generic space over the residue coefficient field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean",
+          "lines": [
+            75,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean#L75-L90",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.rankN_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.rankN_of": 14
+          }
+        },
+        {
+          "label": "Making reduction additive and its kernel a residue submodule",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+          "lines": [
+            73,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean#L73-L104",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.lineC_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.lineC_of": 73
+          }
+        },
+        {
+          "label": "Surjectivity and the ordinary point count",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+          "lines": [
+            104,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean#L104-L141",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.lineC_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.lineC_of": 73
+          }
+        },
+        {
+          "label": "Equal reductions as differences in a single submodule",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+          "lines": [
+            14,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean#L14-L45"
+        },
+        {
+          "label": "The kernel cardinality forces dimension one",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+          "lines": [
+            46,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean#L46-L71"
+        },
+        {
+          "label": "One torsion space and one line for all isogeny dimensions",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean",
+          "lines": [
+            12,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean#L12-L22",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ew_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ew_of": 12
+          }
+        },
+        {
+          "label": "Comparing the kernel points with the image of a subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean",
+          "lines": [
+            52,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean#L52-L66",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ew_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ew_of": 12
+          }
+        },
+        {
+          "label": "The size of the distinguished kernel at a generic Hecke point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecCard.lean",
+          "lines": [
+            13,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecCard.lean#L13-L56",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secCard_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secCard_of": 13
+          }
+        },
+        {
+          "label": "Attaching the kernel subspace to a section",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean",
+          "lines": [
+            77,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean#L77-L96",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of": 50
+          }
+        },
+        {
+          "label": "Dimension from the cardinality and injectivity by generic restriction",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean",
+          "lines": [
+            150,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean#L150-L168",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of": 50
+          }
+        },
+        {
+          "label": "Polarized kernel rigidity at the generic point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecInj.lean",
+          "lines": [
+            104,
+            138
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecInj.lean#L104-L138",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secInj_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secInj_of": 104
+          }
+        },
+        {
+          "label": "The constant subgroup and the admissible marked quotient over the fraction field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecSurj.lean",
+          "lines": [
+            54,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecSurj.lean#L54-L85",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secSurj_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secSurj_of": 15
+          }
+        },
+        {
+          "label": "Extending the isogeny point over the valuation ring and recovering the chosen subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean",
+          "lines": [
+            190,
+            214
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecEquiv.lean#L190-L214",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.secEquiv_of": 50
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "A rank-two product group scheme has nine generic labels and three special points at the prime three."
+    },
+    {
+      "id": "GOK-05",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-reduced-quotient",
+      "title": "Why do two lifts that avoid the ordinary line give the same reduced quotient?",
+      "hypotheses": "Two Hecke subspaces miss C and have the same image in the quotient by C. The marked polarized isogenies satisfy the distinguished-kernel and adjoint comparisons.",
+      "statement": "Their underlying reduced moduli targets agree, and every geometric source point has the same image over that target.",
+      "equations": [],
+      "dependencies": [
+        "GOK-04"
+      ],
+      "sources": [
+        {
+          "label": "The distinguished primary kernel and its torsion labels",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean",
+          "lines": [
+            69,
+            84
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean#L69-L84"
+        },
+        {
+          "label": "Reduction of the kernel labels, finite algebra rank and distinct points",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean",
+          "lines": [
+            52,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean#L52-L90",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ew_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ew_of": 12
+          }
+        },
+        {
+          "label": "Common projected subspace and the two targets in the avoiding case",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean",
+          "lines": [
+            91,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean#L91-L113",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ew_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ew_of": 12
+          }
+        },
+        {
+          "label": "Removing the infinitesimal part when the length equals the point count",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/ExistsAlg.lean",
+          "lines": [
+            25,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/ExistsAlg.lean#L25-L52",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.infE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.infE_of": 25
+          }
+        },
+        {
+          "label": "Using reduced points to compare the distinguished kernel functors",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSameE.lean",
+          "lines": [
+            11,
+            17
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSameE.lean#L11-L17",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.sameE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.sameE_of": 11
+          }
+        },
+        {
+          "label": "Upgrading equality from rational points to equality of full kernels",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseE.lean",
+          "lines": [
+            13,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseE.lean#L13-L40",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.caseE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.caseE_of": 13
+          }
+        },
+        {
+          "label": "Splitting the two coefficient parts of a point killed by an isogeny",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MKerFromU.lean",
+          "lines": [
+            87,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MKerFromU.lean#L87-L125",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.kerFromU_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.kerFromU_of": 87
+          }
+        },
+        {
+          "label": "Division and adjointness for the conjugate coefficient part",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MKerFromU.lean",
+          "lines": [
+            126,
+            162
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MKerFromU.lean#L126-L162",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.kerFromU_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.kerFromU_of": 87
+          }
+        },
+        {
+          "label": "Hypotheses of full-kernel recovery and identification of quotient objects",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PairCalc.lean",
+          "lines": [
+            60,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PairCalc.lean#L60-L69"
+        },
+        {
+          "label": "Identifying quotient objects compatibly with their structures",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MIsoOfKer.lean",
+          "lines": [
+            80,
+            179
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MIsoOfKer.lean#L80-L179",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.isoOfKer_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.isoOfKer_of": 80
+          }
+        },
+        {
+          "label": "Representability and rigidity identify the actual moduli point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MImgEq.lean",
+          "lines": [
+            12,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MImgEq.lean#L12-L25",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.imgEq_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.imgEq_of": 12
+          }
+        },
+        {
+          "label": "Compatibility on the images of all source points",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseE.lean",
+          "lines": [
+            41,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseE.lean#L41-L60",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.caseE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.caseE_of": 13
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Equality of length and point count makes the distinguished kernels reduced. The polarization comparison is needed for the full kernels."
+    },
+    {
+      "id": "GOK-06",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-frobenius-quotient",
+      "title": "Why does a lift containing the line produce a Frobenius twist?",
+      "hypotheses": "Two subspaces with the same quotient image differ in dimension by one and only the larger contains C. The one-dimensional local algebra and relative Frobenius comparisons hold.",
+      "statement": "The larger quotient has the same moduli target and point images as the smaller quotient followed by relative Frobenius, after the indicated target identification.",
+      "equations": [
+        "lifts-ordinary-frobenius-isogenies"
+      ],
+      "dependencies": [
+        "GOK-04",
+        "GOK-05"
+      ],
+      "sources": [
+        {
+          "label": "Infinitesimal points and the absolute-Frobenius test",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean",
+          "lines": [
+            114,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean#L114-L123",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.FrobKill",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.FrobKill": 117
+          }
+        },
+        {
+          "label": "Direction of the twist on the target and on the coordinate images",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean",
+          "lines": [
+            142,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean#L142-L157"
+        },
+        {
+          "label": "Applying the two quotient comparisons to a common reduction image",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean",
+          "lines": [
+            98,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/EwOf.lean#L98-L122",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ew_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ew_of": 12
+          }
+        },
+        {
+          "label": "The rank-one tangent-space bound on the distinguished torsion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MTanOne.lean",
+          "lines": [
+            75,
+            158
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MTanOne.lean#L75-L158",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.tanOne_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.tanOne_of": 75
+          }
+        },
+        {
+          "label": "Cotangent dimension, principal ideals and length of the local quotient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/OrdReadOf.lean",
+          "lines": [
+            32,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/OrdReadOf.lean#L32-L48"
+        },
+        {
+          "label": "The common lengths of the translated factors and the factor at the identity",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/SpMapAlgComp.lean",
+          "lines": [
+            80,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/SpMapAlgComp.lean#L80-L108",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.infW_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.infW_of": 80
+          }
+        },
+        {
+          "label": "The tangent bound gives the Frobenius power criterion",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/SpMapAlgComp.lean",
+          "lines": [
+            108,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/SpMapAlgComp.lean#L108-L151",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.infW_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.infW_of": 80
+          }
+        },
+        {
+          "label": "Transporting the Frobenius test past the isogeny with étale distinguished kernel",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobPass.lean",
+          "lines": [
+            56,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobPass.lean#L56-L108",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.frobPass_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.frobPass_of": 56
+          }
+        },
+        {
+          "label": "Equality on geometric points and infinitesimal points for both kernels",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSameW.lean",
+          "lines": [
+            29,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSameW.lean#L29-L83",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.sameW_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.sameW_of": 29
+          }
+        },
+        {
+          "label": "Relative Frobenius from its pullback and its test-scheme kernel",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobHom.lean",
+          "lines": [
+            11,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobHom.lean#L11-L59",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.frobHom_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.frobHom_of": 11
+          }
+        },
+        {
+          "label": "The relative map, coefficient action and level sections",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+          "lines": [
+            50,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean#L50-L85",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of": 50
+          }
+        },
+        {
+          "label": "Polarization multiplier, finiteness, surjectivity and the complementary isogeny",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+          "lines": [
+            85,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean#L85-L133",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of": 50
+          }
+        },
+        {
+          "label": "The twist over the same base and the equal-multiplier isogenies",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseW.lean",
+          "lines": [
+            15,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseW.lean#L15-L62",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.caseW_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.caseW_of": 13
+          }
+        },
+        {
+          "label": "Direction of the quotient isomorphism and images of points",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseW.lean",
+          "lines": [
+            62,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseW.lean#L62-L86",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.caseW_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.caseW_of": 13
+          }
+        },
+        {
+          "label": "Inputs to the Frobenius and quotient comparisons",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplitHolds.lean",
+          "lines": [
+            126,
+            140
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplitHolds.lean#L126-L140",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.infW_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.infW_holds": 126
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The degree of relative Frobenius and its polarization multiplier are distinguished; local tests detect a kernel invisible on field points."
+    },
+    {
+      "id": "GOK-07",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-marked-targets",
+      "title": "How can residue points on the marked fibre power be compared?",
+      "hypotheses": "The marked correspondence has its Cartesian source and respects the level sections, and the universal family on the marked base is the pullback of the underlying one.",
+      "statement": "The same or twisted target equalities hold on the whole marked fibre power by testing all level sections and the individual fibre coordinates.",
+      "equations": [],
+      "dependencies": [
+        "GOK-05",
+        "GOK-06",
+        "GIC-01"
+      ],
+      "sources": [
+        {
+          "label": "Cartesian source, target and the compatibility of every auxiliary marking",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplit.lean",
+          "lines": [
+            21,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplit.lean#L21-L40"
+        },
+        {
+          "label": "The source and isogeny target on the fibre powers",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplit.lean",
+          "lines": [
+            44,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplit.lean#L44-L47"
+        },
+        {
+          "label": "Rigidity of the marked moduli map from the underlying object and level sections",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MEtInj.lean",
+          "lines": [
+            13,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MEtInj.lean#L13-L34",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.etInj_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.etInj_of": 13
+          }
+        },
+        {
+          "label": "Flatness and uniqueness on each fibre power",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MPowExt.lean",
+          "lines": [
+            44,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MPowExt.lean#L44-L71",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.powExt_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.powExt_of": 66
+          }
+        },
+        {
+          "label": "The two projections and the Cartesian square for the source",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean",
+          "lines": [
+            20,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean#L20-L49"
+        },
+        {
+          "label": "The isogeny image of an individual test point",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean",
+          "lines": [
+            51,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean#L51-L63"
+        },
+        {
+          "label": "Level sections recover the marked base, then coordinates recover the tuple",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean",
+          "lines": [
+            86,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean#L86-L112",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of": 67
+          }
+        },
+        {
+          "label": "Testing each of the fibre coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean",
+          "lines": [
+            117,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean#L117-L126",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of": 67
+          }
+        },
+        {
+          "label": "Pulling back each marking and applying the marked-isogeny condition",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean",
+          "lines": [
+            127,
+            149
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdKSE.lean#L127-L149",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordKSE_of": 67
+          }
+        },
+        {
+          "label": "Compatibility of isogeny images with precomposition",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            17,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L17-L30"
+        },
+        {
+          "label": "The two equalities transported by the separating tests",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            87,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L87-L106",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of": 43
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Matching the underlying base and every level section determines the marked base, including for the zeroth power."
+    },
+    {
+      "id": "GOK-08",
+      "chapter": "lifts",
+      "anchor": "lifts-ordinary-residue-target",
+      "title": "Which residue target does the subspace count use?",
+      "hypotheses": "A valuation-ring test is centred at the generic point of the uniformizer divisor and the section comparison and marked quotient identities apply.",
+      "statement": "One value A(U) is defined independently of the complementary lift. Each section gives A(U) or its residue twist. The even and odd multisets therefore agree at each target.",
+      "equations": [
+        "lifts-ordinary-residue-rule"
+      ],
+      "dependencies": [
+        "GOK-01",
+        "GOK-04",
+        "GOK-07",
+        "GIC-07"
+      ],
+      "sources": [
+        {
+          "label": "Image of the generic point of a component of the uniformizer divisor",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MGenDown.lean",
+          "lines": [
+            11,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MGenDown.lean#L11-L40",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.genDown_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.genDown_of": 30
+          }
+        },
+        {
+          "label": "Induction for flatness of the fibre power",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MPowExt.lean",
+          "lines": [
+            44,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MPowExt.lean#L44-L71",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.powExt_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.powExt_of": 66
+          }
+        },
+        {
+          "label": "Ordinarity at the projected point and the bijection of sections in the Cartesian square",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            43,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L43-L69",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of": 43
+          }
+        },
+        {
+          "label": "Evaluation of each reduced coordinate and the case missing the line",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            70,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L70-L96",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of": 43
+          }
+        },
+        {
+          "label": "Residue-field precomposition for the case containing the line",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean",
+          "lines": [
+            97,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdEmb.lean#L97-L106",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordEmb_of": 43
+          }
+        },
+        {
+          "label": "Choosing a lift of the quotient subspace and recovering its dimension",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdReadOf.lean",
+          "lines": [
+            12,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdReadOf.lean#L12-L44"
+        },
+        {
+          "label": "The two point identities and independence of the chosen lift",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdReadOf.lean",
+          "lines": [
+            46,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MOrdReadOf.lean#L46-L73",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.ordReadOf_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.ordReadOf_of": 46
+          }
+        },
+        {
+          "label": "The common function of the quotient subspace",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/OrdReadOf.lean",
+          "lines": [
+            56,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/OrdReadOf.lean#L56-L62"
+        },
+        {
+          "label": "The weighted point identity from the subspace count",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PPtOrd.lean",
+          "lines": [
+            10,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/PPtOrd.lean#L10-L13",
+          "declaration": "UpperTheory.Gal.crystallineComparison.ptOrd_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.ptOrd_of": 7
+          }
+        },
+        {
+          "label": "Application to the integral marked correspondences",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/CongKSOf.lean",
+          "lines": [
+            16,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/CongKSOf.lean#L16-L28",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.CongKS",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.CongKS": 16
+          }
+        },
+        {
+          "label": "Supplying the ordinary hypotheses in the final correspondence",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplitHolds.lean",
+          "lines": [
+            138,
+            150
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/IdealSplitHolds.lean#L138-L150",
+          "declaration": "UpperTheory.Gal.crystallineComparison.Mod.eW_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.crystallineComparison.Mod.eW_holds": 138
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The full point on the fibre power is fixed before the section is forgotten in the Cartesian source square."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "GlobalTheory.Cris.spMap_comp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 149,
+        "spelling": "GlobalTheory.Cris.spMap_comp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "GlobalTheory.T.exists_harrisTaylorModuliObject_pullback",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 92,
+        "spelling": "GlobalTheory.T.exists_harrisTaylorModuliObject_pullback"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "UpperTheory.Gal.Ord.ordPull",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 93,
+        "spelling": "ordPull"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.point",
+      "callee": "UpperTheory.Gal.Ord.root",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/Point.lean",
+        "line": 59,
+        "spelling": "root"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.point",
+      "callee": "UpperTheory.Gal.Ord.rankV",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/Point.lean",
+        "line": 65,
+        "spelling": "rankV"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.lin",
+      "callee": "UpperTheory.Gal.Ord.lie",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/CohHomNatCastZero.lean",
+        "line": 133,
+        "spelling": "UpperTheory.Gal.Ord.lie"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.lin",
+      "callee": "UpperTheory.Gal.Ord.proj",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/CohHomNatCastZero.lean",
+        "line": 137,
+        "spelling": "UpperTheory.Gal.Ord.proj"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "UpperTheory.Gal.Ord.alg2",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 102,
+        "spelling": "alg2"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "GlobalTheory.T.harrisTaylor_exists_deRham_pairing",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 117,
+        "spelling": "GlobalTheory.T.harrisTaylor_exists_deRham_pairing"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ks",
+      "callee": "GlobalTheory.T.harrisTaylor_pairing_skew_hodge_lagrangian",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.harrisTaylor_pairing_skew_hodge_lagrangian"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ks",
+      "callee": "GlobalTheory.T.harrisTaylor_polarisation_pairing_nondegenerate",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/KsCore.lean",
+        "line": 124,
+        "spelling": "GlobalTheory.T.harrisTaylor_polarisation_pairing_nondegenerate"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "GlobalTheory.T.harrisTaylor_realise_kodairaSpencer_direction",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 120,
+        "spelling": "GlobalTheory.T.harrisTaylor_realise_kodairaSpencer_direction"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "GlobalTheory.T.harrisTaylorObjectPullback_comp_diagonalBundle",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 130,
+        "spelling": "GlobalTheory.T.harrisTaylorObjectPullback_comp_diagonalBundle"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "UpperTheory.Gal.Ord.factor",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 160,
+        "spelling": "factor"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Ord.ordGen",
+      "callee": "UpperTheory.Gal.Ord.desc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/RadicalStalks/OrdGen.lean",
+        "line": 168,
+        "spelling": "desc"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.rankN_of",
+      "callee": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_killedBy_charZero",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MRankN.lean",
+        "line": 54,
+        "spelling": "CharZeroCount.card_killedBy_charZero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_maximal",
+      "callee": "GlobalTheory.torsion_pow_card",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.torsion_pow_card"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_killedBy_charZero",
+      "callee": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_ker_elt_charZero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+        "line": 247,
+        "spelling": "card_ker_elt_charZero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_killedBy_charZero",
+      "callee": "GlobalTheory.UPel.HT.ES.CharZeroCount.card_torsion_ideal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionKilledByIdealCharZero.lean",
+        "line": 251,
+        "spelling": "card_torsion_ideal"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.lineC_of",
+      "callee": "GlobalTheory.T.exists_finiteFlat_torsion_harrisTaylor_abelian",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MLineC.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.T.exists_finiteFlat_torsion_harrisTaylor_abelian"
+      }
+    },
+    {
+      "caller": "GlobalTheory.torsion_pow_card",
+      "callee": "GlobalTheory.torsion_pow_card_succ",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CardTorsionBySetPowOfDivisibleNumberField.lean",
+        "line": 126,
+        "spelling": "torsion_pow_card_succ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.secInj_of",
+      "callee": "GlobalTheory.T.exists_harrisTaylorObject_pullback",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecInj.lean",
+        "line": 118,
+        "spelling": "GlobalTheory.T.exists_harrisTaylorObject_pullback"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.secInj_of",
+      "callee": "GlobalTheory.HTQuotRigid.objMap_comp_φ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSecInj.lean",
+        "line": 131,
+        "spelling": "GlobalTheory.HTQuotRigid.objMap_comp_φ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.isoOfKer_of",
+      "callee": "GlobalTheory.CechPic.pull_comp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MIsoOfKer.lean",
+        "line": 115,
+        "spelling": "GlobalTheory.CechPic.pull_comp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.imgEq_of",
+      "callee": "GlobalTheory.HTQuotRigid.objMap_comp_φ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MImgEq.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.HTQuotRigid.objMap_comp_φ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.caseE_of",
+      "callee": "GlobalTheory.HTQuotRigid.objMap_comp_φ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseE.lean",
+        "line": 42,
+        "spelling": "GlobalTheory.HTQuotRigid.objMap_comp_φ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.FrobKill",
+      "callee": "GlobalTheory.SS.FrobField.absFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/FrobKill.lean",
+        "line": 119,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobPass_of",
+      "callee": "GlobalTheory.SS.FrobField.absFrob_spec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobPass.lean",
+        "line": 69,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob_spec"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.sameW_of",
+      "callee": "UpperTheory.Gal.crystallineComparison.Mod.FrobKill",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MSameW.lean",
+        "line": 82,
+        "spelling": "FrobKill"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobHom_of",
+      "callee": "GlobalTheory.SS.FrobField.absFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobHom.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobHom_of",
+      "callee": "GlobalTheory.SS.FrobField.absFrob_spec",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobHom.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob_spec"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+      "callee": "GlobalTheory.T.exists_harrisTaylorObject_pullback",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.T.exists_harrisTaylorObject_pullback"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+      "callee": "GlobalTheory.SS.FrobField.cast_zero_of_hom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+        "line": 59,
+        "spelling": "GlobalTheory.SS.FrobField.cast_zero_of_hom"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+      "callee": "GlobalTheory.SS.FrobField.absFrob",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+        "line": 86,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.frobIsog_of",
+      "callee": "GlobalTheory.SS.FrobField.absFrob_nat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MFrobIsog.lean",
+        "line": 89,
+        "spelling": "GlobalTheory.SS.FrobField.absFrob_nat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.caseW_of",
+      "callee": "GlobalTheory.HTQuotRigid.objMap_comp_φ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MCaseW.lean",
+        "line": 64,
+        "spelling": "GlobalTheory.HTQuotRigid.objMap_comp_φ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.etInj_of",
+      "callee": "GlobalTheory.T.exists_harrisTaylorObject_pullback",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MEtInj.lean",
+        "line": 16,
+        "spelling": "GlobalTheory.T.exists_harrisTaylorObject_pullback"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.etInj_of",
+      "callee": "GlobalTheory.HTQuotRigid.objMap_comp_φ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MEtInj.lean",
+        "line": 18,
+        "spelling": "GlobalTheory.HTQuotRigid.objMap_comp_φ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.crystallineComparison.Mod.powExt_of",
+      "callee": "GlobalTheory.KS.PowPB.pow_left_hom_ext",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/AnnihilatorModels/MPowExt.lean",
+        "line": 71,
+        "spelling": "GlobalTheory.KS.PowPB.pow_left_hom_ext"
+      }
+    }
+  ]
+}

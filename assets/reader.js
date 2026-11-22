@@ -85,9 +85,17 @@ if (labs.length) {
       state = api.defaults(id),
       result = el.querySelector("[data-result]");
     const controls = [...el.querySelectorAll("input, select")];
+    const announcement = result.querySelector("[data-announcement]") && document.createElement("span");
+    if (announcement) {
+      announcement.className = "visually-hidden";
+      announcement.setAttribute("role", "status");
+      result.after(announcement);
+    }
     function draw() {
       const old = result.querySelector("details")?.open;
       result.innerHTML = api.render(id, state);
+      if (announcement && el.classList.contains("ready"))
+        announcement.textContent = result.querySelector("[data-announcement]").dataset.announcement;
       if (old && result.querySelector("details"))
         result.querySelector("details").open = true;
       for (const field of controls) {

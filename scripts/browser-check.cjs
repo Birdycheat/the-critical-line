@@ -130,6 +130,14 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "ordinary-torsion-reduction") {
+          assert.equal(await fig.locator("tbody tr:last-child td:last-child").innerText(), "9");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "2"]);
+          const status = fig.getByRole("status");
+          assert.equal(await status.textContent(), "9 solutions in the test ring. Local length 3.");
+          await fig.getByRole("combobox", {name: "Test ring order e"}).selectOption("1");
+          assert.equal(await status.textContent(), "1 solution in the test ring. Local length 3.");
+          await fig.locator("button.reset").click();
         } else if (id === "ordinary-line-cancellation") {
           assert.deepEqual(await fig.locator(".metrics dt").allInnerTexts(), ["Even weight at P₂", "Odd weight at P₂"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "3"]);
@@ -686,6 +694,8 @@ async function run() {
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
+    const staticTorsion = plain.locator("#fig-ordinary-torsion-reduction");
+    assert.deepEqual(await staticTorsion.locator("tbody tr td:last-child").allInnerTexts(), ["3", "1", "9"]);
     const staticOrdinary = plain.locator("#fig-ordinary-line-cancellation");
     assert.deepEqual(await staticOrdinary.getByRole("row", {name: /^Final point/}).locator("td").allInnerTexts(), ["P₂", "P₂"]);
     assert.deepEqual(await staticOrdinary.locator(".metrics dd").allInnerTexts(), ["3", "3"]);

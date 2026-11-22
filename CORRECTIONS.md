@@ -178,3 +178,9 @@ For a good-reduction witness the restricted correspondence has its full source f
 At a Hecke place an integral translation may take the lattice to a proper sublattice. The equality of kernel tests proves that the ratio of two such translations acts invertibly. With right actions, an inverse transition label acts by the original group element. Both conventions determine which side of a coset appears in the fibre count. [Kernel tests](book.html#lifts-integral-hecke-fibre-count) · [The forgetful map](book.html#lifts-integral-forgetting-degree)
 
 The generic cover may miss whole components. The generic quotient comparison used to compute the integral forgetful degree supplies the additional surjectivity for its two particular models. Flatness and local constancy extend that degree to special points. The ordinary congruence instead uses a count of valuation-ring sections, keeping the target point and its multiplicity together. [Generic cover](book.html#lifts-integral-cover-splitting) · [Residue identity](book.html#lifts-integral-congruence-witness)
+
+### Counting points in an ordinary kernel
+
+The distinguished special subgroup for a subspace of dimension j has length Qʲ. When the subspace contains the reduction line, it has Qʲ⁻¹ geometric points. Each local factor then has length Q. This is where the relative Frobenius comparison needs infinitesimal points as well as field-valued points. The comparison identifies the larger quotient with the smaller quotient followed by relative Frobenius. [Reduced kernels](book.html#lifts-ordinary-reduced-quotient) · [The extra length](book.html#lifts-ordinary-frobenius-quotient)
+
+Properness extends a specified generic torsion point uniquely. The lift of a specified special torsion point uses flatness and an algebraically closed fraction field, and several lifts may occur. Counting these latter fibres recovers the one-dimensional reduction kernel. [The two extensions](book.html#lifts-ordinary-torsion-sections)

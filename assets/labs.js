@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "ordinary-torsion-reduction": {
+      title: "What does one special torsion point retain?",
+      kind: "Roots of unity in a finite flat group scheme",
+      section: "lifts",
+      params: [
+        choose("q", "Residue prime q", [["2", "2"], ["3", "3"], ["5", "5"]], "3"),
+        choose("e", "Test ring order e", [["1", "1 · field"], ["2", "2"], ["4", "4"], ["6", "6"]], "4"),
+      ],
+      caption: "Use the group scheme μq × (ℤ/qℤ) with the second coordinate fixed at 1. The special fibre is defined over 𝔽q. Testing its equation over a ring with nilpotents detects structure at its single point in this component.",
+      method: "In characteristic zero the first coordinate can be any q-th root of unity. On the special fibre write it as 1 + t. The equation becomes t to the power q equals zero. In the test ring 𝔽q[ε]/(εᵉ), raising to the q-th power multiplies every exponent of ε by q. All coefficients below degree ⌈e/q⌉ must vanish. Each higher coefficient has q choices.",
+    },
     "ordinary-line-cancellation": {
       title: "Which point receives the even and odd contributions?",
       kind: "Subspaces above one quotient subspace",
@@ -1558,6 +1569,24 @@
   }
 
   function render(id, v) {
+    if (id === "ordinary-torsion-reduction") {
+      const q = Number(v.q);
+      const e = Number(v.e);
+      const firstDegree = Math.ceil(e / q);
+      const count = q ** (e - firstDegree);
+      const form = firstDegree === e ? "0" : "a multiple of ε" +
+        (firstDegree === 1 ? "" : "<sup>" + firstDegree + "</sup>");
+      return '<table class="carry-table" data-announcement="' + count +
+        (count === 1 ? ' solution' : ' solutions') + ' in the test ring. Local length ' + q + '.">' +
+        '<caption>First coordinates above the label 1</caption>' +
+        '<colgroup><col style="width:28%"><col style="width:47%"><col style="width:25%"></colgroup>' +
+        '<thead><tr><th scope="col">Test</th><th scope="col">Condition</th><th scope="col">Count</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Generic field</th><td><var>X</var><sup>' + q + '</sup> = 1</td><td>' + q + '</td></tr>' +
+        '<tr><th scope="row">Residue field</th><td><var>X</var> = 1</td><td>1</td></tr>' +
+        '<tr><th scope="row">Test ring</th><td><var>X</var> = 1 + <var>t</var>, with <var>t</var> ' +
+        (form === "0" ? "= 0" : form) + '</td><td>' + count + '</td></tr></tbody></table>' +
+        metrics([["Local length", String(q)], ["Free coefficients of t", String(e - firstDegree)]]);
+    }
     if (id === "ordinary-line-cancellation") {
       const q = Number(v.q);
       const r = Number(v.r);
