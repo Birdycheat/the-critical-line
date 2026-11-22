@@ -506,9 +506,9 @@
       "id": "RSI-04",
       "chapter": "normalization",
       "anchor": "normalization-kernel-decay",
-      "title": "Decay, Haar integrability and weighted coefficients of the kernel",
+      "title": "Decay and Haar integrability of the kernel",
       "hypotheses": "The hypotheses of the lowest-type kernel hold with q ≥ 1 and opposite-sign gap h. The Haar measure on G is arbitrary.",
-      "statement": "With t = ‖X‖_F, ‖Ψ(k exp X)‖ ≤ exp(−(h/8)min{t², t/√(2q)}). The kernel is integrable if h > 16mq, square integrable if h > 8mq, and for each real s ≥ 0 the weighted norm ‖Ψ(g)‖²‖g‖_F^s is integrable if h > 8mq + 4s√(2q). If h > max{2m, 16mq + 8√(2q)}, the weighted coefficients ‖g‖_F⟨y,R(g)x⟩ of all generated vectors are square integrable.",
+      "statement": "With t = ‖X‖_F, ‖Ψ(k exp X)‖ ≤ exp(−(h/8)min{t², t/√(2q)}). The kernel is integrable if h > 16mq, square integrable if h > 8mq, and for each real s ≥ 0 the weighted norm ‖Ψ(g)‖²‖g‖_F^s is integrable if h > 8mq + 4s√(2q).",
       "definitions": [
         "𝒥(X) = ∏_{a<b} sinh(y_a − y_b)/(y_a − y_b) over the eigenvalues of X is the density of Haar measure in polar coordinates."
       ],
@@ -644,19 +644,6 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean#L22-L133"
         },
         {
-          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum",
-          "label": "Weighted coefficients of the generated vectors",
-          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean",
-          "lines": [
-            21,
-            40
-          ],
-          "declaration_lines": {
-            "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum": 21
-          },
-          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean#L21-L40"
-        },
-        {
           "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
           "label": "The analytic threshold for the regular models",
           "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
@@ -691,7 +678,8 @@
       ],
       "dependencies": [
         "RSI-03",
-        "RSI-04"
+        "RSI-04",
+        "KRL-06"
       ],
       "sources": [
         {
@@ -861,7 +849,10 @@
         "RSI-04",
         "RSI-05",
         "RTC-04",
-        "PCT-03"
+        "PCT-03",
+        "KRL-03",
+        "KRL-04",
+        "KRL-06"
       ],
       "sources": [
         {
@@ -3079,6 +3070,6 @@
     }
   ],
   "outstanding": [
-    "The realization theorem for the kernel is cited: reproducing formula, irreducibility of the generated module and compact finiteness of its closure. The Pieri rule for compact types and the growth bound for smooth vectors are also cited."
+    "The Pieri rule for compact types is cited. The realization theorem for the kernel and the growth bound for smooth vectors are derived in the realization sections."
   ]
 }
