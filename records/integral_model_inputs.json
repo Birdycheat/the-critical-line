@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "IMI-01",
+      "chapter": "lifts",
+      "anchor": "lifts-isogeny-dvr-target",
+      "title": "A polarized isogeny out of an integral marked object has an integral target",
+      "hypotheses": "V is a discrete valuation ring with fraction field K, of any residue characteristic. o is a marked object of the unitary moduli problem over V, and ψ_K : o_K → o′ is a polarized isogeny of multiplier c = q^e with a companion ψ′ satisfying ψ′ψ = [c] and ψψ′ = [c].",
+      "statement": "o′ is the generic fibre of a marked object over V, namely the quotient of A by the schematic closure of ker ψ_K with the extended marking, and ψ_K extends. Consequently a tested point y ∈ X(V) with generic point s₀(x) has a target z ∈ X(V) with generic point t₀(x), and the reverse statement holds after rescaling the level of the companion by q^f with q^{e+f} ≡ 1 mod N.",
+      "definitions": [
+        "The schematic closure of the generic kernel is finite and flat because it is killed by c.",
+        "The rescaled target object replaces the level structure η′ by η′∘[q^f]."
+      ],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.IsogFiniteFlat.isFinite_and_flat_of_quasiInverse",
+          "label": "A polarized isogeny with a companion is finite, flat and surjective",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsFiniteFlatAbelianSchemeHomOfQuasiInverse.lean",
+          "lines": [
+            85,
+            124
+          ],
+          "declaration_lines": {
+            "GlobalTheory.IsogFiniteFlat.isFinite_and_flat_of_quasiInverse": 85
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsFiniteFlatAbelianSchemeHomOfQuasiInverse.lean#L85-L124"
+        },
+        {
+          "declaration": "GlobalTheory.IsogenyModel.exists_flat_closure",
+          "label": "The flat closure of the generic kernel",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/CubicalLineBundles/ExistsGoodModelOfIsogeny.lean",
+          "lines": [
+            37,
+            74
+          ],
+          "declaration_lines": {
+            "GlobalTheory.IsogenyModel.exists_flat_closure": 37
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/CubicalLineBundles/ExistsGoodModelOfIsogeny.lean#L37-L74"
+        },
+        {
+          "declaration": "GlobalTheory.exists_grpObj_of_flat_closed",
+          "label": "A flat closed subscheme containing the identity is a subgroup",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsGrpObjOfFlatClosed.lean",
+          "lines": [
+            68,
+            97
+          ],
+          "declaration_lines": {
+            "GlobalTheory.exists_grpObj_of_flat_closed": 68
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsGrpObjOfFlatClosed.lean#L68-L97"
+        },
+        {
+          "declaration": "GlobalTheory.MulFiniteFlat.isFinite_and_flat_mul",
+          "label": "Multiplication by c is finite and flat",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/IsFiniteAndFlatMulAbelianScheme.lean",
+          "lines": [
+            49,
+            68
+          ],
+          "declaration_lines": {
+            "GlobalTheory.MulFiniteFlat.isFinite_and_flat_mul": 49
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/IsFiniteAndFlatMulAbelianScheme.lean#L49-L68"
+        },
+        {
+          "declaration": "GlobalTheory.AbQuotientAny.exists_quotient_abelianScheme",
+          "label": "The quotient by a finite flat subgroup over an affine base",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsQuotientAbelianSchemeFiniteFlatSubgroup.lean",
+          "lines": [
+            25,
+            64
+          ],
+          "declaration_lines": {
+            "GlobalTheory.AbQuotientAny.exists_quotient_abelianScheme": 25
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsQuotientAbelianSchemeFiniteFlatSubgroup.lean#L25-L64"
+        },
+        {
+          "declaration": "GlobalTheory.IwLevel.quotGlobal_holds",
+          "label": "Gluing the affine quotients",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/QuotGlobalHolds.lean",
+          "lines": [
+            22,
+            48
+          ],
+          "declaration_lines": {
+            "GlobalTheory.IwLevel.quotGlobal_holds": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/QuotGlobalHolds.lean#L22-L48"
+        },
+        {
+          "declaration": "GlobalTheory.flatQuotient_iso_of_same_kernel",
+          "label": "Two flat surjections with the same kernel have isomorphic targets",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/FlatQuotientIsoOfSameKernel.lean",
+          "lines": [
+            143,
+            161
+          ],
+          "declaration_lines": {
+            "GlobalTheory.flatQuotient_iso_of_same_kernel": 143
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/FlatQuotientIsoOfSameKernel.lean#L143-L161"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.IsogDVR.exists_isPIsog_extend_dvr",
+          "label": "The abelian model of the target and the extended isogeny",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsPullbackKernelOfKernelPair.lean",
+          "lines": [
+            46,
+            122
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.IsogDVR.exists_isPIsog_extend_dvr": 101
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsPullbackKernelOfKernelPair.lean#L46-L122"
+        },
+        {
+          "declaration": "GlobalTheory.ringAct_extends_semiAbelian_dvr",
+          "label": "The coefficient action extends",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RingActExtendsSemiAbelianDvr.lean",
+          "lines": [
+            21,
+            52
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ringAct_extends_semiAbelian_dvr": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RingActExtendsSemiAbelianDvr.lean#L21-L52"
+        },
+        {
+          "declaration": "GlobalTheory.AxisTrivExt.exists_extension_square_of_axes_trivial",
+          "label": "The polarizing bundle extends with its rigidifications",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsExtensionSquareOfAxesTrivial.lean",
+          "lines": [
+            74,
+            112
+          ],
+          "declaration_lines": {
+            "GlobalTheory.AxisTrivExt.exists_extension_square_of_axes_trivial": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsExtensionSquareOfAxesTrivial.lean#L74-L112"
+        },
+        {
+          "declaration": "GlobalTheory.KerExt.kernel_killed",
+          "label": "The prime-to-q polarization kernel over the valuation ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PolarisationKernelKilledOverDvrOfGeneric.lean",
+          "lines": [
+            24,
+            67
+          ],
+          "declaration_lines": {
+            "GlobalTheory.KerExt.kernel_killed": 24
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PolarisationKernelKilledOverDvrOfGeneric.lean#L24-L67"
+        },
+        {
+          "declaration": "GlobalTheory.HTGeomExt.tateIsoO_geom_of_generic",
+          "label": "The Tate condition at the special geometric points",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TateSimilitudeGeometricPointsOfGenericDvr.lean",
+          "lines": [
+            66,
+            125
+          ],
+          "declaration_lines": {
+            "GlobalTheory.HTGeomExt.tateIsoO_geom_of_generic": 66
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TateSimilitudeGeometricPointsOfGenericDvr.lean#L66-L125"
+        },
+        {
+          "declaration": "GlobalTheory.HTObjExt.extends_obj",
+          "label": "Extending the whole marking",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorObjectExtendsOverDvrOfAbelianModel.lean",
+          "lines": [
+            141,
+            276
+          ],
+          "declaration_lines": {
+            "GlobalTheory.HTObjExt.extends_obj": 141
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorObjectExtendsOverDvrOfAbelianModel.lean#L141-L276"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.ValExt.of_ext",
+          "label": "The first input: classifying the extended target",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsPIsogPull.lean",
+          "lines": [
+            45,
+            77
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.ValExt.of_ext": 45
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsPIsogPull.lean#L45-L77"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ESDual.scale",
+          "label": "Rescaling the level so that the companion is polarized",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsInvExp.lean",
+          "lines": [
+            58,
+            215
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ESDual.scale": 58,
+            "GlobalTheory.UPel.HT.ESDual.exists_inv_exp": 91,
+            "GlobalTheory.UPel.HT.ESDual.dual_clauses": 197
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsInvExp.lean#L58-L215",
+          "related_declarations": [
+            "GlobalTheory.UPel.HT.ESDual.exists_inv_exp",
+            "GlobalTheory.UPel.HT.ESDual.dual_clauses"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.ESValT.extend_source",
+          "label": "The reverse input through the rescaled companion",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorCorrespondenceExtendSourceDvr.lean",
+          "lines": [
+            28,
+            57
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ESValT.extend_source": 28
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarrisTaylorCorrespondenceExtendSourceDvr.lean#L28-L57"
+        },
+        {
+          "declaration": "GlobalTheory.ExtT.exists_finite_extension",
+          "label": "Where the inputs enter the integral model",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+          "lines": [
+            17,
+            43
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ExtT.exists_finite_extension": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean#L17-L43"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The target is constructed as a quotient abelian scheme, and the coefficient action, polarizing bundle, level, Lie and Tate conditions extend one by one. Néron models and properness of X are not used.",
+      "review": "The rescaling exponent was checked for N = 5, q = 2 and e = 1, and the elliptic analogue was compared with the quotient by a closure of order q."
+    },
+    {
+      "id": "IMI-02",
+      "chapter": "lifts",
+      "anchor": "lifts-isogeny-finite-specializations",
+      "title": "Finitely many target specializations in both directions",
+      "hypotheses": "The hypotheses of the elementary correspondence hold: finite étale maps over X[1/q], a polarized isogeny of multiplier c = q^n with companion, the multiplicity-one Lie condition, embeddings distinct modulo q, q not dividing tr² − 4nm, and level N ≥ 3 prime to q.",
+      "statement": "For a fixed point u of X, the closed points of the target extensions of all valuative tests starting at u form a finite set. The same holds for the sources of tests ending at a fixed point.",
+      "definitions": [
+        "A valuative test is a discrete valuation ring V with a point x of Y₀ over its fraction field and V-points extending s₀(x) and t₀(x)."
+      ],
+      "equations": [],
+      "dependencies": [
+        "IMI-01"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.CorrQF.finite_specialisations_of_finite_open",
+          "label": "Points where q is invertible",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteSectionOverOrdinaryLocus.lean",
+          "lines": [
+            11,
+            56
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CorrQF.finite_specialisations_of_finite_open": 11
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteSectionOverOrdinaryLocus.lean#L11-L56"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.finite_dvr_limits_of_finite_snd",
+          "label": "The reverse direction where q is invertible",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteDvrLimitsCorrespondenceFiniteSnd.lean",
+          "lines": [
+            7,
+            45
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.finite_dvr_limits_of_finite_snd": 7
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteDvrLimitsCorrespondenceFiniteSnd.lean#L7-L45"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.CorrQF.exists_isogTarget_of_dvr",
+          "label": "A tested point gives a polarized isogeny at geometric points",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsPIsogenyTargetOfDvrSpecialisation.lean",
+          "lines": [
+            34,
+            83
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CorrQF.exists_isogTarget_of_dvr": 34
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsPIsogenyTargetOfDvrSpecialisation.lean#L34-L83"
+        },
+        {
+          "declaration": "GlobalTheory.exists_isAlgClosed_embeddings_of_family",
+          "label": "One algebraically closed field for all residue fields",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsIsAlgClosedEmbeddingsOfFamily.lean",
+          "lines": [
+            7,
+            42
+          ],
+          "declaration_lines": {
+            "GlobalTheory.exists_isAlgClosed_embeddings_of_family": 7
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsIsAlgClosedEmbeddingsOfFamily.lean#L7-L42"
+        },
+        {
+          "declaration": "GlobalTheory.localRing_finite_ideals_of_maximalIdeal_principal_nilpotent",
+          "label": "Ideals of an Artinian local ring with principal maximal ideal",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalRingFiniteIdealsOfMaximalIdealPrincipalNilp.lean",
+          "lines": [
+            16,
+            62
+          ],
+          "declaration_lines": {
+            "GlobalTheory.localRing_finite_ideals_of_maximalIdeal_principal_nilpotent": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalRingFiniteIdealsOfMaximalIdealPrincipalNilp.lean#L16-L62"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.KerFin.finite_ideals",
+          "label": "Finitely many intersections with each piece",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean",
+          "lines": [
+            22,
+            207
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.KerFin.finite_ideals": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean#L22-L207"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.KerFin.tangent_line",
+          "label": "The tangent space of a piece is at most a line",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean",
+          "lines": [
+            268,
+            429
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.KerFin.tangent_line": 268
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean#L268-L429"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.KerFin.kill_of_dvd",
+          "label": "The pieces determine the kernel",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean",
+          "lines": [
+            469,
+            595
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.KerFin.kill_of_dvd": 469,
+            "GlobalTheory.UPel.HT.ES.KerFin.finite_kernels": 482
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FiniteKernelsPIsogeniesHarrisTaylorCharP.lean#L469-L595",
+          "related_declarations": [
+            "GlobalTheory.UPel.HT.ES.KerFin.finite_kernels"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.KerFin.star_ker_le",
+          "label": "Rosati duality for the conjugate condition",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EvcPowRight.lean",
+          "lines": [
+            72,
+            110
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.KerFin.star_ker_le": 72
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EvcPowRight.lean#L72-L110"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.KerDet.exists_objMap_of_ker_eq",
+          "label": "Equal kernels give the same target",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/GrpSchemeSquareProductMapEqTensorHom.lean",
+          "lines": [
+            100,
+            151
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.KerDet.exists_objMap_of_ker_eq": 100
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/GrpSchemeSquareProductMapEqTensorHom.lean#L100-L151"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.CorrQF.finite_isogTarget",
+          "label": "Finitely many targets at a point of characteristic q",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePIsogenyTargetsAtCharPPoint.lean",
+          "lines": [
+            30,
+            56
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.CorrQF.finite_isogTarget": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePIsogenyTargetsAtCharPPoint.lean#L30-L56"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.SourceFin.finite_isogSource",
+          "label": "Finitely many sources through the companion",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePIsogenySourcesAtCharPPoint.lean",
+          "lines": [
+            74,
+            107
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.SourceFin.finite_isogSource": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePIsogenySourcesAtCharPPoint.lean#L74-L107"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.closure_points_finite_fst",
+          "label": "Assembly of the forward finiteness",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePointsClosureGenericCorrespondenceFst.lean",
+          "lines": [
+            14,
+            32
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.closure_points_finite_fst": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FinitePointsClosureGenericCorrespondenceFst.lean#L14-L32"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Where q is invertible, finiteness of the correspondence and separatedness suffice. In characteristic q the possible kernels are finite because each piece has a tangent space of dimension at most one, and the kernel determines the target.",
+      "review": "The unit-ideal identity was recomputed for ω = i, q = 5 and r = 2."
+    },
+    {
+      "id": "IMI-03",
+      "chapter": "lifts",
+      "anchor": "lifts-isogeny-reduced-model",
+      "title": "Reducedness of the normal model",
+      "hypotheses": "Y is flat over R, contains the smooth generic correspondence Y₀ as the locus where q is invertible, and R is a domain of characteristic zero.",
+      "statement": "Y is reduced.",
+      "definitions": [],
+      "equations": [],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.isReduced_of_smooth_of_isReduced",
+          "label": "Smooth over a reduced base is reduced",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsReducedAlgebraOfSmoothOfIsNoetherianRing.lean",
+          "lines": [
+            66,
+            81
+          ],
+          "declaration_lines": {
+            "GlobalTheory.isReduced_of_smooth_of_isReduced": 66
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsReducedAlgebraOfSmoothOfIsNoetherianRing.lean#L66-L81"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.pReg_of_flat",
+          "label": "Flatness makes q a nonzerodivisor",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsTjCorrDiagModel.lean",
+          "lines": [
+            215,
+            237
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.pReg_of_flat": 215
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsTjCorrDiagModel.lean#L215-L237"
+        },
+        {
+          "declaration": "GlobalTheory.UPel.HT.ES.isReduced_of_pReg_of_factor",
+          "label": "Reducedness of the normal model",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsReducedNormalModelGenericCorrespondence.lean",
+          "lines": [
+            12,
+            59
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.ES.isReduced_of_pReg_of_factor": 12,
+            "GlobalTheory.UPel.HT.ES.isReduced_normalModel_of_generic": 51
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsReducedNormalModelGenericCorrespondence.lean#L12-L59",
+          "related_declarations": [
+            "GlobalTheory.UPel.HT.ES.isReduced_normalModel_of_generic"
+          ]
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Smoothness makes Y₀ reduced, and flatness makes q a nonzerodivisor, so a nilpotent function killed after inverting q is zero.",
+      "review": "The argument was checked against the hypotheses actually used."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.ExtT.exists_finite_extension",
+      "callee": "GlobalTheory.T.isReduced_normalModel_generic_correspondence",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.isReduced_normalModel_generic_correspondence"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ExtT.exists_finite_extension",
+      "callee": "GlobalTheory.T.exists_dvr_extension_target_generic_correspondence",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+        "line": 25,
+        "spelling": "GlobalTheory.T.exists_dvr_extension_target_generic_correspondence"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ExtT.exists_finite_extension",
+      "callee": "GlobalTheory.T.finite_points_closure_genericCorrespondence_fst",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.finite_points_closure_genericCorrespondence_fst"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ExtT.exists_finite_extension",
+      "callee": "GlobalTheory.T.harrisTaylor_correspondence_extend_source_dvr",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.T.harrisTaylor_correspondence_extend_source_dvr"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ExtT.exists_finite_extension",
+      "callee": "GlobalTheory.T.finite_points_closure_genericCorrespondence_snd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlagModelValueIndependent.lean",
+        "line": 41,
+        "spelling": "GlobalTheory.T.finite_points_closure_genericCorrespondence_snd"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "IMI-01",
+      "IMI-02"
+    ],
+    [
+      "IMI-01",
+      "ISE-05"
+    ],
+    [
+      "IMI-02",
+      "ISE-05"
+    ],
+    [
+      "IMI-03",
+      "ISE-05"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Springer, 1990, Chapter I, Proposition 2.7",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-662-02632-8_1"
+    }
+  ],
+  "outstanding": [
+    "The construction of the generic correspondence Y₀ over X[1/q] is a separate passage."
+  ]
+}
