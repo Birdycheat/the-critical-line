@@ -141,6 +141,31 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// In the special fibre, (a + bX)² = a² + (2ab + db²)X. Enumerate its 25 elements.
+for (const [model, d] of [["glued", 5], ["product", 1]]) {
+  const residues = [0, 1, 2, 3, 4];
+  const specialRoots = residues.filter(x => (x * (x - d)) % 5 === 0);
+  const idempotents = residues.flatMap(a => residues.filter(b =>
+    (a * a - a) % 5 === 0 && (2 * a * b + d * b * b - b) % 5 === 0
+  ).map(b => [a, b]));
+  const reducedProjector = idempotents.find(([a, b]) => a === 1 && (a + d * b) % 5 === 0);
+  assert.equal(idempotents.length, d === 5 ? 2 : 4);
+  assert.deepEqual(reducedProjector, d === 5 ? undefined : [1, 4]);
+  const display = lib.render("clopen-branch-reduction", {model});
+  assert.deepEqual([...display.matchAll(/<td>(\d+)<\/td>/g)].map(m => +m[1]),
+    [0, 0, d, specialRoots[specialRoots.length - 1]]);
+  const metrics = [...display.matchAll(/<dd>(.*?)<\/dd>/g)].map(m => m[1].replace(/<\/?var>/g, ""));
+  assert.deepEqual(metrics, [
+    d === 1 ? "1 − X" : "1 − X/5",
+    reducedProjector ? "Yes" : "No",
+    specialRoots.length === 1 ? "One double point" : "Two reduced points",
+  ]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-clopen-branch-reduction"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("clopen-branch-reduction", {model: "glued"})),
+    "Missing the static specialization of the two branches in " + page);
+}
 // Compare restrictions using a direct inverse search in the field of 17 elements.
 const residues17 = Array.from({ length: 17 }, (_, n) => n);
 const eighthRoots = residues17.filter(x => x ** 4 % 17 === 16);

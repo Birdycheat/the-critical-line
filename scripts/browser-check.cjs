@@ -130,6 +130,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "clopen-branch-reduction") {
+          assert.equal(await fig.locator("caption").innerText(), "Specialization of the two branches");
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 − X/5", "No", "One double point"]);
         } else if (id === "weight-circle-spectrum") {
           assert.equal(await fig.locator("caption").innerText(), "Monomial coordinates of the selected vector");
           assert.deepEqual(await fig.locator("tbody tr td:first-of-type").allInnerTexts(), ["−1", "0", "1", "2"]);
@@ -338,6 +341,25 @@ async function run() {
         "book overflows " + width,
       );
     }
+    await openFigure(page, base + "book.html#fig-clopen-branch-reduction");
+    const branches = page.locator("#fig-clopen-branch-reduction.ready");
+    const previousViewport = page.viewportSize();
+    await page.setViewportSize({width: 320, height: 844});
+    for (const [model, cells, values] of [
+      ["glued", ["0", "0", "5", "0"], ["1 − X/5", "No", "One double point"]],
+      ["product", ["0", "0", "1", "1"], ["1 − X", "Yes", "Two reduced points"]],
+    ]) {
+      await branches.getByRole("combobox", {name: "Integral model", exact: true}).selectOption(model);
+      assert.deepEqual(await branches.locator("tbody td").allInnerTexts(), cells);
+      assert.deepEqual(await branches.locator(".metrics dd").allInnerTexts(), values);
+      assert.ok(await branches.locator("table").evaluate(el =>
+        el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+    }
+    const branchLink = await branches.locator("[data-share]").getAttribute("href");
+    await openFigure(page, branchLink);
+    assert.equal(await branches.getByRole("combobox", {name: "Integral model", exact: true}).inputValue(), "product");
+    assert.deepEqual(await branches.locator(".metrics dd").allInnerTexts(), ["1 − X", "Yes", "Two reduced points"]);
+    await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-hecke-four-point-approximation");
     const fourPoint = page.locator("#fig-hecke-four-point-approximation.ready");
     await fourPoint.getByRole("combobox", {name: "Function in P"}).selectOption("combination");
@@ -635,6 +657,10 @@ async function run() {
     });
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
+    const staticBranches = plain.locator("#fig-clopen-branch-reduction");
+    assert.equal(await staticBranches.locator("caption").innerText(), "Specialization of the two branches");
+    assert.deepEqual(await staticBranches.locator("tbody td").allInnerTexts(), ["0", "0", "5", "0"]);
+    assert.deepEqual(await staticBranches.locator(".metrics dd").allInnerTexts(), ["1 − X/5", "No", "One double point"]);
     const staticPlaces = plain.locator("#fig-quadratic-place-restrictions");
     assert.deepEqual(await staticPlaces.locator("tbody tr").last().locator("td").allInnerTexts(), ["15", "4", "6"]);
     const staticSpectrum = plain.locator("#fig-weight-circle-spectrum");

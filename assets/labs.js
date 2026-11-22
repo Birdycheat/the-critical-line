@@ -16,6 +16,16 @@
     value,
   });
   const configs = {
+    "clopen-branch-reduction": {
+      title: "Does one generic branch remain open and closed?",
+      kind: "Two integral models over the localization of ℤ at 5",
+      section: "lifts",
+      params: [
+        choose("model", "Integral model", [["glued", "Branches meeting modulo 5"], ["product", "Product of two copies of R"]], "glued"),
+      ],
+      caption: "Over ℚ the two branches are distinct. The projector with values (1, 0) selects the first. In the smooth product model that branch remains open and closed after reduction. In the glued model its closure meets the other branch.",
+      method: "Let R = ℤ₍₅₎, the rational numbers with denominator prime to 5. Write the model as R[X]/(X(X−d)). Evaluation at 0 and d sends a + bX to (a, a + db). For d = 1 this gives R × R. For d = 5 the image consists of pairs congruent modulo 5. Over ℚ the projector is 1 − X/d. It extends over R precisely when 1/d belongs to R. Reducing the polynomial modulo 5 also records whether its roots coincide.",
+    },
     "quadratic-place-restrictions": {
       title: "Which place above 17 can carry the weight test?",
       kind: "Restricting primes in the eighth cyclotomic field",
@@ -1537,6 +1547,27 @@
   }
 
   function render(id, v) {
+    if (id === "clopen-branch-reduction") {
+      const distance = v.model === "product" ? 1 : 5;
+      const roots = [0, distance];
+      const specialRoots = roots.map(x => x % 5);
+      const extendsOverR = distance % 5 !== 0;
+      const rows = roots.map((root, i) =>
+        '<tr><th scope="row">' + (i === 0 ? "Selected" : "Other") +
+        '</th><td>' + root + '</td><td>' + specialRoots[i] + '</td></tr>');
+      const table = '<table class="carry-table"><caption>Specialization of the two branches</caption>' +
+        '<thead><tr><th scope="col">Branch</th><th scope="col"><var>X</var> over ℚ</th>' +
+        '<th scope="col"><var>X</var> modulo 5</th></tr></thead><tbody>' + rows.join("") + '</tbody></table>';
+      const specialFibre = new Set(specialRoots).size === 2
+        ? "Two reduced points" : "One double point";
+      return table + metrics([
+        ["Projector over ℚ", "1 − <var>X</var>" + (distance === 1 ? "" : "/" + distance)],
+        ["Extends over <var>R</var>?", extendsOverR ? "Yes" : "No"],
+        ["Special fibre", specialFibre],
+      ]) + (extendsOverR
+        ? "<p>Modulo 5 the projector still has values (1, 0) on the two points.</p>"
+        : "<p>In the special fibre, <var>X</var> is nonzero and <var>X</var>² = 0. The two generic points specialize to the same point.</p>");
+    }
     if (id === "quadratic-place-restrictions") {
       const root = Number(v.root);
       const square = (root * root) % 17;
