@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SIG-01",
+      "chapter": "normalization",
+      "anchor": "normalization-sigma-isogeny-product",
+      "title": "Sigma product identity for an elliptic isogeny",
+      "statement": "For a nonzero multiplier preserving the period lattice and a finite set of nonzero kernel representatives, the squared normalized sigma value at αz equals α² times the corresponding power of sigma at z and the product of the ℘(z)−℘(P) factors.",
+      "hypotheses": "A complex lattice Λ, a nonzero multiplier preserving Λ and a full set of representatives of its nonzero kernel classes. The evaluation point lies outside Λ.",
+      "equations": [
+        "normalization-sigma-isogeny-equation"
+      ],
+      "sources": [
+        {
+          "label": "The nonzero representatives and index",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/TranslateProduct.lean",
+          "lines": [
+            38,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/TranslateProduct.lean#L38-L50",
+          "declaration": "Formalism.L2.Th1.F.MulStable",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.MulStable": 38,
+            "Formalism.L2.Th1.F.IsKerReps": 40,
+            "Formalism.L2.Th1.F.KerRepsExist": 45,
+            "Formalism.L2.Th1.F.KerRepsCard": 48
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.IsKerReps",
+            "Formalism.L2.Th1.F.KerRepsExist",
+            "Formalism.L2.Th1.F.KerRepsCard"
+          ]
+        },
+        {
+          "label": "The squared normalized identity",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/TranslateProduct.lean",
+          "lines": [
+            62,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/TranslateProduct.lean#L62-L66",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigma",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigma": 62
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Shifted factors and their common multiplier",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+          "lines": [
+            53,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean#L53-L110",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigmaQuotient.num",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.num": 53,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac": 55,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den": 57,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.mlt": 59,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.semiChar_sq": 61,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.sg_sq_add": 64,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_add": 70,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_add": 86,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.herm_mul": 93,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.num_add": 96
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.mlt",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.semiChar_sq",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.sg_sq_add",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_add",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_add",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.herm_mul",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.num_add"
+          ]
+        },
+        {
+          "label": "The two zeros on each nonzero class",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+          "lines": [
+            232,
+            281
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean#L232-L281",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_sub",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_sub": 232,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_add": 246,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two": 265
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_add",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two"
+          ]
+        },
+        {
+          "label": "The quotient extends and is constant",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+          "lines": [
+            304,
+            341
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean#L304-L341",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_order",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_order": 304,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_periodic": 319,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.exists_const": 327
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_periodic",
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.exists_const"
+          ]
+        },
+        {
+          "label": "Leading coefficient at the origin",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+          "lines": [
+            348,
+            380
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean#L348-L380",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_zero",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_zero": 348,
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.const_eq_one": 354
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.const_eq_one"
+          ]
+        },
+        {
+          "label": "The addition identity and assembly",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+          "lines": [
+            382,
+            407
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean#L382-L407",
+          "declaration": "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_eq",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_eq": 382,
+            "Formalism.L2.Th1.F.isogenySigma_of": 394
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.F.isogenySigma_of"
+          ]
+        },
+        {
+          "label": "The elliptic inputs to the product formula",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/MulStableIntegral.lean",
+          "lines": [
+            18,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/MulStableIntegral.lean#L18-L19",
+          "declaration": "Formalism.L2.Th1.F.isogenySigma",
+          "declaration_lines": {
+            "Formalism.L2.Th1.F.isogenySigma": 18
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The formal multiplication formula on the integral curve model",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgIsoU.lean",
+          "lines": [
+            53,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgIsoU.lean#L53-L59",
+          "declaration": "ReciprocityTheory.ChartRestriction.L1.sq_formula",
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.L1.sq_formula": 53
+          },
+          "related_declarations": []
+        }
+      ],
+      "dependencies": [],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The stated quotient is formed with the normalized sigma function. The cited passages give its multipliers, divisor and leading coefficient.",
+      "review": "The two zeros coincide at a nonzero class of order two. Comparison of leading coefficients fixes the constant at the common zero."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.L2.Th1.F.isogenySigma",
+      "callee": "Formalism.L2.Th1.F.isogenySigma_of",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/MulStableIntegral.lean",
+        "line": 19,
+        "spelling": "isogenySigma_of"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.isogenySigma",
+      "callee": "Formalism.L2.Th1.F.kerRepsCard",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/MulStableIntegral.lean",
+        "line": 19,
+        "spelling": "kerRepsCard"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 268,
+        "spelling": "den_order"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_add",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 279,
+        "spelling": "count_add"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.count_sub",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 279,
+        "spelling": "count_sub"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_order",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.num_order",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 312,
+        "spelling": "num_order"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_order",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_order_two",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 314,
+        "spelling": "den_order_two"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_periodic",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.num_add",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 324,
+        "spelling": "num_add"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_periodic",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.den_add",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 324,
+        "spelling": "den_add"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.exists_const",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_periodic",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 333,
+        "spelling": "quot_periodic"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.exists_const",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.quot_order",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 333,
+        "spelling": "quot_order"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.IsogenySigmaQuotient.const_eq_one",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_zero",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 379,
+        "spelling": "fac_zero"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.isogenySigma_of",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.exists_const",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 400,
+        "spelling": "exists_const"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.isogenySigma_of",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.const_eq_one",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 401,
+        "spelling": "const_eq_one"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.F.isogenySigma_of",
+      "callee": "Formalism.L2.Th1.F.IsogenySigmaQuotient.fac_eq",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/EisensteinTranslationProducts/AnalyticIdentityTheorems/IsogenySigma.lean",
+        "line": 405,
+        "spelling": "fac_eq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.L1.sq_formula",
+      "callee": "Formalism.L2.Th1.F.kerRepsCard",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgIsoU.lean",
+        "line": 94,
+        "spelling": "F.kerRepsCard"
+      }
+    }
+  ]
+}

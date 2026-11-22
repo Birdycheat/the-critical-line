@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "TCG-01",
+      "chapter": "lifts",
+      "anchor": "lifts-theta-local-lift",
+      "title": "Local lifts of a torsion translation",
+      "hypotheses": "An abelian scheme, a line bundle, a test scheme and a section x killed by a positive integer k.",
+      "statement": "Translation by x lifts locally on the test base to an isomorphism from the translate of the kth tensor power back to that tensor power.",
+      "equations": [
+        "lifts-theta-line-of-lifts"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The eight terms of the relative cube identity",
+          "path": "src/Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/CubeTheorem.lean",
+          "lines": [
+            16,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/CubeTheorem.lean#L16-L19",
+          "declaration": "GlobalTheory.Published.CubeTheorem",
+          "declaration_lines": {
+            "GlobalTheory.Published.CubeTheorem": 16
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The cube identity on an arbitrary base",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TheoremOfCubeAbelianSchemeOverArbitraryBase.lean",
+          "lines": [
+            5,
+            5
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TheoremOfCubeAbelianSchemeOverArbitraryBase.lean#L5-L5",
+          "declaration": "GlobalTheory.CubeTop.cubeTheorem",
+          "declaration_lines": {
+            "GlobalTheory.CubeTop.cubeTheorem": 5
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Induction on the multiple of a torsion point",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+          "lines": [
+            23,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean#L23-L58",
+          "declaration": "GlobalTheory.HolTorsionAny.triv_step",
+          "declaration_lines": {
+            "GlobalTheory.HolTorsionAny.triv_step": 23
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Local generators and lifts of translations",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+          "lines": [
+            60,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean#L60-L92",
+          "declaration": "GlobalTheory.HolTorsionAny.exists_theta_local",
+          "declaration_lines": {
+            "GlobalTheory.HolTorsionAny.exists_theta_local": 60
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The normalized difference fixes the sign of the line on the base."
+    },
+    {
+      "id": "TCG-02",
+      "chapter": "lifts",
+      "anchor": "lifts-theta-commutator-unit",
+      "title": "The commutator descends to a unique base unit",
+      "hypotheses": "Two sections of the same k-torsion group scheme, with local lifts to the kth tensor power of the same line bundle.",
+      "statement": "The ratio of the two ordered composites is a unique unit on the test base, independent of the lifts and preserved by pullback.",
+      "equations": [
+        "lifts-theta-square-ratio"
+      ],
+      "dependencies": [
+        "TCG-01"
+      ],
+      "sources": [
+        {
+          "label": "Ratios of isomorphisms, gluing, and the projection",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+          "lines": [
+            14,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean#L14-L81",
+          "declaration": "GlobalTheory.CommutatorPairing.exists_ratio",
+          "declaration_lines": {
+            "GlobalTheory.CommutatorPairing.exists_ratio": 14,
+            "GlobalTheory.CommutatorPairing.glue_top": 42,
+            "GlobalTheory.CommutatorPairing.surj_fst": 73
+          },
+          "related_declarations": [
+            "GlobalTheory.CommutatorPairing.glue_top",
+            "GlobalTheory.CommutatorPairing.surj_fst"
+          ]
+        },
+        {
+          "label": "Functions on the abelian scheme come from the base",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/GlobalFnsHolds.lean",
+          "lines": [
+            16,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/GlobalFnsHolds.lean#L16-L18",
+          "declaration": "GlobalTheory.globalFns_holds",
+          "declaration_lines": {
+            "GlobalTheory.globalFns_holds": 16
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Evaluation and the order of the two composites",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+          "lines": [
+            93,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean#L93-L101",
+          "declaration": "GlobalTheory.CommutatorPairing.thetaVal",
+          "declaration_lines": {
+            "GlobalTheory.CommutatorPairing.thetaVal": 93,
+            "GlobalTheory.CommutatorPairing.commVal": 97
+          },
+          "related_declarations": [
+            "GlobalTheory.CommutatorPairing.commVal"
+          ]
+        },
+        {
+          "label": "Evaluation of the product of two lifts",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+          "lines": [
+            117,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean#L117-L122",
+          "declaration": "GlobalTheory.CommutatorPairing.val_prod",
+          "declaration_lines": {
+            "GlobalTheory.CommutatorPairing.val_prod": 117
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Independence of lifts and local existence of the scalar",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+          "lines": [
+            156,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean#L156-L206",
+          "declaration": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+          "declaration_lines": {
+            "GlobalTheory.CommutatorPairing.thetaVal_ratio": 156,
+            "GlobalTheory.CommutatorPairing.commVal_indep": 174,
+            "GlobalTheory.CommutatorPairing.exists_commIsOf": 185
+          },
+          "related_declarations": [
+            "GlobalTheory.CommutatorPairing.commVal_indep",
+            "GlobalTheory.CommutatorPairing.exists_commIsOf"
+          ]
+        },
+        {
+          "label": "Uniqueness and gluing of the commutator unit",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+          "lines": [
+            219,
+            278
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean#L219-L278",
+          "declaration": "GlobalTheory.CommutatorPairing.weilIs_unique",
+          "declaration_lines": {
+            "GlobalTheory.CommutatorPairing.weilIs_unique": 219,
+            "GlobalTheory.CommutatorPairing.exists_weilIs": 238,
+            "GlobalTheory.CommutatorPairing.existsUnique_weilIs": 272
+          },
+          "related_declarations": [
+            "GlobalTheory.CommutatorPairing.exists_weilIs",
+            "GlobalTheory.CommutatorPairing.existsUnique_weilIs"
+          ]
+        },
+        {
+          "label": "Compatibility with pullback",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+          "lines": [
+            170,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean#L170-L197",
+          "declaration": "GlobalTheory.CommPairing.weilIs_pull",
+          "declaration_lines": {
+            "GlobalTheory.CommPairing.weilIs_pull": 170
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Descent uses global functions after base change and works on nonreduced bases."
+    },
+    {
+      "id": "TCG-03",
+      "chapter": "lifts",
+      "anchor": "lifts-theta-torsion-values",
+      "title": "The universal alternating pairing at level k",
+      "hypotheses": "An abelian scheme with a line bundle and a positive integer k.",
+      "statement": "The units on pairs of torsion sections give a bilinear alternating pairing on k-torsion with values in the group scheme of kth roots of unity.",
+      "equations": [
+        "lifts-theta-order-divides-level"
+      ],
+      "dependencies": [
+        "TCG-02"
+      ],
+      "sources": [
+        {
+          "label": "The diagonal and reversal of the two paths",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+          "lines": [
+            104,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean#L104-L114",
+          "declaration": "GlobalTheory.CommPairing.commIsOf_self",
+          "declaration_lines": {
+            "GlobalTheory.CommPairing.commIsOf_self": 104,
+            "GlobalTheory.CommPairing.commIsOf_symm": 109
+          },
+          "related_declarations": [
+            "GlobalTheory.CommPairing.commIsOf_symm"
+          ]
+        },
+        {
+          "label": "Multiplying the first two lifts",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsCommVOfLe.lean",
+          "lines": [
+            172,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsCommVOfLe.lean#L172-L182",
+          "declaration": "GlobalTheory.WeilMul.CommV.mul",
+          "declaration_lines": {
+            "GlobalTheory.WeilMul.CommV.mul": 172
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Multiplicativity in the first variable",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsWeilIsDiagRoot.lean",
+          "lines": [
+            89,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsWeilIsDiagRoot.lean#L89-L108",
+          "declaration": "GlobalTheory.DiagPairing.weilIs_mul_left",
+          "declaration_lines": {
+            "GlobalTheory.DiagPairing.weilIs_mul_left": 89
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Iteration at a torsion argument and cancellation",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+          "lines": [
+            94,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean#L94-L115",
+          "declaration": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+          "declaration_lines": {
+            "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one": 94
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The universal pair and the value on the complex family",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+          "lines": [
+            162,
+            197
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean#L162-L197",
+          "declaration": "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB",
+          "declaration_lines": {
+            "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB": 117
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The group identities precede any use of discreteness in the complex topology."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callee": "GlobalTheory.CommutatorPairing.exists_ratio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 160,
+        "spelling": "exists_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callee": "GlobalTheory.CommutatorPairing.prod_theta",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 161,
+        "spelling": "prod_theta"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callee": "GlobalTheory.CommutatorPairing.prod_theta",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 162,
+        "spelling": "prod_theta"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callee": "GlobalTheory.CommutatorPairing.surj_fst",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 164,
+        "spelling": "surj_fst"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.commVal_indep",
+      "callee": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 178,
+        "spelling": "thetaVal_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.commVal_indep",
+      "callee": "GlobalTheory.CommutatorPairing.thetaVal_ratio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 179,
+        "spelling": "thetaVal_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.exists_ratio",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 192,
+        "spelling": "exists_ratio"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.prod_theta",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 194,
+        "spelling": "prod_theta"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.prod_theta",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 196,
+        "spelling": "prod_theta"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.surj_fst",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 199,
+        "spelling": "surj_fst"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.val_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 203,
+        "spelling": "val_prod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callee": "GlobalTheory.CommutatorPairing.val_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 204,
+        "spelling": "val_prod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.weilIs_unique",
+      "callee": "GlobalTheory.CommutatorPairing.commVal_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 230,
+        "spelling": "commVal_indep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.exists_commIsOf",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 251,
+        "spelling": "exists_commIsOf"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.glue_top",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 252,
+        "spelling": "glue_top"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.commVal_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 262,
+        "spelling": "commVal_indep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.commVal_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 268,
+        "spelling": "commVal_indep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.existsUnique_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 278,
+        "spelling": "exists_weilIs"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommutatorPairing.existsUnique_weilIs",
+      "callee": "GlobalTheory.CommutatorPairing.weilIs_unique",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsUniqueWeilIs.lean",
+        "line": 279,
+        "spelling": "weilIs_unique"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CommPairing.weilIs_symm",
+      "callee": "GlobalTheory.CommPairing.commIsOf_symm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+        "line": 168,
+        "spelling": "commIsOf_symm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.weilIs_alternating_skew_natural",
+      "callee": "GlobalTheory.CommPairing.weilIs_symm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+        "line": 201,
+        "spelling": "weilIs_symm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.weilIs_alternating_skew_natural",
+      "callee": "GlobalTheory.CommPairing.weilIs_pull",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+        "line": 202,
+        "spelling": "weilIs_pull"
+      }
+    },
+    {
+      "caller": "GlobalTheory.weilIs_alternating_skew_natural",
+      "callee": "GlobalTheory.CommPairing.commIsOf_self",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/WeilIsAlternatingSkewNatural.lean",
+        "line": 207,
+        "spelling": "commIsOf_self"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.triv_step",
+      "callee": "GlobalTheory.CubeTop.cubeTheorem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 29,
+        "spelling": "GlobalTheory.CubeTop.cubeTheorem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.triv_step",
+      "callee": "GlobalTheory.CubeTop.cubeTheorem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.CubeTop.cubeTheorem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_theta_local",
+      "callee": "GlobalTheory.HolTorsionAny.triv_step",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 71,
+        "spelling": "triv_step"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.globalFns_holds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.globalFns_holds"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.CommutatorPairing.exists_weilIs",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 97,
+        "spelling": "GlobalTheory.CommutatorPairing.exists_weilIs"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.HolTorsionAny.exists_theta_local",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 98,
+        "spelling": "exists_theta_local"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.HolTorsionAny.exists_theta_local",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 98,
+        "spelling": "exists_theta_local"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.DiagPairing.weilIs_mul_left",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.DiagPairing.weilIs_mul_left"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callee": "GlobalTheory.CommutatorPairing.weilIs_unique",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 107,
+        "spelling": "GlobalTheory.CommutatorPairing.weilIs_unique"
+      }
+    },
+    {
+      "caller": "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB",
+      "callee": "GlobalTheory.globalFns_holds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 119,
+        "spelling": "GlobalTheory.globalFns_holds"
+      }
+    },
+    {
+      "caller": "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB",
+      "callee": "GlobalTheory.HolTorsionAny.exists_weilIs_pow_eq_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 175,
+        "spelling": "exists_weilIs_pow_eq_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB",
+      "callee": "GlobalTheory.CommPairing.weilIs_pull",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 188,
+        "spelling": "GlobalTheory.CommPairing.weilIs_pull"
+      }
+    },
+    {
+      "caller": "GlobalTheory.torsion_eq_and_weilIs_of_isHolTo_anyLB",
+      "callee": "GlobalTheory.CommutatorPairing.weilIs_unique",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/TorsionCommutatorPairingConstHolomorphicFamilyAn.lean",
+        "line": 192,
+        "spelling": "GlobalTheory.CommutatorPairing.weilIs_unique"
+      }
+    }
+  ]
+}

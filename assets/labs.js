@@ -1100,6 +1100,20 @@
     " The shaded window is centered on the solid peak in logarithmic coordinates. The two percentages record its normalized mass under the kernel and under the envelope.";
   configs.kernel.method +=
     " For this illustration U=(k/σ)/(1+δ/2) and V=(1+δ)U. Each percentage is the integral of the unit-mass density a·exp(−au)(au)ᵏ/k! from U to V. To evaluate even the smallest percentages, count arrivals in a unit-rate Poisson process. Its (k+1)st arrival lies in (aU,aV] exactly when at most k arrivals occur by aU and enough further arrivals occur by aV. The two counts are independent Poisson variables of means aU and a(V−U). We add their positive probabilities in binary64. The proof chooses σ as a function of δ before selecting the window and k.";
+  configs["theta-commutator-square"] = {
+    title: "Why does a change of frame leave the commutator fixed?",
+    kind: "Two paths on a finite torus",
+    section: "lifts",
+    params: [
+      choose("level", "Torus level k", [["2", "2"], ["3", "3"], ["5", "5"]], "3"),
+      range("frame", "Frame parameter t", -2, 2, 1, 1),
+      range("originU", "First origin coordinate u", 0, 4, 1, 0),
+      range("originV", "Second origin coordinate v", 0, 4, 1, 0),
+      choose("orientation", "Numerator path", [["xy", "Across then down"], ["yx", "Down then across"]], "xy"),
+    ],
+    caption: "Write each edge phase as a power of ζₖ = exp(2πi/k). In the initial frame a horizontal edge has exponent zero and a vertical edge in column u has exponent u. Compare the sums of the exponents along the two paths, then change the frame.",
+    method: "Vertex coordinates and exponents are reduced modulo k. The frame h(u,v) = tuv changes an edge exponent by the value of h at its start minus its value at its end. Both path sums acquire the same endpoint difference. Their difference is the exponent of the commutator.",
+  };
   const fmt = (x, d = 4) =>
     Number(x.toPrecision(d)).toString().replace(/^-/, "−");
   function primeBase(n) {
@@ -1781,6 +1795,34 @@
   }
 
   function render(id, v) {
+    if (id === "theta-commutator-square") {
+      const k = Number(v.level);
+      const mod = n => ((n % k) + k) % k;
+      const u = mod(Number(v.originU)), w = mod(Number(v.originV));
+      const right = mod(u + 1), below = mod(w + 1);
+      const frame = (a, b) => Number(v.frame) * a * b;
+      const horizontal = (a, b) => mod(frame(a, b) - frame(mod(a + 1), b));
+      const vertical = (a, b) => mod(a + frame(a, b) - frame(a, mod(b + 1)));
+      const top = horizontal(u, w), bottom = horizontal(u, below);
+      const left = vertical(u, w), side = vertical(right, w);
+      const xy = mod(top + side), yx = mod(left + bottom);
+      const acrossFirst = v.orientation === "xy";
+      const exponent = acrossFirst ? mod(xy - yx) : mod(yx - xy);
+      const point = (a, b) => "(" + a + "," + b + ")";
+      const path = (d, selected) => '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="' +
+        (selected ? '3.5"' : '2" stroke-dasharray="5 4"') + '/>';
+      const textAt = (x, y, label) => '<text x="' + x + '" y="' + y + '" text-anchor="middle">' + label + '</text>';
+      const svg = '<svg class="plot" role="img" aria-label="Two paths from ' + point(u,w) + ' to ' + point(right,below) +
+        '. The horizontal edge exponents are ' + top + ' and ' + bottom + ', and the vertical edge exponents are ' + left + ' and ' + side +
+        '." viewBox="0 0 330 205"><title>Edge exponents on the square of translations</title>' +
+        path("M65 42 H240 V157", acrossFirst) + path("M65 42 V157 H240", !acrossFirst) +
+        '<circle cx="65" cy="42" r="4"/><circle cx="240" cy="42" r="4"/><circle cx="65" cy="157" r="4"/><circle cx="240" cy="157" r="4"/>' +
+        textAt(65, 26, point(u,w)) + textAt(240, 26, point(right,w)) + textAt(65, 182, point(u,below)) + textAt(240, 182, point(right,below)) +
+        textAt(150, 33, top) + textAt(150, 178, bottom) + textAt(47, 104, left) + textAt(259, 104, side) + '</svg>';
+      return '<p>Read from the upper left to the lower right. The solid path is the numerator. Edge labels are exponents modulo ' + k + '.</p>' + svg +
+        metrics([["Across then down", xy + " mod " + k], ["Down then across", yx + " mod " + k],
+          ["Commutator exponent", exponent + " mod " + k], ["Common frame shift", mod(frame(u,w) - frame(right,below)) + " mod " + k]]);
+    }
     if (id === "positive-period-line") {
       const x = Number(v.real), y = Number(v.imag), sign = Number(v.sign);
       // The coordinates are half-integers. Four times h(z,z) is integral.
