@@ -136,6 +136,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "integral-lattice-saturation") {
+          assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["(u−1, 0)", "No", "No", "0", "3", "No"]);
+          assert.equal(await fig.locator('[role="status"]').textContent(), "The vector is outside the integral span. The matrix congruence has no solution.");
         } else if (id === "period-witness-compatibility") {
           assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["3", "9", "t", "t", "189t3", "2295t4", "Yes", "Yes"]);
           assert.equal(await fig.locator('[role="status"]').textContent(), "Both witnesses give the same normalized class modulo t³.");
@@ -434,6 +437,35 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-integral-lattice-saturation");
+    const saturation = page.locator("#fig-integral-lattice-saturation.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height:844});
+      const cases = [
+        [0,"e1",0,3,["(1, 0)","Yes","Yes","Every residue","1","Yes, G = I"]],
+        [2,"ue1",1,2,["(u−1, 0)","No","No","0","3","No"]],
+        [2,"u2e1",2,2,["(1, 0)","Yes","No","0","0","Yes, G = 0"]],
+        [1,"e2",2,3,["(0, 1)","Yes","No","0","9","No"]],
+      ];
+      for (const [power, vector, loss, precision, cells] of cases) {
+        await saturation.evaluate((el, values) => {
+          for (const [key, value] of Object.entries(values)) {
+            const field = el.querySelector('[name="' + key + '"]');
+            field.value = String(value); field.dispatchEvent(new Event("input", {bubbles:true}));
+          }
+        }, {power, vector, loss, precision});
+        assert.deepEqual(await saturation.locator("tbody td").allTextContents(), cells);
+        assert.ok(await saturation.locator("table").evaluateAll(tables => tables.every(table =>
+          table.getBoundingClientRect().right <= table.closest("figure").getBoundingClientRect().right + 1)));
+      }
+    }
+    const satLink = new URL(await saturation.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of Object.entries({vector:"e2", loss:"2", precision:"3"})) {
+      assert.equal(satLink.searchParams.get("integral-lattice-saturation." + key), value);
+    }
+    await openFigure(page, satLink.href);
+    assert.deepEqual(await saturation.locator("tbody td").allTextContents(), ["(0, 1)","Yes","No","0","9","No"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-period-witness-compatibility");
     const witnesses = page.locator("#fig-period-witness-compatibility.ready");
@@ -934,6 +966,8 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticSaturation = plain.locator("#fig-integral-lattice-saturation");
+    assert.deepEqual(await staticSaturation.locator("tbody td").allTextContents(), ["(u−1, 0)","No","No","0","3","No"]);
     const staticWitnesses = plain.locator("#fig-period-witness-compatibility");
     assert.deepEqual(await staticWitnesses.locator("tbody td").allTextContents(), ["3","9","t","t","189t3","2295t4","Yes","Yes"]);
     const staticPower = plain.locator("#fig-period-common-power");
@@ -988,7 +1022,10 @@ async function run() {
     await staticPanel.locator("summary").click();
     assert.ok(await plain.locator('a[href="reference.html#theorem-orbit-stabilizer"]').first().isVisible());
     assert.equal(await plain.locator(".desktop-nav").isVisible(), true);
-    assert.equal(await plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)").count(), ids.length);
+    const staticFigureIds = await plain.locator("[data-lab]")
+      .filter({ has: plain.locator("[data-result] svg[aria-label], [data-result] table:has(caption)") })
+      .evaluateAll(figures => figures.map(figure => figure.dataset.lab));
+    assert.deepEqual(staticFigureIds, ids);
     assert.equal(await plain.locator("[data-controls]:visible").count(), 0);
     assert.deepEqual(await plain.locator("#fig-casimir-cutoff tbody tr").last().locator("td").allInnerTexts(), ["3/2", "0", "0"]);
     assert.deepEqual(await plain.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);

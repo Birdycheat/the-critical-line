@@ -23,6 +23,19 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "integral-lattice-saturation": {
+      title: "Which columns generate the integral lattice?",
+      kind: "A diagonal basis and its integral span",
+      section: "lifts",
+      params: [
+        range("power", "Exponent a of u", 0, 2, 1, 1),
+        choose("vector", "Test vector x", [["e1", "e₁"], ["ue1", "u e₁"], ["u2e1", "u² e₁"], ["e2", "e₂"]], "e1"),
+        range("loss", "Exponent r of 3", 0, 2, 1, 1),
+        range("precision", "Precision n", 1, 4, 1, 2),
+      ],
+      caption: "Write S for the ring 𝔖 = ℤ₃[[u]] and let 𝒪 be the 3-adic completion of S[1/u]. The intersection of S² with 𝒪² is S². The columns of V = diag(uᵃ, 1) form a basis of 𝒪². Their S-span, uᵃS × S, also has rank two. The first test asks about one vector. The second asks whether VG ≡ 3ʳI modulo 3ⁿ for some matrix G over S.",
+      method: "For x = uʲe₁ the first coefficient in the column basis is uʲ⁻ᵃ. It lies in S exactly when j ≥ a. The vector e₂ is always the second column. Substituting u = 0 in the (1, 1)-entry of VG over S gives zero whenever a > 0. For any fixed r, taking n = r + 1 leaves the nonzero target residue 3ʳ, so no such r works at every precision. Over 𝒪, the matrix 3ʳV⁻¹ gives the target exactly. For a > 0 the quotient of S² by the column span is S/(uᵃ), free over ℤ₃ on the powers of u of degree below a. Thus the span is saturated for 3. If it contains 3x, it contains x.",
+    },
     "period-witness-compatibility": {
       title: "When do two witnesses give the same lower-order class?",
       kind: "Normalized witnesses on one frame",
@@ -1680,6 +1693,26 @@
   }
 
   function render(id, v) {
+    if (id === "integral-lattice-saturation") {
+      const a = Number(v.power), r = Number(v.loss), n = Number(v.precision);
+      const modulus = 3 ** n, scalar = 3 ** r, target = scalar % modulus;
+      const second = v.vector === "e2";
+      const exponent = {e1:0, ue1:1, u2e1:2, e2:0}[v.vector] - a;
+      const monomial = j => j === 0 ? "1" : "<var>u</var>" + (j === 1 ? "" : "<sup>" + String(j).replace("-", "−") + "</sup>");
+      const coordinates = second ? "(0, 1)" : "(" + monomial(exponent) + ", 0)";
+      const member = second || exponent >= 0;
+      const solution = target === 0 ? "Yes, <var>G</var> = 0" :
+        a === 0 ? "Yes, <var>G</var> = " + (scalar === 1 ? "" : scalar) + "<var>I</var>" : "No";
+      const announcement = (member ? "The vector belongs to the integral span." : "The vector is outside the integral span.") +
+        (a === 0 || target === 0 ? " The matrix congruence has a solution." : " The matrix congruence has no solution.");
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>';
+      return '<table class="carry-table" data-announcement="' + announcement + '"><caption>Coordinates in the column basis</caption><tbody>' +
+        row("Over 𝒪", coordinates) + row("<var>x</var> in the <var>S</var>-span?", member ? "Yes" : "No") +
+        row("Span equals <var>S</var>²?", a === 0 ? "Yes" : "No") + '</tbody></table>' +
+        '<table class="carry-table"><caption>At <var>u</var> = 0, modulo ' + modulus + '</caption><tbody>' +
+        row("Possible first entry of <var>VG</var>", a === 0 ? "Every residue" : "0") +
+        row("First entry of the target", String(target)) + row("Integral solution?", solution) + '</tbody></table>';
+    }
     if (id === "period-witness-compatibility") {
       const tangent = Number(v.tangent), degree = Number(v.degree), scale = 3 ** Number(v.scale);
       const upperDefect = scale * (tangent ** degree - 1);

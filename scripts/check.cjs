@@ -141,6 +141,44 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Enumerate multiplication by u^a in (Z/3^n)[u]/(u^3). All selected first
+// coordinates have degree at most two; the second coordinate is unrestricted.
+{
+  const coordinates = [
+    ["(1, 0)", "(u, 0)", "(u^2, 0)", "(0, 1)"],
+    ["(u^−1, 0)", "(1, 0)", "(u, 0)", "(0, 1)"],
+    ["(u^−2, 0)", "(u^−1, 0)", "(1, 0)", "(0, 1)"],
+  ];
+  let polynomials = 0, settings = 0, members = 0, solved = 0;
+  for (let n = 1; n <= 4; n++) {
+    const q = 3 ** n;
+    for (let a = 0; a <= 2; a++) {
+      const images = new Uint8Array(q ** 3), constants = new Set();
+      for (let c0 = 0; c0 < q; c0++) for (let c1 = 0; c1 < q; c1++) for (let c2 = 0; c2 < q; c2++) {
+        const coeff = [c0, c1, c2];
+        let code = 0;
+        for (let j = a; j < 3; j++) code += coeff[j-a] * q ** j;
+        images[code] = 1; constants.add(code % q); polynomials++;
+      }
+      const vectors = ["e1", "ue1", "u2e1", "e2"], firstCoordinates = [1,q,q*q,0];
+      for (const [i, vector] of vectors.entries()) for (let r = 0; r <= 2; r++) {
+        const scalar = 3 ** r, residue = scalar % q;
+        const member = Boolean(images[firstCoordinates[i]]), solution = Boolean(images[residue]);
+        assert.equal(solution, constants.has(residue));
+        const html = lib.render("integral-lattice-saturation", {power:a, vector, loss:r, precision:n});
+        const cells = [...html.matchAll(/<td>(.*?)<\/td>/g)].map(m => m[1].replaceAll("<sup>", "^").replace(/<[^>]+>/g, ""));
+        assert.deepEqual(cells, [coordinates[a][i], member ? "Yes" : "No", images[1] ? "Yes" : "No", constants.size === 1 ? "0" : "Every residue",
+          String(residue), !solution ? "No" : residue === 0 ? "Yes, G = 0" : "Yes, G = " + (scalar === 1 ? "" : scalar) + "I"]);
+        members += Number(member); solved += Number(solution); settings++;
+      }
+    }
+  }
+  assert.deepEqual([polynomials, settings, members, solved], [1655640, 144, 108, 72]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-integral-lattice-saturation"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("integral-lattice-saturation", lib.defaults("integral-lattice-saturation"))));
+}
 // Multiply coefficient matrices over Z[t] before reducing at either witness order.
 {
   const zero = () => [[0, 0], [0, 0]];
