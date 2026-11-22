@@ -136,6 +136,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "period-witness-compatibility") {
+          assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["3", "9", "t", "t", "189t3", "2295t4", "Yes", "Yes"]);
+          assert.equal(await fig.locator('[role="status"]').textContent(), "Both witnesses give the same normalized class modulo t³.");
         } else if (id === "period-common-power") {
           assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["(3, 5)", "(0, 2)", "(5, 3)", "(2, 0)"]);
           assert.deepEqual(await fig.locator(".metrics dd").allTextContents(), ["t3", "Divide by t3", "t2I"]);
@@ -431,6 +434,41 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-period-witness-compatibility");
+    const witnesses = page.locator("#fig-period-witness-compatibility.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height:844});
+      for (const w of [4, -1]) {
+        await witnesses.getByRole("combobox", {name:"Action on t"}).selectOption(String(w));
+        for (let degree = 2; degree <= 4; degree++) for (let scale = 0; scale <= 3; scale++) {
+          await witnesses.evaluate((el, values) => {
+            for (const [key, value] of Object.entries(values)) {
+              const slider = el.querySelector('input[name="' + key + '"]');
+              slider.value = String(value); slider.dispatchEvent(new Event("input", {bubbles:true}));
+            }
+          }, {degree, scale});
+          const cols = await witnesses.locator("tbody td").allTextContents();
+          assert.equal(cols[1], String(3 ** scale));
+          assert.equal(cols[3], degree === 2 ? "t + t2" : "t");
+          assert.equal(cols[7], degree === 4 || (w === -1 && degree === 2) ? "Yes" : "No");
+          assert.equal(await witnesses.locator('[role="status"]').textContent(), await witnesses.locator("[data-result] p").textContent());
+          assert.ok(await witnesses.locator("table").evaluate(el =>
+            el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+          assert.ok(await witnesses.locator("thead th").evaluateAll(headers => headers.every(th => {
+            const label = document.createRange(); label.selectNodeContents(th);
+            return label.getClientRects().length === 1;
+          })));
+        }
+      }
+    }
+    await witnesses.locator('input[name="degree"]').press("Home");
+    const witnessLink = new URL(await witnesses.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of Object.entries({tangent:"-1", degree:"2", scale:"3"})) {
+      assert.equal(witnessLink.searchParams.get("period-witness-compatibility." + key), value);
+    }
+    await openFigure(page, witnessLink.href);
+    assert.deepEqual(await witnesses.locator("tbody td").allTextContents(), ["3","27","t","t + t2","−6t3","0","Yes","Yes"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-period-common-power");
     const commonPower = page.locator("#fig-period-common-power.ready");
@@ -896,6 +934,8 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticWitnesses = plain.locator("#fig-period-witness-compatibility");
+    assert.deepEqual(await staticWitnesses.locator("tbody td").allTextContents(), ["3","9","t","t","189t3","2295t4","Yes","Yes"]);
     const staticPower = plain.locator("#fig-period-common-power");
     assert.deepEqual(await staticPower.locator("tbody td").allTextContents(), ["(3, 5)", "(0, 2)", "(5, 3)", "(2, 0)"]);
     assert.deepEqual(await staticPower.locator(".metrics dd").allTextContents(), ["t3", "Divide by t3", "t2I"]);

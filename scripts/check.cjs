@@ -141,6 +141,57 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Multiply coefficient matrices over Z[t] before reducing at either witness order.
+{
+  const zero = () => [[0, 0], [0, 0]];
+  function candidate(s, d) {
+    const coefficients = Array.from({length: 5}, zero);
+    coefficients[0] = [[s, 0], [0, s]];
+    coefficients[1][0][1] = s;
+    coefficients[d][0][1] += s;
+    return coefficients;
+  }
+  function twistedDefect(beta, w) {
+    const twist = [[[1, 0], [0, 1]], [[0, 1-w], [0, 0]]];
+    const out = Array.from({length: 6}, zero);
+    for (let j = 0; j < beta.length; j++) {
+      for (let r = 0; r < 2; r++) for (let c = 0; c < 2; c++) {
+        out[j][r][c] -= beta[j][r][c];
+        for (let i = 0; i < twist.length; i++) for (let k = 0; k < 2; k++) {
+          out[i+j][r][c] += twist[i][r][k] * beta[j][k][c] * w ** j;
+        }
+      }
+    }
+    return out;
+  }
+  const counts = {validAgree: 0, validDiffer: 0, invalidAgree: 0, invalidDiffer: 0};
+  for (const w of [4, -1]) for (const d of [2, 3, 4]) for (let k = 0; k <= 3; k++) {
+    const s = 3 ** k, lower = candidate(3, 3), upper = candidate(s, d);
+    const defects = [lower, upper].map(beta => twistedDefect(beta, w));
+    const passes = defects.map((coefficients, i) => coefficients.slice(0, 3+i).flat(2).every(x => x === 0));
+    assert.equal(passes[0], true);
+    const compatible = lower.slice(0, 3).every((m, j) => m.every((row, r) => row.every((a, c) => s * a === 3 * upper[j][r][c])));
+    counts[(passes[1] ? "valid" : "invalid") + (compatible ? "Agree" : "Differ")]++;
+    const display = coefficients => {
+      const terms = [];
+      for (const [j, matrix] of coefficients.entries()) {
+        assert.equal(matrix[0][0], 0); assert.equal(matrix[1][0], 0); assert.equal(matrix[1][1], 0);
+        if (matrix[0][1]) terms.push(String(matrix[0][1]).replace("-", "−") + "t^" + j);
+      }
+      return terms.join(" + ") || "0";
+    };
+    const out = lib.render("period-witness-compatibility", {tangent:String(w), degree:d, scale:k});
+    const cells = [...out.matchAll(/<td>(.*?)<\/td>/g)]
+      .map(m => m[1].replaceAll("<sup>", "^").replace(/<[^>]+>/g, ""));
+    assert.deepEqual(cells, ["3", String(s), "t", compatible ? "t" : "t + t^2",
+      ...defects.map(display), "Yes", passes[1] ? "Yes" : "No"]);
+  }
+  assert.deepEqual(counts, {validAgree:8, validDiffer:4, invalidAgree:8, invalidDiffer:4});
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-period-witness-compatibility"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("period-witness-compatibility", lib.defaults("period-witness-compatibility"))));
+}
 // Shift the actual sheared matrices, including their off-diagonal terms.
 {
   const t = (degree, coefficient = 1) => ({degree, coefficient});

@@ -23,6 +23,18 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "period-witness-compatibility": {
+      title: "When do two witnesses give the same lower-order class?",
+      kind: "Normalized witnesses on one frame",
+      section: "lifts",
+      params: [
+        choose("tangent", "Action on t", [["4", "g(t) = 4t"], ["-1", "g(t) = −t"]], "4"),
+        range("degree", "Degree d of the added term", 2, 4, 1, 4),
+        range("scale", "Scalar exponent k at order four", 0, 3, 1, 2),
+      ],
+      caption: "Over ℤ₃[[t]], let J have its only nonzero entry, a one, in position (1, 2). Put B = I + tJ. The first candidate is 3(B + t³J), tested modulo t³. The second is 3ᵏ(B + tᵈJ), tested modulo t⁴. Divide each by its own scalar to compare their (1, 2)-entries modulo t³. Their other normalized entries already agree.",
+      method: "The generator g fixes the coefficients and sends t to wt. Put Δ = B g(B)⁻¹ = I + (1 − w)tJ. For a candidate β = c(B + tᵈJ), the defect Δg(β) − β is c(wᵈ − 1)tᵈJ because J² = 0. The test at order m requires this defect to be divisible by tᵐ. Checking the generator suffices for its cyclic group because the action preserves (tᵐ) and the twist is invertible. With w = 4 a nonzero coefficient still counts, even when 3 divides it. With w = −1 every even power of t is fixed.",
+    },
     "period-common-power": {
       title: "Which power changes both matrices to the target height?",
       kind: "Common powers in a polynomial matrix pair",
@@ -1668,6 +1680,28 @@
   }
 
   function render(id, v) {
+    if (id === "period-witness-compatibility") {
+      const tangent = Number(v.tangent), degree = Number(v.degree), scale = 3 ** Number(v.scale);
+      const upperDefect = scale * (tangent ** degree - 1);
+      const upperValid = degree === 4 || upperDefect === 0;
+      const compatible = degree >= 3;
+      const monomial = (coefficient, exponent) => coefficient === 0 ? "0" :
+        String(coefficient).replace("-", "−") + "<var>t</var><sup>" + exponent + "</sup>";
+      const residue = "<var>t</var>" + (compatible ? "" : " + <var>t</var><sup>2</sup>");
+      const row = (label, lower, upper) => '<tr><th scope="row">' + label + '</th><td>' + lower + '</td><td>' + upper + '</td></tr>';
+      const summary = upperValid
+        ? (compatible ? "Both witnesses give the same normalized class modulo t³." :
+          "Both witnesses pass. The action fixes t², so their normalized classes can differ modulo t³.")
+        : (compatible ? "The normalized classes agree modulo t³, but the second candidate fails at order four." :
+          "The normalized classes differ modulo t³. The second candidate fails at order four.");
+      return '<table class="carry-table" data-announcement="' + summary + '"><caption>Two tests on the same frame</caption>' +
+        '<thead><tr><th scope="col">Test</th><th scope="col" style="white-space:nowrap">Order 3</th>' +
+        '<th scope="col" style="white-space:nowrap">Order 4</th></tr></thead><tbody>' +
+        row("Scalar at <var>t</var> = 0", "3", String(scale)) +
+        row("Normalized entry mod <var>t</var>³", "<var>t</var>", residue) +
+        row("Twisted defect, entry (1, 2)", monomial(3 * (tangent ** 3 - 1), 3), monomial(upperDefect, degree)) +
+        row("Passes its own test?", "Yes", upperValid ? "Yes" : "No") + '</tbody></table><p>' + summary + '</p>';
+    }
     if (id === "period-common-power") {
       const {height, jumps} = periodLayers[v.layer];
       const target = Number(v.target), shift = target - height;
