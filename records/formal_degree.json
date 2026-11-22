@@ -26,7 +26,10 @@
         "global-formal-identity",
         "global-formal-limits"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "RSI-06",
+        "KRL-05"
+      ],
       "sources": [
         {
           "declaration": "IsHCParam / fdegHC",
@@ -200,7 +203,7 @@
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdConst.lean#L107-L153"
         }
       ],
-      "correspondence": "The sign counts p,q give pq complex coordinates. FdStep uses nested admissible coordinate shifts. ThmFD bounds the same extended-real limsup and liminf by cPQ·PiW(0). FdConst expands the ordinary sequence via lemma7, then identifies its positive real limit. At ordering i<j each opposite-sign weight at zero is j−i.",
+      "correspondence": "The sign counts p,q give pq complex coordinates. FdStep uses nested admissible coordinate shifts. ThmFD bounds the same extended-real limsup and liminf by cPQ·PiW(0). FdConst expands the ordinary sequence via lemma7, then identifies its positive real limit. At ordering i<j each opposite-sign weight at zero is j−i. The formal-degree ratio uses swC_main. Its value reaches closure_genSub_stable through the identification with the generated model. The two namespaces and the directed edges are distinguished in the compiled paths.",
       "status": "mathematical proof reconstructed",
       "review": "Independent reader verified the signed-pair decomposition, both limits, positivity and cancellation yielding the exact Haar normalization."
     },
@@ -496,6 +499,78 @@
         "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
         "line": 242
       }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdc_step",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdeg_ratio_V",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdConsA.lean",
+        "line": 138,
+        "spelling": "fdeg_ratio_V"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdeg_ratio_V",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.swC_main",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Sandwich.lean",
+        "line": 26,
+        "spelling": "swC_main"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.swC_main",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.cc_gk",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/SandwichA.lean",
+        "line": 169,
+        "spelling": "cc_gk"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.swC_main",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.equiv_sigLam_of_isDS",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/SandwichA.lean",
+        "line": 170,
+        "spelling": "equiv_sigLam_of_isDS"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.equiv_sigLam_of_isDS",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.equiv_sigLam_of_cas",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EquivSigLamOfIsDS.lean",
+        "line": 54,
+        "spelling": "equiv_sigLam_of_cas"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.equiv_sigLam_of_cas",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.data_closGen_eq_top",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/Arbitrary.lean",
+        "line": 139,
+        "spelling": "data_closGen_eq_top"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.data_closGen_eq_top",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.closGen_stable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/ExistsKhwGenSubOfKType.lean",
+        "line": 171,
+        "spelling": "closGen_stable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.closGen_stable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.closure_genSub_stable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/RigidityTheorems/ClosGenStable.lean",
+        "line": 21,
+        "spelling": "closure_genSub_stable"
+      }
     }
   ],
   "derivation_edges": [
@@ -509,7 +584,7 @@
     ]
   ],
   "outstanding": [
-    "The coordinate translation theorem for large-gap discrete series, existence and identification of their coefficient models, the compact Weyl dimension formula, and the coefficient limit and its global integrable envelope are named source inputs at this depth.",
+    "The coordinate translation theorem for large-gap discrete series is derived through the embedding of a shifted model (RSI-06), and the existence and identification of their coefficient models through the kernel realization (KRL-05). The compact Weyl dimension formula, the coefficient limit and its global integrable envelope remain named source inputs at this depth.",
     "The source also gives a separate lowest-compact-type upper bound. Only the lower half enters this part of Count5. The compact signatures and small gaps do not occur in this particular argument.",
     "The signature (1,1) computation specializes the real-place comparison. It is not a numerical instance of the full arithmetic host."
   ],

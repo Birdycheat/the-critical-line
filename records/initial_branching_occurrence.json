@@ -98,7 +98,8 @@
         "normalization-initial-branching-trial-quotient"
       ],
       "dependencies": [
-        "IBO-01"
+        "IBO-01",
+        "KRL-05"
       ],
       "sources": [
         {
@@ -192,7 +193,8 @@
             "PositivityTheory.RgHe3.trial_of_inputs": 50
           }
         }
-      ]
+      ],
+      "correspondence": "The occurrence argument uses isDS_props_of_gap. Its proof and the realization of the lowest type share the smooth derived-action theorem. The mathematical link uses uniqueness of the model at this parameter."
     },
     {
       "id": "IBO-03",
@@ -685,6 +687,24 @@
         "spelling": "GlobalTheory.T.trace_diagonal_block_conjugate_formula"
       },
       "caller": "PositivityTheory.RgHe.FrameA.frame"
+    },
+    {
+      "caller": "PositivityTheory.RgHe3.discrete_series_data_holds",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_gap",
+      "callsite": {
+        "path": "src/Development/WeilBound/RepresentationTheoryGL/HolomorphicDiscreteSeries/HarishChandraDescent/DiscreteSeriesData/DiscreteSeriesDataHolds.lean",
+        "line": 41,
+        "spelling": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_gap"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_gap",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.casOnDatum_of_isDS",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EquivSigLamOfIsDS.lean",
+        "line": 83,
+        "spelling": "casOnDatum_of_isDS"
+      }
     }
   ],
   "derivation_edges": [
@@ -716,6 +736,6 @@
     }
   ],
   "outstanding": [
-    "STO-01–02 derive separated compact-type orthogonality using the one-position operator estimates and analytic invariance of the derivative closure. The geometric construction of a discrete-series model at the terminal parameter remains an independent existence input."
+    "STO-01–02 derive separated compact-type orthogonality using the one-position operator estimates and analytic invariance of the derivative closure. The geometric construction of a discrete-series model at the terminal parameter remains an independent existence input. The scalar Casimir and the smoothness of compact-finite vectors used in IBO-02 come from the kernel realization (KRL-05)."
   ]
 }

@@ -18,7 +18,8 @@
       ],
       "dependencies": [
         "DSD-01",
-        "DSD-02"
+        "DSD-02",
+        "KRL-05"
       ],
       "equations": [
         "normalization-branching-derivative-energy-bound"
@@ -128,7 +129,8 @@
           },
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean#L128-L158"
         }
-      ]
+      ],
+      "correspondence": "The derivative estimate and the realization of the lowest type share a smooth derived-action theorem. The recorded route for this estimate goes through isDS_props_of_gap. The uniqueness identification in the text links equivalent realizations."
     },
     {
       "id": "BVD-02",
@@ -618,6 +620,24 @@
         "line": 373,
         "spelling": "coef_hasDerivAt"
       }
+    },
+    {
+      "caller": "CompanionTheory.Lime.T3.kFiniteWordBound_indefUnitary",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_gap",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/OrbitDecayEstimates/CurveDerivativeDecay/KFiniteWordBoundIndefUnitary.lean",
+        "line": 260,
+        "spelling": "isDS_props_of_gap"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_gap",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDS_props_of_copies",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/DiscreteSeriesExistence/EquivSigLamOfIsDS.lean",
+        "line": 82,
+        "spelling": "isDS_props_of_copies"
+      }
     }
   ],
   "derivation_edges": [
@@ -657,7 +677,7 @@
     }
   ],
   "outstanding": [
-    "The existence, smoothness and uniqueness of the lowest type, its infinitesimal character, and the decomposition into compact highest weights are inputs. The associated compact Casimir and word spaces are developed also in the global chapter.",
+    "In the large-gap range, the existence, smoothness and uniqueness of the lowest type and the scalar action of the Casimir on smooth vectors are derived in the kernel realization (KRL-03 to KRL-05). The decomposition into compact highest weights is classical. The associated compact Casimir and word spaces are developed also in the global chapter.",
     "The estimates on complex words for the shifted moment and the short real words for the translated period have different direct providers and different separation thresholds. Integrability for the whole period requires the subgroup decay and power integral in addition to the derivative estimate."
   ]
 }
