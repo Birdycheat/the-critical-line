@@ -23,6 +23,18 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "iwahori-translated-slopes": {
+      title: "Which eigenvalue valuations change under the central translation?",
+      kind: "A two-dimensional Iwahori double coset",
+      section: "lifts",
+      params: [
+        choose("prime", "Local prime r", [["3", "3"], ["5", "5"], ["7", "7"]], "3"),
+        range("power", "Double-coset power m", 0, 3, 1, 2),
+        range("shift", "Valuation of the central scalar d", 0, 2, 1, 1),
+      ],
+      caption: "Over K = ℚᵣ the two Iwahori factors are the upper unipotent with entry 1 and the lower unipotent with entry r. They flank diag(1, r⁻ᵐ). The central scalar is rᵈ. The test evaluates the matrix g obtained by multiplying this product by r⁻ᵐᵈ.",
+      method: "To compute with integers, multiply g by r raised to m(1 + d) and call the result B. For m > 0 its characteristic polynomial reduces to X(X − 1). Both residue roots lift by Hensel’s lemma. The lift of 1 is a unit and the product of the two roots is det B = rᵐ. Subtract m(1 + d) from their valuations to recover those of g. At m = 0 the discriminant is r(r + 4), of odd valuation at each listed prime.",
+    },
     "filtered-lattice-modification": {
       title: "Which powers put the columns and inverse rows at the same depth?",
       kind: "Two lattices over a Laurent series field",
@@ -1746,6 +1758,31 @@
   }
 
   function render(id, v) {
+    if (id === "iwahori-translated-slopes") {
+      const p = Number(v.prime);
+      const m = Number(v.power);
+      const d = Number(v.shift);
+      const determinant = p ** m;
+      const topLeft = determinant + p;
+      const trace = topLeft + 1;
+      const discriminant = trace * trace - 4 * determinant;
+      const scale = m * (1 + d);
+      const signed = number => String(number).replace("-", "−");
+      const rootValuations = m > 0 ? signed(-scale) + ", " + signed(m - scale) : "No roots in K";
+      const conclusion = m > 0
+        ? "The two simple residue roots lift to roots in K. The unit root of B has valuation 0. Its companion has valuation " + m + " because their product is " + determinant + "."
+        : "The residue root 1 is double. The discriminant " + discriminant + " has valuation 1. The polynomial is separable and its two roots lie in a quadratic extension of K.";
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>';
+      const announcement = "Prime " + p + ". Power " + m + ". Central valuation " + d + ". " +
+        (m > 0 ? "Eigenvalue valuations of g: " + rootValuations + "." : "The characteristic polynomial does not split over the local field.");
+      return '<table class="carry-table" data-announcement="' + announcement + '"><caption>From the integral matrix to the translated spectrum</caption>' +
+        '<thead><tr><th scope="col">Quantity</th><th scope="col">Value</th></tr></thead><tbody>' +
+        row('Rows of <var>B</var> = ' + p + '<sup>' + scale + '</sup><var>g</var>', '(' + topLeft + ', 1), (' + p + ', 1)') +
+        row('Characteristic polynomial of <var>B</var>', '<var>X</var>² − ' + trace + '<var>X</var> + ' + determinant) +
+        row('Roots modulo ' + p, m > 0 ? '0 and 1' : '1 (double)') +
+        row('Eigenvalue valuations of <var>g</var> over <var>K</var>', rootValuations) +
+        '</tbody></table><p>' + conclusion + '</p>';
+    }
     if (id === "filtered-lattice-modification") {
       const degrees = {mixed: [-1, 2], swapped: [2, -1], flat: [0, 0]}[v.degrees];
       const depth = Number(v.height), sign = v.rule === "subtract" ? -1 : 1;

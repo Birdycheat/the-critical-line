@@ -145,7 +145,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "hecke-four-point-approximation") {
+        if (id === "iwahori-translated-slopes") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(12, 1), (3, 1)", "X² − 13X + 9", "0 and 1", "−4, −2"]);
+          assert.match(await fig.locator('[role="status"]').textContent(), /Eigenvalue valuations of g: −4, −2/);
+        } else if (id === "hecke-four-point-approximation") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1/√2", "1/√2", "Equal"]);
           assert.deepEqual(await fig.locator("tbody tr").nth(1).locator("td").allInnerTexts(), ["i", "1 − i", "1/√2"]);
         } else if (id === "quadratic-place-restrictions") {
