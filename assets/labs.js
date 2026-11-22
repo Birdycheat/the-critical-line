@@ -17,7 +17,23 @@
   });
   const ramifiedCoordinates = [["0", "0"], ["1", "1"], ["eta", "η"], ["sum", "1 + η"]];
   const gaussianLabels = Array.from({length: 7}, (_, i) => [String(i), String(i)]);
+  const periodLayers = {
+    opposite: {label: "N = 4, jumps (−1, 1)", height: 4, jumps: [-1, 1]},
+    upper: {label: "N = 1, jumps (0, 1)", height: 1, jumps: [0, 1]},
+    flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
+  };
   const configs = {
+    "period-common-power": {
+      title: "Which power changes both matrices to the target height?",
+      kind: "Common powers in a polynomial matrix pair",
+      section: "lifts",
+      params: [
+        choose("layer", "Starting height and jumps", Object.entries(periodLayers).map(([key, layer]) => [key, layer.label]), "opposite"),
+        range("target", "Target height H", 0, 4, 1, 1),
+      ],
+      caption: "Work in the polynomial ring ℤ[t]. At height m, the diagonal factors in the first matrix have exponents m + h₁ and m + h₂. In its companion they have exponents m − h₁ and m − h₂. Compare the smallest starting exponent with the power you need to divide out.",
+      method: "Write D₊ and D₋ for the diagonal matrices with those powers of t. Take P with rows (1, 1) and (0, 1), and form A = D₊P⁻¹ and A′ = PD₋. Their product is t²ᵐI because P⁻¹P cancels. Changing the height from N to H shifts all four exponents by H − N. Try H = 2 in the first two layers. Divide by t² in the layer starting at 4 and multiply by t in the layer starting at 1. Both products become t⁴I. A negative exponent at the target gives a pole on the diagonal.",
+    },
     "translated-trace-precision": {
       title: "Which traces detect divisibility in the lattice?",
       kind: "Translated traces on a two-dimensional 2-adic lattice",
@@ -1652,6 +1668,30 @@
   }
 
   function render(id, v) {
+    if (id === "period-common-power") {
+      const {height, jumps} = periodLayers[v.layer];
+      const target = Number(v.target), shift = target - height;
+      const exponents = (m, sign) => jumps.map(h => m + sign * h);
+      const signed = x => String(x).replace("-", "−");
+      const pair = values => "(" + values.map(signed).join(", ") + ")";
+      const power = n => n === 0 ? "1" : "<var>t</var>" + (n === 1 ? "" : "<sup>" + n + "</sup>");
+      const common = Math.min(...exponents(height, 1), ...exponents(height, -1));
+      const integral = common + shift >= 0;
+      const operation = shift === 0 ? "Keep both matrices" :
+        (shift < 0 ? "Divide by " : "Multiply by ") + power(Math.abs(shift));
+      const product = target === 0 ? "<var>I</var>" : power(2 * target) + "<var>I</var>";
+      const row = (name, sign) => '<tr><th scope="row"><var>' + name + '</var></th><td>' +
+        pair(exponents(height, sign)) + '</td><td>' + pair(exponents(target, sign)) + '</td></tr>';
+      const status = "Height " + height + " to " + target + ". Smallest target exponent " +
+        signed(common + shift) + ". " + (integral ? "Both matrices are integral." : "The rescaled pair has a pole.");
+      return '<table class="carry-table" data-announcement="' + status + '"><caption>Exponents of the diagonal factors</caption>' +
+        '<thead><tr><th scope="col">Matrix</th><th scope="col">Start, ' + height + '</th><th scope="col">Target, ' + target +
+        '</th></tr></thead><tbody>' + row("A", 1) + row("A′", -1) + '</tbody></table>' +
+        metrics([["Largest common power at the start", power(common)], ["Operation on both matrices", operation],
+          ["Product after rescaling", product]]) +
+        (integral ? '<p>Both rescaled matrices have polynomial entries.</p>' :
+          '<p>A negative diagonal exponent gives a pole. The product still has polynomial entries.</p>');
+    }
     if (id === "translated-trace-precision") {
       const a = Number(v.a), b = Number(v.b);
       const modulus = 2 ** Number(v.n), stronger = 2 * modulus;

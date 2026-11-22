@@ -141,6 +141,56 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Shift the actual sheared matrices, including their off-diagonal terms.
+{
+  const t = (degree, coefficient = 1) => ({degree, coefficient});
+  const models = [
+    ["opposite", 4, [[t(3), t(3, -1)], [null, t(5)]], [[t(5), t(3)], [null, t(3)]]],
+    ["upper", 1, [[t(1), t(1, -1)], [null, t(2)]], [[t(1), t(0)], [null, t(0)]]],
+    ["flat", 2, [[t(2), t(2, -1)], [null, t(2)]], [[t(2), t(2)], [null, t(2)]]],
+  ];
+  function checkProduct(left, right, degree) {
+    for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) {
+      const sum = new Map();
+      for (let k = 0; k < 2; k++) {
+        const a = left[i][k], b = right[k][j];
+        if (!a || !b) continue;
+        const exponent = a.degree + b.degree;
+        sum.set(exponent, (sum.get(exponent) || 0) + a.coefficient * b.coefficient);
+      }
+      assert.deepEqual([...sum].filter(([, c]) => c !== 0), i === j ? [[degree, 1]] : []);
+    }
+  }
+  const power = n => n === 0 ? "1" : n === 1 ? "t" : "t^" + n;
+  const diagonal = a => "(" + [a[0][0].degree, a[1][1].degree].join(", ").replaceAll("-", "−") + ")";
+  const checks = {lower: 0, same: 0, raise: 0, pole: 0};
+  for (const [layer, height, a, b] of models) {
+    checkProduct(a, b, 2 * height);
+    const entries = [a, b].flat(2).filter(Boolean);
+    const common = Math.min(...entries.map(e => e.degree));
+    for (let target = 0; target <= 4; target++) {
+      const shift = target - height;
+      const [left, right] = [a, b].map(m => m.map(row => row.map(e => e && t(e.degree + shift, e.coefficient))));
+      checkProduct(left, right, 2 * target);
+      const integral = [left, right].flat(2).every(e => !e || e.degree >= 0);
+      checks[!integral ? "pole" : shift < 0 ? "lower" : shift > 0 ? "raise" : "same"]++;
+      const output = lib.render("period-common-power", {layer, target});
+      const cells = [...output.matchAll(/<td>([^<]+)<\/td>/g)].map(m => m[1]);
+      assert.deepEqual(cells, [a, left, b, right].map(diagonal));
+      const metrics = [...output.matchAll(/<dd>(.*?)<\/dd>/g)]
+        .map(m => m[1].replaceAll("<sup>", "^").replace(/<[^>]+>/g, ""));
+      const operation = shift === 0 ? "Keep both matrices" : (shift < 0 ? "Divide by " : "Multiply by ") + power(Math.abs(shift));
+      assert.deepEqual(metrics, [power(common), operation, target === 0 ? "I" : power(2 * target) + "I"]);
+      assert.equal(output.includes("A negative diagonal exponent gives a pole."), !integral);
+      assert.equal(output.includes("Both rescaled matrices have polynomial entries."), integral);
+    }
+  }
+  assert.deepEqual(checks, {lower: 5, same: 3, raise: 5, pole: 2});
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-period-common-power"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("period-common-power", lib.defaults("period-common-power"))));
+}
 // Form the four matrices in 2^n{0,I,D,I+D} modulo 2^(n+1) and look up each candidate.
 {
   const identity = [[1, 0], [0, 1]], translate = [[1, 0], [0, -1]];

@@ -419,7 +419,7 @@
     },
     {
       "chapter": "global",
-      "review": "Independently checked against TheoremFSharp.lean lines 216–400. The affine normalization, strict lower tail, b_F=0 case, constants, integration, weaker log|W| form and finite example agree. The earlier geometric matrix inputs were outside this independent review.",
+      "review": "The previous independent review verified the strict lower tail, the arithmetic normalization, integration, the weaker log|W| form and the finite example. The argument for the discarded columns was checked against FrameLinearAlgebraFirst.lean lines 15–64 and 77–221 and TheoremFSharp.lean lines 35–151 and 277–337.",
       "id": "global.layer",
       "title": "Integrating the rank deficit",
       "anchor": "global-layer",
@@ -427,7 +427,7 @@
         "global-tail",
         "global-layer-mean"
       ],
-      "statement": "Assume the normalized target slopes ν satisfy ν≥s−H and the fraction below s−τ is at most ω(τ)=(η+4u/(u+τ)+4√e)/(1−δ) for 0≤τ≤H. Their mean is at least s−[4u log(1+H/u)+(η+4√e)H]/(1−δ), with the logarithmic term zero when u=0.",
+      "statement": "For a normalized family with positive total source dimension r and full row dimension D, assume the aggregate column Gram deviation is ≤er, 0≤e≤1/4, and D tr(Q²)≤(1+η)(tr Q)² with η≥0. If a fraction p of the source dimensions is discarded, the combined images miss at most a fraction η+4p+4√e of the full rows. For arithmetic row share ≥1−δ>0, the slope and height hypotheses give a target-tail fraction at most (η+4u/(u+τ)+4√e)/(1−δ), where u=b_F bounds the source excess above its mean s and the source fraction is zero when u=τ=0. If target slopes are ≥s−H, their mean is ≥s−[4u log(1+H/u)+(η+4√e)H]/(1−δ), with logarithmic term zero when u=0.",
       "dependencies": [
         "global.lattice"
       ],
@@ -435,7 +435,9 @@
         "Harder–Narasimhan filtration",
         "normalized slope list",
         "strict lower-tail fraction",
-        "layer-cake integral"
+        "layer-cake integral",
+        "column Gram deviation",
+        "orthogonal projection onto the missing rows"
       ],
       "sources": [
         {
@@ -446,6 +448,33 @@
             33
           ],
           "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L11-L33"
+        },
+        {
+          "declaration": "Formalism.HN.frame_linear_algebra_first",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean",
+          "lines": [
+            77,
+            221
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean#L77-L221"
+        },
+        {
+          "declaration": "Formalism.HN.PframeLA1.final_real1",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean",
+          "lines": [
+            15,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean#L15-L64"
+        },
+        {
+          "declaration": "Formalism.HN.thmF_place",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+          "lines": [
+            35,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean#L35-L151"
         },
         {
           "declaration": "Formalism.HN.theoremFSharp_of",
@@ -494,7 +523,7 @@
         }
       ],
       "status": "mathematical proof reconstructed",
-      "correspondence": "The finite source-tail inequality, layer-cake identity, logarithmic integral and deliberate logarithmic weakening are reconstructed. The map-height and one-place matrix estimates supplying the target-tail bound are traced through explicit proof applications, with their full derivation pending."
+      "correspondence": "The source tail, the two tests of the trace on the missing rows, the one-place transfer to the arithmetic rows and the integral of the rank deficit are reconstructed. The normalized arithmetic slope inequality, the height allowances and the supplied frame estimates are the inputs to the target-tail argument."
     },
     {
       "chapter": "global",

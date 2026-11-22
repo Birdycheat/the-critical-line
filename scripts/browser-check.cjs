@@ -136,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "period-common-power") {
+          assert.deepEqual(await fig.locator("tbody td").allTextContents(), ["(3, 5)", "(0, 2)", "(5, 3)", "(2, 0)"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allTextContents(), ["t3", "Divide by t3", "t2I"]);
+          assert.equal(await fig.locator('[role="status"]').textContent(), "Height 4 to 1. Smallest target exponent 0. Both matrices are integral.");
         } else if (id === "translated-trace-precision") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["2", "0", "2", "2", "0", "2"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Yes", "No"]);
@@ -427,6 +431,34 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-period-common-power");
+    const commonPower = page.locator("#fig-period-common-power.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      for (const [layer, h1, h2] of [["opposite", -1, 1], ["upper", 0, 1], ["flat", 0, 0]]) {
+        await commonPower.getByRole("combobox", {name: "Starting height and jumps"}).selectOption(layer);
+        for (let h = 0; h <= 4; h++) {
+          await commonPower.getByRole("slider", {name: "Target height H"}).evaluate((el, value) => {
+            el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true}));
+          }, h);
+          const cells = await commonPower.locator("tbody td:last-child").allTextContents();
+          const pair = (x, y) => ("(" + x + ", " + y + ")").replaceAll("-", "−");
+          assert.deepEqual(cells, [pair(h + h1, h + h2), pair(h - h1, h - h2)]);
+          const status = await commonPower.locator('[role="status"]').textContent();
+          assert.equal(status.includes("has a pole"), h < Math.max(Math.abs(h1), Math.abs(h2)));
+          assert.ok(await commonPower.locator("table").evaluate(el =>
+            el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+          assert.ok(await commonPower.locator("table var, .metrics var").evaluateAll(nodes =>
+            nodes.every(n => getComputedStyle(n).fontWeight === "400")));
+        }
+      }
+    }
+    const commonLink = new URL(await commonPower.locator("[data-share]").getAttribute("href"));
+    assert.equal(commonLink.searchParams.get("period-common-power.layer"), "flat");
+    assert.equal(commonLink.searchParams.get("period-common-power.target"), "4");
+    await openFigure(page, commonLink.href);
+    assert.deepEqual(await commonPower.locator(".metrics dd").allTextContents(), ["t2", "Multiply by t2", "t8I"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-translated-trace-precision");
     const precision = page.locator("#fig-translated-trace-precision.ready");
@@ -864,6 +896,9 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticPower = plain.locator("#fig-period-common-power");
+    assert.deepEqual(await staticPower.locator("tbody td").allTextContents(), ["(3, 5)", "(0, 2)", "(5, 3)", "(2, 0)"]);
+    assert.deepEqual(await staticPower.locator(".metrics dd").allTextContents(), ["t3", "Divide by t3", "t2I"]);
     const staticPrecision = plain.locator("#fig-translated-trace-precision");
     assert.deepEqual(await staticPrecision.locator("tbody td").allInnerTexts(), ["2", "0", "2", "2", "0", "2"]);
     assert.deepEqual(await staticPrecision.locator(".metrics dd").allInnerTexts(), ["Yes", "No"]);
