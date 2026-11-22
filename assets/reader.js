@@ -1,6 +1,54 @@
 "use strict";
 document.documentElement.classList.add("js");
+
+const AUDIT_STORAGE_KEY = "criticalLine.formalAudit";
+function readAuditPref() {
+  try {
+    return localStorage.getItem(AUDIT_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+function writeAuditPref(enabled) {
+  try {
+    localStorage.setItem(AUDIT_STORAGE_KEY, enabled ? "1" : "0");
+  } catch {
+    // Ignore storage restrictions in private or file:// contexts.
+  }
+}
+
+const correspondencePanels = [...document.querySelectorAll("details.correspondence")];
+const auditButtons = [...document.querySelectorAll("[data-correspondence-toggle]")];
+function applyAuditMode(enabled, togglePanels = true) {
+  if (togglePanels) {
+    for (const panel of correspondencePanels) {
+      panel.open = enabled;
+      delete panel.dataset.autoOpened;
+    }
+  }
+  for (const btn of auditButtons) {
+    btn.hidden = false;
+    btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+    const isFr = document.documentElement.lang === "fr" || btn.dataset.lang === "fr";
+    btn.textContent = enabled
+      ? (isFr ? "Mode audit formel : ACTIF (replier les correspondances)" : "Formal audit mode: ON (hide correspondences)")
+      : (isFr ? "Mode audit formel : afficher toutes les correspondances" : "Formal audit mode: show all correspondences");
+  }
+}
+if (auditButtons.length) {
+  const initialAudit = readAuditPref();
+  applyAuditMode(initialAudit, initialAudit);
+  for (const btn of auditButtons) {
+    btn.addEventListener("click", () => {
+      const next = btn.getAttribute("aria-pressed") !== "true";
+      writeAuditPref(next);
+      applyAuditMode(next, true);
+    });
+  }
+}
+
 function revealProof(hash, align) {
+  if (!hash || hash.length < 2) return;
   const target = document.getElementById(hash.slice(1));
   if (!target) return;
   let opened = false;
@@ -21,26 +69,72 @@ if (document.querySelector("details")) {
       revealProof(link.hash, false);
   });
 }
+
 const filter = document.querySelector("[data-filter]");
 if (filter) {
   const items = [...document.querySelectorAll("[data-search]")],
-    count = document.querySelector("[data-count]");
+    count = document.querySelector("[data-count]"),
+    roleSelect = document.querySelector("[data-role-filter]"),
+    statusSelect = document.querySelector("[data-status-filter]"),
+    areaSelect = document.querySelector("[data-area-filter]");
   filter.closest(".filters").hidden = false;
+
+  const urlParams = new URLSearchParams(location.search);
+  if (urlParams.has("q")) filter.value = urlParams.get("q");
+  if (roleSelect && urlParams.has("role")) {
+    const v = urlParams.get("role");
+    if ([...roleSelect.options].some(o => o.value === v)) roleSelect.value = v;
+  }
+  if (statusSelect && urlParams.has("status")) {
+    const v = urlParams.get("status");
+    if ([...statusSelect.options].some(o => o.value === v)) statusSelect.value = v;
+  }
+  if (areaSelect && urlParams.has("area")) {
+    const v = urlParams.get("area");
+    if ([...areaSelect.options].some(o => o.value === v)) areaSelect.value = v;
+  }
+
   const update = (linkedItem = null) => {
     const needle = filter.value.toLowerCase().trim();
+    const roleVal = roleSelect ? roleSelect.value : "";
+    const statusVal = statusSelect ? statusSelect.value : "";
+    const areaVal = areaSelect ? areaSelect.value : "";
+    const auditActive = readAuditPref();
     let n = 0;
     let extra = false;
     for (const item of items) {
-      const matches = !needle || item.textContent.toLowerCase().includes(needle);
+      const roleOk = !roleVal || item.dataset.role === roleVal;
+      const statusOk = !statusVal || item.dataset.status === statusVal;
+      const areaOk = !areaVal || item.dataset.area === areaVal;
+      const textOk = !needle || item.textContent.toLowerCase().includes(needle);
+      const matches = roleOk && statusOk && areaOk && textOk;
       item.hidden = !matches && item !== linkedItem;
-      if (matches) n++;
-      else if (item === linkedItem) extra = true;
+      if (matches) {
+        n++;
+        const panel = item.querySelector("details.correspondence");
+        if (panel && !auditActive) {
+          if (needle.length >= 2 && panel.textContent.toLowerCase().includes(needle)) {
+            if (!panel.open) {
+              panel.open = true;
+              panel.dataset.autoOpened = "1";
+            }
+          } else if (panel.dataset.autoOpened === "1") {
+            panel.open = false;
+            delete panel.dataset.autoOpened;
+          }
+        }
+      } else if (item === linkedItem) {
+        extra = true;
+      }
     }
     count.textContent = n + " " + (n === 1 ? "entry" : "entries");
     if (extra) count.textContent += " + 1 linked entry";
   };
-  const itemAt = hash => document.getElementById(hash.slice(1))?.closest("[data-search]");
+  const itemAt = hash => (hash && hash.length > 1 ? document.getElementById(hash.slice(1))?.closest("[data-search]") : null);
   filter.addEventListener("input", () => update());
+  if (roleSelect) roleSelect.addEventListener("change", () => update());
+  if (statusSelect) statusSelect.addEventListener("change", () => update());
+  if (areaSelect) areaSelect.addEventListener("change", () => update());
   document.addEventListener("click", event => {
     const link = event.target.closest('a[href^="#"]');
     if (link && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
@@ -54,8 +148,9 @@ if (filter) {
     update(target);
     if (needsScroll) target.scrollIntoView();
   });
-  update();
+  update(itemAt(location.hash));
 }
+
 const labs = [...document.querySelectorAll("[data-lab]")];
 if (labs.length) {
   let loading;

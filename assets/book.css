@@ -67,7 +67,7 @@ a:hover { color: var(--copper); }
 .site-header .brand-symbol { --simplex-size: 2.4rem !important; --simplex-edge: var(--ink) !important; --simplex-paper: var(--paper) !important; width: 2.4rem; height: 2.4rem; margin: 0; }
 .brand-copy { font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1; font-variant-caps: all-small-caps; letter-spacing: .05em; white-space: nowrap; }
 .brand-copy strong { font-weight: 400; }
-.desktop-nav { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; column-gap: clamp(1.1rem, 2.45vw, 2.2rem); font-size: clamp(1.2rem, 1.75vw, 1.4rem); line-height: 2.75rem; font-variant-caps: all-small-caps; letter-spacing: .05em; }
+.desktop-nav { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; column-gap: clamp(.95rem, 1.85vw, 1.75rem); font-size: clamp(1.12rem, 1.55vw, 1.34rem); line-height: 2.75rem; font-variant-caps: all-small-caps; letter-spacing: .05em; }
 .desktop-nav a, .mobile-navigation-panel nav a, .footer-links a { color: inherit; text-decoration: none; }
 .desktop-nav a:hover, .mobile-navigation-panel nav a:hover, .footer-links a:hover { color: var(--copper); }
 .desktop-nav a[aria-current='page'], .footer-links a[aria-current='page'] { text-decoration: underline; text-decoration-color: var(--copper); text-decoration-thickness: 2px; text-underline-offset: .32em; }
@@ -223,7 +223,25 @@ math { font-family: var(--font-math); font-weight: 400; font-style: normal; }
 .equation-number { display: block; text-align: right; font-size: .8em; color: var(--ink-soft); }
 .refno { margin-left: .15rem; font-size: .7em; line-height: 1; vertical-align: super; white-space: nowrap; }
 .refno a { text-decoration: none; color: var(--copper); }
-.passage-references { font-size: .87em; line-height: 1.4; }
+.passage-references { font-size: .87em; line-height: 1.45; }
+.passage-contribute { font-size: .82em; line-height: 1.45; color: var(--ink-soft); }
+.task-area { display: inline-block; margin-right: .55rem; font-size: .84em; font-variant-caps: all-small-caps; letter-spacing: .05em; color: var(--copper); }
+.hero-secondary { display: flex; flex-wrap: wrap; gap: .35rem 1.1rem; font-size: .92em; color: var(--ink-soft); }
+.claim-id-tag { display: inline-block; font-size: .84em; font-variant-numeric: lining-nums tabular-nums; color: var(--ink-soft); white-space: nowrap; }
+.role-badge, .status-badge { display: inline-block; margin-right: .45rem; padding: .06rem .42rem; border: 1px solid var(--line-strong); font-size: .78em; line-height: 1.35; letter-spacing: .02em; color: var(--ink-soft); vertical-align: baseline; }
+.role-core { border-color: var(--copper); color: var(--copper); }
+.status-interface { border-color: var(--math-blue); color: var(--math-blue); }
+.audit-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin: .85rem 0 1.25rem; padding: .5rem .75rem; border-block: 1px solid var(--line); font-size: .88em; color: var(--ink-soft); }
+.audit-toolbar button[aria-pressed="true"] { color: var(--copper); border-color: var(--copper); font-weight: 600; }
+.counter-grid, .tracks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr)); gap: 1rem 1.4rem; margin: 1.15rem 0; }
+.counter-card, .track-card { padding: .85rem 1rem; border: 1px solid var(--line); background: var(--paper); min-width: 0; }
+.counter-card h3, .track-card h3 { margin: 0 0 .4rem; font-size: 1.06em; line-height: 1.28; }
+.counter-card p, .track-card p { margin: .38rem 0 0; font-size: .92em; line-height: 1.45; }
+.track-card--primary { border-color: var(--copper); }
+.track-kicker { display: block; margin-bottom: .22rem; font-size: .8em; font-variant-caps: all-small-caps; letter-spacing: .05em; color: var(--copper); }
+.methodology-box { margin: 1.15rem 0; padding: .85rem 1rem; border-block: 1px solid var(--ink); font-size: .91em; line-height: 1.46; }
+.methodology-box h3 { margin: 0 0 .35rem; font-size: 1.02em; }
+.methodology-box p { margin: .38rem 0 0; }
 .correspondence { color: var(--ink-soft); font-size: .88em; }
 .correspondence ul { margin-block: .4rem; }
 .theorem-register h4 { margin-bottom: .3rem; }
@@ -238,10 +256,12 @@ thead th { border-bottom-color: var(--ink); }
 .source-id { margin-right: .45rem; }
 .gloss dt { font-weight: 600; }
 .gloss dd { margin: .25rem 0 0; }
-.filters { display: flex; align-items: baseline; flex-wrap: wrap; gap: .55rem; margin: 1.2rem 0; }
-.filters input { width: min(24rem, 100%); }
-.filters input, select, .reset, .print { padding: .3rem .65rem; border: 1px solid var(--line-strong); border-radius: 0; background: var(--paper); font: inherit; }
-.reset, .print { cursor: pointer; }
+.filters { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem .9rem; margin: 1.2rem 0; }
+.filters label { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .35rem; max-width: 100%; font-size: .92em; }
+.filters input { width: min(20rem, 100%); }
+.filters select { max-width: 100%; }
+.filters input, select, .reset, .print, .correspondence-btn { padding: .3rem .65rem; border: 1px solid var(--line-strong); border-radius: 0; background: var(--paper); font: inherit; }
+.reset, .print, .correspondence-btn { cursor: pointer; }
 .micro { font-size: .84em; color: var(--ink-soft); }
 .book-entry { padding-block: 1.15rem; }
 .book-entry + .book-entry { border-top: 1px solid var(--line); }
@@ -360,7 +380,7 @@ thead th { border-bottom-color: var(--ink); }
   }
   body, main.article { background: white; color: black; font: 10.5pt/1.38 var(--font-text); }
   *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
-  .site-header, .site-footer, .skip, .skip-link, .button, .chapter-navigation, .filters, button, input, select, [role="button"], .controls, .lab.ready [data-controls], [data-share] { display: none !important; }
+  .site-header, .site-footer, .skip, .skip-link, .button, .chapter-navigation, .passage-contribute, .audit-toolbar, .mobile-print-note, .filters, button, input, select, [role="button"], .controls, .lab.ready [data-controls], [data-share] { display: none !important; }
   .page-shell, .measure, .textpage, .reading { width: 100%; max-width: none; }
   .article-section, .article .page-opener { padding: 0; margin: 0; }
   .chapter { break-before: page; margin: 0; border: 0; }

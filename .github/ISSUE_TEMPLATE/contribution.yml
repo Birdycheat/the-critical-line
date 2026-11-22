@@ -1,0 +1,58 @@
+name: Question or contribution · Question ou contribution
+description: Audit a written proof step (Tier A), check Lean-to-prose fidelity (Tier B), or unfold a formal interface (Tier C) — English or French.
+title: "[Audit] "
+labels: ["community-contribution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping verify, simplify, and complete **The Critical Line**! Write in **English or French**; LaTeX math (`$...$` and `$$...$$`) renders natively.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Contribution tier · Chantier de contribution
+      options:
+        - Tier A — Mathematical audit, typo check, or shorter human proof (M1/M2+) · Audit mathématique ou simplification (BAC+5)
+        - Tier B — Lean-to-prose fidelity & hypothesis check (@e50d098) · Audit de fidélité Lean ↔ Prose
+        - Tier C — Unfold a pinned formal-boundary interface (outstanding) · Déplier une frontière formelle (spécialistes)
+        - Worked example or interactive experiment check · Exemple calculé ou vérification d’expérience
+        - Chapter review · Relecture d’un chapitre
+        - Question on a transition or translation · Question sur un passage ou traduction
+    validations:
+      required: false
+  - type: input
+    id: passage
+    attributes:
+      label: Passage or Result ID · Passage ou identifiant
+      description: Pre-filled when opened from the site (e.g. [PIL-06], chapter anchor, or fragment file). Leave blank for a general note.
+      placeholder: "PIL-06 · chapter-02.html#pilot-residues"
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Mathematical note, audit, or derivation · Votre vérification, simplification ou démonstration
+      description: State the exact step, hypothesis, classical reference, or pinned @e50d098 declaration if proposing a correction or derivation.
+      placeholder: |
+        **Target statement / step / declaration:**
+        ...
+
+        **Audit finding / shorter proof / derivation / question:**
+        ...
+    validations:
+      required: true
+  - type: input
+    id: edition
+    attributes:
+      label: Edition · Version du site
+      placeholder: "2026-11-22"
+  - type: input
+    id: credit
+    attributes:
+      label: Credit · Nom, affiliation ou pseudonyme pour les crédits (facultatif)
+      placeholder: "Jane Doe (University of ...)"
+  - type: checkboxes
+    id: license
+    attributes:
+      label: License · Licence CC BY-NC 4.0
+      options:
+        - label: I agree that my contribution may be adapted and published with attribution under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/deed.en).
+          required: true

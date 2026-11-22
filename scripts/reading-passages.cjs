@@ -69,7 +69,15 @@ function correspondence(inner, start = "<details>") {
     "<summary>Lean correspondence</summary>" + inner + "</details>";
 }
 
-function readingPassages(html, chapter, byPassage, linked) {
+function escHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function readingPassages(html, chapter, byPassage, linked, passageActions = null) {
   function render(scope, inheritedId) {
     const inner = scope.parts;
     if (scope.tag === "details") {
@@ -82,20 +90,72 @@ function readingPassages(html, chapter, byPassage, linked) {
       }
     }
     const scopeId = scope.start.match(/\bid="([^"]+)"/)?.[1] || inheritedId;
-    let result = scope.start, prose = "", sources = new Map(), results = new Set(), background = new Set();
+    let result = scope.start, prose = "", lastAnchor = scopeId, sources = new Map(), results = new Set(), background = new Set();
     function register(anchor) {
+      if (anchor) lastAnchor = anchor;
       for (const entry of byPassage.get(anchor) || []) {
         (entry.background ? background : results).add(entry);
       }
     }
     function flush() {
       result += prose;
-      const references = (entries, label) => entries.size ?
-        '<p class="passage-references"><b>' + label + '.</b> ' +
-        [...entries].map(entry => linked(entry.title, entry.href)).join(" · ") + "</p>" : "";
-      result += references(results, "Results in this passage") + references(background, "Theorems used");
-      if (sources.size) result += correspondence("<ul>" + [...sources.values()].map(a => "<li>" + a + "</li>").join("") + "</ul>");
-      sources = new Map(); results = new Set(); background = new Set(); prose = "";
+      if (results.size && scope.tag !== "details") {
+        const resArr = [...results];
+        const hasCore = resArr.some(e => e.role === "core-argument");
+        const domains = [...new Set(resArr.map(e => e.domain).filter(Boolean))];
+        const roleNote = hasCore
+          ? '<span class="role-badge role-core">Novel proof core</span>'
+          : '<span class="role-badge role-infra">Rebuilt classical infrastructure' +
+            (domains[0] ? " · " + escHtml(domains[0]) : "") +
+            "</span>";
+        result +=
+          '<p class="passage-references">' +
+          roleNote +
+          " <b>Results in this passage.</b> " +
+          resArr
+            .map(
+              entry =>
+                linked(entry.title, entry.href) +
+                (entry.id ? ' <span class="claim-id-tag">[' + escHtml(entry.id) + "]</span>" : ""),
+            )
+            .join(" · ") +
+          "</p>";
+      } else if (results.size) {
+        result +=
+          '<p class="passage-references"><b>Results in this passage.</b> ' +
+          [...results]
+            .map(
+              entry =>
+                linked(entry.title, entry.href) +
+                (entry.id ? ' <span class="claim-id-tag">[' + escHtml(entry.id) + "]</span>" : ""),
+            )
+            .join(" · ") +
+          "</p>";
+      }
+      if (background.size) {
+        result +=
+          '<p class="passage-references"><b>Theorems used.</b> ' +
+          [...background].map(entry => linked(entry.title, entry.href)).join(" · ") +
+          "</p>";
+      }
+      if (passageActions && results.size && scope.tag !== "details") {
+        result += passageActions(lastAnchor || scopeId || chapter, [...results]);
+      }
+      // Merge inline formal URLs with direct pinned declaration permalinks from the claim ledgers.
+      for (const entry of results) {
+        for (const pinItem of entry.pinnedSources || []) {
+          if (!sources.has(pinItem.url)) {
+            sources.set(pinItem.url, pinItem.html);
+          }
+        }
+      }
+      if (sources.size) {
+        result += correspondence("<ul>" + [...sources.values()].map(a => "<li>" + a + "</li>").join("") + "</ul>");
+      }
+      sources = new Map();
+      results = new Set();
+      background = new Set();
+      prose = "";
     }
     register(scopeId);
     for (const part of inner) {
@@ -128,7 +188,8 @@ function readingPassages(html, chapter, byPassage, linked) {
 // usable when this page is read on screen and are omitted by the print styles.
 function printExamples(html) {
   const stack = [];
-  return html.replace(/<\/?(?:details|summary)\b[^>]*>/g, tag => {
+  const cleaned = html.replace(/<p class="passage-contribute">[\s\S]*?<\/p>/g, "");
+  return cleaned.replace(/<\/?(?:details|summary)\b[^>]*>/g, tag => {
     if (tag.startsWith("<details")) {
       const technical = /\bcorrespondence\b/.test(tag) || stack.at(-1);
       stack.push(technical);

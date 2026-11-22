@@ -64,7 +64,26 @@ for (const prime of [2, 3, 5, 13, 17]) {
     assert.ok(view.includes("<dd>" + (good ? "Satisfied" : "Fail") + "</dd>"));
   }
 }
-const names = ["index", "book", "experiments", "atlas", "reference", "print"];
+const names = [
+  "index",
+  "book",
+  "experiments",
+  "atlas",
+  "reference",
+  "print",
+  "contribute",
+  "explorer",
+  "chapter-01",
+  "chapter-02",
+  "chapter-03",
+  "chapter-04",
+  "chapter-05",
+  "chapter-06",
+  "chapter-07",
+  "chapter-08",
+  "chapter-09",
+  "chapter-10",
+];
 const ledger = new Map();
 for (const name of fs
   .readdirSync(path.join(root, "records"))
@@ -133,14 +152,32 @@ for (const [figure] of html["book.html"].matchAll(/<figure class="lab"[^>]*>[\s\
 for (const [n, s] of Object.entries(html)) {
   for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const val = m[1];
-    if (/^(https?:|data:)/.test(val)) continue;
-    const [f, id] = val.split("#");
+    if (/^(https?:|data:|mailto:)/.test(val)) continue;
+    const [fRaw, id] = val.split("#");
+    const [f] = fRaw.split("?");
     const dest = f || n;
     assert.ok(fs.existsSync(path.join(root, dest)), n + " missing file " + val);
     if (id) assert.ok(ids[dest]?.has(id), n + " missing anchor " + val);
   }
 }
 assert.ok(!html["atlas.html"].includes("(undefined)"), "An atlas source label has a missing declaration name");
+const rolesLedger = require("../records/_roles.json").roles_by_file;
+assert.ok(Object.values(rolesLedger).some(r => r.role === "core-argument"), "Missing core-argument roles");
+assert.ok(Object.values(rolesLedger).some(r => r.role === "rebuilt-infrastructure"), "Missing rebuilt-infrastructure roles");
+assert.ok(Object.values(rolesLedger).every(r => ["core-argument", "rebuilt-infrastructure"].includes(r.role)), "Invalid role in _roles.json");
+assert.ok(ids["index.html"].has("reading-tracks"), "Missing three reading tracks on index.html");
+assert.ok(ids["contribute.html"].has("tier-a") && ids["contribute.html"].has("tier-b") && ids["contribute.html"].has("tier-c"),
+  "Missing Tier A/B/C sections on contribute.html");
+for (const p of ["atlas.html", "book.html", "chapter-01.html", "contribute.html", "explorer.html"]) {
+  assert.ok(html[p].includes("data-correspondence-toggle"), "Missing formal audit toggle in " + p);
+}
+assert.ok(html["print.html"].includes("Edited by Andréa Gourion"), "Missing explicit authorship in print.html");
+assert.ok(html["print.html"].includes("[PIL-06]"), "Missing [ID] passage bridge in print.html");
+assert.ok(html["print.html"].includes("Pinned archive source (@e50d098):"), "Missing formal declaration paths in print.html #results");
+for (const p of ["index.html", "atlas.html", "contribute.html", "explorer.html", "print.html"]) {
+  assert.ok(!/(?<!%)(?:~?\b88\s*%|~12\s*%|84–92%|\b12\s*%\s+(?:open|restant|of\b))(?!\w)/i.test(html[p]),
+    "Stale unweighted percentage found in " + p);
+}
 const route = require("../records/route.json");
 const solution = require("../records/solution_terms.json");
 const comparison = require("../records/compiled_edge_comparison.json");

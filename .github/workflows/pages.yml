@@ -1,0 +1,106 @@
+name: Build, Verify & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["master", "main"]
+  pull_request:
+    branches: ["master", "main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build static monograph and verify mathematical & link invariants
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          EDITION_SHA: ${{ github.sha }}
+          SITE_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: |
+          node scripts/build.cjs
+          node scripts/check.cjs
+
+      - name: Verify separation of formal Lean vocabulary from reading prose
+        run: |
+          python3 -B - << 'PY'
+          import pathlib
+          import scripts.check_citations as c
+
+          for page in sorted(pathlib.Path(".").glob("*.html")):
+              parser = c.Links()
+              parser.feed(page.read_text("utf8"))
+              if parser.disclosures:
+                  raise ValueError(f"{page.name}: unclosed disclosure")
+          print("All generated HTML pages respect formal-correspondence separation.")
+          PY
+
+      - name: Stage clean public site artifact (excluding internal state files)
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp *.html _site/
+          cp -r assets records _site/
+          cp LICENSE.md CONTRIBUTING.md _site/
+          touch _site/.nojekyll
+
+          python3 -B - << 'PY'
+          import pathlib, re
+
+          site = pathlib.Path("_site")
+          forbidden = ["STATE.md", "COORDINATION.md", "DIFFUSION-V1.md", "PEDAGOGY.md", "CORRECTIONS.md"]
+          for name in forbidden:
+              if (site / name).exists():
+                  raise SystemExit(f"Internal file leaked into _site: {name}")
+
+          for html_file in sorted(site.glob("*.html")):
+              text = html_file.read_text("utf8")
+              for m in re.finditer(r'(?:href|src)="([^"]+)"', text):
+                  val = m.group(1)
+                  if re.match(r"^(?:https?:|data:|mailto:|#)", val):
+                      continue
+                  rel = val.split("#", 1)[0].split("?", 1)[0]
+                  if rel and not (site / rel).exists():
+                      raise SystemExit(f"{html_file.name}: missing staged target in _site: {val}")
+          print("Verified clean _site artifact with zero leaked internal files and zero broken local links.")
+          PY
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
