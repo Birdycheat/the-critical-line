@@ -136,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "square-torus-fixed-points") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["17", "(1 + 4i)/17", "1 + 4i"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 + 4i", "16 − 4i"]);
+          assert.equal(await fig.locator('[role="status"]').textContent(), "17 fixed points. Weight per point (1 + 4i)/17. Sum 1 + 4i.");
         } else if (id === "gaussian-quotient-marking") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(1, 0)", "(1, 13)", "(0, 0)", "(1, 0)", "(1, 0)"]);
           assert.equal(await fig.locator(".metrics dd").innerText(), "Agrees");
@@ -419,6 +423,34 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-square-torus-fixed-points");
+    const torus = page.locator("#fig-square-torus-fixed-points.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      for (const [a, b, y, expected] of [
+        [0, 4, "0", ["17", "(1 + 4i)/17", "1 + 4i"]],
+        [0, -1, "0", ["2", "(1 − i)/2", "1 − i"]],
+        [1, 0, "1", ["All of E", "Undefined", "Undefined"]],
+        [0, 0, "0", ["1", "1", "1"]],
+        [4, 0, "0", ["9", "−1/3", "−3"]],
+        [4, 0, "1", ["9", "1", "9"]],
+      ]) {
+        for (const [key, value] of Object.entries({real: a, imag: b}))
+          await torus.locator('input[name="' + key + '"]').evaluate((el, value) => {
+            el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true}));
+          }, value);
+        await torus.locator('select[name="y"]').selectOption(y);
+        assert.deepEqual(await torus.locator("tbody td").allInnerTexts(), expected);
+        assert.ok(await torus.locator("table").evaluate(el =>
+          el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+      }
+    }
+    const torusLink = new URL(await torus.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of Object.entries({real: "4", imag: "0", y: "1"}))
+      assert.equal(torusLink.searchParams.get("square-torus-fixed-points." + key), value);
+    await openFigure(page, torusLink.href);
+    assert.deepEqual(await torus.locator("tbody td").allInnerTexts(), ["9", "1", "9"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-gaussian-quotient-marking");
     const gaussian = page.locator("#fig-gaussian-quotient-marking.ready");
@@ -801,6 +833,9 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticTorus = plain.locator("#fig-square-torus-fixed-points");
+    assert.deepEqual(await staticTorus.locator("tbody td").allInnerTexts(), ["17", "(1 + 4i)/17", "1 + 4i"]);
+    assert.deepEqual(await staticTorus.locator(".metrics dd").allInnerTexts(), ["1 + 4i", "16 − 4i"]);
     const staticGaussian = plain.locator("#fig-gaussian-quotient-marking");
     assert.deepEqual(await staticGaussian.locator("tbody td").allInnerTexts(), ["(1, 0)", "(1, 13)", "(0, 0)", "(1, 0)", "(1, 0)"]);
     assert.equal(await staticGaussian.locator(".metrics dd").innerText(), "Agrees");

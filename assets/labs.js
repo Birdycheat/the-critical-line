@@ -18,6 +18,18 @@
   const ramifiedCoordinates = [["0", "0"], ["1", "1"], ["eta", "η"], ["sum", "1 + η"]];
   const gaussianLabels = Array.from({length: 7}, (_, i) => [String(i), String(i)]);
   const configs = {
+    "square-torus-fixed-points": {
+      title: "What does a fixed point contribute to the trace?",
+      kind: "Holomorphic fixed-point weights on a square elliptic curve",
+      section: "lifts",
+      params: [
+        range("real", "Real part a", -4, 4, 1, 0),
+        range("imag", "Imaginary part b", -4, 4, 1, 4),
+        choose("y", "Evaluate at y", [["0", "0"], ["1", "1"]], "0"),
+      ],
+      caption: "Multiplication by Θ = a + bi acts on E = ℂ/ℤ[i]. At y = 0 the sum of the local weights gives the alternating trace on the structure sheaf. At y = 1 an isolated fixed point contributes one.",
+      method: "A point z is fixed when (1 − Θ)z belongs to ℤ[i]. For Θ ≠ 1 the kernel has order N = |1 − Θ|², the determinant of multiplication by 1 − Θ on the square lattice. Every fixed point has the same derivative Θ and weight (1 − yΘ)/(1 − Θ). Summing over the N points gives the polynomial (1 − a + bi)(1 − yΘ), since N/(1 − Θ) is the complex conjugate of 1 − Θ. The choice Θ = 0 gives a constant map. Every nonzero Θ gives an isogeny.",
+    },
     "gaussian-quotient-marking": {
       title: "Which marking preserves the label on the quotient?",
       kind: "An isogeny of the square elliptic curve",
@@ -1628,6 +1640,31 @@
   }
 
   function render(id, v) {
+    if (id === "square-torus-fixed-points") {
+      const a = Number(v.real), b = Number(v.imag), y = Number(v.y);
+      const degree = (1 - a) ** 2 + b ** 2;
+      const theta = complexFraction(a, b, 1);
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + value + '</td></tr>';
+      const table = (announcement, rows) => '<table class="carry-table" data-announcement="' + announcement + '">' +
+        '<caption>Multiplication by ' + theta + ' at <var>y</var> = ' + y + '</caption><thead><tr>' +
+        '<th scope="col">Quantity</th><th scope="col">Value</th></tr></thead><tbody>' + rows + '</tbody></table>';
+      if (degree === 0) {
+        return table("Every point is fixed. The isolated-point formula is undefined.",
+          row("Fixed points", "All of E") + row("Weight per point", "Undefined") + row("Isolated-point sum", "Undefined")) +
+          '<p>The identity fixes the whole curve. The denominator 1 − Θ vanishes, so the isolated-point formula does not apply.</p>';
+      }
+      const constant = complexFraction(1 - a, b, 1);
+      const linear = complexFraction(a * a + b * b - a, -b, 1);
+      let weight = "1";
+      if (y === 0) {
+        weight = b === 0 || degree === 1 ? complexFraction(1 - a, b, degree) : "(" + constant + ")/" + degree;
+      }
+      const sum = y === 0 ? constant : String(degree);
+      const announcement = degree + (degree === 1 ? " fixed point." : " fixed points.") +
+        " Weight per point " + weight + ". Sum " + sum + ".";
+      return table(announcement, row("Fixed points", String(degree)) + row("Weight per point", weight) + row("Sum of weights", sum)) +
+        metrics([["Constant term of the sum", constant], ["Coefficient of <var>y</var>", linear]]);
+    }
     if (id === "gaussian-quotient-marking") {
       const label = [Number(v.u), Number(v.v)];
       const [a, b] = {zero: [0, 0], one: [1, 0], i: [0, 1], both: [1, 1]}[v.shift];
