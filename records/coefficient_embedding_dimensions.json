@@ -1,0 +1,697 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "EMD-01",
+      "chapter": "lifts",
+      "anchor": "lifts-embedding-period-dual",
+      "title": "Which part of the period module does one coefficient embedding select?",
+      "hypotheses": "V is a finite-dimensional potentially semistable L-representation over a finite local base over k=ℚℓ. L is finite over k. The unramified field F and L act on the period module D with commuting actions that agree on k. Choose two compatible k-embeddings into Ω.",
+      "statement": "The dual of the quotient with prescribed scalar actions identifies with additive functionals obeying those two scalar laws. Its dimension equals the dimension of the finite quotient.",
+      "equations": [
+        "lifts-embedding-two-scalar-laws"
+      ],
+      "dependencies": [
+        "SWO-07"
+      ],
+      "sources": [
+        {
+          "label": "Coefficient and unramified embeddings for the complex space",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalWdSpace.lean",
+          "lines": [
+            13,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalWdSpace.lean#L13-L27",
+          "declaration": "GlobalTheory.Pst.urC",
+          "declaration_lines": {
+            "GlobalTheory.Pst.urC": 16
+          }
+        },
+        {
+          "label": "Relations defining the period quotient and its generators",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalLetter.lean",
+          "lines": [
+            19,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalLetter.lean#L19-L45",
+          "declaration": "GlobalTheory.Pst.letterKer",
+          "declaration_lines": {
+            "GlobalTheory.Pst.letterKer": 19
+          }
+        },
+        {
+          "label": "Spanning by classes of period vectors",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalLetter.lean",
+          "lines": [
+            49,
+            61
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalLetter.lean#L49-L61",
+          "declaration": "GlobalTheory.Pst.span_letterMk",
+          "declaration_lines": {
+            "GlobalTheory.Pst.span_letterMk": 49
+          }
+        },
+        {
+          "label": "The two scalar laws and the map from the dual",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            17,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L17-L35",
+          "declaration": "GlobalTheory.Pst.LetterDim.letterHom",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.letterHom": 17
+          }
+        },
+        {
+          "label": "Factoring through the quotient and recovering the functional",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            36,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L36-L48",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_dual_letter",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_dual_letter": 27
+          }
+        },
+        {
+          "label": "Finiteness over the maximal unramified field",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalWdSpace.lean",
+          "lines": [
+            77,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/FiniteDimensionalWdSpace.lean#L77-L82",
+          "declaration": "GlobalTheory.Pst.IsPst.finite",
+          "declaration_lines": {
+            "GlobalTheory.Pst.IsPst.finite": 77
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Images of an F-basis span the quotient even though F/k can be infinite."
+    },
+    {
+      "id": "EMD-02",
+      "chapter": "lifts",
+      "anchor": "lifts-embedding-dimension-sum",
+      "title": "What does summing over all embeddings measure?",
+      "hypotheses": "L/k is finite separable, Ω is algebraically closed, and D is finite-dimensional over F with the compatible commuting scalar actions. The unramified embedding is the inclusion.",
+      "statement": "The F-linear functionals on D with values in Ω split as the direct sum of the coefficient-embedding eigenspaces. The sum of their dimensions is dim_F D.",
+      "equations": [
+        "lifts-embedding-sum-formula"
+      ],
+      "dependencies": [
+        "EMD-01"
+      ],
+      "sources": [
+        {
+          "label": "The primitive element and evaluation of its polynomials",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            87,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L87-L104",
+          "declaration": "GlobalTheory.Pst.LetterDim.sum_finrank_eigen",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.sum_finrank_eigen": 87
+          }
+        },
+        {
+          "label": "The eigenspaces indexed by the embeddings split the dual space",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            105,
+            132
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L105-L132",
+          "declaration": "GlobalTheory.Pst.LetterDim.sum_finrank_eigen",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.sum_finrank_eigen": 87
+          }
+        },
+        {
+          "label": "Action of the coefficient field on unramified-linear functionals",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            135,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L135-L155",
+          "declaration": "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom": 135
+          }
+        },
+        {
+          "label": "Identification of joint eigenspaces and the dimension sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            156,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L156-L174",
+          "declaration": "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom": 135
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "A primitive element has distinct roots and distinguishes every embedding. The quadratic example has unequal eigenspace dimensions."
+    },
+    {
+      "id": "EMD-03",
+      "chapter": "lifts",
+      "anchor": "lifts-embedding-frobenius-orbits",
+      "title": "Why do inertia and Frobenius force the dimensions to agree?",
+      "hypotheses": "In addition to the scalar actions, period Frobenius is L-linear, bijective and semilinear for arithmetic Frobenius on F.",
+      "statement": "Inertia automorphisms and a lift of arithmetic Frobenius preserve the dimensions attached to coefficient embeddings. They generate a transitive action on the finite embedding set, hence all dimensions are equal.",
+      "equations": [
+        "lifts-embedding-frobenius-transport"
+      ],
+      "dependencies": [
+        "EMD-01"
+      ],
+      "sources": [
+        {
+          "label": "Scalar covariance of Frobenius and injectivity",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean",
+          "lines": [
+            345,
+            357
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean#L345-L357",
+          "declaration": "GlobalTheory.Pst.phiD_mulD",
+          "declaration_lines": {
+            "GlobalTheory.Pst.phiD_mulD": 345
+          }
+        },
+        {
+          "label": "Bijectivity of Frobenius in finite dimension",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean",
+          "lines": [
+            394,
+            404
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean#L394-L404",
+          "declaration": "GlobalTheory.Pst.phiD_bijective",
+          "declaration_lines": {
+            "GlobalTheory.Pst.phiD_bijective": 394
+          }
+        },
+        {
+          "label": "Transport by a field isomorphism of the values",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            50,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L50-L63",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_letterHom_comp",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_letterHom_comp": 50
+          }
+        },
+        {
+          "label": "Changing the unramified scalar action by period Frobenius",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            64,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L64-L85",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_letterHom_frob",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_letterHom_frob": 64
+          }
+        },
+        {
+          "label": "Stabilizer of the dimension function on the finite embedding set",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            180,
+            200
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L180-L200",
+          "declaration": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.const_of_invariant": 180
+          }
+        },
+        {
+          "label": "Fixed field and transitivity on embeddings",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            201,
+            224
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L201-L224",
+          "declaration": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.const_of_invariant": 180
+          }
+        },
+        {
+          "label": "Extension of unramified Frobenius and its fixed elements",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ResEqIff.lean",
+          "lines": [
+            190,
+            205
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ResEqIff.lean#L190-L205",
+          "declaration": "GlobalTheory.MemLoc.FrobLaws.exists_ext",
+          "declaration_lines": {
+            "GlobalTheory.MemLoc.FrobLaws.exists_ext": 190
+          }
+        },
+        {
+          "label": "Combination of both transports for the period module",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            235,
+            242
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L235-L242",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_wdSpace": 228
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Inverse period Frobenius compensates the Frobenius on unramified scalars. Passing to a finite normal closure justifies using one Frobenius lift."
+    },
+    {
+      "id": "EMD-04",
+      "chapter": "lifts",
+      "anchor": "lifts-embedding-common-rank",
+      "title": "Why does one complex Weil space recover the original rank?",
+      "hypotheses": "The L-representation V has finite rank a and is potentially semistable. The complex coefficient identification is compatible with the chosen embeddings. For the extension application use two potentially semistable models related by scalar extension.",
+      "statement": "Each embedding part has dimension a, so the complex Weil space has dimension a. The equivariant surjection for an extension of coefficient fields is consequently an isomorphism with identical Weil characteristic polynomials.",
+      "equations": [
+        "lifts-embedding-degree-cancellation"
+      ],
+      "dependencies": [
+        "EMD-02",
+        "EMD-03"
+      ],
+      "sources": [
+        {
+          "label": "The full-period dimension criterion for potential semistability",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean",
+          "lines": [
+            374,
+            390
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean#L374-L390",
+          "declaration": "GlobalTheory.Pst.isPst_iff",
+          "declaration_lines": {
+            "GlobalTheory.Pst.isPst_iff": 378
+          }
+        },
+        {
+          "label": "Sum of the embedding dimensions on the period module",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            228,
+            252
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L228-L252",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_wdSpace": 228
+          }
+        },
+        {
+          "label": "Transport to complex coefficients and cancellation of the degree",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+          "lines": [
+            253,
+            260
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean#L253-L260",
+          "declaration": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+          "declaration_lines": {
+            "GlobalTheory.Pst.LetterDim.finrank_wdSpace": 228
+          }
+        },
+        {
+          "label": "Construction of the equivariant map on complex period spaces",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            259,
+            273
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L259-L273",
+          "declaration": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+          "declaration_lines": {
+            "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq": 259
+          }
+        },
+        {
+          "label": "Surjectivity, divisibility of characteristic polynomials and degree comparison",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            274,
+            291
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L274-L291",
+          "declaration": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+          "declaration_lines": {
+            "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq": 259
+          }
+        },
+        {
+          "label": "Equal ranks on extending the model coefficient field",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+          "lines": [
+            310,
+            324
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean#L310-L324",
+          "declaration": "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge",
+          "declaration_lines": {
+            "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge": 299
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Potential semistability supplies the total rational dimension; the equality of the summands was established independently of the degree of the characteristic polynomial."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_dual_letter",
+      "callee": "GlobalTheory.Pst.letter_hom_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 36,
+        "spelling": "letter_hom_ext"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_dual_letter",
+      "callee": "GlobalTheory.Pst.letterKer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 41,
+        "spelling": "letterKer"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom",
+      "callee": "GlobalTheory.Pst.LetterDim.sum_finrank_eigen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 151,
+        "spelling": "sum_finrank_eigen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom",
+      "callee": "GlobalTheory.Pst.LetterDim.letterHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 161,
+        "spelling": "letterHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.phiD_bijective",
+      "callee": "GlobalTheory.Pst.phiD_mulD",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/EqOfPowEqOneOfNormSubLt.lean",
+        "line": 398,
+        "spelling": "phiD_mulD"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_letterHom_comp",
+      "callee": "GlobalTheory.Pst.LetterDim.letterHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 53,
+        "spelling": "letterHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_letterHom_frob",
+      "callee": "GlobalTheory.Pst.LetterDim.letterHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 74,
+        "spelling": "letterHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+      "callee": "GlobalTheory.MemLoc.FrobLaws.exists_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 209,
+        "spelling": "GlobalTheory.MemLoc.FrobLaws.exists_ext"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+      "callee": "GlobalTheory.MemLoc.frob_laws",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 210,
+        "spelling": "GlobalTheory.MemLoc.frob_laws"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+      "callee": "GlobalTheory.Pst.frobUr_root",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 210,
+        "spelling": "frobUr_root"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.letterHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 236,
+        "spelling": "letterHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.const_of_invariant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 237,
+        "spelling": "const_of_invariant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.finrank_letterHom_comp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 238,
+        "spelling": "finrank_letterHom_comp"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.finrank_letterHom_frob",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 239,
+        "spelling": "finrank_letterHom_frob"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.phiD_bijective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 239,
+        "spelling": "phiD_bijective"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.phiD_mulD",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 239,
+        "spelling": "phiD_mulD"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.sum_finrank_letterHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 246,
+        "spelling": "sum_finrank_letterHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.WDSpace",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 253,
+        "spelling": "WDSpace"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.algC",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 254,
+        "spelling": "algC"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.LetterDim.finrank_dual_letter",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 255,
+        "spelling": "finrank_dual_letter"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.LetterDim.finrank_wdSpace",
+      "callee": "GlobalTheory.Pst.isPst_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FinrankLetterHomComp.lean",
+        "line": 258,
+        "spelling": "isPst_iff"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.tensQ_smul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 266,
+        "spelling": "tensQ_smul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.algC",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 267,
+        "spelling": "algC"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.dQ_mulD",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 269,
+        "spelling": "dQ_mulD"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.chg_letterMap",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 271,
+        "spelling": "chg_letterMap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.span_wdMk",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 274,
+        "spelling": "span_wdMk"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.sum_tensQ",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 279,
+        "spelling": "sum_tensQ"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.wdMk",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 280,
+        "spelling": "wdMk"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charpoly_wdRho_eq",
+      "callee": "GlobalTheory.Pst.wdMk_add",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 280,
+        "spelling": "wdMk_add"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.exists_decomp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 310,
+        "spelling": "exists_decomp"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.incV",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 311,
+        "spelling": "incV"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge",
+      "callee": "GlobalTheory.Pst.EnlargeCoeff.incV_mulVec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 313,
+        "spelling": "incV_mulVec"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Pst.EnlargeCoeff.charPol_wdPst_enlarge",
+      "callee": "GlobalTheory.Pst.WDSpace",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/CharpolyWeilDelignePotSemistableEnlargeCoefficie.lean",
+        "line": 317,
+        "spelling": "WDSpace"
+      }
+    }
+  ]
+}
