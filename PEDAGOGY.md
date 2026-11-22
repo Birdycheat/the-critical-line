@@ -320,3 +320,7 @@ The closing reading followed one implication per chapter. It checked the hypothe
 | 10. Reflection | The [reflection for ζ](book.html#reflection-zeta) transports exclusion from the right half of the strip. The statement treats the pole separately. |
 
 The numerical windows example now gives the order of the choices in its text. The [affine partner](book.html#inputs-split-affine-partner) retains the identity expressing each shortened coordinate in the ideal of the new vector. The [central exponential](book.html#lifts-marked-period-local-lift) keeps the coordinate change and its inverse at the point where the periods are transported.
+
+## Link induction and varying periods
+
+Targeted parallel readings checked the last outside letter, the frame change and the two uses of the dimension theorem. In the [rank induction](book.html#inputs-split-higher-rank), only the restricted tails have zero coordinate. The proof now states the length of the combined prefix after shortening. In the [kernel argument](book.html#lifts-marked-period-kernel-exhaustion), a limit on the far face of the closed cube requires a second integral shift. The [dimension comparison](book.html#lifts-period-dimension) explains why a dense set of changes of frame gives exact coverage. The coefficient argument identifies the nonzero vector used when square integrability passes to the other entry. The chapter on the analytic window identifies the poles after regularizing the modulus-one member.
