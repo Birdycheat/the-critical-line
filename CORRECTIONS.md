@@ -188,3 +188,11 @@ Properness extends a specified generic torsion point uniquely. The lift of a spe
 ### The two orders of composition in the tangent test
 
 Restriction to the dual numbers keeps the constant and linear coefficients. The return map sends the linear term to degree Q and raises each coefficient to its Qth power. Composing in this order gives Frobenius on the longer ring. Reversing the maps gives only the Qth power of the constant term. At length Q an ordinary tangent can still be nonzero. It cannot have the lift with injective return map needed in the longer case. [The ring calculation](book.html#lifts-ordinary-two-composites)
+
+### Comparing variations at a generic point
+
+Two deformations of the same abelian variety can have distinct first-order Hodge coefficients. The comparison in the ordinary-point argument needs both candidate lifts in the filtration of one marked abelian scheme. Its classifying map is used to transport the Frobenius inclusion through the generic residue field, where the maps into the field and the dual numbers may differ to first order. The two resulting coefficients must then agree modulo the original filtration. [Transport through the residue field](book.html#lifts-ordinary-variation-descent) · [The quotient in which the coefficients agree](book.html#lifts-ordinary-variation-coefficient-coset)
+
+### Regular weight for components of a displayed vector
+
+The signed nonzero components in the integral basis-vector table previously inherited a heavier weight than its zero entries. All components now use the same regular face. Their signs and the existing colors distinguish the values. Mathematical variables in disclosure headings also use regular weight. [The signed basis-vector table](book.html#fig-rank-grid)

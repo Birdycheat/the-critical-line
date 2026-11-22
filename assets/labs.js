@@ -16,6 +16,18 @@
     value,
   });
   const configs = {
+    "polarized-graph": {
+      title: "When does the moving plane stay isotropic?",
+      kind: "First-order lifts of a Lagrangian plane",
+      section: "lifts",
+      params: [
+        choose("prime", "Characteristic", [["2", "2"], ["3", "3"], ["5", "5"]], "3"),
+        choose("direction", "Direction (a, b)", [["same", "Equal (1, 1)"], ["first", "First only (1, 0)"], ["opposite", "Opposite (1, −1)"], ["zero", "Zero (0, 0)"]], "same"),
+        choose("lift", "Lift of e₁", [["given", "Given generator"], ["unit", "Multiply by 1 + ε"]], "given"),
+      ],
+      caption: "Over 𝔽ₚ[ε]/(ε²), lift the plane Fil spanned by e₁ and e₂ using e₁ + εa f₂ and e₂ + εb f₁. Read the first-order coefficient of each lift and its class modulo Fil.",
+      method: "The alternating form pairs eᵢ with fⱼ by δᵢⱼ. The constant pairing is zero, and ε² is zero. The two cross terms give ε(b − a). An alternating form vanishes on the plane exactly when it vanishes on its two generators paired together. Multiplication of the first generator by 1 + ε adds e₁ to its first-order coefficient. This adds a vector of Fil and preserves the quotient class.",
+    },
     "ordinary-frobenius-coefficients": {
       title: "Which terms survive cubing modulo t⁴?",
       kind: "Cubing a truncated polynomial over a field of nine elements",
@@ -1580,6 +1592,25 @@
   }
 
   function render(id, v) {
+    if (id === "polarized-graph") {
+      const prime = Number(v.prime);
+      const [a, b] = {same: [1, 1], first: [1, 0], opposite: [1, -1], zero: [0, 0]}[v.direction];
+      const residue = (b - a + prime) % prime;
+      const first = a ? "f₂" : "0";
+      const second = b === 0 ? "0" : b === 1 || prime === 2 ? "f₁" : "−f₁";
+      let firstCoefficient = first;
+      if (v.lift === "unit") firstCoefficient = a ? "e₁ + f₂" : "e₁";
+      const isotropic = residue === 0 ? "Yes" : "No";
+      const field = {2: "𝔽₂", 3: "𝔽₃", 5: "𝔽₅"}[prime];
+      const difference = (b < 0 ? "−1" : b) + " − " + a + " ≡ " + residue;
+      const table = '<table class="carry-table" data-announcement="Pairing coefficient ' + residue +
+        ' modulo ' + prime + '. ' + (residue ? 'The pairing is nonzero.' : 'The plane is isotropic.') + '">' +
+        '<caption>First-order lifts over ' + field + '[ε]/(ε²)</caption>' +
+        '<thead><tr><th scope="col">At ε = 0</th><th scope="col">ε term</th><th scope="col">Class modulo Fil</th></tr></thead><tbody>' +
+        '<tr><th scope="row"><var>e₁</var></th><td><var>' + firstCoefficient + '</var></td><td>[<var>' + first + '</var>]</td></tr>' +
+        '<tr><th scope="row"><var>e₂</var></th><td><var>' + second + '</var></td><td>[<var>' + second + '</var>]</td></tr></tbody></table>';
+      return table + metrics([["Pairing coefficient <var>b</var> − <var>a</var> in " + field, difference], ["Isotropic plane", isotropic]]);
+    }
     if (id === "ordinary-frobenius-coefficients") {
       const degree = Number(v.degree);
       const [coefficient, cube] = {one: ["1", "1"], omega: ["ω", "−ω"], sum: ["1 + ω", "1 − ω"]}[v.coefficient];

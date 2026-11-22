@@ -14,6 +14,12 @@ async function openFigure(page, address) {
   await page.goto(address);
   await page.locator(new URL(address).hash + ".ready").waitFor();
 }
+async function assertVectorWeights(page) {
+  const cells = page.locator("#fig-rank-grid tbody td");
+  assert.ok(await cells.count() > 0);
+  const weights = await cells.evaluateAll(nodes => [...new Set(nodes.map(node => getComputedStyle(node).fontWeight))]);
+  assert.deepEqual(weights, ["400"], "All displayed basis-vector entries must have regular weight");
+}
 async function assertRenderedFont(session, selector, postScriptName) {
   const { root } = await session.send("DOM.getDocument");
   const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
@@ -130,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "polarized-graph") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["f₂", "[f₂]", "f₁", "[f₁]"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 − 1 ≡ 0", "Yes"]);
+          assert.equal(await fig.getByRole("status").textContent(), "Pairing coefficient 0 modulo 3. The plane is isotropic.");
         } else if (id === "ordinary-frobenius-coefficients") {
           const outputs = fig.locator("tbody tr td:last-child");
           assert.deepEqual(await outputs.allInnerTexts(), ["ωt", "ωε", "−ωt³"]);
@@ -402,6 +412,24 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
     await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-polarized-graph");
+    const plane = page.locator("#fig-polarized-graph.ready");
+    await plane.getByRole("combobox", {name: "Direction (a, b)", exact: true}).selectOption("opposite");
+    await plane.getByRole("combobox", {name: "Lift of e₁", exact: true}).selectOption("unit");
+    for (const [width, characteristic, residue, second, answer] of [[320, "2", "0", "f₁", "Yes"], [390, "5", "3", "−f₁", "No"]]) {
+      await page.setViewportSize({width, height: 844});
+      await plane.getByRole("combobox", {name: "Characteristic", exact: true}).selectOption(characteristic);
+      assert.deepEqual(await plane.locator("tbody td").allInnerTexts(), ["e₁ + f₂", "[f₂]", second, "[" + second + "]"]);
+      assert.deepEqual(await plane.locator(".metrics dd").allInnerTexts(), ["−1 − 1 ≡ " + residue, answer]);
+      assert.ok(await plane.locator("table").evaluate(t => t.getBoundingClientRect().right <= t.closest("figure").getBoundingClientRect().right + 1));
+    }
+    const planeLink = new URL(await plane.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of [["prime", "5"], ["direction", "opposite"], ["lift", "unit"]])
+      assert.equal(planeLink.searchParams.get("polarized-graph." + key), value);
+    await openFigure(page, planeLink.href);
+    assert.deepEqual(await plane.locator("tbody td").allInnerTexts(), ["e₁ + f₂", "[f₂]", "−f₁", "[−f₁]"]);
+    assert.deepEqual(await plane.locator(".metrics dd").allInnerTexts(), ["−1 − 1 ≡ 3", "No"]);
+    await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-hecke-four-point-approximation");
     const fourPoint = page.locator("#fig-hecke-four-point-approximation.ready");
     await fourPoint.getByRole("combobox", {name: "Function in P"}).selectOption("combination");
@@ -557,6 +585,7 @@ async function run() {
     await openFigure(page, base + "book.html?rank-grid.row=4&rank-grid.column=2#fig-rank-grid");
     const grid = page.locator("#fig-rank-grid.ready table");
     assert.equal(await grid.locator("caption").innerText(), "Basis vector at (4, 2)");
+    await assertVectorWeights(page);
     const selectedRow = grid.getByRole("rowheader", { name: "4", exact: true }).locator("..");
     assert.deepEqual(await selectedRow.locator("td").allInnerTexts(), ["+1", "0", "0", "−1", "0"]);
     await openFigure(page, base + "book.html?prism.twist=2&prism.weight=2&prism.gluing=3#fig-prism");
@@ -611,6 +640,9 @@ async function run() {
     await assertRenderedFont(fontSession, "math mi", "LatinModernMath-Regular");
     await assertRenderedFont(fontSession, "#lifts-rank-root-spaces + p", "CriticalLineMathScripts-Regular");
     assert.equal(await page.locator("h4 i").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
+    const summaryVariables = page.locator("summary i, summary var");
+    assert.ok(await summaryVariables.count() > 0);
+    assert.ok(await summaryVariables.evaluateAll(nodes => nodes.every(node => getComputedStyle(node).fontWeight === "400")));
     for (const file of [
       "index.html",
       "book.html",
@@ -688,6 +720,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
     assert.deepEqual(await page.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
     assert.deepEqual(await page.locator("#fig-ordinary-line-cancellation .metrics dd").allInnerTexts(), ["3", "3"]);
+    await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
       format: "A4",
@@ -701,6 +734,11 @@ async function run() {
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
+    await assertVectorWeights(plain);
+    const staticPlane = plain.locator("#fig-polarized-graph");
+    assert.deepEqual(await staticPlane.locator("tbody td").allInnerTexts(), ["f₂", "[f₂]", "f₁", "[f₁]"]);
+    assert.deepEqual(await staticPlane.locator(".metrics dd").allInnerTexts(), ["1 − 1 ≡ 0", "Yes"]);
+    assert.equal(await staticPlane.locator("tbody var").first().evaluate(el => getComputedStyle(el).fontWeight), "400");
     assert.deepEqual(await plain.locator("#fig-ordinary-frobenius-coefficients tbody tr td:last-child").allInnerTexts(), ["ωt", "ωε", "−ωt³"]);
     const staticTorsion = plain.locator("#fig-ordinary-torsion-reduction");
     assert.deepEqual(await staticTorsion.locator("tbody tr td:last-child").allInnerTexts(), ["3", "1", "9"]);

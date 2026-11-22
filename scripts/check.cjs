@@ -141,6 +141,80 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Enumerate the two-generator submodule and its alternating form over the dual numbers.
+{
+  let settings = 0, graphVectors = 0, orderedPairs = 0;
+  for (const prime of [2, 3, 5]) {
+    const residue = n => ((n % prime) + prime) % prime;
+    const ring = Array.from({length: prime ** 2}, (_, index) => index);
+    const constant = index => index % prime;
+    const linear = index => Math.floor(index / prime);
+    const encode = (x, y) => residue(x) + prime * residue(y);
+    const add = ring.map(i => ring.map(j => encode(constant(i) + constant(j), linear(i) + linear(j))));
+    const sub = ring.map(i => ring.map(j => encode(constant(i) - constant(j), linear(i) - linear(j))));
+    const mul = ring.map(i => ring.map(j => encode(constant(i) * constant(j), constant(i) * linear(j) + linear(i) * constant(j))));
+    function pairing(v, w) {
+      const ef = add[mul[v[0]][w[2]]][mul[v[1]][w[3]]];
+      const fe = add[mul[v[2]][w[0]]][mul[v[3]][w[1]]];
+      return sub[ef][fe];
+    }
+    for (const [direction, a, b] of [["same", 1, 1], ["first", 1, 0], ["opposite", 1, -1], ["zero", 0, 0]]) {
+      for (const lift of ["given", "unit"]) {
+        const generator = [1, 0, 0, encode(0, a)];
+        const unit = lift === "unit" ? encode(1, 1) : 1;
+        const first = generator.map(c => mul[unit][c]);
+        const second = [0, 1, encode(0, b), 0];
+        const vectors = [];
+        const liftsOfE1 = new Set();
+        for (const r of ring) {
+          for (const s of ring) {
+            const v = first.map((c, i) => add[mul[r][c]][mul[s][second[i]]]);
+            vectors.push(v);
+            if (constant(v[0]) === 1 && constant(v[1]) === 0) {
+              assert.deepEqual(v.slice(2).map(linear), [0, a]);
+              liftsOfE1.add(v.slice(0, 2).map(linear).join(","));
+            }
+          }
+        }
+        assert.equal(new Set(vectors.map(v => v.join(","))).size, prime ** 4);
+        assert.equal(liftsOfE1.size, prime ** 2);
+        const generatorPairing = pairing(first, second);
+        assert.equal(generatorPairing, encode(0, b - a));
+        let isotropic = true;
+        for (const v of vectors) {
+          for (const w of vectors) {
+            const actual = pairing(v, w);
+            if (actual) isotropic = false;
+            const determinant = constant(v[0]) * constant(w[1]) - constant(v[1]) * constant(w[0]);
+            assert.equal(actual, mul[residue(determinant)][generatorPairing]);
+          }
+        }
+        const displayed = lib.render("polarized-graph", {prime: String(prime), direction, lift});
+        const difference = (b < 0 ? "−1" : b) + " − " + a + " ≡ " + linear(generatorPairing);
+        assert.ok(displayed.includes("<dd>" + difference + "</dd>"));
+        assert.ok(displayed.includes("<dt>Isotropic plane</dt><dd>" + (isotropic ? "Yes" : "No") + "</dd>"));
+        const components = ["e₁", "e₂", "f₁", "f₂"];
+        for (const [row, v] of [first, second].entries()) {
+          const coordinates = v.map(linear);
+          const term = (c, i) => c === 0 ? "" : (c === 1 ? "" : "−") + components[i];
+          const coefficient = coordinates.map(term).filter(Boolean).join(" + ") || "0";
+          const quotient = coordinates.map((c, i) => i < 2 ? "" : term(c, i)).filter(Boolean).join(" + ") || "0";
+          assert.ok(displayed.includes('<th scope="row"><var>' + components[row] + '</var></th><td><var>' +
+            coefficient + '</var></td><td>[<var>' + quotient + '</var>]</td>'));
+        }
+        settings++;
+        graphVectors += vectors.length;
+        orderedPairs += vectors.length ** 2;
+      }
+    }
+  }
+  assert.deepEqual([settings, graphVectors, orderedPairs], [24, 5776, 3179536]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-polarized-graph"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("polarized-graph", {prime: "3", direction: "same", lift: "given"})),
+    "The default polarized plane must remain readable in " + page);
+}
 // Compare j after restriction with multiplication in F9[t]/(t^4).
 // Encode a + bω by a + 3b, with both coefficients reduced modulo three.
 {
@@ -1778,5 +1852,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );
