@@ -141,6 +141,57 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Form the four matrices in 2^n{0,I,D,I+D} modulo 2^(n+1) and look up each candidate.
+{
+  const identity = [[1, 0], [0, 1]], translate = [[1, 0], [0, -1]];
+  const make = (a, b) => identity.map((row, i) => row.map((v, j) => a * v + b * translate[i][j]));
+  const multiply = (x, y) => x.map(row => [0, 1].map(j => row[0] * y[0][j] + row[1] * y[1][j]));
+  const trace = x => x[0][0] + x[1][1];
+  const mod = (x, m) => x - m * Math.floor(x / m);
+  const key = (x, m) => x.flat().map(v => mod(v, m)).join(",");
+  const signed = x => String(x).replace("-", "−");
+  let residuePairs = 0, settings = 0;
+  for (let n = 0; n <= 5; n++) {
+    const k = 2 ** n, full = 2 * k;
+    const scaled = new Set();
+    for (const u of [0, 1]) for (const v of [0, 1]) scaled.add(key(make(k * u, k * v), full));
+    assert.equal(scaled.size, 2);
+    for (let a = 0; a < full; a++) for (let b = 0; b < full; b++) {
+      const x = make(a, b);
+      const member = scaled.has(key(x, full));
+      const coordinatesDivide = a % k === 0 && b % k === 0;
+      const strongTraces = [identity, translate].every(g => mod(trace(multiply(x, g)), full) === 0);
+      assert.equal(member, coordinatesDivide);
+      assert.equal(member, strongTraces);
+      residuePairs++;
+    }
+    if (n > 3) continue;
+    for (let a = -8; a <= 8; a++) for (let b = -8; b <= 8; b++) {
+      const x = make(a, b), r = x[0][0], s = x[1][1];
+      const member = scaled.has(key(x, full));
+      const entriesDivide = x.flat().every(v => v % k === 0);
+      assert.equal(member, entriesDivide && mod(r / k - s / k, 2) === 0);
+      const output = lib.render("translated-trace-precision", {n, a, b});
+      const cells = [...output.matchAll(/<td>([^<]+)<\/td>/g)].map(v => Number(v[1].replace("−", "-")));
+      const expected = [identity, translate].flatMap(g => {
+        const t = trace(multiply(x, g));
+        return [t, mod(t, k), mod(t, full)];
+      });
+      assert.deepEqual(cells, expected);
+      assert.ok(output.includes("Entries (" + signed(r) + ", " + signed(s) + ") divisible by " + k));
+      assert.ok(output.includes("with coordinates (" + signed(a) + ", " + signed(b) + ")"));
+      const answers = [...output.matchAll(/<dd>(Yes|No)<\/dd>/g)].map(v => v[1] === "Yes");
+      assert.deepEqual(answers, [entriesDivide, member]);
+      settings++;
+    }
+  }
+  assert.equal(residuePairs, 5460);
+  assert.equal(settings, 1156);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-translated-trace-precision"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("translated-trace-precision", lib.defaults("translated-trace-precision"))));
+}
 // Count the kernel on E[N] and check the denominator of each displayed trace weight.
 {
   function gaussianTimes(text, n) {
@@ -2034,5 +2085,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 162 square-torus settings and 24,345 enumerated torsion labels, 392 Gaussian quotient markings with 200 recovered labels, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 1156 translated-trace settings and 5460 complete residue pairs, 162 square-torus settings and 24,345 enumerated torsion labels, 392 Gaussian quotient markings with 200 recovered labels, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

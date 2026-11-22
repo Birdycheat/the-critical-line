@@ -18,6 +18,18 @@
   const ramifiedCoordinates = [["0", "0"], ["1", "1"], ["eta", "η"], ["sum", "1 + η"]];
   const gaussianLabels = Array.from({length: 7}, (_, i) => [String(i), String(i)]);
   const configs = {
+    "translated-trace-precision": {
+      title: "Which traces detect divisibility in the lattice?",
+      kind: "Translated traces on a two-dimensional 2-adic lattice",
+      section: "lifts",
+      params: [
+        range("n", "Power n", 0, 3, 1, 1),
+        range("a", "Coefficient a", -8, 8, 1, 1),
+        range("b", "Coefficient b", -8, 8, 1, 1),
+      ],
+      caption: "Let I be the identity and D = diag(1, −1). Their ℤ₂-span is the lattice M. For X = aI + bD the diagonal entries are a + b and a − b. Compare their divisibility with the two trace residues. A zero in a residue column means that its modulus divides the trace.",
+      method: "Since D² = I and tr(D) = 0, the ordinary trace is 2a and the trace after right multiplication by D is 2b. Both vanish modulo 2ⁿ⁺¹ exactly when a and b are divisible by 2ⁿ, which is the condition X ∈ 2ⁿM. At n = 1 take a = 0 and b = 1. The ordinary trace is zero at every precision, while tr(XD) = 2 detects the missing divisibility. Alternatively, once the diagonal entries have been divided by 2ⁿ, they must have the same parity for the quotient to belong to M.",
+    },
     "square-torus-fixed-points": {
       title: "What does a fixed point contribute to the trace?",
       kind: "Holomorphic fixed-point weights on a square elliptic curve",
@@ -1640,6 +1652,27 @@
   }
 
   function render(id, v) {
+    if (id === "translated-trace-precision") {
+      const a = Number(v.a), b = Number(v.b);
+      const modulus = 2 ** Number(v.n), stronger = 2 * modulus;
+      const diagonal = [a + b, a - b];
+      const residue = (value, m) => ((value % m) + m) % m;
+      const signed = value => String(value).replace("-", "−");
+      const pair = ([x, y]) => "(" + signed(x) + ", " + signed(y) + ")";
+      const entriesDivide = diagonal.every(value => value % modulus === 0);
+      const inLattice = a % modulus === 0 && b % modulus === 0;
+      const lattice = modulus === 1 ? "M" : modulus + "M";
+      const row = (label, value) => '<tr><th scope="row">' + label + '</th><td>' + signed(value) +
+        '</td><td>' + residue(value, modulus) + '</td><td>' + residue(value, stronger) + '</td></tr>';
+      const announcement = "Trace residues modulo " + stronger + " are " + residue(2 * a, stronger) +
+        " and " + residue(2 * b, stronger) + ". " + (inLattice ? "X belongs to " : "X is outside ") + lattice + ".";
+      return '<table class="carry-table" data-announcement="' + announcement + '"><caption>Ordinary and translated traces</caption>' +
+        '<thead><tr><th scope="col">Trace</th><th scope="col">Value</th><th scope="col">Mod ' + modulus +
+        '</th><th scope="col">Mod ' + stronger + '</th></tr></thead><tbody>' +
+        row("tr(<var>X</var>)", 2 * a) + row("tr(<var>XD</var>)", 2 * b) + '</tbody></table>' +
+        metrics([["Entries " + pair(diagonal) + " divisible by " + modulus, entriesDivide ? "Yes" : "No"],
+          ["<var>X</var> ∈ " + lattice + " with coordinates " + pair([a, b]), inLattice ? "Yes" : "No"]]);
+    }
     if (id === "square-torus-fixed-points") {
       const a = Number(v.real), b = Number(v.imag), y = Number(v.y);
       const degree = (1 - a) ** 2 + b ** 2;

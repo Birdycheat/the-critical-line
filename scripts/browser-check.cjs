@@ -136,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "translated-trace-precision") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["2", "0", "2", "2", "0", "2"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Yes", "No"]);
+          assert.equal(await fig.locator('[role="status"]').textContent(), "Trace residues modulo 4 are 2 and 2. X is outside 2M.");
         } else if (id === "square-torus-fixed-points") {
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["17", "(1 + 4i)/17", "1 + 4i"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 + 4i", "16 − 4i"]);
@@ -423,6 +427,33 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-translated-trace-precision");
+    const precision = page.locator("#fig-translated-trace-precision.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      for (const [n, a, b, cells, answers] of [
+        [1, 1, 1, ["2", "0", "2", "2", "0", "2"], ["Yes", "No"]],
+        [1, 0, 1, ["0", "0", "0", "2", "0", "2"], ["No", "No"]],
+        [2, -2, 2, ["−4", "0", "4", "4", "0", "4"], ["Yes", "No"]],
+        [0, -1, 0, ["−2", "0", "0", "0", "0", "0"], ["Yes", "Yes"]],
+        [3, 8, -8, ["16", "0", "0", "−16", "0", "0"], ["Yes", "Yes"]],
+      ]) {
+        for (const [key, value] of Object.entries({n, a, b}))
+          await precision.locator('input[name="' + key + '"]').evaluate((el, value) => {
+            el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true}));
+          }, value);
+        assert.deepEqual(await precision.locator("tbody td").allInnerTexts(), cells);
+        assert.deepEqual(await precision.locator(".metrics dd").allInnerTexts(), answers);
+        assert.ok(await precision.locator("table").evaluate(el =>
+          el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+      }
+    }
+    const precisionLink = new URL(await precision.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of Object.entries({n: "3", a: "8", b: "-8"}))
+      assert.equal(precisionLink.searchParams.get("translated-trace-precision." + key), value);
+    await openFigure(page, precisionLink.href);
+    assert.deepEqual(await precision.locator(".metrics dd").allInnerTexts(), ["Yes", "Yes"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-square-torus-fixed-points");
     const torus = page.locator("#fig-square-torus-fixed-points.ready");
@@ -833,6 +864,9 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticPrecision = plain.locator("#fig-translated-trace-precision");
+    assert.deepEqual(await staticPrecision.locator("tbody td").allInnerTexts(), ["2", "0", "2", "2", "0", "2"]);
+    assert.deepEqual(await staticPrecision.locator(".metrics dd").allInnerTexts(), ["Yes", "No"]);
     const staticTorus = plain.locator("#fig-square-torus-fixed-points");
     assert.deepEqual(await staticTorus.locator("tbody td").allInnerTexts(), ["17", "(1 + 4i)/17", "1 + 4i"]);
     assert.deepEqual(await staticTorus.locator(".metrics dd").allInnerTexts(), ["1 + 4i", "16 − 4i"]);

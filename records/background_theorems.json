@@ -797,7 +797,7 @@
       "id": "dedekind-projective",
       "title": "A finite torsion-free module over a Dedekind domain is projective",
       "statement": "Over a Dedekind domain, every finitely generated torsion-free module is finite locally free and hence projective. A surjection onto such a module has a linear section. Over a principal ideal domain the module is free.",
-      "use": "Splitting off the quotient by the orthogonal sublattice provides the integral projection used to lift a rounded matrix on the middle layer. At the auxiliary split place, freeness gives a basis of the quotient by the saturated flag lattice.",
+      "use": "Splitting off the quotient by the orthogonal sublattice provides the integral projection used to lift a rounded matrix on the middle layer. At the auxiliary split place, freeness gives a basis of the quotient by the saturated flag lattice. The integral spans of the group matrices and the thickened auxiliary modules are finite free over the local principal ideal ring.",
       "citation": "The Stacks Project, Lemma 15.22.11(2–3) and the finite projective criteria of Lemma 10.78.2.",
       "url": "https://stacks.math.columbia.edu/tag/0AUW",
       "passages": [
@@ -810,7 +810,9 @@
         "global-primitive-projection-glue",
         "global-primitive-gluing-generators",
         "global-line-mass-ideals",
-        "lifts-hecke-cuspidal-type"
+        "lifts-hecke-cuspidal-type",
+        "lifts-period-image-lattice",
+        "lifts-period-simultaneous-layer"
       ]
     },
     {
@@ -986,11 +988,12 @@
       "id": "baire-closed-orbit",
       "title": "Baire category for a locally compact orbit",
       "statement": "If a nonempty locally compact Hausdorff space is a countable union of closed subsets, some member has nonempty interior.",
-      "use": "A countable family of translates covers the closed orbit. One has interior, which gives a neighbourhood in the image of a prescribed neighbourhood of the identity under the orbit map.",
+      "use": "A countable family of translates covers the closed orbit. One has interior, which gives a neighbourhood in the image of a prescribed neighbourhood of the identity under the orbit map. In a compact matrix group the subgroups defined over the finite coefficient extensions form a countable closed cover. One is open and has finite index.",
       "citation": "The Stacks Project, Topology, Lemma 5.13.3, tag 0CQN.",
       "url": "https://stacks.math.columbia.edu/tag/0CQN",
       "passages": [
-        "lifts-adelic-gram-orbit"
+        "lifts-adelic-gram-orbit",
+        "lifts-period-coefficient-field"
       ]
     },
     {
@@ -1404,13 +1407,14 @@
     {
       "id": "filtered-period-summands",
       "title": "Crystalline summands and filtered de Rham periods",
-      "statement": "A Galois-stable direct summand of a crystalline representation is crystalline. Its filtered de Rham periods form a filtered direct summand, and the dimensions of each graded piece add across a direct sum.",
-      "use": "Two split injections in opposite directions transfer crystallinity to the rank-m model and force all the specified filtration jumps to occur.",
-      "citation": "O. Brinon and B. Conrad, CMI Summer School Notes on p-adic Hodge Theory, Theorem 5.2.1 and §6.3.",
+      "statement": "A Galois-stable direct summand of a crystalline representation is crystalline. Its filtered de Rham periods form a filtered direct summand, and the dimensions of each graded piece add across a direct sum. More generally, admissibility for a regular period ring passes to subquotients, and the de Rham period functor on de Rham representations carries short exact sequences to short exact sequences with their induced filtrations.",
+      "use": "Two split injections in opposite directions transfer crystallinity to the rank-m model and force all the specified filtration jumps to occur. The columns give a direct-sum description of each auxiliary layer. On the target, evaluation exhibits the representation as a quotient of a finite sum of copies of the rational matrix lattice. Admissibility passes to this quotient.",
+      "citation": "O. Brinon and B. Conrad, CMI Summer School Notes on p-adic Hodge Theory, Theorem 5.2.1 and Proposition 6.3.3.",
       "url": "https://math.stanford.edu/~conrad/papers/notes.pdf#page=68",
       "passages": [
         "lifts-geometric-local-tests",
-        "lifts-odd-fixed-weight-closure"
+        "lifts-odd-fixed-weight-closure",
+        "lifts-period-local-constituents"
       ]
     },
     {
@@ -1608,13 +1612,14 @@
     },
     {
       "id": "burnside-density-finite",
-      "title": "Burnside’s density theorem",
-      "statement": "An algebra over an algebraically closed field acts through the full matrix algebra on any finite-dimensional irreducible module.",
-      "use": "The matrix units of the archimedean type isolate coefficients of a tensor and give irreducibility for the product action.",
-      "citation": "P. Etingof et al., Introduction to Representation Theory, Theorem 2.5(i).",
-      "url": "https://arxiv.org/pdf/0901.0827#page=24",
+      "title": "The density theorem for simple representations",
+      "statement": "Over an algebraically closed field, the simultaneous action of a unital algebra on a finite family of pairwise nonisomorphic finite-dimensional simple modules maps onto the product of their full endomorphism algebras.",
+      "use": "The matrix units of the archimedean type isolate coefficients of a tensor and give irreducibility for the product action. On each simple factor one may therefore pair a nonzero matrix against a matrix unit and prescribe zero on the other factors.",
+      "citation": "P. Etingof et al., Introduction to Representation Theory, Theorem 3.2.2(i–ii).",
+      "url": "https://math.mit.edu/~etingof/reprbook.pdf#page=54",
       "passages": [
-        "lifts-hecke-weight-projections"
+        "lifts-hecke-weight-projections",
+        "lifts-period-trace-divisibility"
       ]
     },
     {
@@ -2326,6 +2331,53 @@
       "url": "https://jvoight.github.io/articles/orthohecke-240123.pdf#page=5",
       "passages": [
         "lifts-fixed-point-definite-trace"
+      ]
+    },
+    {
+      "id": "krasner-finite-extensions",
+      "title": "Krasner’s lemma for a finite separable extension",
+      "statement": "Over a complete nonarchimedean field, if an algebraic element is closer to a separable generator than any other conjugate of that generator, the field it generates contains the generator. Sufficiently small perturbations of a monic irreducible separable polynomial preserve its root fields up to conjugacy.",
+      "use": "Polynomials with rational coefficients suffice to account for the finite extensions inside a fixed algebraic closure of the local coefficient field.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Propositions 7.60–7.61 and Corollary 7.62.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=133",
+      "passages": [
+        "lifts-period-coefficient-field"
+      ]
+    },
+    {
+      "id": "local-extension-valuation-ring",
+      "title": "Integers and ramification in a finite local extension",
+      "statement": "The valuation extends uniquely to a finite extension of a local field. Its ring of integers is a finite free module over the base valuation ring. A uniformizer of the base generates the power of the maximal ideal given by the ramification index.",
+      "use": "A bound on the entries places the compact image in one finite module. The ramification index converts a valuation on the coefficient field to a power of the rational prime.",
+      "citation": "J. S. Milne, Algebraic Number Theory, Proposition 2.29, Theorem 7.38, Corollary 7.42 and Remark 7.43.",
+      "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf#page=125",
+      "passages": [
+        "lifts-period-coefficient-field",
+        "lifts-period-image-lattice",
+        "lifts-period-trace-divisibility",
+        "lifts-period-simultaneous-layer"
+      ]
+    },
+    {
+      "id": "filtered-derham-comparison",
+      "title": "The filtered de Rham comparison isomorphism",
+      "statement": "For a de Rham representation, scalar extension identifies its invariant de Rham periods with the representation over the period field. The comparison and its inverse preserve the tensor product filtrations.",
+      "use": "Applying the inverse in degree zero expresses each integral coordinate vector in the rescaled adapted basis.",
+      "citation": "O. Brinon and B. Conrad, CMI Summer School Notes on p-adic Hodge Theory, Proposition 6.3.7.",
+      "url": "https://math.stanford.edu/~conrad/papers/notes.pdf#page=79",
+      "passages": [
+        "lifts-period-adapted-basis"
+      ]
+    },
+    {
+      "id": "positive-derham-period-ring",
+      "title": "The positive de Rham period ring",
+      "statement": "The positive de Rham period ring is a complete discrete valuation ring. A generator of the kernel of Fontaine’s map after inverting the residue characteristic gives a uniformizer.",
+      "use": "Powers of this uniformizer record the filtration orders of the individual period columns.",
+      "citation": "O. Brinon and B. Conrad, CMI Summer School Notes on p-adic Hodge Theory, Propositions 4.4.3 and 4.4.6.",
+      "url": "https://math.stanford.edu/~conrad/papers/notes.pdf#page=60",
+      "passages": [
+        "lifts-period-adapted-basis"
       ]
     }
   ]
