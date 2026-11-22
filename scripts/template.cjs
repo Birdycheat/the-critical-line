@@ -251,7 +251,7 @@ function home(chapters, plot, stats = {}) {
       <p class="section-lead">Enter at graduate-student pace, jump directly to the proof’s new arithmetic ideas, or read the complete self-contained reconstruction.</p>
       <div class="tracks-grid">
         <article class="track-card">
-          <span class="track-kicker">Track 1 · ~45 min · Advanced undergraduate / M1</span>
+          <span class="track-kicker">Track 1 · ~45 min · Advanced undergraduate &amp; graduate</span>
           <h3>Analytical skeleton</h3>
           <p>Follow a hypothetical off-line zero (for instance at real part 0.60) to contradiction across five concise chapters while treating the geometric and arithmetic boxes as stated inputs.</p>
           <p class="micro"><a href="chapter-01.html">Ch. 1 Statement</a> → <a href="chapter-02.html">Ch. 2 Mellin &amp; residues</a> → <a href="chapter-07.html">Ch. 7 Balance</a> → <a href="chapter-09.html">Ch. 9 Window</a> → <a href="chapter-10.html">Ch. 10 Reflection</a></p>
@@ -307,7 +307,7 @@ function home(chapters, plot, stats = {}) {
         <div class="methodology-box">
           <h3>Methodology, deterministic guardrails &amp; open human review</h3>
           <p>Directed and edited by <b>Andréa Gourion</b> under <a rel="license" href="${esc(stats.licenseUrl || "https://creativecommons.org/licenses/by-nc/4.0/deed.en")}">${esc(stats.licenseLabel || "CC BY-NC 4.0")}</a>, this edition combines frontier agentic reconstruction directly from the pinned formal archive and its 61.5 GB uncompressed proof export with deterministic verification scripts that check every pinned line range, acyclic dependency edge, exported constant reference, and all ${fmt(stats.experiments)} numerical experiments.</p>
-          <p><b>Remaining encapsulated frontiers &amp; human audit:</b> Major upstream blocks still cited as verified formal interfaces include symplectic/unitary deformation rings in the Plus bound, the regularized Eisenstein/Siegel–Weil input, orbital period expansions, and arithmetic prime-window instantiation. External human review is open across three tiers: <a href="contribute.html#tier-a">Tier A (M1/M2+ mathematical audit)</a> · <a href="contribute.html#tier-b">Tier B (source-to-prose fidelity)</a> · <a href="contribute.html#tier-c">Tier C (specialist interface unfolding)</a>.</p>
+          <p><b>Remaining encapsulated frontiers &amp; human audit:</b> Major upstream blocks still cited as verified formal interfaces include symplectic/unitary deformation rings in the Plus bound, the regularized Eisenstein/Siegel–Weil input, orbital period expansions, and arithmetic prime-window instantiation. External human review is open across three tiers: <a href="contribute.html#tier-a">Tier A (graduate+ mathematical audit)</a> · <a href="contribute.html#tier-b">Tier B (source-to-prose fidelity)</a> · <a href="contribute.html#tier-c">Tier C (specialist interface unfolding)</a>.</p>
           ${correspondenceBlock}
         </div>
         <nav aria-label="Parts of the monograph">${contents(summary)}</nav>

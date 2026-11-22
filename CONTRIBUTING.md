@@ -6,10 +6,10 @@ Thank you for helping verify, simplify, and complete the human-readable mathemat
 
 ---
 
-## Three Contribution Tiers (Open to M1/M2+ Readers, Lean Experts & Specialists)
+## Three Contribution Tiers (Open to Graduate+ Readers, Lean Experts & Specialists)
 
-1. **Tier A — Mathematical Audit & Proof Simplification (M1/M2+ · BAC+5)**  
-   Read any derived section in `chapter-01.html`–`chapter-10.html` or inspect any of the **91 interactive experiments** (`experiments.html`) to check an algebraic step, test boundary parameters, catch a sign or quantifier slip, or propose a cleaner human argument than the tactic-level derivation.
+1. **Tier A — Mathematical Audit & Proof Simplification (Graduate+)**  
+   Read any derived section in `chapter-01.html`–`chapter-10.html` or inspect any of the **92 interactive experiments** (`experiments.html`) to check an algebraic step, test boundary parameters, catch a sign or quantifier slip, or propose a cleaner human argument than the tactic-level derivation.
 2. **Tier B — Formal Fidelity Audit (`Lean @e50d098 ↔ Prose`)**  
    Enable **Formal audit mode** (*Show all formal correspondences*) on `atlas.html` or any chapter, click the pinned `#Lxx-Lyy` GitHub permalink on `Deicyde/riemann-hypothesis@e50d098`, and verify that every formal hypothesis (level coprimality, signature parity, Haar normalization, field hypothesis) is faithfully stated in the English prose.
 3. **Tier C — Unfolding Pinned Formal-Boundary Interfaces (`outstanding` · Domain Specialists)**  
@@ -46,7 +46,7 @@ Contributions are published with attribution under **[CC BY-NC 4.0](https://crea
 
 Vous pouvez contribuer **en français ou en anglais**, avec ou sans compte GitHub (`contact@andreagourion.com`) :
 
-- **Chantier A — Audit mathématique & simplification (accessible dès BAC+5 / M1–M2)** : relire un passage déjà rédigé ou tester l’une des 91 expériences numériques (`experiments.html`) pour traquer une coquille de signe/quantificateur ou proposer une preuve humaine plus directe.
-- **Chantier B — Audit de fidélité `Lean ↔ Prose` (profils M2 / Lean)** : activer le bouton *Show all formal correspondences* (mémorisé d’une page à l’autre), suivre le permalien `#Lxx-Lyy` vers `Deicyde/riemann-hypothesis@e50d098` et vérifier qu’aucune hypothèse formelle n’a été omise ou lissée dans le texte.
+- **Chantier A — Audit mathématique & simplification (cycles supérieurs / Master–Doctorat+)** : relire un passage déjà rédigé ou tester l’une des 92 expériences numériques (`experiments.html`) pour traquer une coquille de signe/quantificateur ou proposer une preuve humaine plus directe.
+- **Chantier B — Audit de fidélité `Lean ↔ Prose` (lecteurs Lean & théorie des nombres)** : activer le bouton *Show all formal correspondences* (mémorisé d’une page à l’autre), suivre le permalien `#Lxx-Lyy` vers `Deicyde/riemann-hypothesis@e50d098` et vérifier qu’aucune hypothèse formelle n’a été omise ou lissée dans le texte.
 - **Chantier C — Dépliage des frontières formelles `outstanding` (spécialistes)** : ouvrir `contribute.html#tier-c` pour rédiger en prose mathématique auto-contenue l’une des interfaces amont déjà certifiées par le compilateur Lean (déformations $\mathrm{GSp}_4$/$U(3)$, Siegel–Weil régularisé, intégrales orbitales, exponentielle relative en familles).
 - **Licence** : les contributions retenues sont créditées sous licence **[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.fr)**.

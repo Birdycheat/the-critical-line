@@ -337,7 +337,7 @@ function includeFragments(html, sourcePath, parents = []) {
   return expanded;
 }
 
-const TIER_A_KIND = "Tier A — Mathematical audit, typo check, or shorter human proof (M1/M2+) · Audit mathématique ou simplification (BAC+5)";
+const TIER_A_KIND = "Tier A — Mathematical audit, typo check, or shorter human proof (graduate+) · Audit mathématique ou simplification";
 const TIER_B_KIND = "Tier B — Lean-to-prose fidelity & hypothesis check (@e50d098) · Audit de fidélité Lean ↔ Prose";
 const TIER_C_KIND = "Tier C — Unfold a pinned formal-boundary interface (outstanding) · Déplier une frontière formelle (spécialistes)";
 
@@ -1452,12 +1452,12 @@ const openTaskItems = openTasks
   .join("");
 
 const tierAStarters = [
-  ["PIL-06", "chapter-02.html#pilot-residues", "Logarithmic derivative pole & centered Mellin residue (complex analysis, M1)"],
-  ["RAD-01", "chapter-03.html#local", "Cyclic row-weight optimization & factorial jet divisibility (convex calculus & valuations, M1)"],
-  ["MDM-01", "chapter-05.html#global-minor-dimension", "Gram-trace nullity & retained-column rank lower bound (Hermitian linear algebra, M1/M2)"],
-  ["ORV-01", "chapter-06.html#lifts-orbital-marked-vanishing", "Block centralizer & 5-adic unipotent fibre cancellation (linear algebra over local rings, M2)"],
-  ["FLS-01", "chapter-08.html#inputs-minus-denominator", "Multiplication carries modulo F & cleared Bernoulli polynomial congruence (elementary number theory, M1)"],
-  ["WIN-02", "chapter-09.html#window-derivatives", "High-order derivative localization on one-sided intervals (real & Laplace analysis, M1)"],
+  ["PIL-06", "chapter-02.html#pilot-residues", "Logarithmic derivative pole & centered Mellin residue (complex analysis, graduate)"],
+  ["RAD-01", "chapter-03.html#local", "Cyclic row-weight optimization & factorial jet divisibility (convex calculus & valuations, graduate)"],
+  ["MDM-01", "chapter-05.html#global-minor-dimension", "Gram-trace nullity & retained-column rank lower bound (Hermitian linear algebra, graduate)"],
+  ["ORV-01", "chapter-06.html#lifts-orbital-marked-vanishing", "Block centralizer & 5-adic unipotent fibre cancellation (linear algebra over local rings, graduate)"],
+  ["FLS-01", "chapter-08.html#inputs-minus-denominator", "Multiplication carries modulo F & cleared Bernoulli polynomial congruence (elementary number theory, graduate)"],
+  ["WIN-02", "chapter-09.html#window-derivatives", "High-order derivative localization on one-sided intervals (real & Laplace analysis, graduate)"],
 ]
   .map(([cid, href, desc]) => {
     const cl = claimsById.get(cid);
@@ -1553,7 +1553,7 @@ save(
           esc(licenseLabel) +
           "</a>.",
         [
-          ["Tier A: M1/M2+ math audit", "#tier-a"],
+          ["Tier A: Graduate+ math audit", "#tier-a"],
           ["Tier B: Source fidelity", "#tier-b"],
           ["Tier C: Deep interfaces", "#tier-c"],
           ["Chapter table & license", "#chapter-reviews"],
@@ -1589,7 +1589,7 @@ save(
       fmt(stats.openInterfaces) +
       " kernel-certified interfaces awaiting specialist exposition.</p></div>" +
       "</div>" +
-      '<h2 id="tier-a"><span class="section-number">1</span>Tier A — Mathematical audit &amp; proof simplification (open from M1/M2+)</h2>' +
+      '<h2 id="tier-a"><span class="section-number">1</span>Tier A — Mathematical audit &amp; proof simplification (graduate+)</h2>' +
       "<p>You do not need formal-methods training or automorphic machinery to make a decisive contribution. Pick any self-contained section or any of the <a href=\"experiments.html\">" +
       fmt(stats.experiments) +
       " interactive numerical experiments</a> to check an inequality, verify a boundary case, catch a sign or quantifier slip, or replace a tactic-shaped calculation with a shorter human proof.</p>" +
@@ -1640,7 +1640,7 @@ save(
     "Contribute",
     metaFor(
       "contribute.html",
-      "Contribute to The Critical Line across three tiers: Tier A (M1/M2+ mathematical audit), Tier B (formal-to-prose hypothesis check), and Tier C (" +
+      "Contribute to The Critical Line across three tiers: Tier A (graduate+ mathematical audit), Tier B (formal-to-prose hypothesis check), and Tier C (" +
         fmt(stats.openInterfaces) +
         " specialist formal interfaces).",
     ),
@@ -1674,7 +1674,7 @@ save(
           fmt(stats.infraClaims) +
           " d’infrastructure classique), <b>" +
           fmt(stats.writtenClaims) +
-          " nœuds en registres autonomes au niveau M2</b> et " +
+          " nœuds en registres autonomes</b> et " +
           fmt(stats.interfaceClaims) +
           " nœuds jouxtant l’une des <b>" +
           fmt(stats.openInterfaces) +
@@ -1690,7 +1690,7 @@ save(
       '<section id="trace" class="page-shell article-section" aria-labelledby="question-zero">' +
       '<h2 id="question-zero"><span class="section-number">1</span>Comment un zéro hors de la droite critique laisse-t-il une trace ? <span class="claim-id-tag">[PIL-06]</span></h2>' +
       '<div class="measure">' +
-      "<p>Dans le <b>Parcours 1 (Squelette analytique, ~45 min, niveau L3/M1)</b>, on raisonne par l’absurde en supposant qu’il existe un zéro à droite de la droite critique (par exemple de partie réelle 0,60). Un tel zéro crée un pôle simple dans une somme pondérée sur les puissances de nombres premiers, qu’une borne de dérivées hautes sur des fenêtres lointaines finit par exclure.</p>" +
+      "<p>Dans le <b>Parcours 1 (Squelette analytique, ~45 min, accessible dès la fin du premier cycle et aux cycles supérieurs)</b>, on raisonne par l’absurde en supposant qu’il existe un zéro à droite de la droite critique (par exemple de partie réelle 0,60). Un tel zéro crée un pôle simple dans une somme pondérée sur les puissances de nombres premiers, qu’une borne de dérivées hautes sur des fenêtres lointaines finit par exclure.</p>" +
       '<p>Image élémentaire : la fonction <i>f</i>(<i>x</i>) = (<i>x</i> − 3)² s’annule en 3 et sa dérivée vaut 2(<i>x</i> − 3). Leur quotient <i>f</i>′(<i>x</i>)/<i>f</i>(<i>x</i>) = 2/(<i>x</i> − 3) vaut 20 en 3,1, puis 200 en 3,01, et 2 000 en 3,001 : le zéro devient un pôle simple dont le résidu révèle la multiplicité. <a href="chapter-01.html#how-to-read" hreflang="en">Suivre le zéro hypothétique à 0,60 dans le chapitre 1</a>.</p>' +
       "<details><summary>Retrouver le calcul exact pour une fonction L</summary>" +
       "<p>Soit ρ un zéro d’ordre <i>m</i> ≥ 1 dans la bande 0 &lt; Re(ρ) &lt; 1. Localement, <i>L</i>(<i>s</i>) = (<i>s</i> − ρ)<sup><i>m</i></sup><i>h</i>(<i>s</i>) avec <i>h</i> holomorphe et <i>h</i>(ρ) ≠ 0. En prenant la dérivée logarithmique, on obtient <i>L</i>′/<i>L</i> = <i>m</i>/(<i>s</i> − ρ) + <i>h</i>′/<i>h</i>, soit un pôle simple de résidu <i>m</i>.</p>" +
@@ -1703,12 +1703,12 @@ save(
       '<section id="contribuer" class="page-shell article-section" aria-labelledby="suite-titre">' +
       '<h2 id="suite-titre"><span class="section-number">2</span>Trois parcours de lecture et trois chantiers ouverts à tous les niveaux</h2>' +
       '<div class="measure">' +
-      '<article class="book-entry"><h3><a href="index.html#reading-tracks" hreflang="en">Choisir votre porte d’entrée (L3/M1, Spécialiste ou Cours complet)</a></h3><p><b>Parcours 1 (Squelette analytique, ~45 min) :</b> chapitres 1, 2, 7, 9 et 10 en admettant les boîtes arithmétiques. <b>Parcours 2 (Spécialiste — Cœur nouveau) :</b> accès direct aux ' +
+      '<article class="book-entry"><h3><a href="index.html#reading-tracks" hreflang="en">Choisir votre porte d’entrée (Squelette analytique, Spécialiste ou Cours complet)</a></h3><p><b>Parcours 1 (Squelette analytique, ~45 min) :</b> chapitres 1, 2, 7, 9 et 10 en admettant les boîtes arithmétiques. <b>Parcours 2 (Spécialiste — Cœur nouveau) :</b> accès direct aux ' +
       fmt(stats.coreClaims) +
       ' résultats propres à l’argument d’Alpöge (<a href="atlas.html?role=core-argument#ledger" hreflang="en">vue filtrée dans l’atlas</a>). <b>Parcours 3 (Reconstruction intégrale) :</b> inclut les ' +
       fmt(stats.infraClaims) +
       " résultats d’infrastructure classique redémontrés dans l’archive formelle.</p></article>" +
-      '<article class="book-entry"><h3><a href="contribute.html#tier-a" hreflang="en">Chantier A (dès BAC+5 / M1–M2) — Audit mathématique &amp; simplification</a></h3><p>Relire un nœud déjà déplié ou manipuler l’une des <a href="experiments.html" hreflang="en">' +
+      '<article class="book-entry"><h3><a href="contribute.html#tier-a" hreflang="en">Chantier A (cycles supérieurs &amp; chercheurs) — Audit mathématique &amp; simplification</a></h3><p>Relire un nœud déjà déplié ou manipuler l’une des <a href="experiments.html" hreflang="en">' +
       fmt(stats.experiments) +
       ' expériences numériques</a> pour traquer une coquille ou proposer une preuve humaine plus directe. <a data-contribute href="' +
       esc(pil06Urls.issueUrl) +
