@@ -301,3 +301,22 @@ The [local duality argument](book.html#lifts-finite-period-local-lattice) retain
 For the [chart comparison](book.html#lifts-marked-period-fibre-isometry), one fixed division level recovers the marked residue. Equality of the integral form uses every division level. The [elliptic example](book.html#lifts-marked-period-elliptic-sign) checks the orientation of the pairing in a mathematical disclosure. The [finite sheet bound](book.html#lifts-marked-period-finite-sheets) follows from a finite affine cover and connectedness on each irreducible component. The [full-level argument](book.html#lifts-marked-period-sheet-level) treats uniqueness of the exponential separately.
 
 A rereading of the [compatible markings](book.html#lifts-finite-markings-compatible-lifts) reduced both compatibility in the level and linearity for the order to uniqueness of a residue. The inverse in the [marked period quotient](book.html#lifts-finite-markings-period-quotient) now invokes the integral realization, the finite sheet representatives and the established injectivity directly.
+
+## One proof step in each of the ten chapters
+
+The closing reading followed one implication per chapter. It checked the hypothesis used, the direction of the implication and the reference at the point where the result is used. A complete line-by-line review of the mathematical draft remains outstanding.
+
+| Chapter | Implication checked |
+| --- | --- |
+| 1. Statement | The [character of modulus one](book.html#target-characters) transfers zero exclusion to ζ off its pole. Reflection supplies the other half of the strip. |
+| 2. Mellin transform | On Re s > 1 the [absolutely summable majorant](book.html#eq-pilot-fubini) permits exchanging the sum and the integral. |
+| 3. Divisibility | The [coefficient bound](book.html#local-bound) holds for each power of the inverse series. Integrality of the outer series enters when the powers are summed. |
+| 4. Normalization | The [change to local orbit coordinates](book.html#normalization-orbits) keeps the exponential sign and multiplies the differentiated jet by a unit. |
+| 5. Lattices | In the [arithmetic main term](book.html#global-matching), the coefficient of the logarithmic size is nonpositive. This fixes the direction of the bound after substitution. |
+| 6. Lifts | The [theta-chain product](book.html#lifts-chain) evaluates the character quotient at every integer from 1 to t. This is why its nonvanishing at 1 is needed. |
+| 7. Balance | Dividing the [weighted inequality](book.html#balance-central-division) by its positive density preserves the direction even when the arithmetic sum is negative. |
+| 8. Arithmetic hypotheses | The [choice of windows](book.html#inputs-rescale) uses an auxiliary family chosen after ε. The same family supplies both the estimate and the intervals. |
+| 9. Windows | The [one-sided estimate](book.html#window-epsilon) applies to the fixed level on those intervals. The exponent 0.55 suffices to exclude a pole at 0.60. |
+| 10. Reflection | The [reflection for ζ](book.html#reflection-zeta) transports exclusion from the right half of the strip. The statement treats the pole separately. |
+
+The numerical windows example now gives the order of the choices in its text. The [affine partner](book.html#inputs-split-affine-partner) retains the identity expressing each shortened coordinate in the ideal of the new vector. The [central exponential](book.html#lifts-marked-period-local-lift) keeps the coordinate change and its inverse at the point where the periods are transported.
