@@ -16,6 +16,17 @@
     value,
   });
   const configs = {
+    "ordinary-line-cancellation": {
+      title: "Which point receives the even and odd contributions?",
+      kind: "Subspaces above one quotient subspace",
+      section: "lifts",
+      params: [
+        choose("q", "Field size Q", [["2", "2"], ["3", "3"], ["5", "5"]], "3"),
+        choose("r", "Dimension of U", [["0", "0 · zero space"], ["1", "1 · line"], ["2", "2 · plane"]], "1"),
+      ],
+      caption: "Each column follows the lifts of one fixed subspace U of the quotient plane. The residue map cycles through P₀ → P₁ → P₂ → P₀. The full preimage starts one step ahead of the graphs.",
+      method: "Take the last coordinate line C in the three-dimensional space over the field of Q elements. A lift of U missing C is the graph of a linear map from U to C, with Q choices for each basis vector. The unique lift containing C is the full preimage. For dimension j, apply the residue map another 3 − j times and count each lift with weight Q raised to j(j − 1)/2. Add the weights at the final point separately for even and odd dimensions.",
+    },
     "clopen-branch-reduction": {
       title: "Does one generic branch remain open and closed?",
       kind: "Two integral models over the localization of ℤ at 5",
@@ -1547,6 +1558,30 @@
   }
 
   function render(id, v) {
+    if (id === "ordinary-line-cancellation") {
+      const q = Number(v.q);
+      const r = Number(v.r);
+      const points = ["P₀", "P₁", "P₂"];
+      const lifts = [q ** r, 1];
+      const columns = [r, r + 1].map((j, start) => ({
+        j, parity: j % 2 ? "Odd" : "Even", count: lifts[start],
+        weight: q ** (j * (j - 1) / 2), start: points[start],
+        steps: 3 - j, arrival: points[(start + 3 - j) % points.length],
+      }));
+      const rows = [
+        ["Dimension j", "j"], ["Parity", "parity"], ["Number of lifts", "count"],
+        ["Weight per lift", "weight"], ["Starting point", "start"],
+        ["Remaining steps", "steps"], ["Final point", "arrival"],
+      ].map(([label, key]) => '<tr><th scope="row">' + label + '</th>' +
+        columns.map(column => '<td>' + column[key] + '</td>').join("") + '</tr>');
+      const table = '<table class="carry-table"><caption>Lifts above the chosen subspace</caption>' +
+        '<colgroup><col style="width:40%"><col style="width:28%"><col style="width:32%"></colgroup>' +
+        '<thead><tr><th scope="col">Property</th><th scope="col">Graphs</th><th scope="col">Full preimage</th></tr></thead>' +
+        '<tbody>' + rows.join("") + '</tbody></table>';
+      const ordered = r % 2 ? [columns[1], columns[0]] : columns;
+      return table + metrics(ordered.map(column =>
+        [column.parity + " weight at " + column.arrival, String(column.count * column.weight)]));
+    }
     if (id === "clopen-branch-reduction") {
       const distance = v.model === "product" ? 1 : 5;
       const roots = [0, distance];

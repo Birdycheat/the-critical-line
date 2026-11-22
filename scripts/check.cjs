@@ -141,6 +141,58 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Enumerate the points of every subspace in dimension three. Each normalized
+// nonzero vector gives one line and, as a linear functional, one plane.
+for (const q of [2, 3, 5]) {
+  const field = Array.from({length: q}, (_, i) => i);
+  const space = field.flatMap(x => field.flatMap(y => field.map(z => [x, y, z])));
+  const subspaces = [{j: 0, vectors: [[0, 0, 0]]}, {j: 3, vectors: space}];
+  for (const direction of space.filter(v => v.find(a => a !== 0) === 1)) {
+    subspaces.push({j: 1, vectors: field.map(a => direction.map(x => a * x % q))});
+    subspaces.push({j: 2, vectors: space.filter(v =>
+      v.reduce((dot, x, i) => dot + x * direction[i], 0) % q === 0)});
+  }
+  for (const r of [0, 1, 2]) {
+    // U is spanned by the first r coordinate vectors in the quotient plane.
+    const quotient = new Set(space.filter(([x, y]) =>
+      (r > 0 || x === 0) && (r > 1 || y === 0)).map(([x, y]) => x + "," + y));
+    const groups = [[], []];
+    const totals = [[0, 0, 0], [0, 0, 0]];
+    for (const {j, vectors} of subspaces) {
+      const image = new Set(vectors.map(([x, y]) => x + "," + y));
+      if (image.size !== quotient.size || [...image].some(p => !quotient.has(p))) continue;
+      const start = Number(vectors.some(([x, y, z]) => x === 0 && y === 0 && z === 1));
+      let end = start, weight = 1;
+      for (let step = 0; step < 3 - j; step++) end = [1, 2, 0][end];
+      for (let i = 1; i < j; i++) weight *= q ** i;
+      groups[start].push({j, start, end, weight});
+      totals[j % 2][end] += weight;
+    }
+    const [graphs, full] = groups;
+    assert.ok(graphs.length);
+    assert.equal(full.length, 1);
+    assert.deepEqual(totals[0], totals[1]);
+    const points = ["P₀", "P₁", "P₂"];
+    const expected = group => {
+      const {j, start, end, weight} = group[0];
+      assert.ok(group.every(x => x.j === j && x.end === end && x.weight === weight));
+      return [j, j % 2 ? "Odd" : "Even", group.length, weight, points[start], 3 - j, points[end]];
+    };
+    const left = expected(graphs), right = expected(full);
+    const display = lib.render("ordinary-line-cancellation", {q: String(q), r: String(r)});
+    const cells = [...display.matchAll(/<td>(.*?)<\/td>/g)].map(m => m[1]);
+    assert.deepEqual(cells, left.flatMap((v, i) => [String(v), String(right[i])]));
+    const arrival = graphs[0].end;
+    const metricText = [...display.matchAll(/<(dt|dd)>(.*?)<\/\1>/g)].map(m => m[2]);
+    assert.deepEqual(metricText, ["Even weight at " + points[arrival], String(totals[0][arrival]),
+      "Odd weight at " + points[arrival], String(totals[1][arrival])]);
+  }
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-ordinary-line-cancellation"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("ordinary-line-cancellation", {q: "3", r: "1"})),
+    "Missing the static ordinary-line multiplicities in " + page);
+}
 // In the special fibre, (a + bX)² = a² + (2ab + db²)X. Enumerate its 25 elements.
 for (const [model, d] of [["glued", 5], ["product", 1]]) {
   const residues = [0, 1, 2, 3, 4];
@@ -1657,5 +1709,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

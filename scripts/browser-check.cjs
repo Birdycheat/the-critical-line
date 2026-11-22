@@ -130,6 +130,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "ordinary-line-cancellation") {
+          assert.deepEqual(await fig.locator(".metrics dt").allInnerTexts(), ["Even weight at P₂", "Odd weight at P₂"]);
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["3", "3"]);
         } else if (id === "clopen-branch-reduction") {
           assert.equal(await fig.locator("caption").innerText(), "Specialization of the two branches");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["1 − X/5", "No", "One double point"]);
@@ -359,6 +362,30 @@ async function run() {
     await openFigure(page, branchLink);
     assert.equal(await branches.getByRole("combobox", {name: "Integral model", exact: true}).inputValue(), "product");
     assert.deepEqual(await branches.locator(".metrics dd").allInnerTexts(), ["1 − X", "Yes", "Two reduced points"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-ordinary-line-cancellation");
+    const ordinary = page.locator("#fig-ordinary-line-cancellation.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      await ordinary.getByRole("combobox", {name: "Field size Q"}).selectOption("5");
+      for (const [rank, end, weights, counts] of [
+        ["0", "P₀", "1", ["1", "1"]],
+        ["1", "P₂", "5", ["5", "1"]],
+        ["2", "P₁", "125", ["25", "1"]],
+      ]) {
+        await ordinary.getByRole("combobox", {name: "Dimension of U"}).selectOption(rank);
+        assert.deepEqual(await ordinary.getByRole("row", {name: /^Number of lifts/}).locator("td").allInnerTexts(), counts);
+        assert.deepEqual(await ordinary.getByRole("row", {name: /^Final point/}).locator("td").allInnerTexts(), [end, end]);
+        assert.deepEqual(await ordinary.locator(".metrics dt").allInnerTexts(), ["Even weight at " + end, "Odd weight at " + end]);
+        assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), [weights, weights]);
+        assert.ok(await ordinary.locator("table").evaluate(t =>
+          t.getBoundingClientRect().right <= t.closest("figure").getBoundingClientRect().right + 1));
+      }
+    }
+    await openFigure(page, await ordinary.locator("[data-share]").getAttribute("href"));
+    assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
+    assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
+    assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-hecke-four-point-approximation");
     const fourPoint = page.locator("#fig-hecke-four-point-approximation.ready");
@@ -645,6 +672,7 @@ async function run() {
     assert.ok(await page.locator("#fig-jacobi-primes table").isVisible());
     assert.deepEqual(await page.locator("#fig-jacobi-primes tbody td").allInnerTexts(), ["0", "1", "1, 0", "1", "0", "0, 1"]);
     assert.deepEqual(await page.locator("#fig-mobius-product .metrics dd").allInnerTexts(), ["2", "0", "−2"]);
+    assert.deepEqual(await page.locator("#fig-ordinary-line-cancellation .metrics dd").allInnerTexts(), ["3", "3"]);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
       format: "A4",
@@ -658,6 +686,9 @@ async function run() {
     const plain = await staticContext.newPage();
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
+    const staticOrdinary = plain.locator("#fig-ordinary-line-cancellation");
+    assert.deepEqual(await staticOrdinary.getByRole("row", {name: /^Final point/}).locator("td").allInnerTexts(), ["P₂", "P₂"]);
+    assert.deepEqual(await staticOrdinary.locator(".metrics dd").allInnerTexts(), ["3", "3"]);
     assert.equal(await staticBranches.locator("caption").innerText(), "Specialization of the two branches");
     assert.deepEqual(await staticBranches.locator("tbody td").allInnerTexts(), ["0", "0", "5", "0"]);
     assert.deepEqual(await staticBranches.locator(".metrics dd").allInnerTexts(), ["1 − X/5", "No", "One double point"]);
