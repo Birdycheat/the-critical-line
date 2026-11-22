@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "APE-01",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-compatible-embeddings",
+      "title": "Complex and p-adic realizations of a common algebraic embedding",
+      "hypotheses": "A number field E, a complex embedding τ₀, a rational prime p and fixed algebraic closures Ω of ℚ and Ωₚ of ℚₚ.",
+      "statement": "There are embeddings s and ιℂ with ιℂs = τ₀. Every extension ιₚ of the base inclusion ℚ → Ωₚ then gives an embedding τ₁ = ιₚs of E.",
+      "equations": [
+        "lifts-geometric-two-realizations"
+      ],
+      "dependencies": [
+        "ATD-01"
+      ],
+      "sources": [
+        {
+          "label": "The quantifiers on the prescribed complex embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean",
+          "lines": [
+            121,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean#L121-L125",
+          "declaration": "UpperTheory.Gal.W2.Seed.LiftEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.LiftEx": 121,
+            "UpperTheory.Gal.W2.Seed.AtPEx": 124
+          },
+          "related_declarations": [
+            "UpperTheory.Gal.W2.Seed.AtPEx"
+          ]
+        },
+        {
+          "label": "Extension from the same copy of the number field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PLiftEx.lean",
+          "lines": [
+            7,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PLiftEx.lean#L7-L20",
+          "declaration": "UpperTheory.Gal.W2.Seed.pLiftEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pLiftEx": 7
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Choice of the p-adic realization and distinguished embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean",
+          "lines": [
+            8,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean#L8-L18",
+          "declaration": "UpperTheory.Gal.W2.Seed.pAtPEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pAtPEx": 6
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The two comparison maps and their compatibility on E",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean",
+          "lines": [
+            224,
+            231
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean#L224-L231",
+          "declaration": "UpperTheory.Gal.W2.Seed.Arith.AtP",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.Arith.AtP": 212
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The pinned ranges record the exact maps and the proof of their compatibility.",
+      "status": "mathematical proof reconstructed",
+      "review": "The field embeddings are algebraic. No comparison between the topologies of ℂ and Ωₚ is required."
+    },
+    {
+      "id": "APE-02",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-compatible-quadratic-root",
+      "title": "The local quadratic embedding selected by a fixed extension",
+      "hypotheses": "An arithmetic CM datum with integral quadratic generator ω of negative discriminant, a prime p of simple splitting, and an embedding τ₁ ∶ E → Ωₚ.",
+      "statement": "For K = ℚ(ω), the restriction of τ₁ has image in ℚₚ. Its factorization defines a unique u ∶ K → ℚₚ, and u(ω) is the unique p-adic integer root whose image is τ₁(ω).",
+      "equations": [
+        "lifts-geometric-selected-root",
+        "lifts-geometric-quadratic-restriction"
+      ],
+      "dependencies": [
+        "APE-01",
+        "GQL-02"
+      ],
+      "sources": [
+        {
+          "label": "The generated subfield and the assertion for every prescribed embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean",
+          "lines": [
+            105,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean#L105-L111",
+          "declaration": "UpperTheory.Gal.W2.Seed.UEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.KqEx": 105,
+            "UpperTheory.Gal.W2.Seed.UEx": 109
+          },
+          "related_declarations": [
+            "UpperTheory.Gal.W2.Seed.KqEx"
+          ]
+        },
+        {
+          "label": "Quadratic relation and exclusion of real images",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+          "lines": [
+            9,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean#L9-L29",
+          "declaration": "UpperTheory.Gal.W2.Seed.pKqEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pKqEx": 6
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Degree two and the affine coordinates in the generator",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+          "lines": [
+            30,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean#L30-L65",
+          "declaration": "UpperTheory.Gal.W2.Seed.pKqEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pKqEx": 6
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Lifting a simple root in the complete local ring",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+          "lines": [
+            25,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean#L25-L43",
+          "declaration": "UpperTheory.Gal.W2.Seed.pUEx",
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.HenselRoot.0.hensel_root": 7,
+            "UpperTheory.Gal.W2.Seed.pUEx": 38
+          },
+          "related_declarations": [
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.HenselRoot.0.hensel_root"
+          ]
+        },
+        {
+          "label": "Selecting the root by the image of the prescribed embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+          "lines": [
+            44,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean#L44-L66",
+          "declaration": "UpperTheory.Gal.W2.Seed.pUEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pUEx": 38
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Descending the restriction into the base field",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+          "lines": [
+            67,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean#L67-L86",
+          "declaration": "UpperTheory.Gal.W2.Seed.pUEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pUEx": 38
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Use of the same distinguished embedding in the root selection",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean",
+          "lines": [
+            16,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean#L16-L22",
+          "declaration": "UpperTheory.Gal.W2.Seed.pAtPEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pAtPEx": 6
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The pinned ranges record the exact maps and the proof of their compatibility.",
+      "status": "mathematical proof reconstructed",
+      "review": "A chosen p-adic embedding determines the root after a first lift. Splitting alone is sufficient."
+    },
+    {
+      "id": "APE-03",
+      "chapter": "lifts",
+      "anchor": "lifts-geometric-marked-embedding-orbit",
+      "title": "Orbit representatives with a prescribed distinguished member",
+      "hypotheses": "A number field E, a subfield K, a prime p, an embedding u ∶ K → ℚₚ and an embedding τ₁ of E over u.",
+      "statement": "There is a finite indexed transversal of the local Galois orbits of embeddings above u, with an index w whose representative equals τ₁ on E. The indexing is chosen together with w.",
+      "equations": [
+        "lifts-geometric-distinguished-orbit"
+      ],
+      "dependencies": [
+        "APE-02"
+      ],
+      "sources": [
+        {
+          "label": "Overlying embeddings, inequality of indexed orbits, and exhaustive enumeration",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean",
+          "lines": [
+            113,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/CodiffUnit.lean#L113-L119",
+          "declaration": "UpperTheory.Gal.W2.Seed.OrbEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.OrbEx": 113
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The equivalence relation and its finite quotient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+          "lines": [
+            7,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean#L7-L21",
+          "declaration": "UpperTheory.Gal.W2.Seed.pOrbEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pOrbEx": 7
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "A section of the quotient pinned at the distinguished embedding",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+          "lines": [
+            22,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean#L22-L41",
+          "declaration": "UpperTheory.Gal.W2.Seed.pOrbEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pOrbEx": 7
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Insertion of the representative and its index into the local data",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean",
+          "lines": [
+            18,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean#L18-L23",
+          "declaration": "UpperTheory.Gal.W2.Seed.pAtPEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pAtPEx": 6
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Complete local data with marked representative",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean",
+          "lines": [
+            212,
+            231
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/DatumToG.lean#L212-L231",
+          "declaration": "UpperTheory.Gal.W2.Seed.Arith.AtP",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.Arith.AtP": 212
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "The same p-adic root, global embedding and index in the later comparison",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSetupEx.lean",
+          "lines": [
+            62,
+            69
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PSetupEx.lean#L62-L69",
+          "declaration": "UpperTheory.Gal.W2.Seed.pSetupEx",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.pSetupEx": 27
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Assembly from the four supplying results",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+          "lines": [
+            65,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean#L65-L65",
+          "declaration": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.Seed.AtPEx_holds": 65
+          },
+          "related_declarations": []
+        }
+      ],
+      "correspondence": "The pinned ranges record the exact maps and the proof of their compatibility.",
+      "status": "mathematical proof reconstructed",
+      "review": "Only the index of an orbit is unique for a specified embedding. The translating automorphism may vary by its stabilizer."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.KqEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 65,
+        "spelling": "KqEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.LiftEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 65,
+        "spelling": "LiftEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.OrbEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 65,
+        "spelling": "OrbEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.UEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 65,
+        "spelling": "UEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pAtPEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 65,
+        "spelling": "pAtPEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.KqEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pKqEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 61,
+        "spelling": "pKqEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.LiftEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pLiftEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 47,
+        "spelling": "pLiftEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.OrbEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 48,
+        "spelling": "pOrbEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.SetupEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.AtPEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 69,
+        "spelling": "AtPEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.UEx_holds",
+      "callee": "UpperTheory.Gal.W2.Seed.pUEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/SetupBasicHolds.lean",
+        "line": 57,
+        "spelling": "pUEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pAtPEx",
+      "callee": "IsAlgClosed.lift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PAtPEx.lean",
+        "line": 16,
+        "spelling": "IsAlgClosed.lift"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pKqEx",
+      "callee": "IntermediateField.adjoin.finrank",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+        "line": 49,
+        "spelling": "IntermediateField.adjoin.finrank"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pKqEx",
+      "callee": "IntermediateField.adjoin.powerBasis",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+        "line": 55,
+        "spelling": "IntermediateField.adjoin.powerBasis"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pKqEx",
+      "callee": "Polynomial.eq_X_add_C_of_natDegree_le_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+        "line": 60,
+        "spelling": "Polynomial.eq_X_add_C_of_natDegree_le_one"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pKqEx",
+      "callee": "minpoly.natDegree_eq_one_iff",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PKqEx.lean",
+        "line": 43,
+        "spelling": "minpoly.natDegree_eq_one_iff"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pLiftEx",
+      "callee": "Algebra.IsAlgebraic.tower_top",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PLiftEx.lean",
+        "line": 17,
+        "spelling": "Algebra.IsAlgebraic.tower_top"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pLiftEx",
+      "callee": "IsAlgClosed.lift",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/PLiftEx.lean",
+        "line": 11,
+        "spelling": "IsAlgClosed.lift"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callee": "Finite.equivFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+        "line": 30,
+        "spelling": "Finite.equivFin"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callee": "GlobalTheory.LKTrip.LiesOver",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+        "line": 11,
+        "spelling": "LiesOver"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callee": "Quotient.exact",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+        "line": 40,
+        "spelling": "Quotient.exact"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callee": "Quotient.out_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+        "line": 29,
+        "spelling": "Quotient.out_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pOrbEx",
+      "callee": "Quotient.sound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/POrbEx.lean",
+        "line": 38,
+        "spelling": "Quotient.sound"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pUEx",
+      "callee": "GlobalTheory.LKTrip.LiesOver",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+        "line": 81,
+        "spelling": "LiesOver"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pUEx",
+      "callee": "UpperTheory.Gal.W2.Seed.Arith.SplitK",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+        "line": 41,
+        "spelling": "Arith.SplitK"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.Seed.pUEx",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.HenselRoot.0.hensel_root",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+        "line": 43,
+        "spelling": "hensel_root"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.AlgebraEquivSetup.HenselRoot.0.hensel_root",
+      "callee": "hensels_lemma",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/AlgebraEquivSetup/HenselRoot.lean",
+        "line": 34,
+        "spelling": "hensels_lemma"
+      }
+    }
+  ]
+}

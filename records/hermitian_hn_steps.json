@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "HNS-01",
+      "chapter": "global",
+      "anchor": "global-hn-steps",
+      "title": "The Harder–Narasimhan steps of a Hermitian lattice and their sizes",
+      "hypotheses": "Λ is the lattice at a point x: a finitely generated module over the ring of integers of the CM field E, spanning an n-dimensional E-space, realized through invertible frames at the infinite places with the majorant metric. f is the number of real places of the base field and t > 0.",
+      "statement": "The closed step F≤t and the open step F<t are saturated, and F<t ⊆ F≤t ⊆ F<t′ for t < t′. A nonzero closed step has largest size at most t, and a nonzero open step largest size below t. Nonzero quotients beyond F≤t have size greater than t, and beyond F<t size at least t. In positive rank F≤t = 0 exactly when t < τ, and F<t = 0 exactly when t ≤ τ.",
+      "definitions": [
+        "ρN is the ℤ-lattice realizing N through the frames, deg N = −log covol(ρN) and μ(N) = deg N/(2f rk N).",
+        "d = |disc E|^{1/(2f)} is the root discriminant of E, and size(N) = (2/d)^{1/2} e^{−μ(N)}.",
+        "μ_min(N) is the least slope of a nonzero quotient of N by a saturated sublattice, μ_max(Λ) the greatest slope of a nonzero sublattice, and θ = log((2/d)^{1/2}/t)."
+      ],
+      "equations": [
+        "global-hn-size-slope"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "declaration": "Formalism.HN.sizeMu_of",
+          "label": "Sizes as slopes of the realized lattices",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeMu.lean",
+          "lines": [
+            24,
+            175
+          ],
+          "declaration_lines": {
+            "Formalism.HN.sizeMu_finrank_eq": 24,
+            "Formalism.HN.sizeMu_of": 39,
+            "Formalism.HN.size_maximal_slope": 174
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeMu.lean#L24-L175",
+          "related_declarations": [
+            "Formalism.HN.sizeMu_finrank_eq",
+            "Formalism.HN.size_maximal_slope"
+          ]
+        },
+        {
+          "declaration": "Formalism.HN.finite_supremum_slopes",
+          "label": "The sum of the generators is a finite sum",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FinSup.lean",
+          "lines": [
+            14,
+            64
+          ],
+          "declaration_lines": {
+            "Formalism.HN.finite_supremum_slopes": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/FinSup.lean#L14-L64",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.degree_supermodular_integral",
+          "label": "Supermodularity of the degree of integral lattices",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermodZ.lean",
+          "lines": [
+            153,
+            284
+          ],
+          "declaration_lines": {
+            "Formalism.HN.degree_supermodular_integral": 153
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermodZ.lean#L153-L284",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.degSupermod_of",
+          "label": "Supermodularity transported to the realized sublattices",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermod.lean",
+          "lines": [
+            43,
+            52
+          ],
+          "declaration_lines": {
+            "Formalism.HN.degSupermod_of": 44,
+            "Formalism.HN.degree_supermodular": 52
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermod.lean#L43-L52",
+          "related_declarations": [
+            "Formalism.HN.degree_supermodular"
+          ]
+        },
+        {
+          "declaration": "Formalism.HN.muChar_of",
+          "label": "The least quotient slope as a degree condition",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/MuChar.lean",
+          "lines": [
+            21,
+            173
+          ],
+          "declaration_lines": {
+            "Formalism.HN.muChar_of": 21,
+            "Formalism.HN.slope_characterization": 173
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/MuChar.lean#L21-L173",
+          "related_declarations": [
+            "Formalism.HN.slope_characterization"
+          ]
+        },
+        {
+          "declaration": "Formalism.F.exists_short_vector_of_isZLattice",
+          "label": "Minkowski’s short vector",
+          "path": "src/Formalism/LatticeSlopes/LatticeSlopesProofs/ShortVector.lean",
+          "lines": [
+            27,
+            162
+          ],
+          "declaration_lines": {
+            "Formalism.F.exists_short_vector_of_isZLattice": 27,
+            "Formalism.F.shortVector_of": 117
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LatticeSlopes/LatticeSlopesProofs/ShortVector.lean#L27-L162",
+          "related_declarations": [
+            "Formalism.F.shortVector_of"
+          ]
+        },
+        {
+          "declaration": "Formalism.F.finite_saturated_rank_le_covol_le",
+          "label": "Finitely many saturated sublattices of bounded covolume, by induction on the rank",
+          "path": "src/Formalism/LatticeSlopes/LatticeSlopesProofs/FiniteSaturated.lean",
+          "lines": [
+            60,
+            163
+          ],
+          "declaration_lines": {
+            "Formalism.F.finite_saturated_rank_le_covol_le": 60,
+            "Formalism.F.finiteSaturated_of": 158
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LatticeSlopes/LatticeSlopesProofs/FiniteSaturated.lean#L60-L163",
+          "related_declarations": [
+            "Formalism.F.finiteSaturated_of"
+          ]
+        },
+        {
+          "declaration": "Formalism.F.finiteSaturated",
+          "label": "The packaged short-vector and finiteness statements",
+          "path": "src/Formalism/LatticeSlopes/ExistsSaturatedSlopeEqMuMax.lean",
+          "lines": [
+            29,
+            30
+          ],
+          "declaration_lines": {
+            "Formalism.F.shortVector": 29,
+            "Formalism.F.finiteSaturated": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LatticeSlopes/ExistsSaturatedSlopeEqMuMax.lean#L29-L30",
+          "related_declarations": [
+            "Formalism.F.shortVector"
+          ]
+        },
+        {
+          "declaration": "Formalism.HN.ratioMax_of",
+          "label": "A saturated maximizer of the slope ratio",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/RatioMax.lean",
+          "lines": [
+            24,
+            116
+          ],
+          "declaration_lines": {
+            "Formalism.HN.ratioMax_of": 25,
+            "Formalism.HN.maximal_slope_ratio": 115
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/RatioMax.lean#L24-L116",
+          "related_declarations": [
+            "Formalism.HN.maximal_slope_ratio"
+          ]
+        },
+        {
+          "declaration": "Formalism.HN.hnStep_of",
+          "label": "The step at a threshold: saturation, semistability, maximality and strictness",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/HNStep.lean",
+          "lines": [
+            17,
+            155
+          ],
+          "declaration_lines": {
+            "Formalism.HN.hnStep_of": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/HNStep.lean#L17-L155",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.hnStep_spec",
+          "label": "The assembled step and size statements",
+          "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+          "lines": [
+            37,
+            50
+          ],
+          "declaration_lines": {
+            "Formalism.HN.finSup": 37,
+            "Formalism.HN.satBasic": 38,
+            "Formalism.HN.ratioMax": 39,
+            "Formalism.HN.degSupermod": 40,
+            "Formalism.HN.muChar": 41,
+            "Formalism.HN.hnStep_spec": 42,
+            "Formalism.HN.slopeIneq": 43,
+            "Formalism.HN.hnSum": 44,
+            "Formalism.HN.hnSlopes": 45,
+            "Formalism.HN.shiftInvariance": 46,
+            "Formalism.HN.duality": 47,
+            "Formalism.HN.piSum": 48,
+            "Formalism.HN.plLat": 49,
+            "Formalism.HN.sizeMu": 50
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/ShiftInvariance.lean#L37-L50",
+          "related_declarations": [
+            "Formalism.HN.finSup",
+            "Formalism.HN.satBasic",
+            "Formalism.HN.ratioMax",
+            "Formalism.HN.degSupermod",
+            "Formalism.HN.muChar",
+            "Formalism.HN.slopeIneq",
+            "Formalism.HN.hnSum",
+            "Formalism.HN.hnSlopes",
+            "Formalism.HN.shiftInvariance",
+            "Formalism.HN.duality",
+            "Formalism.HN.piSum",
+            "Formalism.HN.plLat",
+            "Formalism.HN.sizeMu"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CountSteps.steps",
+          "label": "The size properties of the closed and open steps",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+          "lines": [
+            16,
+            217
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CountSteps.strict_eq": 16,
+            "_private.Development.AbelianVarietyTheory.Proofs.FlagMeasures.CanonicalLatticeFiltrationSizeProperties.0.GlobalTheory.CountSteps.zl_mono'": 35,
+            "GlobalTheory.CountSteps.isSat_of_le": 40,
+            "GlobalTheory.CountSteps.quot_slope_lt": 45,
+            "GlobalTheory.CountSteps.step_eq_bot": 59,
+            "GlobalTheory.CountSteps.exp_le_iff": 96,
+            "GlobalTheory.CountSteps.exp_lt_iff": 100,
+            "GlobalTheory.CountSteps.steps": 104
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean#L16-L217",
+          "related_declarations": [
+            "GlobalTheory.CountSteps.strict_eq",
+            "_private.Development.AbelianVarietyTheory.Proofs.FlagMeasures.CanonicalLatticeFiltrationSizeProperties.0.GlobalTheory.CountSteps.zl_mono'",
+            "GlobalTheory.CountSteps.isSat_of_le",
+            "GlobalTheory.CountSteps.quot_slope_lt",
+            "GlobalTheory.CountSteps.step_eq_bot",
+            "GlobalTheory.CountSteps.exp_le_iff",
+            "GlobalTheory.CountSteps.exp_lt_iff"
+          ]
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The step at a threshold is proved for submodules realized in a Euclidean space, from supermodularity of the degree, the degree characterization of the least slope, a saturated ratio maximizer and finiteness of the generating family. The point lattice then translates its four clauses into sizes.",
+      "review": "The four facts and both endpoint conventions were rechecked against the formal statements. The Gaussian hyperbolic plane attains both non-strict inequalities."
+    },
+    {
+      "id": "HNS-02",
+      "chapter": "global",
+      "anchor": "global-hn-duality",
+      "title": "Perpendicular steps and reciprocal normalized volumes",
+      "hypotheses": "In addition Λ is self-dual for the nondegenerate Hermitian form h with Gram matrix J, each frame satisfies X_w* J X_w = diag(±1), and conjugation in E is complex conjugation at every infinite place.",
+      "statement": "For every saturated M ⊆ Λ, rk M^⊥ + rk M = n and ht(M^⊥)·ht(Λ) = ht(M). Moreover ht(Λ) = 1, M ↦ M^⊥ is an inclusion-reversing involution of the saturated sublattices inverting the heights of successive quotients, (F≤t)^⊥ = F<1/t and (F<t)^⊥ = F≤1/t for t > 0, and in positive rank the largest size of Λ is 1/τ.",
+      "definitions": [
+        "ht(N) = (2/d)^{f rk N} covol(ρN), so that size(N) = ht(N)^{1/(2f rk N)}.",
+        "M^⊥ = Λ ∩ (span M)^⊥ for the form h.",
+        "A^∨ is the dual of A over the ring of integers, realized with the dual frames, and N^0 is the annihilator of N."
+      ],
+      "equations": [
+        "global-hn-perp-height"
+      ],
+      "dependencies": [
+        "HNS-01"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.HN.DualPolygon.inner_realize_alt",
+          "label": "The trace pairing realizes the dual lattice",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            136,
+            148
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.inner_realize_alt": 136
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L136-L148",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.DualPolygon.dualZ_zl_eq",
+          "label": "The realized dual of a quotient",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            196,
+            310
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.dualZ_zl_eq": 196
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L196-L310",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.DualPolygon.dual_inf_ann_eq",
+          "label": "The integral dual is the different times the trace dual",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            443,
+            496
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.dual_inf_ann_eq": 443
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L443-L496",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.DualPolygon.key_lemma",
+          "label": "Covolumes of a saturated sublattice, the lattice and the dual annihilator",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            863,
+            996
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.key_lemma": 863
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L863-L996",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.DualPolygon.ht_dual_ann",
+          "label": "The height of the dual annihilator",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            1032,
+            1046
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.ht_dual_ann": 1032
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L1032-L1046",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.DualPolygon.ht_bot",
+          "label": "The height of the zero sublattice",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+          "lines": [
+            1048,
+            1055
+          ],
+          "declaration_lines": {
+            "Formalism.HN.DualPolygon.ht_bot": 1048
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean#L1048-L1055",
+          "related_declarations": []
+        },
+        {
+          "declaration": "Formalism.HN.duality_basic",
+          "label": "A lattice and its dual have opposite degrees",
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/Duality.lean",
+          "lines": [
+            155,
+            191
+          ],
+          "declaration_lines": {
+            "Formalism.HN.duality_basic": 155
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/Duality.lean#L155-L191",
+          "related_declarations": []
+        },
+        {
+          "declaration": "GlobalTheory.Count.PerpStep.toDual",
+          "label": "The Hermitian form as an isometry onto the dual",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            18,
+            96
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Count.PerpStep.toDual": 18,
+            "GlobalTheory.Count.PerpStep.toDual_apply": 30,
+            "GlobalTheory.Count.PerpStep.hform_swap": 34,
+            "GlobalTheory.Count.PerpStep.toDual_surj": 42,
+            "GlobalTheory.Count.PerpStep.star_mem_range": 54,
+            "GlobalTheory.Count.PerpStep.norm_toDual": 61
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L18-L96",
+          "related_declarations": [
+            "GlobalTheory.Count.PerpStep.toDual_apply",
+            "GlobalTheory.Count.PerpStep.hform_swap",
+            "GlobalTheory.Count.PerpStep.toDual_surj",
+            "GlobalTheory.Count.PerpStep.star_mem_range",
+            "GlobalTheory.Count.PerpStep.norm_toDual"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Count.PerpStep.perp_key",
+          "label": "Complementary ranks and the perpendicular height identity",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            128,
+            187
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Count.PerpStep.perp_key": 128
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L128-L187",
+          "related_declarations": []
+        },
+        {
+          "declaration": "GlobalTheory.Count.PerpStep.main",
+          "label": "Unit height, reciprocal cutoffs and the largest size",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            350,
+            508
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Count.PerpStep.main": 350
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L350-L508",
+          "related_declarations": []
+        },
+        {
+          "label": "Inclusion at a threshold from the two strict and weak bounds",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+          "lines": [
+            309,
+            333
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean#L309-L333",
+          "declaration": "GlobalTheory.Count.PerpStep.le_of_slopes",
+          "declaration_lines": {
+            "GlobalTheory.Count.PerpStep.le_of_slopes": 309
+          },
+          "related_declarations": []
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The general identity combines the trace pairing, reciprocal covolumes of dual lattices and the different. In the Hermitian case the form is an isometry onto the dual, and the reciprocal cutoffs follow by transporting the step properties.",
+      "review": "The factors of 2 and of the discriminant were recomputed against the formal covolume identity. The perpendicular identity was checked on the line spanned by e + b in the Gaussian plane."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.F.finiteSaturated",
+      "callee": "Formalism.F.finiteSaturated_of",
+      "callsite": {
+        "path": "src/Formalism/LatticeSlopes/ExistsSaturatedSlopeEqMuMax.lean",
+        "line": 30,
+        "spelling": "finiteSaturated_of"
+      }
+    },
+    {
+      "caller": "Formalism.F.finiteSaturated",
+      "callee": "Formalism.F.shortVector",
+      "callsite": {
+        "path": "src/Formalism/LatticeSlopes/ExistsSaturatedSlopeEqMuMax.lean",
+        "line": 30,
+        "spelling": "shortVector"
+      }
+    },
+    {
+      "caller": "Formalism.F.finiteSaturated_of",
+      "callee": "Formalism.F.finite_saturated_rank_le_covol_le",
+      "callsite": {
+        "path": "src/Formalism/LatticeSlopes/LatticeSlopesProofs/FiniteSaturated.lean",
+        "line": 160,
+        "spelling": "finite_saturated_rank_le_covol_le"
+      }
+    },
+    {
+      "caller": "Formalism.F.shortVector",
+      "callee": "Formalism.F.shortVector_of",
+      "callsite": {
+        "path": "src/Formalism/LatticeSlopes/ExistsSaturatedSlopeEqMuMax.lean",
+        "line": 29,
+        "spelling": "shortVector_of"
+      }
+    },
+    {
+      "caller": "Formalism.F.shortVector_of",
+      "callee": "Formalism.F.exists_short_vector_of_isZLattice",
+      "callsite": {
+        "path": "src/Formalism/LatticeSlopes/LatticeSlopesProofs/ShortVector.lean",
+        "line": 157,
+        "spelling": "exists_short_vector_of_isZLattice"
+      }
+    },
+    {
+      "caller": "Formalism.HN.DualPolygon.dualZ_zl_eq",
+      "callee": "Formalism.HN.DualPolygon.inner_realize_alt",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+        "line": 212,
+        "spelling": "inner_realize_alt"
+      }
+    },
+    {
+      "caller": "Formalism.HN.DualPolygon.ht_dual_ann",
+      "callee": "Formalism.HN.DualPolygon.key_lemma",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+        "line": 1037,
+        "spelling": "key_lemma"
+      }
+    },
+    {
+      "caller": "Formalism.HN.DualPolygon.key_lemma",
+      "callee": "Formalism.HN.DualPolygon.dualZ_zl_eq",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+        "line": 920,
+        "spelling": "dualZ_zl_eq"
+      }
+    },
+    {
+      "caller": "Formalism.HN.DualPolygon.key_lemma",
+      "callee": "Formalism.HN.DualPolygon.dual_inf_ann_eq",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+        "line": 882,
+        "spelling": "dual_inf_ann_eq"
+      }
+    },
+    {
+      "caller": "Formalism.HN.DualPolygon.key_lemma",
+      "callee": "Formalism.HN.duality_basic",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DualPl.lean",
+        "line": 916,
+        "spelling": "duality_basic"
+      }
+    },
+    {
+      "caller": "Formalism.HN.degSupermod",
+      "callee": "Formalism.HN.degree_supermodular",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 40,
+        "spelling": "degree_supermodular"
+      }
+    },
+    {
+      "caller": "Formalism.HN.degree_supermodular",
+      "callee": "Formalism.HN.degSupermod_of",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermod.lean",
+        "line": 52,
+        "spelling": "degSupermod_of"
+      }
+    },
+    {
+      "caller": "Formalism.HN.degree_supermodular",
+      "callee": "Formalism.HN.degree_supermodular_integral",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/DegSupermod.lean",
+        "line": 52,
+        "spelling": "degree_supermodular_integral"
+      }
+    },
+    {
+      "caller": "Formalism.HN.finSup",
+      "callee": "Formalism.HN.finite_supremum_slopes",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 37,
+        "spelling": "finite_supremum_slopes"
+      }
+    },
+    {
+      "caller": "Formalism.HN.hnStep_spec",
+      "callee": "Formalism.HN.degSupermod",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 42,
+        "spelling": "degSupermod"
+      }
+    },
+    {
+      "caller": "Formalism.HN.hnStep_spec",
+      "callee": "Formalism.HN.finSup",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 42,
+        "spelling": "finSup"
+      }
+    },
+    {
+      "caller": "Formalism.HN.hnStep_spec",
+      "callee": "Formalism.HN.hnStep_of",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 42,
+        "spelling": "hnStep_of"
+      }
+    },
+    {
+      "caller": "Formalism.HN.hnStep_spec",
+      "callee": "Formalism.HN.muChar",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 42,
+        "spelling": "muChar"
+      }
+    },
+    {
+      "caller": "Formalism.HN.hnStep_spec",
+      "callee": "Formalism.HN.ratioMax",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 42,
+        "spelling": "ratioMax"
+      }
+    },
+    {
+      "caller": "Formalism.HN.maximal_slope_ratio",
+      "callee": "Formalism.HN.ratioMax_of",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/RatioMax.lean",
+        "line": 116,
+        "spelling": "ratioMax_of"
+      }
+    },
+    {
+      "caller": "Formalism.HN.muChar",
+      "callee": "Formalism.HN.slope_characterization",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 41,
+        "spelling": "slope_characterization"
+      }
+    },
+    {
+      "caller": "Formalism.HN.ratioMax",
+      "callee": "Formalism.HN.maximal_slope_ratio",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 39,
+        "spelling": "maximal_slope_ratio"
+      }
+    },
+    {
+      "caller": "Formalism.HN.ratioMax_of",
+      "callee": "Formalism.F.finiteSaturated",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/RatioMax.lean",
+        "line": 61,
+        "spelling": "Formalism.F.finiteSaturated"
+      }
+    },
+    {
+      "caller": "Formalism.HN.sizeMu",
+      "callee": "Formalism.HN.size_maximal_slope",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 50,
+        "spelling": "size_maximal_slope"
+      }
+    },
+    {
+      "caller": "Formalism.HN.sizeMu_of",
+      "callee": "Formalism.HN.slope_characterization",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeMu.lean",
+        "line": 115,
+        "spelling": "slope_characterization"
+      }
+    },
+    {
+      "caller": "Formalism.HN.size_maximal_slope",
+      "callee": "Formalism.HN.sizeMu_of",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/SizeMu.lean",
+        "line": 175,
+        "spelling": "sizeMu_of"
+      }
+    },
+    {
+      "caller": "Formalism.HN.slope_characterization",
+      "callee": "Formalism.HN.maximal_slope_ratio",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/MuChar.lean",
+        "line": 173,
+        "spelling": "maximal_slope_ratio"
+      }
+    },
+    {
+      "caller": "Formalism.HN.slope_characterization",
+      "callee": "Formalism.HN.muChar_of",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/MuChar.lean",
+        "line": 173,
+        "spelling": "muChar_of"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.le_of_slopes",
+      "callee": "Formalism.HN.degSupermod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 322,
+        "spelling": "degSupermod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.main",
+      "callee": "Formalism.HN.DualPolygon.ht_bot",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 400,
+        "spelling": "DualPolygon.ht_bot"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.main",
+      "callee": "GlobalTheory.Count.PerpStep.le_of_slopes",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 419,
+        "spelling": "le_of_slopes"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.main",
+      "callee": "GlobalTheory.Count.PerpStep.perp_key",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 355,
+        "spelling": "perp_key"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.main",
+      "callee": "GlobalTheory.CountSteps.steps",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 414,
+        "spelling": "GlobalTheory.CountSteps.steps"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.perp_key",
+      "callee": "Formalism.HN.DualPolygon.ht_dual_ann",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 183,
+        "spelling": "DualPolygon.ht_dual_ann"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.perp_key",
+      "callee": "Formalism.HN.DualPolygon.key_lemma",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 181,
+        "spelling": "DualPolygon.key_lemma"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Count.PerpStep.perp_key",
+      "callee": "GlobalTheory.Count.PerpStep.norm_toDual",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPoint.lean",
+        "line": 173,
+        "spelling": "norm_toDual"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CountSteps.steps",
+      "callee": "Formalism.HN.hnStep_spec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+        "line": 154,
+        "spelling": "hnStep_spec"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CountSteps.steps",
+      "callee": "Formalism.HN.sizeMu",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+        "line": 119,
+        "spelling": "sizeMu"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CountSteps.steps",
+      "callee": "GlobalTheory.CountSteps.quot_slope_lt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+        "line": 175,
+        "spelling": "quot_slope_lt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CountSteps.steps",
+      "callee": "GlobalTheory.CountSteps.step_eq_bot",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+        "line": 205,
+        "spelling": "step_eq_bot"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CountSteps.steps",
+      "callee": "GlobalTheory.CountSteps.strict_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizeProperties.lean",
+        "line": 150,
+        "spelling": "strict_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepCover.unipotent_orbit_cover",
+      "callee": "GlobalTheory.FlagIso.flag_isotropic",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 89,
+        "spelling": "GlobalTheory.FlagIso.flag_isotropic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepCover.unipotent_orbit_cover",
+      "callee": "GlobalTheory.PointFlag.flag_spec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 50,
+        "spelling": "GlobalTheory.PointFlag.flag_spec"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DeepCover.unipotent_orbit_cover",
+      "callee": "GlobalTheory.T.smallSizeCanonicalFlag_pieces_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnipotentOrbitCover.lean",
+        "line": 57,
+        "spelling": "GlobalTheory.T.smallSizeCanonicalFlag_pieces_properties"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagIso.flag_isotropic",
+      "callee": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFlagIsotropicSelfDual.lean",
+        "line": 183,
+        "spelling": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagPieces.flag_pieces",
+      "callee": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SmallSizeCanonicalFlagPiecesProperties.lean",
+        "line": 80,
+        "spelling": "GlobalTheory.T.canonicalLatticeFiltration_size_properties"
+      }
+    },
+    {
+      "caller": "GlobalTheory.PointFlag.flag_spec",
+      "callee": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalFlagExistsUniqueSemistable.lean",
+        "line": 296,
+        "spelling": "GlobalTheory.T.canonicalLatticeFiltration_size_properties"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.canonicalLatticeFiltration_size_properties",
+      "callee": "GlobalTheory.CountSteps.steps",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CanonicalLatticeFiltrationSizePropertiesStatement.lean",
+        "line": 8,
+        "spelling": "GlobalTheory.CountSteps.steps"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.orthogonal_canonicalFiltration_steps_autPoint",
+      "callee": "GlobalTheory.Count.PerpStep.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrthogonalCanonicalFiltrationStepsAutPointStatement.lean",
+        "line": 8,
+        "spelling": "GlobalTheory.Count.PerpStep.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.smallSizeCanonicalFlag_pieces_properties",
+      "callee": "GlobalTheory.FlagPieces.flag_pieces",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SmallSizeCanonicalFlagPiecesPropertiesStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.FlagPieces.flag_pieces"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HNS-01",
+      "HNS-02"
+    ],
+    [
+      "HNS-01",
+      "SIF-01"
+    ],
+    [
+      "HNS-02",
+      "SIF-02"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "U. Stuhler, Eine Bemerkung zur Reduktionstheorie quadratischer Formen, Archiv der Mathematik 27 (1976), 604–610",
+      "url": "https://doi.org/10.1007/BF01224726"
+    },
+    {
+      "title": "D. R. Grayson, Reduction theory using semistability, Commentarii Mathematici Helvetici 59 (1984), 600–634",
+      "url": "https://doi.org/10.1007/BF02566369"
+    }
+  ],
+  "outstanding": [
+    "The self-duality of the point lattice and its majorant frames are inputs from the automorphic construction of the point."
+  ]
+}
