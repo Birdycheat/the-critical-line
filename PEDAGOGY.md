@@ -2,6 +2,10 @@
 
 The monograph uses English scientific prose. Define an object when it first acts in the proof, state each hypothesis where it is needed, and follow an equation with the inference it permits. Keep signs, quantifiers and repeated technical terms consistent. State proof-specific inputs at their first use and place formal identifiers inside correspondence panels. Typeset vectors and matrices at normal weight, including in headings, tables and print. Use the article template’s existing spacing, hierarchy and palette with Latin Modern text and mathematics.
 
+During drafting, retain an elementary calculation when it explains an implication, shows where a hypothesis enters or prevents a plausible mistake. Condense routine manipulations. Put longer, independently readable checks in a mathematical disclosure. Preserve examples that distinguish two conclusions.
+
+After the proof-specific drafting is complete, read all ten chapters in order and follow the transitions between them. At each repeated argument, keep the proof where the reader first needs it and refer back at subsequent uses. Preserve hypotheses, mathematical sources and examples that explain the inference. This whole-book reading is pending.
+
 Three parallel readings on 21 November 2026 tested whether a reader with undergraduate analysis and linear algebra could recover specific implications. Each reader followed a different argument through the existing chapters. We checked the proposed changes against the statements they use. This was an editorial audit by agents. Testing with students and external mathematical review remain open.
 
 | Reading task | Where the reader needed another step | Change in the book |
@@ -218,3 +222,9 @@ On the route from the minor count to the slope, the [threshold codimension lemma
 In the [Weil trace calculation](book.html#lifts-weil-tested-trace), one index selects a physical matrix column, a second selects a period column and a third sums over the lattice basis. A [two-dimensional calculation](book.html#lifts-weil-two-ranks-example) gives trace 5 on the representation while the integral operator on the three-dimensional matrix lattice has trace 14. Testing the image of the identity gives 10. Dividing by the common multiplier 2 recovers 5. The [signed-exponent experiment](book.html#fig-signed-weil-operator) displays the input and output for each of five exponents.
 
 A fresh reading of the [minor-list argument](book.html#global-diagonal-paired-label-estimate) found that the set of pairs could appear unrestricted. The hypothesis now fixes the first and second labels on every pair in that set. Only after this estimate is proved does the argument sum over the different pairs of labels.
+
+## Condensing calculations while the proof is being written
+
+In the [prime-power chapter](book.html#pilot-family), positivity and the location of a zero remain in the residue argument. The four-translation example is worked once in the [arithmetic comparison](book.html#balance-four-translations). The [one-sided window](book.html#window-derivatives) now explains in a single calculation why the same derivative order at the two centers cancels the negative part. Its tail still records the growth exponent that changes the kernel.
+
+In the [filtered change of lattice](book.html#lifts-integral-filtered-modification), both exponent calculations remain visible because they use different hypotheses. The [coefficient lift](book.html#lifts-integral-uniformizer-lift) keeps its two congruences and quadratic example in view. Finite-order lifting, freeness and the crystalline normalization have separately readable mathematical disclosures. The complete chapter-by-chapter reading is reserved for the finished manuscript.

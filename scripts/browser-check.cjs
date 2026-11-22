@@ -24,6 +24,12 @@ const defaultCrystallineColumns = ["2", "−2", "−2i", "−2i", "−2i", "−2
 const defaultWeilOperator = ["n₂ = 1","t2","n₁ = 0","t","t13","t14","1/t","t15","t15"];
 const defaultOrbitalFibre = ["−1/5","−1/5","−1","D, 1","ℤ₅","5","1","(1/5)ℤ₅ ∖ ℤ₅","20","4"];
 const defaultLogarithmColumn = ["(2, 0, −1)","Yes","(2, 4, 3)","No","(2, −2, 1)","No","(0, −2, −1)","No"];
+const defaultModification = ["u4","u2","u","u5","u3 (1, 0)","u3 (1, −1)","u3 (1, 1)","u3 (0, 1)"];
+async function assertModificationTable(figure) {
+  assert.deepEqual(await figure.locator("tbody td").allTextContents(),defaultModification);
+  const mathematicalEntries=figure.locator("th var, th sub, th sup, .math-coordinates, td");
+  assert.ok(await mathematicalEntries.evaluateAll(nodes=>nodes.length>=12&&nodes.every(el=>getComputedStyle(el).fontWeight==="400")));
+}
 async function assertLogarithmTable(figure) {
   assert.deepEqual(await figure.locator("tbody td").allTextContents(),defaultLogarithmColumn);
   const symbols = figure.locator("tbody th var, tbody td:nth-child(2)");
@@ -145,6 +151,8 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "filtered-lattice-modification") {
+          await assertModificationTable(fig);
         } else if (id === "logarithm-zero") {
           await assertLogarithmTable(fig);
           assert.equal(await fig.getByRole("status").textContent(),"Shift 2. Column 3 of the Galois transform is (2, 0, −1). Quadratic contribution (2, 2, 0).");
@@ -458,6 +466,33 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-filtered-lattice-modification");
+    const modification=page.locator("#fig-filtered-lattice-modification.ready");
+    for (const width of [320,390]) {
+      await page.setViewportSize({width,height:844});
+      for (const degrees of ["mixed","swapped","flat"]) {
+        await modification.getByRole("combobox",{name:"Filtration degrees"}).selectOption(degrees);
+        for (const height of [0,1,2,3]) {
+          const depth=modification.getByRole("slider",{name:"Target depth N"});
+          await depth.focus(); await depth.press("Home");
+          for(let i=0;i<height;i++) await depth.press("ArrowRight");
+          for (const rule of ["subtract","add"]) {
+            await modification.getByRole("combobox",{name:"Exponent on column i of X"}).selectOption(rule);
+            const status=await modification.locator('[role="status"]').textContent();
+            const integral=degrees==="flat"||height>=2, deep=degrees==="flat"||rule==="subtract";
+            assert.ok(status.endsWith("Integral modifiers: "+(integral?"yes.":"no.")+" Both depth bounds: "+(deep?"yes.":"no.")));
+            assert.ok(await modification.locator("table").evaluateAll(ts=>ts.length===2&&ts.every(t=>t.getBoundingClientRect().right<=t.closest("figure").getBoundingClientRect().right+1)));
+          }
+        }
+      }
+    }
+    const modificationLink=new URL(await modification.locator("[data-share]").getAttribute("href"));
+    assert.equal(modificationLink.searchParams.get("filtered-lattice-modification.degrees"),"flat");
+    await openFigure(page,modificationLink.href);
+    assert.equal(await modification.getByRole("combobox",{name:"Exponent on column i of X"}).inputValue(),"add");
+    await modification.getByRole("button",{name:"Reset"}).click();
+    await assertModificationTable(modification);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-logarithm-zero");
     const logarithm = page.locator("#fig-logarithm-zero.ready");
@@ -1078,6 +1113,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     assert.deepEqual(await page.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
     await assertLogarithmTable(page.locator("#fig-logarithm-zero"));
+    await assertModificationTable(page.locator("#fig-filtered-lattice-modification"));
     await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
@@ -1097,6 +1133,7 @@ async function run() {
     assert.deepEqual(await plain.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     assert.deepEqual(await plain.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
     await assertLogarithmTable(plain.locator("#fig-logarithm-zero"));
+    await assertModificationTable(plain.locator("#fig-filtered-lattice-modification"));
     assert.deepEqual(await staticCrystalline.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.ok(await staticCrystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
     const staticSaturation = plain.locator("#fig-integral-lattice-saturation");

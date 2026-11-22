@@ -1,0 +1,1459 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FLM-01",
+      "chapter": "lifts",
+      "anchor": "lifts-integral-uniformizer-lift",
+      "title": "How can a power series represent the uniformizer to a prescribed depth?",
+      "hypotheses": "Fix a finite local field K over ℚℓ, its residue Witt ring W, a uniformizer with separable monic Eisenstein polynomial P, and the compatible coefficient prism and period evaluations. Fix a nonnegative precision n.",
+      "statement": "A scaled uniformizer has an integral lift at depth n, compatible with de Rham evaluation and with every pair of maps to any common prism after pair-dependent denominator clearing.",
+      "equations": [
+        "lifts-uniformizer-two-congruences",
+        "lifts-uniformizer-quadratic-lift"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Derivative, rescaling and induction on the approximation depth",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean",
+          "lines": [
+            11,
+            67
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean#L11-L67",
+          "declaration": "GlobalTheory.BSP.eval_derivative_scaleRoots_mul",
+          "declaration_lines": {
+            "GlobalTheory.BSP.eval_derivative_scaleRoots_mul": 11
+          }
+        },
+        {
+          "label": "Eisenstein polynomial of the uniformizer",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean",
+          "lines": [
+            68,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean#L68-L93",
+          "declaration": "GlobalTheory.BSP.BK.exists_approx_root",
+          "declaration_lines": {
+            "GlobalTheory.BSP.BK.exists_approx_root": 68
+          }
+        },
+        {
+          "label": "A common simple root modulo successive powers",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+          "lines": [
+            25,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean#L25-L41",
+          "declaration": "GlobalTheory.BSP.ApproxRoot.sub_mem_pow",
+          "declaration_lines": {
+            "GlobalTheory.BSP.ApproxRoot.sub_mem_pow": 25
+          }
+        },
+        {
+          "label": "Comparison with the uniformizer in the positive de Rham ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+          "lines": [
+            42,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean#L42-L94",
+          "declaration": "GlobalTheory.BSP.approxRoot_sub_mem_fil",
+          "declaration_lines": {
+            "GlobalTheory.BSP.approxRoot_sub_mem_fil": 42
+          }
+        },
+        {
+          "label": "Comparison in an arbitrary common prism",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinApproxRootImageIndep.lean",
+          "lines": [
+            55,
+            100
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinApproxRootImageIndep.lean#L55-L100",
+          "declaration": "GlobalTheory.BSP.approxRoot_image_indep_general_rings",
+          "declaration_lines": {
+            "GlobalTheory.BSP.approxRoot_image_indep_general_rings": 55
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Finite induction after inverting ℓ is followed by clearing the denominators of both divisibility witnesses."
+    },
+    {
+      "id": "FLM-02",
+      "chapter": "lifts",
+      "anchor": "lifts-integral-coefficient-lift",
+      "title": "How does one uniformizer lift supply a whole coefficient matrix?",
+      "hypotheses": "Keep the coefficient and period rings at a common depth n, and take any finite rectangular matrix of integral coefficients.",
+      "statement": "One common power of ℓ and an integral matrix approximate all coefficients in the de Rham filtration. For each pair of prism maps one exponent controls all coefficient differences.",
+      "equations": [
+        "lifts-coefficient-homogenized-polynomial",
+        "lifts-coefficient-common-scaling"
+      ],
+      "dependencies": [
+        "FLM-01"
+      ],
+      "sources": [
+        {
+          "label": "Polynomial representatives and addition and multiplication of lifts",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+          "lines": [
+            17,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean#L17-L58",
+          "declaration": "GlobalTheory.BSP.RingHomLiftCongruence.exists_poly",
+          "declaration_lines": {
+            "GlobalTheory.BSP.RingHomLiftCongruence.exists_poly": 17
+          }
+        },
+        {
+          "label": "The two estimates and the lift of a Witt coefficient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+          "lines": [
+            59,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean#L59-L95",
+          "declaration": "GlobalTheory.BSP.RingHomLiftCongruence.oK",
+          "declaration_lines": {
+            "GlobalTheory.BSP.RingHomLiftCongruence.oK": 59
+          }
+        },
+        {
+          "label": "Lifting the variable and every integral coefficient",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+          "lines": [
+            96,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean#L96-L116",
+          "declaration": "GlobalTheory.BSP.RingHomLiftCongruence.good_X",
+          "declaration_lines": {
+            "GlobalTheory.BSP.RingHomLiftCongruence.good_X": 96
+          }
+        },
+        {
+          "label": "A common power for every entry of the coefficient matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            87,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L87-L116",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Homogenizing a polynomial representative gives an explicit integral lift. The two exponents have different quantifiers."
+    },
+    {
+      "id": "FLM-03",
+      "chapter": "lifts",
+      "anchor": "lifts-integral-eisenstein-basis",
+      "title": "Which integral lattice do the lifted columns generate?",
+      "hypotheses": "Let S=W[[u]] over a complete discrete valuation Witt ring, with Eisenstein element E, and Y any finite d by m integral matrix. Fix n≥0.",
+      "statement": "There are integral matrices with XX′=ℓ^c E^n I, X=YQ+E^n H and XQ′=ℓ^c Y. Their columns generate the same ℓ-saturation as the input lattice im(Y)+E^n S^d.",
+      "equations": [
+        "lifts-eisenstein-integral-identities"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "The principal ideal property after inverting the residue characteristic",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsPrincipalIdealRingWittPowerSeriesAwayPrime.lean",
+          "lines": [
+            10,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsPrincipalIdealRingWittPowerSeriesAwayPrime.lean#L10-L15",
+          "declaration": "GlobalTheory.BSP.isPrincipalIdealRing_away_l",
+          "declaration_lines": {
+            "GlobalTheory.BSP.isPrincipalIdealRing_away_l": 10
+          }
+        },
+        {
+          "label": "Principal ideals on the localized coefficient chart",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsPrincipalIdealRingOfIsLocalization.lean",
+          "lines": [
+            143,
+            175
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsPrincipalIdealRingOfIsLocalization.lean#L143-L175",
+          "declaration": "GlobalTheory.ChartRing.isPrincipalIdealRing_of_isLocalization",
+          "declaration_lines": {
+            "GlobalTheory.ChartRing.isPrincipalIdealRing_of_isLocalization": 143
+          }
+        },
+        {
+          "label": "Clearing the entries of a finite matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+          "lines": [
+            26,
+            49
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean#L26-L49",
+          "declaration": "GlobalTheory.BSP.LocalizedLatticeBasis.clear",
+          "declaration_lines": {
+            "GlobalTheory.BSP.LocalizedLatticeBasis.clear": 26
+          }
+        },
+        {
+          "label": "The full-rank submodule and its three basis identities",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+          "lines": [
+            50,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean#L50-L108",
+          "declaration": "GlobalTheory.BSP.LocalizedLatticeBasis.pid_basis",
+          "declaration_lines": {
+            "GlobalTheory.BSP.LocalizedLatticeBasis.pid_basis": 50
+          }
+        },
+        {
+          "label": "Integral matrices and a single common exponent",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+          "lines": [
+            115,
+            153
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean#L115-L153",
+          "declaration": "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis",
+          "declaration_lines": {
+            "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis": 115
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Freeness is used after inverting ℓ. The integral conclusion is a pair of inclusions witnessed by the three matrix identities."
+    },
+    {
+      "id": "FLM-04",
+      "chapter": "lifts",
+      "anchor": "lifts-integral-filtered-modification",
+      "title": "Why does the exponent of column i equal N − hi?",
+      "hypotheses": "Let UU′=I over the de Rham field. Suppose U has poles of order at most N, UCβ=I, C is integral, the columns of UC have degrees at least h_i and the rows of β at least −h_i, with |h_i|≤N.",
+      "statement": "Integral matrices X,X′ have scalar product ℓ^c E^(2N)I and place both UX and X′U′ in filtration degree N.",
+      "equations": [
+        "lifts-modification-two-filtrations"
+      ],
+      "dependencies": [
+        "FLM-02",
+        "FLM-03"
+      ],
+      "sources": [
+        {
+          "label": "Statement, filtrations and evaluation of the Eisenstein power",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            63,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L63-L86",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        },
+        {
+          "label": "Coefficients at double depth and column exponents",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            87,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L87-L124",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        },
+        {
+          "label": "The forward matrix bound",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            125,
+            152
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L125-L152",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        },
+        {
+          "label": "The inverse-column bound and its pairing with the inverse rows",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            153,
+            210
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L153-L210",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The exponents N−h_i lift the columns, and their complements N+h_i give the inverse bound after pairing with the rows."
+    },
+    {
+      "id": "FLM-05",
+      "chapter": "lifts",
+      "anchor": "lifts-crystalline-initial-columns",
+      "title": "How does Frobenius act on a basis of crystalline periods?",
+      "hypotheses": "Let K be a finite extension of ℚℓ and V a crystalline representation of rank d with a chosen basis, compatible local period data and a stable lattice.",
+      "statement": "An invertible invariant crystalline matrix gives Frobenius and inverse Frobenius coefficient matrices over the unramified field. They admit one common integral Witt scaling.",
+      "equations": [
+        "lifts-crystalline-column-comparators",
+        "lifts-crystalline-witt-denominators"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Spanning by invariants over the crystalline period ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DcrisSpanTensorBcrisRat.lean",
+          "lines": [
+            11,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DcrisSpanTensorBcrisRat.lean#L11-L60",
+          "declaration": "GlobalTheory.Per.RatSpan.crisSpan_rat",
+          "declaration_lines": {
+            "GlobalTheory.Per.RatSpan.crisSpan_rat": 11
+          }
+        },
+        {
+          "label": "Reading the spanning identities in the prescribed lattice coordinates",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean",
+          "lines": [
+            104,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean#L104-L137",
+          "declaration": "GlobalTheory.CrisCoord.lattice_basis_span_invariants",
+          "declaration_lines": {
+            "GlobalTheory.CrisCoord.lattice_basis_span_invariants": 104
+          }
+        },
+        {
+          "label": "Choosing independent invariant columns and using fixed fractions",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean",
+          "lines": [
+            87,
+            122
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean#L87-L122",
+          "declaration": "GlobalTheory.Per.PerMat.exists_invertible_invariant",
+          "declaration_lines": {
+            "GlobalTheory.Per.PerMat.exists_invertible_invariant": 87
+          }
+        },
+        {
+          "label": "Spanning over the ring and the inverse matrix",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean",
+          "lines": [
+            123,
+            140
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean#L123-L140",
+          "declaration": "GlobalTheory.Per.PerMat.exists_invertible_invariant",
+          "declaration_lines": {
+            "GlobalTheory.Per.PerMat.exists_invertible_invariant": 87
+          }
+        },
+        {
+          "label": "Invariance of both Frobenius comparators",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+          "lines": [
+            61,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean#L61-L86",
+          "declaration": "GlobalTheory.SeedF.frob_matrix",
+          "declaration_lines": {
+            "GlobalTheory.SeedF.frob_matrix": 81
+          }
+        },
+        {
+          "label": "Clearing their denominators separately and recovering the product over the Witt ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+          "lines": [
+            87,
+            112
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean#L87-L112",
+          "declaration": "GlobalTheory.SeedF.frob_matrix",
+          "declaration_lines": {
+            "GlobalTheory.SeedF.frob_matrix": 81
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "Crystalline comparison supplies a period basis and the fixed-field theorem identifies the Frobenius coefficients."
+    },
+    {
+      "id": "FLM-06",
+      "chapter": "lifts",
+      "anchor": "lifts-crystalline-integral-modification",
+      "title": "How can the period matrix and its inverse be made integral at the same height?",
+      "hypotheses": "Use the crystalline invariant basis, its filtered comparison, a stable integral lattice and compatible local period data.",
+      "statement": "One can choose a common height, two integral changes of lattice with universal pairwise no-pole comparison, and integral crystalline period lifts with the prescribed divisibility on both sides.",
+      "equations": [
+        "lifts-crystalline-modified-lattice",
+        "lifts-crystalline-lift-actions"
+      ],
+      "dependencies": [
+        "FLM-04",
+        "FLM-05",
+        "FLM-08"
+      ],
+      "sources": [
+        {
+          "label": "The filtered comparison for crystalline representations",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineFilteredDeRhamComparison.lean",
+          "lines": [
+            48,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineFilteredDeRhamComparison.lean#L48-L57",
+          "declaration": "GlobalTheory.SeedFil.crys_filtered",
+          "declaration_lines": {
+            "GlobalTheory.SeedFil.crys_filtered": 12
+          }
+        },
+        {
+          "label": "Writing each lattice basis vector as a finite filtered sum",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean",
+          "lines": [
+            113,
+            134
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean#L113-L134",
+          "declaration": "GlobalTheory.crysLattice_basis_mem_sum_fil_dR",
+          "declaration_lines": {
+            "GlobalTheory.crysLattice_basis_mem_sum_fil_dR": 113
+          }
+        },
+        {
+          "label": "Descending fixed coordinates and finding integral multiples",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean",
+          "lines": [
+            65,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean#L65-L101",
+          "declaration": "GlobalTheory.BdRLatticeGens.descend",
+          "declaration_lines": {
+            "GlobalTheory.BdRLatticeGens.descend": 65
+          }
+        },
+        {
+          "label": "Collecting the two rectangular matrices and bounding their degrees",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean",
+          "lines": [
+            102,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean#L102-L135",
+          "declaration": "GlobalTheory.BdRLatticeGens.exists_lattice_generators",
+          "declaration_lines": {
+            "GlobalTheory.BdRLatticeGens.exists_lattice_generators": 83
+          }
+        },
+        {
+          "label": "Precise filtered modification and its two-prism condition",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            63,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L63-L88",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        },
+        {
+          "label": "The single denominator for the lifts and the weighted lattice basis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            89,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L89-L121",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        },
+        {
+          "label": "The pole thresholds for the two rational period matrices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+          "lines": [
+            36,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean#L36-L75",
+          "declaration": "GlobalTheory.CrisPeriods.exists_lift",
+          "declaration_lines": {
+            "GlobalTheory.CrisPeriods.exists_lift": 36
+          }
+        },
+        {
+          "label": "The integral product and both action identities",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+          "lines": [
+            86,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean#L86-L130",
+          "declaration": "GlobalTheory.CrisPeriods.periods_over_Acris",
+          "declaration_lines": {
+            "GlobalTheory.CrisPeriods.periods_over_Acris": 62
+          }
+        },
+        {
+          "label": "Passing to twice the filtration degree on both sides",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+          "lines": [
+            131,
+            155
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean#L131-L155",
+          "declaration": "GlobalTheory.CrisPeriods.periods_over_Acris",
+          "declaration_lines": {
+            "GlobalTheory.CrisPeriods.periods_over_Acris": 62
+          }
+        },
+        {
+          "label": "Combining the two modifications at the same height",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean",
+          "lines": [
+            32,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean#L32-L45",
+          "declaration": "GlobalTheory.SeedExists.exists_seed",
+          "declaration_lines": {
+            "GlobalTheory.SeedExists.exists_seed": 22
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "First choose the integral matrices and then clear the remaining period denominators. The exponent for a pair applies to every matrix entry."
+    },
+    {
+      "id": "FLM-07",
+      "chapter": "lifts",
+      "anchor": "lifts-crystalline-disc-identity",
+      "title": "Why can the initial Galois correction be the identity on the entire disc?",
+      "hypotheses": "Use the integral crystalline period pair with the compatible primitive element, disc, Frobenius and Galois actions.",
+      "statement": "On the coefficient disc the normalized period columns have identity correction for every compatible action. The resulting integral frame has correction congruent to the identity modulo the evaluated variable.",
+      "equations": [
+        "lifts-crystalline-disc-actions"
+      ],
+      "dependencies": [
+        "FLM-06"
+      ],
+      "sources": [
+        {
+          "label": "Compatibility and the norm bound for a morphism of discs",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/MemBallOfGaugeLt.lean",
+          "lines": [
+            185,
+            188
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/MemBallOfGaugeLt.lean#L185-L188"
+        },
+        {
+          "label": "Product and both untwisted action identities on the disc",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean",
+          "lines": [
+            199,
+            215
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/IsStratHom.lean#L199-L215"
+        },
+        {
+          "label": "The bounded comparison and the two disc quotients",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+          "lines": [
+            109,
+            135
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean#L109-L135",
+          "declaration": "GlobalTheory.BSP.seed_of_periods",
+          "declaration_lines": {
+            "GlobalTheory.BSP.seed_of_periods": 109
+          }
+        },
+        {
+          "label": "Unit normalization and the product of the period matrices",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+          "lines": [
+            150,
+            174
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean#L150-L174",
+          "declaration": "GlobalTheory.BSP.seed_of_periods",
+          "declaration_lines": {
+            "GlobalTheory.BSP.seed_of_periods": 109
+          }
+        },
+        {
+          "label": "Frobenius and the Galois identity for every compatible disc action",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+          "lines": [
+            175,
+            223
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean#L175-L223",
+          "declaration": "GlobalTheory.BSP.seed_of_periods",
+          "declaration_lines": {
+            "GlobalTheory.BSP.seed_of_periods": 109
+          }
+        },
+        {
+          "label": "Specializing the two prism maps and taking the identity witness at all depths",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsTrivialCocycleCrystallinePeriodData.lean",
+          "lines": [
+            15,
+            40
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsTrivialCocycleCrystallinePeriodData.lean#L15-L40",
+          "declaration": "GlobalTheory.BKLim.wseed_of_seed",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.wseed_of_seed": 15
+          }
+        },
+        {
+          "label": "Reduction at the origin, cancellation and descent of divisibility to the integral ring",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DvdGalSub.lean",
+          "lines": [
+            55,
+            111
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DvdGalSub.lean#L55-L111",
+          "declaration": "GlobalTheory.BKLim.Frame.isCr_of_wSeed",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.Frame.isCr_of_wSeed": 55
+          }
+        },
+        {
+          "label": "The two distinct period tests on the resulting integral frame",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/TrivIsCr.lean",
+          "lines": [
+            67,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/TrivIsCr.lean#L67-L81"
+        },
+        {
+          "label": "Choice of the crystalline input and preservation of the tests at the prescribed height",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean",
+          "lines": [
+            117,
+            134
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean#L117-L134",
+          "declaration": "GlobalTheory.BKLim.exists_frame_sst",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.exists_frame_sst": 109
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "The unramified quadratic character at 3 separates the representation action from the disc correction."
+    },
+    {
+      "id": "FLM-08",
+      "chapter": "lifts",
+      "anchor": "lifts-integral-prism-comparison",
+      "title": "How does the same change of lattice compare two prism maps?",
+      "hypotheses": "For integral modification matrices with the three basis identities and compatible lifted coefficients, fix any two maps of the coefficient prism into any common target.",
+      "statement": "One exponent J for the chosen pair makes every entry of ℓ^J f(X′)g(X) divisible by f(E)^(2N).",
+      "equations": [
+        "lifts-modification-universal-comparison",
+        "lifts-modification-prism-factorization"
+      ],
+      "dependencies": [
+        "FLM-02",
+        "FLM-03",
+        "FLM-04"
+      ],
+      "sources": [
+        {
+          "label": "Factorization in the quotient by the target Eisenstein power",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+          "lines": [
+            39,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean#L39-L72",
+          "declaration": "GlobalTheory.NoPole.core",
+          "declaration_lines": {
+            "GlobalTheory.NoPole.core": 39
+          }
+        },
+        {
+          "label": "The product in the quotient and the two exponents",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+          "lines": [
+            73,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean#L73-L104",
+          "declaration": "GlobalTheory.NoPole.core",
+          "declaration_lines": {
+            "GlobalTheory.NoPole.core": 39
+          }
+        },
+        {
+          "label": "Arbitrary target, two prism maps, and one exponent for the pair",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+          "lines": [
+            106,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean#L106-L129",
+          "declaration": "GlobalTheory.seed_nopole",
+          "declaration_lines": {
+            "GlobalTheory.seed_nopole": 106
+          }
+        },
+        {
+          "label": "Use of the comparison for the chosen integral basis",
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+          "lines": [
+            117,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean#L117-L130",
+          "declaration": "GlobalTheory.BKModif.exists_modification_of_filtration",
+          "declaration_lines": {
+            "GlobalTheory.BKModif.exists_modification_of_filtration": 63
+          }
+        }
+      ],
+      "correspondence": "The cited immutable passages supply the mathematical ingredients used in this section.",
+      "status": "mathematical proof reconstructed",
+      "review": "All calculations in the target take place modulo f(E)^(2N). The argument permits torsion and gives J=c+j₀."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.BSP.BK.exists_approx_root",
+      "callee": "GlobalTheory.T.bezout_eisenstein_derivative_prime_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean",
+        "line": 72,
+        "spelling": "GlobalTheory.T.bezout_eisenstein_derivative_prime_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.BK.exists_approx_root",
+      "callee": "GlobalTheory.BSP.exists_approx_root_scaleRoots",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsApproxRootEisensteinAwayPrime.lean",
+        "line": 86,
+        "spelling": "exists_approx_root_scaleRoots"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.ApproxRoot.sub_mem_pow",
+      "callee": "GlobalTheory.T.pow_mul_sub_mem_pow_of_eval_mem_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.pow_mul_sub_mem_pow_of_eval_mem_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.ApproxRoot.sub_mem_pow",
+      "callee": "GlobalTheory.BSP.ApproxRoot.mul_eval_derivative_scaleRoots",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 33,
+        "spelling": "mul_eval_derivative_scaleRoots"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_sub_mem_fil",
+      "callee": "GlobalTheory.T.bdR_filtration_ker_theta_generator_facts",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.T.bdR_filtration_ker_theta_generator_facts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_sub_mem_fil",
+      "callee": "GlobalTheory.MemLoc.thetaD_props",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 45,
+        "spelling": "thetaD_props"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_sub_mem_fil",
+      "callee": "GlobalTheory.T.localPeriodRings_section_eq_ainfToBdRPlus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 56,
+        "spelling": "GlobalTheory.T.localPeriodRings_section_eq_ainfToBdRPlus"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_sub_mem_fil",
+      "callee": "GlobalTheory.T.bezout_eisenstein_derivative_prime_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ApproxRootSubUniformizerMemFilP.lean",
+        "line": 68,
+        "spelling": "GlobalTheory.T.bezout_eisenstein_derivative_prime_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_image_indep_general_rings",
+      "callee": "GlobalTheory.BSP.exists_mul_derivative_scaleRoots_sub_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinApproxRootImageIndep.lean",
+        "line": 82,
+        "spelling": "exists_mul_derivative_scaleRoots_sub_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_image_indep_general_rings",
+      "callee": "GlobalTheory.BSP.eval₂_C_X_powerSeries",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinApproxRootImageIndep.lean",
+        "line": 84,
+        "spelling": "eval₂_C_X_powerSeries"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.approxRoot_image_indep_general_rings",
+      "callee": "GlobalTheory.T.pow_mul_sub_mem_pow_of_eval_mem_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinApproxRootImageIndep.lean",
+        "line": 88,
+        "spelling": "GlobalTheory.T.pow_mul_sub_mem_pow_of_eval_mem_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.RingHomLiftCongruence.good_X",
+      "callee": "GlobalTheory.T.exists_approx_root_eisenstein_away_prime",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+        "line": 97,
+        "spelling": "GlobalTheory.T.exists_approx_root_eisenstein_away_prime"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.RingHomLiftCongruence.good_X",
+      "callee": "GlobalTheory.T.approxRoot_sub_uniformizer_mem_filP",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+        "line": 98,
+        "spelling": "GlobalTheory.T.approxRoot_sub_uniformizer_mem_filP"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.RingHomLiftCongruence.good_X",
+      "callee": "GlobalTheory.T.breuilKisin_approxRoot_image_indep",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinLiftCompatibleBdRPrisms.lean",
+        "line": 98,
+        "spelling": "GlobalTheory.T.breuilKisin_approxRoot_image_indep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.T.exists_breuilKisin_lift_compatible_bdR_prisms",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 87,
+        "spelling": "GlobalTheory.T.exists_breuilKisin_lift_compatible_bdR_prisms"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.isPrincipalIdealRing_away_l",
+      "callee": "GlobalTheory.ChartRing.isPrincipalIdealRing_away_C",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsPrincipalIdealRingWittPowerSeriesAwayPrime.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.ChartRing.isPrincipalIdealRing_away_C"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ChartRing.isPrincipalIdealRing_of_isLocalization",
+      "callee": "GlobalTheory.ChartRing.isPrincipal_of_ne_maximalIdeal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsPrincipalIdealRingOfIsLocalization.lean",
+        "line": 151,
+        "spelling": "isPrincipal_of_ne_maximalIdeal"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis",
+      "callee": "GlobalTheory.BSP.LocalizedLatticeBasis.isDomain_loc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+        "line": 121,
+        "spelling": "isDomain_loc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis",
+      "callee": "GlobalTheory.T.isPrincipalIdealRing_wittPowerSeries_away_prime",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+        "line": 122,
+        "spelling": "GlobalTheory.T.isPrincipalIdealRing_wittPowerSeries_away_prime"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis",
+      "callee": "GlobalTheory.BSP.LocalizedLatticeBasis.inj_loc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+        "line": 125,
+        "spelling": "inj_loc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.LocalizedLatticeBasis.exists_lattice_basis",
+      "callee": "GlobalTheory.BSP.LocalizedLatticeBasis.pid_basis",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinEisensteinLatticeBasis.lean",
+        "line": 126,
+        "spelling": "pid_basis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.T.bdR_filtration_ker_theta_generator_facts",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 65,
+        "spelling": "GlobalTheory.T.bdR_filtration_ker_theta_generator_facts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.RingBasics.isUnit_l",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 83,
+        "spelling": "GlobalTheory.RingBasics.isUnit_l"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.BKModif.l_ne_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 85,
+        "spelling": "l_ne_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.T.exists_breuilKisin_eisenstein_lattice_basis",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 120,
+        "spelling": "GlobalTheory.T.exists_breuilKisin_eisenstein_lattice_basis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.T.breuilKisin_changeOfBasis_no_pole_at_E",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 121,
+        "spelling": "GlobalTheory.T.breuilKisin_changeOfBasis_no_pole_at_E"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.BKModif.map_smul_ringHom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 125,
+        "spelling": "map_smul_ringHom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.BKModif.mulFil",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 139,
+        "spelling": "mulFil"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKModif.exists_modification_of_filtration",
+      "callee": "GlobalTheory.BKModif.mul_comm_of_scalar",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsModificationOfFiltration.lean",
+        "line": 156,
+        "spelling": "mul_comm_of_scalar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Per.RatSpan.crisSpan_rat",
+      "callee": "GlobalTheory.Per.TiedSpan.tied_crisSpan",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DcrisSpanTensorBcrisRat.lean",
+        "line": 53,
+        "spelling": "TiedSpan.tied_crisSpan"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisCoord.lattice_basis_span_invariants",
+      "callee": "GlobalTheory.T.dcris_span_tensorBcris_rat",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean",
+        "line": 107,
+        "spelling": "GlobalTheory.T.dcris_span_tensorBcris_rat"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisCoord.lattice_basis_span_invariants",
+      "callee": "GlobalTheory.CrisCoord.crd_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean",
+        "line": 118,
+        "spelling": "crd_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisCoord.lattice_basis_span_invariants",
+      "callee": "GlobalTheory.CrisCoord.toMatrix_lat",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean",
+        "line": 121,
+        "spelling": "toMatrix_lat"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisCoord.lattice_basis_span_invariants",
+      "callee": "GlobalTheory.CrisCoord.crd_mulLeft",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeBasisSpanInvariants.lean",
+        "line": 130,
+        "spelling": "crd_mulLeft"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Per.PerMat.exists_invertible_invariant",
+      "callee": "GlobalTheory.Per.TiedField.tied_field",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean",
+        "line": 90,
+        "spelling": "GlobalTheory.Per.TiedField.tied_field"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Per.PerMat.exists_invertible_invariant",
+      "callee": "GlobalTheory.Per.PerMat.li_of_frac",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean",
+        "line": 105,
+        "spelling": "li_of_frac"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Per.PerMat.exists_invertible_invariant",
+      "callee": "GlobalTheory.Per.FracInv.tied_frac_invariant",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsInvertibleInvariantPeriodMatrixBcris.lean",
+        "line": 107,
+        "spelling": "GlobalTheory.Per.FracInv.tied_frac_invariant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedF.frob_matrix",
+      "callee": "GlobalTheory.T.exists_pow_mul_unramified_eq_witt_bcris",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.T.exists_pow_mul_unramified_eq_witt_bcris"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedF.frob_matrix",
+      "callee": "GlobalTheory.SeedF.clear_den",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+        "line": 98,
+        "spelling": "clear_den"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedF.frob_matrix",
+      "callee": "GlobalTheory.SeedF.inv_entries",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+        "line": 98,
+        "spelling": "inv_entries"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedF.frob_matrix",
+      "callee": "GlobalTheory.SeedF.aw_injective",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFrobeniusMatrixCrystallineModuleOverWitt.lean",
+        "line": 104,
+        "spelling": "aw_injective"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedFil.crys_filtered",
+      "callee": "GlobalTheory.Per.CrisDR.isDR_of_isCrys",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineFilteredDeRhamComparison.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.Per.CrisDR.isDR_of_isCrys"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedFil.crys_filtered",
+      "callee": "GlobalTheory.DRFil.deRham_filtered",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineFilteredDeRhamComparison.lean",
+        "line": 56,
+        "spelling": "GlobalTheory.DRFil.deRham_filtered"
+      }
+    },
+    {
+      "caller": "GlobalTheory.crysLattice_basis_mem_sum_fil_dR",
+      "callee": "GlobalTheory.T.crystalline_filtered_deRham_comparison",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean",
+        "line": 117,
+        "spelling": "GlobalTheory.T.crystalline_filtered_deRham_comparison"
+      }
+    },
+    {
+      "caller": "GlobalTheory.crysLattice_basis_mem_sum_fil_dR",
+      "callee": "GlobalTheory.CrysCoordDR.coord",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean",
+        "line": 118,
+        "spelling": "coord"
+      }
+    },
+    {
+      "caller": "GlobalTheory.crysLattice_basis_mem_sum_fil_dR",
+      "callee": "GlobalTheory.CrysCoordDR.basisQ",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean",
+        "line": 118,
+        "spelling": "basisQ"
+      }
+    },
+    {
+      "caller": "GlobalTheory.crysLattice_basis_mem_sum_fil_dR",
+      "callee": "GlobalTheory.CrysCoordDR.coord_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrysLatticeBasisMemSumDeRhamFiltration.lean",
+        "line": 129,
+        "spelling": "coord_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BdRLatticeGens.descend",
+      "callee": "GlobalTheory.BdRLatticeGens.oD_int",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean",
+        "line": 77,
+        "spelling": "oD_int"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BdRLatticeGens.exists_lattice_generators",
+      "callee": "GlobalTheory.BdRLatticeGens.isUnit_aDp_zA",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBdRPlusLatticeGeneratorsDdR.lean",
+        "line": 107,
+        "spelling": "isUnit_aDp_zA"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisPeriods.periods_over_Acris",
+      "callee": "GlobalTheory.CrisPeriods.map_smul_ring",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+        "line": 92,
+        "spelling": "map_smul_ring"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisPeriods.periods_over_Acris",
+      "callee": "GlobalTheory.RingIface.aB_eq_alg",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.RingIface.aB_eq_alg"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisPeriods.periods_over_Acris",
+      "callee": "GlobalTheory.RingIface.zB_eq_aB_zA",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+        "line": 124,
+        "spelling": "GlobalTheory.RingIface.zB_eq_aB_zA"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CrisPeriods.periods_over_Acris",
+      "callee": "_private.Development.AbelianVarietyTheory.Proofs.InertiaEigenvalues.BcrisPeriodMatrixOverAcris.0.GlobalTheory.CrisPeriods.padicInt_hom_ext",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BcrisPeriodMatrixOverAcris.lean",
+        "line": 124,
+        "spelling": "padicInt_hom_ext"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedExists.exists_seed",
+      "callee": "GlobalTheory.T.crystallineLattice_basis_span_invariants",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean",
+        "line": 32,
+        "spelling": "GlobalTheory.T.crystallineLattice_basis_span_invariants"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedExists.exists_seed",
+      "callee": "GlobalTheory.T.exists_invertible_invariant_periodMatrix_bcris",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.exists_invertible_invariant_periodMatrix_bcris"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedExists.exists_seed",
+      "callee": "GlobalTheory.T.periodRingCore_crystalline_deRham_invariants",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.periodRingCore_crystalline_deRham_invariants"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeedExists.exists_seed",
+      "callee": "GlobalTheory.T.exists_frobeniusMatrix_crystallineModule_over_witt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsCrystallineLatticePeriodsOnDisc.lean",
+        "line": 35,
+        "spelling": "GlobalTheory.T.exists_frobeniusMatrix_crystallineModule_over_witt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.isDomain",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 112,
+        "spelling": "isDomain"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.T.exists_acris_ring_hom_bounded",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 113,
+        "spelling": "GlobalTheory.T.exists_acris_ring_hom_bounded"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.acrisToDisc_image_t_eq_unit_mul_period",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 114,
+        "spelling": "acrisToDisc_image_t_eq_unit_mul_period"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.evE_mul_ne_zero",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 116,
+        "spelling": "evE_mul_ne_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.smul_cancel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 151,
+        "spelling": "smul_cancel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.comm_phi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 177,
+        "spelling": "comm_phi"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.map_smul_hom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 187,
+        "spelling": "map_smul_hom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.seed_of_periods",
+      "callee": "GlobalTheory.BSP.SeedAsm.comm_sig",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CrystallineLatticeDiscPeriodDataOfAcrisPeriods.lean",
+        "line": 202,
+        "spelling": "comm_sig"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.wseed_of_seed",
+      "callee": "GlobalTheory.BSP.isUnit_l_disc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsTrivialCocycleCrystallinePeriodData.lean",
+        "line": 30,
+        "spelling": "isUnit_l_disc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.Frame.isCr_of_wSeed",
+      "callee": "GlobalTheory.BKLim.CrPer.dvd_gal_sub",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DvdGalSub.lean",
+        "line": 64,
+        "spelling": "dvd_gal_sub"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.Frame.isCr_of_wSeed",
+      "callee": "GlobalTheory.BSP.isUnit_l_disc",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DvdGalSub.lean",
+        "line": 68,
+        "spelling": "isUnit_l_disc"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.Frame.isCr_of_wSeed",
+      "callee": "GlobalTheory.T.ainf_dvd_of_closed_disc_dvd_eisenstein_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/DvdGalSub.lean",
+        "line": 111,
+        "spelling": "GlobalTheory.T.ainf_dvd_of_closed_disc_dvd_eisenstein_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.exists_frame_sst",
+      "callee": "GlobalTheory.BKLim.crys_seed",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean",
+        "line": 119,
+        "spelling": "GlobalTheory.BKLim.crys_seed"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.exists_frame_sst",
+      "callee": "GlobalTheory.T.exists_trivial_cocycle_crystalline_period_data",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean",
+        "line": 120,
+        "spelling": "GlobalTheory.T.exists_trivial_cocycle_crystalline_period_data"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.exists_frame_sst",
+      "callee": "GlobalTheory.T.exists_semistable_lattice_periods_acris",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean",
+        "line": 123,
+        "spelling": "GlobalTheory.T.exists_semistable_lattice_periods_acris"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.exists_frame_sst",
+      "callee": "GlobalTheory.T.semistableSeed_of_acris_periods",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsBreuilKisinFrameSemistableBoundedJumps.lean",
+        "line": 124,
+        "spelling": "GlobalTheory.T.semistableSeed_of_acris_periods"
+      }
+    },
+    {
+      "caller": "GlobalTheory.NoPole.core",
+      "callee": "GlobalTheory.NoPole.map_smul_ring",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+        "line": 70,
+        "spelling": "map_smul_ring"
+      }
+    },
+    {
+      "caller": "GlobalTheory.seed_nopole",
+      "callee": "GlobalTheory.NoPole.mul_eq_smul_one_comm",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+        "line": 116,
+        "spelling": "mul_eq_smul_one_comm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.seed_nopole",
+      "callee": "GlobalTheory.T.breuilKisinPrism_homs_agree_witt_and_mod_ideal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+        "line": 119,
+        "spelling": "GlobalTheory.T.breuilKisinPrism_homs_agree_witt_and_mod_ideal"
+      }
+    },
+    {
+      "caller": "GlobalTheory.seed_nopole",
+      "callee": "GlobalTheory.NoPole.core",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/BreuilKisinChangeOfBasisNoPoleAtE.lean",
+        "line": 124,
+        "spelling": "GlobalTheory.NoPole.core"
+      }
+    }
+  ]
+}

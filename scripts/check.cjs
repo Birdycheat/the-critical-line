@@ -345,6 +345,52 @@ function gaussianTimes(text, n) {
   }
   return result;
 }
+// Laurent entries here are signed monomials or zero. At u=2 they are exact dyadic rationals, and
+// the 2-adic order recovers the filtration degree of each nonzero entry.
+{
+  const multiply = (a,b) => a.map(row => b[0].map((_,j) => row.reduce((sum,x,k) => sum+x*b[k][j],0)));
+  const diag = (a,b) => [[a,0],[0,b]];
+  function value(markup) {
+    if (markup === "1") return 1;
+    const term = markup.match(/^<var>u<\/var>(?:<sup>([−\d]+)<\/sup>)?$/);
+    assert.ok(term,markup);
+    return 2 ** Number((term[1] || "1").replace("−","-"));
+  }
+  function vector(markup) {
+    const match = markup.match(/^(?:(.+) )?\(([−\d]+), ([−\d]+)\)$/);
+    assert.ok(match,markup);
+    return match.slice(2).map(x => Number(x.replace("−","-")) * value(match[1] || "1"));
+  }
+  const order = entries => Math.min(...entries.filter(x=>x!==0).map(x=>Math.log2(Math.abs(x))));
+  const normalize = rows => rows.map(row=>row.map(x=>x||0));
+  for (const [degrees,jumps] of Object.entries({mixed:[-1,2],swapped:[2,-1],flat:[0,0]})) {
+    const Q = multiply([[1,1],[0,1]],diag(2**jumps[0],2**jumps[1]));
+    const [[a,b],[c,d]] = Q, determinant = a*d-b*c;
+    const inverse = [[d,-b],[-c,a]].map(row=>row.map(x=>x/determinant));
+    for (const height of [0,1,2,3]) for (const rule of ["subtract","add"]) {
+      const output = lib.render("filtered-lattice-modification",{degrees,height,rule});
+      const entries = Array.from(output.matchAll(/<td>(.*?)<\/td>/g),x=>x[1]);
+      assert.equal(entries.length,8);
+      const X = diag(value(entries[0]),value(entries[2])), companion = diag(value(entries[1]),value(entries[3]));
+      for (const [i,h] of jumps.entries()) {
+        assert.equal(rule === "subtract" ? X[i][i]*2**h : X[i][i]/2**h,2**height);
+      }
+      assert.deepEqual(multiply(X,companion),diag(2**(2*height),2**(2*height)));
+      const forward=multiply(Q,X), back=multiply(companion,inverse);
+      const columns=[forward.map(r=>r[0]),forward.map(r=>r[1])];
+      assert.deepEqual(normalize([vector(entries[4]),vector(entries[6])]),normalize(columns));
+      assert.deepEqual(normalize([vector(entries[5]),vector(entries[7])]),normalize(back));
+      const integral=[...X.flat(),...companion.flat()].every(Number.isInteger);
+      const meetsDepth=[...columns,...back].every(row=>order(row)>=height);
+      assert.ok(output.includes("Integral modifiers: "+(integral?"yes.":"no.")+" Both depth bounds: "+(meetsDepth?"yes.":"no.")));
+    }
+  }
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-filtered-lattice-modification"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("filtered-lattice-modification", lib.defaults("filtered-lattice-modification"))));
+  if (page === "book.html") assert.ok(figure[0].includes('href="atlas.html#claim-FLM-04"'));
+}
 // Evaluate the rank-three polynomial at both shifts and multiply the full matrices before reading a column.
 {
   const U = [[1,0,0],[1,1,0],[0,1,1]], inverseU = [[1,0,0],[-1,1,0],[1,-1,1]];

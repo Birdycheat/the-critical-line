@@ -23,6 +23,18 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "filtered-lattice-modification": {
+      title: "Which powers put the columns and inverse rows at the same depth?",
+      kind: "Two lattices over a Laurent series field",
+      section: "lifts",
+      params: [
+        choose("degrees", "Filtration degrees", [["mixed", "(−1, 2)"], ["swapped", "(2, −1)"], ["flat", "(0, 0)"]], "mixed"),
+        range("height", "Target depth N", 0, 3, 1, 3),
+        choose("rule", "Exponent on column i of X", [["subtract", "N − hᵢ"], ["add", "N + hᵢ"]], "subtract"),
+      ],
+      caption: "In the Laurent series field K((u)), let A = K[[u]] and set E = u. The two lattices are A² and Q A², where column i of Q is column i of U multiplied by u to the power hᵢ. The columns of U are (1, 0) and (1, 1). The rows of its inverse are (1, −1) and (0, 1). A vector lies at depth N when all its entries belong to uᴺA.",
+      method: "Choose a diagonal X. Its companion X′ uses the complementary exponent in each position so that XX′ is E to the power 2N times the identity. Right multiplication by X shifts each column of Q, whereas left multiplication by X′ shifts each row of Q⁻¹. Thus the filtration starts at hᵢ on the column and at −hᵢ on the inverse row. With the subtract rule, QX = uᴺU and X′Q⁻¹ = uᴺU⁻¹. The A-linear combinations of the columns of X give exactly the coefficient vectors in K((u))² that Q sends into uᴺA². Both modifiers have integral entries exactly when N bounds the absolute values of the two degrees. The arithmetic theorem chooses such an N and constructs the modification from lifted coefficients in the Breuil–Kisin ring. Clearing denominators there can introduce a power of ℓ in the product.",
+    },
     "logarithm-zero": {
       title: "Which column does the translated logarithm give?",
       kind: "A rank-three monodromy calculation",
@@ -1734,6 +1746,33 @@
   }
 
   function render(id, v) {
+    if (id === "filtered-lattice-modification") {
+      const degrees = {mixed: [-1, 2], swapped: [2, -1], flat: [0, 0]}[v.degrees];
+      const depth = Number(v.height), sign = v.rule === "subtract" ? -1 : 1;
+      const forward = degrees.map(h => depth + sign * h), companion = degrees.map(h => depth - sign * h);
+      const columnOrders = degrees.map((h, i) => h + forward[i]), rowOrders = degrees.map((h, i) => companion[i] - h);
+      const integral = [...forward, ...companion].every(n => n >= 0);
+      const deep = [...columnOrders, ...rowOrders].every(n => n >= depth);
+      const signed = n => String(n).replace("-", "−");
+      const power = n => n === 0 ? "1" : "<var>u</var>" + (n === 1 ? "" : "<sup>" + signed(n) + "</sup>");
+      const multiple = (n, vector) => (n === 0 ? "" : power(n) + " ") + vector;
+      const pair = numbers => "(" + numbers.map(signed).join(", ") + ")";
+      const row = (label, left, right) => '<tr><th scope="row"><span class="math-coordinates">' + label + '</span></th><td>' + left + '</td><td>' + right + '</td></tr>';
+      const indices = ["1", "2"], columns = ["(1, 0)", "(1, 1)"], inverseRows = ["(1, −1)", "(0, 1)"];
+      const status = "Depth " + depth + ". Column orders " + pair(columnOrders) + ". Inverse row orders " + pair(rowOrders) +
+        ". Integral modifiers: " + (integral ? "yes." : "no.") + " Both depth bounds: " + (deep ? "yes." : "no.");
+      const conclusion = integral ? "Both modifiers have entries in <var>A</var>." :
+        "A negative power in a modifier gives an entry outside <var>A</var>.";
+      return '<table class="carry-table" data-announcement="' + status + '"><caption>Diagonal entries of the modifiers</caption><thead><tr>' +
+        '<th scope="col">Degree</th><th scope="col"><var>X</var></th><th scope="col"><var>X′</var></th></tr></thead><tbody>' +
+        indices.map((index,i) => row('<var>h</var><sub>' + index + '</sub> = ' + signed(degrees[i]), power(forward[i]), power(companion[i]))).join("") +
+        '</tbody></table><p>The exponents in each pair add to ' + (2 * depth) + ', so <var>XX′</var> = ' + multiple(2 * depth,"<var>I</var>") +
+        '. ' + conclusion + '</p><table class="carry-table"><caption>Testing depth ' + depth + '</caption><thead><tr>' +
+        '<th scope="col">Index</th><th scope="col">Column of <var>QX</var></th><th scope="col">Row of <span class="math-coordinates"><var>X′Q</var><sup>−1</sup></span></th></tr></thead><tbody>' +
+        indices.map((index,i) => row(index,multiple(columnOrders[i],columns[i]),multiple(rowOrders[i],inverseRows[i]))).join("") +
+        '</tbody></table><p>The column orders are ' + pair(columnOrders) + ' and the inverse row orders are ' + pair(rowOrders) + '. ' +
+        (deep ? 'Both products reach depth ' + depth + '.' : 'The smallest order is ' + signed(Math.min(...columnOrders,...rowOrders)) + ', below the requested depth ' + depth + '.') + '</p>';
+    }
     if (id === "logarithm-zero") {
       const shift = 2 * Number(v.translation), column = Number(v.column) - 1;
       const columns = [[1, 1, 0], [0, 1, 1], [0, 0, 1]], zero = [0, 0, 0];
