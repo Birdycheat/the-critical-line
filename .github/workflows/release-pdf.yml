@@ -1,0 +1,49 @@
+name: Compile Monograph PDF & Publish Release
+
+on:
+  push:
+    branches: ["master", "main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "release-pdf-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  publish-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build static monograph & compile A4 PDF
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          EDITION_SHA: ${{ github.sha }}
+          SITE_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: |
+          node scripts/build.cjs
+          node scripts/render-pdf.cjs the-critical-line-working-edition.pdf
+
+      - name: Create or update GitHub Release with compiled PDF
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="working-edition-2026-11-22"
+          TITLE="Working Edition — 22 November 2026"
+          NOTES="Pre-compiled A4 desktop/print PDF of *The Critical Line* (open collaborative human reconstruction of the RH & Dirichlet GRH formal proof at \`Deicyde/riemann-hypothesis@e50d098\`, licensed under CC BY-NC 4.0). Live interactive edition with 92 numerical labs, macro-blueprint, and Source Atlas: https://birdycheat.github.io/the-critical-line/"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" the-critical-line-working-edition.pdf --clobber
+            gh release edit "$TAG" --title "$TITLE" --notes "$NOTES"
+          else
+            gh release create "$TAG" the-critical-line-working-edition.pdf --title "$TITLE" --notes "$NOTES"
+          fi

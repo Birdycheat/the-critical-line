@@ -88,8 +88,9 @@ async function run() {
     assert.equal(await page.locator("#slice-label").innerText(), "σ = ½");
     await page.screenshot({ path: path.join(output, "home.png") });
     await page.getByRole("link", { name: "Begin reading" }).click();
-    assert.ok(page.url().endsWith("book.html#target"));
+    assert.ok(page.url().endsWith("chapter-01.html"));
     assert.equal(await page.locator("#how-to-read").count(), 1);
+    await page.goto(base + "book.html#target");
     const panel = page.locator("#global-higher-corank-correspondence");
     const formalLink = panel.locator('a[href*=".lean#"]').first();
     assert.equal(await formalLink.isVisible(), false);

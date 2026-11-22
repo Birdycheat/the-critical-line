@@ -17,7 +17,7 @@ function writeAuditPref(enabled) {
   }
 }
 
-const correspondencePanels = [...document.querySelectorAll("details.correspondence")];
+const correspondencePanels = [...document.querySelectorAll("details.correspondence:not([data-home-open])")];
 const auditButtons = [...document.querySelectorAll("[data-correspondence-toggle]")];
 function applyAuditMode(enabled, togglePanels = true) {
   if (togglePanels) {
@@ -238,4 +238,79 @@ if (labs.length) {
     );
     labs.forEach((el) => obs.observe(el));
   } else labs.forEach(activate);
+}
+
+// Interactive Macro-Blueprint edge highlighting on hover/focus.
+const blueprint = document.getElementById("macro-blueprint");
+if (blueprint) {
+  const bpEdges = [...blueprint.querySelectorAll(".bp-edge")];
+  const highlightNode = (nodeId) => {
+    if (!nodeId) {
+      blueprint.classList.remove("has-focus");
+      bpEdges.forEach((e) => e.classList.remove("is-highlighted"));
+      return;
+    }
+    blueprint.classList.add("has-focus");
+    for (const e of bpEdges) {
+      e.classList.toggle("is-highlighted", e.dataset.from === nodeId || e.dataset.to === nodeId);
+    }
+  };
+  for (const link of blueprint.querySelectorAll("[data-bp-node]")) {
+    const id = link.dataset.bpNode;
+    link.addEventListener("mouseenter", () => highlightNode(id));
+    link.addEventListener("focus", () => highlightNode(id));
+    link.addEventListener("mouseleave", () => highlightNode(null));
+    link.addEventListener("blur", () => highlightNode(null));
+  }
+}
+
+// Persistent proof-branch drawer & active-section scroll spy in standalone chapters.
+const proofRail = document.getElementById("proof-rail");
+const railToggle = document.querySelector("[data-rail-toggle]");
+if (proofRail && railToggle) {
+  const setRailOpen = (open) => {
+    proofRail.classList.toggle("is-open", open);
+    railToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+  railToggle.addEventListener("click", () => {
+    setRailOpen(railToggle.getAttribute("aria-expanded") !== "true");
+  });
+  proofRail.addEventListener("click", (e) => {
+    if (e.target.closest("a") && window.matchMedia("(max-width: 71.99rem)").matches) {
+      setRailOpen(false);
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && proofRail.classList.contains("is-open")) setRailOpen(false);
+  });
+}
+if (proofRail && "IntersectionObserver" in window) {
+  const railLinks = new Map(
+    [...proofRail.querySelectorAll("[data-rail-link]")].map((a) => [a.dataset.railLink, a]),
+  );
+  const activeLabel = document.querySelector("[data-active-section-label]");
+  const headings = [...railLinks.keys()]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const activateSection = (id) => {
+    const link = railLinks.get(id);
+    if (!link) return;
+    for (const a of railLinks.values()) a.classList.remove("is-active");
+    link.classList.add("is-active");
+    const grp = link.closest("details.rail-group");
+    if (grp && !grp.open) grp.open = true;
+    if (activeLabel) activeLabel.textContent = "§" + link.textContent.trim();
+  };
+  if (headings.length) {
+    activateSection(headings[0].id);
+    const spy = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) activateSection(entry.target.id);
+        }
+      },
+      { rootMargin: "-12% 0px -72% 0px" },
+    );
+    headings.forEach((h) => spy.observe(h));
+  }
 }

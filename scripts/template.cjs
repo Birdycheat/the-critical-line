@@ -1,8 +1,8 @@
 "use strict";
 // Static counterparts of the running head, article opening and colophon of andreagourion.com.
 const navItems = [
-  ["Contents", "index.html#contents"],
-  ["Read", "book.html"],
+  ["Contents", "index.html"],
+  ["Read", "chapter-01.html"],
   ["Experiments", "experiments.html"],
   ["Source atlas", "atlas.html"],
   ["Glossary", "reference.html"],
@@ -161,13 +161,21 @@ function sectionHeading(n, title) {
     '<h2><span class="section-number">' + n + "</span>" + esc(title) + "</h2>"
   );
 }
+const {
+  renderChapterStatusBar,
+  renderChapterOutline,
+  renderMacroBlueprint,
+} = require("./architecture.cjs");
+
 function home(chapters, plot, stats = {}) {
   const fmt = n => Number(n || 0).toLocaleString("en-US");
   const summary = [
     ["Choose a reading track", "#reading-tracks"],
+    ["Macro-blueprint (14 blocks)", "#macro-blueprint-section"],
     ["The analytic language", "#part-analysis"],
     ["Constructing the arithmetic inputs", "#part-arithmetic"],
     ["From estimates to zeros", "#part-conclusion"],
+    ["14 archive modules ↔ 10 chapters", "#archive-matrix"],
   ];
   const parts = [
     [
@@ -190,6 +198,7 @@ function home(chapters, plot, stats = {}) {
     ],
   ];
   const chapterStats = stats.byChapter || {};
+  const chapterSections = stats.chapterSections || {};
   const body = parts
     .map(([id, keys, title, intro], i) => {
       const items = chapters
@@ -198,35 +207,27 @@ function home(chapters, plot, stats = {}) {
           const idx = chapters.findIndex(c => c[0] === k);
           const n = idx + 1;
           const chapterFile = "chapter-" + String(n).padStart(2, "0") + ".html";
-          const cs = chapterStats[k] || { core: 0, infra: 0, interfaces: 0 };
-          const breakdown = [
-            cs.core ? cs.core + " novel-core" : "",
-            cs.infra ? cs.infra + " rebuilt-classical" : "",
-            cs.interfaces
-              ? cs.interfaces + " formal " + (cs.interfaces === 1 ? "interface" : "interfaces")
-              : "0 open interfaces",
-          ]
-            .filter(Boolean)
-            .join(" · ");
+          const cs = chapterStats[k] || { total: 0, core: 0, infra: 0, interfaces: 0, humanReviewed: 0 };
           return (
             '<article class="book-entry"><h3><span class="section-number">' +
             n +
-            '</span><a href="book.html#' +
-            k +
+            '</span><a href="' +
+            chapterFile +
             '">' +
             esc(t) +
             "</a></h3><p>" +
             esc(d) +
-            '</p><p class="micro">' +
-            esc(breakdown) +
-            " — " +
-            '<a href="' +
+            "</p>" +
+            renderChapterStatusBar(cs) +
+            '<p class="micro"><a href="' +
             chapterFile +
-            '">Fast chapter</a> · <a href="book.html#' +
+            '">Read chapter</a> · <a href="book.html#' +
             k +
-            '">In full monograph</a> · <a href="contribute.html#review-' +
+            '">Single-page full monograph (desktop)</a> · <a href="contribute.html#review-' +
             k +
-            '">Audit or contribute</a></p></article>'
+            '">Audit or contribute</a></p>' +
+            renderChapterOutline(k, chapterFile, chapterSections[k] || []) +
+            "</article>"
           );
         })
         .join("");
@@ -234,7 +235,7 @@ function home(chapters, plot, stats = {}) {
         '<section id="' +
         id +
         '" class="page-shell article-section">' +
-        sectionHeading(i + 2, title) +
+        sectionHeading(i + 3, title) +
         '<p class="section-lead">' +
         intro +
         '</p><div class="measure">' +
@@ -265,10 +266,15 @@ function home(chapters, plot, stats = {}) {
           <span class="track-kicker">Track 3 · Complete course · ${fmt(stats.totalClaims)} results &amp; ${fmt(stats.experiments)} labs</span>
           <h3>Full self-contained reconstruction</h3>
           <p>Includes all ${fmt(stats.infraClaims)} results of classical infrastructure reconstructed from scratch inside the formal archive (Harish-Chandra discrete series, Capelli minors, PEL integral models, crystalline period frames, Harder–Narasimhan slopes, Stickelberger towers, face complexes), explicitly badged so experts check normalizations and skip ahead.</p>
-          <p class="micro"><a href="book.html#target">Read single-page book</a> · <a href="experiments.html">Explore ${fmt(stats.experiments)} interactive labs</a> · <a href="atlas.html?role=rebuilt-infrastructure#ledger">Browse rebuilt infrastructure</a></p>
+          <p class="micro"><a href="chapter-01.html">Start at Ch. 1</a> · <a href="book.html#target">Single-page full monograph (desktop)</a> · <a href="experiments.html">Explore ${fmt(stats.experiments)} interactive labs</a> · <a href="atlas.html?role=rebuilt-infrastructure#ledger">Browse rebuilt infrastructure</a></p>
         </article>
       </div>
     </section>`;
+
+  const blueprintSection = renderMacroBlueprint(stats);
+  const matrixSection = stats.archiveMatrixHtml
+    ? `<section id="archive-matrix" class="page-shell article-section">${sectionHeading(6, "Formal archive modules (1–14) ↔ ten chapters")}<p class="section-lead">Cross-correspondence between the 14 mathematical modules of the pinned formal source repository and the ten chapters of this monograph. Click any module title to filter the Source Atlas, or any nonzero count to open the corresponding chapter.</p>${stats.archiveMatrixHtml}</section>`
+    : "";
 
   const correspondenceBlock = stats.methodologyCorrespondence || "";
 
@@ -277,8 +283,8 @@ function home(chapters, plot, stats = {}) {
       <div class="opening-hero">
         <div class="opening-title"><h1 id="hero-title">The Riemann Hypothesis</h1>
           <p class="byline"><span class="sc">Open collaborative reconstruction</span></p>
-          <p><a class="button" href="book.html#target">Begin reading</a></p>
-          <p class="hero-secondary"><a href="#reading-tracks">Three reading tracks</a> · <a href="chapter-01.html">Fast chapter 1</a> · <a href="contribute.html">Contribute (Tiers A / B / C)</a> · <a href="explorer.html" hreflang="fr" lang="fr">Lire en français</a></p>
+          <p><a class="button" href="chapter-01.html">Begin reading</a></p>
+          <p class="hero-secondary"><a href="#reading-tracks">Three reading tracks</a> · <a href="#macro-blueprint-section">Macro-blueprint</a> · <a href="book.html">Single-page full monograph (desktop)</a> · <a href="contribute.html">Contribute (Tiers A / B / C)</a> · <a href="explorer.html" hreflang="fr" lang="fr">Lire en français</a></p>
         </div>
         ${plot.replace("<svg ", '<svg class="opening-figure" id="opening-plot" ')}
         <p class="opening-caption"><span class="sc">Fig. 1.</span> The height of |ζ(σ + <i>it</i>)| across the critical strip, for 8 ≤ <i>t</i> ≤ 32. In <span class="copper">copper</span>, the section at <span id="slice-label">σ = ½</span>.
@@ -290,12 +296,12 @@ function home(chapters, plot, stats = {}) {
           <div class="counter-card">
             <span class="track-kicker">1 · Formal archive coverage</span>
             <h3>${fmt(stats.inspectedDecls)} declarations inspected · ${fmt(stats.pinnedRanges)} pinned source ranges</h3>
-            <p>Pinned line-by-line across ${fmt(stats.pinnedFiles)} source files in the 14 archive parts (175,187 compiled modules; 1,478,219 reachable constants), with ${fmt(stats.valuePaths)} caller-to-callee proof paths verified directly in the compiled export.</p>
+            <p>Pinned line-by-line across ${fmt(stats.pinnedFiles)} source files in the 14 archive modules (175,187 compiled files; 1,478,219 reachable constants), with ${fmt(stats.valuePaths)} caller-to-callee proof paths verified directly in the compiled export.</p>
           </div>
           <div class="counter-card">
             <span class="track-kicker">2 · Pedagogical graph status</span>
             <h3>${fmt(stats.writtenClaims)} self-contained nodes · ${fmt(stats.openInterfaces)} pinned formal interfaces</h3>
-            <p>${fmt(stats.writtenClaims)} results are derived in self-contained graduate-level prose (${fmt(stats.coreClaims)} novel proof core, ${fmt(stats.infraClaims)} rebuilt classical infrastructure; ${fmt(stats.interfaceClaims)} results sit in ledgers adjacent to an upstream boundary). An open interface is <b>not</b> a logical gap: its formal signature and proof term are already kernel-certified, awaiting detailed human exposition.</p>
+            <p>Out of ${fmt(stats.totalClaims)} reconstructed results (${fmt(stats.coreClaims)} novel proof core and ${fmt(stats.infraClaims)} rebuilt classical infrastructure), ${fmt(stats.writtenClaims)} sit in fully self-contained ledgers while ${fmt(stats.interfaceClaims)} sit in ledgers adjacent to one of the ${fmt(stats.openInterfaces)} pinned formal interfaces. An open interface is <b>not</b> a logical gap: its formal signature and proof term are already kernel-certified, awaiting detailed human exposition.</p>
           </div>
         </div>
         <div class="methodology-box">
@@ -306,7 +312,7 @@ function home(chapters, plot, stats = {}) {
         </div>
         <nav aria-label="Parts of the monograph">${contents(summary)}</nav>
       </div>
-    </section>${tracksSection}${body}
+    </section>${tracksSection}${blueprintSection}${body}${matrixSection}
   </main>`;
 }
 module.exports = { page, articleHead, sectionHeading, home, auditToolbar, esc };

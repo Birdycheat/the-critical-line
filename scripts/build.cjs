@@ -19,6 +19,9 @@ const ed = data("edition"),
   tar = data("targets"),
   rolesConfig = fs.existsSync(path.join(root, "records", "_roles.json"))
     ? data("_roles").roles_by_file || {}
+    : {},
+  reviewsConfig = fs.existsSync(path.join(root, "records", "_reviews.json"))
+    ? data("_reviews").reviewed_claims || {}
     : {};
 
 const repoSlug = process.env.GITHUB_REPOSITORY || ed.repository || "Birdycheat/the-critical-line";
@@ -52,6 +55,13 @@ const chapters = ed.chapters.filter(([id]) =>
 );
 const num = (i) => String(i + 1).padStart(2, "0");
 const { page, articleHead, sectionHeading, home, auditToolbar } = require("./template.cjs");
+const {
+  classifyArchiveModule,
+  renderChapterStatusBar,
+  renderProofBreadcrumb,
+  renderProofRail,
+  renderArchiveMatrix,
+} = require("./architecture.cjs");
 const { readingPassages, formalUrl, printExamples, correspondence } = require("./reading-passages.cjs");
 const background = data("background_theorems").theorems;
 const route = data("route");
@@ -117,6 +127,7 @@ const nonClaimJson = new Set([
   "edition.json",
   "targets.json",
   "_roles.json",
+  "_reviews.json",
   "background_theorems.json",
   "figures.json",
   "solution_terms.json",
@@ -386,14 +397,20 @@ const chapterBodies = chapters.map(([id, title], i) => {
   let sub = 0;
   const body = sectionContent(id).replace(
     /<h3([^>]*)>/g,
-    (_, a) =>
-      "<h3" +
-      a +
-      '><span class="section-number">' +
-      (i + 1) +
-      "." +
-      ++sub +
-      "</span>",
+    (_, a) => {
+      const nSub = ++sub;
+      const idAttr = /\bid="/.test(a) ? "" : ' id="' + id + "-section-" + nSub + '"';
+      return (
+        "<h3" +
+        idAttr +
+        a +
+        '><span class="section-number">' +
+        (i + 1) +
+        "." +
+        nSub +
+        "</span>"
+      );
+    },
   );
   const next = chapters[i + 1];
   const endLink =
@@ -488,22 +505,74 @@ for (const m of book.matchAll(/https:\/\/github\.com\/(?:Deicyde\/riemann-hypoth
 
 const byChapterStats = {};
 for (const [cid] of chapters) {
-  byChapterStats[cid] = { total: 0, core: 0, infra: 0, interfaces: 0 };
+  byChapterStats[cid] = { total: 0, core: 0, infra: 0, interfaces: 0, humanReviewed: 0 };
 }
+const archiveMatrixData = {};
 for (const c of allClaims) {
   const chKey = byChapterStats[c.chapter] ? c.chapter : "target";
   byChapterStats[chKey].total++;
   if (c._role === "core-argument") byChapterStats[chKey].core++;
   else byChapterStats[chKey].infra++;
+  if (reviewsConfig[c.id]) byChapterStats[chKey].humanReviewed++;
+
+  const modKeys = new Set();
+  for (const s of c._pinnedSources || []) {
+    const m = String(s.url || "").match(/Deicyde\/riemann-hypothesis\/blob\/[0-9a-f]{40}\/(src\/[^\s"<>#]+)/);
+    if (m) modKeys.add(classifyArchiveModule(m[1]));
+  }
+  for (const mk of modKeys) {
+    if (!archiveMatrixData[mk]) archiveMatrixData[mk] = {};
+    archiveMatrixData[mk][chKey] = (archiveMatrixData[mk][chKey] || 0) + 1;
+  }
 }
 for (const t of openTasks) {
   const chKey = byChapterStats[t.chapter] ? t.chapter : "lifts";
   byChapterStats[chKey].interfaces++;
 }
 
+// Extract numbered <h3> sections per chapter with exact per-section claim role & interface counts.
+function plainHeadingTitle(rawHtml) {
+  return String(rawHtml || "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&(amp|lt|gt|quot|nbsp);/g, (_, k) => ({ amp: "&", lt: "<", gt: ">", quot: '"', nbsp: " " }[k]))
+    .trim();
+}
+const chapterSectionsByKey = {};
+for (const c of chapterBodies) {
+  const h3Matches = [
+    ...c.body.matchAll(/<h3\b([^>]*)><span class="section-number">([^<]+)<\/span>([\s\S]*?)<\/h3>/g),
+  ];
+  const secs = h3Matches.map((m, idx) => {
+    const anchor = (m[1].match(/\bid="([^"]+)"/) || [])[1] || c.id;
+    const number = m[2].trim();
+    const title = plainHeadingTitle(m[3]);
+    const start = m.index;
+    const end = idx + 1 < h3Matches.length ? h3Matches[idx + 1].index : c.body.length;
+    const slice = c.body.slice(start, end);
+    const sliceIds = new Set([...slice.matchAll(/\bid="([^"]+)"/g)].map(x => x[1]));
+    sliceIds.add(anchor);
+    const seenClaims = new Set([...slice.matchAll(/atlas\.html#claim-([A-Za-z0-9._-]+)/g)].map(x => x[1]));
+    let core = 0;
+    let infra = 0;
+    for (const cid of seenClaims) {
+      const cl = claimsById.get(cid);
+      if (!cl) continue;
+      if (cl._role === "core-argument") core++;
+      else infra++;
+    }
+    const interfaces = openTasks.filter(
+      t => t.chapter === c.id && (sliceIds.has(t.anchor) || seenClaims.has(t.claimId)),
+    ).length;
+    return { anchor, number, title, core, infra, interfaces };
+  });
+  chapterSectionsByKey[c.id] = secs;
+}
+const archiveMatrixHtml = renderArchiveMatrix(chapters, archiveMatrixData, correspondence, corpus, pin);
+
 const ver = corpus.external_report;
 const termRecord = linked("Direct names in the exported solution", "records/solution_terms.json");
 const rolesRecordLink = linked("Role classification ledger", "records/_roles.json");
+const reviewsRecordLink = linked("Human audit ledger", "records/_reviews.json");
 const stats = {
   totalClaims: allClaims.length,
   coreClaims: allClaims.filter(c => c._role === "core-argument").length,
@@ -518,27 +587,32 @@ const stats = {
   experiments: Object.keys(figNumbers).length,
   backgroundTheorems: background.length,
   byChapter: byChapterStats,
+  chapterSections: chapterSectionsByKey,
+  archiveMatrixHtml,
   licenseUrl,
   licenseLabel,
-  methodologyCorrespondence: correspondence(
-    "<p><b>Pinned formal corpus.</b> Primary archive mirror: <code>Deicyde/riemann-hypothesis@" +
-      esc(pin.slice(0, 7)) +
-      "</code> (" +
-      linked("immutable tree", corpus.primary_mirror.immutable_root) +
-      ") · Lean <code>" +
-      esc(corpus.lean.version) +
-      "</code> · Mathlib <code>" +
-      esc(corpus.mathlib.commit.slice(0, 7)) +
-      "</code>. External kernel &amp; comparator reports: " +
-      linked("Joint Lean & Mathlib community statement", corpus.community_statement?.url || "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/") +
-      " · " +
-      linked("Andrew V. Sutherland’s MIT verification logs", ver.url) +
-      " · " +
-      linked("Corpus lock", "records/corpus.json") +
-      " · " +
-      rolesRecordLink +
-      ".</p>",
-  ),
+  methodologyCorrespondence:
+    '<details class="correspondence" open data-home-open><summary>Pinned formal corpus (' +
+    esc(pin.slice(0, 7)) +
+    ") &amp; independent kernel verifications</summary><p>Primary archive mirror: <code>Deicyde/riemann-hypothesis@" +
+    esc(pin.slice(0, 7)) +
+    "</code> (" +
+    linked("immutable tree", corpus.primary_mirror.immutable_root) +
+    ") · Lean <code>" +
+    esc(corpus.lean.version) +
+    "</code> · Mathlib <code>" +
+    esc(corpus.mathlib.commit.slice(0, 7)) +
+    "</code>. External kernel &amp; comparator verifications: " +
+    linked("Joint Lean & Mathlib community statement", corpus.community_statement?.url || "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/") +
+    " · " +
+    linked("Andrew V. Sutherland’s MIT verification logs", ver.url) +
+    " · " +
+    linked("Corpus lock", "records/corpus.json") +
+    " · " +
+    rolesRecordLink +
+    " · " +
+    reviewsRecordLink +
+    ".</p></details>",
 };
 const fmt = n => Number(n || 0).toLocaleString("en-US");
 
@@ -632,10 +706,10 @@ for (const c of chapterBodies) {
     return 'href="book.html#' + targetId + '"';
   });
   const chapterNavLinks = [
-    '<a href="index.html#contents">Contents &amp; tracks</a>',
+    '<a href="index.html">Contents &amp; blueprint</a>',
     prev ? '<a href="chapter-' + num(prev.index) + '.html">← Ch. ' + (prev.index + 1) + "</a>" : "",
     next ? '<a href="chapter-' + num(next.index) + '.html">Ch. ' + (next.index + 1) + " →</a>" : "",
-    '<a href="book.html#' + c.id + '">Single-page book</a>',
+    '<a href="book.html#' + c.id + '">Single-page full monograph (desktop)</a>',
     '<a href="contribute.html#review-' + c.id + '">Audit or improve Ch. ' + (c.index + 1) + "</a>",
   ].filter(Boolean).join(" · ");
   const chapterFootnotes = usedRefNums.length
@@ -649,21 +723,13 @@ for (const c of chapterBodies) {
       "</ol></section>"
     : "";
   const blurb = chapters[c.index][2];
-  const cs = byChapterStats[c.id] || { core: 0, infra: 0, interfaces: 0 };
-  const roleSummary =
-    cs.core +
-    " novel-core · " +
-    cs.infra +
-    " rebuilt-classical · " +
-    cs.interfaces +
-    " open formal " +
-    (cs.interfaces === 1 ? "interface" : "interfaces");
+  const cs = byChapterStats[c.id] || { total: 0, core: 0, infra: 0, interfaces: 0, humanReviewed: 0 };
+  const secs = chapterSectionsByKey[c.id] || [];
   const head = articleHead(
     "Chapter " + (c.index + 1) + " · " + c.title,
     esc(blurb) +
-      ' <span class="micro">(' +
-      esc(roleSummary) +
-      ')</span><br><span class="small">' +
+      renderChapterStatusBar(cs, { compact: true }) +
+      '<span class="small">' +
       chapterNavLinks +
       "</span>",
     [],
@@ -675,13 +741,16 @@ for (const c of chapterBodies) {
       "Ch. " + (c.index + 1) + ": " + c.title,
       '<main class="article" id="main">' +
         head +
-        '<article class="chapter page-shell article-section" id="' +
+        renderProofBreadcrumb(c.index, chapters, secs) +
+        '<article class="chapter page-shell article-section chapter-with-rail" id="' +
         c.id +
         '"><div class="measure">' +
         rewrittenBody +
         '<p class="chapter-navigation small">' +
         chapterNavLinks +
-        "</p></div></article>" +
+        "</p></div>" +
+        renderProofRail(c.index, chapters, secs, byChapterStats) +
+        "</article>" +
         chapterFootnotes +
         "</main>",
       "Read",
@@ -720,13 +789,17 @@ const printFront =
   fmt(stats.pinnedRanges) +
   " source line ranges pinned across " +
   fmt(stats.pinnedFiles) +
-  " files in the 14 archive parts (175,187 kernel-verified modules).<br><b>2 · Pedagogical graph status:</b> " +
-  fmt(stats.writtenClaims) +
-  " self-contained graduate-level mathematical nodes (" +
+  " files in the 14 archive modules (175,187 kernel-verified files).<br><b>2 · Pedagogical graph status:</b> Out of " +
+  fmt(stats.totalClaims) +
+  " reconstructed mathematical results (" +
   fmt(stats.coreClaims) +
-  " novel proof core; " +
+  " novel proof core and " +
   fmt(stats.infraClaims) +
-  " classical infrastructure reconstructed inside the archive) alongside " +
+  " classical infrastructure rebuilt inside the archive), " +
+  fmt(stats.writtenClaims) +
+  " sit in fully self-contained graduate-level ledgers while " +
+  fmt(stats.interfaceClaims) +
+  " sit in ledgers adjacent to one of the " +
   fmt(stats.openInterfaces) +
   " pinned formal-boundary interfaces (kernel-verified in the compiled export, open for human specialist exposition — including symplectic/unitary deformation rings in the Plus bound, regularized Eisenstein/Siegel–Weil input, orbital period expansions, and arithmetic prime-window instantiation). Drafted with frontier agents against the pinned source and checked by deterministic scripts; external human review is open at " +
   linked(siteBase + "contribute.html", siteBase + "contribute.html", "data-contribute") +
@@ -1267,11 +1340,19 @@ save(
       fmt(stats.writtenClaims) +
       " self-contained nodes · " +
       fmt(stats.openInterfaces) +
-      " formal interfaces</h3><p>" +
+      " formal interfaces</h3><p>Out of " +
+      fmt(stats.totalClaims) +
+      " reconstructed results (" +
       fmt(stats.coreClaims) +
-      " novel proof-core results and " +
+      " novel proof core and " +
       fmt(stats.infraClaims) +
-      " rebuilt classical-infrastructure results. See <a href=\"contribute.html#tier-c\">Tier C interfaces</a> for the remaining encapsulated boundaries.</p></div>" +
+      " rebuilt classical infrastructure), " +
+      fmt(stats.writtenClaims) +
+      " sit in fully self-contained ledgers while " +
+      fmt(stats.interfaceClaims) +
+      " sit in ledgers adjacent to one of the <a href=\"contribute.html#tier-c\">" +
+      fmt(stats.openInterfaces) +
+      " Tier C interfaces</a>.</p></div>" +
       "</div>" +
       '<h2 id="ledger">Mathematical results (' +
       fmt(stats.totalClaims) +
@@ -1376,7 +1457,7 @@ const tierAStarters = [
   ["MDM-01", "chapter-05.html#global-minor-dimension", "Gram-trace nullity & retained-column rank lower bound (Hermitian linear algebra, M1/M2)"],
   ["ORV-01", "chapter-06.html#lifts-orbital-marked-vanishing", "Block centralizer & 5-adic unipotent fibre cancellation (linear algebra over local rings, M2)"],
   ["FLS-01", "chapter-08.html#inputs-minus-denominator", "Multiplication carries modulo F & cleared Bernoulli polynomial congruence (elementary number theory, M1)"],
-  ["WIN-02", "book.html#window-derivatives", "High-order derivative localization on one-sided intervals (real & Laplace analysis, M1)"],
+  ["WIN-02", "chapter-09.html#window-derivatives", "High-order derivative localization on one-sided intervals (real & Laplace analysis, M1)"],
 ]
   .map(([cid, href, desc]) => {
     const cl = claimsById.get(cid);
@@ -1424,12 +1505,15 @@ const chapterReviewRows = chapters
       (idx + 1) +
       ". " +
       linked(title, chapterFile) +
+      renderChapterStatusBar(cs, { compact: true }) +
       "</th><td>" +
       cs.core +
       "</td><td>" +
       cs.infra +
       "</td><td>" +
       cs.interfaces +
+      "</td><td>" +
+      (cs.total ? (cs.humanReviewed || 0) + " / " + cs.total : "—") +
       '</td><td><a data-contribute href="' +
       esc(uA.issueUrl) +
       '">Tier A</a> · <a data-contribute href="' +
@@ -1491,13 +1575,19 @@ save(
       fmt(stats.writtenClaims) +
       " self-contained nodes · " +
       fmt(stats.openInterfaces) +
-      " formal interfaces</h3><p>" +
+      " formal interfaces</h3><p>Out of " +
+      fmt(stats.totalClaims) +
+      " reconstructed results (" +
       fmt(stats.coreClaims) +
-      " novel proof-core results and " +
+      " novel proof core and " +
       fmt(stats.infraClaims) +
-      " rebuilt classical-infrastructure results are written; " +
+      " rebuilt classical infrastructure), " +
+      fmt(stats.writtenClaims) +
+      " sit in fully self-contained ledgers while " +
+      fmt(stats.interfaceClaims) +
+      " sit in ledgers adjacent to one of the " +
       fmt(stats.openInterfaces) +
-      " kernel-certified upstream interfaces await specialist exposition.</p></div>" +
+      " kernel-certified interfaces awaiting specialist exposition.</p></div>" +
       "</div>" +
       '<h2 id="tier-a"><span class="section-number">1</span>Tier A — Mathematical audit &amp; proof simplification (open from M1/M2+)</h2>' +
       "<p>You do not need formal-methods training or automorphic machinery to make a decisive contribution. Pick any self-contained section or any of the <a href=\"experiments.html\">" +
@@ -1529,8 +1619,8 @@ save(
       openTaskItems +
       "</ol>" +
       '<h2 id="chapter-reviews"><span class="section-number">4</span>Chapter-by-chapter factual breakdown &amp; CC BY-NC 4.0 license</h2>' +
-      "<p>All citation line ranges, exported proof-value paths, and numerical figures are checked deterministically on every pull request; independent human review is tracked transparently per chapter below.</p>" +
-      '<div class="tablewrap"><table><thead><tr><th>Chapter (fast edition)</th><th>Novel core</th><th>Rebuilt classical</th><th>Open interfaces</th><th>Submit audit</th></tr></thead><tbody>' +
+      '<p>All citation line ranges, exported proof-value paths, and numerical figures are checked deterministically on every pull request; independent human review is tracked transparently per chapter below (and cross-tabulated against the <a href="index.html#archive-matrix">14 formal archive modules</a> on the home page).</p>' +
+      '<div class="tablewrap"><table><thead><tr><th>Chapter (fast edition)</th><th>Novel core</th><th>Rebuilt classical</th><th>Open interfaces</th><th>Human-verified</th><th>Submit audit</th></tr></thead><tbody>' +
       chapterReviewRows +
       "</tbody></table></div>" +
       '<p id="licensing" class="small">Modular source fragments live in <a data-contribute href="' +
@@ -1576,11 +1666,19 @@ save(
           fmt(stats.inspectedDecls) +
           " déclarations inspectées et " +
           fmt(stats.pinnedRanges) +
-          " plages sources épinglées</b> d’une part, <b>" +
+          " plages sources épinglées</b> d’une part, et d’autre part, sur <b>" +
+          fmt(stats.totalClaims) +
+          " résultats reconstruits</b> (" +
+          fmt(stats.coreClaims) +
+          " du cœur nouveau et " +
+          fmt(stats.infraClaims) +
+          " d’infrastructure classique), <b>" +
           fmt(stats.writtenClaims) +
-          " nœuds rédigés au niveau M2 et " +
+          " nœuds en registres autonomes au niveau M2</b> et " +
+          fmt(stats.interfaceClaims) +
+          " nœuds jouxtant l’une des <b>" +
           fmt(stats.openInterfaces) +
-          " interfaces formelles certifiées</b> en attente d’exposition humaine d’autre part.",
+          " interfaces formelles certifiées</b> en attente d’exposition humaine.",
         [
           ["Trois parcours", "index.html#reading-tracks"],
           ["Exemple guidé [PIL-06]", "#trace"],

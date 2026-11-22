@@ -23,7 +23,7 @@ class Links(HTMLParser):
             self.silent += 1
         if tag == "details":
             technical = "correspondence" in attributes.get("class", "").split()
-            if technical and "open" in attributes:
+            if technical and "open" in attributes and "data-home-open" not in attributes:
                 raise ValueError("Formal correspondence opens by default")
             self.disclosures.append(technical)
         url = attributes.get("href", "")
