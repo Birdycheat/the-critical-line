@@ -23,6 +23,17 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "logarithm-zero": {
+      title: "Which column does the translated logarithm give?",
+      kind: "A rank-three monodromy calculation",
+      section: "lifts",
+      params: [
+        choose("translation", "Translation parameter a", [["-1", "−1"], ["0", "0"], ["1", "1"], ["2", "2"]], "1"),
+        choose("column", "Column to inspect", [["1", "First"], ["2", "Second"], ["3", "Third"]], "3"),
+      ],
+      caption: "Let J send e₃ to e₂, e₂ to e₁ and e₁ to zero. Set E(z) = I + zJ + (z²/2)J². In this polynomial model over ℚ, Q = U E(L) with L = X + b. Set its invertible parameter t equal to 1. The initial columns of U are u₁ = (1, 1, 0), u₂ = (0, 1, 1) and u₃ = (0, 0, 1). Each tuple lists a column from top to bottom.",
+      method: "The translation gₐ fixes U and adds a to both X and b, so gₐ(L) = L + s with s = 2a. To evaluate the translated logarithm at zero, put X = −b − s. Then the invariant-column identity ρ(a)gₐ(Q) = Q gives ρ(a)U = U E(−s). In these columns monodromy is M = −J because N = −∂/∂X. Right multiplication combines the columns of U. The third column includes (s²/2)u₁ because J²e₃ = e₁.",
+    },
     "orbital-unipotent-fibre": {
       title: "Does the unipotent fibre cancel on both translates?",
       kind: "Two slices of one test on GL₂(ℚ₅)",
@@ -1723,6 +1734,41 @@
   }
 
   function render(id, v) {
+    if (id === "logarithm-zero") {
+      const shift = 2 * Number(v.translation), column = Number(v.column) - 1;
+      const columns = [[1, 1, 0], [0, 1, 1], [0, 0, 1]], zero = [0, 0, 0];
+      const current = columns[column], previous = columns[column - 1] || zero, second = columns[column - 2] || zero;
+      const quadratic = shift * shift / 2;
+      const combine = (linear, square) => current.map((x, i) => x + linear * previous[i] + square * second[i]);
+      const translate = ([x, y, z]) => [x - shift * y + quadratic * z, y - shift * z, z];
+      // Evaluate ρ(a) = U E(−s) U⁻¹ on the chosen initial column in ambient coordinates.
+      const [x, y, z] = current, inBasis = [x, y - x, z - y + x];
+      const [first, middle, last] = translate(inBasis);
+      const target = [first, first + middle, middle + last];
+      const display = vector => "(" + vector.join(", ").replaceAll("-", "−") + ")";
+      const candidates = [
+        ["<var>U E</var>(−<var>s</var>)", combine(-shift, quadratic)],
+        ["<var>U E</var>(<var>s</var>)", combine(shift, quadratic)],
+        ["<var>E</var>(−<var>s</var>)<var> U</var>", translate(current)],
+        ["<var>U</var>(<var>I</var> − <var>sJ</var>)", combine(-shift, 0)],
+      ];
+      const rows = candidates.map(([label, result]) => {
+        const agrees = result.every((entry, i) => entry === target[i]);
+        return '<tr><th scope="row">' + label + '</th><td>' + display(result) + '</td><td>' + (agrees ? 'Yes' : 'No') + '</td></tr>';
+      }).join("");
+      const quadraticTerm = second.map(entry => quadratic * entry);
+      const explanation = shift === 0 ? "The translation is zero, so all four expressions give the initial column." :
+        column === 2 ? "The quadratic term reaches the first initial column through J²e₃ = e₁." :
+        "The quadratic term vanishes on this column because its second image under J is zero.";
+      const status = "Shift " + shift + ". Column " + (column + 1) + " of the Galois transform is " + display(target) +
+        ". Quadratic contribution " + display(quadraticTerm) + ".";
+      return '<p>At <var>s</var> = ' + String(shift).replace("-", "−") + ', column ' + (column + 1) +
+        ' of the Galois transform ρ(<var>a</var>)<var>U</var> is ' + display(target) + '.</p>' +
+        '<table class="carry-table" data-announcement="' + status + '"><caption>Testing column ' + (column + 1) +
+        ' against the Galois transform</caption><thead><tr><th scope="col">Product</th><th scope="col">Column ' +
+        (column + 1) + '</th><th scope="col">Agrees?</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        '<p>The contribution from (<var>s</var>²/2)<var>UJ</var>² is ' + display(quadraticTerm) + '. ' + explanation + '</p>';
+    }
     if (id === "orbital-unipotent-fibre") {
       const unitSlice = v.slice === "units", zero = v.coset === "zero";
       const depth = zero ? 0 : Number(v.coset);

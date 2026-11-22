@@ -23,6 +23,12 @@ async function assertVectorWeights(page) {
 const defaultCrystallineColumns = ["2", "−2", "−2i", "−2i", "−2i", "−2i"];
 const defaultWeilOperator = ["n₂ = 1","t2","n₁ = 0","t","t13","t14","1/t","t15","t15"];
 const defaultOrbitalFibre = ["−1/5","−1/5","−1","D, 1","ℤ₅","5","1","(1/5)ℤ₅ ∖ ℤ₅","20","4"];
+const defaultLogarithmColumn = ["(2, 0, −1)","Yes","(2, 4, 3)","No","(2, −2, 1)","No","(0, −2, −1)","No"];
+async function assertLogarithmTable(figure) {
+  assert.deepEqual(await figure.locator("tbody td").allTextContents(),defaultLogarithmColumn);
+  const symbols = figure.locator("tbody th var, tbody td:nth-child(2)");
+  assert.ok(await symbols.evaluateAll(nodes => nodes.length >= 8 && nodes.every(node=>getComputedStyle(node).fontWeight==="400")));
+}
 async function assertRenderedFont(session, selector, postScriptName) {
   const { root } = await session.send("DOM.getDocument");
   const { nodeId } = await session.send("DOM.querySelector", { nodeId: root.nodeId, selector });
@@ -139,6 +145,9 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "logarithm-zero") {
+          await assertLogarithmTable(fig);
+          assert.equal(await fig.getByRole("status").textContent(),"Shift 2. Column 3 of the Galois transform is (2, 0, −1). Quadratic contribution (2, 2, 0).");
         } else if (id === "orbital-unipotent-fibre") {
           assert.deepEqual(await fig.locator("tbody td").allTextContents(),defaultOrbitalFibre);
           assert.equal(await fig.locator('[role="status"]').textContent(),"Image coordinate −1/5. Test value 1. Image cell mass 1/5. Fibre sum 0. Integral 0.");
@@ -449,6 +458,29 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-logarithm-zero");
+    const logarithm = page.locator("#fig-logarithm-zero.ready");
+    for (const width of [320,390]) {
+      await page.setViewportSize({width,height:844});
+      for(const a of [-1,0,1,2]) {
+        await logarithm.getByRole("combobox",{name:"Translation parameter a"}).selectOption(String(a));
+        for (const j of [1,2,3]) {
+          await logarithm.getByRole("combobox",{name:"Column to inspect"}).selectOption(String(j));
+          const matches = await logarithm.locator("tbody tr td:last-child").allTextContents();
+          assert.deepEqual(matches,a===0?["Yes","Yes","Yes","Yes"]:j===1?["Yes","Yes","No","Yes"]:
+            j===2?["Yes","No","No","Yes"]:["Yes","No","No","No"]);
+          assert.ok((await logarithm.getByRole("status").textContent()).startsWith("Shift "+(2*a)+". Column "+j+" of the Galois transform is "));
+          assert.ok(await logarithm.locator("table").evaluate(t=>t.getBoundingClientRect().right<=t.closest("figure").getBoundingClientRect().right+1));
+        }
+      }
+    }
+    const logarithmLink = new URL(await logarithm.locator("[data-share]").getAttribute("href"));
+    assert.equal(logarithmLink.searchParams.get("logarithm-zero.translation"),"2");
+    await openFigure(page,logarithmLink.href);
+    assert.equal(await logarithm.locator("tbody tr").first().locator("td").first().textContent(),"(8, 4, −3)");
+    await logarithm.getByRole("button",{name:"Reset"}).click();
+    await assertLogarithmTable(logarithm);
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-orbital-unipotent-fibre");
     const orbital=page.locator("#fig-orbital-unipotent-fibre.ready");
@@ -1045,6 +1077,7 @@ async function run() {
     assert.deepEqual(await page.locator("#fig-crystalline-invariant-columns tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.deepEqual(await page.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     assert.deepEqual(await page.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
+    await assertLogarithmTable(page.locator("#fig-logarithm-zero"));
     await assertVectorWeights(page);
     await page.pdf({
       path: path.join(output, "print-check.pdf"),
@@ -1063,6 +1096,7 @@ async function run() {
     const staticCrystalline = plain.locator("#fig-crystalline-invariant-columns");
     assert.deepEqual(await plain.locator("#fig-signed-weil-operator tbody td").allTextContents(),defaultWeilOperator);
     assert.deepEqual(await plain.locator("#fig-orbital-unipotent-fibre tbody td").allTextContents(),defaultOrbitalFibre);
+    await assertLogarithmTable(plain.locator("#fig-logarithm-zero"));
     assert.deepEqual(await staticCrystalline.locator("tbody td").allInnerTexts(), defaultCrystallineColumns);
     assert.ok(await staticCrystalline.locator("th var").evaluateAll(vars => vars.length === 3 && vars.every(el => getComputedStyle(el).fontWeight === "400")));
     const staticSaturation = plain.locator("#fig-integral-lattice-saturation");

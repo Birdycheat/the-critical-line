@@ -345,6 +345,38 @@ function gaussianTimes(text, n) {
   }
   return result;
 }
+// Evaluate the rank-three polynomial at both shifts and multiply the full matrices before reading a column.
+{
+  const U = [[1,0,0],[1,1,0],[0,1,1]], inverseU = [[1,0,0],[-1,1,0],[1,-1,1]];
+  const multiply = (a,b) => a.map(row => b[0].map((_,j) => row.reduce((sum,x,k) => sum+x*b[k][j],0)));
+  const exponential = z => [[1,z,z*z/2],[0,1,z],[0,0,1]];
+  const period = log => multiply(U,exponential(log));
+  const tuple = v => "(" + v.join(", ").replaceAll("-","−") + ")";
+  for (const a of [-1,0,1,2]) {
+    const s = 2*a, galois = multiply(period(-s),inverseU);
+    // With b = 3, X = -3-s makes the translated logarithm zero.
+    for (const X of [-3-s,-3,1]) {
+      assert.deepEqual(multiply(galois,period(X+3+s)),period(X+3));
+    }
+    const expected = [period(-s),period(s),multiply(exponential(-s),U),multiply(U,[[1,-s,0],[0,1,-s],[0,0,1]])];
+    const target = multiply(galois,U);
+    for (const j of [0,1,2]) {
+      const extract = matrix => matrix.map(row=>row[j]);
+      const want = extract(target);
+      const quadratic = want.map((x,k)=>x-expected[3][k][j]);
+      const output = lib.render("logarithm-zero",{translation:String(a),column:String(j+1)});
+      const cells = Array.from(output.matchAll(/<td>([^<]+)<\/td>/g),m=>m[1]);
+      assert.deepEqual(cells,expected.flatMap(m=>[tuple(extract(m)),extract(m).every((x,k)=>x===want[k])?"Yes":"No"]));
+      assert.ok(output.includes('data-announcement="Shift ' + s + '. Column ' + (j+1) +
+        ' of the Galois transform is ' + tuple(want) + '. Quadratic contribution ' + tuple(quadratic) + '."'));
+      if(s && j===2) assert.equal(new Set(expected.map(m=>tuple(extract(m)))).size,4);
+    }
+  }
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-logarithm-zero"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("logarithm-zero", lib.defaults("logarithm-zero"))));
+}
 // Work with a common denominator 625 for both diagonal matrices and every unipotent parameter.
 // Outside (1/125)Z₅ the upper entry (A−B)X or AY has valuation below −1 in either slice.
 {
