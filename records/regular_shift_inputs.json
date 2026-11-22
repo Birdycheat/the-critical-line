@@ -1,0 +1,3084 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "RSI-01",
+      "chapter": "normalization",
+      "anchor": "normalization-kernel-on-group",
+      "title": "The lowest-type kernel on the whole group",
+      "hypotheses": "G = U(p,q) is defined by the signature matrix J and K = U(p)×U(q). The parameter λ is strictly decreasing with λ_a − (m−1)/2 integral, μ = λ + ρ, and T is an irreducible K-type of dimension d with unit highest-weight vector w of weight Λ = λ + ρ_n − ρ_c.",
+      "statement": "The compact average A(x) = d∫_K Φ(k⁻¹xk)T(k)PT(k)⁻¹dk satisfies A(cxc⁻¹) = T(c)A(x)T(c)⁻¹ and A(1) = I. Through the unique polar factorization g = k exp X the kernel Ψ(k exp X) = T(k)A(exp X) satisfies Ψ(k₁gk₂) = T(k₁)Ψ(g)T(k₂) and Ψ(1) = I. Moreover A(exp(−X)) = A(exp X) and Ψ(exp X) is positive semidefinite.",
+      "definitions": [
+        "Φ(Z) = ∏_a Δ_a(Z)^(−(μ_a−μ_{a+1})) with μ_{m+1} = 0 is a product of powers of leading principal minors.",
+        "P is orthogonal projection onto ℂw, and K carries Haar measure of mass one."
+      ],
+      "equations": [
+        "normalization-kernel-average",
+        "normalization-kernel-polar",
+        "normalization-kernel-equivariance",
+        "normalization-kernel-rank-one"
+      ],
+      "dependencies": [
+        "LKC-02"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+          "label": "The minor product, the compact average and the kernel through polar factors",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/IsClosedKset.lean",
+          "lines": [
+            14,
+            67
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.PhiM": 21,
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM": 56,
+            "ReciprocityTheory.ChartRestriction.DS.S7.PsiM": 63
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/IsClosedKset.lean#L14-L67",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM",
+            "ReciprocityTheory.ChartRestriction.DS.S7.PsiM"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.polar_exists",
+          "label": "Existence and uniqueness of the polar factors",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ExpInPPosDef.lean",
+          "lines": [
+            88,
+            108
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.polar_exists": 88,
+            "ReciprocityTheory.ChartRestriction.DS.S7.polar_unique": 94
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ExpInPPosDef.lean#L88-L108",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.polar_unique"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj",
+          "label": "The conjugation rule for the compact average",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+          "lines": [
+            128,
+            131
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj": 128
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean#L128-L131"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_one",
+          "label": "Schur’s lemma and the trace normalization at the identity",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+          "lines": [
+            133,
+            195
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_one": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean#L133-L195"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_kexp",
+          "label": "Equivariance of the kernel and its value at the identity",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ToMKMulInv.lean",
+          "lines": [
+            38,
+            67
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_kexp": 38,
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_equiv": 45,
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_one": 61
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ToMKMulInv.lean#L38-L67",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_equiv",
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_one"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg",
+          "label": "The central sign matrix and the symmetry under X ↦ −X",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+          "lines": [
+            223,
+            245
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg": 223
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean#L223-L245"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef",
+          "label": "Positive leading minors of a positive definite matrix",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+          "lines": [
+            134,
+            148
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef": 134
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean#L134-L148"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+          "label": "Positivity of the kernel on the noncompact part",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean",
+          "lines": [
+            103,
+            127
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive": 103
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean#L103-L127"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The kernel is the compact average on positive matrices, extended through the polar factors. Its value at the identity uses Schur’s lemma and a trace.",
+      "review": "The U(1,1) formula, the normalization at the identity and the positivity argument were recomputed independently."
+    },
+    {
+      "id": "RSI-02",
+      "chapter": "normalization",
+      "anchor": "normalization-kernel-local-formula",
+      "title": "A local holomorphic formula for the kernel",
+      "hypotheses": "The hypotheses of the lowest-type kernel hold with μ = λ + ρ and Λ = λ + ρ_n − ρ_c. A block diagonal matrix has zero entries between opposite signs.",
+      "statement": "At positive definite x and for block diagonal Y, dA(x)(xY) = −T(Y)A(x) and dA(x)(Yx) = −A(x)T(Y). Both identities persist on a neighbourhood of the positive definite matrices. Near g₀ = k₀ exp X₀ the kernel equals Ψ(g) = T(k₀)A(g⁻¹k₀), so it is the restriction of a holomorphic function and is smooth on G.",
+      "definitions": [
+        "L(B) keeps the entries of B below the diagonal, changes the sign of those above and vanishes on the diagonal.",
+        "2ρ_c(a) is the number of later minus the number of earlier positions with the sign of a."
+      ],
+      "equations": [
+        "normalization-kernel-triangular-split",
+        "normalization-kernel-weight-split",
+        "normalization-kernel-hermitian-identity",
+        "normalization-kernel-one-sided",
+        "normalization-kernel-local"
+      ],
+      "dependencies": [
+        "RSI-01"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_part",
+          "label": "Splitting a Hermitian direction into two triangular parts and a commutator",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiPart.lean",
+          "lines": [
+            230,
+            258
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.phiM_part": 230
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiPart.lean#L230-L258"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.tau_part",
+          "label": "The highest-weight identity for the projection",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean",
+          "lines": [
+            123,
+            167
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.tau_part": 123
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean#L123-L167"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.InfKH.Ssum_eq",
+          "label": "The correction from the moving coefficients and the relation between μ and Λ",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+          "lines": [
+            158,
+            265
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.InfKH.Ssum_eq": 158
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean#L158-L265"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.kByParts",
+          "label": "Derivatives along right translations integrate to zero",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ByParts.lean",
+          "lines": [
+            17,
+            72
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.kByParts": 17
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ByParts.lean#L17-L72"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+          "label": "The Hermitian identity for the average",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+          "lines": [
+            269,
+            291
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm": 269
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean#L269-L291"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew",
+          "label": "Combining the Hermitian identity with conjugation",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean",
+          "lines": [
+            26,
+            81
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew": 26,
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_right": 69
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean#L26-L81",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_right"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+          "label": "Extension to a neighbourhood of the positive matrices",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean",
+          "lines": [
+            21,
+            170
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean#L21-L170"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.lcB_const",
+          "label": "Constancy along a compact path",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LocalB.lean",
+          "lines": [
+            82,
+            96
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.lcB_const": 82
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LocalB.lean#L82-L96"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+          "label": "The local holomorphic formula",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean",
+          "lines": [
+            22,
+            188
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean#L22-L188"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_smooth",
+          "label": "Smoothness on the group",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+          "lines": [
+            57,
+            65
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_smooth": 57
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean#L57-L65"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The Hermitian identity integrates a pointwise identity whose remaining terms are derivatives along right translations of K. The scalar terms balance exactly when μ = Λ + 2ρ_c.",
+      "review": "On U(2,1) with λ=(3,1,−2), an exact Haar moment gives dA(I)(2H)=−2H. Replacing μ by Λ gives −2H/3. The integration-by-parts step uses real skew-Hermitian paths before complexifying the differential."
+    },
+    {
+      "id": "RSI-03",
+      "chapter": "normalization",
+      "anchor": "normalization-kernel-casimir",
+      "title": "The central character of the kernel",
+      "hypotheses": "The hypotheses of the local holomorphic formula hold.",
+      "statement": "The quadratic Casimir operator acts on Ψ by |λ|² − |ρ|². Each Gelfand element tr(E^k) acts by γ_k(λ), the coefficient of X^{k+1} in 1 − ∏_r(1 − X/(1 − l_rX)) with l_r = λ_r + (m−1)/2, and the dual family acts by γ_k(−λ). The module generated by the coefficient functions of Ψ therefore has infinitesimal character λ.",
+      "definitions": [
+        "L_X F(z) = dF(z)(Xz) differentiates along left multiplication of the matrix variable.",
+        "E_ab is the complex-linear extension of right differentiation on G."
+      ],
+      "equations": [
+        "normalization-kernel-extremal",
+        "normalization-kernel-casimir-value",
+        "normalization-kernel-casimir-group",
+        "normalization-kernel-gelfand"
+      ],
+      "dependencies": [
+        "RSI-02"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul",
+          "label": "Triangular covariance of the minor product",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+          "lines": [
+            115,
+            132
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul": 115
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean#L115-L132"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower",
+          "label": "First and second left derivatives of the minor product",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean",
+          "lines": [
+            48,
+            185
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower": 48,
+            "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_diag": 98,
+            "ReciprocityTheory.ChartRestriction.DS.S7.lhol_lhol_phiM": 144,
+            "ReciprocityTheory.ChartRestriction.DS.S7.casL_phiM": 179
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean#L48-L185",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_diag",
+            "ReciprocityTheory.ChartRestriction.DS.S7.lhol_lhol_phiM",
+            "ReciprocityTheory.ChartRestriction.DS.S7.casL_phiM"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.sum_casCoef",
+          "label": "Summing the coefficients to |λ|² − |ρ|²",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCasB.lean",
+          "lines": [
+            16,
+            56
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.sum_casCoef": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCasB.lean#L16-L56"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_bilin_conj",
+          "label": "Invariance of the Casimir tensor under conjugation",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasPsA.lean",
+          "lines": [
+            47,
+            61
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_bilin_conj": 47
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasPsA.lean#L47-L61"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+          "label": "The Casimir equation for the compact average",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean",
+          "lines": [
+            21,
+            50
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean#L21-L50"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+          "label": "Right derivatives of a function of the inverse",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean",
+          "lines": [
+            20,
+            31
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local": 20
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean#L20-L31"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+          "label": "The Casimir equation on the group",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+          "lines": [
+            76,
+            108
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir": 76
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean#L76-L108"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.gelfand_hw",
+          "label": "Gelfand elements on a highest-weight vector",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandHW.lean",
+          "lines": [
+            22,
+            78
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.gelfand_hw": 74
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandHW.lean#L22-L78"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.gval",
+          "label": "The generating series of the eigenvalues",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandSeries.lean",
+          "lines": [
+            15,
+            78
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.gval": 18
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandSeries.lean#L15-L78"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM",
+          "label": "Two families for which the minor product is extremal",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean",
+          "lines": [
+            51,
+            164
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM": 133
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean#L51-L164"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+          "label": "All Gelfand elements on the group",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean",
+          "lines": [
+            78,
+            116
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand": 78
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean#L78-L116"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+          "label": "The infinitesimal character of the generated module",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean",
+          "lines": [
+            35,
+            52
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam": 35
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean#L35-L52"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The eigenvalue is computed on the minor product, preserved by the compact average and transported to G through the local formula, where the two signs from inversion cancel.",
+      "review": "Finite differences reproduced the Casimir eigenvalue of the minor product in ranks 2, 3 and 4. The series values at λ = (3/2,−1/2) were recomputed."
+    },
+    {
+      "id": "RSI-04",
+      "chapter": "normalization",
+      "anchor": "normalization-kernel-decay",
+      "title": "Decay, Haar integrability and weighted coefficients of the kernel",
+      "hypotheses": "The hypotheses of the lowest-type kernel hold with q ≥ 1 and opposite-sign gap h. The Haar measure on G is arbitrary.",
+      "statement": "With t = ‖X‖_F, ‖Ψ(k exp X)‖ ≤ exp(−(h/8)min{t², t/√(2q)}). The kernel is integrable if h > 16mq, square integrable if h > 8mq, and for each real s ≥ 0 the weighted norm ‖Ψ(g)‖²‖g‖_F^s is integrable if h > 8mq + 4s√(2q). If h > max{2m, 16mq + 8√(2q)}, the weighted coefficients ‖g‖_F⟨y,R(g)x⟩ of all generated vectors are square integrable.",
+      "definitions": [
+        "𝒥(X) = ∏_{a<b} sinh(y_a − y_b)/(y_a − y_b) over the eigenvalues of X is the density of Haar measure in polar coordinates."
+      ],
+      "equations": [
+        "normalization-kernel-pointwise",
+        "normalization-kernel-norm-decay",
+        "normalization-kernel-polar-haar"
+      ],
+      "dependencies": [
+        "RSI-01",
+        "LKC-01"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments",
+          "label": "Moments of the Cauchy–Binet weights",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean",
+          "lines": [
+            122,
+            149
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments": 122
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean#L122-L149"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core",
+          "label": "The minor-product bound at a conjugate",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+          "lines": [
+            27,
+            184
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core": 27,
+            "ReciprocityTheory.ChartRestriction.DS.S7.phiM_exp_le": 131
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean#L27-L184",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.S7.phiM_exp_le"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le",
+          "label": "Operator positivity removes the dimension",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean",
+          "lines": [
+            128,
+            189
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le": 128
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean#L128-L189"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+          "label": "The pointwise decay of the kernel",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+          "lines": [
+            186,
+            202
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec": 186
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean#L186-L202"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+          "label": "The polar measure is a Haar measure",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean",
+          "lines": [
+            16,
+            40
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar": 16
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean#L16-L40"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.jac_le_exp",
+          "label": "The Jacobian of the polar map is at most exponential",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacBound.lean",
+          "lines": [
+            14,
+            20
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.jac_le_exp": 14
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacBound.lean#L14-L20"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le",
+          "label": "Haar integrals in polar coordinates",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean",
+          "lines": [
+            135,
+            190
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le": 135
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean#L135-L190"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.min_bound",
+          "label": "Completing the square in the decay exponent",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/IntegrA.lean",
+          "lines": [
+            146,
+            162
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.min_bound": 146
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/IntegrA.lean#L146-L162"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+          "label": "The three integrability thresholds",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean",
+          "lines": [
+            22,
+            133
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable": 22
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean#L22-L133"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum",
+          "label": "Weighted coefficients of the generated vectors",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean",
+          "lines": [
+            21,
+            40
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean#L21-L40"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+          "label": "The analytic threshold for the regular models",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+          "lines": [
+            30,
+            58
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cns_data": 30
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean#L30-L58"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The decay of the scalar factor passes to the operator norm through positivity. Integrability uses an exponential bound for the polar density.",
+      "review": "On U(1,1) the exact density and the general threshold were compared directly."
+    },
+    {
+      "id": "RSI-05",
+      "chapter": "normalization",
+      "anchor": "normalization-tensor-spectral-splitting",
+      "title": "Finite spectral decomposition of the column differential",
+      "hypotheses": "M is the module generated by the kernel coefficients, with Casimir scalar |λ|² − |ρ|², opposite-sign gap greater than 2m and square-integrable weighted coefficients. Columns with entries in M carry the action of V* ⊗ π.",
+      "statement": "There is a finite set B of real numbers such that every column with entries in M is a finite sum of eigenvectors of D with eigenvalues in B. Every eigenvalue of D on these columns lies in B. The partial trace of D^k is (−1)^k tr(E^k), which acts on M by the coefficient of z^{k+1} in ∏_s(1 + z/(1 − a_s z)) − 1 with a_s = −λ_s − (m−1)/2.",
+      "definitions": [
+        "(Df)_r = −∑_s E_rs f_s, and the tensor Casimir equals the entrywise Casimir plus m + 2D.",
+        "Q integrates the squared coefficients of the column action against the vectors y ⊗ e_ξ.",
+        "The partial trace of S is x ↦ ∑_c (S(x[c]))_c, where x[c] has x in position c and zeros elsewhere."
+      ],
+      "equations": [
+        "normalization-tensor-partial-trace-moments"
+      ],
+      "dependencies": [
+        "RSI-03",
+        "RSI-04"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.casimir_tensVd",
+          "label": "The tensor Casimir and the column differential",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean",
+          "lines": [
+            79,
+            110
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.casimir_tensVd": 96
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean#L79-L110"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.khw_mem_layer",
+          "label": "Compact highest-weight vectors lie in bounded layers",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/BochnerG2/CasimirGapAtNoncompactWeight.lean",
+          "lines": [
+            138,
+            165
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.khw_mem_layer": 138
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/BochnerG2/CasimirGapAtNoncompactWeight.lean#L138-L165"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable",
+          "label": "A finite-dimensional piece stable under the column differential",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+          "lines": [
+            211,
+            276
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable": 211
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean#L211-L276"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize",
+          "label": "A positive invariant form from square-integrable coefficients",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean",
+          "lines": [
+            51,
+            208
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize": 51
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean#L51-L208"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_Qsymm",
+          "label": "Symmetry of the column differential for that form",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+          "lines": [
+            317,
+            338
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_Qsymm": 317
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean#L317-L338"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.dc_symm_nodal",
+          "label": "Real eigenvalues and a nodal polynomial",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/DecompA.lean",
+          "lines": [
+            173,
+            212
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.dc_symm_nodal": 173
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/DecompA.lean#L173-L212"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_gen_le",
+          "label": "Generation from the lowest-type columns",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompB.lean",
+          "lines": [
+            37,
+            75
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_gen_le": 37
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompB.lean#L37-L75"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.ptr_eq_gelfand",
+          "label": "The partial trace of a power of the column differential",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/PartialTrace.lean",
+          "lines": [
+            53,
+            81
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.ptr_eq_gelfand": 53,
+            "ReciprocityTheory.ChartRestriction.DS.ptr_eeVd_pow": 73
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/PartialTrace.lean#L53-L81",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.ptr_eeVd_pow"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.residueSeries_neg",
+          "label": "The central character gives the partial-trace moments",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Resolvent.lean",
+          "lines": [
+            41,
+            95
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.residueSeries_neg": 41,
+            "ReciprocityTheory.ChartRestriction.DS.coeff_residueSeries_neg": 53,
+            "ReciprocityTheory.ChartRestriction.DS.dualPole_eq_neg_shift": 65,
+            "ReciprocityTheory.ChartRestriction.DS.ptr_eeVd_pow_char": 92
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Resolvent.lean#L41-L95",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.coeff_residueSeries_neg",
+            "ReciprocityTheory.ChartRestriction.DS.dualPole_eq_neg_shift",
+            "ReciprocityTheory.ChartRestriction.DS.ptr_eeVd_pow_char"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp",
+          "label": "The finite spectral decomposition",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean",
+          "lines": [
+            47,
+            60
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp": 47
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean#L47-L60"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "A finite-dimensional stable piece, a positive invariant form and generation by the lowest-type columns give a vanishing nodal polynomial.",
+      "review": "The eigenvalues and the partial traces of the powers in the finite model on ℂ² were computed directly and compared with the series."
+    },
+    {
+      "id": "RSI-06",
+      "chapter": "normalization",
+      "anchor": "normalization-shift-embedding",
+      "title": "The embedding of a regular shifted model into the columns",
+      "hypotheses": "λ′ = λ − e_s is a regular lowering, both parameters satisfy the gap and threshold hypotheses, and both kernels are positive on the noncompact part. Their weighted coefficients are square integrable and their generated modules have the central characters of the kernel section.",
+      "statement": "There is an injective map ι from M′ to the columns with entries in M that commutes with the derivatives and with K, with Dι = a_sι. Every column with Df = a_sf lies in its image. The formal degrees satisfy d′/d = r_s.",
+      "definitions": [
+        "a_s = −λ_s − (m−1)/2 and r_s = ∏_{t≠s}(λ_s − 1 − λ_t)/(λ_s − λ_t).",
+        "The signed adjoint is ⟨(ιx)_c,y⟩ = j_c⟨x,p(y[c])⟩."
+      ],
+      "equations": [
+        "normalization-shift-pairing",
+        "normalization-shift-degree-ratio"
+      ],
+      "dependencies": [
+        "RSI-01",
+        "RSI-04",
+        "RSI-05",
+        "RTC-04",
+        "PCT-03"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.occB_pieri",
+          "label": "A compact map given by the Pieri rule",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccBLowKShiftF.lean",
+          "lines": [
+            32,
+            36
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.occB_pieri": 32
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccBLowKShiftF.lean#L32-L36"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+          "label": "Pointwise nonnegativity of the pairing",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean",
+          "lines": [
+            205,
+            246
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg": 205
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean#L205-L246"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos",
+          "label": "Positivity of the integrated pairing",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean",
+          "lines": [
+            111,
+            146
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos": 111
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean#L111-L146"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+          "label": "Projection onto the shifted model",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean",
+          "lines": [
+            70,
+            134
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps": 70
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean#L70-L134"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb",
+          "label": "The signed adjoint and its injectivity",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean",
+          "lines": [
+            64,
+            139
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb": 64
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean#L64-L139"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+          "label": "The column eigenvalue from the Casimir",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean",
+          "lines": [
+            56,
+            81
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF": 56
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean#L56-L81"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+          "label": "Assembly of the embedding",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+          "lines": [
+            54,
+            73
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists": 54
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean#L54-L73"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk",
+          "label": "Surjectivity onto the eigenspace and the ratio of formal degrees",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+          "lines": [
+            85,
+            144
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk": 85
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean#L85-L144"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "A Pieri map and a positive pairing give a nonzero projection to the shifted model. Its signed adjoint is the embedding, and the degree defect in both directions fills the eigenspace.",
+      "review": "In the finite model the two eigenspaces have dimension ratios 1/2 and 3/2, equal to the residues."
+    },
+    {
+      "id": "RSI-07",
+      "chapter": "normalization",
+      "anchor": "normalization-shift-coefficient-transfer",
+      "title": "From an embedding of derivative modules to coefficient identities on the group",
+      "hypotheses": "ι is an injective map from M′ to the columns that commutes with the derivatives and with K. Both modules are generated by lowest types with Casimir scalars, and both gaps exceed 2m.",
+      "statement": "For each column f there exists z ∈ M′ such that ∑_c⟨f_c,(A(g)ιx′)_c⟩ = ⟨z,R(g)x′⟩ for every x′ ∈ M′ and every g ∈ G. Conversely, for each z there exists one column f giving the same identity for all x′ and g.",
+      "definitions": [
+        "(A(g)F)_c = ∑_d ρ(g)_{cd}R(g)F_d with ρ(g) = (g⁻¹)ᵗ."
+      ],
+      "equations": [
+        "normalization-shift-transfer-identity",
+        "normalization-shift-analytic-radius"
+      ],
+      "dependencies": [
+        "RSI-06"
+      ],
+      "sources": [
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+          "label": "The coefficient identity at the identity element",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean",
+          "lines": [
+            196,
+            298
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists": 196,
+            "ReciprocityTheory.ChartRestriction.DS.G2.coefB_ofSum_exists": 259
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean#L196-L298",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.G2.coefB_ofSum_exists"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.hasSum_orbit_of_bound",
+          "label": "Taylor expansion of an orbit with a uniform radius",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Taylor.lean",
+          "lines": [
+            93,
+            117
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.hasSum_orbit_of_bound": 93
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Taylor.lean#L93-L117"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.coefE_step",
+          "label": "One step and one segment of propagation",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+          "lines": [
+            120,
+            228
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.coefE_step": 120,
+            "ReciprocityTheory.ChartRestriction.DS.coefE_line": 166,
+            "ReciprocityTheory.ChartRestriction.DS.coefE_all": 201
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean#L120-L228",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.coefE_line",
+            "ReciprocityTheory.ChartRestriction.DS.coefE_all"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+          "label": "The noncompact derivatives are controlled by the Casimir operator",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean",
+          "lines": [
+            85,
+            96
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le": 85
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean#L85-L96"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.norm_actM_pow_le",
+          "label": "Growth of the powers of a noncompact derivative",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Growth.lean",
+          "lines": [
+            93,
+            99
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.norm_actM_pow_le": 93
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Growth.lean#L93-L99"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+          "label": "Orbit bounds and the Taylor series of an orbit",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean",
+          "lines": [
+            21,
+            71
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound": 21,
+            "ReciprocityTheory.ChartRestriction.DS.orbit_hasSum_taylor": 58
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean#L21-L71",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.orbit_hasSum_taylor"
+          ]
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.coefE_goodP",
+          "label": "A radius independent of the base point",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+          "lines": [
+            48,
+            57
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.coefE_goodP": 48
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean#L48-L57"
+        },
+        {
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.G2.coef_of_emb",
+          "label": "The two coefficient identities on the group",
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefOfEmb.lean",
+          "lines": [
+            21,
+            60
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.G2.coef_of_emb": 21
+          },
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefOfEmb.lean#L21-L60"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The identity is solved at the identity element by compact finiteness, then propagated along one-parameter subgroups by Taylor series with a radius independent of the base point.",
+      "review": "The radius was checked against the stated layer bound."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 41,
+        "spelling": "S7.psiAll"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 57,
+        "spelling": "psi_exp_isPositive"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 58,
+        "spelling": "weighted_datum"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 57,
+        "spelling": "hasGelfandChar_sigLam"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_equiv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiGelfand.lean",
+        "line": 25,
+        "spelling": "psiM_equiv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiGelfand.lean",
+        "line": 26,
+        "spelling": "psiM_casimir"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiGelfand.lean",
+        "line": 26,
+        "spelling": "psiM_dec"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiGelfand.lean",
+        "line": 29,
+        "spelling": "psiM_integrable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiAll",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiGelfand.lean",
+        "line": 27,
+        "spelling": "psiM_gelfand"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+        "line": 71,
+        "spelling": "occC_exists_ps"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+        "line": 73,
+        "spelling": "occD_eeF"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_nodal",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean",
+        "line": 59,
+        "spelling": "dc_ee_nodal"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.polar_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.polar_UJ",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ExpInPPosDef.lean",
+        "line": 90,
+        "spelling": "polar_UJ"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.polar_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exists_toMK",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ExpInPPosDef.lean",
+        "line": 91,
+        "spelling": "exists_toMK"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.integral_conj_equivariant",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 131,
+        "spelling": "integral_conj_equivariant"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.conjAction_apply",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 131,
+        "spelling": "conjAction_apply"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_one",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.compactSpace_KG",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 139,
+        "spelling": "compactSpace_KG"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_one",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 143,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_one",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 151,
+        "spelling": "psM_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_one",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.toMatrix_mul_inv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 152,
+        "spelling": "toMatrix_mul_inv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_kexp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.polar_unique",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ToMKMulInv.lean",
+        "line": 42,
+        "spelling": "polar_unique"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.signElement_inv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 235,
+        "spelling": "signElement_inv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.toMatrix_signElement",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 235,
+        "spelling": "toMatrix_signElement"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 237,
+        "spelling": "psM_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_exp_neg",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.ContinuousConjProjection.0.ReciprocityTheory.ChartRestriction.DS.S7.kType_schur_lemma",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ContinuousConjProjection.lean",
+        "line": 238,
+        "spelling": "kType_schur_lemma"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lead_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+        "line": 137,
+        "spelling": "lead_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+        "line": 143,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.psiPos_posDef_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean",
+        "line": 112,
+        "spelling": "psiPos_posDef_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exp_noncompactPart_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean",
+        "line": 112,
+        "spelling": "S7.exp_noncompactPart_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean",
+        "line": 113,
+        "spelling": "S7.PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.psi_exp_isPositive",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PsiPos.lean",
+        "line": 118,
+        "spelling": "S7.phiM_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.fderiv_phiM_lower",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiPart.lean",
+        "line": 257,
+        "spelling": "fderiv_phiM_lower"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.fderiv_phiM_upper",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiPart.lean",
+        "line": 257,
+        "spelling": "fderiv_phiM_upper"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.tau_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dtau_upPart_w",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean",
+        "line": 138,
+        "spelling": "dtau_upPart_w"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.tau_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dtau_diagPart_w",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean",
+        "line": 142,
+        "spelling": "dtau_diagPart_w"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.tau_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dtau_adj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean",
+        "line": 147,
+        "spelling": "dtau_adj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.tau_part",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.isBlock_lowPart",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/TauPart.lean",
+        "line": 147,
+        "spelling": "isBlock_lowPart"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.InfKH.Ssum_eq",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.InfKH.lowMinusUp_expand",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+        "line": 171,
+        "spelling": "lowMinusUp_expand"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.kByParts",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.muK_rightInvariant",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ByParts.lean",
+        "line": 22,
+        "spelling": "muK_rightInvariant"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.kByParts",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.compactSpace_KG",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ByParts.lean",
+        "line": 23,
+        "spelling": "compactSpace_KG"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.kByParts",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exists_oneParam",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/ByParts.lean",
+        "line": 24,
+        "spelling": "exists_oneParam"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.compactSpace_KG",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+        "line": 272,
+        "spelling": "compactSpace_KG"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_holo",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+        "line": 273,
+        "spelling": "psM_holo"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.InfKA.integrable_of_cont",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+        "line": 275,
+        "spelling": "InfKA.integrable_of_cont"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.InfKA.continuous_Gint",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LowMinusUpExpand.lean",
+        "line": 275,
+        "spelling": "InfKA.continuous_Gint"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.inK_iff",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean",
+        "line": 30,
+        "spelling": "inK_iff"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_herm",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean",
+        "line": 37,
+        "spelling": "psM_inf_herm"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.InfRight.0.ReciprocityTheory.ChartRestriction.DS.S7.smul_cancel_lemma",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean",
+        "line": 44,
+        "spelling": "smul_cancel_lemma"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.infR_skew",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.infR_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/InfRight.lean",
+        "line": 50,
+        "spelling": "infR_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_holo",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean",
+        "line": 26,
+        "spelling": "psM_holo"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.IdB.posDef_nhd",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean",
+        "line": 41,
+        "spelling": "IdB.posDef_nhd"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.line_int_differentiableAt",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean",
+        "line": 136,
+        "spelling": "line_int_differentiableAt"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_right",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsMInfNhd.lean",
+        "line": 141,
+        "spelling": "psM_inf_right"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.lcB_const",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lcB_hasDerivAt",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LocalB.lean",
+        "line": 92,
+        "spelling": "lcB_hasDerivAt"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.PolarDecomposition.polar_k_mem",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean",
+        "line": 86,
+        "spelling": "PolarDecomposition.polar_k_mem"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_inf_nhd",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean",
+        "line": 92,
+        "spelling": "psM_inf_nhd"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lcA_exists_klog",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean",
+        "line": 93,
+        "spelling": "lcA_exists_klog"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exists_toMK",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PsiMLocal.lean",
+        "line": 94,
+        "spelling": "exists_toMK"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_smooth",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 60,
+        "spelling": "casL_psM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_smooth",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 61,
+        "spelling": "psiM_local"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_smooth",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.contDiffOn_of_local",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 64,
+        "spelling": "contDiffOn_of_local"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lead_tri_mul",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+        "line": 122,
+        "spelling": "lead_tri_mul"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+        "line": 130,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.PhiFacts.0.ReciprocityTheory.ChartRestriction.DS.S7.tele_fin",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiFacts.lean",
+        "line": 132,
+        "spelling": "tele_fin"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean",
+        "line": 50,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_tri_mul",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean",
+        "line": 61,
+        "spelling": "phiM_tri_mul"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.PhiCas.0.ReciprocityTheory.ChartRestriction.DS.S7.isUpperTri_one",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean",
+        "line": 61,
+        "spelling": "isUpperTri_one"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.lhol_phiM_lower",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.hasDerivAt_line",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiCas.lean",
+        "line": 67,
+        "spelling": "hasDerivAt_line"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_bilin_conj",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.conj_single_eq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasPsA.lean",
+        "line": 54,
+        "spelling": "conj_single_eq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_bilin_conj",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_sum_sum_sum_comm",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasPsA.lean",
+        "line": 57,
+        "spelling": "sum_sum_sum_sum_comm"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_bilin_conj",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsA.sum_coef_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasPsA.lean",
+        "line": 60,
+        "spelling": "sum_coef_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.compactSpace_KG",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean",
+        "line": 25,
+        "spelling": "compactSpace_KG"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psM_holo",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean",
+        "line": 26,
+        "spelling": "psM_holo"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsB.differentiableOn_lhol",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean",
+        "line": 27,
+        "spelling": "CasPsB.differentiableOn_lhol"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasPsB.integrable_K",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasLPsM.lean",
+        "line": 30,
+        "spelling": "CasPsB.integrable_K"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.ccb_rdv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean",
+        "line": 26,
+        "spelling": "ccb_rdv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.ccb_inG_cpart1",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean",
+        "line": 26,
+        "spelling": "ccb_inG_cpart1"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.ccb_inG_cpart2",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean",
+        "line": 27,
+        "spelling": "ccb_inG_cpart2"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.ccb_cpart_sum",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/CasChain.lean",
+        "line": 30,
+        "spelling": "ccb_cpart_sum"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.casL_psM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 78,
+        "spelling": "casL_psM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_local",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 79,
+        "spelling": "psiM_local"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.eabV_of_local",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 88,
+        "spelling": "eabV_of_local"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_casimir",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.CasG.lhol_clm",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/LholClmEventually.lean",
+        "line": 91,
+        "spelling": "CasG.lhol_clm"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.gelfand_hw",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.ePow_hw_diag",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandHW.lean",
+        "line": 78,
+        "spelling": "ePow_hw_diag"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.gelfand_hw",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.sum_gx_eq_gval",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandHW.lean",
+        "line": 78,
+        "spelling": "sum_gx_eq_gval"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.gelfand_hw",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.hwShift_eq_icShift",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/GelfandHW.lean",
+        "line": 78,
+        "spelling": "hwShift_eq_icShift"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.rho_rev_add",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean",
+        "line": 146,
+        "spelling": "rho_rev_add"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.opGelfand_eq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean",
+        "line": 148,
+        "spelling": "opGelfand_eq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean",
+        "line": 148,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_phiM",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.phiT_eqOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandPhi.lean",
+        "line": 148,
+        "spelling": "phiT_eqOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.compactSpace_KG",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean",
+        "line": 82,
+        "spelling": "compactSpace_KG"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.gelfand_psM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean",
+        "line": 83,
+        "spelling": "gelfand_psM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.Ps1.isOpen_Uset",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean",
+        "line": 84,
+        "spelling": "Ps1.isOpen_Uset"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.Ps1.posSet_subset_Uset",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/GelfandG.lean",
+        "line": 85,
+        "spelling": "Ps1.posSet_subset_Uset"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDerivedOn_smE",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean",
+        "line": 40,
+        "spelling": "isDerivedOn_smE"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rreg_isURepOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean",
+        "line": 40,
+        "spelling": "rreg_isURepOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.gval",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean",
+        "line": 42,
+        "spelling": "gval"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.hasGelfandChar_sigLam",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.mem_datumV_iff",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/ExistenceG2/HasGelfandCharSigLam.lean",
+        "line": 45,
+        "spelling": "mem_datumV_iff"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dm_zero_of_eq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean",
+        "line": 134,
+        "spelling": "dm_zero_of_eq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dm_mass",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean",
+        "line": 136,
+        "spelling": "dm_mass"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dm_mean",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean",
+        "line": 139,
+        "spelling": "dm_mean"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.dec_moments",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.dm_var",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecMoments.lean",
+        "line": 143,
+        "spelling": "dm_var"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.decA_spec",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 49,
+        "spelling": "decA_spec"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exp_noncompactPart_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 59,
+        "spelling": "exp_noncompactPart_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lead_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 61,
+        "spelling": "lead_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.phi_decay_core",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.decA_log_lower",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 69,
+        "spelling": "decA_log_lower"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.muK_univ_pos",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean",
+        "line": 131,
+        "spelling": "muK_univ_pos"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean",
+        "line": 132,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.CasimirCoefficients.DecPos.0.ReciprocityTheory.ChartRestriction.DS.S7.dp_cont_phi",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean",
+        "line": 133,
+        "spelling": "dp_cont_phi"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psM_norm_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_posDef",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/DecPos.lean",
+        "line": 134,
+        "spelling": "phiM_posDef"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_kexp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 190,
+        "spelling": "psiM_kexp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.PhiM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 191,
+        "spelling": "PhiM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.inP_conj",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 194,
+        "spelling": "inP_conj"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_dec",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.phiM_exp_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/PhiDecayCore.lean",
+        "line": 197,
+        "spelling": "phiM_exp_le"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.muPolar_mul_right",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean",
+        "line": 17,
+        "spelling": "muPolar_mul_right"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.muPolar_inv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean",
+        "line": 18,
+        "spelling": "muPolar_inv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdph_toM_phi",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean",
+        "line": 26,
+        "spelling": "fdph_toM_phi"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.polarM_polarInv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/PolarHaar.lean",
+        "line": 27,
+        "spelling": "polarM_polarInv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.jac_le_exp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.jac_ge_one",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacBound.lean",
+        "line": 16,
+        "spelling": "jac_ge_one"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.jac_le_exp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.log_jac_le_rho",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacBound.lean",
+        "line": 17,
+        "spelling": "log_jac_le_rho"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.muPolar_isHaar",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean",
+        "line": 141,
+        "spelling": "muPolar_isHaar"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.lintegral_pmat_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean",
+        "line": 144,
+        "spelling": "lintegral_pmat_le"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.muK_univ_pos",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean",
+        "line": 145,
+        "spelling": "muK_univ_pos"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.haar_polar_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.measurable_comp_toUJ",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/HaarPolar.lean",
+        "line": 151,
+        "spelling": "measurable_comp_toUJ"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_continuousOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean",
+        "line": 37,
+        "spelling": "psiM_continuousOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.continuous_toM",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean",
+        "line": 37,
+        "spelling": "continuous_toM"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.toM_toUJ",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean",
+        "line": 45,
+        "spelling": "toM_toUJ"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.S7.psiM_integrable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.inUJ_kexp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/CasimirCoefficients/Integr.lean",
+        "line": 45,
+        "spelling": "inUJ_kexp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.wd_key",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean",
+        "line": 40,
+        "spelling": "wd_key"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.weighted_datum",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.wd_gen_datum",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Weighted.lean",
+        "line": 40,
+        "spelling": "wd_gen_datum"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.HW.kType_exists",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 40,
+        "spelling": "HW.kType_exists"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cns_data",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.S7.exists_mu",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/ConsumerA.lean",
+        "line": 56,
+        "spelling": "S7.exists_mu"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.casimir_tensVd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.diagOp_coord",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean",
+        "line": 100,
+        "spelling": "diagOp_coord"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.casimir_tensVd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.eeVd_coord",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean",
+        "line": 100,
+        "spelling": "eeVd_coord"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.casimir_tensVd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.tensVd_coord",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/TensorV.lean",
+        "line": 100,
+        "spelling": "tensVd_coord"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.khw_mem_layer",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lowK",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/BochnerG2/CasimirGapAtNoncompactWeight.lean",
+        "line": 150,
+        "spelling": "lowK"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.khw_mem_layer",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.k_highest_weight_layer_decomp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/BochnerG2/CasimirGapAtNoncompactWeight.lean",
+        "line": 151,
+        "spelling": "k_highest_weight_layer_decomp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isKUnitary_of_isInfUnitary",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 218,
+        "spelling": "isKUnitary_of_isInfUnitary"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tensSub_fd",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 221,
+        "spelling": "dc_tensSub_fd"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_kStable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 222,
+        "spelling": "dc_tens_kStable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_ee_fin_stable",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_aeval_intertwine",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 228,
+        "spelling": "dc_aeval_intertwine"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.tensSub_stable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean",
+        "line": 77,
+        "spelling": "tensSub_stable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.UnitB.memLp_cf",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean",
+        "line": 87,
+        "spelling": "memLp_cf"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.hvec_add",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean",
+        "line": 90,
+        "spelling": "hvec_add"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.tens_unitarize",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.UnitB.cf_add",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Unitarize.lean",
+        "line": 90,
+        "spelling": "cf_add"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_Qsymm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_genSub_stable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 328,
+        "spelling": "dc_tens_genSub_stable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_Qsymm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_adjSign_mul_swap",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 329,
+        "spelling": "dc_adjSign_mul_swap"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_Qsymm",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_casimir_tensF_apply",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompC.lean",
+        "line": 333,
+        "spelling": "dc_casimir_tensF_apply"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.dc_symm_nodal",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.dc_symm_semisimple",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/DecompA.lean",
+        "line": 191,
+        "spelling": "dc_symm_semisimple"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.dc_symm_nodal",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.dc_symm_eig_real",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/DecompA.lean",
+        "line": 194,
+        "spelling": "dc_symm_eig_real"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.dc_symm_nodal",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.dc_aeval_eigen",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/DecompA.lean",
+        "line": 195,
+        "spelling": "dc_aeval_eigen"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_gen_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tensF_single_false",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompB.lean",
+        "line": 59,
+        "spelling": "dc_tensF_single_false"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tens_gen_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_tensF_single_true",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/DecompB.lean",
+        "line": 66,
+        "spelling": "dc_tensF_single_true"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.ptr_eq_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.ptr_apply",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/PartialTrace.lean",
+        "line": 56,
+        "spelling": "ptr_apply"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.ptr_eq_gelfand",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.pow_single_of_mat",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/PartialTrace.lean",
+        "line": 59,
+        "spelling": "pow_single_of_mat"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.residueSeries_neg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rescale_neg_one_geometric_inv",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/Resolvent.lean",
+        "line": 46,
+        "spelling": "rescale_neg_one_geometric_inv"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.dc_lagrange_decomp",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean",
+        "line": 60,
+        "spelling": "dc_lagrange_decomp"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.dc_eeF_mem",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean",
+        "line": 60,
+        "spelling": "dc_eeF_mem"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.ee_decomp",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.dc_lagrange_eig",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/Decomp.lean",
+        "line": 60,
+        "spelling": "dc_lagrange_eig"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occB_pieri",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.pieri_standard_embedding",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccBLowKShiftF.lean",
+        "line": 36,
+        "spelling": "pieri_standard_embedding"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_eq_inner",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean",
+        "line": 217,
+        "spelling": "psi_pairing_eq_inner"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.polar_UJ",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean",
+        "line": 218,
+        "spelling": "polar_UJ"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.ffa_Kset",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean",
+        "line": 219,
+        "spelling": "ffa_Kset"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.exp_smul_mem_UJset",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/PosSemidefWeightedInnerNonneg.lean",
+        "line": 221,
+        "spelling": "exp_smul_mem_UJset"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.psi_term_integrable",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean",
+        "line": 125,
+        "spelling": "psi_term_integrable"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_nonneg",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean",
+        "line": 139,
+        "spelling": "psi_pairing_nonneg"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.continuous_psi_pairing_sum",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean",
+        "line": 144,
+        "spelling": "continuous_psi_pairing_sum"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_trace_pos",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.psi_pairing_at_one_re_pos",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CuspProjectionOrthogonality.lean",
+        "line": 146,
+        "spelling": "psi_pairing_at_one_re_pos"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rreg_isURepOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean",
+        "line": 83,
+        "spelling": "rreg_isURepOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDerivedOn_smE",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean",
+        "line": 84,
+        "spelling": "isDerivedOn_smE"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.toL2_mem_smD_of_isSmoothL2",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean",
+        "line": 86,
+        "spelling": "toL2_mem_smD_of_isSmoothL2"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occC_exists_ps",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occurrence_phi_smooth_L2",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccCExistsPs.lean",
+        "line": 86,
+        "spelling": "occurrence_phi_smooth_L2"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isInfUnitary_of_isDerivedOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean",
+        "line": 77,
+        "spelling": "isInfUnitary_of_isDerivedOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.closure_E_mem_genSub",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean",
+        "line": 78,
+        "spelling": "closure_E_mem_genSub"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occD_genSub_K",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean",
+        "line": 81,
+        "spelling": "occD_genSub_K"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.adjB_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.adjA_rep",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDAdj.lean",
+        "line": 86,
+        "spelling": "adjA_rep"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDerivedOn_smE",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean",
+        "line": 63,
+        "spelling": "isDerivedOn_smE"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rreg_isURepOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean",
+        "line": 63,
+        "spelling": "rreg_isURepOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.casimir_genSub",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean",
+        "line": 65,
+        "spelling": "casimir_genSub"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occD_eeF",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.datumV_casimir",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/OccDTensKStable.lean",
+        "line": 65,
+        "spelling": "datumV_casimir"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occB_pairing_ne",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+        "line": 69,
+        "spelling": "occB_pairing_ne"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occB_memLp_psi",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+        "line": 69,
+        "spelling": "occB_memLp_psi"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.occ_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.occC_pairing",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefEmbed.lean",
+        "line": 71,
+        "spelling": "occC_pairing"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rreg_isURepOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+        "line": 108,
+        "spelling": "rreg_isURepOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isDerivedOn_smE",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+        "line": 109,
+        "spelling": "isDerivedOn_smE"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.mem_smD_iff",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+        "line": 110,
+        "spelling": "mem_smD_iff"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.cc_gk",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.datumV_isKIrrHW",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CcARatioZero.lean",
+        "line": 111,
+        "spelling": "datumV_isKIrrHW"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isInfUnitary_of_isDerivedOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean",
+        "line": 205,
+        "spelling": "isInfUnitary_of_isDerivedOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isKUnitary_of_isInfUnitary",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean",
+        "line": 206,
+        "spelling": "isKUnitary_of_isInfUnitary"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.exists_layer_of_mem_genSub",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean",
+        "line": 208,
+        "spelling": "exists_layer_of_mem_genSub"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.layer_mono",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefBTensSubKStable.lean",
+        "line": 212,
+        "spelling": "layer_mono"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.hasSum_orbit_of_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.norm_orbit_apply",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Taylor.lean",
+        "line": 104,
+        "spelling": "norm_orbit_apply"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.hasSum_orbit_of_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.norm_orbit_sub_partial_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Taylor.lean",
+        "line": 117,
+        "spelling": "norm_orbit_sub_partial_le"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.coefE_step",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rq_exp_mem",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+        "line": 129,
+        "spelling": "rq_exp_mem"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.coefE_step",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.coefD_taylor",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+        "line": 136,
+        "spelling": "coefD_taylor"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.coefE_step",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.hasSum_orbit_of_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+        "line": 146,
+        "spelling": "hasSum_orbit_of_bound"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.coefE_step",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.coefE_ι_pow",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+        "line": 157,
+        "spelling": "coefE_ι_pow"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.exists_re_inner_casimirK_layer_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean",
+        "line": 91,
+        "spelling": "exists_re_inner_casimirK_layer_le"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.re_inner_casimir_eq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean",
+        "line": 93,
+        "spelling": "re_inner_casimir_eq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+      "callee": "_private.ReciprocityTheory.ReductiveGroups.DiscreteSeries.AnalyticVectors.NcBound.0.ReciprocityTheory.ChartRestriction.DS.casimir_eq_smul_on_layer",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean",
+        "line": 94,
+        "spelling": "casimir_eq_smul_on_layer"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.re_inner_smul_self",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/NcBound.lean",
+        "line": 94,
+        "spelling": "re_inner_smul_self"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.isInfUnitary_of_isDerivedOn",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean",
+        "line": 29,
+        "spelling": "isInfUnitary_of_isDerivedOn"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.exists_sum_nc_norm_sq_le",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean",
+        "line": 30,
+        "spelling": "exists_sum_nc_norm_sq_le"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.genSub_eq_iSup_layer",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean",
+        "line": 37,
+        "spelling": "genSub_eq_iSup_layer"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.layer_mono",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/AnalyticVectors/Analytic.lean",
+        "line": 37,
+        "spelling": "layer_mono"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.coefE_goodP",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.exists_orbit_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TensorRepresentations/CoefETensGrpMul.lean",
+        "line": 53,
+        "spelling": "exists_orbit_bound"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coef_of_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.coefE_all",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefOfEmb.lean",
+        "line": 53,
+        "spelling": "coefE_all"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coef_of_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefOfEmb.lean",
+        "line": 56,
+        "spelling": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_toSum_exists"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.G2.coef_of_emb",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_ofSum_exists",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/ExceptionalGroupG2/TensorProductsG2/CoefOfEmb.lean",
+        "line": 59,
+        "spelling": "ReciprocityTheory.ChartRestriction.DS.G2.coefB_ofSum_exists"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LKC-02",
+      "RSI-01"
+    ],
+    [
+      "RSI-01",
+      "RSI-02"
+    ],
+    [
+      "RSI-02",
+      "RSI-03"
+    ],
+    [
+      "RSI-01",
+      "RSI-04"
+    ],
+    [
+      "LKC-01",
+      "RSI-04"
+    ],
+    [
+      "RSI-03",
+      "RSI-05"
+    ],
+    [
+      "RSI-04",
+      "RSI-05"
+    ],
+    [
+      "RSI-01",
+      "RSI-06"
+    ],
+    [
+      "RSI-04",
+      "RSI-06"
+    ],
+    [
+      "RSI-05",
+      "RSI-06"
+    ],
+    [
+      "RTC-04",
+      "RSI-06"
+    ],
+    [
+      "PCT-03",
+      "RSI-06"
+    ],
+    [
+      "RSI-06",
+      "RSI-07"
+    ],
+    [
+      "RSI-03",
+      "RTC-04"
+    ],
+    [
+      "RSI-05",
+      "RTC-04"
+    ],
+    [
+      "RSI-04",
+      "RTC-01"
+    ],
+    [
+      "RSI-07",
+      "RTC-01"
+    ]
+  ],
+  "classical_references": [
+    {
+      "title": "W. Fulton and J. Harris, Representation Theory: A First Course, Springer, 1991, Proposition 15.25 (Pieri's formula for the general linear group)",
+      "url": "https://doi.org/10.1007/978-1-4612-0979-9"
+    },
+    {
+      "title": "M. Duflo and C. C. Moore, On the regular representation of a nonunimodular locally compact group, Journal of Functional Analysis 21 (1976), 209–243",
+      "url": "https://doi.org/10.1016/0022-1236(76)90079-3"
+    }
+  ],
+  "outstanding": [
+    "The realization theorem for the kernel is cited: reproducing formula, irreducibility of the generated module and compact finiteness of its closure. The Pieri rule for compact types and the growth bound for smooth vectors are also cited."
+  ]
+}
