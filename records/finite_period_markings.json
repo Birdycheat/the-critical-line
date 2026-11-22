@@ -1,0 +1,1528 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "FPM-01",
+      "chapter": "lifts",
+      "title": "How do the two finite markings recover an integral lattice?",
+      "anchor": "lifts-finite-markings-integral-lattice",
+      "hypotheses": "Work at a prime p with the linked arithmetic and unitary data, integral reference lattice, and a positive level N relatively prime to p. The two placed lattices lie in the prescribed genus away from p and have the prescribed half-perfect integral form at p. A positive rational similitude acts on the rational form. The two local lattice descriptions and their stabilizers are supplied.",
+      "statement": "The intersection of the p-inverted and p-local lattices recovers the integral lattice. One rational similitude satisfies both finite level coset tests if and only if it induces a marked, polarisation-preserving order-linear isomorphism of the two integral lattices. The level congruence descends integrally because N is prime to p.",
+      "equations": [
+        "lifts-finite-markings-intersection",
+        "lifts-finite-markings-two-cosets"
+      ],
+      "dependencies": [],
+      "review": "Both localizations are distinguished inside the rational space. The reciprocal implications and the content of the integral alternating forms are checked, including the prime 2.",
+      "sources": [
+        {
+          "label": "Polarisation and level congruence for a marked isomorphism",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsHolPeriods.lean",
+          "lines": [
+            49,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/IsHolPeriods.lean#L49-L59",
+          "declaration": "GlobalTheory.PELU.Genus",
+          "related_declarations": [
+            "GlobalTheory.PELU.IsIsom",
+            "GlobalTheory.PELU.IsMarkedIsom"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.PELU.IsIsom": 49,
+            "GlobalTheory.PELU.IsMarkedIsom": 51,
+            "GlobalTheory.PELU.Genus": 54
+          }
+        },
+        {
+          "label": "The prescribed genus and its integral half-form at the distinguished prime",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/Uniformised.lean",
+          "lines": [
+            30,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/Uniformised.lean#L30-L35",
+          "declaration": "GlobalTheory.UPel.HT.HalfPerf",
+          "related_declarations": [
+            "GlobalTheory.UPel.HT.Datum.Cls"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UPel.HT.HalfPerf": 30,
+            "GlobalTheory.UPel.HT.Datum.Cls": 34
+          }
+        },
+        {
+          "label": "The local lattices, their positive scale and their stabilizer at the distinguished prime",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+          "lines": [
+            49,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean#L49-L62",
+          "declaration": "UpperTheory.Gal.W2.PDic",
+          "related_declarations": [
+            "UpperTheory.Gal.W2.IsPLat",
+            "UpperTheory.Gal.W2.PerfAt"
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.IsPLat": 49,
+            "UpperTheory.Gal.W2.PerfAt": 53,
+            "UpperTheory.Gal.W2.PDic": 56
+          }
+        },
+        {
+          "label": "The two finite coordinates and the placement of an integral lattice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+          "lines": [
+            85,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean#L85-L105",
+          "declaration": "UpperTheory.Gal.W2.IsCoord",
+          "related_declarations": [
+            "UpperTheory.Gal.W2.rd",
+            "UpperTheory.Gal.W2.IsPlace",
+            "UpperTheory.Gal.W2.IsCoordA",
+            "UpperTheory.Gal.W2.IsLocP",
+            "UpperTheory.Gal.W2.trivX"
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.rd": 85,
+            "UpperTheory.Gal.W2.IsPlace": 88,
+            "UpperTheory.Gal.W2.IsCoordA": 92,
+            "UpperTheory.Gal.W2.IsLocP": 96,
+            "UpperTheory.Gal.W2.trivX": 99,
+            "UpperTheory.Gal.W2.IsCoord": 101
+          }
+        },
+        {
+          "label": "Two readings away from the prime give the same right level coset",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+          "lines": [
+            96,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean#L96-L137",
+          "declaration": "UpperTheory.Gal.W2.coordKN_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordKN_of": 96
+          }
+        },
+        {
+          "label": "Bézout recovers the integral lattice and detects divisibility of a marking",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+          "lines": [
+            83,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean#L83-L123",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.mark_div",
+          "related_declarations": [
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.range_le"
+          ],
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.range_le": 83,
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.mark_div": 98
+          }
+        },
+        {
+          "label": "Recovering the integral linear isomorphism from the two finite cosets",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+          "lines": [
+            129,
+            165
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean#L129-L165",
+          "declaration": "UpperTheory.Gal.W2.latIso_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.latIso_of": 129
+          }
+        },
+        {
+          "label": "Equal content of the two alternating forms forces the positive scalar to be one",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+          "lines": [
+            115,
+            164
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean#L115-L164",
+          "declaration": "UpperTheory.Gal.W2.clsScalar_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.clsScalar_of": 115
+          }
+        },
+        {
+          "label": "Preserving the polarisation, reading the congruence and proving the converse",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+          "lines": [
+            166,
+            216
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean#L166-L216",
+          "declaration": "UpperTheory.Gal.W2.latIso_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.latIso_of": 129
+          }
+        },
+        {
+          "label": "The finite-coordinate comparison and its arithmetic inputs",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+          "lines": [
+            188,
+            194
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean#L188-L194",
+          "declaration": "UpperTheory.Gal.W2.LatForm_holds",
+          "related_declarations": [
+            "UpperTheory.Gal.W2.ClsScalar_holds",
+            "UpperTheory.Gal.W2.ActY_holds",
+            "UpperTheory.Gal.W2.LatIso_holds"
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.LatForm_holds": 188,
+            "UpperTheory.Gal.W2.ClsScalar_holds": 190,
+            "UpperTheory.Gal.W2.ActY_holds": 192,
+            "UpperTheory.Gal.W2.LatIso_holds": 194
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The cited immutable passages give the hypotheses, the two finite localizations, the period relation and the indicated directions of the comparison."
+    },
+    {
+      "id": "FPM-02",
+      "chapter": "lifts",
+      "title": "When do two marked periods give the same complex point?",
+      "anchor": "lifts-finite-markings-period-quotient",
+      "hypotheses": "For the standard unitary datum a=m=1, the chosen infinite place has positive index one. All distinguished embeddings equal the specified embedding and the complex order action has the prescribed signature. Fix a prime p and principal level N prime to p. A marked uniformising family and the finite and real dictionaries give the point-set result for N>0; the cited theorem provides the standard complex family's uniformisation for N≥3.",
+      "statement": "The complex points of the standard model at level N≥3 are in bijection with the disjoint union over the admissible rational form classes of the diagonal rational-similitude orbits of the two finite right cosets and a positive complex line. For placed periods equality corresponds precisely to a polarised order-linear isomorphism preserving the level marking and an invertible complex-linear change of period coordinates.",
+      "equations": [
+        "lifts-finite-markings-orbit-space",
+        "lifts-finite-markings-period-equivalence"
+      ],
+      "dependencies": [
+        "FPM-01",
+        "PLP-02"
+      ],
+      "review": "The finite conditions and the positive line use one rational similitude, whose inverse transports the rational period. The inverse construction transports the placement and the period along the same inverse lattice isomorphism. The realisation of the integral genus and the geometric existence of period sheets are identified as inputs.",
+      "sources": [
+        {
+          "label": "The action on both finite representatives and the positive line",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+          "lines": [
+            84,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean#L84-L94",
+          "declaration": "GlobalTheory.LKCx.Same",
+          "related_declarations": [
+            "GlobalTheory.LKCx.Dat",
+            "GlobalTheory.LKCx.Pts"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.LKCx.Dat": 84,
+            "GlobalTheory.LKCx.Same": 86,
+            "GlobalTheory.LKCx.Pts": 92
+          }
+        },
+        {
+          "label": "Rational form classes before passing to the orbits",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+          "lines": [
+            114,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean#L114-L124",
+          "declaration": "GlobalTheory.LKCx.Form",
+          "related_declarations": [
+            "GlobalTheory.LKCx.Form.Rel",
+            "GlobalTheory.LKCx.FCls"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.LKCx.Form": 114,
+            "GlobalTheory.LKCx.Form.Rel": 121,
+            "GlobalTheory.LKCx.FCls": 124
+          }
+        },
+        {
+          "label": "Marked period sheets, their coverage and their fibres",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsHolPeriods.lean",
+          "lines": [
+            105,
+            121
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/Divisors/IsHolPeriods.lean#L105-L121",
+          "declaration": "GlobalTheory.PELU.Unif",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.PELU.Unif": 105
+          }
+        },
+        {
+          "label": "Existence, occurrence and the marked equivalence in a fixed set of coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+          "lines": [
+            100,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean#L100-L116",
+          "declaration": "UpperTheory.Gal.W2.CoordIso",
+          "related_declarations": [
+            "UpperTheory.Gal.W2.CoordEx",
+            "UpperTheory.Gal.W2.CoordOcc"
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.CoordEx": 100,
+            "UpperTheory.Gal.W2.CoordOcc": 105,
+            "UpperTheory.Gal.W2.CoordIso": 109
+          }
+        },
+        {
+          "label": "The bijection for a family already supplied with marked period sheets",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+          "lines": [
+            124,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean#L124-L128",
+          "declaration": "UpperTheory.Gal.W2.UnifG",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.UnifG": 124
+          }
+        },
+        {
+          "label": "Constructing coordinates starting with an integral period",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordEx.lean",
+          "lines": [
+            8,
+            28
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordEx.lean#L8-L28",
+          "declaration": "UpperTheory.Gal.W2.coordEx_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordEx_of": 8
+          }
+        },
+        {
+          "label": "The integral lattice realization for prescribed finite data",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PWitOfAd.lean",
+          "lines": [
+            101,
+            114
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PWitOfAd.lean#L101-L114",
+          "declaration": "UpperTheory.Gal.W2.witOfAd_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.witOfAd_of": 42
+          }
+        },
+        {
+          "label": "Constructing an integral period for any given coordinate triple",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordOcc.lean",
+          "lines": [
+            8,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordOcc.lean#L8-L21",
+          "declaration": "UpperTheory.Gal.W2.coordOcc_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordOcc_of": 8
+          }
+        },
+        {
+          "label": "Transport of a rational period and of its positive line",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+          "lines": [
+            18,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean#L18-L47",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.perMove",
+          "related_declarations": [
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_mk"
+          ],
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.perMove": 18,
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_mk": 35
+          }
+        },
+        {
+          "label": "One rational similitude for an entire orbit and extension from a full lattice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+          "lines": [
+            49,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean#L49-L87",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_of_eq",
+          "related_declarations": [
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.ext_lemma"
+          ],
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_of_eq": 49,
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.ext_lemma": 79
+          }
+        },
+        {
+          "label": "From a marked period isomorphism to equality in the quotient",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+          "lines": [
+            89,
+            118
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean#L89-L118",
+          "declaration": "UpperTheory.Gal.W2.coordIso_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordIso_of": 89
+          }
+        },
+        {
+          "label": "From the quotient to integral and complex changes of coordinates",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+          "lines": [
+            119,
+            141
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean#L119-L141",
+          "declaration": "UpperTheory.Gal.W2.coordIso_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordIso_of": 89
+          }
+        },
+        {
+          "label": "Transport of coordinates under a change of marked lattice",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean",
+          "lines": [
+            21,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean#L21-L65",
+          "declaration": "UpperTheory.Gal.W2.coordMove_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.coordMove_of": 21
+          }
+        },
+        {
+          "label": "Equality of geometric points and marked period isomorphisms",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+          "lines": [
+            8,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean#L8-L26",
+          "declaration": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.u_eq_of_marked",
+          "related_declarations": [
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.marked_of_u_eq"
+          ],
+          "declaration_lines": {
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.u_eq_of_marked": 8,
+            "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.marked_of_u_eq": 18
+          }
+        },
+        {
+          "label": "The bijection and the inverse through a marked period sheet",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+          "lines": [
+            66,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean#L66-L105",
+          "declaration": "UpperTheory.Gal.W2.unifG_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.unifG_of": 66
+          }
+        },
+        {
+          "label": "The period classification for the standard complex model",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PGUnif.lean",
+          "lines": [
+            15,
+            27
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PGUnif.lean#L15-L27",
+          "declaration": "UpperTheory.Gal.W2.gUnif_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.gUnif_of": 15
+          }
+        },
+        {
+          "label": "Uniformisation of the family at principal level at least three",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PGUnif.lean",
+          "lines": [
+            53,
+            58
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PGUnif.lean#L53-L58",
+          "declaration": "UpperTheory.Gal.W2.gUnif_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.gUnif_of": 15
+          }
+        },
+        {
+          "label": "Assembly of the existence, occurrence, equivalence and transport statements",
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+          "lines": [
+            196,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean#L196-L206",
+          "declaration": "UpperTheory.Gal.W2.CoordMove_holds",
+          "related_declarations": [
+            "UpperTheory.Gal.W2.PlaceEx_holds",
+            "UpperTheory.Gal.W2.CoordEx_holds",
+            "UpperTheory.Gal.W2.CoordOcc_holds",
+            "UpperTheory.Gal.W2.CoordIso_holds",
+            "UpperTheory.Gal.W2.UnifG_holds"
+          ],
+          "declaration_lines": {
+            "UpperTheory.Gal.W2.CoordMove_holds": 196,
+            "UpperTheory.Gal.W2.PlaceEx_holds": 198,
+            "UpperTheory.Gal.W2.CoordEx_holds": 200,
+            "UpperTheory.Gal.W2.CoordOcc_holds": 202,
+            "UpperTheory.Gal.W2.CoordIso_holds": 204,
+            "UpperTheory.Gal.W2.UnifG_holds": 206
+          }
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "The cited immutable passages give the hypotheses, the two finite localizations, the period relation and the indicated directions of the comparison."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.LKCx.Dat",
+      "callee": "GlobalTheory.LKCx.PosV",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 84,
+        "spelling": "PosV"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.FCls",
+      "callee": "GlobalTheory.LKCx.Form.Rel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 124,
+        "spelling": "Form.Rel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.Pts",
+      "callee": "GlobalTheory.LKCx.Same",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 94,
+        "spelling": "Same"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.Same",
+      "callee": "GlobalTheory.LKCx.grp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 88,
+        "spelling": "grp"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.Same",
+      "callee": "GlobalTheory.LKCx.toAfF",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 89,
+        "spelling": "toAfF"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.Same",
+      "callee": "GlobalTheory.LKCx.toP1",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 89,
+        "spelling": "toP1"
+      }
+    },
+    {
+      "caller": "GlobalTheory.LKCx.Same",
+      "callee": "GlobalTheory.LKCx.toV",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/PointsNonemptyUnitaryRankOne.lean",
+        "line": 90,
+        "spelling": "toV"
+      }
+    },
+    {
+      "caller": "GlobalTheory.PELU.IsMarkedIsom",
+      "callee": "GlobalTheory.PELU.IsIsom",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/IsHolPeriods.lean",
+        "line": 52,
+        "spelling": "IsIsom"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callee": "GlobalTheory.PELU.Genus",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/Uniformised.lean",
+        "line": 35,
+        "spelling": "Genus"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callee": "GlobalTheory.UPel.HT.HalfPerf",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/Divisors/Uniformised.lean",
+        "line": 35,
+        "spelling": "HalfPerf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.ClsScalar_holds",
+      "callee": "UpperTheory.Gal.W2.clsScalar_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 190,
+        "spelling": "clsScalar_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx",
+      "callee": "GlobalTheory.LKCx.Dat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 102,
+        "spelling": "GlobalTheory.LKCx.Dat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx",
+      "callee": "GlobalTheory.LKCx.FCls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 102,
+        "spelling": "GlobalTheory.LKCx.FCls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx",
+      "callee": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 101,
+        "spelling": "D.Cls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx",
+      "callee": "UpperTheory.Gal.W2.IsCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 103,
+        "spelling": "IsCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx",
+      "callee": "UpperTheory.Gal.W2.IsSigD",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 101,
+        "spelling": "IsSigD"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callee": "UpperTheory.Gal.W2.AdOfWit_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 200,
+        "spelling": "AdOfWit_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callee": "UpperTheory.Gal.W2.PlaceEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 200,
+        "spelling": "PlaceEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callee": "UpperTheory.Gal.W2.PlaceLoc_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 200,
+        "spelling": "PlaceLoc_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callee": "UpperTheory.Gal.W2.PlacePer_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 200,
+        "spelling": "PlacePer_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callee": "UpperTheory.Gal.W2.coordEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 200,
+        "spelling": "coordEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso",
+      "callee": "GlobalTheory.LKCx.Dat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 112,
+        "spelling": "GlobalTheory.LKCx.Dat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso",
+      "callee": "GlobalTheory.LKCx.FCls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 112,
+        "spelling": "GlobalTheory.LKCx.FCls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso",
+      "callee": "GlobalTheory.PELU.IsMarkedIsom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 115,
+        "spelling": "IsMarkedIsom"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso",
+      "callee": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 112,
+        "spelling": "D.Cls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso",
+      "callee": "UpperTheory.Gal.W2.IsCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 113,
+        "spelling": "IsCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso_holds",
+      "callee": "UpperTheory.Gal.W2.ActY_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 204,
+        "spelling": "ActY_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso_holds",
+      "callee": "UpperTheory.Gal.W2.LatForm_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 204,
+        "spelling": "LatForm_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso_holds",
+      "callee": "UpperTheory.Gal.W2.LatIso_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 204,
+        "spelling": "LatIso_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordIso_holds",
+      "callee": "UpperTheory.Gal.W2.coordIso_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 204,
+        "spelling": "coordIso_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordMove_holds",
+      "callee": "UpperTheory.Gal.W2.coordMove_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 196,
+        "spelling": "coordMove_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc",
+      "callee": "GlobalTheory.LKCx.Dat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.LKCx.Dat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc",
+      "callee": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 107,
+        "spelling": "D.Cls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc",
+      "callee": "UpperTheory.Gal.W2.IsCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 107,
+        "spelling": "IsCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc",
+      "callee": "UpperTheory.Gal.W2.IsSigD",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 106,
+        "spelling": "IsSigD"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc_holds",
+      "callee": "UpperTheory.Gal.W2.PlacePer_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 202,
+        "spelling": "PlacePer_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc_holds",
+      "callee": "UpperTheory.Gal.W2.WitOfAd_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 202,
+        "spelling": "WitOfAd_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.CoordOcc_holds",
+      "callee": "UpperTheory.Gal.W2.coordOcc_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 202,
+        "spelling": "coordOcc_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoord",
+      "callee": "UpperTheory.Gal.W2.IsCoordA",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 104,
+        "spelling": "IsCoordA"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoord",
+      "callee": "UpperTheory.Gal.W2.IsLocP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 104,
+        "spelling": "IsLocP"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoord",
+      "callee": "UpperTheory.Gal.W2.IsPerQ",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 105,
+        "spelling": "IsPerQ"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoord",
+      "callee": "UpperTheory.Gal.W2.IsPlace",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 104,
+        "spelling": "IsPlace"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoord",
+      "callee": "UpperTheory.Gal.W2.trivX",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 104,
+        "spelling": "trivX"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsCoordA",
+      "callee": "UpperTheory.Gal.W2.rd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 93,
+        "spelling": "rd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.IsPlace",
+      "callee": "UpperTheory.Gal.W2.formB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 90,
+        "spelling": "formB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatForm_holds",
+      "callee": "UpperTheory.Gal.W2.latForm_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 188,
+        "spelling": "latForm_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatIso_holds",
+      "callee": "UpperTheory.Gal.W2.ActY_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 194,
+        "spelling": "ActY_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatIso_holds",
+      "callee": "UpperTheory.Gal.W2.ClsScalar_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 194,
+        "spelling": "ClsScalar_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatIso_holds",
+      "callee": "UpperTheory.Gal.W2.CoordKN_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 194,
+        "spelling": "CoordKN_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatIso_holds",
+      "callee": "UpperTheory.Gal.W2.RdAct_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 194,
+        "spelling": "RdAct_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.LatIso_holds",
+      "callee": "UpperTheory.Gal.W2.latIso_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 194,
+        "spelling": "latIso_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.PerfAt",
+      "callee": "UpperTheory.Gal.W2.formB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/IsCoordA.lean",
+        "line": 54,
+        "spelling": "formB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.PlaceEx_holds",
+      "callee": "UpperTheory.Gal.W2.LatForm_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 198,
+        "spelling": "LatForm_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG",
+      "callee": "GlobalTheory.LKCx.Dat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 126,
+        "spelling": "GlobalTheory.LKCx.Dat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG",
+      "callee": "GlobalTheory.LKCx.FCls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 126,
+        "spelling": "GlobalTheory.LKCx.FCls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG",
+      "callee": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 125,
+        "spelling": "D.Cls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG",
+      "callee": "UpperTheory.Gal.W2.IsCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 128,
+        "spelling": "IsCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG",
+      "callee": "UpperTheory.Gal.W2.IsSigD",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/LevelChange.lean",
+        "line": 125,
+        "spelling": "IsSigD"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG_holds",
+      "callee": "UpperTheory.Gal.W2.CoordEx_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 206,
+        "spelling": "CoordEx_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG_holds",
+      "callee": "UpperTheory.Gal.W2.CoordIso_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 206,
+        "spelling": "CoordIso_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG_holds",
+      "callee": "UpperTheory.Gal.W2.CoordMove_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 206,
+        "spelling": "CoordMove_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG_holds",
+      "callee": "UpperTheory.Gal.W2.CoordOcc_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 206,
+        "spelling": "CoordOcc_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.UnifG_holds",
+      "callee": "UpperTheory.Gal.W2.unifG_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/FixedPointsIntBaseHolds.lean",
+        "line": 206,
+        "spelling": "unifG_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.clsScalar_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PClsScalar.0.UpperTheory.Gal.W2.genus_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+        "line": 142,
+        "spelling": "genus_dvd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.clsScalar_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PClsScalar.0.UpperTheory.Gal.W2.genus_nontrivial",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+        "line": 126,
+        "spelling": "genus_nontrivial"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.clsScalar_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PClsScalar.0.UpperTheory.Gal.W2.half_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+        "line": 139,
+        "spelling": "half_dvd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.clsScalar_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PClsScalar.0.UpperTheory.Gal.W2.half_ne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+        "line": 153,
+        "spelling": "half_ne"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.clsScalar_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PClsScalar.0.UpperTheory.Gal.W2.power_free",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PClsScalar.lean",
+        "line": 156,
+        "spelling": "power_free"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "GlobalTheory.LKCx.Form.Rel",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 99,
+        "spelling": "GlobalTheory.LKCx.Form.Rel"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "GlobalTheory.LKCx.grp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 106,
+        "spelling": "GlobalTheory.LKCx.grp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "GlobalTheory.LKCx.toP1",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 129,
+        "spelling": "GlobalTheory.LKCx.toP1"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.perMove",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 107,
+        "spelling": "perMove"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_mk",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 118,
+        "spelling": "same_mk"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_of_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 122,
+        "spelling": "same_of_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.ext_lemma",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 109,
+        "spelling": "ext_lemma"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordKN_of",
+      "callee": "UpperTheory.Gal.W2.IsCoordA",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+        "line": 103,
+        "spelling": "IsCoordA"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordKN_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordKN.0.UpperTheory.Gal.W2.congOne_of_gen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+        "line": 108,
+        "spelling": "congOne_of_gen"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordKN_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordKN.0.UpperTheory.Gal.W2.inAf_mem_laHat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+        "line": 133,
+        "spelling": "inAf_mem_laHat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordKN_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordKN.0.UpperTheory.Gal.W2.rd_move",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+        "line": 113,
+        "spelling": "rd_move"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordKN_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordKN.0.UpperTheory.Gal.W2.stable",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordKN.lean",
+        "line": 107,
+        "spelling": "stable"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordMove_of",
+      "callee": "UpperTheory.Gal.W2.rd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean",
+        "line": 54,
+        "spelling": "rd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordMove_of",
+      "callee": "UpperTheory.Gal.W2.trivX",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean",
+        "line": 54,
+        "spelling": "trivX"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordMove_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordMove.0.rd_add'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean",
+        "line": 56,
+        "spelling": "rd_add'"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.coordMove_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordMove.0.rd_nsmul'",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordMove.lean",
+        "line": 56,
+        "spelling": "rd_nsmul'"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.gUnif_of",
+      "callee": "GlobalTheory.UPel.HT.Datum.Cls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PGUnif.lean",
+        "line": 54,
+        "spelling": "D.Cls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "GlobalTheory.LKCx.toP1",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 134,
+        "spelling": "GlobalTheory.LKCx.toP1"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "GlobalTheory.PELU.IsIsom",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 175,
+        "spelling": "IsIsom"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "UpperTheory.Gal.W2.IsCoordA",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 133,
+        "spelling": "IsCoordA"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "UpperTheory.Gal.W2.IsLocP",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 134,
+        "spelling": "IsLocP"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "UpperTheory.Gal.W2.actY",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 155,
+        "spelling": "actY"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "UpperTheory.Gal.W2.rd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 183,
+        "spelling": "rd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "UpperTheory.Gal.W2.trivX",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 133,
+        "spelling": "trivX"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.coordA_placeY",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 133,
+        "spelling": "coordA_placeY"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.inv_actY",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 156,
+        "spelling": "inv_actY"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.locP_placeY",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 134,
+        "spelling": "locP_placeY"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.mark_div",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 186,
+        "spelling": "mark_div"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.placeY",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 133,
+        "spelling": "placeY"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.placeY_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 150,
+        "spelling": "placeY_apply"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.range_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 144,
+        "spelling": "range_le"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.rd_add",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 202,
+        "spelling": "rd_add"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.rd_nsmul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 202,
+        "spelling": "rd_nsmul"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.latIso_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.rd_sub",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 184,
+        "spelling": "rd_sub"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "GlobalTheory.LKCx.Dat",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 70,
+        "spelling": "GlobalTheory.LKCx.Dat"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "GlobalTheory.LKCx.FCls",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 70,
+        "spelling": "GlobalTheory.LKCx.FCls"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "UpperTheory.Gal.W2.IsCoord",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 71,
+        "spelling": "IsCoord"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.isPeriod_comp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 95,
+        "spelling": "isPeriod_comp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.marked_of_u_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 102,
+        "spelling": "marked_of_u_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.marked_symm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 93,
+        "spelling": "marked_symm"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.W2.unifG_of",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PUnifG.0.u_eq_of_marked",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PUnifG.lean",
+        "line": 86,
+        "spelling": "u_eq_of_marked"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.perMove",
+      "callee": "UpperTheory.Gal.W2.RDic.equiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 33,
+        "spelling": "RD.equiv"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.perMove",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.actY_inv_left",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 29,
+        "spelling": "actY_inv_left"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PCoordIso.0.UpperTheory.Gal.W2.same_of_eq",
+      "callee": "GlobalTheory.LKCx.grp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PCoordIso.lean",
+        "line": 56,
+        "spelling": "GlobalTheory.LKCx.grp"
+      }
+    },
+    {
+      "caller": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.mark_div",
+      "callee": "_private.Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.SphericalCoordinates.PLatIso.0.UpperTheory.Gal.W2.LatticeIsomorphism.rd_nsmul",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalCoordinates/PLatIso.lean",
+        "line": 109,
+        "spelling": "rd_nsmul"
+      }
+    }
+  ]
+}

@@ -5,6 +5,39 @@ const assert = require("node:assert/strict"),
 const root = path.resolve(__dirname, "..");
 const lib = require("../assets/labs.js");
 const { zeta } = require("./plate.cjs");
+// Recover J e1 by decomposing e1 in the two orthogonal eigenlines.
+for (const real of [-1.5, -1, -0.5, 0, 0.5, 1, 1.5]) {
+  for (const imag of [-1.5, -1, -0.5, 0, 0.5, 1, 1.5]) {
+    const gap = 1 - real * real - imag * imag;
+    for (const sign of [-1, 1]) {
+      const view = lib.render("positive-period-line", {real, imag, sign});
+      const [, region, height, column] = view.match(/<dd>([^<]+)<\/dd>.*?<dd>([^<]+)<\/dd>.*?<dd>([^<]+)<\/dd>/);
+      assert.equal(region, gap > 0 ? "Positive" : gap < 0 ? "Negative" : "Isotropic");
+      const numeric = word => {
+        const [p, q = "1"] = word.replaceAll("−", "-").split("/");
+        return Number(p) / Number(q);
+      };
+      assert.equal(numeric(height), gap);
+      if (gap === 0) {
+        assert.equal(column, "Undefined");
+        continue;
+      }
+      // With z = (1, α) and v = (conj α, 1), e1 = A z − Aα v.
+      const A = 1 / gap;
+      const expected = [sign * A * (1 + real * real + imag * imag), -2 * sign * A * imag, 2 * sign * A * real];
+      const parts = column.slice(1, -1).split(", ");
+      const decode = value => value.replaceAll(" ", "").replaceAll("−", "-")
+        .match(/[+-]?[^+-]+/g).reduce(([re, im], term) => {
+          if (!term.includes("i")) return [re + numeric(term), im];
+          const scalar = term.replace(/^([+-]?)i/, (_, signPrefix) => signPrefix + "1i").replace("i", "");
+          return [re, im + numeric(scalar)];
+        }, [0, 0]);
+      const [first, second] = parts.map(decode);
+      assert.equal(first[0], 0);
+      assert.ok([first[1], second[0], second[1]].every((entry, i) => Math.abs(entry - expected[i]) < 1e-12));
+    }
+  }
+}
 // Compare the trace calculation in the figure with multiplication in the Gaussian ring.
 for (const prime of [2, 3, 5, 13, 17]) {
   const residues = Array.from({length: prime}, (_, n) => n);
@@ -2498,5 +2531,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, all ten Gaussian trace-prime settings, all 36 translated Iwahori settings, 1156 translated-trace settings and 5460 complete residue pairs, 162 square-torus settings and 24,345 enumerated torsion labels, 392 Gaussian quotient markings with 200 recovered labels, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, all 98 positive-line and CM-sign settings, all ten Gaussian trace-prime settings, all 36 translated Iwahori settings, 1156 translated-trace settings and 5460 complete residue pairs, 162 square-torus settings and 24,345 enumerated torsion labels, 392 Gaussian quotient markings with 200 recovered labels, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

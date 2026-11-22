@@ -145,7 +145,10 @@ async function run() {
           before,
           id + " reset",
         );
-        if (id === "trace-lattice-primes") {
+        if (id === "positive-period-line") {
+          assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Positive", "3/4", "(5i/3, −4/3)"]);
+          assert.match(await fig.locator('[role="img"]').getAttribute("aria-label"), /Positive line/);
+        } else if (id === "trace-lattice-primes") {
           assert.equal(await fig.locator("caption").innerText(), "Tests modulo 5");
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["2, 3", "25 of 25", "Yes", "No"]);
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["4734976", "Satisfied"]);

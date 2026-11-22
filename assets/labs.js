@@ -23,6 +23,18 @@
     flat: {label: "N = 2, jumps (0, 0)", height: 2, jumps: [0, 0]},
   };
   const configs = {
+    "positive-period-line": {
+      title: "Which lines give a positive complex structure?",
+      kind: "The positive lines in signature (1, 1)",
+      section: "lifts",
+      params: [
+        range("real", "Real part of α", -1.5, 1.5, 0.5, 0),
+        range("imag", "Imaginary part of α", -1.5, 1.5, 0.5, 0.5),
+        choose("sign", "CM sign", [["1", "+1"], ["-1", "−1"]], "1"),
+      ],
+      caption: "The point α represents the line through z = (1, α). Move it across the unit circle to see when the projection defines the required complex structure. Changing the CM sign interchanges its two eigenvalues.",
+      method: "For the form with diagonal (1, −1), h(z,z) = 1 − |α|². The formula J = si(2P − I) uses the Hermitian projection P onto the line. The displayed first column determines J on the first coordinate vector. At a negative line the same formula violates positivity on z. At an isotropic line the orthogonal projection is undefined.",
+    },
     "trace-lattice-primes": {
       title: "Which primes preserve the Gaussian trace lattice?",
       kind: "The trace dual of ℤ[i]",
@@ -1769,6 +1781,42 @@
   }
 
   function render(id, v) {
+    if (id === "positive-period-line") {
+      const x = Number(v.real), y = Number(v.imag), sign = Number(v.sign);
+      // The coordinates are half-integers. Four times h(z,z) is integral.
+      const norm4 = 4 * (x * x + y * y);
+      const gap = 4 - norm4;
+      const region = gap > 0 ? "Positive" : gap < 0 ? "Negative" : "Isotropic";
+      const gapText = reducedFraction(gap, 4);
+      const announcement = region + " line, h(z,z) = " + gapText + ".";
+      const diagram = '<svg class="plot" role="img" aria-label="' + announcement +
+        '" data-announcement="' + announcement + '" viewBox="0 0 330 219"><title>' + announcement + '</title>' +
+        '<path class="axis" d="M45 108 H283 M164 10 V202"/>' +
+        '<circle class="ink" cx="164" cy="108" r="52" fill="none" stroke-width="2"/>' +
+        '<path class="faint" d="M112 105 v6 M216 105 v6 M161 56 h6 M161 160 h6"/>' +
+        '<text x="108" y="129" text-anchor="end">−1</text><text x="222" y="129">1</text>' +
+        '<text x="285" y="99" text-anchor="end">Re α</text><text x="174" y="23">Im α</text>' +
+        '<circle cx="' + (164 + 52 * x) + '" cy="' + (108 - 52 * y) +
+        '" r="4.5" fill="currentColor"/></svg>';
+      let column = "Undefined";
+      if (gap !== 0) {
+        const coefficient = numerator => reducedFraction(numerator * Math.sign(gap), Math.abs(gap));
+        const imaginary = numerator => {
+          if (numerator === 0) return "0";
+          const [top, bottom] = coefficient(numerator).split("/");
+          const factor = top === "1" ? "" : top === "−1" ? "−" : top;
+          return factor + "i" + (bottom ? "/" + bottom : "");
+        };
+        const realPart = coefficient(-8 * sign * y);
+        const imaginaryPart = imaginary(8 * sign * x);
+        let second = realPart;
+        if (realPart === "0") second = imaginaryPart;
+        else if (imaginaryPart !== "0") second += imaginaryPart.startsWith("−")
+          ? " − " + imaginaryPart.slice(1) : " + " + imaginaryPart;
+        column = "(" + imaginary(sign * (4 + norm4)) + ", " + second + ")";
+      }
+      return diagram + metrics([["Line", region], ["h(z,z)", gapText], ["J e₁", column]]);
+    }
     if (id === "trace-lattice-primes") {
       const prime = Number(v.prime);
       const denominator = Number(v.denominator);
