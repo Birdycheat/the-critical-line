@@ -141,6 +141,44 @@ assert.ok(!html["print.html"].includes("data-solution-term="));
 function close(x, y, tol) {
   assert.ok(Math.abs(x - y) <= tol, x + " versus " + y);
 }
+// Build level-14 points by adding the images of 1 and i on the finite torus.
+{
+  const fine = n => ((n % 14) + 14) % 14;
+  const sum = (x, y) => [fine(x[0] + y[0]), fine(x[1] + y[1])];
+  const repeat = (x, n) => Array.from({length: n}).reduce(total => sum(total, x), [0, 0]);
+  const basis = {F: [[1, 13], [1, 1]], h: [[1, 1], [13, 1]]};
+  const shifts = {zero: [0, 0], one: [1, 0], i: [0, 1], both: [1, 1]};
+  const kernel = new Set(), accepted = {F: 0, h: 0};
+  let settings = 0;
+  for (let u = 0; u < 7; u++) for (let v = 0; v < 7; v++) {
+    for (const [factor, [one, i]] of Object.entries(basis)) {
+      const unshifted = sum(repeat(one, u), repeat(i, v));
+      for (const [shift, [a, b]] of Object.entries(shifts)) {
+        const lift = [u + 7 * a, v + 7 * b];
+        const translation = sum(repeat(one, 7 * a), repeat(i, 7 * b));
+        const point = sum(unshifted, translation);
+        const image = factor === "F" ? [u, v] : [(7 - v) % 7, u];
+        // Read h on the fine torus independently of the composite identity on labels.
+        assert.deepEqual(sum(repeat(basis.h[0], point[0]), repeat(basis.h[1], point[1])), image.map(c => 2 * c));
+        kernel.add(translation.join(","));
+        const output = lib.render("gaussian-quotient-marking", {u: String(u), v: String(v), factor, shift});
+        const cells = [...output.matchAll(/<td>\((\d+), (\d+)\)<\/td>/g)].map(m => m.slice(1).map(Number));
+        assert.deepEqual(cells, [lift, point, translation, image, [u, v]]);
+        const agrees = factor === "F" || (u === 0 && v === 0);
+        assert.ok(output.includes("<dd>" + (agrees ? "Agrees" : "Differs") + "</dd>"));
+        accepted[factor] += Number(agrees);
+        settings++;
+      }
+    }
+  }
+  assert.equal(settings, 392);
+  assert.deepEqual(accepted, {F: 196, h: 4});
+  assert.deepEqual([...kernel].sort(), ["0,0", "7,7"]);
+}
+for (const page of ["book.html", "print.html"]) {
+  const figure = html[page].match(/<figure\b[^>]*\bid="fig-gaussian-quotient-marking"[^>]*>[\s\S]*?<\/figure>/);
+  assert.ok(figure && figure[0].includes(lib.render("gaussian-quotient-marking", lib.defaults("gaussian-quotient-marking"))));
+}
 // Reduce products in the integral basis 1, θ, β, θβ, then count witnesses in that basis.
 {
   function integralProduct(x, y) {
@@ -1939,5 +1977,5 @@ close(36 * (bernoulli3(1 / 6) - bernoulli3(5 / 6)), 10 / 3, 1e-14);
 assert.equal(lib.normal(lib.configs.mellin.params[1], "-2"), 1.1);
 assert.equal(lib.normal(lib.configs.ramp.params[1], "invalid"), "one");
 console.log(
-  "Checked relative links and anchors, figure boundaries, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
+  "Checked relative links and anchors, figure boundaries, 392 Gaussian quotient markings with 200 recovered labels, 48 ramified-residue settings with 256 products and 4608 candidate witnesses, the integral norm 18, 24 polarized-graph settings with 5776 vectors and 3179536 alternating pairings, all 6561 truncated cubes over the nine-element field, twelve infinitesimal torsion counts, nine ordinary-line subspace counts, eight five-adic cut tests, six four-element-group norm settings, six prescribed multiplicity tests, six Casimir cuts, twelve good-prime configurations, eight whole-character tests, nine regular shifts and their partial-trace scalars, six hyperplane mass strata, 75 pairs of gluing residues, four integral intersections of rational lines, eighteen parabolic mass comparisons, six Frobenius power comparisons on a signed unitary plane, all nine Gaussian adjoint roundings, nine two-point projections, counts and weights in six Gaussian minor shells, 384 unitary symmetries per Gaussian normal type, 16 cyclotomic signatures, the binary similitude at 2, 13 binary lattice scales, eight projected Stickelberger sums, the depth-seven difference and the cyclic ideal calculation, six integral Hermitian norm congruence counts, four index-two character encodings, 2916 cyclotomic model products, 12 archimedean cutoff curves, ten Frobenius orbit partitions, three reduced localization maps, all seven finite genus means, both split graphs, eight Gaussian sublattices, the exceptional Whittaker test modulo 9 and 27, six Hermitian congruence densities, all 81 tangent-map fibres, two sets of 72 Eisenstein Gram representatives, 16 dyadic height grids, six colored trace contractions, all 27 symmetric Fourier frequencies, 36 sheared-lattice targets, six Gaussian cutoff states, 24 double-kernel pairings and tail bounds, 24 central arcs and cycles, the six rank-two Satake averages, all six rank-four inert row spans, 24 inert cells and 12 flag-incidence distributions, positive gamma masses, complex residue angles, both reflection directions, 240 truncated Möbius products, Mellin quadrature, exact factorial gains and loss bounds, zeta samples, local Euler factors, split and inert shells, all 28 split-endpoint settings, all six cubic Jacobi sums and their conjugates, Bernoulli sums at all nine carry settings, nine signed rank grids, all 18 Gram restrictions, all 30 finite-prism settings and all 289 marked-window states.",
 );

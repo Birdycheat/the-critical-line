@@ -136,6 +136,10 @@ async function run() {
         } else if (id === "quadratic-place-restrictions") {
           assert.equal(await fig.locator("caption").innerText(), "Generator residues modulo 17");
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Same", "Different", "Satisfied"]);
+        } else if (id === "gaussian-quotient-marking") {
+          assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(1, 0)", "(1, 13)", "(0, 0)", "(1, 0)", "(1, 0)"]);
+          assert.equal(await fig.locator(".metrics dd").innerText(), "Agrees");
+          assert.equal(await fig.getByRole("status").textContent(), "Level-7 image (1, 0). Prescribed label recovered.");
         } else if (id === "ramified-residues") {
           assert.deepEqual(await fig.locator(".metrics dd").allInnerTexts(), ["Holds", "32"]);
           assert.deepEqual(await fig.locator("tbody td").allInnerTexts(), ["(η, 1 + η)", "(0, 0)", "(1, 0)", "(0, 1 + η)"]);
@@ -415,6 +419,30 @@ async function run() {
     assert.equal(await ordinary.getByRole("combobox", {name: "Field size Q"}).inputValue(), "5");
     assert.equal(await ordinary.getByRole("combobox", {name: "Dimension of U"}).inputValue(), "2");
     assert.deepEqual(await ordinary.locator(".metrics dd").allInnerTexts(), ["125", "125"]);
+    await page.setViewportSize(previousViewport);
+    await openFigure(page, base + "book.html#fig-gaussian-quotient-marking");
+    const gaussian = page.locator("#fig-gaussian-quotient-marking.ready");
+    for (const width of [320, 390]) {
+      await page.setViewportSize({width, height: 844});
+      for (const [u, v, factor, shift, point, change, target, agrees] of [
+        ["1", "0", "F", "zero", "(1, 13)", "(0, 0)", "(1, 0)", "Agrees"],
+        ["1", "0", "F", "one", "(8, 6)", "(7, 7)", "(1, 0)", "Agrees"],
+        ["0", "0", "h", "i", "(7, 7)", "(7, 7)", "(0, 0)", "Agrees"],
+        ["0", "1", "h", "both", "(13, 1)", "(0, 0)", "(6, 0)", "Differs"],
+      ]) {
+        for (const [name, value] of Object.entries({u, v, factor, shift}))
+          await gaussian.locator('select[name="' + name + '"]').selectOption(value);
+        assert.deepEqual((await gaussian.locator("tbody td").allInnerTexts()).slice(1, 4), [point, change, target]);
+        assert.equal(await gaussian.locator(".metrics dd").innerText(), agrees);
+        assert.ok(await gaussian.locator("table").evaluate(el =>
+          el.getBoundingClientRect().right <= el.closest("figure").getBoundingClientRect().right + 1));
+      }
+    }
+    const gaussianLink = new URL(await gaussian.locator("[data-share]").getAttribute("href"));
+    for (const [key, value] of Object.entries({u: "0", v: "1", factor: "h", shift: "both"}))
+      assert.equal(gaussianLink.searchParams.get("gaussian-quotient-marking." + key), value);
+    await openFigure(page, gaussianLink.href);
+    assert.equal(await gaussian.locator(".metrics dd").innerText(), "Differs");
     await page.setViewportSize(previousViewport);
     await openFigure(page, base + "book.html#fig-ramified-residues");
     const ramified = page.locator("#fig-ramified-residues.ready");
@@ -773,6 +801,9 @@ async function run() {
     await plain.goto(base + "book.html");
     const staticBranches = plain.locator("#fig-clopen-branch-reduction");
     await assertVectorWeights(plain);
+    const staticGaussian = plain.locator("#fig-gaussian-quotient-marking");
+    assert.deepEqual(await staticGaussian.locator("tbody td").allInnerTexts(), ["(1, 0)", "(1, 13)", "(0, 0)", "(1, 0)", "(1, 0)"]);
+    assert.equal(await staticGaussian.locator(".metrics dd").innerText(), "Agrees");
     const staticRamified = plain.locator("#fig-ramified-residues");
     assert.deepEqual(await staticRamified.locator("tbody td").allInnerTexts(), ["(η, 1 + η)", "(0, 0)", "(1, 0)", "(0, 1 + η)"]);
     assert.deepEqual(await staticRamified.locator(".metrics dd").allInnerTexts(), ["Holds", "32"]);

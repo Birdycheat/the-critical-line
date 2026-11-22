@@ -16,7 +16,21 @@
     value,
   });
   const ramifiedCoordinates = [["0", "0"], ["1", "1"], ["eta", "η"], ["sum", "1 + η"]];
+  const gaussianLabels = Array.from({length: 7}, (_, i) => [String(i), String(i)]);
   const configs = {
+    "gaussian-quotient-marking": {
+      title: "Which marking preserves the label on the quotient?",
+      kind: "An isogeny of the square elliptic curve",
+      section: "lifts",
+      params: [
+        choose("u", "Real coordinate u", gaussianLabels, "1"),
+        choose("v", "Imaginary coordinate v", gaussianLabels, "0"),
+        choose("factor", "Multiplier", [["F", "F = 1 − i"], ["h", "h = 1 + i"]], "F"),
+        choose("shift", "Change of lift y", [["zero", "0"], ["one", "1"], ["i", "i"], ["both", "1 + i"]], "zero"),
+      ],
+      caption: "On E = ℂ/ℤ[i], choose a label x = u + iv modulo 7 and an integral lift x + 7y. Multiply the lift by the selected factor and divide by 14 to get a point of E. Its image under h = 1 + i has level 7. At level N the pair (a, b) denotes the point (a + bi)/N modulo ℤ[i].",
+      method: "Changing the lift adds the selected multiplier times y/2 to the level-14 point. This is either zero or (1 + i)/2, and h kills both points. With F = 1 − i the composite hF = 2 gives the prescribed x/7. Choosing h again gives h² = 2i, so the image is ix/7. Only the zero label is fixed by i modulo 7, since (i − 1)(−i − 1) = 2 is invertible modulo 7.",
+    },
     "ramified-residues": {
       title: "Which residues admit a witness at the ramified place?",
       kind: "Coefficient equations in a product of two local rings",
@@ -1614,6 +1628,27 @@
   }
 
   function render(id, v) {
+    if (id === "gaussian-quotient-marking") {
+      const label = [Number(v.u), Number(v.v)];
+      const [a, b] = {zero: [0, 0], one: [1, 0], i: [0, 1], both: [1, 1]}[v.shift];
+      const lift = [label[0] + 7 * a, label[1] + 7 * b];
+      const residue = n => ((n % 14) + 14) % 14;
+      const sign = v.factor === "F" ? -1 : 1;
+      const multiply = ([r, s]) => [residue(r - sign * s), residue(s + sign * r)];
+      const point = multiply(lift);
+      const shift = multiply([7 * a, 7 * b]);
+      const image = [residue(point[0] - point[1]) / 2, residue(point[0] + point[1]) / 2];
+      const matches = image[0] === label[0] && image[1] === label[1];
+      const pair = p => "(" + p.join(", ") + ")";
+      const row = (label, p) => '<tr><th scope="row">' + label + '</th><td>' + pair(p) + '</td></tr>';
+      const status = matches ? "Agrees" : "Differs";
+      const announce = "Level-7 image " + pair(image) + ". " + (matches ? "Prescribed label recovered." : "Prescribed label differs.");
+      return '<table class="carry-table" data-announcement="' + announce + '"><caption>Coordinates on the square elliptic curve</caption>' +
+        '<thead><tr><th scope="col">Quantity</th><th scope="col">Pair</th></tr></thead><tbody>' +
+        row("Lift <var>x + 7y</var>", lift) + row("Point at level 14", point) + row("Change at level 14", shift) +
+        row("Image at level 7", image) + row("Prescribed at level 7", label) + '</tbody></table>' +
+        metrics([["Marking", status]]);
+    }
     if (id === "ramified-residues") {
       const index = key => ramifiedCoordinates.findIndex(option => option[0] === key);
       const value = pair => "(" + pair.map(i => ramifiedCoordinates[i][1]).join(", ") + ")";
