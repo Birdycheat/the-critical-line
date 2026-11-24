@@ -1,0 +1,1165 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "RXA-01",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-extraction-realization",
+      "title": "Unipotent exponentials, scalar fixed-cycle blocks, normalized matrix spans, Noetherian coset extraction, and realization assembly",
+      "statement": "Over a field C of characteristic zero: (1) if a tangent matrix E ∈ M_N(C) of a matrix submonoid S satisfies E² = 0 and every polynomial relation f of S vanishes on the formal exponential exp(s E) in C[[s]], then exp(s E) = I + s E truncates to a linear polynomial and specializing s = 1 places the elementary unipotent matrix I + E in the Zariski closure of S. (2) Let p₀, …, p_(n−1) be pairwise orthogonal nonzero idempotents summing to I_N, let y ∈ M_N(C) permute them via y p_j = p_(π(j)) y, assume y is annihilated by a nonzero polynomial of degree at most n, and suppose y has n distinct eigenvalues λ₀, …, λ_(n−1) with eigenvectors supported on disjoint π-cycles whose spectra do not overlap; then for every fixed point π(i) = i, y acts on the weight space im(p_i) as the pure scalar λ_i (y p_i = λ_i p_i), excluding nontrivial Jordan blocks. (3) If a subalgebra A ⊆ M_N(C) is normalized by a representation ρ : Γ → GL_N(C), then the C-linear span of {a ρ(g) : a ∈ A, g ∈ Γ} is closed under matrix multiplication. (4) For a compact topological group Γ, a matrix representation r : Γ → GL_n(C), and a matrix polynomial f vanishing on a nonempty open subset O ⊆ Γ, the induced Zariski topology on Γ is Noetherian; taking the normal core U of the stabilizer of the irreducible component of 1 yields a finite-index normal subgroup U ⊴ Γ and an element g ∈ Γ such that f(r(g u)) = 0 for all u ∈ U. Together these assemble the key, representation-realization, semisimplicity, matrix-units, and full scalar-corner instances.",
+      "hypotheses": "Field C (algebraically closed of characteristic zero for the cycle-count and realization theorems), integers N, n ≥ 0, matrix submonoid S ⊆ M_N(C) with formal exponential vanishing on tangent matrices, system of n pairwise orthogonal nonzero idempotents summing to I_N permuted by y with disjoint cycle spectra and an annihilating polynomial of degree at most n, compact topological group Γ with matrix representation ρ or r, and linear polynomial pullback (chain rule) for left matrix translation.",
+      "correspondence": "Nilpotence E² = 0 forces the formal exponential series to terminate at degree one so polynomial vanishing in C[[s]] evaluates at s = 1. Exhausting the n distinct eigenvalues of a degree-bounded operator forces P(y) = ∏_j (y − λ_j I) = 0, and inductively stripping every factor j ≠ i on im(p_i) using disjoint cycle spectra forces y p_i = λ_i p_i. Normality ρ(g) A ρ(g⁻¹) ⊆ A rewrites products of generators inside the span, while compactness plus Noetherianity of Spec(C[X_(i,j)]) turns an open vanishing locus into a finite-index normal coset via the stabilizer of the identity component.",
+      "dependencies": [],
+      "equations": [
+        "lifts-rxa-unip-exp",
+        "lifts-rxa-fix-scalar",
+        "lifts-rxa-norm-span"
+      ],
+      "sources": [
+        {
+          "declaration": "LateralTheory.DivDb.UnipotentPartTrivial.Unip_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.UnipotentPartTrivial.Unip_of": 24,
+            "LateralTheory.DivDb.UnipotentPartTrivial.pow_vanish": 7,
+            "LateralTheory.DivDb.UnipotentPartTrivial.series_eq": 12
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/UnipotentPartTrivial.lean",
+          "lines": [
+            7,
+            51
+          ],
+          "label": "Truncation of the formal exponential of a square-zero tangent matrix and membership of elementary unipotent factors in the Zariski closure",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/UnipotentPartTrivial.lean#L7-L51",
+          "related_declarations": [
+            "LateralTheory.DivDb.UnipotentPartTrivial.pow_vanish",
+            "LateralTheory.DivDb.UnipotentPartTrivial.series_eq"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.FixScal_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.FixScal_of": 55,
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.comm_aeval": 10,
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.aeval_eig": 18,
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.same_fix": 22,
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.kill": 27
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean",
+          "lines": [
+            10,
+            103
+          ],
+          "label": "Exclusion of nontrivial Jordan blocks on fixed weight spaces via annihilator degree exhaustion and disjoint cycle spectra",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean#L10-L103",
+          "related_declarations": [
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.comm_aeval",
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.aeval_eig",
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.same_fix",
+            "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.kill"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.CycleCountPf.CycleCount_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.CycleCountPf.CycleCount_of": 18,
+            "LateralTheory.DivDb.CycleCountPf.CycSpec": 7,
+            "LateralTheory.DivDb.CycleCountPf.FixScal": 12
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/CycleCountPf.lean",
+          "lines": [
+            7,
+            22
+          ],
+          "label": "Assembly of distinct cycle eigenvalues and scalar fixed-block action into the cycle-count criterion",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/CycleCountPf.lean#L7-L22",
+          "related_declarations": [
+            "LateralTheory.DivDb.CycleCountPf.CycSpec",
+            "LateralTheory.DivDb.CycleCountPf.FixScal"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Reformulated.B.NormalizedMatrixSpan.span_mul",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.span_mul": 27,
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.Mat": 3,
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.Normd": 7,
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.gens": 19
+          },
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/NormalizedMatrixSpan.lean",
+          "lines": [
+            3,
+            44
+          ],
+          "label": "Multiplicative closure of the linear span generated by a group-normalized matrix subalgebra and the representation image",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/NormalizedMatrixSpan.lean#L3-L44",
+          "related_declarations": [
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.Mat",
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.Normd",
+            "UpperTheory.Reformulated.B.NormalizedMatrixSpan.gens"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Reformulated.B.Qn18.main",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.Qn18.main": 109,
+            "UpperTheory.Reformulated.B.Qn18.Mat": 3,
+            "UpperTheory.Reformulated.B.Qn18.MP": 7,
+            "UpperTheory.Reformulated.B.Qn18.ev": 11,
+            "UpperTheory.Reformulated.B.Qn18.dAt": 16,
+            "UpperTheory.Reformulated.B.Qn18.Chain": 25,
+            "UpperTheory.Reformulated.B.Qn18.OpenCoset": 38
+          },
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CosetOfCover.lean",
+          "lines": [
+            3,
+            149
+          ],
+          "label": "Noetherian Zariski-component argument extracting a finite-index normal coset from any nonempty open vanishing locus",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CosetOfCover.lean#L3-L149",
+          "related_declarations": [
+            "UpperTheory.Reformulated.B.Qn18.Mat",
+            "UpperTheory.Reformulated.B.Qn18.MP",
+            "UpperTheory.Reformulated.B.Qn18.ev",
+            "UpperTheory.Reformulated.B.Qn18.dAt",
+            "UpperTheory.Reformulated.B.Qn18.Chain",
+            "UpperTheory.Reformulated.B.Qn18.OpenCoset"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.OpenCoset_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.OpenCoset_of": 25,
+            "LateralTheory.DivDb.OpenCosetPf.J": 9,
+            "LateralTheory.DivDb.OpenCosetPf.main": 19
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/OpenCosetPf.lean",
+          "lines": [
+            9,
+            25
+          ],
+          "label": "Transfer of the Noetherian finite-index normal coset theorem to the rank-extraction vanishing ideal",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/OpenCosetPf.lean#L9-L25",
+          "related_declarations": [
+            "LateralTheory.DivDb.OpenCosetPf.J",
+            "LateralTheory.DivDb.OpenCosetPf.main"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.Rep.etale_representation_realization_instance",
+          "declaration_lines": {
+            "LateralTheory.Fin.Rep.etale_representation_realization_instance": 4,
+            "LateralTheory.Fin.Rep.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinRep.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled representation realization instance for the extracted rank-m module",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinRep.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.Rep.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.Semis.etale_semisimplicity_instance",
+          "declaration_lines": {
+            "LateralTheory.Fin.Semis.etale_semisimplicity_instance": 4,
+            "LateralTheory.Fin.Semis.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinSemis.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled semisimplicity instance for the tangent-generated algebra decomposition",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinSemis.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.Semis.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.MatrixUnits₂.etale_matrix_units_system_of_key",
+          "declaration_lines": {
+            "LateralTheory.Fin.MatrixUnits₂.etale_matrix_units_system_of_key": 4,
+            "LateralTheory.Fin.MatrixUnits₂.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinMatUnits.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled matrix-units system instance on the scalar-corner algebra",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinMatUnits.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.MatrixUnits₂.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.BigCorner.etale_big_corner_statement_holds_assembled",
+          "declaration_lines": {
+            "LateralTheory.Fin.BigCorner.etale_big_corner_statement_holds_assembled": 4,
+            "LateralTheory.Fin.BigCorner.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinBigCorner.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled full-image scalar-corner algebra instance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinBigCorner.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.BigCorner.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.Key.etale_unipotent_part_trivial_of_key",
+          "declaration_lines": {
+            "LateralTheory.Fin.Key.etale_unipotent_part_trivial_of_key": 35,
+            "LateralTheory.Fin.Key.etale_matrix_units_system_of_key": 19,
+            "LateralTheory.Fin.Key.etale_idempotent_conjugacy_of_key": 21,
+            "LateralTheory.Fin.Key.etale_unit_factorization_of_key": 23,
+            "LateralTheory.Fin.Key.etale_divisibility_chain_of_key": 25,
+            "LateralTheory.Fin.Key.etale_zariski_closure_mul_closed_of_key": 27,
+            "LateralTheory.Fin.Key.etale_tangent_index_divides_of_key": 29,
+            "LateralTheory.Fin.Key.etale_tangent_field_extension_of_key": 31,
+            "LateralTheory.Fin.Key.etale_exponent_vanishing_of_key": 33
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinKey.lean",
+          "lines": [
+            19,
+            36
+          ],
+          "label": "Key-component assembly wiring matrix units, idempotent conjugacy, unit factorization, chain rule, Zariski closure, tangent index, tangent derivations, exponential vanishing, and unipotent membership",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinKey.lean#L19-L36",
+          "related_declarations": [
+            "LateralTheory.Fin.Key.etale_matrix_units_system_of_key",
+            "LateralTheory.Fin.Key.etale_idempotent_conjugacy_of_key",
+            "LateralTheory.Fin.Key.etale_unit_factorization_of_key",
+            "LateralTheory.Fin.Key.etale_divisibility_chain_of_key",
+            "LateralTheory.Fin.Key.etale_zariski_closure_mul_closed_of_key",
+            "LateralTheory.Fin.Key.etale_tangent_index_divides_of_key",
+            "LateralTheory.Fin.Key.etale_tangent_field_extension_of_key",
+            "LateralTheory.Fin.Key.etale_exponent_vanishing_of_key"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "RXA-02",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-extraction-spectrum",
+      "title": "Linear polynomial chain rule, invariant tangent derivations, Lagrange spectral projectors, and lacunary Lie-algebra structure",
+      "statement": "Let C be a field and N, M, n ≥ 0 integers. (1) For every C-linear map φ : M_N(C) → M_M(C) and matrix polynomial f ∈ C[X_(i,j)] (on M × M entries), substituting the linear coordinate forms of φ produces a polynomial f' on M_N(C) satisfying f'(x) = f(φ(x)) and the directional-derivative chain rule d(f', x, Y) = d(f, φ(x), φ(Y)) for all x, Y ∈ M_N(C). (2) For any matrix submonoid S ⊆ M_N(C) and Y ∈ M_N(C), the right-invariant derivation D_Y satisfies (D_Y f)(x) = d(f, x, Y x); hence Y lies in the Zariski tangent space of S at the identity if and only if D_Y preserves the vanishing ideal of S. (3) If X ∈ M_N(C) is annihilated by a nonzero polynomial of degree at most n and has n distinct eigenvalues e₀, …, e_(n−1) ∈ C, then its minimal polynomial equals ∏_(k=0)^(n−1) (T − e_k), and evaluating the Lagrange interpolation polynomials b_i(T) = ∏_(j≠i) (T − e_j)/(e_i − e_j) at X yields pairwise orthogonal nonzero idempotents p_i = b_i(X) ∈ C[X] with ∑_i p_i = I_N and X = ∑_i e_i p_i; moreover, every eigenvector y v = μ v satisfies Q(y) v = Q(μ) v for all Q ∈ C[T]. (4) Combined with the lacunary-weight condition (disjoint nonempty subsets A, B ⊆ {0, …, n−1} satisfy |B| ∑_(i∈A) e_i ≠ |A| ∑_(j∈B) e_j) and specialization to the algebraically closed coefficient field K, these assemble the Lie-spectrum, global degree-bound, and full tangent-algebra structure theorems.",
+      "hypotheses": "Field C (and algebraically closed extension K'/K of characteristic zero for specialization and lacunary Lie-algebra data), integers N, M, n ≥ 0, C-linear map φ : M_N(C) → M_M(C), matrix submonoid S ⊆ M_N(C), matrix X ∈ M_N(C) with an annihilator of degree at most n and n distinct eigenvalues e₀, …, e_(n−1), and compact topological group Γ with continuous semisimple representation ρ : Γ → GL_N(K).",
+      "correspondence": "Structural induction on multivariate polynomials using the Leibniz rule establishes the linear chain rule and identifies right-invariant derivations D_Y with directional derivatives along Y x, equating tangency at I with ideal preservation. Coprime linear factors of distinct eigenvalues force the minimal polynomial of a degree-n matrix to be ∏(T − e_k), so Lagrange interpolation constructs the exact orthogonal spectral projector system and wires the full tangent-algebra structure assembly.",
+      "dependencies": [
+        "RXA-01"
+      ],
+      "equations": [
+        "lifts-rxa-chain-rule",
+        "lifts-rxa-tan-deriv",
+        "lifts-rxa-lagrange-proj"
+      ],
+      "sources": [
+        {
+          "declaration": "LateralTheory.DivDb.Chain_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.Chain_of": 65,
+            "LateralTheory.DivDb.ChainPf.lin": 9,
+            "LateralTheory.DivDb.ChainPf.sum_lin": 12,
+            "LateralTheory.DivDb.ChainPf.ev_lin": 22,
+            "LateralTheory.DivDb.ChainPf.dAt_lin": 26,
+            "LateralTheory.DivDb.ChainPf.ev_bind": 33,
+            "LateralTheory.DivDb.ChainPf.dAt_add": 39,
+            "LateralTheory.DivDb.ChainPf.dAt_mul": 42,
+            "LateralTheory.DivDb.ChainPf.dAt_C": 47,
+            "LateralTheory.DivDb.ChainPf.chain_of": 50
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+          "lines": [
+            9,
+            65
+          ],
+          "label": "Polynomial pullback along linear matrix maps and exact directional-derivative chain rule",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean#L9-L65",
+          "related_declarations": [
+            "LateralTheory.DivDb.ChainPf.lin",
+            "LateralTheory.DivDb.ChainPf.sum_lin",
+            "LateralTheory.DivDb.ChainPf.ev_lin",
+            "LateralTheory.DivDb.ChainPf.dAt_lin",
+            "LateralTheory.DivDb.ChainPf.ev_bind",
+            "LateralTheory.DivDb.ChainPf.dAt_add",
+            "LateralTheory.DivDb.ChainPf.dAt_mul",
+            "LateralTheory.DivDb.ChainPf.dAt_C",
+            "LateralTheory.DivDb.ChainPf.chain_of"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.TangentFieldExtension.TanField_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.TangentFieldExtension.TanField_of": 27,
+            "LateralTheory.DivDb.TangentFieldExtension.ev_DX": 10
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/TangentFieldExtension.lean",
+          "lines": [
+            10,
+            43
+          ],
+          "label": "Equivalence between Zariski tangency at the identity and preservation of the vanishing ideal by right-invariant derivations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/TangentFieldExtension.lean#L10-L43",
+          "related_declarations": [
+            "LateralTheory.DivDb.TangentFieldExtension.ev_DX"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.Proj_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.Proj_of": 56,
+            "LateralTheory.DivDb.ProjPf.root_minpoly": 8,
+            "LateralTheory.DivDb.ProjPf.prod_dvd": 15,
+            "LateralTheory.DivDb.ProjPf.minpoly_eq": 21,
+            "LateralTheory.DivDb.ProjPf.evb": 39,
+            "LateralTheory.DivDb.ProjPf.vanish": 45
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean",
+          "lines": [
+            8,
+            100
+          ],
+          "label": "Minimal-polynomial identification and Lagrange-interpolated orthogonal spectral projectors for degree-bounded matrices",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean#L8-L100",
+          "related_declarations": [
+            "LateralTheory.DivDb.ProjPf.root_minpoly",
+            "LateralTheory.DivDb.ProjPf.prod_dvd",
+            "LateralTheory.DivDb.ProjPf.minpoly_eq",
+            "LateralTheory.DivDb.ProjPf.evb",
+            "LateralTheory.DivDb.ProjPf.vanish"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Reformulated.B.Qp8.pow_eig",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.Qp8.pow_eig": 7,
+            "UpperTheory.Reformulated.B.Qp8.Mat": 3
+          },
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/PowEig.lean",
+          "lines": [
+            3,
+            14
+          ],
+          "label": "Induction formula for powers of a matrix acting on an eigenvector",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/PowEig.lean#L3-L14",
+          "related_declarations": [
+            "UpperTheory.Reformulated.B.Qp8.Mat"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Reformulated.B.Qp10.aeval_eig",
+          "declaration_lines": {
+            "UpperTheory.Reformulated.B.Qp10.aeval_eig": 7,
+            "UpperTheory.Reformulated.B.Qp10.Mat": 3
+          },
+          "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/AevalEig.lean",
+          "lines": [
+            3,
+            24
+          ],
+          "label": "Polynomial functional calculus on an eigenvector of a square matrix",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/AevalEig.lean#L3-L24",
+          "related_declarations": [
+            "UpperTheory.Reformulated.B.Qp10.Mat"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.AutomorphicGaloisHodgeTate.Div.InLieZar",
+          "declaration_lines": {
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.InLieZar": 16,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.MeetsOpenCosets": 7,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsSSMat": 10,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivCore": 24,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.MultGeneric": 46,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivGenOne": 49
+          },
+          "path": "src/Development/WeilBound/CoreStatements/PadicHodgeComparison/CocharacterLieDivisors/MeetsOpenCosets.lean",
+          "lines": [
+            7,
+            69
+          ],
+          "label": "Core definitions of semisimple matrix representations, Zariski Lie algebras, and open-coset density predicates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/CocharacterLieDivisors/MeetsOpenCosets.lean#L7-L69",
+          "related_declarations": [
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.MeetsOpenCosets",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsSSMat",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivCore",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.MultGeneric",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivGenOne"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLac",
+          "declaration_lines": {
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLac": 90,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.ZarIrred": 8,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.WGen": 15,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCore": 22,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsSidon": 53,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.ProdGen": 56,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreSidon": 60,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsLac": 86,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLacNil": 119,
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLacUse": 148
+          },
+          "path": "src/Development/WeilBound/CoreStatements/PadicHodgeComparison/CocharacterLieDivisors/DivWCoreLacUseType.lean",
+          "lines": [
+            8,
+            178
+          ],
+          "label": "Lacunary-weight and product-genericity conditions and the master lacunary rank-extraction theorem statement",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/CocharacterLieDivisors/DivWCoreLacUseType.lean#L8-L178",
+          "related_declarations": [
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.ZarIrred",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.WGen",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCore",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsSidon",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.ProdGen",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreSidon",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.IsLac",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLacNil",
+            "PositivityTheory.AutomorphicGaloisHodgeTate.Div.DivWCoreLacUse"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.SpecLie.etale_spectrum_lie_algebra_instance",
+          "declaration_lines": {
+            "LateralTheory.Fin.SpecLie.etale_spectrum_lie_algebra_instance": 7,
+            "LateralTheory.Fin.SpecLie.etale_special_point_exists_of_key": 5,
+            "LateralTheory.Fin.SpecLie.intersectionNumber_baseChange": 9
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinSpecLie.lean",
+          "lines": [
+            5,
+            9
+          ],
+          "label": "Assembled specialization and Lie-spectrum instance over the algebraically closed coefficient field",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinSpecLie.lean#L5-L9",
+          "related_declarations": [
+            "LateralTheory.Fin.SpecLie.etale_special_point_exists_of_key",
+            "LateralTheory.Fin.SpecLie.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.DegAll.etale_rep_image_degree_bound_all_holds_assembled",
+          "declaration_lines": {
+            "LateralTheory.Fin.DegAll.etale_rep_image_degree_bound_all_holds_assembled": 7,
+            "LateralTheory.Fin.DegAll.etale_degree_polynomial_bound": 5,
+            "LateralTheory.Fin.DegAll.intersectionNumber_baseChange": 9
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinDegAll.lean",
+          "lines": [
+            5,
+            9
+          ],
+          "label": "Assembled global degree-bound extension across the full continuous representation image",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinDegAll.lean#L5-L9",
+          "related_declarations": [
+            "LateralTheory.Fin.DegAll.etale_degree_polynomial_bound",
+            "LateralTheory.Fin.DegAll.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.Struct.etale_algebra_structure_theorem_of_components",
+          "declaration_lines": {
+            "LateralTheory.Fin.Struct.etale_algebra_structure_theorem_of_components": 49,
+            "LateralTheory.Fin.Struct.etale_divisibility_chain_of_key": 19,
+            "LateralTheory.Fin.Struct.etale_tangent_field_extension_of_key": 21,
+            "LateralTheory.Fin.Struct.etale_exponent_vanishing_of_key": 23,
+            "LateralTheory.Fin.Struct.etale_degree_polynomial_bound": 25,
+            "LateralTheory.Fin.Struct.etale_tangent_degree_bound_of_key": 27,
+            "LateralTheory.Fin.Struct.etale_projection_system_of_structure": 29,
+            "LateralTheory.Fin.Struct.etale_tangent_lie_algebra_of_structure": 31,
+            "LateralTheory.Fin.Struct.etale_cyclic_grading_of_structure": 33,
+            "LateralTheory.Fin.Struct.etale_cycle_spectrum_of_structure": 35,
+            "LateralTheory.Fin.Struct.etale_fixed_cycle_scalar_of_structure": 37,
+            "LateralTheory.Fin.Struct.etale_cycle_count_eigenvalues_of_key": 39,
+            "LateralTheory.Fin.Struct.etale_diagonal_scalar_of_structure": 41,
+            "LateralTheory.Fin.Struct.etale_algebra_decomposition_of_structure": 43,
+            "LateralTheory.Fin.Struct.etale_envelope_stabilizer_of_structure": 45,
+            "LateralTheory.Fin.Struct.etale_semisimplicity_instance": 47,
+            "LateralTheory.Fin.Struct.intersectionNumber_baseChange": 51
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinStruct.lean",
+          "lines": [
+            19,
+            51
+          ],
+          "label": "Full tangent-algebra structure assembly linking chain rule, tangent degree, Lagrange projectors, grading, cycle counts, scalar corners, and semisimplicity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinStruct.lean#L19-L51",
+          "related_declarations": [
+            "LateralTheory.Fin.Struct.etale_divisibility_chain_of_key",
+            "LateralTheory.Fin.Struct.etale_tangent_field_extension_of_key",
+            "LateralTheory.Fin.Struct.etale_exponent_vanishing_of_key",
+            "LateralTheory.Fin.Struct.etale_degree_polynomial_bound",
+            "LateralTheory.Fin.Struct.etale_tangent_degree_bound_of_key",
+            "LateralTheory.Fin.Struct.etale_projection_system_of_structure",
+            "LateralTheory.Fin.Struct.etale_tangent_lie_algebra_of_structure",
+            "LateralTheory.Fin.Struct.etale_cyclic_grading_of_structure",
+            "LateralTheory.Fin.Struct.etale_cycle_spectrum_of_structure",
+            "LateralTheory.Fin.Struct.etale_fixed_cycle_scalar_of_structure",
+            "LateralTheory.Fin.Struct.etale_cycle_count_eigenvalues_of_key",
+            "LateralTheory.Fin.Struct.etale_diagonal_scalar_of_structure",
+            "LateralTheory.Fin.Struct.etale_algebra_decomposition_of_structure",
+            "LateralTheory.Fin.Struct.etale_envelope_stabilizer_of_structure",
+            "LateralTheory.Fin.Struct.etale_semisimplicity_instance",
+            "LateralTheory.Fin.Struct.intersectionNumber_baseChange"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "RXA-03",
+      "chapter": "lifts",
+      "anchor": "lifts-rank-extraction-goal",
+      "title": "Zariski multiplicative closure, semisimple reverse embedding, characteristic-polynomial matching, and unconditional rank-extraction assembly",
+      "statement": "Let K be an algebraically closed field of characteristic zero and Γ a compact topological group. (1) For any matrix submonoid S ⊆ M_N(K), two-stage linear pullback along left multiplication by s ∈ S and right multiplication by y in the Zariski closure S̄ shows that S̄ is closed under matrix multiplication. (2) Given continuous semisimple ρ : Γ → GL_N(K), a representation r : Γ → GL_n(K) with an intertwiner A ∈ M_(N×n)(K), linear left inverse B (B A = I_n), and the spanning condition (every Z ∈ M_N(K) killing all intertwiners r → ρ vanishes), semisimplicity descends from ρ to r, rank(A) = n, r(g) = B ρ(g) A, and for every g ∈ Γ and q ∈ K[T] one has q(ρ(g)) = 0 if and only if q(r(g)) = 0. (3) If x ∈ M_n(K) is annihilated by a monic degree-n polynomial P ∈ K[T], then every eigenvalue of x lies in the root set of P; hence the characteristic polynomial χ_x equals P whenever either χ_x is separable, or P is product-generic (no distinct degree-n multiset of roots of P has the same product) and det(x) = (−1)^n P(0). (4) By finite-dimensional descent on dim ker E for equivariant idempotents E in the span of rank factorizations t' ∘ t through r, the identity I_N writes as ∑_(j=1)^k t'_j t_j with equivariant t_j : ρ → r and t'_j : r → ρ, embedding ρ ↪ r^(⊕k). (5) Assembling all thirteen verified instances discharges the lacunary rank-extraction theorem unconditionally, yielding continuous semisimple r : Γ → GL_n(K) with r ↪ ρ, ρ ↪ r^(⊕k), det(r) = ψ, open dense separable-spectrum locus, and χ_(r(s)) = P_s on separable and product-generic points.",
+      "hypotheses": "Compact topological group Γ, algebraically closed field K of characteristic zero with algebraically closed extension K'/K, continuous semisimple matrix representation ρ : Γ → GL_N(K), dense subset S ⊆ Γ with monic degree-n polynomials P_s annihilating ρ(s), continuous character ψ : Γ → K^× matching (−1)^n P_s(0) on S, and a Zariski Lie-algebra matrix X ∈ M_N(K') possessing n distinct lacunary eigenvalues.",
+      "correspondence": "Two-stage polynomial pullback closes S̄ under multiplication; pulling invariant complements back along an injective intertwiner A transfers semisimplicity and polynomial annihilation; multiset cardinality and Vieta sign (−1)^(2n) = 1 prove characteristic-polynomial matching under separability or product-genericity; equivariant idempotent ascent splits ker E one nonvanishing intertwiner at a time to reach I_N = ∑ t'_j t_j, completing all thirteen components of the unconditional lacunary rank-extraction assembly.",
+      "dependencies": [
+        "RXA-01",
+        "RXA-02"
+      ],
+      "equations": [
+        "lifts-rxa-zcl-mul",
+        "lifts-rxa-charpoly-match",
+        "lifts-rxa-idemp-embed"
+      ],
+      "sources": [
+        {
+          "declaration": "LateralTheory.DivDb.ZclMul_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.ZclMul_of": 38,
+            "LateralTheory.DivDb.ZclMulPf.left_mem": 8,
+            "LateralTheory.DivDb.ZclMulPf.mul_mem": 21
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/ZclMulPf.lean",
+          "lines": [
+            8,
+            40
+          ],
+          "label": "Multiplicative closure of the Zariski closure of any matrix submonoid via two-stage linear polynomial pullback",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/ZclMulPf.lean#L8-L40",
+          "related_declarations": [
+            "LateralTheory.DivDb.ZclMulPf.left_mem",
+            "LateralTheory.DivDb.ZclMulPf.mul_mem"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.FiniteSubrepresentation.FinSub_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.FiniteSubrepresentation.FinSub_of": 26,
+            "LateralTheory.DivDb.FiniteSubrepresentation.pow_tw": 9,
+            "LateralTheory.DivDb.FiniteSubrepresentation.aeval_tw": 15
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinSubOf.lean",
+          "lines": [
+            9,
+            76
+          ],
+          "label": "Descent of semisimplicity, full column rank, retraction formula, and equivalent polynomial annihilation for the extracted subrepresentation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinSubOf.lean#L9-L76",
+          "related_declarations": [
+            "LateralTheory.DivDb.FiniteSubrepresentation.pow_tw",
+            "LateralTheory.DivDb.FiniteSubrepresentation.aeval_tw"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.FinPolyPf.FinPoly_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.FinPolyPf.FinPoly_of": 33,
+            "LateralTheory.DivDb.FinPolyPf.root_sub": 9,
+            "LateralTheory.DivDb.FinPolyPf.card_roots_eq": 22,
+            "LateralTheory.DivDb.FinPolyPf.cp_card": 25,
+            "LateralTheory.DivDb.FinPolyPf.eq_of_roots": 28
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinPolyPf.lean",
+          "lines": [
+            9,
+            48
+          ],
+          "label": "Equality of the extracted characteristic polynomial with the prescribed annihilator under separability or product-genericity plus determinant matching",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinPolyPf.lean#L9-L48",
+          "related_declarations": [
+            "LateralTheory.DivDb.FinPolyPf.root_sub",
+            "LateralTheory.DivDb.FinPolyPf.card_roots_eq",
+            "LateralTheory.DivDb.FinPolyPf.cp_card",
+            "LateralTheory.DivDb.FinPolyPf.eq_of_roots"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.FinEmbedPf.FinEmbed_of",
+          "declaration_lines": {
+            "LateralTheory.DivDb.FinEmbedPf.FinEmbed_of": 155,
+            "LateralTheory.DivDb.FinEmbedPf.SS": 10,
+            "LateralTheory.DivDb.FinEmbedPf.gens": 13,
+            "LateralTheory.DivDb.FinEmbedPf.proj_comm": 17,
+            "LateralTheory.DivDb.FinEmbedPf.step": 25,
+            "LateralTheory.DivDb.FinEmbedPf.main": 123
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinEmbedPf.lean",
+          "lines": [
+            10,
+            195
+          ],
+          "label": "Constructive semisimple reverse embedding of the ambient representation into a finite direct sum of copies of the extracted module by idempotent kernel descent",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinEmbedPf.lean#L10-L195",
+          "related_declarations": [
+            "LateralTheory.DivDb.FinEmbedPf.SS",
+            "LateralTheory.DivDb.FinEmbedPf.gens",
+            "LateralTheory.DivDb.FinEmbedPf.proj_comm",
+            "LateralTheory.DivDb.FinEmbedPf.step",
+            "LateralTheory.DivDb.FinEmbedPf.main"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.DenseAlg.etale_rep_dense_algebraic_hull_holds_assembled",
+          "declaration_lines": {
+            "LateralTheory.Fin.DenseAlg.etale_rep_dense_algebraic_hull_holds_assembled": 10,
+            "LateralTheory.Fin.DenseAlg.etale_divisibility_chain_of_key": 6,
+            "LateralTheory.Fin.DenseAlg.etale_frobenius_charpoly_separable": 8,
+            "LateralTheory.Fin.DenseAlg.intersectionNumber_baseChange": 12
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinDenseAlg.lean",
+          "lines": [
+            6,
+            12
+          ],
+          "label": "Assembled dense algebraic-hull witness instance from polynomial pullback and separable characteristic-polynomial tests",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinDenseAlg.lean#L6-L12",
+          "related_declarations": [
+            "LateralTheory.Fin.DenseAlg.etale_divisibility_chain_of_key",
+            "LateralTheory.Fin.DenseAlg.etale_frobenius_charpoly_separable",
+            "LateralTheory.Fin.DenseAlg.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.FinDense.etale_finite_image_dense_holds_assembled",
+          "declaration_lines": {
+            "LateralTheory.Fin.FinDense.etale_finite_image_dense_holds_assembled": 13,
+            "LateralTheory.Fin.FinDense.etale_frobenius_charpoly_separable": 7,
+            "LateralTheory.Fin.FinDense.etale_divisibility_chain_of_key": 9,
+            "LateralTheory.Fin.FinDense.etale_open_coset_condition_holds_assembled": 11,
+            "LateralTheory.Fin.FinDense.intersectionNumber_baseChange": 15
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinDense.lean",
+          "lines": [
+            7,
+            15
+          ],
+          "label": "Assembled topological openness and density of the simple-spectrum locus from the finite-index normal coset criterion",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinFinDense.lean#L7-L15",
+          "related_declarations": [
+            "LateralTheory.Fin.FinDense.etale_frobenius_charpoly_separable",
+            "LateralTheory.Fin.FinDense.etale_divisibility_chain_of_key",
+            "LateralTheory.Fin.FinDense.etale_open_coset_condition_holds_assembled",
+            "LateralTheory.Fin.FinDense.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.FinSub.finite_subrepresentation_etale_charpoly_instance",
+          "declaration_lines": {
+            "LateralTheory.Fin.FinSub.finite_subrepresentation_etale_charpoly_instance": 4,
+            "LateralTheory.Fin.FinSub.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinSub.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled extracted-subrepresentation semisimplicity and annihilation instance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinFinSub.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.FinSub.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.FinPoly.charpoly_eq_of_annihilating_poly_etale_instance",
+          "declaration_lines": {
+            "LateralTheory.Fin.FinPoly.charpoly_eq_of_annihilating_poly_etale_instance": 4,
+            "LateralTheory.Fin.FinPoly.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinPoly.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled characteristic-polynomial matching instance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinFinPoly.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.FinPoly.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.Fin.FinEmbed.etale_semisimple_finite_embedding_holds_assembled",
+          "declaration_lines": {
+            "LateralTheory.Fin.FinEmbed.etale_semisimple_finite_embedding_holds_assembled": 4,
+            "LateralTheory.Fin.FinEmbed.intersectionNumber_baseChange": 6
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinEmbed.lean",
+          "lines": [
+            4,
+            6
+          ],
+          "label": "Assembled semisimple reverse-embedding instance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/FinFinEmbed.lean#L4-L6",
+          "related_declarations": [
+            "LateralTheory.Fin.FinEmbed.intersectionNumber_baseChange"
+          ]
+        },
+        {
+          "declaration": "LateralTheory.DivDb.goal_holds",
+          "declaration_lines": {
+            "LateralTheory.DivDb.goal_holds": 19
+          },
+          "path": "src/Development/EtaleCohomology/DivisorCycles/GoalHolds.lean",
+          "lines": [
+            19,
+            20
+          ],
+          "label": "Unconditional assembly of all thirteen verified components discharging the lacunary rank-extraction theorem",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/EtaleCohomology/DivisorCycles/GoalHolds.lean#L19-L20"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "LateralTheory.DivDb.UnipotentPartTrivial.series_eq",
+      "callee": "LateralTheory.DivDb.UnipotentPartTrivial.pow_vanish",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/UnipotentPartTrivial.lean",
+        "line": 21,
+        "spelling": "pow_vanish"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.UnipotentPartTrivial.Unip_of",
+      "callee": "LateralTheory.DivDb.UnipotentPartTrivial.series_eq",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/UnipotentPartTrivial.lean",
+        "line": 38,
+        "spelling": "series_eq"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.kill",
+      "callee": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.comm_aeval",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean",
+        "line": 47,
+        "spelling": "comm_aeval"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.kill",
+      "callee": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.same_fix",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean",
+        "line": 53,
+        "spelling": "same_fix"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.FixScal_of",
+      "callee": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.aeval_eig",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean",
+        "line": 61,
+        "spelling": "aeval_eig"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.FixScal_of",
+      "callee": "LateralTheory.DivDb.ScalarFixedPointsUnderAeval.kill",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FixScalOf.lean",
+        "line": 96,
+        "spelling": "kill"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.OpenCoset_of",
+      "callee": "LateralTheory.DivDb.OpenCosetPf.main",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/OpenCosetPf.lean",
+        "line": 25,
+        "spelling": "OpenCosetPf.main"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Rep.etale_representation_realization_instance",
+      "callee": "LateralTheory.DivDb.RepPf.Rep_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinRep.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.RepPf.Rep_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Semis.etale_semisimplicity_instance",
+      "callee": "LateralTheory.DivDb.SemisPf.Semis_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinSemis.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.SemisPf.Semis_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.MatrixUnits₂.etale_matrix_units_system_of_key",
+      "callee": "LateralTheory.DivDb.MatrixUnitConstruction.MatUnits_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinMatUnits.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.MatrixUnitConstruction.MatUnits_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.BigCorner.etale_big_corner_statement_holds_assembled",
+      "callee": "LateralTheory.DivDb.BigCorner₂.BigCorner_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinBigCorner.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.BigCorner₂.BigCorner_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Key.etale_idempotent_conjugacy_of_key",
+      "callee": "LateralTheory.DivDb.ConjugateIdempotents.IdemConj_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinKey.lean",
+        "line": 22,
+        "spelling": "LateralTheory.DivDb.ConjugateIdempotents.IdemConj_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Key.etale_unit_factorization_of_key",
+      "callee": "LateralTheory.DivDb.UnitFactorizationTheorem.UnitFactor_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinKey.lean",
+        "line": 24,
+        "spelling": "LateralTheory.DivDb.UnitFactorizationTheorem.UnitFactor_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Key.etale_unipotent_part_trivial_of_key",
+      "callee": "LateralTheory.DivDb.UnipotentPartTrivial.Unip_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinKey.lean",
+        "line": 36,
+        "spelling": "LateralTheory.DivDb.UnipotentPartTrivial.Unip_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ChainPf.ev_lin",
+      "callee": "LateralTheory.DivDb.ChainPf.sum_lin",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+        "line": 24,
+        "spelling": "sum_lin"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ChainPf.ev_bind",
+      "callee": "LateralTheory.DivDb.ChainPf.ev_lin",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+        "line": 37,
+        "spelling": "ev_lin"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ChainPf.chain_of",
+      "callee": "LateralTheory.DivDb.ChainPf.ev_bind",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+        "line": 53,
+        "spelling": "ev_bind"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ChainPf.chain_of",
+      "callee": "LateralTheory.DivDb.ChainPf.dAt_mul",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+        "line": 59,
+        "spelling": "dAt_mul"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.Chain_of",
+      "callee": "LateralTheory.DivDb.ChainPf.chain_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ChainPf.lean",
+        "line": 65,
+        "spelling": "LateralTheory.DivDb.ChainPf.chain_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.TangentFieldExtension.TanField_of",
+      "callee": "LateralTheory.DivDb.TangentFieldExtension.ev_DX",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/TangentFieldExtension.lean",
+        "line": 38,
+        "spelling": "ev_DX"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ProjPf.minpoly_eq",
+      "callee": "LateralTheory.DivDb.ProjPf.prod_dvd",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean",
+        "line": 28,
+        "spelling": "prod_dvd"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ProjPf.minpoly_eq",
+      "callee": "LateralTheory.DivDb.ProjPf.root_minpoly",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean",
+        "line": 28,
+        "spelling": "root_minpoly"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ProjPf.vanish",
+      "callee": "LateralTheory.DivDb.ProjPf.minpoly_eq",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean",
+        "line": 48,
+        "spelling": "minpoly_eq"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.Proj_of",
+      "callee": "LateralTheory.DivDb.ProjPf.vanish",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ProjPf.lean",
+        "line": 60,
+        "spelling": "vanish"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.SpecLie.etale_spectrum_lie_algebra_instance",
+      "callee": "LateralTheory.DivDb.SpecLiePf.SpecLie_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinSpecLie.lean",
+        "line": 8,
+        "spelling": "LateralTheory.DivDb.SpecLiePf.SpecLie_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.DegAll.etale_rep_image_degree_bound_all_holds_assembled",
+      "callee": "LateralTheory.DivDb.DegAll_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinDegAll.lean",
+        "line": 8,
+        "spelling": "LateralTheory.DivDb.DegAll_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.Struct.etale_algebra_structure_theorem_of_components",
+      "callee": "LateralTheory.DivDb.StructPf.Struct_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinStruct.lean",
+        "line": 50,
+        "spelling": "LateralTheory.DivDb.StructPf.Struct_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ZclMulPf.mul_mem",
+      "callee": "LateralTheory.DivDb.ZclMulPf.left_mem",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ZclMulPf.lean",
+        "line": 29,
+        "spelling": "left_mem"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.ZclMul_of",
+      "callee": "LateralTheory.DivDb.ZclMulPf.mul_mem",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/ZclMulPf.lean",
+        "line": 39,
+        "spelling": "LateralTheory.DivDb.ZclMulPf.mul_mem"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FiniteSubrepresentation.aeval_tw",
+      "callee": "LateralTheory.DivDb.FiniteSubrepresentation.pow_tw",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinSubOf.lean",
+        "line": 22,
+        "spelling": "pow_tw"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FiniteSubrepresentation.FinSub_of",
+      "callee": "LateralTheory.DivDb.FiniteSubrepresentation.aeval_tw",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinSubOf.lean",
+        "line": 69,
+        "spelling": "aeval_tw"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinPolyPf.FinPoly_of",
+      "callee": "LateralTheory.DivDb.FinPolyPf.root_sub",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinPolyPf.lean",
+        "line": 35,
+        "spelling": "root_sub"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinPolyPf.FinPoly_of",
+      "callee": "LateralTheory.DivDb.FinPolyPf.eq_of_roots",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinPolyPf.lean",
+        "line": 38,
+        "spelling": "eq_of_roots"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinPolyPf.FinPoly_of",
+      "callee": "LateralTheory.DivDb.FinPolyPf.cp_card",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinPolyPf.lean",
+        "line": 41,
+        "spelling": "cp_card"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinEmbedPf.step",
+      "callee": "LateralTheory.DivDb.FinEmbedPf.proj_comm",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinEmbedPf.lean",
+        "line": 78,
+        "spelling": "proj_comm"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinEmbedPf.main",
+      "callee": "LateralTheory.DivDb.FinEmbedPf.step",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinEmbedPf.lean",
+        "line": 147,
+        "spelling": "step"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.FinEmbedPf.FinEmbed_of",
+      "callee": "LateralTheory.DivDb.FinEmbedPf.main",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinEmbedPf.lean",
+        "line": 175,
+        "spelling": "main"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.DenseAlg.etale_rep_dense_algebraic_hull_holds_assembled",
+      "callee": "LateralTheory.DivDb.DenseAlg₂.DenseAlg_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinDenseAlg.lean",
+        "line": 11,
+        "spelling": "LateralTheory.DivDb.DenseAlg₂.DenseAlg_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.FinDense.etale_finite_image_dense_holds_assembled",
+      "callee": "LateralTheory.DivDb.FinDense_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinDense.lean",
+        "line": 14,
+        "spelling": "LateralTheory.DivDb.FinDense_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.FinSub.finite_subrepresentation_etale_charpoly_instance",
+      "callee": "LateralTheory.DivDb.FiniteSubrepresentation.FinSub_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinSub.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.FiniteSubrepresentation.FinSub_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.FinPoly.charpoly_eq_of_annihilating_poly_etale_instance",
+      "callee": "LateralTheory.DivDb.FinPolyPf.FinPoly_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinPoly.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.FinPolyPf.FinPoly_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.Fin.FinEmbed.etale_semisimple_finite_embedding_holds_assembled",
+      "callee": "LateralTheory.DivDb.FinEmbedPf.FinEmbed_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/FinFinEmbed.lean",
+        "line": 5,
+        "spelling": "LateralTheory.DivDb.FinEmbedPf.FinEmbed_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.goal_holds",
+      "callee": "LateralTheory.DivDb.goal_of",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/GoalHolds.lean",
+        "line": 20,
+        "spelling": "goal_of"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.goal_holds",
+      "callee": "LateralTheory.Fin.SpecLie.intersectionNumber_baseChange",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/GoalHolds.lean",
+        "line": 20,
+        "spelling": "LateralTheory.Fin.SpecLie.intersectionNumber_baseChange"
+      }
+    },
+    {
+      "caller": "LateralTheory.DivDb.goal_holds",
+      "callee": "LateralTheory.Fin.FinEmbed.intersectionNumber_baseChange",
+      "callsite": {
+        "path": "src/Development/EtaleCohomology/DivisorCycles/GoalHolds.lean",
+        "line": 20,
+        "spelling": "LateralTheory.Fin.FinEmbed.intersectionNumber_baseChange"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RXA-01",
+      "RXA-02"
+    ],
+    [
+      "RXA-01",
+      "RXA-03"
+    ],
+    [
+      "RXA-02",
+      "RXA-03"
+    ]
+  ],
+  "outstanding": [
+    "The elementary unipotent Zariski membership, scalar fixed-cycle blocks, normalized matrix spans, Noetherian finite-index normal coset extraction, linear polynomial chain rule, right-invariant tangent derivations, Lagrange spectral projectors, Zariski multiplicative closure, semisimple reverse embedding, characteristic-polynomial matching, and thirteen-component unconditional lacunary rank-extraction assembly are reconstructed in RXA-01 through RXA-03."
+  ]
+}
