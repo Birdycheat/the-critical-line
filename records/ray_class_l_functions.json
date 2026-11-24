@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned definitions, theorem statements, proof bodies and verified written callsites across GlobalTwisting and GlobalInterpolation.",
+  "claims": [
+    {
+      "id": "RCL-01",
+      "chapter": "inputs",
+      "anchor": "inputs-ray-class-zero-free",
+      "title": "Continuation, zero-free region and Landau–Page uniqueness without a functional equation",
+      "hypotheses": "A finite abelian group G (written additively with identity 0 ∈ G and character group Ĝ), parameters B ≥ 4 and local class density κ ∈ [1/B, 4] with |G| ≤ B, and nonnegative sequences a, λ : G × ℕ → ℝ_{≥0} satisfying: (1) a(g, 0) = 0, a(0, 1) = 1, and a(g, 1) = 0 for g ≠ 0; (2) |∑_{1≤n≤x} a(g, n) − κx| ≤ 10√x for all g ∈ G and x ≥ 1; (3) |∑_{n≥1} a(g, n) e^{−tn} − κ/t| ≤ B¹⁰ t for all g ∈ G and 0 < t ≤ 1; (4) ∑_{g∈G} λ(g, n) ≤ 2Λ(n) and a(g, n) log n = ∑_{h∈G} ∑_{pq=n} λ(h, p)a(g − h, q) for all g ∈ G and n ≥ 0; and (5) for every real character χ ∈ Ĝ (χ² = 1) and n ≥ 0, ∑_{pq=n} b₁(p)b_χ(q) ≥ 0 and ∑_{pq=n²} b₁(p)b_χ(q) ≥ b₁(n), where b₁(p) = ∑_{g∈G} a(g, p) and b_χ(q) = ∑_{g∈G} (Re χ(g))a(g, q).",
+      "statement": "For every χ ∈ Ĝ, the Mellin continuation F(χ, s) is holomorphic on Re s > 1/2, equals (s − 1)^{𝟏_{χ=1}} ∑_{n≥1} a_χ(n)n^{−s} on Re s > 1, satisfies ‖F(χ, s)‖ ≤ 300B(‖s‖ + 1)² on Re s ≥ 11/20, obeys F(χ, s̄) = conj(F(χ, s)) when χ² = 1, and satisfies F(χ, s) ≠ 0 and −F′(χ, s)/F(χ, s) + 𝟏_{χ=1}/(s − 1) = ∑_{n≥1} λ_χ(n)n^{−s} on Re s > 1. Moreover, with ℓ(t) = log(B(|t| + 2)), there exist absolute constants c₁, c₂ > 0 such that across all such L-families: (a) every zero s of F(χ, ·) with Re s ≥ 3/4 and (χ² ≠ 1 or Im s ≠ 0) satisfies Re s < 1 − c₁/ℓ(Im s); and (b) if χ² = ψ² = 1 and β, β′ ≥ max(3/4, 1 − c₂/ℓ(0)) satisfy F(χ, β) = F(ψ, β′) = 0, then χ = ψ, β = β′, and F′(χ, β) ≠ 0.",
+      "definitions": [
+        "abstract finite-abelian-group L-family (B ≥ 4, class density κ ∈ [1/B, 4])",
+        "twisted Dirichlet coefficients a_χ(n) and λ_χ(n)",
+        "Mellin remainder integral M(χ, s) and regularized continuation F(χ, s)",
+        "conductor-height weight ℓ(t) = log(B(|t| + 2))",
+        "concentric-disc Blaschke and Borel–Carathéodory local logarithmic derivative"
+      ],
+      "equations": [
+        "inputs-ray-class-axioms-eq",
+        "inputs-ray-class-zero-free-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Axiomatic finite-group L-family, Mellin continuation F(χ, s), Chebyshev sum ψ(χ, u) and height weight ℓ(t)",
+          "declaration": "GlobalTheory.Hk.LFam",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LFam": 12
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LamIdealOfNotPrimePow.lean",
+          "lines": [
+            12,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LamIdealOfNotPrimePow.lean#L12-L88"
+        },
+        {
+          "label": "Statement of analytic continuation to Re s > 1/2, polynomial growth and Schwarz symmetry",
+          "declaration": "GlobalTheory.T.rayClassLFunctionFamily_continuation_growth",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunctionFamily_continuation_growth": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyContinuationGrowthStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyContinuationGrowthStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of Mellin continuation, growth bound 300B(‖s‖ + 1)² on Re s ≥ 11/20 and real-character symmetry",
+          "declaration": "GlobalTheory.Hk.RayCont.continuation_growth",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Hk.RayCont.continuation_growth": 206
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyContinuationGrowth.lean",
+          "lines": [
+            206,
+            250
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyContinuationGrowth.lean#L206-L250"
+        },
+        {
+          "label": "Statement of nonvanishing, lower bound and logarithmic derivative on Re s > 1",
+          "declaration": "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyLogDerivReGtOneStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyLogDerivReGtOneStatement.lean#L8-L9"
+        },
+        {
+          "label": "Euler-product-free exponential identity, ((σ − 1)/σ)² lower bound and logarithmic derivative on Re s > 1",
+          "declaration": "GlobalTheory.Hk.LogDeriv.logDeriv_F",
+          "related_declarations": [
+            "GlobalTheory.Hk.LogDeriv.eq_exp_of_conv",
+            "GlobalTheory.Hk.LogDeriv.norm_ge_of_conv"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LogDeriv.eq_exp_of_conv": 68,
+            "GlobalTheory.Hk.LogDeriv.norm_ge_of_conv": 125,
+            "GlobalTheory.Hk.LogDeriv.logDeriv_F": 255
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyLogDerivReGtOne.lean",
+          "lines": [
+            68,
+            295
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyLogDerivReGtOne.lean#L68-L295"
+        },
+        {
+          "label": "Blaschke zero factorization and Borel–Carathéodory logarithmic-derivative remainder on concentric discs",
+          "declaration": "GlobalTheory.LogDerivZeros.main",
+          "related_declarations": [
+            "GlobalTheory.LogDerivZeros.norm_logDeriv_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.LogDerivZeros.norm_logDeriv_le": 49,
+            "GlobalTheory.LogDerivZeros.main": 125
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormOneSubConjMul.lean",
+          "lines": [
+            49,
+            242
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormOneSubConjMul.lean#L49-L242"
+        },
+        {
+          "label": "Statement of the local zero count and partial-fraction formula around 5/4 + it",
+          "declaration": "GlobalTheory.T.rayClassLFunction_logDeriv_local_formula",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunction_logDeriv_local_formula": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionLogDerivLocalFormulaStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionLogDerivLocalFormulaStatement.lean#L8-L9"
+        },
+        {
+          "label": "Instantiation of the concentric-disc zero count and partial-fraction bound at 5/4 + it",
+          "declaration": "GlobalTheory.HkLocal.logDeriv_local",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.HkLocal.logDeriv_local": 21
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionLogDerivLocalFormula.lean",
+          "lines": [
+            21,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionLogDerivLocalFormula.lean#L21-L157"
+        },
+        {
+          "label": "Statement of the 3–4–1 and real-character positivity inequalities on Re s > 1",
+          "declaration": "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyLogDerivPositivityStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyLogDerivPositivityStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of the four nonnegative real-part combinations from λ(g, n) ≥ 0",
+          "declaration": "GlobalTheory.Hk.LFamPos.positivity",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LFamPos.positivity": 66
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyLogDerivPositivity.lean",
+          "lines": [
+            53,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionFamilyLogDerivPositivity.lean#L53-L104"
+        },
+        {
+          "label": "Exported logarithmic zero-free region statement for finite-group L-families",
+          "declaration": "GlobalTheory.T.rayClassLFunction_zero_free_region",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunction_zero_free_region": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegionStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegionStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of the logarithmic zero-free region via conjugate-zero pairing and the 3–4–1 inequality",
+          "declaration": "GlobalTheory.Hk.ZeroFree.zero_free_region",
+          "related_declarations": [
+            "GlobalTheory.Hk.ZeroFree.re_le_one",
+            "GlobalTheory.Hk.ZeroFree.re_LSeries_le",
+            "GlobalTheory.Hk.ZeroFree.pole_le",
+            "GlobalTheory.Hk.ZeroFree.inv_le_ell"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.ZeroFree.re_le_one": 17,
+            "GlobalTheory.Hk.ZeroFree.re_LSeries_le": 40,
+            "GlobalTheory.Hk.ZeroFree.pole_le": 133,
+            "GlobalTheory.Hk.ZeroFree.inv_le_ell": 143,
+            "GlobalTheory.Hk.ZeroFree.zero_free_region": 286
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+          "lines": [
+            17,
+            311
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean#L17-L311"
+        },
+        {
+          "label": "Exported Landau–Page uniqueness and simplicity statement for a real exceptional zero",
+          "declaration": "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of uniqueness and simplicity of at most one real exceptional zero across Ĝ",
+          "declaration": "GlobalTheory.Hk.RealZero.main",
+          "related_declarations": [
+            "GlobalTheory.Hk.RealZero.exists_bound"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.RealZero.exists_bound": 72,
+            "GlobalTheory.Hk.RealZero.main": 135
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZero.lean",
+          "lines": [
+            72,
+            258
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZero.lean#L72-L258"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Mellin integration against the O(√x) counting remainder continues F(χ, s) to Re s > 1/2 with quadratic growth on Re s ≥ 11/20, while integrating a_χ log = λ_χ ∗ a_χ proves L(a_χ, s) = exp(∑_{n≥2} (λ_χ(n)/log n)n^{−s}) and ‖L(a_χ, s)‖ ≥ ((σ − 1)/σ)² without an Euler product. Concentric discs of radii 1/2 < 3/5 < 7/10 around 5/4 + it supply the O(ℓ(t)) zero-pole expansion, and testing λ(g, n) ≥ 0 at σ = 1 + 60ε, σ = 1 + 6ε, and σ = 1 + 2c₂/ℓ(0) establishes the zero-free region and Landau–Page uniqueness.",
+      "review": "Checked all five L-family axioms, Euler-product-free exponential differentiation, concentric-disc radii 5/7 < 6/7 < 1, low-height real-character conjugate pairing γ² < (30ε)², and four-character Landau–Page contradiction."
+    },
+    {
+      "id": "RCL-02",
+      "chapter": "inputs",
+      "anchor": "inputs-ray-class-bessel-repulsion",
+      "title": "Siegel-free polynomial repulsion at s = 1 via the positive Bessel kernel",
+      "hypotheses": "An abstract finite-abelian-group L-family (scale B ≥ 4, class density κ ∈ [1/B, 4], |G| ≤ B), a real character χ ∈ Ĝ satisfying χ² = 1, and (for zero repulsion) a real number β ≥ 3/4 satisfying F(χ, β) = 0.",
+      "statement": "There exist absolute constants c₃ > 0 and 0 < c₄ ≤ 1 such that ‖F(χ, 1)‖ ≥ c₃ / B⁴⁵ for every real character χ ∈ Ĝ, and consequently every real zero β ≥ 3/4 of F(χ, ·) satisfies 1 − β ≥ c₄ / B⁴⁶.",
+      "definitions": [
+        "Laplace theta series θ₁(t) and θ_χ(t)",
+        "positive modified Bessel kernel W(y) = ∫₀^∞ exp(−y/w − w) dw/w",
+        "reference kernel value w₀ = W(1) > 0",
+        "polynomial scale v = s₀² with s₀ = δ₀ / B²²"
+      ],
+      "equations": [
+        "inputs-ray-class-bessel-eq"
+      ],
+      "dependencies": [
+        "RCL-01"
+      ],
+      "sources": [
+        {
+          "label": "Statement of uniform small- and large-time Laplace bounds and integral identity at s = 1",
+          "declaration": "GlobalTheory.T.tsum_exp_mul_aChi_bounds",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.tsum_exp_mul_aChi_bounds": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExpSumBoundsStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExpSumBoundsStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of C B¹¹ min(t, 1/t) Laplace remainder bounds, exponential decay and ∫₀^∞ θ_χ(t) dt = F(χ, 1)",
+          "declaration": "GlobalTheory.Hk.LFam.exp_sum_bounds",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LFam.exp_sum_bounds": 255
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExpSumBounds.lean",
+          "lines": [
+            255,
+            291
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExpSumBounds.lean#L255-L291"
+        },
+        {
+          "label": "Statement of the effective polynomial lower bound c / B⁴⁵ ≤ ‖F(χ, 1)‖ for real characters",
+          "declaration": "GlobalTheory.T.norm_rayClassFamily_F_one_ge_of_real_character",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.norm_rayClassFamily_F_one_ge_of_real_character": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacterStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacterStatement.lean#L8-L9"
+        },
+        {
+          "label": "Bessel convolution lower bound W(v) ≤ ∫₀^∞ θ₁(v/w)θ_χ(w) dw/w, polar isolation and B⁻⁴⁵ value bound",
+          "declaration": "GlobalTheory.Hk.RealChar.norm_F_one_ge",
+          "related_declarations": [
+            "GlobalTheory.Hk.RealChar.besW_le_integral",
+            "GlobalTheory.Hk.RealChar.integral_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.RealChar.besW_le_integral": 176,
+            "GlobalTheory.Hk.RealChar.integral_le": 255,
+            "GlobalTheory.Hk.RealChar.norm_F_one_ge": 343
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean",
+          "lines": [
+            176,
+            423
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean#L176-L423"
+        },
+        {
+          "label": "Exported effective polynomial zero-repulsion statement for real zeros of ray-class L-functions",
+          "declaration": "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean#L8-L9"
+        },
+        {
+          "label": "Cauchy derivative bound ‖F′(χ, z)‖ ≤ 18000B on B̄(1, 1/4) and mean-value repulsion 1 − β ≥ c / B⁴⁶",
+          "declaration": "GlobalTheory.Hk.LFam.real_zero_far_from_one",
+          "related_declarations": [
+            "GlobalTheory.Hk.LFam.norm_deriv_F_le_near_one"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LFam.norm_deriv_F_le_near_one": 11,
+            "GlobalTheory.Hk.LFam.real_zero_far_from_one": 47
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOne.lean",
+          "lines": [
+            11,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOne.lean#L11-L76"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "For χ ≠ 1 with χ² = 1, pairing θ₁(v/w) against θ_χ(w) dw/w expands into ∑_{n≥1} (b₁ ∗ b_χ)(n)W(vn) ≥ W(v) ≥ W(1) = w₀ for 0 < v ≤ 1 via (b₁ ∗ b_χ)(n) ≥ 0 and (b₁ ∗ b_χ)(1) = 1. Splitting θ₁(v/w) = ρ₁w/v + O(B¹¹√(v/w)) at v = (δ₀/B²²)² absorbs the error into w₀/2 and yields |F(χ, 1)| ≥ (w₀δ₀²/8)/B⁴⁵; combining with Cauchy's derivative bound 18000B on [β, 1] ⊂ B̄(1, 1/4) gives 1 − β ≥ c₄/B⁴⁶.",
+      "review": "Checked χ = 1 residue case κ|G| ≥ 1/B, Fubini evaluation ∫₀^∞ θ_χ(t) dt = F(χ, 1), Bessel kernel decay W(y) ≤ 12/y³, exponent arithmetic B²²√v → B⁴⁵ → B⁴⁶, and disc inclusion B̄(z, 1/10) ⊂ {Re w ≥ 13/20, ‖w‖ ≤ 27/20}."
+    },
+    {
+      "id": "RCL-03",
+      "chapter": "inputs",
+      "anchor": "inputs-ray-class-explicit-formula",
+      "title": "Truncated Perron contour shift and the explicit formula with an exceptional zero",
+      "hypotheses": "0 < c₀ ≤ 1/20; an abstract finite-abelian-group L-family with scale B ≥ 4; a character χ ∈ Ĝ; a finite set Z ⊂ ℝ satisfying the c₀-admissible exceptional-zero specification (|Z| ≤ 1, every β ∈ Z satisfies 1 − c₀/ℓ(0) ≤ β < 1, F(χ, β) = 0 and F′(χ, β) ≠ 0, and every zero w of F(χ, ·) with Re w ≥ 1 − c₀/ℓ(Im w) lies in Z); and a real number u ≥ 2 with log B ≤ √(log u).",
+      "statement": "There exist constants c, C > 0 depending only on c₀ such that ψ(χ, u) = ∑_{1≤n≤u} λ_χ(n) satisfies ‖ψ(χ, u) − 𝟏_{χ=1} u + ∑_{β∈Z} u^β / β‖ ≤ C u exp(−c√(log u)).",
+      "definitions": [
+        "c₀-admissible exceptional zero set Z ⊂ ℝ",
+        "half-width zero-free corridor 1 − c₀/(2ℓ(Im s)) ≤ Re s ≤ 3",
+        "truncated Perron abscissa σ₀ = 1 + 1/log u and height T = exp((c₀/32)√(log u))",
+        "pigeonhole left vertical abscissa σ₁ ∈ [1 − 4d, 1 − 2d] at step d = c₀/(8ℓ(T))"
+      ],
+      "equations": [
+        "inputs-ray-class-explicit-eq"
+      ],
+      "dependencies": [
+        "RCL-01"
+      ],
+      "sources": [
+        {
+          "label": "Quadratic ℓ(Im s)² bound on F′/F minus the optional exceptional pole across the half-width strip",
+          "declaration": "GlobalTheory.Hk.LogDerivHalf.logDeriv_sub_exceptional_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Hk.LogDerivHalf.logDeriv_sub_exceptional_le": 92
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LogDerivSubExceptionalLe.lean",
+          "lines": [
+            92,
+            260
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LogDerivSubExceptionalLe.lean#L92-L260"
+        },
+        {
+          "label": "Truncated Perron integral formula along σ₀ = 1 + 1/log u under ‖c(n)‖ ≤ 2Λ(n)",
+          "declaration": "GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt": 9
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TruncatedPerronOfLeTwoVonMangoldt.lean",
+          "lines": [
+            9,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TruncatedPerronOfLeTwoVonMangoldt.lean#L9-L157"
+        },
+        {
+          "label": "Exported explicit-formula statement for ψ(χ, u) with an optional exceptional zero",
+          "declaration": "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZeroStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZeroStatement.lean#L8-L9"
+        },
+        {
+          "label": "Pigeonhole abscissa selection, rectangular Cauchy residue shift and de la Vallée Poussin remainder bound",
+          "declaration": "GlobalTheory.Hk.PsiExc.psi_exceptional",
+          "related_declarations": [
+            "GlobalTheory.Hk.PsiExc.shift",
+            "GlobalTheory.Hk.PsiExc.exists_line",
+            "GlobalTheory.Hk.PsiExc.contour"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.PsiExc.shift": 14,
+            "GlobalTheory.Hk.PsiExc.exists_line": 160,
+            "GlobalTheory.Hk.PsiExc.contour": 181,
+            "GlobalTheory.Hk.PsiExc.psi_exceptional": 438
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+          "lines": [
+            14,
+            502
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean#L14-L502"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Subtracting the local zero sum in B̄(5/4 + i Im s, 3/5) bounds F′/F − ∑_{β∈Z} 1/(s − β) by O(ℓ(Im s)²) on Re s ≥ 1 − c₀/(2ℓ(Im s)). At W = √(log u), δ = c₀/32 and T = exp(δW) (with Chebyshev fallback when δW ≤ 1), a two-line pigeonhole choice selects σ₁ ∈ [1 − 4d, 1 − 2d] at distance ≥ d = c₀/(8ℓ(T)) from Z, and shifting the truncated Perron integral across [σ₁, σ₀] × [−T, T] extracts 𝟏_{χ=1} u − ∑_{β∈Z} u^β/β up to O(u exp(−c√(log u))).",
+      "review": "Checked exceptional-zero specification ExcZ, height comparison ℓ(Im w) ≤ (4/3)ℓ(Im s) on |Im w − Im s| ≤ 3/5, both positions β > σ₁ and β < σ₁ relative to the pigeonhole line, and scale condition log B ≤ √(log u)."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.T.rayClassLFunction_zero_free_region",
+      "callee": "GlobalTheory.Hk.ZeroFree.zero_free_region",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegionStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.Hk.ZeroFree.zero_free_region"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.zero_free_region",
+      "callee": "GlobalTheory.Hk.ZeroFree.inv_le_ell",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 287,
+        "spelling": "inv_le_ell"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.zero_free_region",
+      "callee": "GlobalTheory.Hk.ZeroFree.re_le_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 299,
+        "spelling": "re_le_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.inv_le_ell",
+      "callee": "GlobalTheory.Hk.ZeroFree.re_LSeries_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 146,
+        "spelling": "re_LSeries_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.inv_le_ell",
+      "callee": "GlobalTheory.T.rayClassLFunctionFamily_continuation_growth",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 166,
+        "spelling": "GlobalTheory.T.rayClassLFunctionFamily_continuation_growth"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.inv_le_ell",
+      "callee": "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 213,
+        "spelling": "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.inv_le_ell",
+      "callee": "GlobalTheory.Hk.ZeroFree.pole_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 265,
+        "spelling": "pole_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.re_LSeries_le",
+      "callee": "GlobalTheory.T.rayClassLFunction_logDeriv_local_formula",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 45,
+        "spelling": "GlobalTheory.T.rayClassLFunction_logDeriv_local_formula"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.ZeroFree.re_LSeries_le",
+      "callee": "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean",
+        "line": 52,
+        "spelling": "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HkLocal.logDeriv_local",
+      "callee": "GlobalTheory.LogDerivZeros.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionLogDerivLocalFormula.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.LogDerivZeros.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero",
+      "callee": "GlobalTheory.Hk.RealZero.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.Hk.RealZero.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.RealZero.main",
+      "callee": "GlobalTheory.Hk.RealZero.exists_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZero.lean",
+        "line": 136,
+        "spelling": "exists_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.RealZero.main",
+      "callee": "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZero.lean",
+        "line": 214,
+        "spelling": "GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one",
+      "callee": "GlobalTheory.Hk.LFam.real_zero_far_from_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.Hk.LFam.real_zero_far_from_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.LFam.real_zero_far_from_one",
+      "callee": "GlobalTheory.T.norm_rayClassFamily_F_one_ge_of_real_character",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOne.lean",
+        "line": 48,
+        "spelling": "GlobalTheory.T.norm_rayClassFamily_F_one_ge_of_real_character"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.LFam.real_zero_far_from_one",
+      "callee": "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOne.lean",
+        "line": 55,
+        "spelling": "GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.RealChar.norm_F_one_ge",
+      "callee": "GlobalTheory.T.tsum_exp_mul_aChi_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean",
+        "line": 345,
+        "spelling": "GlobalTheory.T.tsum_exp_mul_aChi_bounds"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.RealChar.norm_F_one_ge",
+      "callee": "GlobalTheory.Hk.RealChar.integral_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean",
+        "line": 404,
+        "spelling": "integral_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.RealChar.norm_F_one_ge",
+      "callee": "GlobalTheory.Hk.RealChar.besW_le_integral",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean",
+        "line": 406,
+        "spelling": "besW_le_integral"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero",
+      "callee": "GlobalTheory.Hk.PsiExc.psi_exceptional",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZeroStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.Hk.PsiExc.psi_exceptional"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.PsiExc.psi_exceptional",
+      "callee": "GlobalTheory.Hk.LogDerivHalf.logDeriv_sub_exceptional_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+        "line": 440,
+        "spelling": "GlobalTheory.Hk.LogDerivHalf.logDeriv_sub_exceptional_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.PsiExc.psi_exceptional",
+      "callee": "GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+        "line": 441,
+        "spelling": "GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.PsiExc.psi_exceptional",
+      "callee": "GlobalTheory.Hk.PsiExc.contour",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+        "line": 496,
+        "spelling": "contour"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.PsiExc.contour",
+      "callee": "GlobalTheory.Hk.PsiExc.exists_line",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+        "line": 215,
+        "spelling": "exists_line"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Hk.PsiExc.contour",
+      "callee": "GlobalTheory.Hk.PsiExc.shift",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean",
+        "line": 251,
+        "spelling": "shift"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "RCL-01",
+      "RCL-02"
+    ],
+    [
+      "RCL-01",
+      "RCL-03"
+    ],
+    [
+      "RCL-01",
+      "WPW-01"
+    ],
+    [
+      "RCL-02",
+      "WPW-01"
+    ],
+    [
+      "RCL-03",
+      "WPW-01"
+    ]
+  ],
+  "outstanding": [],
+  "review_scope": "Checked all five L-family axioms, Euler-product-free exponential identity and ((σ − 1)/σ)² lower bound, concentric-disc local zero-pole expansion, low-height conjugate-zero pairing and 3–4–1 zero-free region, four-character Landau–Page uniqueness, Bessel convolution lower bound and B⁻⁴⁵ / B⁻⁴⁶ Siegel-free repulsion, and pigeonhole contour shift in the truncated Perron explicit formula."
+}

@@ -15,7 +15,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 05 | `global` | Lattices and the arithmetic main term | `141` (`70` / `71`) | `7` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; interfaces amont restantes) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
-| 08 | `inputs` | Supplying the arithmetic hypotheses | `230` (`90` / `140`) | `11` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; interfaces amont restantes) |
+| 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
 | 09 | `windows` | The one-sided window theorem | `6` (`6` / `0`) | `0` | ✅ Terminé |
 | 10 | `reflection` | Reflection and the final statement | `3` (`3` / `0`) | `0` | ✅ Terminé |
 
@@ -26,7 +26,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 1. ✅ **Cycle 1 (Terminé)** — **Ch. 8 (`inputs`) & raccords Ch. 5 (`global`)** : *Sélection inconditionnelle du premier de niveau $T_u$ dans la fenêtre courte $[T_u^*, (1 + \frac{1}{fk}) T_u^*]$ via les premiers normiques de $\mathbb{Q}(\sqrt{-d})$ modulo $M$* (`word-prime-window.fragment.html` + `word_prime_window.json`, raccordé à `prime-pair`, `count-five`, `word-upper`, `mass-floor`, `global.json` ; `WPW-01`–`02`).
 2. ✅ **Cycle 2 (Terminé)** — **Ch. 4 (`normalization`)** : *Biadditivité du défaut d'addition et congruence sous négation de la série correctrice $\varphi$ sur le modèle entier de Weierstrass* (`curve-exponential-defect.fragment.html` + `curve_exponential_defect.json`, raccordé à `torsion-degree`, `torsion_degree.json` ; `CED-01`–`02`, complète `#normalization-torsion-integral-unit`).
 3. ✅ **Cycle 3 (Terminé)** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass, logarithme invariant et factorisation de corde cubique* (`weierstrass-formal-group.fragment.html` + `weierstrass_formal_group.json`, raccordé à `height-two-coordinate`, `curve-exponential-defect`, `height_two_coordinate.json`, `torsion_degree.json`, `curve_exponential_defect.json` ; `WFG-01`–`02`, rend le Ch. 4 100 % auto-contenu).
-4. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+4. ✅ **Cycle 4 (Terminé)** — **Ch. 8 (`inputs`)** : *Région sans zéro, répulsion de Bessel en $s=1$ et formule explicite tronquée pour les fonctions $L$ de classes de rayons sans équation fonctionnelle* (`ray-class-l-functions.fragment.html` + `ray_class_l_functions.json`, raccordé à `word-prime-window`, `word_prime_window.json` ; `RCL-01`–`03`, ferme les 4 interfaces analytiques amont de `WPW-01`).
+5. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -58,7 +59,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`944` résultats au total après Cycle 3 : `368` `core-argument` / `576` `rebuilt-infrastructure`, `850` auto-contenus, `24` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`947` résultats au total après Cycle 4 : `371` `core-argument` / `576` `rebuilt-infrastructure`, `855` auto-contenus, `23` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -71,7 +72,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `UpperTheory.T3.normPrimesN` (`normPrimesN.lean#L108-L157`)
   - `UpperTheory.Top.hostOfField` (`HostOfField.lean#L8-L15`)
   - `GlobalTheory.EX.two_type_primes`, `excluded_count_lt`, `exists_pair_disjoint_exceptional` (`ExistsTwoLargeNormOnePrimes.lean#L17-L96`)
-  - *4 interfaces analytiques amont de `WPW-01`* : `GlobalTheory.T.rayClassLFunction_zero_free_region`, `GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero`, `GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one`, `GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero`.
+  - *4 interfaces analytiques amont de `WPW-01` (fermées par Cycle 4 : `RCL-01`–`03`)* : `GlobalTheory.T.rayClassLFunction_zero_free_region`, `GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero`, `GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one`, `GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero`.
 - *Déclarations `[CORE]` couvertes — `WPW-02` (`#inputs-word-prime-window`)* :
   - `UpperTheory.T3.levelPrimeN` (`levelPrimeN.lean#L36-L161`)
   - `GlobalTheory.EX.NormOne`, `GlobalTheory.EX.NormPrimes`, `GlobalTheory.EX.LevelPrime` (`LogCondLeThree.lean#L15-L18, #L75-L85`)
@@ -131,3 +132,33 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `Formalism.L2.Th1.A.cubeTwoR` (`CubeThreeR.lean#L8-L10`)
   - `Formalism.L2.Th1.A.bridgeCurve_of` (`BridgeJ.lean#L59-L115`)
   - `Formalism.L2.Th1.A.bridgeCurve` (`TwoTorsionU.lean#L15-L16`)
+
+### Cycle 4 — Fonctions $L$ de classes de rayons sans équation fonctionnelle (`ray_class_l_functions`)
+- *Statut* : ✅ Terminé (`content/ray-class-l-functions.fragment.html` + `records/ray_class_l_functions.json`, rôle `core-argument` ; ferme les 4 interfaces amont de `WPW-01`).
+- *Déclarations `[CORE]` couvertes — `RCL-01` (`#inputs-ray-class-zero-free`)* :
+  - `GlobalTheory.Hk.LFam` (`LamIdealOfNotPrimePow.lean#L12-L88`)
+  - `GlobalTheory.T.rayClassLFunctionFamily_continuation_growth` (`RayClassLFunctionFamilyContinuationGrowthStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.RayCont.continuation_growth` (`RayClassLFunctionFamilyContinuationGrowth.lean#L206-L250`)
+  - `GlobalTheory.T.rayClassFamily_logDeriv_re_gt_one` (`RayClassFamilyLogDerivReGtOneStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.LogDeriv.logDeriv_F`, `eq_exp_of_conv`, `norm_ge_of_conv` (`RayClassFamilyLogDerivReGtOne.lean#L68-L295`)
+  - `GlobalTheory.LogDerivZeros.main`, `norm_logDeriv_le` (`NormOneSubConjMul.lean#L49-L242`)
+  - `GlobalTheory.T.rayClassLFunction_logDeriv_local_formula` (`RayClassLFunctionLogDerivLocalFormulaStatement.lean#L8-L9`)
+  - `GlobalTheory.HkLocal.logDeriv_local` (`RayClassLFunctionLogDerivLocalFormula.lean#L21-L157`)
+  - `GlobalTheory.T.rayClassLFunctionFamily_logDeriv_positivity` (`RayClassLFunctionFamilyLogDerivPositivityStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.LFamPos.positivity` (`RayClassLFunctionFamilyLogDerivPositivity.lean#L53-L104`)
+  - `GlobalTheory.T.rayClassLFunction_zero_free_region` (`RayClassLFunctionZeroFreeRegionStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.ZeroFree.zero_free_region`, `re_le_one`, `re_LSeries_le`, `pole_le`, `inv_le_ell` (`RayClassLFunctionZeroFreeRegion.lean#L17-L311`)
+  - `GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero` (`RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.RealZero.main`, `exists_bound` (`RayClassLFunctionUniqueSimpleExceptionalZero.lean#L72-L258`)
+- *Déclarations `[CORE]` couvertes — `RCL-02` (`#inputs-ray-class-bessel-repulsion`)* :
+  - `GlobalTheory.T.tsum_exp_mul_aChi_bounds` (`ExpSumBoundsStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.LFam.exp_sum_bounds` (`ExpSumBounds.lean#L255-L291`)
+  - `GlobalTheory.T.norm_rayClassFamily_F_one_ge_of_real_character` (`NormRayClassFamilyFOneGeOfRealCharacterStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.RealChar.norm_F_one_ge`, `besW_le_integral`, `integral_le` (`NormRayClassFamilyFOneGeOfRealCharacter.lean#L176-L423`)
+  - `GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one` (`ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.LFam.real_zero_far_from_one`, `norm_deriv_F_le_near_one` (`ExistsRayClassLFunctionRealZeroFarFromOne.lean#L11-L76`)
+- *Déclarations `[CORE]` couvertes — `RCL-03` (`#inputs-ray-class-explicit-formula`)* :
+  - `GlobalTheory.Hk.LogDerivHalf.logDeriv_sub_exceptional_le` (`LogDerivSubExceptionalLe.lean#L92-L260`)
+  - `GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt` (`TruncatedPerronOfLeTwoVonMangoldt.lean#L9-L157`)
+  - `GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero` (`RayClassFamilyPsiWithExceptionalZeroStatement.lean#L8-L9`)
+  - `GlobalTheory.Hk.PsiExc.psi_exceptional`, `shift`, `exists_line`, `contour` (`RayClassFamilyPsiWithExceptionalZero.lean#L14-L502`)
