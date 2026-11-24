@@ -1,0 +1,868 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies and verified written callsites across AdmissibleModel, ExplicitFormulaCounts, WeylFormulaCompact, HighestWeights, FormalDegree, HaarVolumes and LaplaceFoundations.",
+  "claims": [
+    {
+      "id": "FDW-01",
+      "chapter": "global",
+      "anchor": "global-formal-weyl-limit",
+      "title": "Compact Weyl dimension formula on U(p) × U(q) and shifted Vandermonde limit",
+      "hypotheses": "Ambient rank N = p + q with p ≥ 1 positive signs and q ≥ 1 negative signs assigned by ε : {0, …, N − 1} → {+, −}; strictly decreasing Harish-Chandra parameter λ = (λ₀ > ⋯ > λ_{N−1}) with λ_a − (N − 1)/2 ∈ ℤ for all 0 ≤ a < N; compact and noncompact half-sums ρ_c, ρ_n; lowest compact K-types T_t of K ≃ U(p) × U(q) of highest weight Λ(t) = λ(t) + ρ_n − ρ_c along the integer ray λ_a(t) = λ_a + t(N − 1 − a) (t ∈ ℕ); and positive formal degrees d(λ), d(λ(t)) > 0 satisfying d(λ(t)) / V(λ(t)) = d(λ) / V(λ).",
+      "statement": "Every irreducible unitary representation T of K ≃ U(p) × U(q) of highest weight Λ (integral and antitone on each sign block) has dimension [∏_{0≤a<b<N, ε_a=ε_b} ((Λ + ρ_c)_a − (Λ + ρ_c)_b)] / (F_p F_q); for 0 ≤ a < b < N with ε_a = ε_b, ρ_{n,a} − ρ_{n,b} = n_{a,b} := #{c : a < c < b, ε_c ≠ ε_a}, so at Λ = λ + ρ_n − ρ_c one has dim(T) = [∏_{a<b, ε_a=ε_b} (λ_a − λ_b + n_{a,b})] / (F_p F_q); along λ_a(t) = λ_a + t(N − 1 − a), Y_t = t^{pq} dim(T_t) / d(λ(t)) converges as t → ∞ to V(λ) / [d(λ) F_p F_q A] where A = ∏_{0≤b<a<N, ε_a≠ε_b} (a − b); and equating this limit with c π^{pq} / A for c = F_N / (π^{pq} F_p F_q) yields d(λ) = V(λ) / F_N.",
+      "definitions": [
+        "superfactorial product F_m = ∏_{0≤a<m} a! = ∏_{0≤a<b<m} (b − a) and Vandermonde product V(λ) = ∏_{0≤a<b<N} (λ_a − λ_b)",
+        "sign-block order embeddings e_+ : {0, …, p − 1} → {0, …, N − 1} and e_− : {0, …, q − 1} → {0, …, N − 1} satisfying (ρ_c)_{e_±(i)} − (ρ_c)_{e_±(j)} = j − i",
+        "intermediate opposite-sign index count n_{a,b} = #{c : a < c < b, ε_c ≠ ε_a} = ρ_{n,a} − ρ_{n,b} for same-sign pairs a < b"
+      ],
+      "equations": [
+        "global-formal-weyl-dim-eq",
+        "global-formal-weyl-ray-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Gelfand–Tsetlin interlacing count and Weyl dimension product for the polynomial dual-Weyl model",
+          "declaration": "Formalism.L2.G.Model.weyl_dualWeyl",
+          "related_declarations": [
+            "Formalism.L2.G.Model.finrank_dualWeyl",
+            "Formalism.L2.G.Model.weylQ"
+          ],
+          "declaration_lines": {
+            "Formalism.L2.G.Model.finrank_dualWeyl": 259,
+            "Formalism.L2.G.Model.weylQ": 283,
+            "Formalism.L2.G.Model.weyl_dualWeyl": 306
+          },
+          "path": "src/Formalism/PeriodIntegrals/AdmissibleModel/WeylDim.lean",
+          "lines": [
+            259,
+            312
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/AdmissibleModel/WeylDim.lean#L259-L312"
+        },
+        {
+          "label": "Highest-weight model isomorphism and closed Weyl dimension formula for U(m)",
+          "declaration": "weylForU_closed",
+          "related_declarations": [
+            "nablaDim_closed",
+            "modelIso_closed"
+          ],
+          "declaration_lines": {
+            "nablaDim_closed": 7,
+            "modelIso_closed": 9,
+            "weylForU_closed": 11
+          },
+          "path": "src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForU.lean",
+          "lines": [
+            7,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForU.lean#L7-L11"
+        },
+        {
+          "label": "Closed Weyl dimension formula transported to irreducible representations of K ≃ U(p) × U(q)",
+          "declaration": "weylForK_closed",
+          "related_declarations": [],
+          "declaration_lines": {
+            "weylForK_closed": 4
+          },
+          "path": "src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForK.lean",
+          "lines": [
+            1,
+            4
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForK.lean#L1-L4"
+        },
+        {
+          "label": "Same-sign pair splitting across e_+ and e_− and compact Weyl product with denominator F_p F_q",
+          "declaration": "PI.WeylForKWork.weyl_formula_compact",
+          "related_declarations": [
+            "PI.WeylForKWork.prod_pairs_split"
+          ],
+          "declaration_lines": {
+            "PI.WeylForKWork.prod_pairs_split": 150,
+            "PI.WeylForKWork.weyl_formula_compact": 185
+          },
+          "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeylFormulaCompact/Formula.lean",
+          "lines": [
+            150,
+            195
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeylFormulaCompact/Formula.lean#L150-L195"
+        },
+        {
+          "label": "Product Weyl dimension bridge for highest-weight representations of the compact subgroup",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.HW.weyl_dimension_formula_product",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.HW.weyl_dimension_formula_product": 20
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/WeylBridge.lean",
+          "lines": [
+            10,
+            22
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/WeylBridge.lean#L10-L22"
+        },
+        {
+          "label": "Finite-dimensional rank of a compact highest-weight module in terms of Λ + ρ_c",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.HW.hwfin_weyl",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.HW.hwfin_weyl": 16
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/Finrank.lean",
+          "lines": [
+            16,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/Finrank.lean#L16-L26"
+        },
+        {
+          "label": "Three-region third-index cancellation ρ_{n,a} − ρ_{n,b} = n_{a,b} and lowest-type Weyl dimension formula",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.lemma7",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.nab",
+            "ReciprocityTheory.ChartRestriction.DS.rhoN_sub_nab"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.nab": 15,
+            "ReciprocityTheory.ChartRestriction.DS.rhoN_sub_nab": 17,
+            "ReciprocityTheory.ChartRestriction.DS.lemma7": 45
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/RhoNSubNab.lean",
+          "lines": [
+            15,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/RhoNSubNab.lean#L15-L56"
+        },
+        {
+          "label": "Pair-difference product identity ∏_{0≤a<b<N} (b − a) = F_N and Vandermonde Weyl quotient V(λ)/F_N",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.dimVlam_eq_vand",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.prod_pairs_eq_factorial"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.prod_pairs_eq_factorial": 191,
+            "ReciprocityTheory.ChartRestriction.DS.dimVlam_eq_vand": 199
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ProdSubLtEqFactorial.lean",
+          "lines": [
+            191,
+            206
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ProdSubLtEqFactorial.lean#L191-L206"
+        },
+        {
+          "label": "Same- and opposite-sign Vandermonde factorization along the ray and cancellation fixing d(λ) = V(λ)/F_N",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.formal_degree_constant_eq",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.pi_weight_at_zero_eq"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.pi_weight_at_zero_eq": 41,
+            "ReciprocityTheory.ChartRestriction.DS.formal_degree_constant_eq": 78
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdConst.lean",
+          "lines": [
+            41,
+            154
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdConst.lean#L41-L154"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Gelfand–Tsetlin interlacing counts prove the U(m) Weyl formula, order-preserving sign embeddings combine the U(p) and U(q) products over ε_a = ε_b with shift ρ_{n,a} − ρ_{n,b} = n_{a,b}, and splitting V(λ(t)) along λ_a(t) = λ_a + t(N − 1 − a) evaluates lim_{t→∞} Y_t = V(λ)/[d(λ) F_p F_q A].",
+      "review": "Checked compact half-sum differences (ρ_c)_{e_±(i)} − (ρ_c)_{e_±(j)} = j − i, three-region sign cancellation for ρ_{n,a} − ρ_{n,b} = n_{a,b}, superfactorial identity ∏_{a<b} (b − a) = F_N, and positive factor cancellation in V(λ)/[d(λ) F_p F_q A] = F_N/(F_p F_q A)."
+    },
+    {
+      "id": "FDW-02",
+      "chapter": "global",
+      "anchor": "global-formal-polar-lower",
+      "title": "Polar Haar measure calibration, Schur operator reduction, and Gaussian coefficient lower limit",
+      "hypotheses": "Mixed signature (p, q) (p, q ≥ 1, N = p + q) with sign map ε, compact probability Haar measure dk on K ≃ U(p) × U(q), Hermitian off-diagonal noncompact tangent matrix P(z) (z ∈ ℂ^{pq}) with real eigenvalues μ_0(z), …, μ_{N−1}(z), hyperbolic Jacobian J(z) = ∏_{0≤a<b<N} shc(μ_a(z) − μ_b(z)), polar constant c = F_N / (π^{pq} F_p F_q), and discrete-series family (σ_t, H_t) along λ_a(t) = λ_a + t(N − 1 − a) (t ∈ ℕ) carrying formal degree d(λ(t)) > 0 on μ_CD = c μ_polar and isometric lowest K-type embeddings j_t : T_t → H_t whose unit highest-weight vectors w_t ∈ T_t admit smooth compact highest-weight Casimir-eigenvector realizations of eigenvalue ‖λ(t)‖² − ‖ρ‖².",
+      "statement": "The polar Haar measure μ_CD = c J(z) dk dz has exponential-chart Lie-ball density c_Ω(N) = 1/[2^{N(N−1)/2} vol_0(U(N))] = F_N/[2^{N(N+1)/2} π^{N(N+1)/2}] and equals the canonical compact-dual Haar measure cd(p, q); for any discrete series (σ, H) of formal degree d > 0 with isometric K-type embedding j : T → H and unit vector w ∈ T, (dim T)² / d = c ∫_{ℂ^{pq}} ‖F_T(P(z))‖_HS² J(z) dz and c ∫_{ℂ^{pq}} |⟨w, F_T(P(z)) w⟩|² J(z) dz ≤ dim(T) / d; and along λ_a(t) = λ_a + t(N − 1 − a), ⟨w_t, F_{T_t}(P(t^{−1/2} y)) w_t⟩ → exp(−Q_0(y)/2) pointwise where Q_0(y) = ∑_{0≤b<a<N, ε_a≠ε_b} (a − b)|y_{a,b}|², giving lim inf_{t→∞} Y_t ≥ c ∫_{ℂ^{pq}} exp(−Q_0(y)) dy = c π^{pq} / A.",
+      "definitions": [
+        "Hermitian noncompact tangent matrix P(z) with P(z)_{a,b} = z_{a,b} for 0 ≤ b < a < N (ε_a ≠ ε_b), P(z)_{b,a} = conj(z_{a,b}), and zero same-sign entries",
+        "hyperbolic Jacobian J(z) = ∏_{0≤a<b<N} shc(μ_a(z) − μ_b(z)) and compact-dual polar constant c = F_N / (π^{pq} F_p F_q)",
+        "rescaled Gaussian quadratic form Q_0(y) = ∑_{0≤b<a<N, ε_a≠ε_b} (a − b)|y_{a,b}|² with ∫_{ℂ^{pq}} exp(−Q_0(y)) dy = π^{pq} / A"
+      ],
+      "equations": [
+        "global-formal-polar-schur-eq",
+        "global-formal-polar-lower-eq"
+      ],
+      "dependencies": [
+        "KRL-05"
+      ],
+      "sources": [
+        {
+          "label": "Exponential-chart Lie-ball density of the scaled polar measure against vol_0(U(p)) vol_0(U(q)) and vol_0(U(N))",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.omegaDensity_muCDtr",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.tie_d_eq"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.tie_d_eq": 66,
+            "ReciprocityTheory.ChartRestriction.DS.omegaDensity_muCDtr": 167
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HaarVolumes/OmegaDensityMuCDtr.lean",
+          "lines": [
+            66,
+            239
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HaarVolumes/OmegaDensityMuCDtr.lean#L66-L239"
+        },
+        {
+          "label": "Uniqueness of Lie-ball Haar density and identification of μ_CD with the compact-dual Haar measure cd(p, q)",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.muCD_eq_cd_vol",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.UpperTriangularPsiTransport.omegaDensity_unique"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.UpperTriangularPsiTransport.omegaDensity_unique": 276,
+            "ReciprocityTheory.ChartRestriction.DS.muCD_eq_cd_vol": 298
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HaarVolumes/OmegaDensityUnique.lean",
+          "lines": [
+            276,
+            338
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HaarVolumes/OmegaDensityUnique.lean#L276-L338"
+        },
+        {
+          "label": "Orthonormal basis summation identifying (dim T)² / d with the polar Hilbert–Schmidt norm integral of F_T(P(z))",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.lemma6a",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.lemma6a": 77
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SumInnerBasisSqEqAdjoint.lean",
+          "lines": [
+            77,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SumInnerBasisSqEqAdjoint.lean#L77-L157"
+        },
+        {
+          "label": "Compact Schur averaging and Ad(K)-invariant polar formal-degree inequality for a unit highest-weight vector",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.formal_degree_inequality",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.hsOp_ge_integral",
+            "ReciprocityTheory.ChartRestriction.DS.lintegral_fF_coeff_sq_le_finrank_div_fdeg"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.hsOp_ge_integral": 52,
+            "ReciprocityTheory.ChartRestriction.DS.formal_degree_inequality": 107,
+            "ReciprocityTheory.ChartRestriction.DS.lintegral_fF_coeff_sq_le_finrank_div_fdeg": 160
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SumNormAdjointSqEqHsOp.lean",
+          "lines": [
+            52,
+            167
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SumNormAdjointSqEqHsOp.lean#L52-L167"
+        },
+        {
+          "label": "First-order Lie-derivative ODE, second-order matrix conjugation remainder, and O(t^{−1/2}) Gaussian approximation on rescaled tangent balls",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.Lap.Base.matrixCoeffBounds_imply_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.Lap.Base.matrixCoeffBounds_imply_bound": 69
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/LaplaceOperators/LaplaceFoundations/MatrixCoeffBoundsImplyBound.lean",
+          "lines": [
+            69,
+            225
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/LaplaceOperators/LaplaceFoundations/MatrixCoeffBoundsImplyBound.lean#L69-L225"
+        },
+        {
+          "label": "Exported rescaled highest-weight matrix-coefficient Gaussian bound along a linear weight ray",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.Lap.Base.b3",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.Lap.Base.b3": 12
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/LaplaceOperators/LaplaceFoundations/Imports.lean",
+          "lines": [
+            12,
+            14
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/LaplaceOperators/LaplaceFoundations/Imports.lean#L12-L14"
+        },
+        {
+          "label": "Evaluation of Q_{d₀}(P(y)) = Q_0(y) at zero diagonal trace and pointwise Gaussian limit of the compressed coefficient",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.matrix_coefficient_pointwise_limit",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.qForm_pmat"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.qForm_pmat": 93,
+            "ReciprocityTheory.ChartRestriction.DS.matrix_coefficient_pointwise_limit": 120
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdPointwise.lean",
+          "lines": [
+            93,
+            170
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdPointwise.lean#L93-L170"
+        },
+        {
+          "label": "Real-coordinate scaling Jacobian on ℂ^{pq} ≃ ℝ^{2pq} absorbing t^{pq} under z = t^{−1/2} y",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.lintegral_pcoord_smul",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.lintegral_pcoord_smul": 19
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdScale.lean",
+          "lines": [
+            14,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdScale.lean#L14-L34"
+        },
+        {
+          "label": "Product evaluation of the complex Gaussian integral ∫_{ℂ^{pq}} exp(−Q_0(y)) dy = π^{pq} / A",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.fdl_gauss",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.fdl_gauss": 87
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLowerA.lean",
+          "lines": [
+            68,
+            101
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLowerA.lean#L68-L101"
+        },
+        {
+          "label": "Fatou lower bound lim inf_{t→∞} Y_t ≥ c π^{pq} / A using J(t^{−1/2} y) ≥ 1 and the Gaussian pointwise limit",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound": 18
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLower.lean",
+          "lines": [
+            18,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLower.lean#L18-L73"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Lie-ball density matching identifies μ_CD with cd(p, q), compact Schur averaging reduces dim(T)/d to a polar integral of the highest-weight compressed coefficient, and O(t^{−1/2}) tangent Taylor convergence combined with J ≥ 1 and Fatou's lemma yields lim inf_{t→∞} Y_t ≥ c π^{pq} / A.",
+      "review": "Checked exponent identity p(p+1)/2 + q(q+1)/2 + pq = N(N+1)/2 in c_Ω(N), cancellation of dim(T) > 0 under Ad(K)-invariance of J(z) dz, zero-diagonal vanishing tr(diag(d_0) P(y)) = 0, and coordinatewise complex Gaussian evaluation π/(a − b)."
+    },
+    {
+      "id": "FDW-03",
+      "chapter": "global",
+      "anchor": "global-formal-envelope-upper",
+      "title": "Cauchy–Binet minor potential, global integrable envelope, and dominated upper limit",
+      "hypotheses": "Mixed signature (p, q) (p, q ≥ 1, N = p + q, q_0 = min(p, q) ≥ 1), Hermitian off-diagonal tangent matrix P(z) (z ∈ ℂ^{pq}) with ρ(z) = √(2 q_0) ‖P(z)‖_HS and hyperbolic Jacobian J(z), antitone parameter λ ∈ ℝ^N with minor potential Φ(λ, X) = ∑_{i=0}^{N−2} (λ_i − λ_{i+1} + 1) log Δ_{i+1}(exp X), and the discrete-series ray λ_a(t) = λ_a + t(N − 1 − a) (t ∈ ℕ) with formal degrees d(λ(t)) > 0 on μ_CD and K-averaged rank-one representation F_{T_t}(P(z)) = (dim T_t) ∫_K exp(−Φ(λ(t), k⁻¹ P(z) k)) T_t(k) P_{w_t} T_t(k)⁻¹ dk; for the final identity d(λ) = V(λ)/F_N, λ is a strictly decreasing shifted-integral Harish-Chandra parameter with opposite-sign gaps above the chamber threshold so admissible coordinate steps preserve d(λ(t))/V(λ(t)) = d(λ)/V(λ).",
+      "statement": "Compact Schur Cauchy–Schwarz bounds ‖F_T(P(z))‖_HS² ≤ (dim T) ∫_K exp(−2 Φ(λ, k⁻¹ P(z) k)) dk and 1/d ≤ (c / dim T) ∫_{ℂ^{pq}} exp(−2 Φ(λ, P(z))) J(z) dz; Cauchy–Binet expansion of Δ_i(exp(s P(z))) gives zero first moment, cut-variance second moment V_i(P(z)), local quadratic bound 2 Φ(λ, P(z)) ≥ (1 − η) Q_λ(z) for ρ(z) ≤ η ≤ 1, superlinearity Φ(λ, s P(z)) ≥ s Φ(λ, P(z)) for s ≥ 1, global coercivity Φ(0, P(z)) ≥ (1/16) min(‖P(z)‖_HS², ‖P(z)‖_HS / √(2 q_0)), and 1 ≤ J(z) ≤ exp((N − 1) ρ(z)); for all t ≥ T_* := 16 N q_0 + 1, exp(−2 Φ(λ(t), P(t^{−1/2} y))) J(t^{−1/2} y) is uniformly dominated by an L¹(ℂ^{pq}) product exponential of positive slope c_* = (16 q_0 + 1)/(8 √(2 q_0) √T_*) > 0; and reverse Fatou yields lim sup_{t→∞} Y_t ≤ c π^{pq} / A, closing lim_{t→∞} Y_t = c π^{pq} / A and d(λ) = V(λ) / F_N.",
+      "definitions": [
+        "minor potential Φ(λ, X) = ∑_{i=0}^{N−2} s_i(λ) log Δ_{i+1}(exp X) with s_i(λ) = λ_i − λ_{i+1} + 1 and cut variance V_i(P(z)) = ∑_{b<i≤a} |P(z)_{a,b}|²",
+        "rank-bounded spectral radius scale ρ(z) = √(2 q_0) ‖P(z)‖_HS (q_0 = min(p, q)) controlling |y_S(z)| and log J(z) ≤ (N − 1) ρ(z)",
+        "uniform threshold T_* = 16 N q_0 + 1 and positive decay rate c_* = (16 q_0 + 1) / (8 √(2 q_0) √T_*) > 0"
+      ],
+      "equations": [
+        "global-formal-minor-potential-eq",
+        "global-formal-envelope-upper-eq"
+      ],
+      "dependencies": [
+        "RSI-06",
+        "FDW-01",
+        "FDW-02"
+      ],
+      "sources": [
+        {
+          "label": "Hilbert–Schmidt norm bound for K-averaged rank-one projections and polar upper bound 1/d ≤ (c/dim T) ∫ exp(−2Φ) J dz",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.lemma6c",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.lemma6b"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.lemma6b": 239,
+            "ReciprocityTheory.ChartRestriction.DS.lemma6c": 299
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/IntegrableOfContinuousCompact.lean",
+          "lines": [
+            239,
+            372
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/IntegrableOfContinuousCompact.lean#L239-L372"
+        },
+        {
+          "label": "Cauchy–Binet convex exponential sum for Δ_i(exp(s P(z))), vanishing first moment and cut-variance second moment",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.lemma3b",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.lemma3a",
+            "ReciprocityTheory.ChartRestriction.DS.lemma3c",
+            "ReciprocityTheory.ChartRestriction.DS.lemma3d"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.lemma3a": 66,
+            "ReciprocityTheory.ChartRestriction.DS.lemma3b": 94,
+            "ReciprocityTheory.ChartRestriction.DS.lemma3c": 127,
+            "ReciprocityTheory.ChartRestriction.DS.lemma3d": 142
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/EigenvectorUnitaryMulStar.lean",
+          "lines": [
+            66,
+            167
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/EigenvectorUnitaryMulStar.lean#L66-L167"
+        },
+        {
+          "label": "Log-sum-exp convexity of s ↦ ℓ_i(s P(z)) and small-scale Taylor lower bound ℓ_i(P(z)) ≥ (1 − η) V_i(P(z)) / 2",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.fi_lower",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.fi_convex"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.fi_convex": 34,
+            "ReciprocityTheory.ChartRestriction.DS.fi_lower": 61
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FiPmatEqFiOneSmulPmat.lean",
+          "lines": [
+            34,
+            83
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FiPmatEqFiOneSmulPmat.lean#L34-L83"
+        },
+        {
+          "label": "Ray superlinearity Φ(λ, s P(z)) ≥ s Φ(λ, P(z)) (s ≥ 1) and weighted cut-variance lower bound 2 Φ(λ, P(z)) ≥ (1 − η) Q_λ(z)",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.ph_lower",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.ph_scale"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.ph_scale": 61,
+            "ReciprocityTheory.ChartRestriction.DS.ph_lower": 191
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SCoefGeTwoOfHc.lean",
+          "lines": [
+            54,
+            200
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SCoefGeTwoOfHc.lean#L54-L200"
+        },
+        {
+          "label": "Global quadratic-and-linear lower bound Φ(0, P(z)) ≥ (1/16) min(‖P(z)‖_HS², ‖P(z)‖_HS / √(2 q_0))",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.potential_lower_min",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.hs_eighth_le_of_small"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.hs_eighth_le_of_small": 36,
+            "ReciprocityTheory.ChartRestriction.DS.potential_lower_min": 43
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HsEighthLeOfSmall.lean",
+          "lines": [
+            36,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HsEighthLeOfSmall.lean#L36-L94"
+        },
+        {
+          "label": "Two-sided hyperbolic sinc bounds 1 ≤ shc(u) ≤ exp(|u|) and lower bound J(z) ≥ 1",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.jac_ge_one",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.shc_bounds"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.shc_bounds": 39,
+            "ReciprocityTheory.ChartRestriction.DS.jac_ge_one": 97
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacobianLeExp.lean",
+          "lines": [
+            39,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacobianLeExp.lean#L39-L105"
+        },
+        {
+          "label": "Rank-2q_0 Cauchy–Schwarz eigenvalue bound and upper estimate log J(z) ≤ (N − 1) ρ(z)",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.log_jac_le_rho",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.log_jac_le_rho": 283
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacobianLeExp.lean",
+          "lines": [
+            252,
+            298
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/JacobianLeExp.lean#L252-L298"
+        },
+        {
+          "label": "Near-origin Gaussian bound, uniform exponential decay for t ≥ 16 N q_0 + 1 and coordinatewise product majorant",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.fdU_far",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.fdU_near",
+            "ReciprocityTheory.ChartRestriction.DS.fdU_c_pos",
+            "ReciprocityTheory.ChartRestriction.DS.fdU_exp_le_prod"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.fdU_near": 54,
+            "ReciprocityTheory.ChartRestriction.DS.fdU_far": 77,
+            "ReciprocityTheory.ChartRestriction.DS.fdU_c_pos": 149,
+            "ReciprocityTheory.ChartRestriction.DS.fdU_exp_le_prod": 171
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpperB.lean",
+          "lines": [
+            54,
+            207
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpperB.lean#L54-L207"
+        },
+        {
+          "label": "Integrability of the coordinatewise exponential envelope on ℂ^{pq} and Gaussian integral evaluation",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.fdU_integrable_prod_exp",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.fdU_lintegral_gauss"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.fdU_lintegral_gauss": 61,
+            "ReciprocityTheory.ChartRestriction.DS.fdU_integrable_prod_exp": 74
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpperA.lean",
+          "lines": [
+            61,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpperA.lean#L61-L78"
+        },
+        {
+          "label": "Uniform L¹ domination and reverse Fatou upper limit lim sup_{t→∞} Y_t ≤ c π^{pq} / A",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound",
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.DS.fdU_major",
+            "ReciprocityTheory.ChartRestriction.DS.fdU_pointwise"
+          ],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.fdU_major": 28,
+            "ReciprocityTheory.ChartRestriction.DS.fdU_pointwise": 61,
+            "ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound": 95
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean",
+          "lines": [
+            28,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean#L28-L137"
+        },
+        {
+          "label": "Two-sided limit squeeze equating the analytic Gaussian constant with the compact Weyl ray limit to prove d(λ) = V(λ)/F_N",
+          "declaration": "ReciprocityTheory.ChartRestriction.DS.thmFD",
+          "related_declarations": [],
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.DS.thmFD": 21
+          },
+          "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ThmFD.lean",
+          "lines": [
+            21,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ThmFD.lean#L21-L104"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Cauchy–Binet minor moments and log-sum-exp convexity prove Φ(0, P(z)) ≥ (1/16) min(‖P(z)‖_HS², ‖P(z)‖_HS/√(2q_0)), beating log J(z) ≤ (N − 1)ρ(z) for all t ≥ 16 N q_0 + 1 with positive linear rate c_* > 0 so reverse Fatou closes lim sup_{t→∞} Y_t ≤ c π^{pq} / A.",
+      "review": "Checked second-moment cut identity tr((P(z)²)_{[i]}) − tr((P(z)_{[i]})²) = V_i(P(z)), rank-2q_0 eigenvalue bound ∑ |μ_r| ≤ √(2q_0)‖P(z)‖_HS, quadratic completion min(r², a_* r) ≥ a_* r − a_*²/4, and numerator cancellation 16 N q_0 + 1 − 16(N − 1)q_0 = 16 q_0 + 1 > 0 in c_*."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "weylForU_closed",
+      "callee": "nablaDim_closed",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForU.lean",
+        "line": 11,
+        "spelling": "nablaDim_closed"
+      }
+    },
+    {
+      "caller": "nablaDim_closed",
+      "callee": "Formalism.L2.G.Model.weyl_dualWeyl",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForU.lean",
+        "line": 7,
+        "spelling": "Formalism.L2.G.Model.weyl_dualWeyl"
+      }
+    },
+    {
+      "caller": "weylForK_closed",
+      "callee": "weylForU_closed",
+      "callsite": {
+        "path": "src/Formalism/PeriodIntegrals/ExplicitFormulaCounts/WeylForK.lean",
+        "line": 4,
+        "spelling": "weylForU_closed"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.HW.weyl_dimension_formula_product",
+      "callee": "weylForK_closed",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/WeylBridge.lean",
+        "line": 21,
+        "spelling": "weylForK_closed"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.HW.hwfin_weyl",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.HW.weyl_dimension_formula_product",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/HighestWeights/Finrank.lean",
+        "line": 23,
+        "spelling": "weyl_dimension_formula_product"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.lemma7",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.HW.hwfin_weyl",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/RhoNSubNab.lean",
+        "line": 49,
+        "spelling": "HW.hwfin_weyl"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.lemma7",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.rhoN_sub_nab",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/RhoNSubNab.lean",
+        "line": 53,
+        "spelling": "rhoN_sub_nab"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_constant_eq",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lemma7",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdConst.lean",
+        "line": 105,
+        "spelling": "lemma7"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.muCD_eq_cd_vol",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.omegaDensity_muCDtr",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HaarVolumes/OmegaDensityUnique.lean",
+        "line": 308,
+        "spelling": "omegaDensity_muCDtr"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_inequality",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lemma6a",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SumNormAdjointSqEqHsOp.lean",
+        "line": 117,
+        "spelling": "lemma6a"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.Lap.Base.b3",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.Lap.Base.matrixCoeffBounds_imply_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/LaplaceOperators/LaplaceFoundations/Imports.lean",
+        "line": 13,
+        "spelling": "matrixCoeffBounds_imply_bound"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdc_cd",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.Lap.Base.b3",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdCons.lean",
+        "line": 51,
+        "spelling": "Lap.Base.b3"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.matrix_coefficient_pointwise_limit",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.qForm_pmat",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdPointwise.lean",
+        "line": 161,
+        "spelling": "qForm_pmat"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lintegral_pcoord_smul",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLower.lean",
+        "line": 53,
+        "spelling": "lintegral_pcoord_smul"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.jac_ge_one",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLower.lean",
+        "line": 58,
+        "spelling": "jac_ge_one"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdl_gauss",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdLower.lean",
+        "line": 60,
+        "spelling": "fdl_gauss"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.lemma6c",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lemma6b",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/IntegrableOfContinuousCompact.lean",
+        "line": 340,
+        "spelling": "lemma6b"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fi_lower",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lemma3b",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FiPmatEqFiOneSmulPmat.lean",
+        "line": 67,
+        "spelling": "lemma3b"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.ph_lower",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fi_lower",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/SCoefGeTwoOfHc.lean",
+        "line": 197,
+        "spelling": "fi_lower"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.potential_lower_min",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.hs_eighth_le_of_small",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/HsEighthLeOfSmall.lean",
+        "line": 61,
+        "spelling": "hs_eighth_le_of_small"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdU_far",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.potential_lower_min",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpperB.lean",
+        "line": 84,
+        "spelling": "potential_lower_min"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdU_major",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdU_far",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean",
+        "line": 39,
+        "spelling": "fdU_far"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.fdU_major",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdU_c_pos",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean",
+        "line": 56,
+        "spelling": "fdU_c_pos"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdU_major",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean",
+        "line": 132,
+        "spelling": "fdU_major"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.fdU_pointwise",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/FdUpper.lean",
+        "line": 135,
+        "spelling": "fdU_pointwise"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.thmFD",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.lemma6c",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ThmFD.lean",
+        "line": 63,
+        "spelling": "lemma6c"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.thmFD",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ThmFD.lean",
+        "line": 84,
+        "spelling": "formal_degree_limsup_upper_bound"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.DS.thmFD",
+      "callee": "ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/FormalDegree/ThmFD.lean",
+        "line": 87,
+        "spelling": "formal_degree_liminf_lower_bound"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FDW-01",
+      "FDW-03"
+    ],
+    [
+      "RSI-06",
+      "FDW-03"
+    ],
+    [
+      "KRL-05",
+      "FDW-02"
+    ],
+    [
+      "FDW-02",
+      "FDW-03"
+    ],
+    [
+      "FDW-01",
+      "FDG-01"
+    ],
+    [
+      "FDW-02",
+      "FDG-01"
+    ],
+    [
+      "FDW-03",
+      "FDG-01"
+    ]
+  ],
+  "outstanding": [
+    "RSI-06 supplies coordinate-step invariance of d/V along the admissible ray and KRL-05 supplies the isometric lowest compact-type model, which combine here with the compact unitary Weyl dimension formula, the polar Haar density calibration, the Gaussian tangent matrix-coefficient limit, and the Cauchy–Binet minor potential envelope to establish FDG-01."
+  ],
+  "review_scope": "Checked Gelfand–Tsetlin dual-Weyl dimension product, sign-block order embeddings and three-region cancellation ρ_{n,a} − ρ_{n,b} = n_{a,b}, exponential-chart Haar density matching to cd(p, q), compact Schur operator reduction, O(t^{−1/2}) tangent ODE Gaussian limit and Fatou lower bound, Cauchy–Binet cut-variance second moments, global quadratic-linear minor potential bound, uniform L¹ envelope at T_* = 16 N q_0 + 1, and 30 pinned source ranges with 28 callsites."
+}

@@ -12,7 +12,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 04 | `normalization` | From the global theta function to an integral jet | `126` (`49` / `77`) | `0` | ✅ Terminé (Cycle 3 : `WFG-01`–`02` ferment `HTC-01`, `TDE-01`, `CED-01`–`02`, 100 % auto-contenu) |
-| 05 | `global` | Lattices and the arithmetic main term | `149` (`70` / `79`) | `2` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; Cycle 7 ✅ Terminé : `PGU-01`–`03` ferment `RPI-01`, `FMU-01`, `RFV-01` ; 2 interfaces amont restantes : `FDG-01`, `global.lattice`) |
+| 05 | `global` | Lattices and the arithmetic main term | `152` (`70` / `82`) | `1` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; Cycle 7 ✅ Terminé : `PGU-01`–`03` ferment `RPI-01`, `FMU-01`, `RFV-01` ; Cycle 8 ✅ Terminé : `FDW-01`–`03` ferment `FDG-01` ; 1 interface amont restante : `global.lattice`) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
 | 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
@@ -30,7 +30,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 5. ✅ **Cycle 5 (Terminé)** — **Ch. 5 (`global`)** : *Réalisations isométriques de quotients et sous-réseaux arithmétiques et changement de base archimédien du sous-réseau orthogonal, du radical nilpotent et du centre* (`isometric-quotient-realization.fragment.html` + `isometric_quotient_realization.json`, raccordé à `deep-orbit-cover`, `unipotent-hom-cover`, `unipotent-first-radius`, `unipotent_first_radius.json`, `unipotent_lattice_radii.json` ; `IQR-01`–`02`, ferme `UFR-01`).
 6. ✅ **Cycle 6 (Terminé)** — **Ch. 5 (`global`)** : *Jauge de Haar riemannienne, jacobien de la carte exponentielle ordonnée, indice du sous-groupe de congruence et borne absolue de covolume hermitien* (`deep-cusp-jacobian-index.fragment.html` + `deep_cusp_jacobian_index.json`, raccordé à `deep-cusp-count`, `deep-sobolev`, `deep_cusp_count.json`, `deep_sobolev.json` ; `DCJ-01`–`03`, ferme `DCP-01`).
 7. ✅ **Cycle 7 (Terminé)** — **Ch. 5 (`global`)** : *Asymptotiques locales de jauge sur sous-groupes algébriques matriciels, module de conjugaison du radical unipotent isotrope, calibration par tranche de la constante d'Iwasawa, inégalité de covolume sur tranches dénombrables, finitude du volume quotient, constante arithmétique à cinq facteurs et majoration de $\zeta_E(l)$* (`parabolic-gauge-unfolding.fragment.html` + `parabolic_gauge_unfolding.json`, raccordé à `real-parabolic-integration`, `marked-flag-unfolding`, `rare-flag-volume`, `real_parabolic_integration.json`, `marked_flag_unfolding.json`, `rare_flag_volume.json` ; `PGU-01`–`03`, ferme `RPI-01`, `FMU-01` et `RFV-01`).
-8. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+8. ✅ **Cycle 8 (Terminé)** — **Ch. 5 (`global`)** : *Formule des dimensions de Weyl compacte sur $U(p) \times U(q)$, calibration de Haar polaire, limite gaussienne des coefficients matriciels tangents et enveloppe globale intégrable par potentiel de mineurs de Cauchy–Binet* (`formal-degree-weyl-envelope.fragment.html` + `formal_degree_weyl_envelope.json`, raccordé à `formal-degree`, `formal_degree.json` ; `FDW-01`–`03`, ferme `FDG-01`).
+9. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -63,13 +64,17 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | $d_N = \dim_{\mathbb{R}} N$ | Dimension réelle du radical unipotent d'un drapeau isotrope | Ch. 5 |
 | $V(r) = \mathrm{vol}(\mathrm{U}(r))$ | Volume de Hilbert–Schmidt du groupe unitaire compact $\mathrm{U}(r)$ | Ch. 5 |
 | $S(r) = \prod_{l=1}^r \frac{2\pi^l}{(l-1)!}$ | Produit des aires de sphères unitaires du groupe unitaire compact $\mathrm{U}(r)$ | Ch. 5 |
+| $P(z)$ | Matrice tangente hermitienne hors-diagonale en coordonnées polaires sur $U(p,q)$ ($P(z)_{a,b} = z_{a,b}$ pour $b < a$, $\varepsilon_a \neq \varepsilon_b$, nulle sur chaque bloc de même signe) | Ch. 5 |
+| $J(z)$ | Jacobien polaire hyperbolique $\prod_{0 \le a < b < N} \mathrm{shc}(\mu_a(z) - \mu_b(z))$ ($\mu_a(z)$ valeurs propres de $P(z)$) | Ch. 5 |
+| $\Phi(\lambda, X)$ | Potentiel de mineurs de Cauchy–Binet $\sum_{i=0}^{N-2} (\lambda_i - \lambda_{i+1} + 1)\,\ell_{i+1}(X)$ | Ch. 5 |
+| $\ell_i(X) = \log \Delta_i(\exp X)$ | Logarithme du mineur principal dominant d'ordre $i$ de $\exp X$ | Ch. 5 |
 
 ---
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`955` résultats au total après Cycle 7 : `371` `core-argument` / `584` `rebuilt-infrastructure`, `874` auto-contenus, `18` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`958` résultats au total après Cycle 8 : `371` `core-argument` / `587` `rebuilt-infrastructure`, `879` auto-contenus, `17` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -249,3 +254,38 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `GlobalTheory.FlagMeas.Bound.flagMeasureBound` (`IsotropicFlagProbabilityBoundOfVolumeRatio.lean#L64-L104`)
   - `GlobalTheory.DedekindZetaBound.one_le_zetaE_and_le`, `hasSum_zeta_pow` (`OneLeDedekindZetaRealValueAndLeZetaPow.lean#L39-L76`)
   - `GlobalTheory.FlagMeas.ConstBd.zeta_prod` (`FlagExplicitConstantLeExpNegHalf.lean#L55-L66`)
+
+### Cycle 8 — Formule des dimensions de Weyl compacte, calibration polaire et enveloppe de mineurs (`formal_degree_weyl_envelope`)
+- *Statut* : ✅ Terminé (`content/formal-degree-weyl-envelope.fragment.html` + `records/formal_degree_weyl_envelope.json`, rôle `rebuilt-infrastructure` ; ferme `FDG-01`).
+- *Déclarations `[CORE]` couvertes — `FDW-01` (`#global-formal-weyl-limit`)* :
+  - `Formalism.L2.G.Model.weyl_dualWeyl`, `finrank_dualWeyl`, `weylQ` (`WeylDim.lean#L259-L312`)
+  - `weylForU_closed`, `nablaDim_closed`, `modelIso_closed` (`WeylForU.lean#L7-L11`)
+  - `weylForK_closed` (`WeylForK.lean#L1-L4`)
+  - `PI.WeylForKWork.weyl_formula_compact`, `prod_pairs_split` (`Formula.lean#L150-L195`)
+  - `ReciprocityTheory.ChartRestriction.DS.HW.weyl_dimension_formula_product` (`WeylBridge.lean#L10-L22`)
+  - `ReciprocityTheory.ChartRestriction.DS.HW.hwfin_weyl` (`Finrank.lean#L16-L26`)
+  - `ReciprocityTheory.ChartRestriction.DS.lemma7`, `nab`, `rhoN_sub_nab` (`RhoNSubNab.lean#L15-L56`)
+  - `ReciprocityTheory.ChartRestriction.DS.dimVlam_eq_vand`, `prod_pairs_eq_factorial` (`ProdSubLtEqFactorial.lean#L191-L206`)
+  - `ReciprocityTheory.ChartRestriction.DS.formal_degree_constant_eq`, `pi_weight_at_zero_eq` (`FdConst.lean#L41-L154`)
+- *Déclarations `[CORE]` couvertes — `FDW-02` (`#global-formal-polar-lower`)* :
+  - `ReciprocityTheory.ChartRestriction.DS.omegaDensity_muCDtr`, `tie_d_eq` (`OmegaDensityMuCDtr.lean#L66-L239`)
+  - `ReciprocityTheory.ChartRestriction.DS.muCD_eq_cd_vol`, `UpperTriangularPsiTransport.omegaDensity_unique` (`OmegaDensityUnique.lean#L276-L338`)
+  - `ReciprocityTheory.ChartRestriction.DS.lemma6a` (`SumInnerBasisSqEqAdjoint.lean#L77-L157`)
+  - `ReciprocityTheory.ChartRestriction.DS.formal_degree_inequality`, `hsOp_ge_integral`, `lintegral_fF_coeff_sq_le_finrank_div_fdeg` (`SumNormAdjointSqEqHsOp.lean#L52-L167`)
+  - `ReciprocityTheory.ChartRestriction.DS.Lap.Base.matrixCoeffBounds_imply_bound` (`MatrixCoeffBoundsImplyBound.lean#L69-L225`)
+  - `ReciprocityTheory.ChartRestriction.DS.Lap.Base.b3` (`Imports.lean#L12-L14`)
+  - `ReciprocityTheory.ChartRestriction.DS.matrix_coefficient_pointwise_limit`, `qForm_pmat` (`FdPointwise.lean#L93-L170`)
+  - `ReciprocityTheory.ChartRestriction.DS.lintegral_pcoord_smul` (`FdScale.lean#L14-L34`)
+  - `ReciprocityTheory.ChartRestriction.DS.fdl_gauss` (`FdLowerA.lean#L68-L101`)
+  - `ReciprocityTheory.ChartRestriction.DS.formal_degree_liminf_lower_bound` (`FdLower.lean#L18-L73`)
+- *Déclarations `[CORE]` couvertes — `FDW-03` (`#global-formal-envelope-upper`)* :
+  - `ReciprocityTheory.ChartRestriction.DS.lemma6c`, `lemma6b` (`IntegrableOfContinuousCompact.lean#L239-L372`)
+  - `ReciprocityTheory.ChartRestriction.DS.lemma3b`, `lemma3a`, `lemma3c`, `lemma3d` (`EigenvectorUnitaryMulStar.lean#L66-L167`)
+  - `ReciprocityTheory.ChartRestriction.DS.fi_lower`, `fi_convex` (`FiPmatEqFiOneSmulPmat.lean#L34-L83`)
+  - `ReciprocityTheory.ChartRestriction.DS.ph_lower`, `ph_scale` (`SCoefGeTwoOfHc.lean#L54-L200`)
+  - `ReciprocityTheory.ChartRestriction.DS.potential_lower_min`, `hs_eighth_le_of_small` (`HsEighthLeOfSmall.lean#L36-L94`)
+  - `ReciprocityTheory.ChartRestriction.DS.jac_ge_one`, `shc_bounds`, `log_jac_le_rho` (`JacobianLeExp.lean#L39-L105, #L252-L298`)
+  - `ReciprocityTheory.ChartRestriction.DS.fdU_far`, `fdU_near`, `fdU_c_pos`, `fdU_exp_le_prod` (`FdUpperB.lean#L54-L207`)
+  - `ReciprocityTheory.ChartRestriction.DS.fdU_integrable_prod_exp`, `fdU_lintegral_gauss` (`FdUpperA.lean#L61-L78`)
+  - `ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound`, `fdU_major`, `fdU_pointwise` (`FdUpper.lean#L28-L137`)
+  - `ReciprocityTheory.ChartRestriction.DS.thmFD` (`ThmFD.lean#L21-L104`)
