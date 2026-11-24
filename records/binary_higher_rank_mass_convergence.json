@@ -1,0 +1,827 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "BHM-01",
+      "chapter": "lifts",
+      "anchor": "lifts-higher-rank-quadric-count",
+      "title": "Higher-rank finite-field quadric point count, unit-length local densities, and nonzero-target valuation induction",
+      "statement": "Let k be a finite field of odd characteristic and cardinality q, M ≥ 1 an integer, and B a nonsingular symmetric 2M × 2M matrix over k. For every nonzero s ∈ k^×, the quadratic level set Q(x) = ½ xᵀ B x = s in k^(2M) has cardinality N(s) satisfying |N(s) − q^(2M−1)| ≤ q^(M−1) (with equality). Consequently, at any finite place v of a number field F with |2|_v = 1, residue cardinality q_v, standard additive Haar measure λ_v (λ_v(𝒪_v) = 1), and unimodular integral symmetric matrix B ∈ M_(2M)(𝒪_v), every local unit s ∈ 𝒪_v^× admits a constant density D ≥ 0 with |D − 1| ≤ 2 / q_v^M such that λ_v^(2M)({x ∈ 𝒪_v^(2M) : Q(x) ∈ A}) = D · λ_v(A) for every measurable A ⊆ {z ∈ F_v : |z − s|_v < |s|_v}. Applying this to the trace form of a nondegenerate Hermitian matrix J of rank M ≥ 1 over a CM extension E/F yields, at all but finitely many finite places v, the local Gram-fibre unit estimate |m_v(s)(Λ_v) − 1| ≤ 2 / q_v^M on the standard lattice Λ_v ⊂ (F_v ⊗_F E)^(1 × M), and in particular |m_v(s)(Λ_v) − 1| ≤ 2 / q_v² at M = 2. Moreover, for every higher rank M ≥ 3 and every nonzero integral target s ∈ 𝒪_v ∖ {0}, strong induction on ord_v(s) in steps of two yields a constant local pushforward density D ≥ 0 on {z ∈ F_v : |z − s|_v < |s|_v} satisfying |D − 1| ≤ 2 / q_v^(M−1).",
+      "hypotheses": "Odd-characteristic finite field k of cardinality q; number field F (and CM extension E/F with conjugation σ and F-basis b) with finite place v of residue cardinality q_v and uniformizer π; standard additive Haar measure λ_v on F_v with λ_v(𝒪_v) = 1; unimodular integral symmetric 2M × 2M matrix B over 𝒪_v (with |2|_v = 1 and |det B|_v = 1), or nondegenerate M × M Hermitian matrix J over E; rank M ≥ 1 for unit targets s ∈ 𝒪_v^× and M ≥ 3 for arbitrary nonzero integral targets s ∈ 𝒪_v ∖ {0}.",
+      "correspondence": "Orthogonal diagonalization splits the 2M-variable quadratic Gauss sum over k into 2M one-variable quadratic character sums whose χ(t)-scaling cancels via χ(t)^(2M) = 1, giving sharp square-root cancellation on nonzero targets. Hensel lifting over primitive residue classes transfers the count to the local pushforward density on unit balls, and for M ≥ 3 separating primitive vectors from π 𝒪_v^(2M) yields the scaling recursion D = D_p + q_v^(−(2M−2)) D' preserving |D − 1| ≤ 2 / q_v^(M−1) across every two-step valuation descent.",
+      "dependencies": [],
+      "equations": [
+        "lifts-bhm-quadric-count",
+        "lifts-bhm-unit-density",
+        "lifts-bhm-higher-rank-bound"
+      ],
+      "sources": [
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.sharpCount",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.sharpCount": 198,
+            "PositivityTheory.PfSWUS.HMass.SC.sum_sq_eq": 13,
+            "PositivityTheory.PfSWUS.HMass.SC.sum_sq_scale": 38,
+            "PositivityTheory.PfSWUS.HMass.SC.addChar_sum": 54,
+            "PositivityTheory.PfSWUS.HMass.SC.gauss_const": 61,
+            "PositivityTheory.PfSWUS.HMass.SC.sharp": 134
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean",
+          "lines": [
+            13,
+            202
+          ],
+          "label": "Sharp 2M-variable nondegenerate finite-field quadric point count on nonzero targets via even-dimensional Gauss sum invariance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean#L13-L202",
+          "related_declarations": [
+            "PositivityTheory.PfSWUS.HMass.SC.sum_sq_eq",
+            "PositivityTheory.PfSWUS.HMass.SC.sum_sq_scale",
+            "PositivityTheory.PfSWUS.HMass.SC.addChar_sum",
+            "PositivityTheory.PfSWUS.HMass.SC.gauss_const",
+            "PositivityTheory.PfSWUS.HMass.SC.sharp"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.lattice_unit",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.lattice_unit": 263,
+            "PositivityTheory.PfSWUS.HMass.SharpCount": 12,
+            "PositivityTheory.PfSWUS.HMass.real_bound2": 18,
+            "PositivityTheory.PfSWUS.HMass.coreSharp": 50,
+            "PositivityTheory.PfSWUS.HMass.dens_unit": 214
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+          "lines": [
+            12,
+            298
+          ],
+          "label": "Unit-length primitive lift and cofinite 2/q^M local Gram-fibre mass bound across all Hermitian ranks M ≥ 1",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean#L12-L298",
+          "related_declarations": [
+            "PositivityTheory.PfSWUS.HMass.SharpCount",
+            "PositivityTheory.PfSWUS.HMass.real_bound2",
+            "PositivityTheory.PfSWUS.HMass.coreSharp",
+            "PositivityTheory.PfSWUS.HMass.dens_unit"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass": 5,
+            "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_leaves": 7
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+          "lines": [
+            5,
+            8
+          ],
+          "label": "Specialization of the sharp unit-length mass estimate to binary Hermitian spaces and top-level low-rank density hook",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean#L5-L8",
+          "related_declarations": [
+            "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_leaves"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.GBall.density_near_value",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.GBall.density_near_value": 444,
+            "GlobalTheory.CompanionTheory.SW.GBall.exists_unif": 16,
+            "GlobalTheory.CompanionTheory.SW.GBall.q_int": 34,
+            "GlobalTheory.CompanionTheory.SW.GBall.q_smul": 44,
+            "GlobalTheory.CompanionTheory.SW.GBall.pi_scale": 117,
+            "GlobalTheory.CompanionTheory.SW.GBall.lam_scale": 143,
+            "GlobalTheory.CompanionTheory.SW.GBall.isOpen_unit_sphere": 159,
+            "GlobalTheory.CompanionTheory.SW.GBall.meas_prim": 186,
+            "GlobalTheory.CompanionTheory.SW.GBall.q_nonprim": 225,
+            "GlobalTheory.CompanionTheory.SW.GBall.bound_step": 240,
+            "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level": 285
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+          "lines": [
+            16,
+            454
+          ],
+          "label": "Strong valuation-step induction yielding the uniform 2/q^(M−1) local quadratic pushforward density bound for M ≥ 3",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean#L16-L454",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.GBall.exists_unif",
+            "GlobalTheory.CompanionTheory.SW.GBall.q_int",
+            "GlobalTheory.CompanionTheory.SW.GBall.q_smul",
+            "GlobalTheory.CompanionTheory.SW.GBall.pi_scale",
+            "GlobalTheory.CompanionTheory.SW.GBall.lam_scale",
+            "GlobalTheory.CompanionTheory.SW.GBall.isOpen_unit_sphere",
+            "GlobalTheory.CompanionTheory.SW.GBall.meas_prim",
+            "GlobalTheory.CompanionTheory.SW.GBall.q_nonprim",
+            "GlobalTheory.CompanionTheory.SW.GBall.bound_step",
+            "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "BHM-02",
+      "chapter": "lifts",
+      "anchor": "lifts-global-product-compatibility",
+      "title": "Finite-place orbit factorization, higher-rank Euler convergence, block induction, powerset ideal sieve, and complex Euler integrability",
+      "statement": "Let E/F be a CM extension over a totally real number field F with F-basis b, J a nondegenerate M × M Hermitian matrix over E, and T an invertible n × n Hermitian matrix over E. (1) Any locally finite U(J, 𝔸_F)-invariant measure I on (𝔸_F ⊗_F E)^(n × M) supported on {X : gram(X) = T} restricts on the off-S lattice locus {X : X_v ∈ Λ_v for all v ∉ S} and pushes forward to W_∞ × ∏_(v ∈ S) W_v as a nonnegative scalar multiple c_S · (m_∞(T) × ∏_(v ∈ S) m_v(T)) of the local Gram-fibre product; the same product factorization extends to open invariant regular subsets via open-embedding pullback. (2) Whenever n = 0 or n + 2 ≤ M, splitting an anisotropic vector T ≃ diag(t, T₁) and inducting on n produces an explicit constant C_n = 3^n − 1 such that |m_v(T)(Λ_v) − 1| ≤ C_n / q_v² for all but finitely many places v, while m_v(T)(Λ_v) < ∞ for every v, whence ∑_v |m_v(T)(Λ_v) − 1| < ∞. (3) For n + 2 ≤ M and t ∈ F^×, the global Siegel–Weil measure identity for (J, T) implies the identity for (diag(t, J), diag(t, T)) with global constant 1 via product-formula cancellation c_∞ ∏_(v ∈ S) c_v = 1 and convergent tail multiplication; for n + 3 ≤ M, if t is not globally represented by J, vanishing of some local rank-one fibre propagates to the block-extended fibre and gives the global Siegel–Weil identity 0 = 0. (4) For any finite set D of primes disjoint from S and any scaled rational sample B ⊂ F^× with common integer denominator N, powerset expansion over t ⊆ D and product-ideal divisibility yield δ^[F:ℚ] ∑_(x ∈ B) ∏_(v ∈ D) |g_v(x) − 1| ≤ max(C₀, 0) ∏_(v ∈ D) (2 C / q_v²). Finally, for any constant-one Euler-product measure I with locally finite factors, a continuous m_∞-integrable archimedean function Φ_∞, and a pure finite-adelic test Φ_f = ∏_v Φ_v, the product Φ = Φ_∞ Φ_f is I-integrable with ∫ Φ d I = (∫ Φ_∞ dm_∞) · ∏_v (∫ Φ_v dm_v).",
+      "hypotheses": "CM extension E/F with F totally real and F-basis b, nondegenerate M × M Hermitian matrix J over E, invertible n × n Hermitian matrix T over E, standard local additive Haar measures on A_∞ and each F_v with associated local Gram-fibre families m_∞ and m_v, convergence range n = 0 or n + 2 ≤ M (and n + 3 ≤ M for anisotropic vanishing), nonzero scalar t ∈ F^×, ideal-lattice counting bound with constant C₀ and scaling parameter δ > 0 on compact archimedean sets K ⊂ A_∞, and a factorizable test Φ = Φ_∞ Φ_f with Φ_∞ continuous and m_∞-integrable.",
+      "correspondence": "Proper-action orbit uniqueness on closed orbits and open regular embeddings supplies finite-place product factorization of unitary-invariant measures. Anisotropic splitting reduces higher-rank local deviations inductively via the rank-one M ≥ 3 bound of BHM-01 and the quadratic error rule (3|C| + 2)/q², proving absolute convergence of the Euler product. Rank-one block induction unfolds the theta measure and cancels local Haar scaling factors by the global product formula, while powerset expansion over subsets t ⊆ D couples the unit and nonunit local bounds to ideal-norm counts and box-measure evaluation extends Euler factorization to integrable non-compactly-supported archimedean functions.",
+      "dependencies": [
+        "BHM-01",
+        "ODN-02"
+      ],
+      "equations": [
+        "lifts-bhm-orbit-factor",
+        "lifts-bhm-higher-rank-error",
+        "lifts-bhm-block-induction",
+        "lifts-bhm-sieve-prod"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FactS.fact_S",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FactS.fact_S": 335,
+            "GlobalTheory.CompanionTheory.SW.FactS.prod_factor": 38,
+            "GlobalTheory.CompanionTheory.SW.FactS.lat_natMul": 139,
+            "GlobalTheory.CompanionTheory.SW.FactS.zero_mem_lat": 147,
+            "GlobalTheory.CompanionTheory.SW.FactS.exists_scale": 153,
+            "GlobalTheory.CompanionTheory.SW.FactS.pr": 205,
+            "GlobalTheory.CompanionTheory.SW.FactS.preimage_lt_top": 209,
+            "GlobalTheory.CompanionTheory.SW.FactS.push_inv": 238,
+            "GlobalTheory.CompanionTheory.SW.FactS.local_pack": 288
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+          "lines": [
+            38,
+            450
+          ],
+          "label": "Finite-place unitary-orbit factorization of adelic Gram-fibre measures via product uniqueness and Witt transitivity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean#L38-L450",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.FactS.prod_factor",
+            "GlobalTheory.CompanionTheory.SW.FactS.lat_natMul",
+            "GlobalTheory.CompanionTheory.SW.FactS.zero_mem_lat",
+            "GlobalTheory.CompanionTheory.SW.FactS.exists_scale",
+            "GlobalTheory.CompanionTheory.SW.FactS.pr",
+            "GlobalTheory.CompanionTheory.SW.FactS.preimage_lt_top",
+            "GlobalTheory.CompanionTheory.SW.FactS.push_inv",
+            "GlobalTheory.CompanionTheory.SW.FactS.local_pack"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open": 54,
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.map_comap_of_carried": 15,
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_invariant": 20,
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.lintegral_comap_of_carried": 32,
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_ne_zero_of_carried": 37,
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_finite_compacts": 44
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean",
+          "lines": [
+            15,
+            186
+          ],
+          "label": "Extension of product-orbit measure factorization to open invariant regular loci via open-embedding pullback",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean#L15-L186",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.map_comap_of_carried",
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_invariant",
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.lintegral_comap_of_carried",
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_ne_zero_of_carried",
+            "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_finite_compacts"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.GoodMass.mass_fibre_good",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.GoodMass.mass_fibre_good": 270,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_moved": 23,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.fixed_mem": 38,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_aniso": 88,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.blockOne_herm": 124,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.one_hermND": 133,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.blockOne_hermND": 139,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.arith": 147,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_family": 185,
+            "GlobalTheory.CompanionTheory.SW.GoodMass.key": 207
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensitiesBoundedAlmostAll.lean",
+          "lines": [
+            23,
+            273
+          ],
+          "label": "Inductive O(q^(−2)) local Gram-fibre mass bound in the Weil convergence range n = 0 or n + 2 ≤ M",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensitiesBoundedAlmostAll.lean#L23-L273",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_moved",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.fixed_mem",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_aniso",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.blockOne_herm",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.one_hermND",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.blockOne_hermND",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.arith",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.exists_family",
+            "GlobalTheory.CompanionTheory.SW.GoodMass.key"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.mass_fibre_summable",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.mass_fibre_summable": 15
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductLocalDensitiesConverges.lean",
+          "lines": [
+            15,
+            41
+          ],
+          "label": "Local finiteness at every finite place and absolute summability of local Gram-fibre deviations |m_v(T)(Λ_v) − 1|",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductLocalDensitiesConverges.lean#L15-L41"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Step.blockOne_step",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Step.blockOne_step": 111,
+            "GlobalTheory.CompanionTheory.SW.Step.of_cofinite": 33,
+            "GlobalTheory.CompanionTheory.SW.Step.lattice_measurable": 38,
+            "GlobalTheory.CompanionTheory.SW.Step.theta_hypothesis": 45,
+            "GlobalTheory.CompanionTheory.SW.Step.loc_families": 100
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddRankOneBlock.lean",
+          "lines": [
+            33,
+            211
+          ],
+          "label": "Rank-one orthogonal block induction for the global Siegel–Weil measure identity using global scaling cancellation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddRankOneBlock.lean#L33-L211",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Step.of_cofinite",
+            "GlobalTheory.CompanionTheory.SW.Step.lattice_measurable",
+            "GlobalTheory.CompanionTheory.SW.Step.theta_hypothesis",
+            "GlobalTheory.CompanionTheory.SW.Step.loc_families"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.swMeas_of_not_represented",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.swMeas_of_not_represented": 74,
+            "GlobalTheory.CompanionTheory.SW.SwEmpty.thetaMeas_of_empty": 19,
+            "GlobalTheory.CompanionTheory.SW.SwEmpty.fibre_zero_of_one": 27
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddBlockAnisotropic.lean",
+          "lines": [
+            19,
+            130
+          ],
+          "label": "Propagation of local rank-one fibre vanishing to block-extended targets when the split scalar is not globally represented",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddBlockAnisotropic.lean#L19-L130",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.SwEmpty.thetaMeas_of_empty",
+            "GlobalTheory.CompanionTheory.SW.SwEmpty.fibre_zero_of_one"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Mass.SumDev.sum_bounded_prod",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.SumDev.sum_bounded_prod": 99,
+            "GlobalTheory.CompanionTheory.Mass.SumDev.sum_prod_le": 11,
+            "GlobalTheory.CompanionTheory.Mass.SumDev.mem_asIdeal": 65,
+            "GlobalTheory.CompanionTheory.Mass.SumDev.mem_prod_asIdeal": 84
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean",
+          "lines": [
+            11,
+            122
+          ],
+          "label": "Powerset sieve expansion and product-ideal divisibility bound for finite-prime Euler error products over scaled rational samples",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/EulerProductConvergenceBound.lean#L11-L122",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.Mass.SumDev.sum_prod_le",
+            "GlobalTheory.CompanionTheory.Mass.SumDev.mem_asIdeal",
+            "GlobalTheory.CompanionTheory.Mass.SumDev.mem_prod_asIdeal"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.euler_int_integrable",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.euler_int_integrable": 12
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/EulerS.lean",
+          "lines": [
+            22,
+            167
+          ],
+          "label": "Box-measure factorization and complex integrability of Euler-product integrals against non-compactly-supported archimedean tests",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/EulerS.lean#L22-L167"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "BHM-03",
+      "chapter": "lifts",
+      "anchor": "lifts-archimedean-schwartz-coordinates",
+      "title": "Archimedean real coordinate realization, Haar Jacobian multipliers, Schwartz decay, and low-rank closure",
+      "statement": "Let E/F be a CM extension over a totally real number field F with [E:F] = 2, and let n, M ∈ ℕ with total real dimension N = 2 n M [F:ℚ]. (1) Composing an F-basis of E with the archimedean coordinate isomorphism A_∞ ≃ ℝ^[F:ℚ] yields an additive homeomorphism e_V : (A_∞ ⊗_F E)^(n × M) ≃ₜ ℝ^N and a continuous operator-valued map L : M_n(A_∞ ⊗_F E) → ℬ(ℝ^N, ℝ^N) intertwining right matrix multiplication: e_V(X g) = L(g)(e_V(X)). (2) For additive Haar measures μ on (A_∞ ⊗_F E)^(n × M) and ν on Herm_n(A_∞ ⊗_F E), there exist continuous functions A, C : GL_n(A_∞ ⊗_F E) → ℝ_(>0) satisfying (X ↦ X g)_* μ = A(g) μ and (S ↦ g^* S g)_* ν = C(g) ν. (3) Every Schwartz function g ∈ 𝒮(ℝ^N, ℂ) satisfies |g(y)| ≤ B_k (1 + ‖y‖)^(−k) for every k ∈ ℕ, with B_k = 2^k sup_(m ≤ (k,0)) p_m(g). Transporting an archimedean Schwartz function φ = g ∘ e_V and the Gram-fibre measures m_S along e_V, and pulling back along local continuous congruence sections h(S)^* s₀ h(S) = S on an open neighborhood of any nondegenerate c ∈ Herm_n(A_∞ ⊗_F E), supplies the continuous invertible operators L(h(S)), L(h(S)⁻¹) and continuous positive Radon–Nikodym Jacobian ratio C(h(S)) A(h(S))⁻¹ governing (e_V)_* m_S = C(h(S)) A(h(S))⁻¹ · L(h(S))_* ((e_V)_* m_(s₀)). Combining this archimedean Schwartz fibre continuity with the binary unit mass bound and Euler-product integrability closes the low-rank Siegel densities pillar.",
+      "hypotheses": "CM extension E/F with F totally real, integers n, M ≥ 0, nondegenerate M × M Hermitian matrix J over E, additive Haar measures μ on (A_∞ ⊗_F E)^(n × M) and ν on Herm_n(A_∞ ⊗_F E) with associated archimedean Gram-fibre family m_S, archimedean Schwartz function φ represented as g ∘ e_V with g ∈ 𝒮(ℝ^N, ℂ), and local continuous congruence sections on open neighborhoods of invertible Hermitian matrices.",
+      "correspondence": "Additivity and continuity over ℝ upgrade right matrix multiplication on (A_∞ ⊗_F E)^(n × M) to a continuous family of bounded real-linear operators L(g) on ℝ^N, while open-positivity of additive Haar measures ensures strict positivity of the continuous scaling factors A(g) and C(g). Composing L and C · A⁻¹ with local continuous congruence sections h(S) matches the abstract continuity input on ℝ^N, and feeding the resulting archimedean Schwartz fibre continuity into the low-rank assembly closes the entire low-rank Siegel densities theorem.",
+      "dependencies": [
+        "BHM-02"
+      ],
+      "equations": [
+        "lifts-bhm-coord-intertwine",
+        "lifts-bhm-haar-jacobian",
+        "lifts-bhm-schwartz-decay"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CoordR.coordInf",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CoordR.coordInf": 13
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanCoordinates.lean",
+          "lines": [
+            13,
+            75
+          ],
+          "label": "Real Euclidean coordinate realization of archimedean tuple spaces intertwining right matrix multiplication with continuous linear maps",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanCoordinates.lean#L13-L75"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.HaarScale.scaleInf",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.HaarScale.scaleInf": 11
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanScaling.lean",
+          "lines": [
+            11,
+            57
+          ],
+          "label": "Continuous strictly positive Haar Jacobian multipliers for right tuple multiplication and Hermitian congruence at infinity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanScaling.lean#L11-L57"
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of": 28,
+            "PositivityTheory.PfSWUS.SchInf.schwartz_decay": 17
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean",
+          "lines": [
+            17,
+            81
+          ],
+          "label": "Polynomial Schwartz decay and local congruence-section transport of archimedean Gram-fibre measures in real coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean#L17-L81",
+          "related_declarations": [
+            "PositivityTheory.PfSWUS.SchInf.schwartz_decay"
+          ]
+        },
+        {
+          "declaration": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA",
+          "declaration_lines": {
+            "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA": 4
+          },
+          "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+          "lines": [
+            4,
+            5
+          ],
+          "label": "Closure of the low-rank Siegel densities pillar from archimedean Schwartz fibre continuity and the local-global mass chain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean#L4-L5"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.SC.sum_sq_scale",
+      "callee": "PositivityTheory.PfSWUS.HMass.SC.sum_sq_eq",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean",
+        "line": 41,
+        "spelling": "sum_sq_eq"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.SC.gauss_const",
+      "callee": "PositivityTheory.PfSWUS.HMass.SC.sum_sq_scale",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean",
+        "line": 126,
+        "spelling": "sum_sq_scale"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.SC.sharp",
+      "callee": "PositivityTheory.PfSWUS.HMass.SC.gauss_const",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean",
+        "line": 152,
+        "spelling": "gauss_const"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.sharpCount",
+      "callee": "PositivityTheory.PfSWUS.HMass.SC.sharp",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/SharpCount.lean",
+        "line": 201,
+        "spelling": "SC.sharp"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.coreSharp",
+      "callee": "PositivityTheory.PfSWUS.HMass.real_bound2",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+        "line": 135,
+        "spelling": "real_bound2"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.dens_unit",
+      "callee": "PositivityTheory.PfSWUS.HMass.coreSharp",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+        "line": 225,
+        "spelling": "coreSharp"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.lattice_unit",
+      "callee": "PositivityTheory.PfSWUS.HMass.dens_unit",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+        "line": 294,
+        "spelling": "dens_unit"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.lattice_unit",
+      "callee": "GlobalTheory.CompanionTheory.SW.LocGood.local_mass",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/OneVecBinaryMassOf.lean",
+        "line": 296,
+        "spelling": "GlobalTheory.CompanionTheory.SW.LocGood.local_mass"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass",
+      "callee": "PositivityTheory.PfSWUS.HMass.sharpCount",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 5,
+        "spelling": "sharpCount"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass",
+      "callee": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 5,
+        "spelling": "oneVecBinaryMass_of"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_leaves",
+      "callee": "PositivityTheory.PfSWUS.HMass.oneVecBinaryMass",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 8,
+        "spelling": "oneVecBinaryMass"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_leaves",
+      "callee": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/MassTop.lean",
+        "line": 8,
+        "spelling": "siegelDensitiesLowA_of"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level",
+      "callee": "GlobalTheory.CompanionTheory.SW.GBall.q_nonprim",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+        "line": 349,
+        "spelling": "q_nonprim"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level",
+      "callee": "GlobalTheory.CompanionTheory.SW.GBall.bound_step",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+        "line": 391,
+        "spelling": "bound_step"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level",
+      "callee": "GlobalTheory.CompanionTheory.SW.GBall.lam_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+        "line": 393,
+        "spelling": "lam_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level",
+      "callee": "GlobalTheory.CompanionTheory.SW.GBall.pi_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+        "line": 426,
+        "spelling": "pi_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GBall.density_near_value",
+      "callee": "GlobalTheory.CompanionTheory.SW.GBall.local_quadratic_density_bound_at_level",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalQuadraticDensityBoundNonzero.lean",
+        "line": 452,
+        "spelling": "local_quadratic_density_bound_at_level"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.prod_factor",
+      "callee": "GlobalTheory.T.proper_action_orbit_measure",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 104,
+        "spelling": "GlobalTheory.T.proper_action_orbit_measure"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.preimage_lt_top",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.exists_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 220,
+        "spelling": "exists_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.local_pack",
+      "callee": "GlobalTheory.T.witt_extension_artinian_ring",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 331,
+        "spelling": "GlobalTheory.T.witt_extension_artinian_ring"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.fact_S",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.local_pack",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 378,
+        "spelling": "local_pack"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.fact_S",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.preimage_lt_top",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 399,
+        "spelling": "preimage_lt_top"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.fact_S",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.push_inv",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 404,
+        "spelling": "push_inv"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.fact_S",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.prod_factor",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilOrbitalMeasure.lean",
+        "line": 425,
+        "spelling": "prod_factor"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_finite_compacts",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean",
+        "line": 121,
+        "spelling": "comap_finite_compacts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.prod_factor",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean",
+        "line": 137,
+        "spelling": "prod_factor"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.comap_invariant",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean",
+        "line": 150,
+        "spelling": "comap_invariant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.prod_factor_open",
+      "callee": "GlobalTheory.CompanionTheory.SW.FactS.OpenFactor.lintegral_comap_of_carried",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/RestrictedProductHaarMeasure.lean",
+        "line": 180,
+        "spelling": "lintegral_comap_of_carried"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GoodMass.key",
+      "callee": "GlobalTheory.CompanionTheory.SW.GoodMass.exists_aniso",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensitiesBoundedAlmostAll.lean",
+        "line": 232,
+        "spelling": "exists_aniso"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GoodMass.key",
+      "callee": "GlobalTheory.CompanionTheory.SW.GoodMass.arith",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensitiesBoundedAlmostAll.lean",
+        "line": 266,
+        "spelling": "arith"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.GoodMass.mass_fibre_good",
+      "callee": "GlobalTheory.CompanionTheory.SW.GoodMass.key",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LocalDensitiesBoundedAlmostAll.lean",
+        "line": 272,
+        "spelling": "key"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.mass_fibre_summable",
+      "callee": "GlobalTheory.T.local_densities_bounded_almost_all",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductLocalDensitiesConverges.lean",
+        "line": 33,
+        "spelling": "GlobalTheory.T.local_densities_bounded_almost_all"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Step.blockOne_step",
+      "callee": "GlobalTheory.T.scalar_multiplication_euler_product",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddRankOneBlock.lean",
+        "line": 132,
+        "spelling": "GlobalTheory.T.scalar_multiplication_euler_product"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Step.blockOne_step",
+      "callee": "GlobalTheory.T.euler_product_local_densities_converges",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddRankOneBlock.lean",
+        "line": 155,
+        "spelling": "GlobalTheory.T.euler_product_local_densities_converges"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Step.blockOne_step",
+      "callee": "GlobalTheory.CompanionTheory.SW.Step.theta_hypothesis",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddRankOneBlock.lean",
+        "line": 157,
+        "spelling": "theta_hypothesis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.swMeas_of_not_represented",
+      "callee": "GlobalTheory.CompanionTheory.SW.SwEmpty.thetaMeas_of_empty",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddBlockAnisotropic.lean",
+        "line": 114,
+        "spelling": "SwEmpty.thetaMeas_of_empty"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.swMeas_of_not_represented",
+      "callee": "GlobalTheory.CompanionTheory.SW.SwEmpty.fibre_zero_of_one",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddBlockAnisotropic.lean",
+        "line": 119,
+        "spelling": "SwEmpty.fibre_zero_of_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.swMeas_of_not_represented",
+      "callee": "GlobalTheory.T.euler_product_local_densities_converges",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilMeasureAddBlockAnisotropic.lean",
+        "line": 126,
+        "spelling": "GlobalTheory.T.euler_product_local_densities_converges"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.euler_int_integrable",
+      "callee": "GlobalTheory.CompanionTheory.SW.EulerInt.integral_box",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/EulerS.lean",
+        "line": 129,
+        "spelling": "GlobalTheory.CompanionTheory.SW.EulerInt.integral_box"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoordR.coordInf",
+      "callee": "GlobalTheory.T.infinite_adele_haar_map_eq_scaled_volume",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanCoordinates.lean",
+        "line": 15,
+        "spelling": "GlobalTheory.T.infinite_adele_haar_map_eq_scaled_volume"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.HaarScale.scaleInf",
+      "callee": "GlobalTheory.CompanionTheory.SW.HaarScale.exists_scale_tuples",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanScaling.lean",
+        "line": 16,
+        "spelling": "exists_scale_tuples"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.HaarScale.scaleInf",
+      "callee": "GlobalTheory.CompanionTheory.SW.HaarScale.exists_scale_herm",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ArchimedeanScaling.lean",
+        "line": 17,
+        "spelling": "exists_scale_herm"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf_of",
+      "callee": "GlobalTheory.CompanionTheory.SW.GramAlg.gram_algebra",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/UnramifiedSchwartzDensity/Assemble.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.CompanionTheory.SW.GramAlg.gram_algebra"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA",
+      "callee": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_sch",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5,
+        "spelling": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA_of_sch"
+      }
+    },
+    {
+      "caller": "PositivityTheory.PfSWUS.HMass.siegelDensitiesLowA",
+      "callee": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/AutomorphicKernels/UnitarySchrodingerModel/UnitarySchrodingerLemmas/LowRankSiegelDensities/ChapterTop.lean",
+        "line": 5,
+        "spelling": "PositivityTheory.PfSWUS.SchInf.schwartzDensInf"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "BHM-01",
+      "BHM-02"
+    ],
+    [
+      "ODN-02",
+      "BHM-02"
+    ],
+    [
+      "BHM-02",
+      "BHM-03"
+    ]
+  ],
+  "outstanding": [
+    "The sharp 2M-variable finite-field quadric point count, unit-length and M ≥ 3 nonzero-target local density bounds, finite-place product-orbit factorization on closed and regular loci, inductive higher-rank Euler-product convergence, rank-one block addition and anisotropic vanishing, powerset ideal-norm sieve, complex Euler-product integrability, and archimedean Schwartz coordinate and Haar-scaling continuity are reconstructed in BHM-01 through BHM-03."
+  ]
+}
