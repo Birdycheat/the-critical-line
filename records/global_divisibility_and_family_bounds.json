@@ -1,0 +1,1195 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "GDF-01",
+      "chapter": "global",
+      "anchor": "global-linkdiv-realization",
+      "title": "Realization of the uniform divisibility bridge, extended twisted-place gain bounds, and kernel-column transport",
+      "statement": "Let F be a family of global parameter records at scale x with exponent ε ∈ (0, 1), signed finite-place sum F_0, main term M_u, budget pair (B_0, N_c), and logarithmic scale L_a ≥ 0. (1) Whenever the numerical divisibility datum ties to the record at word u with constants (C_0, c_e) and the global constants satisfy C ≥ max(50 C_0 + 10, 60 c_e, 0) and C_abs ≥ 1, the numerical divisibility upper bound is dominated by M_u + C |T_top| a L_a + C m (B_0 + N_c) x^(C_abs ε); combining word-level divisibility facts with the third complement bound, frame-number cap, admissibility, and rationality produces the pointwise divisibility estimate at scale x. (2) Taking C = max(max(C_1, C_3), max(C_2, 0)) and the maximum of the twelve component thresholds yields the uniform family divisibility estimate across all sufficiently large x and all family indices; monotonicity pulls this uniform bridge back through row-face packages, tied column records, split-to-place column transport, compatible square-integrable column kernels, and closed family classes. (3) For every totally complex field K and finite place y in the twisted set T_w, the Gram matrix valuation satisfies v_y(G_m) ≤ D · v_y(|G| s), the lift index at layer j satisfies j_y ≤ (e_y J_0) D + η_y, and the weighted twisted-place gain sum obeys ∑_{y ∈ T_w} l_y η_y / D ≤ b_d(j) + log d_g + log s whenever every layer determinant divides d_g > 0; this removes the separate norm hypothesis from definite division inputs and realizes concrete column-chain division clauses with size budget C x^ε (B_0 + N_c).",
+      "hypotheses": "A parameter family at scale x > 1 with L_a ≥ 0, row-face or square-integrable kernel division packages, admissibility and rationality conditions, a totally complex number field K, and twisted-place divisibility inputs with common determinant multiple d_g > 0 and scaling integer s > 0.",
+      "correspondence": "Map-height bounds and record-threshold domination feed pointwise word-level divisibility into a uniform twelve-threshold family bridge that pulls back through face, tied-column, and kernel-column interfaces, while extended Gram-valuation and twisted-place index bounds establish the finite-place gain inequality without an explicit norm input.",
+      "dependencies": [],
+      "equations": [
+        "global-gdf-rhs-record-threshold",
+        "global-gdf-twisted-eta-bound",
+        "global-gdf-linkdiv-bridge"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.L2.DIV.linkDIV_at_words",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIV_at_words": 327,
+            "Formalism.L2.DIV.WordFacts": 128,
+            "Formalism.L2.DIV.wordFacts_of": 135,
+            "Formalism.L2.DIV.htMap_le_of_bound": 161,
+            "Formalism.L2.DIV.wordFacts_of_face": 204,
+            "Formalism.L2.DIV.wordFacts_of_tied": 227,
+            "Formalism.L2.DIV.rhs_le_record": 261,
+            "Formalism.L2.DIV.numRecTie_ofRecord": 293,
+            "Formalism.L2.DIV.Compl3": 315,
+            "Formalism.L2.DIV.slope_bound_of_word_facts": 320
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+          "lines": [
+            128,
+            340
+          ],
+          "label": "Word-level divisibility facts, map-height and record-threshold comparison, and pointwise divisibility assembly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean#L128-L340",
+          "related_declarations": [
+            "Formalism.L2.DIV.WordFacts",
+            "Formalism.L2.DIV.wordFacts_of",
+            "Formalism.L2.DIV.htMap_le_of_bound",
+            "Formalism.L2.DIV.wordFacts_of_face",
+            "Formalism.L2.DIV.wordFacts_of_tied",
+            "Formalism.L2.DIV.rhs_le_record",
+            "Formalism.L2.DIV.numRecTie_ofRecord",
+            "Formalism.L2.DIV.Compl3",
+            "Formalism.L2.DIV.slope_bound_of_word_facts"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIVt_closedF",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIVt_closedF": 697,
+            "Formalism.L2.DIV.WordFacts.mono": 477,
+            "Formalism.L2.DIV.Compl3.mono": 506,
+            "Formalism.L2.DIV.BridgeRows": 521,
+            "Formalism.L2.DIV.linkDIVt_of_rows": 534,
+            "Formalism.L2.DIV.linkDIVt_closed": 575,
+            "Formalism.L2.DIV.DivisionRowsFace": 590,
+            "Formalism.L2.DIV.DivisionPackageFace": 601,
+            "Formalism.L2.DIV.DivisionPackageFace.wordFacts": 633,
+            "Formalism.L2.DIV.BridgeRowsF": 643,
+            "Formalism.L2.DIV.linkDIVt_of_rowsF": 656
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+          "lines": [
+            477,
+            710
+          ],
+          "label": "Monotonicity of divisibility bounds and uniform family closure from row and face division bridges",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean#L477-L710",
+          "related_declarations": [
+            "Formalism.L2.DIV.WordFacts.mono",
+            "Formalism.L2.DIV.Compl3.mono",
+            "Formalism.L2.DIV.BridgeRows",
+            "Formalism.L2.DIV.linkDIVt_of_rows",
+            "Formalism.L2.DIV.linkDIVt_closed",
+            "Formalism.L2.DIV.DivisionRowsFace",
+            "Formalism.L2.DIV.DivisionPackageFace",
+            "Formalism.L2.DIV.DivisionPackageFace.wordFacts",
+            "Formalism.L2.DIV.BridgeRowsF",
+            "Formalism.L2.DIV.linkDIVt_of_rowsF"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIVt_closedT",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIVt_closedT": 205,
+            "Formalism.L2.DIV.ColRec3": 29,
+            "Formalism.L2.DIV.DivisionRowsFace.ofCol3": 81,
+            "Formalism.L2.DIV.DivisionRowsColumns": 97,
+            "Formalism.L2.DIV.DivisionPackageColumns": 130,
+            "Formalism.L2.DIV.DivisionPackageColumns.wordFacts": 134,
+            "Formalism.L2.DIV.BridgeRowsT": 168,
+            "Formalism.L2.DIV.linkDIVt_of_rowsT": 200,
+            "Formalism.L2.DIV.ColTie3": 224,
+            "Formalism.L2.DIV.DivisionRowsColumns.split_model_to_place_model": 228,
+            "Formalism.L2.DIV.EvTie3.pin": 279
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridgeTied.lean",
+          "lines": [
+            17,
+            298
+          ],
+          "label": "Tied column records, split-model to place-model transport, and uniform divisibility closure from tied column rows",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/RecBridgeTied.lean#L17-L298",
+          "related_declarations": [
+            "Formalism.L2.DIV.ColRec3",
+            "Formalism.L2.DIV.DivisionRowsFace.ofCol3",
+            "Formalism.L2.DIV.DivisionRowsColumns",
+            "Formalism.L2.DIV.DivisionPackageColumns",
+            "Formalism.L2.DIV.DivisionPackageColumns.wordFacts",
+            "Formalism.L2.DIV.BridgeRowsT",
+            "Formalism.L2.DIV.linkDIVt_of_rowsT",
+            "Formalism.L2.DIV.ColTie3",
+            "Formalism.L2.DIV.DivisionRowsColumns.split_model_to_place_model",
+            "Formalism.L2.DIV.EvTie3.pin"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIVt_closedK",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIVt_closedK": 369,
+            "Formalism.L2.DIV.ColTie3.transport": 52,
+            "Formalism.L2.DIV.DivisionPackageColumns.ofTied": 63,
+            "Formalism.L2.DIV.pkg_of_rows": 124,
+            "Formalism.L2.DIV.DivisionRowsKernel": 179,
+            "Formalism.L2.DIV.SquareIntegrableColumnsCompatible": 206,
+            "Formalism.L2.DIV.SquareIntegrableColumnsCompatible.toK": 229,
+            "Formalism.L2.DIV.DivisionPackageKernel": 268,
+            "Formalism.L2.DIV.pkg_of_rowsK": 288,
+            "Formalism.L2.DIV.BridgeRowsK": 329,
+            "Formalism.L2.DIV.linkDIVt_of_rowsK": 358
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean",
+          "lines": [
+            20,
+            383
+          ],
+          "label": "Compatible square-integrable column selection, kernel division packages, and uniform family divisibility closure",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean#L20-L383",
+          "related_declarations": [
+            "Formalism.L2.DIV.ColTie3.transport",
+            "Formalism.L2.DIV.DivisionPackageColumns.ofTied",
+            "Formalism.L2.DIV.pkg_of_rows",
+            "Formalism.L2.DIV.DivisionRowsKernel",
+            "Formalism.L2.DIV.SquareIntegrableColumnsCompatible",
+            "Formalism.L2.DIV.SquareIntegrableColumnsCompatible.toK",
+            "Formalism.L2.DIV.DivisionPackageKernel",
+            "Formalism.L2.DIV.pkg_of_rowsK",
+            "Formalism.L2.DIV.BridgeRowsK",
+            "Formalism.L2.DIV.linkDIVt_of_rowsK"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIV_L2R3_col",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIV_L2R3_col": 54,
+            "Formalism.L2.DIV.linkDIV_L2R_face": 19,
+            "Formalism.L2.DIV.linkDIV_L2R3": 32
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Col.lean",
+          "lines": [
+            19,
+            72
+          ],
+          "label": "Row-side and column-side division clauses over indefinite face families",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Col.lean#L19-L72",
+          "related_declarations": [
+            "Formalism.L2.DIV.linkDIV_L2R_face",
+            "Formalism.L2.DIV.linkDIV_L2R3"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIV_L2R3_rec",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIV_L2R3_rec": 19
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Rec.lean",
+          "lines": [
+            19,
+            56
+          ],
+          "label": "Concrete column-chain divisibility clauses with first-column chain and period factorization",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Rec.lean#L19-L56"
+        },
+        {
+          "declaration": "Formalism.L2.DIV.linkDIV_L2R3_def",
+          "declaration_lines": {
+            "Formalism.L2.DIV.linkDIV_L2R3_def": 329,
+            "Formalism.L2.DIV.gram_valuation_le_extended": 20,
+            "Formalism.L2.DIV.lift_index_bound_extended": 30,
+            "Formalism.L2.DIV.twisted_place_eta_sum_le_extended": 63,
+            "Formalism.L2.DIV.DivInputsDef3": 104,
+            "Formalism.L2.DIV.DivisionInputsWithoutNorm": 174,
+            "Formalism.L2.DIV.DivInputsDef3.toDivInputs0R": 247,
+            "Formalism.L2.DIV.DivisionInputsWithoutNorm.toDef": 299,
+            "Formalism.L2.DIV.divSize": 315
+          },
+          "path": "src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean",
+          "lines": [
+            20,
+            379
+          ],
+          "label": "Extended Gram valuation, twisted-place lift-index and gain-sum bounds, and definite division clauses without norm hypothesis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean#L20-L379",
+          "related_declarations": [
+            "Formalism.L2.DIV.gram_valuation_le_extended",
+            "Formalism.L2.DIV.lift_index_bound_extended",
+            "Formalism.L2.DIV.twisted_place_eta_sum_le_extended",
+            "Formalism.L2.DIV.DivInputsDef3",
+            "Formalism.L2.DIV.DivisionInputsWithoutNorm",
+            "Formalism.L2.DIV.DivInputsDef3.toDivInputs0R",
+            "Formalism.L2.DIV.DivisionInputsWithoutNorm.toDef",
+            "Formalism.L2.DIV.divSize"
+          ]
+        },
+        {
+          "declaration": "Formalism.L2.DIV.closed_linkDIVt_of_closed_bridge_kernel",
+          "declaration_lines": {
+            "Formalism.L2.DIV.closed_linkDIVt_of_closed_bridge_kernel": 197,
+            "Formalism.L2.DIV.ColumnRecordCompatible": 21,
+            "Formalism.L2.DIV.DivisionKernelData": 32,
+            "Formalism.L2.DIV.SquareIntegrableColumns": 58,
+            "Formalism.L2.DIV.SquareIntegrableColumns.toK": 80,
+            "Formalism.L2.DIV.DivisionPackageKernel'": 108,
+            "Formalism.L2.DIV.pkg_of_rowsK_alt": 113,
+            "Formalism.L2.DIV.DivisionKernelConstantBounds": 166,
+            "Formalism.L2.DIV.linkDIVt_of_bridge_kernel": 193
+          },
+          "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DIVRecBridgeSel.lean",
+          "lines": [
+            21,
+            209
+          ],
+          "label": "Division kernel data, constant-bound kernel bridges, and closed family divisibility pullback",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DIVRecBridgeSel.lean#L21-L209",
+          "related_declarations": [
+            "Formalism.L2.DIV.ColumnRecordCompatible",
+            "Formalism.L2.DIV.DivisionKernelData",
+            "Formalism.L2.DIV.SquareIntegrableColumns",
+            "Formalism.L2.DIV.SquareIntegrableColumns.toK",
+            "Formalism.L2.DIV.DivisionPackageKernel'",
+            "Formalism.L2.DIV.pkg_of_rowsK_alt",
+            "Formalism.L2.DIV.DivisionKernelConstantBounds",
+            "Formalism.L2.DIV.linkDIVt_of_bridge_kernel"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GDF-02",
+      "chapter": "global",
+      "anchor": "global-row-and-point-count-bounds",
+      "title": "Uniform level-prime size bounds, row slope and rank assembly, and the global family chain theorem",
+      "statement": "Let F be a covering family of global records at scale x with exponent ε ∈ (0, 1), rank triple (f, k, m) where f = 2 n and k ≥ m + 3, scale parameters L = x^ε, b = exp(L), a = x b, X' = exp(x^(ε/3)), b' = a / X', and X''(n) = x n X'. (1) For every record, m L ≤ 2 X''(n), and under the torus-pair lattice bounds the lower window term satisfies low_B ≥ 16 m L − max(C, 0)(L + 1); once m ≥ (4 max(C, 0) + 4) / 31 and (log Γ_P) / (f k) ≤ 1, every word prime satisfies b^(m/2) ≤ T_u and log T_u ≤ C_T m L, while L ≥ 9 max(C_3, 0) C_0 forces the 1/3-gap lower bound and g_0 ≥ (k b)^8 > 2 f k + 1. (2) Because T_u > 2 f N(m) ≥ 2, positivity of the base rank d_u^S implies positivity of the division rank d_u = (1 − (T_u − 1)^(−1))^f d_u^S > 0, and divisibility D_Γ | M_k implies log D_Γ ≤ C f N(m) log(f N(m)); moreover, T_u > 2 f + 1 gives (1 − (T_u − 1)^(−1))^f ≥ 1/2 by Bernoulli's inequality, normalizing the congruence-lattice length sum to constant 4 C_1 (and 36 when C_1 = 9). For x ≥ 2 with x^14 ≤ X', the ceilings n ≤ x^3 and k ≤ x^5 yield log k ≤ 5 log x, f k (b' + S_c) ≤ |T_top| a, and f k^2 ≤ |T_top| a, producing uniform module slope bounds with constant 2 C_c + max(max(C_5, C_6), 0)(12 + C_c + c_L). (3) By Mertens' estimate ∑_{p ≤ X'} (log p)/p ≤ 2 x^(ε/3) and 16 C_b ≤ x^(2ε/3), the bad-prime share is bounded by |T_top| x^(−2+ε). Packaging the model clauses with constant K = max(C_d, 0) + C_c + C_s + C_1 + C_l + 6, scale exponent e_K = 5, and exp(−y) ≤ 1/2 for y ≥ 1 establishes the tied global chain theorem and its small-shares variant, reducing the global estimate to minimal real-place, volume-mass, Weyl-dimension, slope, and congruence inputs.",
+      "hypotheses": "A covering global parameter family with torus-pair and scale windows, the realized uniform divisibility bridge of GDF-01, thick-set density, bad-prime and character-value bounds, and minimal real-place, volume-mass, discrete-series, slope, and congruence-lattice inputs.",
+      "correspondence": "Level-prime lower and upper windows, Bernoulli-normalized ramified slope estimates, polynomial-against-exponential rank ceilings, Mertens bad-prime contraction, and uniform constant packaging assemble the full global chain and reduce it to minimal family sources.",
+      "dependencies": [
+        "GDF-01"
+      ],
+      "equations": [
+        "global-gdf-tu-window-lower",
+        "global-gdf-slope-assembly",
+        "global-gdf-linkglobal-constants"
+      ],
+      "sources": [
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.tuSize_of",
+          "declaration_lines": {
+            "Formalism.MainNotions.GlobalTheoryTheory.tuSize_of": 349,
+            "Formalism.MainNotions.GlobalTheoryTheory.logGam_le": 165,
+            "Formalism.MainNotions.GlobalTheoryTheory.Xpp_eq": 181,
+            "Formalism.MainNotions.GlobalTheoryTheory.mL_le_Xpp": 189,
+            "Formalism.MainNotions.GlobalTheoryTheory.muTu_of_countF": 207,
+            "Formalism.MainNotions.GlobalTheoryTheory.exists_le_rpow": 217,
+            "Formalism.MainNotions.GlobalTheoryTheory.sizeTu_of_countF": 225,
+            "Formalism.MainNotions.GlobalTheoryTheory.m_large": 241,
+            "Formalism.MainNotions.GlobalTheoryTheory.lowB_ge": 259,
+            "Formalism.MainNotions.GlobalTheoryTheory.tuGe_of": 322
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            165,
+            395
+          ],
+          "label": "Scale comparisons, lower-bound torus-pair estimates, and uniform two-sided level-prime size bounds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L165-L395",
+          "related_declarations": [
+            "Formalism.MainNotions.GlobalTheoryTheory.logGam_le",
+            "Formalism.MainNotions.GlobalTheoryTheory.Xpp_eq",
+            "Formalism.MainNotions.GlobalTheoryTheory.mL_le_Xpp",
+            "Formalism.MainNotions.GlobalTheoryTheory.muTu_of_countF",
+            "Formalism.MainNotions.GlobalTheoryTheory.exists_le_rpow",
+            "Formalism.MainNotions.GlobalTheoryTheory.sizeTu_of_countF",
+            "Formalism.MainNotions.GlobalTheoryTheory.m_large",
+            "Formalism.MainNotions.GlobalTheoryTheory.lowB_ge",
+            "Formalism.MainNotions.GlobalTheoryTheory.tuGe_of"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.muRank_of_chosen",
+          "declaration_lines": {
+            "Formalism.MainNotions.GlobalTheoryTheory.muRank_of_chosen": 1330,
+            "Formalism.MainNotions.GlobalTheoryTheory.two_lt_level_prime": 1208,
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_duS_pos": 1222,
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_du_pos": 1242,
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_rank_pos": 1255,
+            "Formalism.MainNotions.GlobalTheoryTheory.muRank_of": 1269,
+            "Formalism.MainNotions.GlobalTheoryTheory.gBig_of_dataB": 1289,
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_duS_pos_of_proviso": 1320,
+            "Formalism.MainNotions.GlobalTheoryTheory.factDGam_of": 1356,
+            "Formalism.MainNotions.GlobalTheoryTheory.muDGam_of": 1362
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            1208,
+            1370
+          ],
+          "label": "Strict positivity of division ranks from prime lower bounds and provisos, and Minkowski discriminant bounds",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L1208-L1370",
+          "related_declarations": [
+            "Formalism.MainNotions.GlobalTheoryTheory.two_lt_level_prime",
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_duS_pos",
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_du_pos",
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_rank_pos",
+            "Formalism.MainNotions.GlobalTheoryTheory.muRank_of",
+            "Formalism.MainNotions.GlobalTheoryTheory.gBig_of_dataB",
+            "Formalism.MainNotions.GlobalTheoryTheory.jnt_duS_pos_of_proviso",
+            "Formalism.MainNotions.GlobalTheoryTheory.factDGam_of",
+            "Formalism.MainNotions.GlobalTheoryTheory.muDGam_of"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesMF_of",
+          "declaration_lines": {
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesMF_of": 1693,
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesM_at_of": 1518,
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_rpow_le_pow": 1591,
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_pow_le_exp": 1595,
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_sizes_slopes": 1607
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            1518,
+            1734
+          ],
+          "label": "Polynomial-vs-exponential scale comparison and uniform module slope bounds across the family",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L1518-L1734",
+          "related_declarations": [
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesM_at_of",
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_rpow_le_pow",
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_pow_le_exp",
+            "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_sizes_slopes"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.lossFS_of_cover",
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.lossFS_of_cover": 23,
+            "Formalism.MainNotions.Lnk.LossFS": 13
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "lines": [
+            13,
+            35
+          ],
+          "label": "Upgrading loss bounds to realized covering families",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L13-L35",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.LossFS"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.linkGLOBAL7_pk",
+          "declaration_lines": {
+            "Formalism.MainNotions.linkGLOBAL7_pk": 468,
+            "Formalism.MainNotions.Lnk.LossesSmallShares": 298,
+            "Formalism.MainNotions.Lnk.lossF_of_7W": 301,
+            "Formalism.MainNotions.Lnk.lossF_of_7": 308,
+            "Formalism.MainNotions.Lnk.size_windows_of_thick_density": 315,
+            "Formalism.MainNotions.Lnk.thick_density_of_construction": 353,
+            "Formalism.MainNotions.Lnk.chosenBadp_of_old": 357,
+            "Formalism.MainNotions.Lnk.muRank_of_proviso": 435,
+            "Formalism.MainNotions.LinkGLOBAL7": 464
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+          "lines": [
+            298,
+            514
+          ],
+          "label": "Mertens bad-prime share contraction, thick-density size windows, and small-shares global chain assembly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean#L298-L514",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.LossesSmallShares",
+            "Formalism.MainNotions.Lnk.lossF_of_7W",
+            "Formalism.MainNotions.Lnk.lossF_of_7",
+            "Formalism.MainNotions.Lnk.size_windows_of_thick_density",
+            "Formalism.MainNotions.Lnk.thick_density_of_construction",
+            "Formalism.MainNotions.Lnk.chosenBadp_of_old",
+            "Formalism.MainNotions.Lnk.muRank_of_proviso",
+            "Formalism.MainNotions.LinkGLOBAL7"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.Win_at",
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.Win_at": 231,
+            "Formalism.MainNotions.Lnk.quadraticLogDerivL": 113,
+            "Formalism.MainNotions.Lnk.logDerivative_at_one_eq": 125,
+            "Formalism.MainNotions.Lnk.La_eq": 129,
+            "Formalism.MainNotions.Lnk.Count_at": 167,
+            "Formalism.MainNotions.Lnk.SlopesM_at": 173,
+            "Formalism.MainNotions.Lnk.SlopesN_at": 181,
+            "Formalism.MainNotions.Lnk.Lat_at": 185,
+            "Formalism.MainNotions.Lnk.Frame_at": 188,
+            "Formalism.MainNotions.Lnk.Loss_at": 203,
+            "Formalism.MainNotions.Lnk.Nodes_at": 211,
+            "Formalism.MainNotions.Lnk.Char_at": 221
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            113,
+            246
+          ],
+          "label": "Quadratic logarithmic-derivative congruence across family indices and pointwise record predicates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L113-L246",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.quadraticLogDerivL",
+            "Formalism.MainNotions.Lnk.logDerivative_at_one_eq",
+            "Formalism.MainNotions.Lnk.La_eq",
+            "Formalism.MainNotions.Lnk.Count_at",
+            "Formalism.MainNotions.Lnk.SlopesM_at",
+            "Formalism.MainNotions.Lnk.SlopesN_at",
+            "Formalism.MainNotions.Lnk.Lat_at",
+            "Formalism.MainNotions.Lnk.Frame_at",
+            "Formalism.MainNotions.Lnk.Loss_at",
+            "Formalism.MainNotions.Lnk.Nodes_at",
+            "Formalism.MainNotions.Lnk.Char_at"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.Mod.data_HComp",
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.Mod.data_HComp": 624,
+            "Formalism.MainNotions.Lnk.Mod.sumA_eq": 570,
+            "Formalism.MainNotions.Lnk.Mod.data_DIV": 580,
+            "Formalism.MainNotions.Lnk.Mod.data_EComp5": 594
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            570,
+            639
+          ],
+          "label": "Model transport of divisibility, finite-place comparison, and height comparison inequalities",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L570-L639",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.Mod.sumA_eq",
+            "Formalism.MainNotions.Lnk.Mod.data_DIV",
+            "Formalism.MainNotions.Lnk.Mod.data_EComp5"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.Lnk.linkGLOBAL_of",
+          "declaration_lines": {
+            "Formalism.MainNotions.Lnk.linkGLOBAL_of": 853,
+            "Formalism.MainNotions.Lnk.mkC": 839,
+            "Formalism.MainNotions.Lnk.exp_neg_le_half": 841
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            839,
+            1118
+          ],
+          "label": "Uniform constant packaging and full family assembly of the tied global chain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L839-L1118",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.mkC",
+            "Formalism.MainNotions.Lnk.exp_neg_le_half"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.linkGLOBAL",
+          "declaration_lines": {
+            "Formalism.MainNotions.linkGLOBAL": 1879,
+            "Formalism.MainNotions.Lnk.size_window_at_five": 1807,
+            "Formalism.MainNotions.Lnk.size_windows_of_thick_set": 1816
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+          "lines": [
+            1807,
+            1891
+          ],
+          "label": "Exponent-five size windows from thick-set density and top-level global chain theorem",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean#L1807-L1891",
+          "related_declarations": [
+            "Formalism.MainNotions.Lnk.size_window_at_five",
+            "Formalism.MainNotions.Lnk.size_windows_of_thick_set"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.StandardLattice.gapB_ev",
+          "declaration_lines": {
+            "Formalism.MainNotions.StandardLattice.gapB_ev": 17
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            17,
+            47
+          ],
+          "label": "Eventual one-third parameter gap bound from scale growth",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L17-L47"
+        },
+        {
+          "declaration": "Formalism.MainNotions.J.lemma_five_one_of_theorem_two",
+          "declaration_lines": {
+            "Formalism.MainNotions.J.lemma_five_one_of_theorem_two": 587,
+            "Formalism.MainNotions.J.RamifiedRankLines": 482,
+            "Formalism.MainNotions.J.division_rank_slopes_of_lines": 497,
+            "Formalism.MainNotions.lvlF_of": 638,
+            "Formalism.MainNotions.nuCommensF_min": 652
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            482,
+            658
+          ],
+          "label": "Bernoulli normalization of congruence-lattice length bounds, commensurability, and level-prime family slope assembly",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L482-L658",
+          "related_declarations": [
+            "Formalism.MainNotions.J.RamifiedRankLines",
+            "Formalism.MainNotions.J.division_rank_slopes_of_lines",
+            "Formalism.MainNotions.lvlF_of",
+            "Formalism.MainNotions.nuCommensF_min"
+          ]
+        },
+        {
+          "declaration": "Formalism.MainNotions.muRank_min",
+          "declaration_lines": {
+            "Formalism.MainNotions.muRank_min": 665
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            665,
+            692
+          ],
+          "label": "Minimal-input division rank positivity across the family",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L665-L692"
+        },
+        {
+          "declaration": "Formalism.MainNotions.family_of_global_sources",
+          "declaration_lines": {
+            "Formalism.MainNotions.family_of_global_sources": 793,
+            "Formalism.MainNotions.muRank_items": 739,
+            "Formalism.MainNotions.linkGLOBAL_items": 747,
+            "Formalism.MainNotions.items_of_min": 772,
+            "Formalism.MainNotions.low_weight_bound_at": 782,
+            "Formalism.MainNotions.family_property_mono": 789
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+          "lines": [
+            739,
+            818
+          ],
+          "label": "Reduction of the global chain theorem to minimal real-place, volume-mass, Weyl-dimension, slope, and congruence inputs",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L739-L818",
+          "related_declarations": [
+            "Formalism.MainNotions.muRank_items",
+            "Formalism.MainNotions.linkGLOBAL_items",
+            "Formalism.MainNotions.items_of_min",
+            "Formalism.MainNotions.low_weight_bound_at",
+            "Formalism.MainNotions.family_property_mono"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "GDF-03",
+      "chapter": "global",
+      "anchor": "global-constructed-point-family",
+      "title": "Ideal-class power principalization, unit-discriminant algebraic family realization, and uniform threshold closure for constructed-point classes",
+      "statement": "Let E be a CM number field with subfield K, ring of integers 𝓞_E, base fractional ideal 𝔞_0, a base number field M_0 ⊂ ℂ, and algebraic curve invariants (g_2, g_3). (1) For every embedding ρ : M → ℂ of a field M containing the curve datum and every nonzero element a ∈ M, the conjugate lattice Λ_ρ is a Galois-conjugate CM lattice Λ(𝔠', δ') or its complex conjugate, hence has strictly positive covolume area(Λ_ρ) > 0 and admits an unkilled 2-torsion point t unique modulo Λ_ρ whose even theta function θ_0(Λ_ρ, t) is independent of t and has strictly positive mean-square norm ‖θ_0(Λ_ρ, t)‖^2 > 0, uniquely fixing the positive real normalization θ_1 = √(‖θ_0(Λ_ρ, t)‖^2) > 0; moreover, exp(−log_met(Λ, ρ, a)) = area(Λ_ρ) / (π |ρ(a)|^2). Given a finite E / K-trace-dual family {a_k, a'_k} with u = ∑_k Tr_{E/K}(u · a'_k̄) a_k for all u ∈ E, linear independence of distinct embeddings yields ∑_k τ(a'_k̄) σ(a_k) = δ_{τ, σ}, and combined with unimodularity of the half-different an element x ∈ M lies in the dual fractional lattice l_τ(M) if and only if x τ(ȳ) is integral over ℤ for all y ∈ 𝔞_0. (2) By finiteness of the ideal class group of 𝓞_E, there exist h > 0 and α ∈ E^× with 𝔞_0^h = (α). Adjoining g_2, g_3, the Galois-closure images of E, and an h-th root γ_τ of τ(ᾱ) for every embedding τ produces a finite number field M ⊇ M_0 in which integral closure forces l_τ(M) = 𝓞_M · γ_τ^(−1), realizing the extra period tie over M for every elliptic-curve datum and in particular for the unit-discriminant lattice with δ^12 = Δ(Λ_1). (3) Eventual pointwise predicates compose under conjunction by taking the minimum of exponents ε_i, the componentwise supremum K = K_1 ⊔ K_2 of the four real parameter-floor thresholds for family largeness, and the maxima of discriminant, height, and scale thresholds (c_D, c_h, x_0); lifting through row selection transfers every universal or constant-parameter constructed-point bound to a closed property of the working family classes, combining the seven class-zero row conditions and three class-two height and second-complement conditions alongside the arithmetic-progression prime-counting relative error and exceptional-zero repulsion bound c_S / (M^2 log M) ≤ 1 − β.",
+      "hypotheses": "A CM field E with subfield K and finite ideal class group, a base number field M_0 ⊂ ℂ, an algebraic elliptic-curve lattice datum (g_2, g_3) (including unit-discriminant realization), constructed-point class selection over working families, the global chain assembly of GDF-02, and the arithmetic-progression prime-counting zero-box interface.",
+      "correspondence": "Finite E / K-trace-dual orthogonality via linear independence of embeddings and half-different unimodularity characterize the dual fractional lattices, ideal-class power principalization and h-th root adjunction trivialize them over a single finite number field with unit discriminant, and the threshold-conjunction algebra with componentwise parameter-floor suprema lifts all class-zero and class-two constructed-point estimates to closed working family classes.",
+      "dependencies": [
+        "GDF-02"
+      ],
+      "equations": [
+        "global-gdf-period-scaling",
+        "global-gdf-ideal-power-root",
+        "global-gdf-constructed-class-closure"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.Fc.R0.row_all",
+          "declaration_lines": {
+            "GlobalTheory.Fc.R0.row_all": 59,
+            "GlobalTheory.Fc.R0.ClassCountBoundAllPoints": 13,
+            "GlobalTheory.Fc.R0.ClassCountBoundAtConstructedPoints": 17,
+            "GlobalTheory.Fc.R0.GoodFourierTransformAtConstructedPoints": 22,
+            "GlobalTheory.Fc.R0.RankConditionAtConstructedPoints": 27,
+            "GlobalTheory.Fc.R0.JInvariantConditionAtConstructedPoints": 33,
+            "GlobalTheory.Fc.R0.BundleBoundAtConstructedPoints": 38,
+            "GlobalTheory.Fc.R0.RiemannRochAtConstructedPoints": 43,
+            "GlobalTheory.Fc.R0.LambdaConditionAtConstructedPoints": 48,
+            "GlobalTheory.Fc.R0.All": 50
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ClassCountBoundAtConstructedPoints.lean",
+          "lines": [
+            13,
+            67
+          ],
+          "label": "Conjunction of the seven class-zero row conditions at constructed points",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ClassCountBoundAtConstructedPoints.lean#L13-L67",
+          "related_declarations": [
+            "GlobalTheory.Fc.R0.ClassCountBoundAllPoints",
+            "GlobalTheory.Fc.R0.ClassCountBoundAtConstructedPoints",
+            "GlobalTheory.Fc.R0.GoodFourierTransformAtConstructedPoints",
+            "GlobalTheory.Fc.R0.RankConditionAtConstructedPoints",
+            "GlobalTheory.Fc.R0.JInvariantConditionAtConstructedPoints",
+            "GlobalTheory.Fc.R0.BundleBoundAtConstructedPoints",
+            "GlobalTheory.Fc.R0.RiemannRochAtConstructedPoints",
+            "GlobalTheory.Fc.R0.LambdaConditionAtConstructedPoints",
+            "GlobalTheory.Fc.R0.All"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Fc.ClassTwoEntries.row_all",
+          "declaration_lines": {
+            "GlobalTheory.Fc.ClassTwoEntries.row_all": 38,
+            "GlobalTheory.Fc.ClassTwoEntries.HeightConditionAtConstructedPoints": 20,
+            "GlobalTheory.Fc.ClassTwoEntries.InstanceRankAtConstructedPoints": 26,
+            "GlobalTheory.Fc.ClassTwoEntries.DivisionSecondComplementAdmissible": 28,
+            "GlobalTheory.Fc.ClassTwoEntries.DivisionSecondComplementAtConstructedPoints": 31,
+            "GlobalTheory.Fc.ClassTwoEntries.All": 33
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/DivisionSecondComplementAtConstructedPoints.lean",
+          "lines": [
+            17,
+            46
+          ],
+          "label": "Conjunction of frame-number height, instance rank, and second-complement admissibility at constructed points",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/DivisionSecondComplementAtConstructedPoints.lean#L17-L46",
+          "related_declarations": [
+            "GlobalTheory.Fc.ClassTwoEntries.HeightConditionAtConstructedPoints",
+            "GlobalTheory.Fc.ClassTwoEntries.InstanceRankAtConstructedPoints",
+            "GlobalTheory.Fc.ClassTwoEntries.DivisionSecondComplementAdmissible",
+            "GlobalTheory.Fc.ClassTwoEntries.DivisionSecondComplementAtConstructedPoints",
+            "GlobalTheory.Fc.ClassTwoEntries.All"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Fc.validForConstructedPointClasses_eventuallyWorkingClass",
+          "declaration_lines": {
+            "GlobalTheory.Fc.validForConstructedPointClasses_eventuallyWorkingClass": 388,
+            "GlobalTheory.Fc.EvGd": 13,
+            "GlobalTheory.Fc.ev_and": 37,
+            "GlobalTheory.Fc.ParEv.and": 133,
+            "GlobalTheory.Fc.EvP.of_evGd": 176,
+            "GlobalTheory.Fc.Built": 250,
+            "GlobalTheory.Fc.Row.and": 313,
+            "GlobalTheory.Fc.Row.elim": 364,
+            "GlobalTheory.Fc.W1": 368,
+            "GlobalTheory.Fc.W3": 371,
+            "GlobalTheory.Fc.evaluation_constantFamily": 382
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ValidForConstructedPointClassesEventuallyWorking.lean",
+          "lines": [
+            13,
+            397
+          ],
+          "label": "Eventual threshold conjunction algebra and transfer from constructed-point predicates to working family classes",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ValidForConstructedPointClassesEventuallyWorking.lean#L13-L397",
+          "related_declarations": [
+            "GlobalTheory.Fc.EvGd",
+            "GlobalTheory.Fc.ev_and",
+            "GlobalTheory.Fc.ParEv.and",
+            "GlobalTheory.Fc.EvP.of_evGd",
+            "GlobalTheory.Fc.Built",
+            "GlobalTheory.Fc.Row.and",
+            "GlobalTheory.Fc.Row.elim",
+            "GlobalTheory.Fc.W1",
+            "GlobalTheory.Fc.W3",
+            "GlobalTheory.Fc.evaluation_constantFamily"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Lin.PrimesRel",
+          "declaration_lines": {
+            "GlobalTheory.Lin.PrimesRel": 35,
+            "GlobalTheory.Lin.zerosBox": 10,
+            "GlobalTheory.Lin.zerosDisc": 16,
+            "GlobalTheory.Lin.derSeries": 19,
+            "GlobalTheory.Lin.psiAP": 24,
+            "GlobalTheory.Lin.IsExc": 26,
+            "GlobalTheory.Lin.ExcData": 31
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ZerosDisc.lean",
+          "lines": [
+            10,
+            47
+          ],
+          "label": "Local zero boxes, logarithmic-derivative power series, exceptional real zeros, and arithmetic-progression relative error",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ZerosDisc.lean#L10-L47",
+          "related_declarations": [
+            "GlobalTheory.Lin.zerosBox",
+            "GlobalTheory.Lin.zerosDisc",
+            "GlobalTheory.Lin.derSeries",
+            "GlobalTheory.Lin.psiAP",
+            "GlobalTheory.Lin.IsExc",
+            "GlobalTheory.Lin.ExcData"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Glob.exp_neg_logMet",
+          "declaration_lines": {
+            "GlobalTheory.Glob.exp_neg_logMet": 180,
+            "GlobalTheory.Glob.imEquiv": 31,
+            "GlobalTheory.Glob.rhoEquiv": 43,
+            "GlobalTheory.Glob.isLat_lamConj": 82,
+            "GlobalTheory.Glob.isThetaZero_unique": 106,
+            "GlobalTheory.Glob.exists_isThetaZero": 118,
+            "GlobalTheory.Glob.normSq_thetaZero_pos": 141,
+            "GlobalTheory.Glob.ellT_ne_bot": 164
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            29,
+            188
+          ],
+          "label": "Galois-conjugate CM lattices, unique modulo-lattice 2-torsion point, positive theta mean-square norm, and area-to-metric exponential identity",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L29-L188",
+          "related_declarations": [
+            "GlobalTheory.Glob.imEquiv",
+            "GlobalTheory.Glob.rhoEquiv",
+            "GlobalTheory.Glob.isLat_lamConj",
+            "GlobalTheory.Glob.isThetaZero_unique",
+            "GlobalTheory.Glob.exists_isThetaZero",
+            "GlobalTheory.Glob.normSq_thetaZero_pos",
+            "GlobalTheory.Glob.ellT_ne_bot"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Glob.exists_extraTie",
+          "declaration_lines": {
+            "GlobalTheory.Glob.exists_extraTie": 336,
+            "GlobalTheory.Glob.th0NormSq": 259,
+            "GlobalTheory.Glob.ExtraTie": 263,
+            "GlobalTheory.Glob.PerTie": 281,
+            "GlobalTheory.Glob.perTie_iff": 291,
+            "GlobalTheory.Glob.gxOf": 314,
+            "GlobalTheory.Glob.extraTie_gxOf": 321
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            259,
+            354
+          ],
+          "label": "Extra period ties, normalized theta-zero squared norm, and algebraic period-tie realization over trivializing fields",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L259-L354",
+          "related_declarations": [
+            "GlobalTheory.Glob.th0NormSq",
+            "GlobalTheory.Glob.ExtraTie",
+            "GlobalTheory.Glob.PerTie",
+            "GlobalTheory.Glob.perTie_iff",
+            "GlobalTheory.Glob.gxOf",
+            "GlobalTheory.Glob.extraTie_gxOf"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.Glob.exists_extraTie_of_crv",
+          "declaration_lines": {
+            "GlobalTheory.Glob.exists_extraTie_of_crv": 608,
+            "GlobalTheory.Glob.PerTie.logOmMean_eq": 385,
+            "GlobalTheory.Glob.PerTie.th_sq": 390,
+            "GlobalTheory.Glob.sum_dual_family": 430,
+            "GlobalTheory.Glob.mem_ellT_iff": 453,
+            "GlobalTheory.Glob.exists_pow_principal_fractionalIdeal": 508,
+            "GlobalTheory.Glob.span_inv_eq_ellT": 525,
+            "GlobalTheory.Glob.exists_field_gen": 574
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+          "lines": [
+            381,
+            624
+          ],
+          "label": "Finite trace-dual orthogonality, ideal-class power principalization by root adjunction, and unit-discriminant algebraic family realization",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean#L381-L624",
+          "related_declarations": [
+            "GlobalTheory.Glob.PerTie.logOmMean_eq",
+            "GlobalTheory.Glob.PerTie.th_sq",
+            "GlobalTheory.Glob.sum_dual_family",
+            "GlobalTheory.Glob.mem_ellT_iff",
+            "GlobalTheory.Glob.exists_pow_principal_fractionalIdeal",
+            "GlobalTheory.Glob.span_inv_eq_ellT",
+            "GlobalTheory.Glob.exists_field_gen"
+          ]
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_of_rows",
+      "callee": "Formalism.L2.DIV.linkDIV_at_words",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+        "line": 567,
+        "spelling": "linkDIV_at_words"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_closed",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rows",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+        "line": 582,
+        "spelling": "linkDIVt_of_rows"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.DivisionPackageFace.wordFacts",
+      "callee": "Formalism.L2.DIV.wordFacts_of_face",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+        "line": 636,
+        "spelling": "wordFacts_of_face"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_of_rowsF",
+      "callee": "Formalism.L2.DIV.linkDIV_at_words",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+        "line": 689,
+        "spelling": "linkDIV_at_words"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_closedF",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rowsF",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+        "line": 704,
+        "spelling": "linkDIVt_of_rowsF"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_of_rowsT",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rowsF",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridgeTied.lean",
+        "line": 203,
+        "spelling": "linkDIVt_of_rowsF"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_of_rowsK",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rowsT",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean",
+        "line": 362,
+        "spelling": "linkDIVt_of_rowsT"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_closedK",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rowsK",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean",
+        "line": 377,
+        "spelling": "linkDIVt_of_rowsK"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.DivInputsDef3.toDivInputs0R",
+      "callee": "Formalism.L2.DIV.gram_valuation_le_extended",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean",
+        "line": 271,
+        "spelling": "gram_valuation_le_extended"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.DivInputsDef3.toDivInputs0R",
+      "callee": "Formalism.L2.DIV.lift_index_bound_extended",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean",
+        "line": 273,
+        "spelling": "lift_index_bound_extended"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.DivInputsDef3.toDivInputs0R",
+      "callee": "Formalism.L2.DIV.twisted_place_eta_sum_le_extended",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean",
+        "line": 274,
+        "spelling": "twisted_place_eta_sum_le_extended"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIV_L2R3_def",
+      "callee": "Formalism.L2.DIV.linkDIV_L2R3_rec",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/Divisibility/TwistedPlaceEtaSumLeExtended.lean",
+        "line": 366,
+        "spelling": "linkDIV_L2R3_rec"
+      }
+    },
+    {
+      "caller": "Formalism.L2.DIV.linkDIVt_of_bridge_kernel",
+      "callee": "Formalism.L2.DIV.linkDIVt_of_rowsT",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DIVRecBridgeSel.lean",
+        "line": 196,
+        "spelling": "linkDIVt_of_rowsT"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.muTu_of_countF",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.mL_le_Xpp",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 211,
+        "spelling": "mL_le_Xpp"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.tuGe_of",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.lowB_ge",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 339,
+        "spelling": "lowB_ge"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.tuSize_of",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.tuGe_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 372,
+        "spelling": "tuGe_of"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.muRank_of_chosen",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.jnt_du_pos",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 1349,
+        "spelling": "jnt_du_pos"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.muDGam_of",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.factDGam_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 1365,
+        "spelling": "factDGam_of"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesMF_of",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.JSL.jnt_sizes_slopes",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 1729,
+        "spelling": "jnt_sizes_slopes"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesMF_of",
+      "callee": "Formalism.MainNotions.GlobalTheoryTheory.JSL.slopesM_at_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+        "line": 1732,
+        "spelling": "slopesM_at_of"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL7_pk",
+      "callee": "Formalism.MainNotions.Lnk.muRank_of_proviso",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+        "line": 489,
+        "spelling": "muRank_of_proviso"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL7_pk",
+      "callee": "Formalism.MainNotions.Lnk.lossF_of_7",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+        "line": 511,
+        "spelling": "lossF_of_7"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL7_pk",
+      "callee": "Formalism.MainNotions.Lnk.size_windows_of_thick_density",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+        "line": 511,
+        "spelling": "size_windows_of_thick_density"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.Lnk.linkGLOBAL_of",
+      "callee": "Formalism.MainNotions.Lnk.exp_neg_le_half",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+        "line": 1050,
+        "spelling": "exp_neg_le_half"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.Lnk.size_windows_of_thick_set",
+      "callee": "Formalism.MainNotions.Lnk.size_window_at_five",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+        "line": 1865,
+        "spelling": "size_window_at_five"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL",
+      "callee": "Formalism.MainNotions.Lnk.linkGLOBAL_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+        "line": 1887,
+        "spelling": "linkGLOBAL_of"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL",
+      "callee": "Formalism.MainNotions.Lnk.size_windows_of_thick_set",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+        "line": 1888,
+        "spelling": "size_windows_of_thick_set"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.J.division_rank_slopes_of_lines",
+      "callee": "Formalism.MainNotions.J.RamifiedRankLines",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 503,
+        "spelling": "RamifiedRankLines"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.J.lemma_five_one_of_theorem_two",
+      "callee": "Formalism.MainNotions.J.division_rank_slopes_of_lines",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 610,
+        "spelling": "division_rank_slopes_of_lines"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL_items",
+      "callee": "Formalism.MainNotions.lvlF_of",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 754,
+        "spelling": "lvlF_of"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL_items",
+      "callee": "Formalism.MainNotions.nuCommensF_min",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 755,
+        "spelling": "nuCommensF_min"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL_items",
+      "callee": "Formalism.MainNotions.muRank_min",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 761,
+        "spelling": "muRank_min"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL_items",
+      "callee": "Formalism.MainNotions.linkGLOBAL",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 763,
+        "spelling": "linkGLOBAL"
+      }
+    },
+    {
+      "caller": "Formalism.MainNotions.linkGLOBAL_items",
+      "callee": "Formalism.MainNotions.J.lemma_five_one_of_theorem_two",
+      "callsite": {
+        "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+        "line": 765,
+        "spelling": "J.lemma_five_one_of_theorem_two"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Fc.R0.row_all",
+      "callee": "GlobalTheory.Fc.Row.and",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ClassCountBoundAtConstructedPoints.lean",
+        "line": 62,
+        "spelling": "Row.and"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Fc.ClassTwoEntries.row_all",
+      "callee": "GlobalTheory.Fc.Row.and",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/DivisionSecondComplementAtConstructedPoints.lean",
+        "line": 41,
+        "spelling": "Row.and"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Glob.span_inv_eq_ellT",
+      "callee": "GlobalTheory.Glob.mem_ellT_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+        "line": 538,
+        "spelling": "mem_ellT_iff"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Glob.exists_field_gen",
+      "callee": "GlobalTheory.Glob.exists_pow_principal_fractionalIdeal",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+        "line": 578,
+        "spelling": "exists_pow_principal_fractionalIdeal"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Glob.exists_field_gen",
+      "callee": "GlobalTheory.Glob.span_inv_eq_ellT",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+        "line": 606,
+        "spelling": "span_inv_eq_ellT"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Glob.exists_extraTie_of_crv",
+      "callee": "GlobalTheory.Glob.exists_field_gen",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+        "line": 613,
+        "spelling": "exists_field_gen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.Glob.exists_extraTie_of_crv",
+      "callee": "GlobalTheory.Glob.exists_extraTie",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/ExistsPowPrincipalFractionalIdeal.lean",
+        "line": 614,
+        "spelling": "exists_extraTie"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "GDF-01",
+      "GDF-02"
+    ],
+    [
+      "GDF-02",
+      "GDF-03"
+    ]
+  ],
+  "outstanding": [
+    "The realized uniform divisibility bridge, extended twisted-place gain bounds, kernel-column transport, uniform level-prime size windows, row slope and rank assembly, global family chain theorems, ideal-class power principalization, unit-discriminant algebraic family realization, and constructed-point threshold closure are reconstructed in GDF-01 through GDF-03."
+  ]
+}
