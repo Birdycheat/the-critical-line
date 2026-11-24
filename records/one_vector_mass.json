@@ -16,7 +16,12 @@
         "lifts-one-vector-discrepancy"
       ],
       "dependencies": [
-        "SDR-02"
+        "SDR-02",
+        "SCR-01",
+        "SCR-03",
+        "ODN-01",
+        "ODN-02",
+        "ODN-03"
       ],
       "sources": [
         {
@@ -580,6 +585,26 @@
   ],
   "derivation_edges": [
     [
+      "SCR-01",
+      "OVM-01"
+    ],
+    [
+      "SCR-03",
+      "OVM-01"
+    ],
+    [
+      "ODN-01",
+      "OVM-01"
+    ],
+    [
+      "ODN-02",
+      "OVM-01"
+    ],
+    [
+      "ODN-03",
+      "OVM-01"
+    ],
+    [
       "OVM-01",
       "OVM-03"
     ],
@@ -593,6 +618,6 @@
     ]
   ],
   "outstanding": [
-    "The scalar discrepancy now uses the two explicit orbit counts, an Eisenstein estimate and reduction to finite cusp data. The reduction theorem, transverse quotient volumes and the coefficient-to-local-density identification still enter as inputs. The lower bound uses local scaling, good-place densities and convergence away from a finite set. The anisotropic binary case is separate."
+    "The scalar discrepancy uses the two explicit orbit counts, an Eisenstein estimate, and cusp reduction supplied by SDR-02, SCR-01, and SCR-03, together with the Fourier-coefficient to quadratic level-set density identification, coordinate Haar measures, local Gram-fibre positivity, almost-everywhere lattice stability, and Euler-product factorization supplied by ODN-01 and ODN-02. The lower bound uses local scaling, good-place densities, and convergence away from a finite set, while anisotropic binary cocompactness and scalar-factorized Euler products are supplied by ODN-03."
   ]
 }

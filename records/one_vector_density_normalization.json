@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "ODN-01",
+      "chapter": "lifts",
+      "anchor": "lifts-one-vector-whittaker-coeff",
+      "title": "Standard adelic character, theta and Eisenstein Fourier coefficients, and quadratic level-set densities",
+      "statement": "Every number field F admits a continuous standard finite-adelic additive character ψ agreeing with exp(−2πi Tr_(F/ℚ)(b)) on F; every such character has unit modulus, is trivial on Ô_F, and annihilates b Ô_F if and only if Tr_(F/ℚ)(b 𝒪_F) ⊆ ℤ. For a totally real field F of degree d = [F : ℚ], symmetric invertible matrix B of size 2M (M ≥ 3) with positive-definite majorants P_w, and Schwartz–Bruhat test φ on 𝔸_(F,f)^(2M), the orbital integral f*(φ, ·) is N Ô_F-periodic for some integer N ≥ 1, and any fundamental domain D for N 𝒪_F in ℝ^d has volume N^d |disc F|^(1/2) with character orthogonality for nonzero β ∈ N⁻¹ 𝒪_F. For the lattice indicator φ = 1_(a⁻¹ Ô_F^(2M)), integrating the averaged theta series at x + i against exp(−2πi ∑_w ρ_w(β) x_w) over D extracts vol(D) times the averaged level-β Gaussian count, whereas integrating the Eisenstein series unfolds to N^d times the product of the finite-adelic Fourier integral ∫ f*(φ, y) ψ(−β y) dλ_f(y) and the archimedean Fourier integral ∫ c_G(x + i) exp(−2πi ∑_w ρ_w(β) x_w) dx. Moreover, Fourier inversion identifies these two integrals with |disc F|^(−(M−1)) |N_(F/ℚ)(det B)|^(−1/2) D_f(β) and |N_(F/ℚ)(det B)|^(1/2) D_∞(β), where D_f ≥ 0 and D_∞ ≥ 0 are continuous densities disintegrating the finite lattice measure and archimedean Gaussian along the quadratic map u ↦ ½ uᵀ B u.",
+      "hypotheses": "Totally real number field F of degree d = [F : ℚ] with normalized finite-adelic additive Haar measure λ_f (λ_f(Ô_F) = 1), standard additive character ψ on 𝔸_(F,f), symmetric nonsingular 2M × 2M matrix B over F with M ≥ 3 and positive-definite real majorants P_w satisfying P_w B_w⁻¹ P_w = B_w, orthogonal probability measure space (Ω, Pr, g_f, g_∞) satisfying the ball-count hypothesis, positive integers a and N with N β ∈ 𝒪_F and N · q(a⁻¹ Ô_F^(2M)) ⊆ Ô_F, and nonzero target β ∈ F^×.",
+      "correspondence": "Standard-character triviality on Ô_F and compactness of quadratic values on the support of φ supply a common periodicity modulus N for f*(φ, ·) and the quadratic values. Character orthogonality on a fundamental domain D of N 𝒪_F isolates the β-level sum on the theta side, while coset decomposition over F / N 𝒪_F unfolds the Eisenstein coefficient into finite-adelic and archimedean Fourier integrals whose inversion produces continuous quadratic level-set densities D_f and D_∞.",
+      "dependencies": [
+        "SCR-02"
+      ],
+      "equations": [
+        "lifts-odn-theta-coeff-eq",
+        "lifts-odn-eis-coeff-eq",
+        "lifts-odn-level-density-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.StdChar.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.main": 134,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.fieldChar": 13,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.fieldChar_eq_one_iff": 34,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.exists_rep": 68,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.stdChar": 93,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.continuous_stdChar": 109,
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.Oh_subset_of_isClosed": 124
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StandardAdelicCharacter.lean",
+          "lines": [
+            13,
+            159
+          ],
+          "label": "Existence and integral-annihilator characterization of the standard finite-adelic additive character",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StandardAdelicCharacter.lean#L13-L159",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.fieldChar",
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.fieldChar_eq_one_iff",
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.exists_rep",
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.stdChar",
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.continuous_stdChar",
+            "GlobalTheory.CompanionTheory.SW.Core.StdChar.Oh_subset_of_isClosed"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FstarPer.fstar_periodic",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FstarPer.fstar_periodic": 22,
+            "GlobalTheory.CompanionTheory.SW.FstarPer.oh_mul": 13,
+            "GlobalTheory.CompanionTheory.SW.FstarPer.continuous_qf": 17
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilOperatorIntegralInvariance.lean",
+          "lines": [
+            13,
+            47
+          ],
+          "label": "Integral lattice periodicity of the quadratic phase operator and finite-adelic orbital integral",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilOperatorIntegralInvariance.lean#L13-L47",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.FstarPer.oh_mul",
+            "GlobalTheory.CompanionTheory.SW.FstarPer.continuous_qf"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.FD.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.FD.main": 181,
+            "GlobalTheory.CompanionTheory.SW.FD.scaleMap": 13,
+            "GlobalTheory.CompanionTheory.SW.FD.latR_eq_range": 18,
+            "GlobalTheory.CompanionTheory.SW.FD.mem_latR_iff": 30,
+            "GlobalTheory.CompanionTheory.SW.FD.card_places": 53,
+            "GlobalTheory.CompanionTheory.SW.FD.exists_integral_basis": 57,
+            "GlobalTheory.CompanionTheory.SW.FD.exists_real_basis": 84,
+            "GlobalTheory.CompanionTheory.SW.FD.sum_places_int": 92,
+            "GlobalTheory.CompanionTheory.SW.FD.integral_char_eq_zero": 107
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeFundamentalDomainVolume.lean",
+          "lines": [
+            13,
+            229
+          ],
+          "label": "Fundamental domain volume of the scaled integer lattice and character orthogonality on real embeddings",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeFundamentalDomainVolume.lean#L13-L229",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.FD.scaleMap",
+            "GlobalTheory.CompanionTheory.SW.FD.latR_eq_range",
+            "GlobalTheory.CompanionTheory.SW.FD.mem_latR_iff",
+            "GlobalTheory.CompanionTheory.SW.FD.card_places",
+            "GlobalTheory.CompanionTheory.SW.FD.exists_integral_basis",
+            "GlobalTheory.CompanionTheory.SW.FD.exists_real_basis",
+            "GlobalTheory.CompanionTheory.SW.FD.sum_places_int",
+            "GlobalTheory.CompanionTheory.SW.FD.integral_char_eq_zero"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_of_q",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.density_of_q": 78,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.qMap": 12,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gW": 16,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gauss_I": 34,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gauss_shift": 42,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.one_dim_integrable": 58,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.prod_integrable": 71
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/QuadraticLevelSetDensity.lean",
+          "lines": [
+            12,
+            157
+          ],
+          "label": "Archimedean Gaussian level-set density and Fourier inversion of the shifted archimedean integral",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/QuadraticLevelSetDensity.lean#L12-L157",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.qMap",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gW",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gauss_I",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.gauss_shift",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.one_dim_integrable",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.prod_integrable"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main": 225,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.indL_SB": 74,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.Hs": 92,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.congN": 127,
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.integrable_of_periodic": 138
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean",
+          "lines": [
+            74,
+            325
+          ],
+          "label": "Integrability of periodic decaying orbital integrals and finite-adelic quadratic level-set density",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean#L74-L325",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.indL_SB",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.Hs",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.congN",
+            "GlobalTheory.CompanionTheory.SW.Core.Dens.integrable_of_periodic"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient": 307,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_series": 51,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.sum_selected": 102,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.ph": 134,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.thTerm_shift": 165,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.thTerm_nonneg": 189,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.integral_of_ne_zero": 246,
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.sb_indL": 263
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean",
+          "lines": [
+            51,
+            396
+          ],
+          "label": "Fourier coefficient extraction for the averaged quadratic theta series over a scaled integer fundamental domain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean#L51-L396",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_series",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.sum_selected",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.ph",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.thTerm_shift",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.thTerm_nonneg",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.integral_of_ne_zero",
+            "GlobalTheory.CompanionTheory.SW.CoefTheta.sb_indL"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis": 209,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_integral_swap": 13,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_cosets": 41,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.unfold_char": 59,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.hasSum_integral_cosets": 84,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.cosets_of_multiples": 113,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.mass_multiples": 153,
+            "GlobalTheory.CompanionTheory.SW.CoefEis.sum_places_eq_trace": 176
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+          "lines": [
+            13,
+            427
+          ],
+          "label": "Coset unfolding of the Eisenstein Fourier coefficient into finite-adelic and archimedean Whittaker integrals",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean#L13-L427",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_integral_swap",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_cosets",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.unfold_char",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.hasSum_integral_cosets",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.cosets_of_multiples",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.mass_multiples",
+            "GlobalTheory.CompanionTheory.SW.CoefEis.sum_places_eq_trace"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "ODN-02",
+      "chapter": "lifts",
+      "anchor": "lifts-one-vector-euler-normalization",
+      "title": "Coordinate Haar measures, local Gram-fibre positivity, rational lattice stability, and Euler-product factorization",
+      "statement": "For a CM extension E/F with conjugation σ, every 1 × 1 Hermitian matrix over E equals (β) for a unique scalar β ∈ F (nonzero when invertible). Over any local base ring R (A_∞ or F_v) with additive Haar measure λ and F-basis b of E, coordinate pullbacks define additive Haar measures on R ⊗_F E, on tuples (R ⊗_F E)^(n × M), and on Hermitian matrices Herm_n(R ⊗_F E) via the trace-diagonalization homeomorphism Herm_n(R ⊗_F E) ≃ₜ R^n × (R ⊗_F E)^(n(n−1)/2). Every local Gram-fibre measure m_S disintegrating these Haar measures is locally finite and assigns strictly positive measure to every open set meeting the regular S-fibre. The standard local coordinate lattices Λ_v ⊂ (F_v ⊗_F E)^(n × M) (generated over 𝒪_v by the basis b) are preserved at almost all finite places v by right multiplication by any invertible n × n matrix over E, left action of any matrix in GL_M(E), and block extension X ↦ diag(1, X). Consequently, for n = 0 or n + 2 ≤ M and invertible Hermitian T, any locally finite U(J, 𝔸_F)-invariant measure I supported on the T-Gram fibre factors as an Euler product with a scalar c ≥ 0, and on any restricted measurable box A_v (equal to Λ_v almost everywhere with finite local measures) with measurable archimedean test φ_∞ ≥ 0, the product ∏_v m_v(A_v) converges and ∫_(∀v, X_v ∈ A_v) φ_∞(X_∞) dI = c · (∫ φ_∞ dm_∞) · ∏_v m_v(A_v).",
+      "hypotheses": "CM extension E/F with conjugation σ, nondegenerate Hermitian matrix J of size M over E, F-basis b of E, standard local additive Haar measures on A_∞ and each completion F_v, associated local Gram-fibre families m_∞ and m_v, invertible n × n Hermitian matrix T over E, and locally finite U(J, 𝔸_F)-invariant Borel measure I on (𝔸_F ⊗_F E)^(n × M) supported on the T-fibre (with n = 0 or n + 2 ≤ M for the automatic local-density convergence step).",
+      "correspondence": "Because σ is nontrivial on a CM extension of degree two, Hermitian 1 × 1 matrices are base-field scalars and fixed elements of R ⊗_F E are recovered by half-trace, giving the coordinate Haar homeomorphism on Hermitian matrices. Local continuous congruence sections and GL_n-equivariance transport nullity across a neighborhood of regular fibres, proving strict positivity of m_S on regular open sets. Place-by-place insertion of Λ_v yields the renormalization recursion c(S) = c(S ∪ {v}) m_v(T)(Λ_v), assembling the Euler-product formula on restricted boxes.",
+      "dependencies": [
+        "ODN-01"
+      ],
+      "equations": [
+        "lifts-odn-euler-box-eq",
+        "lifts-odn-euler-renorm-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.hermOne_eq_scal",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.hermOne_eq_scal": 55,
+            "GlobalTheory.CompanionTheory.SW.HermOne.exists_ne": 12,
+            "GlobalTheory.CompanionTheory.SW.HermOne.exists_eq_algebraMap": 25
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOneByOneIsScalar.lean",
+          "lines": [
+            12,
+            70
+          ],
+          "label": "Identification of one-by-one CM Hermitian matrices with base-field scalars",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOneByOneIsScalar.lean#L12-L70",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.HermOne.exists_ne",
+            "GlobalTheory.CompanionTheory.SW.HermOne.exists_eq_algebraMap"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.coord_measures_haar",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.coord_measures_haar": 230,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.haar_comap": 11,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.conj_facts": 27,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.fixed_eq_tmul": 69,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.half_trace_tmul": 116,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermMat": 133,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord": 153,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord_add": 159,
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord_isHomeomorph": 167
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CoordinateHaarMeasure.lean",
+          "lines": [
+            11,
+            260
+          ],
+          "label": "Coordinate Haar measures on local tensor tuples and Hermitian matrix spaces via trace-diagonalization homeomorphism",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CoordinateHaarMeasure.lean#L11-L260",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.haar_comap",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.conj_facts",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.fixed_eq_tmul",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.half_trace_tmul",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermMat",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord_add",
+            "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord_isHomeomorph"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LocFin.fibre_loc_fin",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LocFin.fibre_loc_fin": 25,
+            "GlobalTheory.CompanionTheory.SW.LocFin.null_of_fibres_null": 16
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresContinuity.lean",
+          "lines": [
+            16,
+            129
+          ],
+          "label": "Local finiteness and strict open-set positivity of Gram-fibre measures via local congruence sections",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresContinuity.lean#L16-L129",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LocFin.null_of_fibres_null"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational": 128,
+            "GlobalTheory.CompanionTheory.SW.LatRat.eventually_integral": 13,
+            "GlobalTheory.CompanionTheory.SW.LatRat.latR": 24,
+            "GlobalTheory.CompanionTheory.SW.LatRat.Good": 27,
+            "GlobalTheory.CompanionTheory.SW.LatRat.repr_mul": 30,
+            "GlobalTheory.CompanionTheory.SW.LatRat.eventually_good_matrix": 59,
+            "GlobalTheory.CompanionTheory.SW.LatRat.rmul_mem": 76,
+            "GlobalTheory.CompanionTheory.SW.LatRat.actTup_mem": 83,
+            "GlobalTheory.CompanionTheory.SW.LatRat.consTup_mem_iff": 110
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean",
+          "lines": [
+            13,
+            148
+          ],
+          "label": "Almost-everywhere stability of standard local coordinate lattices under rational linear and block actions",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean#L13-L148",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.LatRat.eventually_integral",
+            "GlobalTheory.CompanionTheory.SW.LatRat.latR",
+            "GlobalTheory.CompanionTheory.SW.LatRat.Good",
+            "GlobalTheory.CompanionTheory.SW.LatRat.repr_mul",
+            "GlobalTheory.CompanionTheory.SW.LatRat.eventually_good_matrix",
+            "GlobalTheory.CompanionTheory.SW.LatRat.rmul_mem",
+            "GlobalTheory.CompanionTheory.SW.LatRat.actTup_mem",
+            "GlobalTheory.CompanionTheory.SW.LatRat.consTup_mem_iff"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd": 95,
+            "GlobalTheory.CompanionTheory.SW.Fact.exists_test_set": 20,
+            "GlobalTheory.CompanionTheory.SW.Fact.fib_facts": 31,
+            "GlobalTheory.CompanionTheory.SW.Fact.borel_tup": 57,
+            "GlobalTheory.CompanionTheory.SW.Fact.pureL_insert": 63
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+          "lines": [
+            20,
+            187
+          ],
+          "label": "Euler-product factorization of locally finite unitary-invariant Gram-fibre measures by place-by-place renormalization",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean#L20-L187",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Fact.exists_test_set",
+            "GlobalTheory.CompanionTheory.SW.Fact.fib_facts",
+            "GlobalTheory.CompanionTheory.SW.Fact.borel_tup",
+            "GlobalTheory.CompanionTheory.SW.Fact.pureL_insert"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.EulerBox.euler_box",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.EulerBox.euler_box": 82,
+            "GlobalTheory.CompanionTheory.SW.EulerBox.pureL_indicator_eq": 18,
+            "GlobalTheory.CompanionTheory.SW.EulerBox.box_eq": 44,
+            "GlobalTheory.CompanionTheory.SW.EulerBox.measurableSet_box": 61
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureIntegral.lean",
+          "lines": [
+            18,
+            113
+          ],
+          "label": "Evaluation of an Euler-product measure on restricted finite-place boxes with measurable archimedean tests",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureIntegral.lean#L18-L113",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.EulerBox.pureL_indicator_eq",
+            "GlobalTheory.CompanionTheory.SW.EulerBox.box_eq",
+            "GlobalTheory.CompanionTheory.SW.EulerBox.measurableSet_box"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "ODN-03",
+      "chapter": "lifts",
+      "anchor": "lifts-anisotropic-binary-cocompactness",
+      "title": "Cocompactness of anisotropic binary unitary quotients and Euler-product factorization up to a scalar",
+      "statement": "Let E/F be a CM extension and let J be an anisotropic nondegenerate 2 × 2 Hermitian matrix over E. Then the adelic unitary quotient U(J, F) ∖ U(J, 𝔸_F) is compact: there exists a compact set C ⊂ U(J, 𝔸_F) with U(J, 𝔸_F) = U(J, F) · C, and any fundamental domain 𝓕 for a Haar measure μ has finite positive covolume 0 < μ(𝓕) < ∞. Consequently, for every n ≥ 0 and every rational subset S ⊆ E^(n × 2), the normalized theta measure averaging rational-tuple counts over 𝓕 is locally finite. Combining this local finiteness with the 1 × 1 scalar identification, local finiteness of the finite Gram-fibre measures, and the quadratic-tail binary local mass estimate |m_v(β)(Λ_v) − 1| ≤ C₁ / q_v² at almost all finite places v yields, for every nonzero β ∈ F^×, a scalar c ≥ 0 such that the one-vector theta measure on the β-sphere factors as the Euler product c · (m_∞(β) ⊗ ∏_v m_v(β)).",
+      "hypotheses": "CM extension E/F with conjugation σ, anisotropic nondegenerate binary (M = 2) Hermitian matrix J over E, F-basis b of E, standard additive Haar measures on A_∞ and each F_v, unitary Haar measure μ and fundamental domain 𝓕 for U(J, F) in U(J, 𝔸_F), associated one-vector Gram-fibre families m_∞ and m_v, and the binary local mass bound |m_v(s)(Λ_v) − 1| ≤ C₁ / q_v² on local units s at almost all finite places v.",
+      "correspondence": "Anisotropy supplies a rank-zero maximal Witt frame, so unitary Siegel reduction yields a compact covering set C and finite positive covolume for U(J, F) ∖ U(J, 𝔸_F). Discreteness of rational tuples in the adelic vector space bounds every compact count uniformly by the finite number of rational tuples in C · K, giving local finiteness of the theta measure. The renormalization argument then works directly from summability of |m_v(β)(Λ_v) − 1| without needing M ≥ 3.",
+      "dependencies": [
+        "ODN-02"
+      ],
+      "equations": [
+        "lifts-odn-binary-euler-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.MassCocompact.coCpt",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.MassCocompact.coCpt": 14
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cocompactness.lean",
+          "lines": [
+            14,
+            24
+          ],
+          "label": "Cocompactness and finite positive covolume of the adelic unitary quotient for anisotropic binary Hermitian spaces",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cocompactness.lean#L14-L24"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.Mass.One.vector_length_formula_up_to_constant",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.Mass.One.vector_length_formula_up_to_constant": 206,
+            "GlobalTheory.CompanionTheory.Mass.One.finite_rat_compact": 20,
+            "GlobalTheory.CompanionTheory.Mass.One.theta_locFin": 37,
+            "GlobalTheory.CompanionTheory.Mass.One.euler_of_summable": 101
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean",
+          "lines": [
+            20,
+            247
+          ],
+          "label": "Local finiteness of cocompact theta measures and Euler-product factorization up to a scalar in the anisotropic binary case",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean#L20-L247",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.Mass.One.finite_rat_compact",
+            "GlobalTheory.CompanionTheory.Mass.One.theta_locFin",
+            "GlobalTheory.CompanionTheory.Mass.One.euler_of_summable"
+          ]
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.StdChar.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.StdChar.Oh_subset_of_isClosed",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StandardAdelicCharacter.lean",
+        "line": 139,
+        "spelling": "Oh_subset_of_isClosed"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.StdChar.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.StdChar.continuous_stdChar",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StandardAdelicCharacter.lean",
+        "line": 143,
+        "spelling": "continuous_stdChar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.StdChar.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.StdChar.exists_rep",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/StandardAdelicCharacter.lean",
+        "line": 146,
+        "spelling": "exists_rep"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FstarPer.fstar_periodic",
+      "callee": "GlobalTheory.CompanionTheory.SW.FstarPer.continuous_qf",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilOperatorIntegralInvariance.lean",
+        "line": 25,
+        "spelling": "continuous_qf"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FstarPer.fstar_periodic",
+      "callee": "GlobalTheory.T.standard_adelic_character",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilOperatorIntegralInvariance.lean",
+        "line": 27,
+        "spelling": "GlobalTheory.T.standard_adelic_character"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FD.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.FD.exists_integral_basis",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeFundamentalDomainVolume.lean",
+        "line": 184,
+        "spelling": "GlobalTheory.CompanionTheory.SW.FD.exists_integral_basis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FD.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.FD.exists_real_basis",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeFundamentalDomainVolume.lean",
+        "line": 197,
+        "spelling": "GlobalTheory.CompanionTheory.SW.FD.exists_real_basis"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.FD.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.FD.integral_char_eq_zero",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeFundamentalDomainVolume.lean",
+        "line": 222,
+        "spelling": "GlobalTheory.CompanionTheory.SW.FD.integral_char_eq_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_of_q",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Dens.gauss_shift",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/QuadraticLevelSetDensity.lean",
+        "line": 113,
+        "spelling": "gauss_shift"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_of_q",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Dens.prod_integrable",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/QuadraticLevelSetDensity.lean",
+        "line": 135,
+        "spelling": "prod_integrable"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_of_q",
+      "callee": "GlobalTheory.T.schur_function_compact_support_modulo_unipotent",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/QuadraticLevelSetDensity.lean",
+        "line": 144,
+        "spelling": "GlobalTheory.T.schur_function_compact_support_modulo_unipotent"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main",
+      "callee": "GlobalTheory.T.weil_operator_integral_invariance",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean",
+        "line": 283,
+        "spelling": "GlobalTheory.T.weil_operator_integral_invariance"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main",
+      "callee": "GlobalTheory.T.fourier_coefficient_growth_bound",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean",
+        "line": 284,
+        "spelling": "GlobalTheory.T.fourier_coefficient_growth_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Dens.integrable_of_periodic",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean",
+        "line": 285,
+        "spelling": "integrable_of_periodic"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Dens.density_main",
+      "callee": "GlobalTheory.T.positive_definite_density",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionWhittakerEquivariant.lean",
+        "line": 293,
+        "spelling": "GlobalTheory.T.positive_definite_density"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient",
+      "callee": "GlobalTheory.T.lattice_fundamental_domain_volume",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean",
+        "line": 313,
+        "spelling": "GlobalTheory.T.lattice_fundamental_domain_volume"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_series",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean",
+        "line": 350,
+        "spelling": "fourier_series"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefTheta.thTerm_shift",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean",
+        "line": 386,
+        "spelling": "thTerm_shift"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefTheta.fourier_coefficient",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefTheta.sum_selected",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/RealQuadraticFormLemma.lean",
+        "line": 394,
+        "spelling": "sum_selected"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_integral_swap",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 333,
+        "spelling": "tsum_integral_swap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.tsum_cosets",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 363,
+        "spelling": "tsum_cosets"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.unfold_char",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 386,
+        "spelling": "unfold_char"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.cosets_of_multiples",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 393,
+        "spelling": "cosets_of_multiples"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.hasSum_integral_cosets",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 414,
+        "spelling": "hasSum_integral_cosets"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.CoefEis.fourier_coeff_eis",
+      "callee": "GlobalTheory.CompanionTheory.SW.CoefEis.mass_multiples",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SchurFunctionSmoothRightInvariant.lean",
+        "line": 422,
+        "spelling": "mass_multiples"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.hermOne_eq_scal",
+      "callee": "GlobalTheory.CompanionTheory.SW.HermOne.exists_eq_algebraMap",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/HermitianOneByOneIsScalar.lean",
+        "line": 57,
+        "spelling": "HermOne.exists_eq_algebraMap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.coord_measures_haar",
+      "callee": "GlobalTheory.CompanionTheory.SW.HaarCoord.conj_facts",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CoordinateHaarMeasure.lean",
+        "line": 234,
+        "spelling": "HaarCoord.conj_facts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.coord_measures_haar",
+      "callee": "GlobalTheory.CompanionTheory.SW.HaarCoord.haar_comap",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CoordinateHaarMeasure.lean",
+        "line": 258,
+        "spelling": "HaarCoord.haar_comap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.coord_measures_haar",
+      "callee": "GlobalTheory.CompanionTheory.SW.HaarCoord.hermCoord_isHomeomorph",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/CoordinateHaarMeasure.lean",
+        "line": 259,
+        "spelling": "HaarCoord.hermCoord_isHomeomorph"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LocFin.fibre_loc_fin",
+      "callee": "GlobalTheory.T.gram_fiber_measures_gl_equivariant",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresContinuity.lean",
+        "line": 61,
+        "spelling": "GlobalTheory.T.gram_fiber_measures_gl_equivariant"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LocFin.fibre_loc_fin",
+      "callee": "GlobalTheory.T.hermitian_local_continuous_congruence_section",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresContinuity.lean",
+        "line": 65,
+        "spelling": "GlobalTheory.T.hermitian_local_continuous_congruence_section"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LocFin.fibre_loc_fin",
+      "callee": "GlobalTheory.CompanionTheory.SW.LocFin.null_of_fibres_null",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/GramFiberMeasuresContinuity.lean",
+        "line": 117,
+        "spelling": "null_of_fibres_null"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatRat.eventually_good_matrix",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean",
+        "line": 131,
+        "spelling": "eventually_good_matrix"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatRat.rmul_mem",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean",
+        "line": 132,
+        "spelling": "rmul_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatRat.actTup_mem",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean",
+        "line": 140,
+        "spelling": "actTup_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.LatRat.latV_rational",
+      "callee": "GlobalTheory.CompanionTheory.SW.LatRat.consTup_mem_iff",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/LatticeStableAlmostEverywhere.lean",
+        "line": 147,
+        "spelling": "consTup_mem_iff"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+      "callee": "GlobalTheory.CompanionTheory.SW.Fact.fib_facts",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+        "line": 101,
+        "spelling": "fib_facts"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+      "callee": "GlobalTheory.T.euler_product_local_densities_converges",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+        "line": 107,
+        "spelling": "GlobalTheory.T.euler_product_local_densities_converges"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+      "callee": "GlobalTheory.T.siegel_weil_orbital_measure",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+        "line": 122,
+        "spelling": "GlobalTheory.T.siegel_weil_orbital_measure"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+      "callee": "GlobalTheory.CompanionTheory.SW.Fact.pureL_insert",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+        "line": 148,
+        "spelling": "pureL_insert"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Fact.exists_isEulerProd",
+      "callee": "GlobalTheory.T.infinite_product_renormalization",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/SiegelWeilFormulaRange.lean",
+        "line": 177,
+        "spelling": "GlobalTheory.T.infinite_product_renormalization"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.EulerBox.euler_box",
+      "callee": "GlobalTheory.CompanionTheory.SW.AbsTprod.abs_tprod",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureIntegral.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.CompanionTheory.SW.AbsTprod.abs_tprod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.EulerBox.euler_box",
+      "callee": "GlobalTheory.CompanionTheory.SW.EulerBox.measurableSet_box",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureIntegral.lean",
+        "line": 95,
+        "spelling": "measurableSet_box"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.EulerBox.euler_box",
+      "callee": "GlobalTheory.CompanionTheory.SW.EulerBox.pureL_indicator_eq",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/EulerProductMeasureIntegral.lean",
+        "line": 100,
+        "spelling": "pureL_indicator_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.MassCocompact.coCpt",
+      "callee": "GlobalTheory.SiegelSet.Model.compact_quotient",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cocompactness.lean",
+        "line": 18,
+        "spelling": "GlobalTheory.SiegelSet.Model.compact_quotient"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.MassCocompact.coCpt",
+      "callee": "GlobalTheory.SiegelWeilConvCompare.measure_fundamentalDomain_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cocompactness.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.SiegelWeilConvCompare.measure_fundamentalDomain_pos"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.MassCocompact.coCpt",
+      "callee": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cocompactness.lean",
+        "line": 23,
+        "spelling": "GlobalTheory.CompanionTheory.SW.finVol_unitaryGroup"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Mass.One.theta_locFin",
+      "callee": "GlobalTheory.CompanionTheory.Mass.One.finite_rat_compact",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean",
+        "line": 56,
+        "spelling": "finite_rat_compact"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Mass.One.vector_length_formula_up_to_constant",
+      "callee": "GlobalTheory.T.hermitian_one_by_one_is_scalar",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean",
+        "line": 216,
+        "spelling": "GlobalTheory.T.hermitian_one_by_one_is_scalar"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Mass.One.vector_length_formula_up_to_constant",
+      "callee": "GlobalTheory.CompanionTheory.Mass.One.theta_locFin",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean",
+        "line": 221,
+        "spelling": "theta_locFin"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.Mass.One.vector_length_formula_up_to_constant",
+      "callee": "GlobalTheory.CompanionTheory.Mass.One.euler_of_summable",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/VectorLengthFormulaOfParts.lean",
+        "line": 244,
+        "spelling": "euler_of_summable"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SCR-02",
+      "ODN-01"
+    ],
+    [
+      "ODN-01",
+      "ODN-02"
+    ],
+    [
+      "ODN-02",
+      "ODN-03"
+    ]
+  ],
+  "outstanding": [
+    "The standard finite-adelic additive character, theta and Eisenstein Fourier coefficient extraction, finite and archimedean quadratic level-set densities, coordinate Haar measures, local Gram-fibre positivity, almost-everywhere lattice stability, Euler-product factorization on restricted boxes, and anisotropic binary cocompactness and scalar-factorized theta measure are reconstructed in ODN-01 through ODN-03."
+  ]
+}
