@@ -11,7 +11,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 01 | `target` | What the Riemann Hypothesis says | `5` (`5` / `0`) | `0` | ✅ Terminé |
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
-| 04 | `normalization` | From the global theta function to an integral jet | `122` (`49` / `73`) | `2` | ⏳ À faire (après Cycle 1 : `TDE-01` Weierstrass, `HTC-01`, `RTC-01`) |
+| 04 | `normalization` | From the global theta function to an integral jet | `124` (`49` / `75`) | `2` | ⏳ À faire (après Cycle 2 : `TDE-01` loi de groupe formel, `HTC-01`, `RTC-01`) |
 | 05 | `global` | Lattices and the arithmetic main term | `141` (`70` / `71`) | `7` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; interfaces amont restantes) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
@@ -24,7 +24,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 ## 2. File prioritaire des sous-sections à rédiger
 
 1. ✅ **Cycle 1 (Terminé)** — **Ch. 8 (`inputs`) & raccords Ch. 5 (`global`)** : *Sélection inconditionnelle du premier de niveau $T_u$ dans la fenêtre courte $[T_u^*, (1 + \frac{1}{fk}) T_u^*]$ via les premiers normiques de $\mathbb{Q}(\sqrt{-d})$ modulo $M$* (`word-prime-window.fragment.html` + `word_prime_window.json`, raccordé à `prime-pair`, `count-five`, `word-upper`, `mass-floor`, `global.json` ; `WPW-01`–`02`).
-2. ⏳ **Cycle 2** — **Ch. 4 (`normalization`)** : *Biadditivité du défaut d'addition et congruence sous négation de la série correctrice $\varphi$ sur le modèle entier de Weierstrass* (complète `#normalization-torsion-integral-unit` dans `torsion-degree`, pointé dans `STATE.md` l. 177).
+2. ✅ **Cycle 2 (Terminé)** — **Ch. 4 (`normalization`)** : *Biadditivité du défaut d'addition et congruence sous négation de la série correctrice $\varphi$ sur le modèle entier de Weierstrass* (`curve-exponential-defect.fragment.html` + `curve_exponential_defect.json`, raccordé à `torsion-degree`, `torsion_degree.json` ; `CED-01`–`02`, complète `#normalization-torsion-integral-unit`).
 3. ⏳ **Cycle 3** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass courte à bonne réduction ($p \ge 5$)* (ferme l'interface `HTC-01`).
 4. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
@@ -58,7 +58,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`940` résultats au total après Cycle 1, `26` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`942` résultats au total après Cycle 2, `26` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -84,3 +84,27 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `Formalism.MainNotions.GlobalTheoryTheory.count_at_of` (`JointsL.lean#L20-L142`)
   - `UpperTheory.Top.recS` (`ObjCTrue.lean#L30-L36`)
   - `GlobalTheory.Fc.objCP_and_of_recExP`, `objCP_of_recExP` (`ExistsObjectsOfAdmissibleTwistDatum.lean#L70-L123`)
+
+### Cycle 2 — Défaut d'addition biadditif et négation sur Weierstrass (`curve_exponential_defect`)
+- *Statut* : ✅ Terminé (`content/curve-exponential-defect.fragment.html` + `records/curve_exponential_defect.json`, rôle `rebuilt-infrastructure`).
+- *Déclarations `[CORE]` couvertes — `CED-01` (`#normalization-curve-negation-congruence`)* :
+  - `Formalism.L2.Th1.C.mvExp`, `LG`, `Cong` (`HasSecondLogDeriv.lean#L18-L24`)
+  - `Formalism.L2.Th1.C.IsLogPair` (`HasSecondLogDeriv.lean#L75-L90`)
+  - `Formalism.L2.Th1.C.PhNormAt` (`IsotropicVanish.lean#L23-L32`)
+  - `Formalism.L2.Th1.B.phO` (`CurveHyp.lean#L32-L76`)
+  - `Formalism.L2.Th1.G.curveNegNorm` (`FinalA.lean#L20-L21`)
+  - `Formalism.L2.Th1.G.curve_neg_norm_holds` (`CurveFormalFirstLevelHolds.lean#L54-L64`)
+  - `Formalism.L2.Th1.C.phi_norm_from_datum` (`IntegralEndomorphismFromDatum.lean#L170-L181`)
+  - `Formalism.L2.Th1.C.phNormUnit_of` (`USideB.lean#L226-L294`)
+  - `Formalism.L2.Th1.C.IntegralMvPolynomialLemmas.intMv_of_sq`, `lGHalf_of` (`DegreeLeOfMemAntidiagonal.lean#L152-L245`)
+- *Déclarations `[CORE]` couvertes — `CED-02` (`#normalization-curve-biadditive-defect`)* :
+  - `Formalism.L2.Th1.G.weierstrass_biadditive_mod_equiv` (`FinalA.lean#L20-L21`)
+  - `Formalism.L2.Th1.G.curve_formal_first_level_holds` (`CurveFormalFirstLevelHolds.lean#L66-L76`)
+  - `Formalism.L2.Th1.C.first_level_from_universal_holds` (`ConstantCoeffVecConsPairEqZero.lean#L171-L203`)
+  - `Formalism.L2.Th1.B.Sim.simeq_iff` (`SimeqPadicIntegers.lean#L18-L127`)
+  - `Formalism.L2.Th1.B.f1O` (`FinalB.lean#L49-L55`)
+  - `Formalism.L2.Th1.B.AddSgStar_of` (`PderivZeroZeroWeierstrassDifference.lean#L301-L524`)
+  - `Formalism.L2.Th1.B.ParO.ParO_of` (`InVarAddInVarNeZero.lean#L200-L315`)
+  - `Formalism.L2.Th1.B.Cube_of` (`ConstantCoeffEqZeroOfParallelogram.lean#L115-L298`)
+  - `ReciprocityTheory.ChartRestriction.L1.phNorm_int` (`FgPhInt.lean#L12-L85`)
+  - `ReciprocityTheory.ChartRestriction.L1.sq_formula` (`FgIsoU.lean#L53-L122`)
