@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies, and verified written callsites across ExistsGLMovingUnimodularPairToLastBasis, ExistsTransvectionPreservingLowAndAff, ConsMemUniMIffMapSubSmul, SeqChainBoundaryPrefixChain, SeqChainBoundaryCompBoundaryApply, SeqChainExactAtMapIff, ExactAtUnimodularSeqsOfLinkNilCoordSubspace, ExactAtLinkInUniMOfExactAtMapLinearEquiv, ExactAtLinkInSuccUnionTranslateOfNeNil, PairSeqVerticalCycleIsBoundaryOfSlicesExact, PairSeqHorizontalCycleIsBoundaryOfSlicesExact, SplitSetPermRepChainsIsoSplitSeqChains, and SplitSequenceRepComplexExact.",
+  "claims": [
+    {
+      "id": "STR-01",
+      "chapter": "inputs",
+      "anchor": "inputs-split-transvection-straightening",
+      "title": "Four-transvection simultaneous straightening of a split pair, coset-preserving linear shears, and head-projection unimodularity",
+      "hypotheses": "Commutative ring R with identity 1; rank m ∈ ℕ and orthogonal vectors a, b ∈ R^m (b · a = 0) for rank-one transvections T_{a,b} = I_m + a b^T; stable-range bound s ∈ ℕ (every unimodular tuple in R^{d+1} for d ≥ s shortens to a unimodular tuple in R^d), rank parameter n ∈ ℕ with s ≤ n, and split pair v, f ∈ R^{n+1} satisfying f · v = 1; finitely supported sequence module M_∞ = ⨁_{k≥0} R e_k with low coordinate span L_n = {x ∈ M_∞ : ∀ k ≥ n, x_k = 0}, affine cosets A_{n,j} = {x ∈ M_∞ : x − e_j ∈ L_n}, linear form h ∈ Hom_R(M_∞, R), and shear direction t ∈ L_n satisfying h(t) = 0; and arbitrary R-module M, linear form φ ∈ Hom_R(M, R), vector u ∈ M with φ(u) = 1, and list l = [x_0, …, x_{q−1}] (q ∈ ℕ) in M.",
+      "statement": "For a, b ∈ R^m with b · a = 0, T_{a,b} = I_m + a b^T ∈ GL_m(R) has inverse I_m − a b^T and acts on all x, r ∈ R^m by T_{a,b} x = x + (b · x) a and r T_{a,b}^{−1} = r − (r · a) b, and when R has stable range at most s ≤ n and f · v = 1 on R^{n+1}, a product g = g_4 g_3 g_2 g_1 ∈ GL_{n+1}(R) of four rank-one transvections satisfies g v = e_n and f g^{−1} = e_n; on M_∞, ψ(x) = x + h(x) t (t ∈ L_n, h(t) = 0) is an R-linear automorphism with inverse x − h(x) t preserving L_n and every A_{n,j}; and on any R-module M with φ(u) = 1 and P(x) = x − φ(x) u, P(u) = 0 and [u] ++ l ∈ 𝒰(M) holds if and only if P(l) ∈ 𝒰(M).",
+      "definitions": [
+        "rank-one transvection T_{a,b} = I_m + a b^T ∈ GL_m(R) for b · a = 0 with inverse T_{a,b}^{−1} = I_m − a b^T",
+        "low coordinate submodule L_n = {x ∈ M_∞ : ∀ k ≥ n, x_k = 0}, affine cosets A_{n,j} = e_j + L_n, and finitely supported shear ψ(x) = x + h(x) t",
+        "idempotent head projection P(x) = x − φ(x) u for φ(u) = 1 and lifted dual functionals F_0 = φ − ∑_{k=0}^{q−1} φ(x_k)(H_k ∘ P), F_{i+1} = H_i ∘ P"
+      ],
+      "equations": [
+        "inputs-split-transvection-steps-eq",
+        "inputs-split-head-projection-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Rank-one transvections, stable-range coordinate shortening, and four-step simultaneous straightening of a split pair",
+          "declaration": "GlobalTheory.T.exists_GL_moving_unimodular_pair_to_last_basis",
+          "related_declarations": [
+            "GlobalTheory.UnimodTransvect.tv",
+            "GlobalTheory.UnimodTransvect.tv_mulVec",
+            "GlobalTheory.UnimodTransvect.vecMul_tv_inv",
+            "GlobalTheory.UnimodTransvect.reach_of_last_one",
+            "GlobalTheory.UnimodTransvect.reach_last_one",
+            "GlobalTheory.UnimodTransvect.reach_first_unimod",
+            "GlobalTheory.UnimodTransvect.main"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UnimodTransvect.tv": 17,
+            "GlobalTheory.UnimodTransvect.tv_mulVec": 25,
+            "GlobalTheory.UnimodTransvect.vecMul_tv_inv": 30,
+            "GlobalTheory.UnimodTransvect.reach_of_last_one": 44,
+            "GlobalTheory.UnimodTransvect.reach_last_one": 52,
+            "GlobalTheory.UnimodTransvect.reach_first_unimod": 66,
+            "GlobalTheory.UnimodTransvect.main": 87,
+            "GlobalTheory.T.exists_GL_moving_unimodular_pair_to_last_basis": 116
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+          "lines": [
+            17,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean#L17-L126"
+        },
+        {
+          "label": "Invertible finitely supported linear shears preserving low coordinate subspaces and affine translates",
+          "declaration": "GlobalTheory.T.exists_transvection_preserving_low_and_aff",
+          "related_declarations": [
+            "GlobalTheory.ShearLow.main"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ShearLow.main": 8,
+            "GlobalTheory.T.exists_transvection_preserving_low_and_aff": 57
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsTransvectionPreservingLowAndAff.lean",
+          "lines": [
+            8,
+            60
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsTransvectionPreservingLowAndAff.lean#L8-L60"
+        },
+        {
+          "label": "Idempotent head projection and lifting of simultaneous dual functionals on unimodular lists",
+          "declaration": "GlobalTheory.T.cons_mem_uniM_iff_map_sub_smul",
+          "related_declarations": [
+            "GlobalTheory.UniModVec.cons_mem_uniM_iff_map_proj"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UniModVec.cons_mem_uniM_iff_map_proj": 25,
+            "GlobalTheory.T.cons_mem_uniM_iff_map_sub_smul": 69
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ConsMemUniMIffMapSubSmul.lean",
+          "lines": [
+            25,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ConsMemUniMIffMapSubSmul.lean#L25-L73"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Three rank-one transvections carry v to e_n via stable-range row shortening, and left-multiplying by T_{e_n, f′ − e_n} fixes e_n while straightening f′ = f g_0^{−1} to e_n; low-support shears x + h(x) t with h(t) = 0 preserve L_n and A_{n,j}; and P = id_M − φ(·) u restricts tail duals in the forward direction and lifts duals via F_0 = φ − ∑_k φ(x_k)(H_k ∘ P) in the converse.",
+      "review": "Checked orthogonality conditions e_n · a = 0, ((1 − w_n)c′) · e_n = 0, e_n · (e_n − u) = 0, and (f′ − e_n) · e_n = 0 across all four transvections, contragredient dot-product invariance, support bound < n for h(x) t, and all four Kronecker-delta cases on [u] ++ l."
+    },
+    {
+      "id": "STR-02",
+      "chapter": "inputs",
+      "anchor": "inputs-split-prefix-chain-operators",
+      "title": "Prefix-concatenation boundary Leibniz rule, prepending cone homotopy, and equivariant transport of link exactness",
+      "hypotheses": "Arbitrary alphabets V and W with free abelian list chain groups ℤ[List(V)] on basis generators ⟨l⟩, augmented alternating face-deletion boundary ∂ (∂⟨[]⟩ = 0, ∂⟨[x]⟩ = ⟨[]⟩), length-p chain subgroups C_p(F) for F ⊆ List(V), prefix links link_X(F, τ), and injective map e : V → W; commutative ring R with identity, first-m-coordinate embedding emb_m : R^m ↪ M_∞ onto L_m, R-module M with subset X ⊆ M and X-preserving R-linear automorphism ψ : M ≅_R M, and (for the rank-step reduction) stable range at most s ∈ ℕ with s ≤ n, j ≥ n + 1, nonempty τ ∈ 𝒰(M_∞), and exactness of link_{L_n ∪ A_{n,k}}(𝒰(M_∞), σ) at length q for every k ≥ n, σ ∈ 𝒰(M_∞), and q ∈ ℕ satisfying q + s + |σ| ≤ n + 1.",
+      "statement": "For every τ ∈ List(V), x ∈ V, and c ∈ ℤ[List(V)], ∂(τ ++ c) = ((∂⟨τ⟩) ++ c) + (−1)^{|τ|}(τ ++ ∂c), ∂(κ_x(c)) = c − κ_x(∂c) for κ_x(⟨l⟩) = ⟨[x] ++ l⟩, and ∂(∂c) = 0; every injection e : V → W induces C_p(F) ≅ C_p(e_*(F)) commuting with ∂ so exactness of e_*(F) at length p is equivalent to exactness of F at length p, identifying emb_{m*}(𝒰_m) = link_{L_m}(𝒰(M_∞), []) to deduce exactness of 𝒰_m from link_{L_m}(𝒰(M_∞), []); and every X-preserving ψ : M ≅_R M pulls exactness of link_X(𝒰(M), ψ_*(τ)) at length p back to link_X(𝒰(M), τ), establishing nonempty-prefix link exactness on L_{n+1} ∪ A_{n+1,j} for p + s + |τ| ≤ n + 2 from the rank-n affine-link hypothesis.",
+      "definitions": [
+        "prefix-concatenation operator τ ++ c and single-letter prepending cone operator κ_x(⟨l⟩) = ⟨[x] ++ l⟩ on ℤ[List(V)]",
+        "pushforward list family e_*(F) = {e_*(l) : l ∈ F} along an injection e : V → W and coordinate-subspace embedding emb_m : R^m ↪ M_∞",
+        "equivariant prefix-link identity (ψ^{−1})_*(link_X(𝒰(M), ψ_*(τ))) = link_X(𝒰(M), τ) for X-preserving ψ ∈ Aut_R(M)"
+      ],
+      "equations": [
+        "inputs-split-prefix-leibniz-eq",
+        "inputs-split-link-transport-eq"
+      ],
+      "dependencies": [
+        "STR-01"
+      ],
+      "sources": [
+        {
+          "label": "Index-splitting formula and graded Leibniz rule for the boundary of a prefix-concatenated chain",
+          "declaration": "GlobalTheory.T.seqChain_boundary_prefix_chain",
+          "related_declarations": [
+            "GlobalTheory.SeqCx.bd_single_append",
+            "GlobalTheory.SeqCx.bd_mapDomain_prepend"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCx.bd_single_append": 13,
+            "GlobalTheory.SeqCx.bd_mapDomain_prepend": 28,
+            "GlobalTheory.T.seqChain_boundary_prefix_chain": 48
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryPrefixChain.lean",
+          "lines": [
+            13,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryPrefixChain.lean#L13-L52"
+        },
+        {
+          "label": "Single-letter prepending cone homotopy and inductive vanishing of the squared sequence boundary",
+          "declaration": "GlobalTheory.T.seqChain_boundary_comp_boundary_apply",
+          "related_declarations": [
+            "GlobalTheory.SeqCx.BdBd.consMap",
+            "GlobalTheory.SeqCx.BdBd.bd_consMap",
+            "GlobalTheory.SeqCx.BdBd.bd_bd_single",
+            "GlobalTheory.SeqCx.bd_bd"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCx.BdBd.consMap": 12,
+            "GlobalTheory.SeqCx.BdBd.bd_consMap": 24,
+            "GlobalTheory.SeqCx.BdBd.bd_bd_single": 36,
+            "GlobalTheory.SeqCx.bd_bd": 50,
+            "GlobalTheory.T.seqChain_boundary_comp_boundary_apply": 65
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryCompBoundaryApply.lean",
+          "lines": [
+            12,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryCompBoundaryApply.lean#L12-L72"
+        },
+        {
+          "label": "Equivariance of alternating face deletion and exactness equivalence along an injective alphabet map",
+          "declaration": "GlobalTheory.T.seqChain_exactAt_map_iff",
+          "related_declarations": [
+            "GlobalTheory.SeqCxMap.bd_mapDomain",
+            "GlobalTheory.SeqCxMap.chains_map"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCxMap.bd_mapDomain": 8,
+            "GlobalTheory.SeqCxMap.chains_map": 19,
+            "GlobalTheory.T.seqChain_exactAt_map_iff": 35
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainExactAtMapIff.lean",
+          "lines": [
+            8,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainExactAtMapIff.lean#L8-L57"
+        },
+        {
+          "label": "Identification of finite-rank unimodular sequences with the empty-prefix low-coordinate link",
+          "declaration": "GlobalTheory.T.exactAt_unimodularSeqs_of_link_nil_coordSubspace",
+          "related_declarations": [
+            "GlobalTheory.SeqCxLow.link_eq"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCxLow.link_eq": 61,
+            "GlobalTheory.T.exactAt_unimodularSeqs_of_link_nil_coordSubspace": 129
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean",
+          "lines": [
+            61,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean#L61-L133"
+        },
+        {
+          "label": "Pullback of unimodular prefix-link exactness along a subset-preserving linear automorphism",
+          "declaration": "GlobalTheory.T.exactAt_linkIn_uniM_of_exactAt_map_linearEquiv",
+          "related_declarations": [
+            "GlobalTheory.SeqCxLinkEquiv.exactAt_linkIn_of_map"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCxLinkEquiv.exactAt_linkIn_of_map": 60,
+            "GlobalTheory.T.exactAt_linkIn_uniM_of_exactAt_map_linearEquiv": 80
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInUniMOfExactAtMapLinearEquiv.lean",
+          "lines": [
+            60,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInUniMOfExactAtMapLinearEquiv.lean#L60-L85"
+        },
+        {
+          "label": "Reduction of nonempty-prefix affine-union link exactness via coset-preserving linear shears",
+          "declaration": "GlobalTheory.T.exactAt_linkIn_succ_union_translate_of_ne_nil",
+          "related_declarations": [
+            "GlobalTheory.linkExact_low_union_aff_of_ne_nil"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.linkExact_low_union_aff_of_ne_nil": 16,
+            "GlobalTheory.T.exactAt_linkIn_succ_union_translate_of_ne_nil": 34
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInSuccUnionTranslateOfNeNil.lean",
+          "lines": [
+            16,
+            38
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInSuccUnionTranslateOfNeNil.lean#L16-L38"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Splitting face-deletion indices at |τ| establishes the graded Leibniz rule for ∂(τ ++ c), while ∂ ∘ κ_x = id − κ_x ∘ ∂ inducts on list length to prove ∂² = 0; injective alphabet pushforward gives C_p(F) ≅ C_p(e_*(F)), identifying 𝒰_m with link_{L_m}(𝒰(M_∞), []) and pulling link exactness back along coset-preserving linear equivalences.",
+      "review": "Checked empty-prefix and singleton-prefix edge cases ∂⟨[]⟩ = 0 and ∂⟨[x]⟩ = ⟨[]⟩, sign factor (−1)^{|τ|}, zero-extension and restriction of dual functionals between R^m and M_∞, and length preservation |ψ_*(τ)| = |τ| in the rank-step inequality p + s + |τ| ≤ n + 2."
+    },
+    {
+      "id": "STR-03",
+      "chapter": "inputs",
+      "anchor": "inputs-split-double-slice-transfer",
+      "title": "Finite-support fiber decomposition of vertical and horizontal double-complex slices and chain isomorphism to the permutation representation complex",
+      "hypotheses": "Alphabets V and W, relation 𝒟 ⊆ List(V) × List(W), bidegree (a, b) ∈ ℕ², double-complex chain group D_{a,b}(𝒟) with horizontal and vertical differentials ∂_h and ∂_v, column fibers Col_𝒟(l) = {w : (l, w) ∈ 𝒟} (assumed exact at length b whenever |l| = a and Col_𝒟(l) ≠ ∅ for vertical exactness), and row fibers Row_𝒟(w) = {l : (l, w) ∈ 𝒟} (assumed exact at length a whenever |w| = b and Row_𝒟(w) ≠ ∅ for horizontal exactness); commutative ring R with identity, rank n ∈ ℕ, untyped split-sequence set 𝒮_n ⊆ List(R^n × R^n) (assumed exact at length 0 for d_0 surjectivity and at length p + 1 for ker(d_p) = im(d_{p+1})), typed p-simplex sets 𝒮_{n,p} = {l ∈ 𝒮_n : |l| = p} with inclusions η_p, linear extensions Φ_p : ℤ[𝒮_{n,p}] → ℤ[List(R^n × R^n)], and alternating face maps d_p : ℤ[𝒮_{n,p+1}] → ℤ[𝒮_{n,p}].",
+      "statement": "Every x ∈ D_{a,b}(𝒟) decomposes over finite support projections T_1 ⊂ List(V) and T_2 ⊂ List(W) as x = ∑_{l∈T_1} ι_l(g_l) = ∑_{w∈T_2} j_w(p_w(x)) with ∂_v(ι_l(g_l)) = ι_l(∂_W g_l) and ∂_h(j_w(p_w(x))) = j_w(∂_V p_w(x)), so exactness of every nonempty Col_𝒟(l) (|l| = a) at length b implies every ∂_v-cycle in D_{a,b}(𝒟) bounds vertically in D_{a,b+1}(𝒟), and exactness of every nonempty Row_𝒟(w) (|w| = b) at length a implies every ∂_h-cycle in D_{a,b}(𝒟) bounds horizontally in D_{a+1,b}(𝒟); furthermore, Φ_p is injective with image C_p(𝒮_n) and Φ_p(d_p(c)) = ∂(Φ_{p+1}(c)), giving d_p ∘ d_{p+1} = 0 and transferring exactness of 𝒮_n at length 0 to surjectivity of d_0 and exactness at length p + 1 to ker(d_p) = im(d_{p+1}).",
+      "definitions": [
+        "column-slice currying x = ∑_{l∈T_1} ι_l(g_l) (g_l(w) = x(l, w), ι_l(⟨w⟩) = ⟨(l, w)⟩) and row-slice currying x = ∑_{w∈T_2} j_w(p_w(x)) (p_w(x)(l) = x(l, w), j_w(⟨l⟩) = ⟨(l, w)⟩)",
+        "typed p-simplex set 𝒮_{n,p} = {l ∈ 𝒮_n : |l| = p} with linear inclusion Φ_p : ℤ[𝒮_{n,p}] → ℤ[List(R^n × R^n)] onto C_p(𝒮_n)",
+        "typed representation differential d_p(⟨σ⟩) = ∑_{i=0}^p (−1)^i ⟨∂_i(σ)⟩ intertwined with ∂ via Φ_p ∘ d_p = ∂ ∘ Φ_{p+1}"
+      ],
+      "equations": [
+        "inputs-split-double-slice-eq",
+        "inputs-split-rep-iso-eq"
+      ],
+      "dependencies": [
+        "STR-02"
+      ],
+      "sources": [
+        {
+          "label": "Finite-support first-coordinate currying and vertical exactness from column-slice exactness",
+          "declaration": "GlobalTheory.T.pairSeqVerticalCycle_is_boundary_of_slices_exact",
+          "related_declarations": [
+            "GlobalTheory.SeqCx.vertical_exact_of_columns"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCx.vertical_exact_of_columns": 47,
+            "GlobalTheory.T.pairSeqVerticalCycle_is_boundary_of_slices_exact": 102
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqVerticalCycleIsBoundaryOfSlicesExact.lean",
+          "lines": [
+            47,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqVerticalCycleIsBoundaryOfSlicesExact.lean#L47-L105"
+        },
+        {
+          "label": "Finite-support second-coordinate currying and horizontal exactness from row-slice exactness",
+          "declaration": "GlobalTheory.T.pairSeqHorizontalCycle_is_boundary_of_slices_exact",
+          "related_declarations": [
+            "GlobalTheory.SeqCx.dblRow_exact"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SeqCx.dblRow_exact": 65,
+            "GlobalTheory.T.pairSeqHorizontalCycle_is_boundary_of_slices_exact": 116
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqHorizontalCycleIsBoundaryOfSlicesExact.lean",
+          "lines": [
+            65,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqHorizontalCycleIsBoundaryOfSlicesExact.lean#L65-L124"
+        },
+        {
+          "label": "Chain-level compatibility of typed split-simplex inclusions with untyped sequence face deletion",
+          "declaration": "GlobalTheory.T.splitSet_permRep_chains_iso_splitSeq_chains",
+          "related_declarations": [
+            "GlobalTheory.HomStab.splitSet_chains_incl"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.HomStab.splitSet_chains_incl": 27,
+            "GlobalTheory.T.splitSet_permRep_chains_iso_splitSeq_chains": 56
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSetPermRepChainsIsoSplitSeqChains.lean",
+          "lines": [
+            27,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSetPermRepChainsIsoSplitSeqChains.lean#L27-L59"
+        },
+        {
+          "label": "Exactness transfer from untyped split-sequence chains to the augmented permutation-representation complex",
+          "declaration": "GlobalTheory.T.splitSequence_rep_complex_exact",
+          "related_declarations": [
+            "GlobalTheory.HomStab.SplitEx.main"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.HomStab.SplitEx.main": 11,
+            "GlobalTheory.T.splitSequence_rep_complex_exact": 75
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSequenceRepComplexExact.lean",
+          "lines": [
+            11,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSequenceRepComplexExact.lean#L11-L78"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Projecting supp(x) onto T_1 or T_2 decouples ∂_v and ∂_h across disjoint coordinate fibers so finite sums of slice fillings lift vertical and horizontal cycles in D_{a,b}(𝒟); injectivity of Φ_p with image C_p(𝒮_n) and Φ_p ∘ d_p = ∂ ∘ Φ_{p+1} transfer ∂² = 0, degree-zero augmentation surjectivity, and degree-(p+1) exactness to ℤ[𝒮_{n,•}].",
+      "review": "Checked pairwise support disjointness of ι_l(∂_W g_l) and j_w(∂_V p_w(x)), bidegree membership in D_{a,b+1}(𝒟) and D_{a+1,b}(𝒟), degree-0 boundary vanishing ∂⟨[]⟩ = 0 on C_0(𝒮_n), and exactness transfer at length p + 1 for ker(d_p) = im(d_{p+1})."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.UnimodTransvect.main",
+      "callee": "GlobalTheory.UnimodTransvect.reach_first_unimod",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+        "line": 89,
+        "spelling": "reach_first_unimod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnimodTransvect.main",
+      "callee": "GlobalTheory.UnimodTransvect.reach_last_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+        "line": 90,
+        "spelling": "reach_last_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnimodTransvect.main",
+      "callee": "GlobalTheory.UnimodTransvect.reach_of_last_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+        "line": 91,
+        "spelling": "reach_of_last_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnimodTransvect.main",
+      "callee": "GlobalTheory.UnimodTransvect.tv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+        "line": 104,
+        "spelling": "tv"
+      }
+    },
+    {
+      "caller": "GlobalTheory.UnimodTransvect.main",
+      "callee": "GlobalTheory.UnimodTransvect.vecMul_tv_inv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExistsGLMovingUnimodularPairToLastBasis.lean",
+        "line": 106,
+        "spelling": "vecMul_tv_inv"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeqCx.bd_mapDomain_prepend",
+      "callee": "GlobalTheory.SeqCx.bd_single_append",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryPrefixChain.lean",
+        "line": 42,
+        "spelling": "bd_single_append"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeqCx.BdBd.bd_bd_single",
+      "callee": "GlobalTheory.SeqCx.BdBd.bd_consMap",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryCompBoundaryApply.lean",
+        "line": 41,
+        "spelling": "bd_consMap"
+      }
+    },
+    {
+      "caller": "GlobalTheory.SeqCx.bd_bd",
+      "callee": "GlobalTheory.SeqCx.BdBd.bd_bd_single",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainBoundaryCompBoundaryApply.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.SeqCx.BdBd.bd_bd_single"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.seqChain_exactAt_map_iff",
+      "callee": "GlobalTheory.SeqCxMap.chains_map",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainExactAtMapIff.lean",
+        "line": 44,
+        "spelling": "GlobalTheory.SeqCxMap.chains_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.seqChain_exactAt_map_iff",
+      "callee": "GlobalTheory.SeqCxMap.bd_mapDomain",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SeqChainExactAtMapIff.lean",
+        "line": 45,
+        "spelling": "GlobalTheory.SeqCxMap.bd_mapDomain"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.exactAt_unimodularSeqs_of_link_nil_coordSubspace",
+      "callee": "GlobalTheory.SeqCxLow.link_eq",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean",
+        "line": 131,
+        "spelling": "GlobalTheory.SeqCxLow.link_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.linkExact_low_union_aff_of_ne_nil",
+      "callee": "GlobalTheory.T.exactAt_linkIn_uniM_of_exactAt_map_linearEquiv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInSuccUnionTranslateOfNeNil.lean",
+        "line": 24,
+        "spelling": "T.exactAt_linkIn_uniM_of_exactAt_map_linearEquiv"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HomStab.SplitEx.main",
+      "callee": "GlobalTheory.T.splitSet_permRep_chains_iso_splitSeq_chains",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSequenceRepComplexExact.lean",
+        "line": 15,
+        "spelling": "T.splitSet_permRep_chains_iso_splitSeq_chains"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HomStab.SplitEx.main",
+      "callee": "GlobalTheory.T.seqChain_boundary_comp_boundary_apply",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/SplitSequenceRepComplexExact.lean",
+        "line": 22,
+        "spelling": "T.seqChain_boundary_comp_boundary_apply"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "STR-01",
+      "STR-02"
+    ],
+    [
+      "STR-02",
+      "STR-03"
+    ],
+    [
+      "STR-01",
+      "SCM-01"
+    ],
+    [
+      "STR-02",
+      "SCM-01"
+    ],
+    [
+      "STR-02",
+      "SCM-02"
+    ],
+    [
+      "STR-02",
+      "SCM-03"
+    ],
+    [
+      "STR-03",
+      "SCM-03"
+    ]
+  ],
+  "outstanding": [
+    "Self-contained reconstruction of the four-transvection simultaneous straightening of a split pair, coset-preserving finitely supported linear shears, head-projection unimodularity, the prefix-concatenation Leibniz rule and prepending cone identity ∂² = 0, equivariant link exactness transport, finite-support vertical and horizontal slice decompositions in the pair-sequence double complex, and the chain isomorphism to the augmented permutation-representation complex supplying SCM-01, SCM-02, and SCM-03."
+  ],
+  "review_scope": "Checked rank-one outer-product nilpotency and contragredient row action across all four transvections, low-support shear invariance of L_n and A_{n,j}, Kronecker-delta verification of lifted dual functionals on [u] ++ l, deletion-index splitting for ∂(τ ++ c) and inductive cone proof of ∂² = 0, injective alphabet pushforward and coordinate-subspace link identification, disjoint fiber support evaluation for vertical and horizontal double-complex slices, typed-to-untyped chain compatibility Φ_p ∘ d_p = ∂ ∘ Φ_{p+1}, and 13 pinned source ranges with 14 verified callsites."
+}

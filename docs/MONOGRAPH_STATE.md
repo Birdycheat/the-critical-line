@@ -15,7 +15,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 05 | `global` | Lattices and the arithmetic main term | `152` (`70` / `82`) | `1` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; Cycle 7 ✅ Terminé : `PGU-01`–`03` ferment `RPI-01`, `FMU-01`, `RFV-01` ; Cycle 8 ✅ Terminé : `FDW-01`–`03` ferment `FDG-01` ; 1 interface amont restante : `global.lattice`) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
-| 08 | `inputs` | Supplying the arithmetic hypotheses | `238` (`93` / `145`) | `7` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; Cycle 9 ✅ Terminé : `PRH-01`–`03` ferment `OVL-01` et `TPK-01` ; Cycle 10 ✅ Terminé : `SDD-01`–`02` ferment `SDM-01` ; 7 interfaces amont restantes) |
+| 08 | `inputs` | Supplying the arithmetic hypotheses | `241` (`93` / `148`) | `6` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; Cycle 9 ✅ Terminé : `PRH-01`–`03` ferment `OVL-01` et `TPK-01` ; Cycle 10 ✅ Terminé : `SDD-01`–`02` ferment `SDM-01` ; Cycle 11 ✅ Terminé : `STR-01`–`03` ferment `SCM-01` ; 6 interfaces amont restantes) |
 | 09 | `windows` | The one-sided window theorem | `6` (`6` / `0`) | `0` | ✅ Terminé |
 | 10 | `reflection` | Reflection and the final statement | `3` (`3` / `0`) | `0` | ✅ Terminé |
 
@@ -33,7 +33,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 8. ✅ **Cycle 8 (Terminé)** — **Ch. 5 (`global`)** : *Formule des dimensions de Weyl compacte sur $U(p) \times U(q)$, calibration de Haar polaire, limite gaussienne des coefficients matriciels tangents et enveloppe globale intégrable par potentiel de mineurs de Cauchy–Binet* (`formal-degree-weyl-envelope.fragment.html` + `formal_degree_weyl_envelope.json`, raccordé à `formal-degree`, `formal_degree.json` ; `FDW-01`–`03`, ferme `FDG-01`).
 9. ✅ **Cycle 9 (Terminé)** — **Ch. 8 (`inputs`)** : *Séparation lisse dans le cône positif, comptage de dilatation réticulaire par empilement de boules de Haar, régularité et troncature locale de la rétraction dyadique, modules quadratiques relatifs de normalisation et rétraction, plancher de hauteur totalement complexe et fermeture différentielle en repère mobile* (`partition-relative-height.fragment.html` + `partition_relative_height.json`, raccordé à `partition-overlap`, `thick-partition`, `partition_overlap.json`, `thick_partition.json` ; `PRH-01`–`03`, ferme `OVL-01` et `TPK-01`).
 10. ✅ **Cycle 10 (Terminé)** — **Ch. 8 (`inputs`)** : *Borne intégrale de puissance complexe sur pas unitaire, expansion de Gram hermitienne de la norme de colonne duale, majorant de diviseurs en puissances de premiers, borne monotone dyadique des carrés de coefficients et seuils logarithmiques simultanés d'absorption* (`short-detector-divisor-threshold.fragment.html` + `short_detector_divisor_threshold.json`, raccordé à `short-detector-mean-square`, `short_detector_mean_square.json` ; `SDD-01`–`02`, ferme `SDM-01`).
-11. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+11. ✅ **Cycle 11 (Terminé)** — **Ch. 8 (`inputs`)** : *Redressement simultané par quatre transvections de rang un, cisaillements linéaires préservant les sous-espaces de coordonnées et translatés affines, projection de tête unimodulaire, règle de Leibniz de concaténation de préfixes et homotopie conique $\partial^2 = 0$, transport équivariant d'exactitude de liens, décomposition en tranches finies du double complexe et isomorphisme avec le complexe de représentation* (`split-transvection-retraction.fragment.html` + `split_transvection_retraction.json`, raccordé à `split-connectivity`, `split_connectivity.json` ; `STR-01`–`03`, ferme `SCM-01`).
+12. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -78,13 +79,19 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | $c_0, C_*$ | Plancher uniforme de hauteur $H(h_x) \ge c_0 := [\max(1, I_0^2)]^{-1} > 0$ et constante de dérivée $C_* = 3 N C_\psi C_R(1 + c_0^{-1})$ à l'exposant $a = 1$ | Ch. 8 |
 | $\mathrm{dist}_1(A)$ | Distorsion matricielle par entrées $(1 + \sum_{w,i,j} \lvert (A_w - I_N)_{i,j} \rvert)^2 \in [1, \infty)$ sur $G_p(L, N)$ | Ch. 8 |
 | $C, D, C_1, Q_0$ | Constantes du majorant de diviseurs ($D = A^K$, $C = D^2$ à $\varepsilon = 1/400$), préfacteur $C_1 = 1 + 8C \cdot 1048576^{3/200}$ et seuil d'absorption $Q_0 \ge 20$ | Ch. 8 |
+| $T_{a,b} = I_m + a b^T$ | Transvection de rang un dans $\mathrm{GL}_m(R)$ pour $b \cdot a = 0$ (inverse $I_m - a b^T$) | Ch. 8 |
+| $M_\infty = \bigoplus_{k \ge 0} R e_k$ | Module des suites à support fini sur un anneau commutatif $R$ de rang stable $\le s$ | Ch. 8 |
+| $L_n$, $A_{n,j}$ | Sous-module des $n$ premières coordonnées $L_n = \mathrm{span}_R\{e_0,\dots,e_{n-1}\}$ et translaté affine $A_{n,j} = e_j + L_n$ dans $M_\infty$ | Ch. 8 |
+| $\mathcal{U}(M)$, $\mathcal{U}_m$ | Ensemble des listes ordonnées unimodulaires $[x_0,\dots,x_{q-1}]$ dans $M$ (ou $R^m$) admettant des formes duales simultanées $F_i(x_j) = \delta_{i,j}$ | Ch. 8 |
+| $\kappa_x$ | Opérateur de cône par préfixage $\kappa_x(\langle l\rangle) = \langle [x] \mathbin{++} l\rangle$ sur $\mathbb{Z}[\mathrm{List}(V)]$ vérifiant $\partial \circ \kappa_x = \mathrm{id} - \kappa_x \circ \partial$ | Ch. 8 |
+| $\Phi_p : \mathbb{Z}[\mathcal{S}_{n,p}] \to \mathbb{Z}[\mathrm{List}(R^n \times R^n)]$ | Plongement linéaire des listes scindées typées de longueur $p$ sur $C_p(\mathcal{S}_n)$ entrelaçant $d_p$ et $\partial$ | Ch. 8 |
 
 ---
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`963` résultats au total après Cycle 10 : `371` `core-argument` / `592` `rebuilt-infrastructure`, `892` auto-contenus, `14` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`966` résultats au total après Cycle 11 : `371` `core-argument` / `595` `rebuilt-infrastructure`, `898` auto-contenus, `13` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -335,3 +342,22 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mollifier_identity` (`CountZMoll.lean#L79-L131`)
   - `Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.coefficient_square_bound` (`CountZMoll.lean#L133-L191`)
   - `Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.numeric_constants` (`CountZNum.lean#L10-L134`)
+
+### Cycle 11 — Redressement par quatre transvections, opérateurs de préfixe et tranches de double complexe (`split_transvection_retraction`)
+- *Statut* : ✅ Terminé (`content/split-transvection-retraction.fragment.html` + `records/split_transvection_retraction.json`, rôle `rebuilt-infrastructure` ; ferme `SCM-01`).
+- *Déclarations `[CORE]` couvertes — `STR-01` (`#inputs-split-transvection-straightening`)* :
+  - `GlobalTheory.T.exists_GL_moving_unimodular_pair_to_last_basis`, `GlobalTheory.UnimodTransvect.tv`, `tv_mulVec`, `vecMul_tv_inv`, `reach_of_last_one`, `reach_last_one`, `reach_first_unimod`, `main` (`ExistsGLMovingUnimodularPairToLastBasis.lean#L17-L126`)
+  - `GlobalTheory.T.exists_transvection_preserving_low_and_aff`, `GlobalTheory.ShearLow.main` (`ExistsTransvectionPreservingLowAndAff.lean#L8-L60`)
+  - `GlobalTheory.T.cons_mem_uniM_iff_map_sub_smul`, `GlobalTheory.UniModVec.cons_mem_uniM_iff_map_proj` (`ConsMemUniMIffMapSubSmul.lean#L25-L73`)
+- *Déclarations `[CORE]` couvertes — `STR-02` (`#inputs-split-prefix-chain-operators`)* :
+  - `GlobalTheory.T.seqChain_boundary_prefix_chain`, `GlobalTheory.SeqCx.bd_single_append`, `bd_mapDomain_prepend` (`SeqChainBoundaryPrefixChain.lean#L13-L52`)
+  - `GlobalTheory.T.seqChain_boundary_comp_boundary_apply`, `GlobalTheory.SeqCx.BdBd.consMap`, `bd_consMap`, `bd_bd_single`, `GlobalTheory.SeqCx.bd_bd` (`SeqChainBoundaryCompBoundaryApply.lean#L12-L72`)
+  - `GlobalTheory.T.seqChain_exactAt_map_iff`, `GlobalTheory.SeqCxMap.bd_mapDomain`, `chains_map` (`SeqChainExactAtMapIff.lean#L8-L57`)
+  - `GlobalTheory.T.exactAt_unimodularSeqs_of_link_nil_coordSubspace`, `GlobalTheory.SeqCxLow.link_eq` (`ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean#L61-L133`)
+  - `GlobalTheory.T.exactAt_linkIn_uniM_of_exactAt_map_linearEquiv`, `GlobalTheory.SeqCxLinkEquiv.exactAt_linkIn_of_map` (`ExactAtLinkInUniMOfExactAtMapLinearEquiv.lean#L60-L85`)
+  - `GlobalTheory.T.exactAt_linkIn_succ_union_translate_of_ne_nil`, `GlobalTheory.linkExact_low_union_aff_of_ne_nil` (`ExactAtLinkInSuccUnionTranslateOfNeNil.lean#L16-L38`)
+- *Déclarations `[CORE]` couvertes — `STR-03` (`#inputs-split-double-slice-transfer`)* :
+  - `GlobalTheory.T.pairSeqVerticalCycle_is_boundary_of_slices_exact`, `GlobalTheory.SeqCx.vertical_exact_of_columns` (`PairSeqVerticalCycleIsBoundaryOfSlicesExact.lean#L47-L105`)
+  - `GlobalTheory.T.pairSeqHorizontalCycle_is_boundary_of_slices_exact`, `GlobalTheory.SeqCx.dblRow_exact` (`PairSeqHorizontalCycleIsBoundaryOfSlicesExact.lean#L65-L124`)
+  - `GlobalTheory.T.splitSet_permRep_chains_iso_splitSeq_chains`, `GlobalTheory.HomStab.splitSet_chains_incl` (`SplitSetPermRepChainsIsoSplitSeqChains.lean#L27-L59`)
+  - `GlobalTheory.T.splitSequence_rep_complex_exact`, `GlobalTheory.HomStab.SplitEx.main` (`SplitSequenceRepComplexExact.lean#L11-L78`)
