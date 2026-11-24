@@ -1,0 +1,1130 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned statements, proof bodies and verified written callsites across RationalDiagonal, RangeDiagonalLeKerIdeleSymbol, General, NormLimitation, Kummer, ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini, IdealRayClass, RayClassField, RayClassFieldLocal, and TrivialModulus.",
+  "claims": [
+    {
+      "id": "CFT-01",
+      "chapter": "inputs",
+      "anchor": "inputs-global-reciprocity",
+      "title": "Global Artin reciprocity and kernel identification with idèle-class norms",
+      "hypotheses": "Number fields K and L with L/K a finite abelian Galois extension, idèle group 𝕀_K with diagonal embedding diag : K^× ↪ 𝕀_K and idèle class group C_K = 𝕀_K / K^×, local Artin norm residue symbols assembling into the continuous surjective global idèle symbol θ_{L/K} : 𝕀_K → Gal(L/K) with arithmetic Frobenius normalization, and the cyclic class-field axiom (|Ĥ⁰(G, C_L)| = [L : K], |Ĥ⁻¹(G, C_L)| = 1) from HNT-01 supplying the abstract class-formation reciprocity map on finite subfields of ℚ̄.",
+      "statement": "The global idèle symbol θ_{L/K} : 𝕀_K → Gal(L/K) satisfies the global product formula θ_{L/K}(diag(a)) = 1 for every a ∈ K^× and has kernel ker(θ_{L/K}) = diag(K^×) · N_{L/K}(𝕀_L). Consequently θ_{L/K} descends to a continuous surjective global Artin reciprocity homomorphism θ̄_{L/K} : C_K → Gal(L/K) with kernel ker(θ̄_{L/K}) = N_{L/K}(C_L), inducing a group isomorphism C_K / N_{L/K}(C_L) ≅ Gal(L/K) and the abelian norm-index equality [C_K : N_{L/K}(C_L)] = [L : K].",
+      "definitions": [
+        "global idèle symbol θ_{L/K} : 𝕀_K → Gal(L/K) defined as the product over all finite and infinite places of local norm residue symbols",
+        "global Artin reciprocity homomorphism θ̄_{L/K} : C_K → Gal(L/K) factoring θ_{L/K} through C_K = 𝕀_K / diag(K^×)",
+        "idèle-class norm subgroup N_{L/K}(C_L) ≤ C_K and its quotient isomorphism C_K / N_{L/K}(C_L) ≅ Gal(L/K)"
+      ],
+      "equations": [
+        "inputs-global-product-formula",
+        "inputs-global-reciprocity-iso"
+      ],
+      "dependencies": [
+        "HNT-01"
+      ],
+      "sources": [
+        {
+          "label": "Rational cyclotomic product formula on −1, primes, and all units of ℚ",
+          "declaration": "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_eq_one",
+          "related_declarations": [
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_neg_one",
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_prime",
+            "GroundTheory.Global.RationalSymbol.mem_of_neg_one_mem_of_primeRat_mem",
+            "GroundTheory.Global.RationalSymbol.apply_eq_of_pow_eq_one_of_forall_prime_pow",
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow",
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_apply_of_pow_eq_one"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_neg_one": 166,
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_prime": 175,
+            "GroundTheory.Global.RationalSymbol.mem_of_neg_one_mem_of_primeRat_mem": 204,
+            "GroundTheory.Global.RationalSymbol.apply_eq_of_pow_eq_one_of_forall_prime_pow": 246,
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow": 273,
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_apply_of_pow_eq_one": 285,
+            "GroundTheory.Global.RationalSymbol.ideleSymbol_diagonal_eq_one": 291
+          },
+          "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+          "lines": [
+            166,
+            301
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean#L166-L301"
+        },
+        {
+          "label": "Identification of abstract and local-product symbols via density and open idèle norms, product formula, and kernel over finite subfields of ℚ̄",
+          "declaration": "GroundTheory.Global.IdeleClassLimit.classSymbolEquiv",
+          "related_declarations": [
+            "GroundTheory.Global.IdeleNorm.range_ideleNorm_mem_nhds_one",
+            "GroundTheory.Global.Abelianization.of_injective_of_isMulCommutative",
+            "GroundTheory.Global.IdeleClassLimit.abstractSymbol_mk",
+            "GroundTheory.Global.IdeleClassLimit.ideleSymbol_diagonal",
+            "GroundTheory.Global.IdeleClassLimit.range_diagonal_le_ker_ideleSymbol",
+            "GroundTheory.Global.IdeleClassLimit.classSymbol",
+            "GroundTheory.Global.IdeleClassLimit.classSymbol_surjective",
+            "GroundTheory.Global.IdeleClassLimit.ker_abstractSymbol",
+            "GroundTheory.Global.IdeleClassLimit.ker_classSymbol",
+            "GroundTheory.Global.IdeleClassLimit.ker_ideleSymbol"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.IdeleNorm.range_ideleNorm_mem_nhds_one": 19,
+            "GroundTheory.Global.Abelianization.of_injective_of_isMulCommutative": 52,
+            "GroundTheory.Global.IdeleClassLimit.abstractSymbol_mk": 65,
+            "GroundTheory.Global.IdeleClassLimit.ideleSymbol_diagonal": 98,
+            "GroundTheory.Global.IdeleClassLimit.range_diagonal_le_ker_ideleSymbol": 102,
+            "GroundTheory.Global.IdeleClassLimit.classSymbol": 107,
+            "GroundTheory.Global.IdeleClassLimit.classSymbol_surjective": 123,
+            "GroundTheory.Global.IdeleClassLimit.ker_abstractSymbol": 126,
+            "GroundTheory.Global.IdeleClassLimit.ker_classSymbol": 147,
+            "GroundTheory.Global.IdeleClassLimit.ker_ideleSymbol": 163,
+            "GroundTheory.Global.IdeleClassLimit.classSymbolEquiv": 154
+          },
+          "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+          "lines": [
+            19,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean#L19-L178"
+        },
+        {
+          "label": "Transfer to arbitrary finite abelian extensions, global Artin reciprocity map, continuity, and kernel identification ker = N_{L/K}(C_L)",
+          "declaration": "GroundTheory.Global.reciprocityMap",
+          "related_declarations": [
+            "GroundTheory.Global.ideleSymbol_diagonal_and_ker_le",
+            "GroundTheory.Global.ideleSymbol_diagonal",
+            "GroundTheory.Global.diagonal_range_le_ker_ideleSymbol",
+            "GroundTheory.Global.ker_ideleSymbol",
+            "GroundTheory.Global.reciprocityMap_mk",
+            "GroundTheory.Global.continuous_reciprocityMap",
+            "GroundTheory.Global.ker_reciprocityMap"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.ideleSymbol_diagonal_and_ker_le": 138,
+            "GroundTheory.Global.ideleSymbol_diagonal": 172,
+            "GroundTheory.Global.diagonal_range_le_ker_ideleSymbol": 175,
+            "GroundTheory.Global.ker_ideleSymbol": 179,
+            "GroundTheory.Global.reciprocityMap_mk": 194,
+            "GroundTheory.Global.continuous_reciprocityMap": 198,
+            "GroundTheory.Global.ker_reciprocityMap": 201,
+            "GroundTheory.Global.reciprocityMap": 190
+          },
+          "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+          "lines": [
+            138,
+            220
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean#L138-L220"
+        },
+        {
+          "label": "Idèle-class norm index equality [C_K : N_{L/K}(C_L)] = [L : K] for abelian extensions",
+          "declaration": "GroundTheory.Global.index_range_ideleClassNorm_eq_finrank_of_isMulCommutative",
+          "declaration_lines": {
+            "GroundTheory.Global.index_range_ideleClassNorm_eq_finrank_of_isMulCommutative": 245
+          },
+          "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+          "lines": [
+            245,
+            248
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean#L245-L248"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Over ℚ, checking local symbols at ∞, p, and q ≠ p shows that θ_{L/ℚ}(diag(−1)) and θ_{L/ℚ}(diag(q)) fix every p^n-th root of unity; generator induction on ℚ^× and coprime induction give the product formula for every cyclotomic extension of ℚ. For finite abelian extensions K ⊆ L inside ℚ̄, the concrete idèle symbol and the abstract class-formation reciprocity map agree on single-place embeddings and vanish on the open subgroup N_{L/K}(𝕀_L), hence agree everywhere on 𝕀_K by density, giving θ_{L/K}(diag(a)) = 1 and ker = N_{L/K}(C_L). Embedding arbitrary K ⊆ L into ℚ̄ transfers both identities, yielding the continuous surjective reciprocity homomorphism with kernel N_{L/K}(C_L) and norm index [L : K].",
+      "review": "Checked exact namespaces (GroundTheory.Global.RationalSymbol, GroundTheory.Global.IdeleClassLimit, GroundTheory.Global), arithmetic Frobenius signs at p, q ≠ p, and ∞ on ℚ(ζ_{p^n}), openness of N_{L/K}(𝕀_L), full range [138, 220] disjoint from ART-01's [227, 243], and concrete verification on ℚ(i)/ℚ."
+    },
+    {
+      "id": "CFT-02",
+      "chapter": "inputs",
+      "anchor": "inputs-global-existence",
+      "title": "Global existence theorem for abelian extensions from Kummer theory and norm limitation",
+      "hypotheses": "A number field K with fixed algebraic closure Ω, idèle class group C_K = 𝕀_K / K^×, and global Artin reciprocity CFT-01; for norm limitation, any finite Galois extension M/K with maximal abelian subextension M^{ab} = M^{[Gal(M/K), Gal(M/K)]}; for Kummer realization, an integer n ≥ 1 with μ_n ⊆ K and an open subgroup N ≤ C_K satisfying c^n ∈ N for all c ∈ C_K; for global existence, any open subgroup N ≤ C_K of finite index.",
+      "statement": "(1) Norm limitation: for every finite Galois extension M/K, N_{M/K}(C_M) = N_{M^{ab}/K}(C_{M^{ab}}) and [C_K : N_{M/K}(C_M)] = |Gal(M/K)^{ab}|; consequently every finite extension L/K admits a finite abelian extension E/K with N_{E/K}(C_E) ⊆ N_{L/K}(C_L). (2) Kummer realization: if μ_n ⊆ K (n ≥ 1) and N ≤ C_K is open with C_K^n ⊆ N, then N = N_{L/K}(C_L) for a finite abelian extension L/K of exponent dividing n inside an S-unit Kummer extension. (3) Global existence and order-reversing correspondence: every finite abelian extension L/K has an open finite-index norm subgroup N_{L/K}(C_L) ≤ C_K, every open finite-index subgroup N ≤ C_K equals N_{L/K}(C_L) for a unique finite abelian intermediate field L ⊆ Ω, and L₁ ⊆ L₂ holds if and only if N_{L₂/K}(C_{L₂}) ⊆ N_{L₁/K}(C_{L₁}).",
+      "definitions": [
+        "maximal abelian subextension M^{ab} fixed by the commutator subgroup [Gal(M/K), Gal(M/K)]",
+        "S-unit Kummer extension K(𝒪_{K,S}^{× 1/n}) and its idèle-class norm subgroup generated by local n-th powers at S and ∞",
+        "order-reversing correspondence L ↦ N_{L/K}(C_L) between finite abelian subfields of Ω over K and open finite-index subgroups of C_K"
+      ],
+      "equations": [
+        "inputs-norm-limitation-eq",
+        "inputs-global-existence-iso"
+      ],
+      "dependencies": [
+        "CFT-01"
+      ],
+      "sources": [
+        {
+          "label": "Norm limitation theorem N_{M/K}(C_M) = N_{M^{ab}/K}(C_{M^{ab}}) and abelian norm subgroup inside any finite extension",
+          "declaration": "GroundTheory.Global.range_ideleClassNorm_maxAbelian",
+          "related_declarations": [
+            "GroundTheory.Global.maxAbelian",
+            "GroundTheory.Global.finrank_maxAbelian",
+            "GroundTheory.Global.IdeleClassLimit.ker_abstractSymbol_le",
+            "GroundTheory.Global.IdeleClassLimit.index_range_ideleClassNorm_dvd",
+            "GroundTheory.Global.index_range_ideleClassNorm_dvd_card_abelianization",
+            "GroundTheory.Global.index_range_ideleClassNorm_eq_card_abelianization",
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_le"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.maxAbelian": 17,
+            "GroundTheory.Global.finrank_maxAbelian": 35,
+            "GroundTheory.Global.IdeleClassLimit.ker_abstractSymbol_le": 53,
+            "GroundTheory.Global.IdeleClassLimit.index_range_ideleClassNorm_dvd": 70,
+            "GroundTheory.Global.index_range_ideleClassNorm_dvd_card_abelianization": 81,
+            "GroundTheory.Global.index_range_ideleClassNorm_eq_card_abelianization": 157,
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_le": 164,
+            "GroundTheory.Global.range_ideleClassNorm_maxAbelian": 136
+          },
+          "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+          "lines": [
+            17,
+            178
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean#L17-L178"
+        },
+        {
+          "label": "Galois fixed-field realization, power-subgroup containment, and Kummer realization when μ_n ⊆ K",
+          "declaration": "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq",
+          "related_declarations": [
+            "GroundTheory.Global.reciprocityMap_intermediateField",
+            "GroundTheory.Global.range_ideleClassNorm_fixedField",
+            "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq_of_le",
+            "GroundTheory.Global.mem_congruenceSubgroup_of_eq_one",
+            "GroundTheory.Global.exists_map_powerSubgroup_le",
+            "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.reciprocityMap_intermediateField": 20,
+            "GroundTheory.Global.range_ideleClassNorm_fixedField": 25,
+            "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq_of_le": 41,
+            "GroundTheory.Global.mem_congruenceSubgroup_of_eq_one": 61,
+            "GroundTheory.Global.exists_map_powerSubgroup_le": 80,
+            "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq": 166,
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq": 178
+          },
+          "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+          "lines": [
+            20,
+            190
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean#L20-L190"
+        },
+        {
+          "label": "Cyclotomic base change removing μ_n, global existence in Ω, openness of norm groups, and inclusion-reversing bijection",
+          "declaration": "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq_of_finiteIndex",
+          "related_declarations": [
+            "GroundTheory.Global.range_ideleClassNorm_eq_comap",
+            "GroundTheory.Global.isMulCommutative_sup",
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq_of_le",
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex",
+            "GroundTheory.Global.isOpen_range_ideleClassNorm",
+            "GroundTheory.Global.range_ideleClassNorm_le_range_iff"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.range_ideleClassNorm_eq_comap": 35,
+            "GroundTheory.Global.isMulCommutative_sup": 47,
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq_of_le": 95,
+            "GroundTheory.Global.exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex": 103,
+            "GroundTheory.Global.isOpen_range_ideleClassNorm": 133,
+            "GroundTheory.Global.range_ideleClassNorm_le_range_iff": 149,
+            "GroundTheory.Global.exists_intermediateField_range_ideleClassNorm_eq_of_finiteIndex": 175
+          },
+          "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+          "lines": [
+            35,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean#L35-L185"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Abstract reciprocity on Gal(M/K)^{ab} makes [C_K : N_{M/K}(C_M)] divide |Gal(M/K)^{ab}| = [C_K : N_{M^{ab}/K}(C_{M^{ab}})]; together with norm transitivity N_{M/K}(C_M) ⊆ N_{M^{ab}/K}(C_{M^{ab}}), divisibility antisymmetry proves norm limitation. When μ_n ⊆ K, openness of N gives a congruence subgroup U(𝔪) inside N and class-group finiteness enlarges its support to S so that the S-unit Kummer extension has norm group ≤ N; taking the fixed field of θ̄(N) yields norm group equal to N. For an arbitrary open subgroup N of finite index m, passing to K' = K(μ_m) pulls N back to N' with C_{K'}^m ⊆ N', Kummer realization gives L'/K' with N_{L'/K}(C_{L'}) ⊆ N, norm limitation produces an abelian E/K with N_{E/K}(C_E) ⊆ N, and Galois theory inside E gives L with N_{L/K}(C_L) = N; composita and reciprocity establish the order-reversing correspondence.",
+      "review": "Verified that Kummer.lean:178 still assumes μ_n ⊆ K while cyclotomic base change K' = K(μ_m) occurs in ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean:103–125; checked range [35, 185] strictly disjoint from ART-01's [209, 225]; verified cubic example E ⊂ ℚ(ζ_7) via K' = ℚ(μ_3)."
+    },
+    {
+      "id": "CFT-03",
+      "chapter": "inputs",
+      "anchor": "inputs-ray-hilbert-class-fields",
+      "title": "Ray class fields, prime splitting laws, and Hilbert unramified reciprocity",
+      "hypotheses": "A number field K with fixed algebraic closure Ω, a modulus 𝔪 = (𝔪_0, 𝔪_∞) consisting of a nonzero integral ideal 𝔪_0 ⊆ 𝒪_K and a set 𝔪_∞ of real infinite places of K, global Artin reciprocity CFT-01, and the global existence correspondence CFT-02.",
+      "statement": "(1) Idèlic-to-ideal ray class isomorphism: weak approximation and the fractional-ideal valuation map identify the idèlic ray class group C_K / [U(𝔪)] with the finite ideal ray class group Cl_𝔪(K) = I(𝔪) / P_𝔪. (2) Ray class field, unramifiedness, and splitting law: the unique finite abelian extension K(𝔪) ⊆ Ω with N_{K(𝔪)/K}(C_{K(𝔪)}) = [U(𝔪)] satisfies Cl_𝔪(K) ≅ Gal(K(𝔪)/K) via the Artin map sending [𝔭] to arithmetic Frobenius Frob_𝔭 for every finite prime 𝔭 ∤ 𝔪_0; every such prime 𝔭 is unramified in K(𝔪)/K and splits completely in K(𝔪) if and only if Frob_𝔭 = 1, equivalently [𝔭] = 1 in Cl_𝔪(K). Moreover, every finite abelian extension L ⊆ Ω over K lies inside some ray class field K(𝔪). (3) Everywhere-unramified extensions and Hilbert class field: for any finite abelian extension L/K unramified at all finite and infinite places, the global idèle symbol vanishes on all finite-unit idèles (with arbitrary infinite components), placing [U(1)] ⊆ N_{L/K}(C_L) and hence L ⊆ H = K(1) for the trivial modulus 𝔪 = (1, ∅).",
+      "definitions": [
+        "modulus 𝔪 = (𝔪_0, 𝔪_∞), ray congruence subgroup U(𝔪) ≤ 𝕀_K, coprime fractional ideals I(𝔪), and ray principal ideals P_𝔪",
+        "ray class field K(𝔪) ⊆ Ω cut out by [U(𝔪)] ≤ C_K and its Artin isomorphism Cl_𝔪(K) ≅ Gal(K(𝔪)/K)",
+        "everywhere-unramified extension (e(w/v) = 1 at every finite place and no real place becomes complex) and trivial modulus 𝔪 = (1, ∅)"
+      ],
+      "equations": [
+        "inputs-ray-class-artin-iso",
+        "inputs-ray-splitting-law"
+      ],
+      "dependencies": [
+        "CFT-01",
+        "CFT-02"
+      ],
+      "sources": [
+        {
+          "label": "Weak approximation, surjectivity and kernel matching of ideal-ray projection, and isomorphism C_K/[U(𝔪)] ≅ Cl_𝔪(K)",
+          "declaration": "GroundTheory.Global.Modulus.rayClassGroupEquiv",
+          "related_declarations": [
+            "GroundTheory.Global.Modulus.exists_diagonal_mul_mem_idelesOneMod",
+            "GroundTheory.Global.Modulus.idelesOneModToCoprimeIdeals_surjective",
+            "GroundTheory.Global.Modulus.toIdealRayClassGroup_surjective",
+            "GroundTheory.Global.Modulus.toRayClassGroup_surjective",
+            "GroundTheory.Global.Modulus.ker_toRayClassGroup",
+            "GroundTheory.Global.Modulus.ker_toIdealRayClassGroup",
+            "GroundTheory.Global.Modulus.rayClassGroupEquiv_mk",
+            "GroundTheory.Global.Modulus.quotientEquivIdealRayClassGroup"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.Modulus.exists_diagonal_mul_mem_idelesOneMod": 61,
+            "GroundTheory.Global.Modulus.idelesOneModToCoprimeIdeals_surjective": 154,
+            "GroundTheory.Global.Modulus.toIdealRayClassGroup_surjective": 168,
+            "GroundTheory.Global.Modulus.toRayClassGroup_surjective": 171,
+            "GroundTheory.Global.Modulus.ker_toRayClassGroup": 181,
+            "GroundTheory.Global.Modulus.ker_toIdealRayClassGroup": 188,
+            "GroundTheory.Global.Modulus.rayClassGroupEquiv_mk": 219,
+            "GroundTheory.Global.Modulus.quotientEquivIdealRayClassGroup": 230,
+            "GroundTheory.Global.Modulus.rayClassGroupEquiv": 213
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+          "lines": [
+            61,
+            246
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean#L61-L246"
+        },
+        {
+          "label": "Ray class field Artin isomorphism, vanishing of local symbol on local units, and unramifiedness outside 𝔪_0",
+          "declaration": "GroundTheory.Global.Modulus.rayClassArtinEquiv",
+          "related_declarations": [
+            "GroundTheory.Global.Modulus.rayClassGroupGalEquiv_mk",
+            "GroundTheory.Global.Modulus.rayClassArtinEquiv_mk",
+            "GroundTheory.Global.Modulus.unitFiltrationUnits_le_ker_localSymbol",
+            "GroundTheory.Global.Modulus.ramificationIdx_rayClassField_eq_one"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.Modulus.rayClassGroupGalEquiv_mk": 101,
+            "GroundTheory.Global.Modulus.rayClassArtinEquiv_mk": 111,
+            "GroundTheory.Global.Modulus.unitFiltrationUnits_le_ker_localSymbol": 118,
+            "GroundTheory.Global.Modulus.ramificationIdx_rayClassField_eq_one": 129,
+            "GroundTheory.Global.Modulus.rayClassArtinEquiv": 108
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+          "lines": [
+            101,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean#L101-L133"
+        },
+        {
+          "label": "Complete splitting criterion in K(𝔪) and containment of every finite abelian extension in a ray class field",
+          "declaration": "GroundTheory.Global.Modulus.splitsCompletely_rayClassField_iff",
+          "related_declarations": [
+            "GroundTheory.Global.exists_le_rayClassField"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.exists_le_rayClassField": 155,
+            "GroundTheory.Global.Modulus.splitsCompletely_rayClassField_iff": 147
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+          "lines": [
+            147,
+            163
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean#L147-L163"
+        },
+        {
+          "label": "Local unramifiedness criterion e(M/k) = 1 whenever local units lie in the norm subgroup",
+          "declaration": "GroundTheory.Global.ramificationIndex_eq_one_of_units_le",
+          "related_declarations": [
+            "GroundTheory.Global.natCard_quotient_range_normUnits"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.natCard_quotient_range_normUnits": 37,
+            "GroundTheory.Global.ramificationIndex_eq_one_of_units_le": 44
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+          "lines": [
+            37,
+            91
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean#L37-L91"
+        },
+        {
+          "label": "Global unramifiedness and complete splitting equivalence with trivial local symbol and trivial arithmetic Frobenius",
+          "declaration": "GroundTheory.Global.splitsCompletely_iff_arithFrobAt_eq_one",
+          "related_declarations": [
+            "GroundTheory.Global.ramificationIdx_eq_one_of_units_le_ker_localSymbol",
+            "GroundTheory.Global.localSymbol_eq_one_iff_normResidueSymbol",
+            "GroundTheory.Global.splitsCompletely_iff_localSymbol_eq_one"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.ramificationIdx_eq_one_of_units_le_ker_localSymbol": 154,
+            "GroundTheory.Global.localSymbol_eq_one_iff_normResidueSymbol": 164,
+            "GroundTheory.Global.splitsCompletely_iff_localSymbol_eq_one": 174,
+            "GroundTheory.Global.splitsCompletely_iff_arithFrobAt_eq_one": 193
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+          "lines": [
+            154,
+            213
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean#L154-L213"
+        },
+        {
+          "label": "Everywhere-unramified characterization at finite and infinite places and vanishing of the idèle symbol on finite-unit idèles",
+          "declaration": "GroundTheory.Global.ideleSymbol_eq_one_of_isUnramifiedEverywhere",
+          "related_declarations": [
+            "GroundTheory.Global.IsUnramifiedEverywhere",
+            "GroundTheory.Global.isUnramifiedIn_iff_ramificationIdx",
+            "GroundTheory.Global.infiniteLocalSymbol_eq_one_iff",
+            "GroundTheory.Global.units_le_ker_localSymbol_of_isUnramifiedIn"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.IsUnramifiedEverywhere": 19,
+            "GroundTheory.Global.isUnramifiedIn_iff_ramificationIdx": 25,
+            "GroundTheory.Global.infiniteLocalSymbol_eq_one_iff": 38,
+            "GroundTheory.Global.units_le_ker_localSymbol_of_isUnramifiedIn": 68,
+            "GroundTheory.Global.ideleSymbol_eq_one_of_isUnramifiedEverywhere": 74
+          },
+          "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+          "lines": [
+            19,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean#L19-L86"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Weak approximation onto finite places dividing 𝔪_0 and real places in 𝔪_∞ shows that 𝕀_K(𝔪) surjects onto C_K/[U(𝔪)] and onto Cl_𝔪(K) with the same kernel 𝕀_K(𝔪) ∩ (diag(K^×) · U(𝔪)), giving C_K/[U(𝔪)] ≅ Cl_𝔪(K). Composing with reciprocity for K(𝔪) gives the Artin isomorphism Cl_𝔪(K) ≅ Gal(K(𝔪)/K). Outside 𝔪_0, local units lie in U(𝔪), so local symbols vanish on units; local uniformizer counting yields e = 1, reducing complete splitting to Frob_𝔭 = 1 and hence [𝔭] = 1 in Cl_𝔪(K). For everywhere-unramified abelian extensions, local finite unit symbols and infinite symbols both vanish, forcing θ_{L/K} = 1 on all finite-unit idèles and embedding L into the Hilbert class field K(1).",
+      "review": "Checked exact namespace boundary in RayClassField.lean (exists_le_rayClassField at L155 is outside namespace Modulus), strict disjointness from ART-01 ranges in RayClassField.lean ([77,99],[134,145]) and TrivialModulus.lean ([119,132],[146,172]), complete proof coverage through L213 in RayClassFieldLocal.lean and L86 in TrivialModulus.lean, and concrete verification on ℚ(√−5)."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "ideleSymbol_diagonal_neg_one",
+      "callee": "localSymbol_neg_one_self",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 173,
+        "spelling": "localSymbol_neg_one_self"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_prime",
+      "callee": "localSymbol_prime_self",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 186,
+        "spelling": "localSymbol_prime_self"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_prime",
+      "callee": "localSymbol_prime_at_self",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 193,
+        "spelling": "localSymbol_prime_at_self"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_prime",
+      "callee": "localSymbol_prime_at_other",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 194,
+        "spelling": "localSymbol_prime_at_other"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow",
+      "callee": "mem_of_neg_one_mem_of_primeRat_mem",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 281,
+        "spelling": "mem_of_neg_one_mem_of_primeRat_mem"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow",
+      "callee": "ideleSymbol_diagonal_neg_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 282,
+        "spelling": "ideleSymbol_diagonal_neg_one"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow",
+      "callee": "ideleSymbol_diagonal_prime",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 283,
+        "spelling": "ideleSymbol_diagonal_prime"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_apply_of_pow_eq_one",
+      "callee": "apply_eq_of_pow_eq_one_of_forall_prime_pow",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 287,
+        "spelling": "apply_eq_of_pow_eq_one_of_forall_prime_pow"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_apply_of_pow_eq_one",
+      "callee": "ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 288,
+        "spelling": "ideleSymbol_diagonal_apply_of_pow_eq_one_of_prime_pow"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_eq_one",
+      "callee": "ideleSymbol_diagonal_apply_of_pow_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/NormResidueSymbol/RationalDiagonal.lean",
+        "line": 295,
+        "spelling": "ideleSymbol_diagonal_apply_of_pow_eq_one"
+      }
+    },
+    {
+      "caller": "range_ideleNorm_mem_nhds_one",
+      "callee": "eventually_map_integerUnitsOver_eq",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 27,
+        "spelling": "eventually_map_integerUnitsOver_eq"
+      }
+    },
+    {
+      "caller": "range_ideleNorm_mem_nhds_one",
+      "callee": "mem_range_ideleNorm_of_forall",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 48,
+        "spelling": "mem_range_ideleNorm_of_forall"
+      }
+    },
+    {
+      "caller": "abstractSymbol_mk",
+      "callee": "range_ideleNorm_mem_nhds_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 88,
+        "spelling": "IdeleNorm.range_ideleNorm_mem_nhds_one"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal",
+      "callee": "of_injective_of_isMulCommutative",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 99,
+        "spelling": "Abelianization.of_injective_of_isMulCommutative"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal",
+      "callee": "abstractSymbol_mk",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 100,
+        "spelling": "abstractSymbol_mk"
+      }
+    },
+    {
+      "caller": "range_diagonal_le_ker_ideleSymbol",
+      "callee": "ideleSymbol_diagonal",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 105,
+        "spelling": "ideleSymbol_diagonal"
+      }
+    },
+    {
+      "caller": "ker_classSymbol",
+      "callee": "ker_abstractSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 150,
+        "spelling": "ker_abstractSymbol"
+      }
+    },
+    {
+      "caller": "classSymbolEquiv",
+      "callee": "ker_classSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 156,
+        "spelling": "ker_classSymbol"
+      }
+    },
+    {
+      "caller": "classSymbolEquiv",
+      "callee": "classSymbol_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 157,
+        "spelling": "classSymbol_surjective"
+      }
+    },
+    {
+      "caller": "ker_ideleSymbol",
+      "callee": "ker_classSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/RangeDiagonalLeKerIdeleSymbol.lean",
+        "line": 168,
+        "spelling": "ker_classSymbol"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_and_ker_le",
+      "callee": "ideleSymbol_diagonal_of_bijective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 162,
+        "spelling": "ideleSymbol_diagonal_of_bijective"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal_and_ker_le",
+      "callee": "ker_ideleSymbol_le_of_bijective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 163,
+        "spelling": "ker_ideleSymbol_le_of_bijective"
+      }
+    },
+    {
+      "caller": "ideleSymbol_diagonal",
+      "callee": "ideleSymbol_diagonal_and_ker_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 173,
+        "spelling": "ideleSymbol_diagonal_and_ker_le"
+      }
+    },
+    {
+      "caller": "diagonal_range_le_ker_ideleSymbol",
+      "callee": "ideleSymbol_diagonal",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 177,
+        "spelling": "ideleSymbol_diagonal"
+      }
+    },
+    {
+      "caller": "ker_ideleSymbol",
+      "callee": "diagonal_range_le_ker_ideleSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 181,
+        "spelling": "diagonal_range_le_ker_ideleSymbol"
+      }
+    },
+    {
+      "caller": "reciprocityMap",
+      "callee": "diagonal_range_le_ker_ideleSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 191,
+        "spelling": "diagonal_range_le_ker_ideleSymbol"
+      }
+    },
+    {
+      "caller": "ker_reciprocityMap",
+      "callee": "reciprocityMap_mk",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 204,
+        "spelling": "reciprocityMap_mk"
+      }
+    },
+    {
+      "caller": "ker_reciprocityMap",
+      "callee": "ker_ideleSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 204,
+        "spelling": "ker_ideleSymbol"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_eq_finrank_of_isMulCommutative",
+      "callee": "reciprocityMapEquiv",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/GlobalReciprocity/General.lean",
+        "line": 246,
+        "spelling": "reciprocityMapEquiv"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_dvd",
+      "callee": "ker_abstractSymbol_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 73,
+        "spelling": "ker_abstractSymbol_le"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_dvd_card_abelianization",
+      "callee": "index_range_ideleClassNorm_dvd",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 97,
+        "spelling": "IdeleClassLimit.index_range_ideleClassNorm_dvd"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_maxAbelian",
+      "callee": "index_range_ideleClassNorm_eq_finrank_of_isMulCommutative",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 143,
+        "spelling": "index_range_ideleClassNorm_eq_finrank_of_isMulCommutative"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_maxAbelian",
+      "callee": "finrank_maxAbelian",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 143,
+        "spelling": "finrank_maxAbelian"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_maxAbelian",
+      "callee": "index_range_ideleClassNorm_dvd_card_abelianization",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 148,
+        "spelling": "index_range_ideleClassNorm_dvd_card_abelianization"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_eq_card_abelianization",
+      "callee": "range_ideleClassNorm_maxAbelian",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 159,
+        "spelling": "range_ideleClassNorm_maxAbelian"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_le",
+      "callee": "range_ideleClassNorm_maxAbelian",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/NormLimitation.lean",
+        "line": 175,
+        "spelling": "range_ideleClassNorm_maxAbelian"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_fixedField",
+      "callee": "reciprocityMap_intermediateField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 29,
+        "spelling": "reciprocityMap_intermediateField"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_fixedField",
+      "callee": "ker_reciprocityMap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 36,
+        "spelling": "ker_reciprocityMap"
+      }
+    },
+    {
+      "caller": "exists_intermediateField_range_ideleClassNorm_eq_of_le",
+      "callee": "range_ideleClassNorm_fixedField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 44,
+        "spelling": "range_ideleClassNorm_fixedField"
+      }
+    },
+    {
+      "caller": "exists_map_powerSubgroup_le",
+      "callee": "mem_congruenceSubgroup_of_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 148,
+        "spelling": "mem_congruenceSubgroup_of_eq_one"
+      }
+    },
+    {
+      "caller": "exists_intermediateField_range_ideleClassNorm_eq",
+      "callee": "exists_map_powerSubgroup_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 173,
+        "spelling": "exists_map_powerSubgroup_le"
+      }
+    },
+    {
+      "caller": "exists_intermediateField_range_ideleClassNorm_eq",
+      "callee": "exists_intermediateField_range_ideleClassNorm_eq_of_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 174,
+        "spelling": "exists_intermediateField_range_ideleClassNorm_eq_of_le"
+      }
+    },
+    {
+      "caller": "exists_intermediateField_range_ideleClassNorm_eq",
+      "callee": "range_ideleClassNorm_sUnitKummerField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 175,
+        "spelling": "range_ideleClassNorm_sUnitKummerField"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_eq",
+      "callee": "exists_intermediateField_range_ideleClassNorm_eq",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/Kummer.lean",
+        "line": 182,
+        "spelling": "exists_intermediateField_range_ideleClassNorm_eq"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_eq_comap",
+      "callee": "reciprocityMap_intermediateField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 38,
+        "spelling": "reciprocityMap_intermediateField"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_le",
+      "callee": "exists_isAbelianGalois_range_ideleClassNorm_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 99,
+        "spelling": "exists_isAbelianGalois_range_ideleClassNorm_le"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_le",
+      "callee": "range_ideleClassNorm_fixedField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 101,
+        "spelling": "range_ideleClassNorm_fixedField"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex",
+      "callee": "exists_isAbelianGalois_range_ideleClassNorm_eq",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 117,
+        "spelling": "exists_isAbelianGalois_range_ideleClassNorm_eq"
+      }
+    },
+    {
+      "caller": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex",
+      "callee": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 120,
+        "spelling": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_le"
+      }
+    },
+    {
+      "caller": "isOpen_range_ideleClassNorm",
+      "callee": "ker_reciprocityMap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 135,
+        "spelling": "ker_reciprocityMap"
+      }
+    },
+    {
+      "caller": "isOpen_range_ideleClassNorm",
+      "callee": "continuous_reciprocityMap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 136,
+        "spelling": "continuous_reciprocityMap"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_le_range_iff",
+      "callee": "range_ideleClassNorm_eq_comap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 160,
+        "spelling": "range_ideleClassNorm_eq_comap"
+      }
+    },
+    {
+      "caller": "range_ideleClassNorm_le_range_iff",
+      "callee": "reciprocityMap_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 161,
+        "spelling": "reciprocityMap_surjective"
+      }
+    },
+    {
+      "caller": "exists_intermediateField_range_ideleClassNorm_eq_of_finiteIndex",
+      "callee": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ExistenceTheorem/ExistsIsAbelianGaloisRangeIdeleClassNormEqOfFini.lean",
+        "line": 179,
+        "spelling": "exists_isAbelianGalois_range_ideleClassNorm_eq_of_finiteIndex"
+      }
+    },
+    {
+      "caller": "toIdealRayClassGroup_surjective",
+      "callee": "idelesOneModToCoprimeIdeals_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 169,
+        "spelling": "𝔪.idelesOneModToCoprimeIdeals_surjective"
+      }
+    },
+    {
+      "caller": "toRayClassGroup_surjective",
+      "callee": "exists_diagonal_mul_mem_idelesOneMod",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 174,
+        "spelling": "𝔪.exists_diagonal_mul_mem_idelesOneMod"
+      }
+    },
+    {
+      "caller": "rayClassGroupEquiv",
+      "callee": "toRayClassGroup_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 214,
+        "spelling": "𝔪.toRayClassGroup_surjective"
+      }
+    },
+    {
+      "caller": "rayClassGroupEquiv",
+      "callee": "ker_toRayClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 216,
+        "spelling": "𝔪.ker_toRayClassGroup"
+      }
+    },
+    {
+      "caller": "rayClassGroupEquiv",
+      "callee": "ker_toIdealRayClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 216,
+        "spelling": "𝔪.ker_toIdealRayClassGroup"
+      }
+    },
+    {
+      "caller": "rayClassGroupEquiv",
+      "callee": "toIdealRayClassGroup_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/IdealRayClass.lean",
+        "line": 217,
+        "spelling": "𝔪.toIdealRayClassGroup_surjective"
+      }
+    },
+    {
+      "caller": "rayClassArtinEquiv",
+      "callee": "rayClassGroupEquiv",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 109,
+        "spelling": "𝔪.rayClassGroupEquiv"
+      }
+    },
+    {
+      "caller": "rayClassArtinEquiv",
+      "callee": "rayClassGroupGalEquiv",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 109,
+        "spelling": "𝔪.rayClassGroupGalEquiv"
+      }
+    },
+    {
+      "caller": "unitFiltrationUnits_le_ker_localSymbol",
+      "callee": "range_ideleClassNorm_rayClassField",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 123,
+        "spelling": "𝔪.range_ideleClassNorm_rayClassField"
+      }
+    },
+    {
+      "caller": "unitFiltrationUnits_le_ker_localSymbol",
+      "callee": "ker_reciprocityMap",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 126,
+        "spelling": "ker_reciprocityMap"
+      }
+    },
+    {
+      "caller": "ramificationIdx_rayClassField_eq_one",
+      "callee": "ramificationIdx_eq_one_of_units_le_ker_localSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 132,
+        "spelling": "ramificationIdx_eq_one_of_units_le_ker_localSymbol"
+      }
+    },
+    {
+      "caller": "ramificationIdx_rayClassField_eq_one",
+      "callee": "unitFiltrationUnits_le_ker_localSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 132,
+        "spelling": "𝔪.unitFiltrationUnits_le_ker_localSymbol"
+      }
+    },
+    {
+      "caller": "splitsCompletely_rayClassField_iff",
+      "callee": "splitsCompletely_iff_arithFrobAt_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 150,
+        "spelling": "splitsCompletely_iff_arithFrobAt_eq_one"
+      }
+    },
+    {
+      "caller": "splitsCompletely_rayClassField_iff",
+      "callee": "rayClassArtinEquiv_primeClass",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 151,
+        "spelling": "𝔪.rayClassArtinEquiv_primeClass"
+      }
+    },
+    {
+      "caller": "exists_le_rayClassField",
+      "callee": "isOpen_range_ideleClassNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 159,
+        "spelling": "isOpen_range_ideleClassNorm"
+      }
+    },
+    {
+      "caller": "exists_le_rayClassField",
+      "callee": "range_ideleClassNorm_le_range_iff",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassField.lean",
+        "line": 160,
+        "spelling": "range_ideleClassNorm_le_range_iff"
+      }
+    },
+    {
+      "caller": "ramificationIndex_eq_one_of_units_le",
+      "callee": "natCard_quotient_range_normUnits",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+        "line": 75,
+        "spelling": "natCard_quotient_range_normUnits"
+      }
+    },
+    {
+      "caller": "ramificationIdx_eq_one_of_units_le_ker_localSymbol",
+      "callee": "ramificationIndex_eq_one_of_units_le",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+        "line": 161,
+        "spelling": "ramificationIndex_eq_one_of_units_le"
+      }
+    },
+    {
+      "caller": "splitsCompletely_iff_localSymbol_eq_one",
+      "callee": "localSymbol_eq_one_iff_normResidueSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+        "line": 181,
+        "spelling": "localSymbol_eq_one_iff_normResidueSymbol"
+      }
+    },
+    {
+      "caller": "splitsCompletely_iff_arithFrobAt_eq_one",
+      "callee": "ramificationIdx_eq_one_of_units_le_ker_localSymbol",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+        "line": 197,
+        "spelling": "ramificationIdx_eq_one_of_units_le_ker_localSymbol"
+      }
+    },
+    {
+      "caller": "splitsCompletely_iff_arithFrobAt_eq_one",
+      "callee": "splitsCompletely_iff_localSymbol_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/RayClassFieldLocal.lean",
+        "line": 200,
+        "spelling": "splitsCompletely_iff_localSymbol_eq_one"
+      }
+    },
+    {
+      "caller": "units_le_ker_localSymbol_of_isUnramifiedIn",
+      "callee": "isUnramifiedIn_iff_ramificationIdx",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+        "line": 72,
+        "spelling": "isUnramifiedIn_iff_ramificationIdx"
+      }
+    },
+    {
+      "caller": "ideleSymbol_eq_one_of_isUnramifiedEverywhere",
+      "callee": "units_le_ker_localSymbol_of_isUnramifiedIn",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+        "line": 78,
+        "spelling": "units_le_ker_localSymbol_of_isUnramifiedIn"
+      }
+    },
+    {
+      "caller": "ideleSymbol_eq_one_of_isUnramifiedEverywhere",
+      "callee": "infiniteLocalSymbol_eq_one_iff",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/ClassFieldConsequences/TrivialModulus.lean",
+        "line": 81,
+        "spelling": "infiniteLocalSymbol_eq_one_iff"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HNT-01",
+      "CFT-01"
+    ],
+    [
+      "CFT-01",
+      "CFT-02"
+    ],
+    [
+      "CFT-01",
+      "CFT-03"
+    ],
+    [
+      "CFT-02",
+      "CFT-03"
+    ]
+  ],
+  "outstanding": [
+    "Global Artin reciprocity, the global existence correspondence for abelian extensions, and the ray and Hilbert class field isomorphisms are reconstructed in CFT-01 through CFT-03 from the cyclic class-field axiom in HNT-01, Kummer theory, and norm limitation."
+  ]
+}
