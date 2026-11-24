@@ -1,0 +1,1205 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned statements, proof bodies and verified written callsites across ConvolutionNonnegOfDivisors, BqCoeff, BqEntire, BqGrowth, IteratedDerivInvSubOneAtTwo, IteratedDerivLseriesAlternatingNonneg, BqKeyOf, LDerivNearOne, LFunctionOneUpperBound, CharExists, ZetaNegReal, TrivReal, LRealPos, SameCharacterLFunctionOne, SiegelProductCharacterInequality, SiegelBoundSameCharacter, SiegelOf, FinalSiegel, ExcBoundOf, SiegelWalfiszAP, SiegelWalfiszAPOfSiegelLower, and LogDerivRegionChiOf.",
+  "claims": [
+    {
+      "id": "SCB-01",
+      "chapter": "inputs",
+      "anchor": "inputs-estermann-key-bound",
+      "title": "Four-character product, entire continuation, near-one upper bound, alternating Taylor series at s = 2, and the Estermann key inequality",
+      "hypotheses": "Positive moduli q₁, q₂ ≥ 1 and real quadratic nonprincipal Dirichlet characters χ₁ modulo q₁ and χ₂ modulo q₂ (χ₁² = χ₂² = 1, χ₁ ≠ 1, χ₂ ≠ 1), together with a nonprincipal product character ψ modulo q₁q₂ satisfying ψ(n) = χ₁(n)χ₂(n) for every natural number n; the polynomial growth bound for ζ in Re s > 0 from DZF-01 and the partial-summation polynomial growth bound for nonprincipal L-functions in Re s ≥ 1/2 from LZE-02; and a real parameter σ ∈ [7/8, 1).",
+      "statement": "For Re s > 1, the product F(s) = ζ(s) L(s, χ₁) L(s, χ₂) L(s, ψ) equals a Dirichlet series ∑ aₙ n^{−s} with a₁ = 1, aₙ ≥ 0 for all n, and abscissa of absolute convergence at most 1; subtracting the pole term λ/(s − 1), where λ = L(1, χ₁) L(1, χ₂) L(1, ψ), extends F(s) − λ/(s − 1) to an entire function G(s). On the circle |s − 2| = 3/2, |F(s)| ≤ C_g (q₁q₂)³ with C_g = 14(9|C_G|/2)³, where C_G is the growth constant for nonprincipal L-functions in Re s ≥ 1/2. For every nonprincipal χ modulo q ≥ 1 and every complex w with Re w ≥ 1 − 3/(2 log(3q)), Re w ≥ 1/4, and |w| ≤ 2, one has |L(w, χ)| ≤ C_L log(3q) with C_L = 38 e^{3/2}, and in particular |L(1, χ)| ≤ 38 e^{3/2} log(3q). Consequently there exist absolute real constants C_B and K ≥ 0 (explicitly K = max(K_g, 2)/log(4/3) = 3/log(4/3) and C_B = e² exp(log(8c₀)/(8 log(4/3))) with c₀ = |C_g| + 54|C_L|³ + 1) such that for all such (χ₁, χ₂, ψ) and all σ ∈ [7/8, 1), 1/2 − C_B |λ| (q₁q₂)^{K(1−σ)} / (1 − σ) ≤ Re F(σ).",
+      "definitions": [
+        "product character relation ψ(n) = χ₁(n)χ₂(n) modulo q₁q₂, four-character product F(s) = ζ(s) L(s, χ₁) L(s, χ₂) L(s, ψ), and residue λ = L(1, χ₁) L(1, χ₂) L(1, ψ)",
+        "entire regularized function G(s) = F(s) − λ/(s − 1) and circle supremum bound B = c₀ (q₁q₂)^{K′} on |s − 2| = 3/2",
+        "Taylor coefficients βₙ = ((−1)ⁿ/n!) F^{(n)}(2) ≥ 0 with β₀ = F(2) ≥ 1, and truncation order M = ⌈log(8B)/log(4/3)⌉ + 1"
+      ],
+      "equations": [
+        "inputs-estermann-product-definition",
+        "inputs-estermann-near-one-bound",
+        "inputs-estermann-taylor-lower",
+        "inputs-estermann-key-inequality"
+      ],
+      "dependencies": [
+        "DZF-01",
+        "LZE-02"
+      ],
+      "sources": [
+        {
+          "label": "Nonnegative prime-power coefficients for the four-character Dirichlet convolution",
+          "declaration": "Formalism.ZeroFreeDirichlet.prime_power_coefficient_nonneg",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.convolution_nonneg_of_divisors",
+            "Formalism.ZeroFreeDirichlet.character_convolution_eq"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.convolution_nonneg_of_divisors": 10,
+            "Formalism.ZeroFreeDirichlet.character_convolution_eq": 17,
+            "Formalism.ZeroFreeDirichlet.prime_power_coefficient_nonneg": 41
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ConvolutionNonnegOfDivisors.lean",
+          "lines": [
+            10,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ConvolutionNonnegOfDivisors.lean#L10-L70"
+        },
+        {
+          "label": "Multiplicativity and Dirichlet series expansion of the four-character product with a₁ = 1 and aₙ ≥ 0",
+          "declaration": "Formalism.ZeroFreeDirichlet.dirichlet_product_coefficients",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.dirichlet_character_lseries_summable",
+            "Formalism.ZeroFreeDirichlet.dirichlet_character_lseries_eq",
+            "Formalism.ZeroFreeDirichlet.lseries_zetaMul_eq"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.dirichlet_character_lseries_summable": 10,
+            "Formalism.ZeroFreeDirichlet.dirichlet_character_lseries_eq": 15,
+            "Formalism.ZeroFreeDirichlet.lseries_zetaMul_eq": 22,
+            "Formalism.ZeroFreeDirichlet.dirichlet_product_coefficients": 34
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqCoeff.lean",
+          "lines": [
+            10,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqCoeff.lean#L10-L93"
+        },
+        {
+          "label": "Entire continuation of F_{b,q}(s) − λ_{b,q}/(s − 1) via removal of the simple pole of zeta",
+          "declaration": "Formalism.ZeroFreeDirichlet.dirichlet_product_entire",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.zetaSubPole",
+            "Formalism.ZeroFreeDirichlet.zeta_sub_pole_differentiable",
+            "Formalism.ZeroFreeDirichlet.zeta_minus_pole_eq"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.zetaSubPole": 9,
+            "Formalism.ZeroFreeDirichlet.zeta_sub_pole_differentiable": 12,
+            "Formalism.ZeroFreeDirichlet.zeta_minus_pole_eq": 27,
+            "Formalism.ZeroFreeDirichlet.dirichlet_product_entire": 31
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqEntire.lean",
+          "lines": [
+            9,
+            50
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqEntire.lean#L9-L50"
+        },
+        {
+          "label": "Polynomial growth |F_{b,q}(s)| ≤ 14(9|C|/2)³(q₁q₂)³ on the circle |s − 2| = 3/2",
+          "declaration": "Formalism.ZeroFreeDirichlet.product_lfunction_growth_bound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.circle_about_two_geometry",
+            "Formalism.ZeroFreeDirichlet.zeta_norm_le_on_circle"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.circle_about_two_geometry": 11,
+            "Formalism.ZeroFreeDirichlet.zeta_norm_le_on_circle": 29,
+            "Formalism.ZeroFreeDirichlet.product_lfunction_growth_bound": 48
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean",
+          "lines": [
+            11,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean#L11-L82"
+        },
+        {
+          "label": "Near-one upper bound |L(w, χ)| ≤ 38 e^{3/2} log(3q) via harmonic partial sum and summation by parts",
+          "declaration": "Formalism.ZeroFreeDirichlet.lfunction_norm_le_near_one",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.three_le_modulus_of_ne_one",
+            "Formalism.ZeroFreeDirichlet.two_le_log_three_mul",
+            "Formalism.ZeroFreeDirichlet.rpow_le_exp_near_one",
+            "Formalism.ZeroFreeDirichlet.rpow_neg_le_exp_inv_near_one",
+            "Formalism.ZeroFreeDirichlet.partial_sum_norm_le_near_one"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.three_le_modulus_of_ne_one": 10,
+            "Formalism.ZeroFreeDirichlet.two_le_log_three_mul": 22,
+            "Formalism.ZeroFreeDirichlet.rpow_le_exp_near_one": 45,
+            "Formalism.ZeroFreeDirichlet.rpow_neg_le_exp_inv_near_one": 50,
+            "Formalism.ZeroFreeDirichlet.partial_sum_norm_le_near_one": 63,
+            "Formalism.ZeroFreeDirichlet.lfunction_norm_le_near_one": 89
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+          "lines": [
+            10,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean#L10-L126"
+        },
+        {
+          "label": "Specialization at w = 1 giving |L(1, χ)| ≤ 38 e^{3/2} log(3q) for every nonprincipal character",
+          "declaration": "Formalism.ZeroFreeDirichlet.lfunction_one_upper_bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.lfunction_one_upper_bound": 10
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LFunctionOneUpperBound.lean",
+          "lines": [
+            10,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LFunctionOneUpperBound.lean#L10-L18"
+        },
+        {
+          "label": "Iterated derivatives of (s − 1)⁻¹ and of the four-character product at s = 2",
+          "declaration": "Formalism.ZeroFreeDirichlet.iteratedDeriv_inv_sub_one_at_two",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.iteratedDeriv_lseries_at_two"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.iteratedDeriv_lseries_at_two": 16,
+            "Formalism.ZeroFreeDirichlet.iteratedDeriv_inv_sub_one_at_two": 10
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivInvSubOneAtTwo.lean",
+          "lines": [
+            10,
+            26
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivInvSubOneAtTwo.lean#L10-L26"
+        },
+        {
+          "label": "Alternating nonnegative derivatives at s = 2 and truncated Taylor lower bound on [7/8, 1)",
+          "declaration": "Formalism.ZeroFreeDirichlet.lseries_taylor_lower_bound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.one_le_lseries_at_two",
+            "Formalism.ZeroFreeDirichlet.iteratedDeriv_lseries_alternating_nonneg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.one_le_lseries_at_two": 10,
+            "Formalism.ZeroFreeDirichlet.iteratedDeriv_lseries_alternating_nonneg": 22,
+            "Formalism.ZeroFreeDirichlet.lseries_taylor_lower_bound": 30
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivLseriesAlternatingNonneg.lean",
+          "lines": [
+            10,
+            151
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivLseriesAlternatingNonneg.lean#L10-L151"
+        },
+        {
+          "label": "Truncation order M = ⌈log(8B)/log(4/3)⌉ + 1 and the Estermann key lower bound",
+          "declaration": "Formalism.ZeroFreeDirichlet.product_lfunction_key_inequality",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.norm_le_of_log_bound",
+            "Formalism.ZeroFreeDirichlet.exists_taylor_truncation_order",
+            "Formalism.ZeroFreeDirichlet.two_sub_pow_le_exp"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.norm_le_of_log_bound": 10,
+            "Formalism.ZeroFreeDirichlet.exists_taylor_truncation_order": 20,
+            "Formalism.ZeroFreeDirichlet.two_sub_pow_le_exp": 47,
+            "Formalism.ZeroFreeDirichlet.product_lfunction_key_inequality": 60
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean",
+          "lines": [
+            10,
+            152
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean#L10-L152"
+        },
+        {
+          "label": "Assembly of the Estermann key inequality from its four analytic inputs",
+          "declaration": "Formalism.ZeroFreeDirichlet.bqKey",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.bqKey": 14
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+          "lines": [
+            14,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean#L14-L15"
+        },
+        {
+          "label": "Definitions of the product character relation, F_{b,q}, λ_{b,q}, and the four Estermann hypotheses",
+          "declaration": "Formalism.ZeroFreeDirichlet.BqKey",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.IsProdChar",
+            "Formalism.ZeroFreeDirichlet.Fbq",
+            "Formalism.ZeroFreeDirichlet.lamBq",
+            "Formalism.ZeroFreeDirichlet.BqCoeff",
+            "Formalism.ZeroFreeDirichlet.BqEntire",
+            "Formalism.ZeroFreeDirichlet.BqGrowth",
+            "Formalism.ZeroFreeDirichlet.LFunctionOneUpperBound"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.IsProdChar": 10,
+            "Formalism.ZeroFreeDirichlet.Fbq": 14,
+            "Formalism.ZeroFreeDirichlet.lamBq": 19,
+            "Formalism.ZeroFreeDirichlet.BqCoeff": 27,
+            "Formalism.ZeroFreeDirichlet.BqEntire": 34,
+            "Formalism.ZeroFreeDirichlet.BqGrowth": 39,
+            "Formalism.ZeroFreeDirichlet.LFunctionOneUpperBound": 44,
+            "Formalism.ZeroFreeDirichlet.BqKey": 48
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            10,
+            53
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean#L10-L53"
+        },
+        {
+          "label": "Conditional statement of the Estermann key inequality",
+          "declaration": "Formalism.ZeroFreeDirichlet.BqKeyOf",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.BqKeyOf": 72
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            72,
+            72
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean#L72-L72"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Prime-power nonnegativity of the multiplicative convolution (1 ∗ χ₁) ∗ (χ₂ ∗ ψ) holds by swapping χ₁, χ₂ unless χ₁(p) = χ₂(p) = −1, where the alternating sum vanishes for odd exponents and equals 1 for even exponents. Subtracting λ/(s − 1) uses the entire function ζ(s) − 1/(s − 1) (value γ at 1) plus the divided difference of L(·, χ₁)L(·, χ₂)L(·, ψ) at 1. Expanding G about s = 2 cancels the simple pole term +λ/(1 − σ) against the geometric sum −λ((x^M − 1)/(x − 1)) for x = 2 − σ ∈ (1, 9/8], leaving 1 − |λ|(2 − σ)^M/(1 − σ) − 4B(3/4)^M ≤ Re F(σ); choosing M = ⌈log(8B)/log(4/3)⌉ + 1 makes 4B(3/4)^M ≤ 1/2 and bounds (2 − σ)^M via 2 − σ ≤ exp(1 − σ).",
+      "review": "Checked prime-power convolution cases, |ζ(s)| ≤ 14 on |s − 2| = 3/2 (Re s ≥ 1/2, |s| ≤ 7/2, |s − 1| ≥ 1/2), near-one partial sum e^{3/2}(1 + log(3q)) plus endpoint e^{3/2} and tail 8 e^{3/2} ≤ 38 e^{3/2} log(3q), alternating derivatives (−1)^m (s − 1)^{-1}|_{s=2} = m!, Cauchy tail 4B(3/4)^M from x/(3/2) ≤ 3/4, and the truncation order M ≤ log(8B)/log(4/3) + 2."
+    },
+    {
+      "id": "SCB-02",
+      "chapter": "inputs",
+      "anchor": "inputs-siegel-theorem-lower-bound",
+      "title": "Character existence, real-line sign control, same-character Euler-factor comparison, and Estermann–Landau deduction of Siegel’s lower bound",
+      "hypotheses": "A positive real exponent ε > 0; the Estermann key inequality (constants C_B and K ≥ 0) and the uniform bound |L(1, χ)| ≤ C_L log(3q) from SCB-01; and the telescoping representation (s − 1)ζ(s) = s − D(s) in Re s > 0 from DZF-01.",
+      "statement": "There exists c > 0 (depending only on ε) such that |L(1, χ)| ≥ c q^{−ε} for every modulus q ≥ 1 and every real quadratic nonprincipal Dirichlet character χ modulo q (χ² = 1, χ ≠ 1). Along the way: every pair (χ₁, χ₂) modulo (q₁, q₂) induces a product character ψ modulo q₁q₂, and the nonprincipal quadratic character modulo 4 exists; ζ(σ) is real and strictly negative for all σ ∈ (0, 1); for a real nonprincipal χ, L(σ, χ) is real and strictly positive on [σ₀, ∞) whenever L(·, χ) has no zeros there; and whenever nonprincipal characters χ₁ modulo q₁ and χ modulo q agree on all integers coprime to q₁q, |L(1, χ₁)| ≤ (ω(q₁q) + 1)² |L(1, χ)|, where ω(n) counts the distinct prime factors of n.",
+      "definitions": [
+        "threshold exponent σ₀ = max(7/8, 1 − ε/(2(K + 1))) ∈ [7/8, 1), satisfying K(1 − σ) ≤ ε/2 on [σ₀, 1)",
+        "distinct prime-factor count ω(n) and elementary bound (ω(n) + 1)² ≤ (2/(ε log 2) + 1)² n^ε from 2^{ω(n)} ≤ n",
+        "unified Siegel constant c = min((1 − σ)/(2 max(C_B, 1) |L(1, χ₁)| (|C_L| + 1) (2/ε) (3q₁)^ε), |L(1, χ₁)|/((2/(ε log 2) + 1)² (3q₁)^ε)) for a fixed pair (χ₁, σ) with Re F(σ) ≤ 0"
+      ],
+      "equations": [
+        "inputs-same-character-euler-bound",
+        "inputs-siegel-lower-bound"
+      ],
+      "dependencies": [
+        "SCB-01",
+        "DZF-01"
+      ],
+      "sources": [
+        {
+          "label": "Existence of the induced product character modulo q₁q₂ and of the real nonprincipal character modulo 4",
+          "declaration": "Formalism.ZeroFreeDirichlet.exists_product_character",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.isProdChar_changeLevel_mul",
+            "Formalism.ZeroFreeDirichlet.characterModFour",
+            "Formalism.ZeroFreeDirichlet.characterModFour_apply",
+            "Formalism.ZeroFreeDirichlet.characterModFour_sq",
+            "Formalism.ZeroFreeDirichlet.characterModFour_ne_one",
+            "Formalism.ZeroFreeDirichlet.exists_real_nontrivial_character"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.isProdChar_changeLevel_mul": 7,
+            "Formalism.ZeroFreeDirichlet.characterModFour": 36,
+            "Formalism.ZeroFreeDirichlet.characterModFour_apply": 38,
+            "Formalism.ZeroFreeDirichlet.characterModFour_sq": 41,
+            "Formalism.ZeroFreeDirichlet.characterModFour_ne_one": 46,
+            "Formalism.ZeroFreeDirichlet.exists_real_nontrivial_character": 55,
+            "Formalism.ZeroFreeDirichlet.exists_product_character": 33
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean",
+          "lines": [
+            7,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean#L7-L56"
+        },
+        {
+          "label": "Real-line negativity ζ(σ) < 0 on (0, 1) from the telescoping representation of (s − 1)ζ(s)",
+          "declaration": "Formalism.ZeroFreeDirichlet.zeta_negative_real_axis",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.exponential_integral_nonneg_real"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.exponential_integral_nonneg_real": 10,
+            "Formalism.ZeroFreeDirichlet.zeta_negative_real_axis": 29
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaNegReal.lean",
+          "lines": [
+            10,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaNegReal.lean#L10-L66"
+        },
+        {
+          "label": "Schwarz conjugation of L(s, χ) for a real nonprincipal character",
+          "declaration": "Formalism.ZeroFreeDirichlet.realCharConj",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.conj_apply_of_sq_eq_one",
+            "Formalism.ZeroFreeDirichlet.conj_LFunction_conj_of_sq_eq_one"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.conj_apply_of_sq_eq_one": 31,
+            "Formalism.ZeroFreeDirichlet.conj_LFunction_conj_of_sq_eq_one": 41,
+            "Formalism.ZeroFreeDirichlet.realCharConj": 60
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean",
+          "lines": [
+            31,
+            80
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean#L31-L80"
+        },
+        {
+          "label": "Real-line positivity L(σ, χ) > 0 on [σ₀, ∞) whenever L(·, χ) does not vanish there",
+          "declaration": "Formalism.ZeroFreeDirichlet.real_lfunction_real_on_reals",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.real_character_lfunction_im_eq_zero",
+            "Formalism.ZeroFreeDirichlet.lfunction_tendsto_one_atTop"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.real_character_lfunction_im_eq_zero": 10,
+            "Formalism.ZeroFreeDirichlet.lfunction_tendsto_one_atTop": 16,
+            "Formalism.ZeroFreeDirichlet.real_lfunction_real_on_reals": 27
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRealPos.lean",
+          "lines": [
+            10,
+            44
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRealPos.lean#L10-L44"
+        },
+        {
+          "label": "Same-character Euler-factor comparison |L(1, χ₁)| ≤ (ω(q₁q) + 1)² |L(1, χ)|",
+          "declaration": "Formalism.ZeroFreeDirichlet.lfunction_one_same_character",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.prod_one_sub_inv_ge_inv_card_succ",
+            "Formalism.ZeroFreeDirichlet.changeLevel_eq_of_agree_coprime",
+            "Formalism.ZeroFreeDirichlet.euler_factor_term_norm_le",
+            "Formalism.ZeroFreeDirichlet.euler_factor_product_upper",
+            "Formalism.ZeroFreeDirichlet.euler_factor_product_lower",
+            "Formalism.ZeroFreeDirichlet.prod_one_add_mul_one_sub_le_one"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.prod_one_sub_inv_ge_inv_card_succ": 9,
+            "Formalism.ZeroFreeDirichlet.changeLevel_eq_of_agree_coprime": 44,
+            "Formalism.ZeroFreeDirichlet.euler_factor_term_norm_le": 55,
+            "Formalism.ZeroFreeDirichlet.euler_factor_product_upper": 66,
+            "Formalism.ZeroFreeDirichlet.euler_factor_product_lower": 74,
+            "Formalism.ZeroFreeDirichlet.prod_one_add_mul_one_sub_le_one": 87,
+            "Formalism.ZeroFreeDirichlet.lfunction_one_same_character": 98
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            9,
+            145
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SameCharacterLFunctionOne.lean#L9-L145"
+        },
+        {
+          "label": "Unified product-character deduction of |L(1, χ)| ≥ c q^{−ε} from Re F_{b,q}(σ) ≤ 0",
+          "declaration": "Formalism.ZeroFreeDirichlet.siegel_product_character_inequality",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.real_character_apply_sq_eq_one",
+            "Formalism.ZeroFreeDirichlet.product_real_characters_sq_eq_one",
+            "Formalism.ZeroFreeDirichlet.agree_coprime_of_product_principal",
+            "Formalism.ZeroFreeDirichlet.two_pow_card_primeFactors_le_self",
+            "Formalism.ZeroFreeDirichlet.card_primeFactors_add_one_sq_le_rpow",
+            "Formalism.ZeroFreeDirichlet.div_le_mul_of_main_bound_caseA",
+            "Formalism.ZeroFreeDirichlet.div_le_mul_of_chain_caseB"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.real_character_apply_sq_eq_one": 10,
+            "Formalism.ZeroFreeDirichlet.product_real_characters_sq_eq_one": 18,
+            "Formalism.ZeroFreeDirichlet.agree_coprime_of_product_principal": 33,
+            "Formalism.ZeroFreeDirichlet.two_pow_card_primeFactors_le_self": 46,
+            "Formalism.ZeroFreeDirichlet.card_primeFactors_add_one_sq_le_rpow": 51,
+            "Formalism.ZeroFreeDirichlet.div_le_mul_of_main_bound_caseA": 74,
+            "Formalism.ZeroFreeDirichlet.div_le_mul_of_chain_caseB": 97,
+            "Formalism.ZeroFreeDirichlet.siegel_product_character_inequality": 106
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean",
+          "lines": [
+            10,
+            184
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean#L10-L184"
+        },
+        {
+          "label": "Auxiliary power bounds on log(3N) and (ω(N₀) + 1)² for the same-character and key rearrangements",
+          "declaration": "Formalism.ZeroFreeDirichlet.siegel_bound_same_character",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.log_three_mul_le_rpow",
+            "Formalism.ZeroFreeDirichlet.siegel_bound_key_rearrange"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.log_three_mul_le_rpow": 9,
+            "Formalism.ZeroFreeDirichlet.siegel_bound_key_rearrange": 17,
+            "Formalism.ZeroFreeDirichlet.siegel_bound_same_character": 64
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelBoundSameCharacter.lean",
+          "lines": [
+            9,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelBoundSameCharacter.lean#L9-L106"
+        },
+        {
+          "label": "Estermann–Landau two-case deduction of Siegel’s lower bound at σ₀ = max(7/8, 1 − ε/(2(K + 1)))",
+          "declaration": "Formalism.ZeroFreeDirichlet.siegel_theorem_of",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.siegel_theorem_of": 9
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelOf.lean",
+          "lines": [
+            9,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelOf.lean#L9-L64"
+        },
+        {
+          "label": "Assembly of Siegel’s lower bound for real nonprincipal characters",
+          "declaration": "Formalism.ZeroFreeDirichlet.siegelLower",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.siegelLower": 17
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+          "lines": [
+            17,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean#L17-L19"
+        },
+        {
+          "label": "Statement of product-character existence",
+          "declaration": "Formalism.ZeroFreeDirichlet.ProdCharExists",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.ProdCharExists": 23
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            23,
+            25
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean#L23-L25"
+        },
+        {
+          "label": "Statements of real-line zeta negativity, L-positivity, same-character comparison, and real-character existence",
+          "declaration": "Formalism.ZeroFreeDirichlet.SameCharacterLFunctionOne",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.ZetaNegReal",
+            "Formalism.ZeroFreeDirichlet.LRealPos",
+            "Formalism.ZeroFreeDirichlet.RealCharExists"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.ZetaNegReal": 55,
+            "Formalism.ZeroFreeDirichlet.LRealPos": 58,
+            "Formalism.ZeroFreeDirichlet.RealCharExists": 69,
+            "Formalism.ZeroFreeDirichlet.SameCharacterLFunctionOne": 63
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            55,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean#L55-L70"
+        },
+        {
+          "label": "Conditional statement of Siegel’s theorem",
+          "declaration": "Formalism.ZeroFreeDirichlet.SiegelOf",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.SiegelOf": 74
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean",
+          "lines": [
+            74,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SameCharacterLFunctionOne.lean#L74-L75"
+        },
+        {
+          "label": "Statement of Siegel’s lower bound for L(1, χ)",
+          "declaration": "Formalism.ZeroFreeDirichlet.SiegelLower",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.SiegelLower": 29
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAP.lean",
+          "lines": [
+            29,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAP.lean#L29-L31"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "In Case 1 some real nonprincipal χ₁ has a real zero β ∈ [σ₀, 1), so F(β) = 0 and Re F(β) ≤ 0; in Case 2 no real nonprincipal character vanishes on [σ₀, 1), so taking χ₁ to be the nonprincipal character modulo 4 and evaluating at σ₀ gives ζ(σ₀) < 0 while L(σ₀, χ₁), L(σ₀, χ), L(σ₀, ψ) > 0, forcing Re F(σ₀) < 0 ≤ 0. Both cases feed into the same product-character inequality: when ψ = 1, χ₁ and χ agree on units modulo q₁q and the Euler-factor comparison bounds |L(1, χ₁)|/|L(1, χ)| ≤ (ω(q₁q) + 1)²; when ψ ≠ 1, Re F(σ) ≤ 0 in the Estermann key inequality bounds |L(1, χ)| from below using |L(1, ψ)| ≤ (|C_L| + 1)(3q₁q)^{ε/2}/(ε/2) and (q₁q)^{K(1−σ)} ≤ (3q₁q)^{ε/2}.",
+      "review": "Checked ζ(σ) = σ/(σ − 1) − ∑ rₙ < 0 with rₙ = ∫_{n+1}^{n+2} (x^{−σ} − (n+2)^{−σ}) dx ≥ 0, Schwarz conjugation and intermediate value theorem from L(σ, χ) → 1 as σ → ∞, induction on finite prime sets for ∏(1 − 1/p) ≥ 1/(|S| + 1) and (1 + 1/p)(1 − 1/p) ≤ 1, 2^{ω(n)} ≤ n giving (ω(n) + 1)² ≤ (2/(ε log 2) + 1)² n^ε, and exact Case 1 and Case 2 specialization of the unified product-character theorem."
+    },
+    {
+      "id": "SCB-03",
+      "chapter": "inputs",
+      "anchor": "inputs-exceptional-zero-lower-bound",
+      "title": "Cauchy first-derivative bound near s = 1 and deduction of the exceptional-zero gap",
+      "hypotheses": "Modulus q ≥ 1 and nonprincipal Dirichlet character χ modulo q (so q ≥ 3 and log(3q) ≥ 2); the near-one bound |L(w, χ)| ≤ 38 e^{3/2} log(3q) for Re w ≥ 1 − 3/(2 log(3q)), Re w ≥ 1/4, |w| ≤ 2 from SCB-01; and Siegel’s lower bound |L(1, χ)| ≥ c₀ q^{−ε/3} for real nonprincipal characters from SCB-02.",
+      "statement": "For every q ≥ 1, every nonprincipal character χ modulo q, and every real σ ∈ [1 − 1/log(3q), 1], one has |L′(σ, χ)| ≤ 76 e^{3/2} (log(3q))². Consequently, for every ε > 0 there exists c > 0 such that for every q ≥ 1, every real quadratic nonprincipal character χ modulo q (χ² = 1, χ ≠ 1), and every real β with L(β, χ) = 0, one has β ≤ 1 − c q^{−ε}.",
+      "definitions": [
+        "Cauchy circle |z − σ| = 1/(2 log(3q)) about σ ∈ [1 − 1/log(3q), 1], lying in Re z ≥ 1 − 3/(2 log(3q)), Re z ≥ 1/4, and |z| ≤ 2",
+        "logarithmic power-absorption constant K_ε = log 3 + 3/ε satisfying log(3q) ≤ K_ε q^{ε/3} for all q ≥ 1",
+        "exceptional-zero gap constant c = min(1/K_ε, c₀/(M_D K_ε²)) with M_D = max(C_D, 1), C_D = 76 e^{3/2}, and c₀ from Siegel’s lower bound at exponent ε/3"
+      ],
+      "equations": [
+        "inputs-lfunction-deriv-near-one-bound",
+        "inputs-exceptional-zero-gap-bound"
+      ],
+      "dependencies": [
+        "SCB-01",
+        "SCB-02"
+      ],
+      "sources": [
+        {
+          "label": "Cauchy first-derivative bound |L′(σ, χ)| ≤ 76 e^{3/2} (log(3q))² on [1 − 1/log(3q), 1]",
+          "declaration": "Formalism.ZeroFreeDirichlet.lfunction_deriv_near_one",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.lfunction_deriv_near_one": 128
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+          "lines": [
+            128,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean#L128-L160"
+        },
+        {
+          "label": "Mean-value deduction of the exceptional-zero gap 1 − β ≥ c q^{−ε} from Siegel’s bound at ε/3",
+          "declaration": "Formalism.ZeroFreeDirichlet.exceptional_zero_bound_of",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.log_le_const_mul_rpow",
+            "Formalism.ZeroFreeDirichlet.rpow_neg_eq_inv_pow"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.log_le_const_mul_rpow": 9,
+            "Formalism.ZeroFreeDirichlet.rpow_neg_eq_inv_pow": 21,
+            "Formalism.ZeroFreeDirichlet.exceptional_zero_bound_of": 26
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExcBoundOf.lean",
+          "lines": [
+            9,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExcBoundOf.lean#L9-L102"
+        },
+        {
+          "label": "Assembly of the exceptional-zero lower bound from Siegel’s theorem and the near-one derivative bound",
+          "declaration": "Formalism.ZeroFreeDirichlet.excBound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.excBound_of_siegelLower"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.excBound_of_siegelLower": 26,
+            "Formalism.ZeroFreeDirichlet.excBound": 32
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+          "lines": [
+            26,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean#L26-L32"
+        },
+        {
+          "label": "Statements of the near-one derivative bound and the exceptional-zero gap",
+          "declaration": "Formalism.ZeroFreeDirichlet.ExcBound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.LDerivNearOne"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.LDerivNearOne": 45,
+            "Formalism.ZeroFreeDirichlet.ExcBound": 50
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean",
+          "lines": [
+            45,
+            52
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean#L45-L52"
+        },
+        {
+          "label": "Conditional statement deriving the exceptional-zero gap from Siegel’s lower bound",
+          "declaration": "Formalism.ZeroFreeDirichlet.ExcBoundOf",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.ExcBoundOf": 78
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean",
+          "lines": [
+            78,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean#L78-L78"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "On the circle |z − σ| = 1/(2 log(3q)) around σ ∈ [1 − 1/log(3q), 1], log(3q) ≥ 2 ensures 1/log(3q) ≤ 1/2, 1/(2 log(3q)) ≤ 1/4, Re z ≥ 1 − 3/(2 log(3q)) ≥ 1/4, and |z| ≤ 5/4 ≤ 2, so Cauchy’s estimate divides 38 e^{3/2} log(3q) by 1/(2 log(3q)) to give 76 e^{3/2} (log(3q))². For a real zero β < 1 of a real nonprincipal χ, if β ≤ 1 − 1/log(3q) then 1 − β ≥ 1/log(3q) ≥ (1/K) q^{−ε/3} ≥ c q^{−ε}; otherwise the mean-value inequality on [β, 1] gives c₀ q^{−ε/3} ≤ |L(1, χ) − L(β, χ)| ≤ M K² q^{2ε/3}(1 − β), whence 1 − β ≥ (c₀/(M K²)) q^{−ε} ≥ c q^{−ε}.",
+      "review": "Checked q ≥ 3 for nonprincipal χ, log 9 > 2 from e < 2.72, circle geometry 1/log(3q) + 1/(2 log(3q)) = 3/(2 log(3q)), 38 · 2 = 76, log(3q) ≤ (log 3 + 3/ε) q^{ε/3}, u = q^{ε/3} ≥ 1 ⇒ u ≤ u³, and both branches of the mean-value inequality with c = min(1/K, c₀/(M K²))."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "bqKey",
+      "callee": "product_lfunction_key_inequality",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 15,
+        "spelling": "product_lfunction_key_inequality"
+      }
+    },
+    {
+      "caller": "bqKey",
+      "callee": "dirichlet_product_coefficients",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 15,
+        "spelling": "dirichlet_product_coefficients"
+      }
+    },
+    {
+      "caller": "bqKey",
+      "callee": "dirichlet_product_entire",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 15,
+        "spelling": "dirichlet_product_entire"
+      }
+    },
+    {
+      "caller": "bqKey",
+      "callee": "product_lfunction_growth_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 15,
+        "spelling": "product_lfunction_growth_bound"
+      }
+    },
+    {
+      "caller": "bqKey",
+      "callee": "lfunction_one_upper_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 15,
+        "spelling": "lfunction_one_upper_bound"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "siegel_theorem_of",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "siegel_theorem_of"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "exists_product_character",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "exists_product_character"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "exists_real_nontrivial_character",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "exists_real_nontrivial_character"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "bqKey",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "bqKey"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "lfunction_one_upper_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "lfunction_one_upper_bound"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "zeta_negative_real_axis",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 18,
+        "spelling": "zeta_negative_real_axis"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "real_lfunction_real_on_reals",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 19,
+        "spelling": "real_lfunction_real_on_reals"
+      }
+    },
+    {
+      "caller": "siegelLower",
+      "callee": "lfunction_one_same_character",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/FinalSiegel.lean",
+        "line": 19,
+        "spelling": "lfunction_one_same_character"
+      }
+    },
+    {
+      "caller": "excBound_of_siegelLower",
+      "callee": "exceptional_zero_bound_of",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+        "line": 27,
+        "spelling": "exceptional_zero_bound_of"
+      }
+    },
+    {
+      "caller": "excBound_of_siegelLower",
+      "callee": "lfunction_deriv_near_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+        "line": 27,
+        "spelling": "lfunction_deriv_near_one"
+      }
+    },
+    {
+      "caller": "excBound",
+      "callee": "excBound_of_siegelLower",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+        "line": 32,
+        "spelling": "excBound_of_siegelLower"
+      }
+    },
+    {
+      "caller": "excBound",
+      "callee": "siegelLower",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean",
+        "line": 32,
+        "spelling": "siegelLower"
+      }
+    },
+    {
+      "caller": "prime_power_coefficient_nonneg",
+      "callee": "convolution_nonneg_of_divisors",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ConvolutionNonnegOfDivisors.lean",
+        "line": 53,
+        "spelling": "convolution_nonneg_of_divisors"
+      }
+    },
+    {
+      "caller": "prime_power_coefficient_nonneg",
+      "callee": "character_convolution_eq",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ConvolutionNonnegOfDivisors.lean",
+        "line": 58,
+        "spelling": "character_convolution_eq"
+      }
+    },
+    {
+      "caller": "dirichlet_product_coefficients",
+      "callee": "prime_power_coefficient_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqCoeff.lean",
+        "line": 66,
+        "spelling": "prime_power_coefficient_nonneg"
+      }
+    },
+    {
+      "caller": "dirichlet_product_entire",
+      "callee": "zeta_sub_pole_differentiable",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqEntire.lean",
+        "line": 44,
+        "spelling": "zeta_sub_pole_differentiable"
+      }
+    },
+    {
+      "caller": "dirichlet_product_entire",
+      "callee": "zeta_minus_pole_eq",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqEntire.lean",
+        "line": 47,
+        "spelling": "zeta_minus_pole_eq"
+      }
+    },
+    {
+      "caller": "zeta_norm_le_on_circle",
+      "callee": "circle_about_two_geometry",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean",
+        "line": 30,
+        "spelling": "circle_about_two_geometry"
+      }
+    },
+    {
+      "caller": "zeta_norm_le_on_circle",
+      "callee": "growthBound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean",
+        "line": 35,
+        "spelling": "Formalism.ZF.growthBound"
+      }
+    },
+    {
+      "caller": "product_lfunction_growth_bound",
+      "callee": "lfunction_polynomial_growth",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean",
+        "line": 49,
+        "spelling": "lfunction_polynomial_growth"
+      }
+    },
+    {
+      "caller": "product_lfunction_growth_bound",
+      "callee": "zeta_norm_le_on_circle",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqGrowth.lean",
+        "line": 53,
+        "spelling": "zeta_norm_le_on_circle"
+      }
+    },
+    {
+      "caller": "iteratedDeriv_lseries_at_two",
+      "callee": "iteratedDeriv_inv_sub_one_at_two",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivInvSubOneAtTwo.lean",
+        "line": 26,
+        "spelling": "iteratedDeriv_inv_sub_one_at_two"
+      }
+    },
+    {
+      "caller": "lseries_taylor_lower_bound",
+      "callee": "iteratedDeriv_lseries_at_two",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivLseriesAlternatingNonneg.lean",
+        "line": 44,
+        "spelling": "iteratedDeriv_lseries_at_two"
+      }
+    },
+    {
+      "caller": "lseries_taylor_lower_bound",
+      "callee": "iteratedDeriv_lseries_alternating_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivLseriesAlternatingNonneg.lean",
+        "line": 59,
+        "spelling": "iteratedDeriv_lseries_alternating_nonneg"
+      }
+    },
+    {
+      "caller": "lseries_taylor_lower_bound",
+      "callee": "one_le_lseries_at_two",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/IteratedDerivLseriesAlternatingNonneg.lean",
+        "line": 88,
+        "spelling": "one_le_lseries_at_two"
+      }
+    },
+    {
+      "caller": "product_lfunction_key_inequality",
+      "callee": "norm_le_of_log_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean",
+        "line": 83,
+        "spelling": "norm_le_of_log_bound"
+      }
+    },
+    {
+      "caller": "product_lfunction_key_inequality",
+      "callee": "exists_taylor_truncation_order",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean",
+        "line": 119,
+        "spelling": "exists_taylor_truncation_order"
+      }
+    },
+    {
+      "caller": "product_lfunction_key_inequality",
+      "callee": "lseries_taylor_lower_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean",
+        "line": 121,
+        "spelling": "lseries_taylor_lower_bound"
+      }
+    },
+    {
+      "caller": "product_lfunction_key_inequality",
+      "callee": "two_sub_pow_le_exp",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/BqKeyOf.lean",
+        "line": 122,
+        "spelling": "two_sub_pow_le_exp"
+      }
+    },
+    {
+      "caller": "lfunction_norm_le_near_one",
+      "callee": "partial_sum_norm_le_near_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+        "line": 107,
+        "spelling": "partial_sum_norm_le_near_one"
+      }
+    },
+    {
+      "caller": "lfunction_one_upper_bound",
+      "callee": "lfunction_norm_le_near_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LFunctionOneUpperBound.lean",
+        "line": 16,
+        "spelling": "lfunction_norm_le_near_one"
+      }
+    },
+    {
+      "caller": "exists_product_character",
+      "callee": "isProdChar_changeLevel_mul",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean",
+        "line": 34,
+        "spelling": "isProdChar_changeLevel_mul"
+      }
+    },
+    {
+      "caller": "exists_real_nontrivial_character",
+      "callee": "characterModFour",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean",
+        "line": 56,
+        "spelling": "characterModFour"
+      }
+    },
+    {
+      "caller": "exists_real_nontrivial_character",
+      "callee": "characterModFour_sq",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean",
+        "line": 56,
+        "spelling": "characterModFour_sq"
+      }
+    },
+    {
+      "caller": "exists_real_nontrivial_character",
+      "callee": "characterModFour_ne_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/CharExists.lean",
+        "line": 56,
+        "spelling": "characterModFour_ne_one"
+      }
+    },
+    {
+      "caller": "zeta_negative_real_axis",
+      "callee": "riemannZetaOne_eq_one_sub_of_re_pos",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaNegReal.lean",
+        "line": 32,
+        "spelling": "Formalism.ZF.ComplexPowerDifferenceIntegral.riemannZetaOne_eq_one_sub_of_re_pos"
+      }
+    },
+    {
+      "caller": "zeta_negative_real_axis",
+      "callee": "exponential_integral_nonneg_real",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaNegReal.lean",
+        "line": 41,
+        "spelling": "exponential_integral_nonneg_real"
+      }
+    },
+    {
+      "caller": "real_character_lfunction_im_eq_zero",
+      "callee": "realCharConj",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRealPos.lean",
+        "line": 12,
+        "spelling": "realCharConj"
+      }
+    },
+    {
+      "caller": "real_lfunction_real_on_reals",
+      "callee": "real_character_lfunction_im_eq_zero",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRealPos.lean",
+        "line": 29,
+        "spelling": "real_character_lfunction_im_eq_zero"
+      }
+    },
+    {
+      "caller": "real_lfunction_real_on_reals",
+      "callee": "lfunction_tendsto_one_atTop",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRealPos.lean",
+        "line": 38,
+        "spelling": "lfunction_tendsto_one_atTop"
+      }
+    },
+    {
+      "caller": "lfunction_one_same_character",
+      "callee": "changeLevel_eq_of_agree_coprime",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SameCharacterLFunctionOne.lean",
+        "line": 106,
+        "spelling": "changeLevel_eq_of_agree_coprime"
+      }
+    },
+    {
+      "caller": "lfunction_one_same_character",
+      "callee": "euler_factor_product_lower",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SameCharacterLFunctionOne.lean",
+        "line": 112,
+        "spelling": "euler_factor_product_lower"
+      }
+    },
+    {
+      "caller": "lfunction_one_same_character",
+      "callee": "euler_factor_product_upper",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SameCharacterLFunctionOne.lean",
+        "line": 113,
+        "spelling": "euler_factor_product_upper"
+      }
+    },
+    {
+      "caller": "siegel_theorem_of",
+      "callee": "siegel_product_character_inequality",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelOf.lean",
+        "line": 34,
+        "spelling": "siegel_product_character_inequality"
+      }
+    },
+    {
+      "caller": "siegel_theorem_of",
+      "callee": "product_real_characters_sq_eq_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelOf.lean",
+        "line": 53,
+        "spelling": "product_real_characters_sq_eq_one"
+      }
+    },
+    {
+      "caller": "siegel_product_character_inequality",
+      "callee": "div_le_mul_of_chain_caseB",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean",
+        "line": 151,
+        "spelling": "div_le_mul_of_chain_caseB"
+      }
+    },
+    {
+      "caller": "siegel_product_character_inequality",
+      "callee": "agree_coprime_of_product_principal",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean",
+        "line": 152,
+        "spelling": "agree_coprime_of_product_principal"
+      }
+    },
+    {
+      "caller": "siegel_product_character_inequality",
+      "callee": "card_primeFactors_add_one_sq_le_rpow",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean",
+        "line": 153,
+        "spelling": "card_primeFactors_add_one_sq_le_rpow"
+      }
+    },
+    {
+      "caller": "siegel_product_character_inequality",
+      "callee": "div_le_mul_of_main_bound_caseA",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/SiegelProductCharacterInequality.lean",
+        "line": 182,
+        "spelling": "div_le_mul_of_main_bound_caseA"
+      }
+    },
+    {
+      "caller": "lfunction_deriv_near_one",
+      "callee": "three_le_modulus_of_ne_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+        "line": 130,
+        "spelling": "three_le_modulus_of_ne_one"
+      }
+    },
+    {
+      "caller": "lfunction_deriv_near_one",
+      "callee": "two_le_log_three_mul",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+        "line": 131,
+        "spelling": "two_le_log_three_mul"
+      }
+    },
+    {
+      "caller": "lfunction_deriv_near_one",
+      "callee": "lfunction_norm_le_near_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LDerivNearOne.lean",
+        "line": 148,
+        "spelling": "lfunction_norm_le_near_one"
+      }
+    },
+    {
+      "caller": "exceptional_zero_bound_of",
+      "callee": "log_le_const_mul_rpow",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExcBoundOf.lean",
+        "line": 32,
+        "spelling": "log_le_const_mul_rpow"
+      }
+    },
+    {
+      "caller": "exceptional_zero_bound_of",
+      "callee": "rpow_neg_eq_inv_pow",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExcBoundOf.lean",
+        "line": 45,
+        "spelling": "rpow_neg_eq_inv_pow"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DZF-01",
+      "SCB-01"
+    ],
+    [
+      "LZE-02",
+      "SCB-01"
+    ],
+    [
+      "SCB-01",
+      "SCB-02"
+    ],
+    [
+      "DZF-01",
+      "SCB-02"
+    ],
+    [
+      "SCB-01",
+      "SCB-03"
+    ],
+    [
+      "SCB-02",
+      "SCB-03"
+    ]
+  ],
+  "outstanding": [
+    "The constants c(ε) in Siegel’s lower bound and the exceptional-zero gap are ineffective because Case 1 selects a hypothetical real zero β ≥ σ₀ depending on ε; the progression and mean-square estimates in ETZ-03, SMR-02, PSR-01, and PRE-01 consume the resulting gap at fixed exponents ε = 1 and ε = 1/2."
+  ],
+  "review_scope": "Checked prime-power convolution nonnegativity, entire pole subtraction via ζ(s) − 1/(s − 1) and divided difference, circle growth |F| ≤ 14(9|C|/2)³(q₁q₂)³ on |s − 2| = 3/2, near-one bound 38 e^{3/2} log(3q) and Cauchy derivative 76 e^{3/2} (log(3q))², alternating Taylor expansion at s = 2 with truncation M = ⌈log(8B)/log(4/3)⌉ + 1, real-line negativity of ζ on (0, 1) and positivity of L(σ, χ), Euler-factor comparison (ω(q₁q) + 1)², unified Case 1/Case 2 Estermann–Landau assembly at σ₀ = max(7/8, 1 − ε/(2(K + 1))), and mean-value exceptional-zero gap at ε/3; 30 pinned source ranges with 59 verified callsites."
+}
