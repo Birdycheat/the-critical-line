@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned statements, proof bodies and verified written callsites across FirstInequality, SecondInequality/Cyclic, HasseNorm, LocalNormsEverywhere, LocFin, and LocInf.",
+  "claims": [
+    {
+      "id": "HNT-01",
+      "chapter": "inputs",
+      "anchor": "inputs-cyclic-tate-vanishing",
+      "title": "Fundamental equality and Tate cohomology vanishing for cyclic idèle class groups",
+      "hypotheses": "Number fields K and L with L/K a finite Galois extension whose Galois group G = Gal(L/K) is cyclic with generator σ; idèle class groups C_K = 𝕀_K / K^× and C_L = 𝕀_L / L^×, base-change embedding ι : C_K ↪ C_L, idèle class norm N_{L/K} : C_L → C_K, cyclic Tate cohomology groups Ĥ⁰(G, C_L) = C_L^G / N_G(C_L) and Ĥ⁻¹(G, C_L) = ker(N_G) / (σ − 1)C_L, Herbrand quotient h(C_L) = [L : K], and the second inequality [C_K : N_{L/K}(C_L)] ≤ [L : K].",
+      "statement": "The base-change map induces an isomorphism C_K / N_{L/K}(C_L) ≅ Ĥ⁰(G, C_L), whence [C_K : N_{L/K}(C_L)] = [L : K] · |Ĥ⁻¹(G, C_L)| with |Ĥ⁻¹(G, C_L)| ≥ 1, giving the first inequality [L : K] ≤ [C_K : N_{L/K}(C_L)]. Combining with the second inequality [C_K : N_{L/K}(C_L)] ≤ [L : K] yields the fundamental equality [C_K : N_{L/K}(C_L)] = [L : K], and cancelling [L : K] > 0 establishes the class-field axiom for cyclic idèle classes: |Ĥ⁰(G, C_L)| = [L : K] and |Ĥ⁻¹(G, C_L)| = 1. In particular, every idèle class c ∈ C_L with N_G(c) = 1 has the form σ(d)/d for some d ∈ C_L.",
+      "definitions": [
+        "cyclic Tate cohomology groups Ĥ⁰(G, C_L) = ker(σ − 1) / im(N_G) and Ĥ⁻¹(G, C_L) = ker(N_G) / im(σ − 1) for a generator σ of G = Gal(L/K)",
+        "Herbrand quotient h(C_L) = |Ĥ⁰(G, C_L)| / |Ĥ⁻¹(G, C_L)| = [L : K] with finite numerator and denominator",
+        "fundamental equality [C_K : N_{L/K}(C_L)] = [L : K] and class-field axiom (|Ĥ⁰(G, C_L)| = [L : K], |Ĥ⁻¹(G, C_L)| = 1)"
+      ],
+      "equations": [
+        "inputs-cyclic-tate-identifications",
+        "inputs-cyclic-tate-vanishing-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Identification of cyclic Tate H^0 with C_K / N_{L/K}(C_L), Herbrand quotient relation, and the first inequality",
+          "declaration": "GroundTheory.Global.index_range_ideleClassNorm",
+          "related_declarations": [
+            "GroundTheory.Global.ideleClassToCycTateZero",
+            "GroundTheory.Global.cycNorm_ideleClassGroup",
+            "GroundTheory.Global.ideleClassToCycTateZero_surjective",
+            "GroundTheory.Global.ker_ideleClassToCycTateZero",
+            "GroundTheory.Global.natCard_cycTateZero_ideleClassGroup",
+            "GroundTheory.Global.finrank_le_index_range_ideleClassNorm"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.ideleClassToCycTateZero": 15,
+            "GroundTheory.Global.cycNorm_ideleClassGroup": 35,
+            "GroundTheory.Global.ideleClassToCycTateZero_surjective": 42,
+            "GroundTheory.Global.ker_ideleClassToCycTateZero": 56,
+            "GroundTheory.Global.natCard_cycTateZero_ideleClassGroup": 71,
+            "GroundTheory.Global.finrank_le_index_range_ideleClassNorm": 92,
+            "GroundTheory.Global.index_range_ideleClassNorm": 78
+          },
+          "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+          "lines": [
+            15,
+            99
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/FirstInequality.lean#L15-L99"
+        },
+        {
+          "label": "Second inequality, fundamental equality [C_K : N_{L/K}(C_L)] = [L : K], and vanishing |Ĥ⁻¹(G, C_L)| = 1",
+          "declaration": "GroundTheory.Global.natCard_cycTateNegOne_ideleClassGroup",
+          "related_declarations": [
+            "GroundTheory.Global.secondInequality",
+            "GroundTheory.Global.index_range_ideleClassNorm_eq_finrank",
+            "GroundTheory.Global.natCard_cycTateZero_ideleClassGroup_eq_finrank",
+            "GroundTheory.Global.classFieldAxiom_ideleClassGroup"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.secondInequality": 12,
+            "GroundTheory.Global.index_range_ideleClassNorm_eq_finrank": 20,
+            "GroundTheory.Global.natCard_cycTateZero_ideleClassGroup_eq_finrank": 36,
+            "GroundTheory.Global.classFieldAxiom_ideleClassGroup": 43,
+            "GroundTheory.Global.natCard_cycTateNegOne_ideleClassGroup": 26
+          },
+          "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+          "lines": [
+            12,
+            48
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean#L12-L48"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "The base-change homomorphism ι : C_K → C_L is injective with image C_L^G = ker(σ − 1) and intertwines the idèle-class norm N_{L/K} with the cyclic Galois norm N_G = ∏_{g∈G} g, giving C_K / N_{L/K}(C_L) ≅ Ĥ⁰(G, C_L). Substituting |Ĥ⁰(G, C_L)| = [C_K : N_{L/K}(C_L)] into the Herbrand quotient h(C_L) = [L : K] gives [C_K : N_{L/K}(C_L)] = [L : K] · |Ĥ⁻¹(G, C_L)| and the first inequality; antisymmetry with the second inequality forces [C_K : N_{L/K}(C_L)] = [L : K] and hence |Ĥ⁻¹(G, C_L)| = 1.",
+      "review": "Checked surjectivity onto C_L^G via Galois invariants of idèle classes, kernel identification via injectivity of base change and N_G = ι ∘ N_{L/K}, finiteness/positivity of |Ĥ⁻¹(G, C_L)| from the Herbrand quotient, antisymmetry between the first and second inequalities, and left cancellation of [L : K] > 0."
+    },
+    {
+      "id": "HNT-02",
+      "chapter": "inputs",
+      "anchor": "inputs-quadratic-hasse-norm",
+      "title": "Cyclic and quadratic Hasse norm theorems and everywhere-local norm criteria for CM ideals",
+      "hypotheses": "Number fields K and L with L/K a finite cyclic Galois extension (in particular any quadratic extension [L : K] = 2), x ∈ K^×, and the vanishing |Ĥ⁻¹(G, C_L)| = 1 from HNT-01; for the CM criteria, a CM number field K with maximal real subfield K^+, complex conjugation c, finite unramifiedness of K/K^+ at every finite place, a nonzero integral ideal I ⊆ 𝒪_K, an algebraic integer a ∈ 𝒪_K with I · c(I) = (a), x ∈ (K^+)^× mapping to a in K, and total positivity Re φ(a) > 0 for every complex embedding φ : K → ℂ.",
+      "statement": "For any cyclic Galois extension L/K of number fields (and in particular any quadratic extension [L : K] = 2), an element x ∈ K^× lies in N_{L/K}(L^×) if and only if its diagonal idèle diag(x) lies in N_{L/K}(𝕀_L), which holds if and only if x is a local norm at every finite place v and every infinite place v of K. For a CM field K unramified over K^+ at all finite places, if a nonzero ideal I ⊆ 𝒪_K satisfies I · c(I) = (a) where a = x ∈ (K^+)^× is totally positive (Re φ(a) > 0 for all φ : K → ℂ), then x is a local norm at every finite place and every infinite place of K^+, and hence x = N_{K/K^+}(β) for some β ∈ K^×.",
+      "definitions": [
+        "diagonal embedding diag : K^× ↪ 𝕀_K and idèle norm N_{L/K} : 𝕀_L → 𝕀_K with finite and infinite local components",
+        "Dedekind approximation b ∈ I with I P + (b) = I for P = v 𝒪_K, yielding (b) = I J, b c(b) = a t, and t ∉ w for every prime w over v",
+        "local archimedean d-th root r = e⁻¹(e(x)^{1/d}) ∈ K^+_v (d = [K_W : K^+_v] ∈ {1, 2}) witnessing x as a local norm at each real place v of K^+"
+      ],
+      "equations": [
+        "inputs-cyclic-hasse-norm-eq",
+        "inputs-cm-local-norm-eq"
+      ],
+      "dependencies": [
+        "HNT-01"
+      ],
+      "sources": [
+        {
+          "label": "Cyclic local-to-global norm equivalence via vanishing of Ĥ⁻¹(G, C_L)",
+          "declaration": "GroundTheory.Global.mem_range_norm_iff_forall_local",
+          "related_declarations": [
+            "GroundTheory.Global.mem_range_norm_of_diagonal_mem_range_ideleNorm",
+            "GroundTheory.Global.mem_range_norm_iff_diagonal_mem_range_ideleNorm",
+            "GroundTheory.Global.exists_norm_eq_iff_forall_local"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.mem_range_norm_of_diagonal_mem_range_ideleNorm": 17,
+            "GroundTheory.Global.mem_range_norm_iff_diagonal_mem_range_ideleNorm": 49,
+            "GroundTheory.Global.exists_norm_eq_iff_forall_local": 64,
+            "GroundTheory.Global.mem_range_norm_iff_forall_local": 56
+          },
+          "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+          "lines": [
+            17,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/HasseNorm.lean#L17-L79"
+        },
+        {
+          "label": "Quadratic Hasse norm theorem for degree-two extensions of number fields",
+          "declaration": "GroundTheory.Global.mem_range_norm_iff_forall_local_of_finrank_eq_two",
+          "related_declarations": [
+            "GroundTheory.Global.isGalois_isCyclic_of_finrank_eq_two",
+            "GroundTheory.Global.mem_range_norm_iff_diagonal_mem_range_ideleNorm_of_finrank_eq_two",
+            "GroundTheory.Global.exists_norm_eq_iff_forall_local_of_finrank_eq_two"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.isGalois_isCyclic_of_finrank_eq_two": 86,
+            "GroundTheory.Global.mem_range_norm_iff_diagonal_mem_range_ideleNorm_of_finrank_eq_two": 91,
+            "GroundTheory.Global.exists_norm_eq_iff_forall_local_of_finrank_eq_two": 107,
+            "GroundTheory.Global.mem_range_norm_iff_forall_local_of_finrank_eq_two": 98
+          },
+          "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+          "lines": [
+            86,
+            116
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/HasseNorm.lean#L86-L116"
+        },
+        {
+          "label": "Local-to-idelic norm equivalence from almost-everywhere unramifiedness and local unit norm surjectivity",
+          "declaration": "GroundTheory.Global.IdeleNorm.mem_range_ideleNorm_iff_forall",
+          "related_declarations": [
+            "GroundTheory.Global.IdeleNorm.eventually_ramificationIdx_eq_one",
+            "GroundTheory.Global.IdeleNorm.map_integerUnitsOver_eq_of_ramificationIdx_eq_one",
+            "GroundTheory.Global.IdeleNorm.eventually_map_integerUnitsOver_eq",
+            "GroundTheory.Global.IdeleNorm.mem_range_ideleNorm_of_forall"
+          ],
+          "declaration_lines": {
+            "GroundTheory.Global.IdeleNorm.eventually_ramificationIdx_eq_one": 18,
+            "GroundTheory.Global.IdeleNorm.map_integerUnitsOver_eq_of_ramificationIdx_eq_one": 28,
+            "GroundTheory.Global.IdeleNorm.eventually_map_integerUnitsOver_eq": 47,
+            "GroundTheory.Global.IdeleNorm.mem_range_ideleNorm_of_forall": 69,
+            "GroundTheory.Global.IdeleNorm.mem_range_ideleNorm_iff_forall": 58
+          },
+          "path": "src/GroundTheory/GlobalFields/IdeleGroups/LocalNormsEverywhere.lean",
+          "lines": [
+            18,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/GlobalFields/IdeleGroups/LocalNormsEverywhere.lean#L18-L73"
+        },
+        {
+          "label": "Finite-place local norm criterion for a CM ideal product I · c(I) = (a) via Dedekind approximation",
+          "declaration": "UpperTheory.V.FW.locFin",
+          "related_declarations": [
+            "ideal_step",
+            "norm_cm"
+          ],
+          "declaration_lines": {
+            "ideal_step": 8,
+            "norm_cm": 35,
+            "UpperTheory.V.FW.locFin": 47
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean",
+          "lines": [
+            8,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean#L8-L92"
+        },
+        {
+          "label": "Archimedean local norm criterion for totally positive elements of a maximal real subfield",
+          "declaration": "UpperTheory.V.FW.locInf",
+          "declaration_lines": {
+            "UpperTheory.V.FW.locInf": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocInf.lean",
+          "lines": [
+            8,
+            62
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocInf.lean#L8-L62"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "If diag(x) = N_{L/K}(j), then the idèle class [j] ∈ C_L lies in ker(N_G); vanishing of Ĥ⁻¹(G, C_L) writes [j] = [σ(e)/e] for an idèle e ∈ 𝕀_L, so diag(a) = (σ(e)/e)⁻¹ j for some a ∈ L^×, and G-invariance of the idèle norm gives diag(N_{L/K}(a)) = diag(x), hence N_{L/K}(a) = x by injectivity of diag. Local norms everywhere assemble into an idèle norm because all but finitely many finite places are unramified and local norms surject on integer units at unramified places. For a CM ideal I · c(I) = (a), Dedekind approximation writes N_{K/K^+}(b) x⁻¹ = t as a v-adic unit, which is a local norm by unramifiedness; at each real place of K^+, total positivity gives a positive real d-th root whose local norm is x.",
+      "review": "Checked exact quotient sign diag(a) = (σ(e)/e)⁻¹ j from [σ(e)/e] = [j], G-invariance N_{L/K}(σ(e)/e) = 1, finite-ramification set from nonvanishing of the different ideal, Dedekind cancellation I(P + J) = I ⇒ P + J = 𝒪_K and P + c(J) = 𝒪_K, valuation transfer v(n x⁻¹) = 1 from w(t) = 1 and e(w/v) ≥ 1, and local archimedean degree d ∈ {1, 2} with r^d = x."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "ideleClassToCycTateZero_surjective",
+      "callee": "ideleClassToCycTateZero_apply",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 52,
+        "spelling": "ideleClassToCycTateZero_apply"
+      }
+    },
+    {
+      "caller": "ker_ideleClassToCycTateZero",
+      "callee": "cycNorm_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 64,
+        "spelling": "cycNorm_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "natCard_cycTateZero_ideleClassGroup",
+      "callee": "ker_ideleClassToCycTateZero",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 74,
+        "spelling": "ker_ideleClassToCycTateZero"
+      }
+    },
+    {
+      "caller": "natCard_cycTateZero_ideleClassGroup",
+      "callee": "ideleClassToCycTateZero_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 76,
+        "spelling": "ideleClassToCycTateZero_surjective"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm",
+      "callee": "cycHerbrand_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 83,
+        "spelling": "IdeleGroup.cycHerbrand_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm",
+      "callee": "natCard_cycTateZero_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 88,
+        "spelling": "natCard_cycTateZero_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "finrank_le_index_range_ideleClassNorm",
+      "callee": "exists_generator",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 94,
+        "spelling": "IsCyclic.exists_generator"
+      }
+    },
+    {
+      "caller": "finrank_le_index_range_ideleClassNorm",
+      "callee": "index_range_ideleClassNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/FirstInequality.lean",
+        "line": 95,
+        "spelling": "index_range_ideleClassNorm"
+      }
+    },
+    {
+      "caller": "secondInequality",
+      "callee": "firstInequality",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 13,
+        "spelling": "firstInequality"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_eq_finrank",
+      "callee": "finrank_le_index_range_ideleClassNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 22,
+        "spelling": "finrank_le_index_range_ideleClassNorm"
+      }
+    },
+    {
+      "caller": "index_range_ideleClassNorm_eq_finrank",
+      "callee": "secondInequality",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 23,
+        "spelling": "secondInequality"
+      }
+    },
+    {
+      "caller": "natCard_cycTateNegOne_ideleClassGroup",
+      "callee": "index_range_ideleClassNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 30,
+        "spelling": "index_range_ideleClassNorm"
+      }
+    },
+    {
+      "caller": "natCard_cycTateNegOne_ideleClassGroup",
+      "callee": "index_range_ideleClassNorm_eq_finrank",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 31,
+        "spelling": "index_range_ideleClassNorm_eq_finrank"
+      }
+    },
+    {
+      "caller": "natCard_cycTateZero_ideleClassGroup_eq_finrank",
+      "callee": "natCard_cycTateZero_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 41,
+        "spelling": "natCard_cycTateZero_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "natCard_cycTateZero_ideleClassGroup_eq_finrank",
+      "callee": "index_range_ideleClassNorm_eq_finrank",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 41,
+        "spelling": "index_range_ideleClassNorm_eq_finrank"
+      }
+    },
+    {
+      "caller": "classFieldAxiom_ideleClassGroup",
+      "callee": "natCard_cycTateZero_ideleClassGroup_eq_finrank",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 48,
+        "spelling": "natCard_cycTateZero_ideleClassGroup_eq_finrank"
+      }
+    },
+    {
+      "caller": "classFieldAxiom_ideleClassGroup",
+      "callee": "natCard_cycTateNegOne_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/SecondInequality/Cyclic.lean",
+        "line": 48,
+        "spelling": "natCard_cycTateNegOne_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "mem_range_norm_of_diagonal_mem_range_ideleNorm",
+      "callee": "exists_generator",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 20,
+        "spelling": "IsCyclic.exists_generator"
+      }
+    },
+    {
+      "caller": "mem_range_norm_of_diagonal_mem_range_ideleNorm",
+      "callee": "natCard_cycTateNegOne_ideleClassGroup",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 34,
+        "spelling": "natCard_cycTateNegOne_ideleClassGroup"
+      }
+    },
+    {
+      "caller": "mem_range_norm_of_diagonal_mem_range_ideleNorm",
+      "callee": "mk_surjective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 37,
+        "spelling": "IdeleClassGroup.mk_surjective"
+      }
+    },
+    {
+      "caller": "mem_range_norm_of_diagonal_mem_range_ideleNorm",
+      "callee": "diagonal_injective",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 45,
+        "spelling": "IdeleGroup.diagonal_injective"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_diagonal_mem_range_ideleNorm",
+      "callee": "mem_range_norm_of_diagonal_mem_range_ideleNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 52,
+        "spelling": "mem_range_norm_of_diagonal_mem_range_ideleNorm"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_forall_local",
+      "callee": "mem_range_norm_iff_diagonal_mem_range_ideleNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 62,
+        "spelling": "mem_range_norm_iff_diagonal_mem_range_ideleNorm"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_forall_local",
+      "callee": "mem_range_ideleNorm_iff_forall",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 62,
+        "spelling": "IdeleNorm.mem_range_ideleNorm_iff_forall"
+      }
+    },
+    {
+      "caller": "exists_norm_eq_iff_forall_local",
+      "callee": "mem_range_norm_iff_forall_local",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 70,
+        "spelling": "mem_range_norm_iff_forall_local"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_diagonal_mem_range_ideleNorm_of_finrank_eq_two",
+      "callee": "isGalois_isCyclic_of_finrank_eq_two",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 95,
+        "spelling": "isGalois_isCyclic_of_finrank_eq_two"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_diagonal_mem_range_ideleNorm_of_finrank_eq_two",
+      "callee": "mem_range_norm_iff_diagonal_mem_range_ideleNorm",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 96,
+        "spelling": "mem_range_norm_iff_diagonal_mem_range_ideleNorm"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_forall_local_of_finrank_eq_two",
+      "callee": "isGalois_isCyclic_of_finrank_eq_two",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 104,
+        "spelling": "isGalois_isCyclic_of_finrank_eq_two"
+      }
+    },
+    {
+      "caller": "mem_range_norm_iff_forall_local_of_finrank_eq_two",
+      "callee": "mem_range_norm_iff_forall_local",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 105,
+        "spelling": "mem_range_norm_iff_forall_local"
+      }
+    },
+    {
+      "caller": "exists_norm_eq_iff_forall_local_of_finrank_eq_two",
+      "callee": "isGalois_isCyclic_of_finrank_eq_two",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 114,
+        "spelling": "isGalois_isCyclic_of_finrank_eq_two"
+      }
+    },
+    {
+      "caller": "exists_norm_eq_iff_forall_local_of_finrank_eq_two",
+      "callee": "exists_norm_eq_iff_forall_local",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/HasseNorm.lean",
+        "line": 115,
+        "spelling": "exists_norm_eq_iff_forall_local"
+      }
+    },
+    {
+      "caller": "eventually_map_integerUnitsOver_eq",
+      "callee": "eventually_ramificationIdx_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/IdeleGroups/LocalNormsEverywhere.lean",
+        "line": 51,
+        "spelling": "eventually_ramificationIdx_eq_one"
+      }
+    },
+    {
+      "caller": "eventually_map_integerUnitsOver_eq",
+      "callee": "map_integerUnitsOver_eq_of_ramificationIdx_eq_one",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/IdeleGroups/LocalNormsEverywhere.lean",
+        "line": 54,
+        "spelling": "map_integerUnitsOver_eq_of_ramificationIdx_eq_one"
+      }
+    },
+    {
+      "caller": "mem_range_ideleNorm_iff_forall",
+      "callee": "eventually_map_integerUnitsOver_eq",
+      "callsite": {
+        "path": "src/GroundTheory/GlobalFields/IdeleGroups/LocalNormsEverywhere.lean",
+        "line": 64,
+        "spelling": "eventually_map_integerUnitsOver_eq"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locFin",
+      "callee": "ideal_step",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean",
+        "line": 62,
+        "spelling": "ideal_step"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locFin",
+      "callee": "norm_cm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean",
+        "line": 73,
+        "spelling": "norm_cm"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locFin",
+      "callee": "map_integerUnitsOver_eq_of_ramificationIdx_eq_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean",
+        "line": 87,
+        "spelling": "GroundTheory.Global.IdeleNorm.map_integerUnitsOver_eq_of_ramificationIdx_eq_one"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locFin",
+      "callee": "mem_units_iff_valued_eq_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocFin.lean",
+        "line": 88,
+        "spelling": "HeightOneSpectrum.adicCompletionIntegers.mem_units_iff_valued_eq_one"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locInf",
+      "callee": "comap_surjective",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocInf.lean",
+        "line": 12,
+        "spelling": "InfinitePlace.comap_surjective"
+      }
+    },
+    {
+      "caller": "UpperTheory.V.FW.locInf",
+      "callee": "ofReal_re",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/LocInf.lean",
+        "line": 28,
+        "spelling": "Complex.ofReal_re"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "HNT-01",
+      "HNT-02"
+    ]
+  ],
+  "outstanding": [
+    "The Herbrand quotient calculation h(C_L) = [L : K] from S-idèles and S-units and the Kummer-reduction proof of the second inequality enter through their cited global-fields theorems; HNT-01 and HNT-02 supply the cyclic Tate vanishing, the cyclic and quadratic Hasse norm theorems, and the CM local norm criteria consumed by DSG-01."
+  ],
+  "review_scope": "Checked the isomorphism C_K / N_{L/K}(C_L) ≅ Ĥ⁰(G, C_L), Herbrand identity [C_K : N_{L/K}(C_L)] = [L : K] · |Ĥ⁻¹(G, C_L)|, antisymmetry with the second inequality giving |Ĥ⁻¹(G, C_L)| = 1, cyclic Hasse norm descent diag(a) = (σ(e)/e)⁻¹ j, local-to-idelic assembly via almost-everywhere unramified unit norm surjectivity, quadratic specialization, Dedekind approximation in CM fields (LocFin), and archimedean d-th root construction (LocInf); 7 pinned source ranges with 40 verified callsites."
+}
