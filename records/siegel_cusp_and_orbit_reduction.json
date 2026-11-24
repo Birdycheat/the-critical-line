@@ -1,0 +1,760 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "SCR-01",
+      "chapter": "lifts",
+      "anchor": "lifts-cusp-mobius-reduction",
+      "title": "Möbius action on the Hilbert upper half-plane, norm-square product, and balanced height lower bound",
+      "statement": "For any totally real number field F with real embeddings ρ_w and any point τ in the product upper half-plane ℍ^[F:ℚ], the componentwise fractional-linear action of SL₂(F) has nowhere-vanishing denominators, preserves positive imaginary parts with Im((γ · τ)_w) = Im(τ_w) / |ρ_w(c) τ_w + ρ_w(d)|², defines a left group action of SL₂(F), and acts by translation τ_w + ρ_w(b), quadratic scaling ρ_w(a)² τ_w, and inversion −τ_w⁻¹ on the unipotent, diagonal, and Weyl generators. Moreover, ∏_w ρ_w(x)² = N_(F/ℚ)(x)² for every x ∈ F, and any balanced family of positive heights z_w > 0 with κ z_w ≤ z_v and ∏_v z_v ≥ P satisfies z_w ≥ κ min(1, P) at every real place w.",
+      "hypotheses": "Number field F (totally real for the embedding norm-square identity and Siegel-domain reduction), real embeddings ρ_w : F → ℝ compatible with the archimedean places of F, and τ_w ∈ ℂ with Im τ_w > 0 for every infinite place w. For the balanced lower bound, any finite nonempty index set of places, positive heights z_w > 0, balance constant κ > 0, and product floor P ∈ ℝ.",
+      "correspondence": "The fractional-linear identities hold coordinatewise from determinant one and give the exact generator formulas used for cusp reduction and modular automorphy. Together with the norm-square product over real embeddings and the elementary contradiction deducing uniform height floors from unit balance and product bounds, these lemmas supply the algebraic and real-analytic base of Siegel-domain reduction.",
+      "dependencies": [],
+      "equations": [
+        "lifts-cusp-mobius-im-eq",
+        "lifts-cusp-balanced-lower-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.Mobius.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.main": 62,
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.den_ne": 9,
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.im_frac": 22,
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.comp_frac": 29,
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.det_emb": 55
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean",
+          "lines": [
+            9,
+            90
+          ],
+          "label": "Componentwise Möbius action of SL₂(F) on the Hilbert upper half-plane and generator formulas",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean#L9-L90",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.den_ne",
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.im_frac",
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.comp_frac",
+            "GlobalTheory.CompanionTheory.SW.Core.Mobius.det_emb"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Red.balanced_lower",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Red.balanced_lower": 30,
+            "GlobalTheory.CompanionTheory.SW.Red.prod_sq_embedding": 12
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean",
+          "lines": [
+            12,
+            54
+          ],
+          "label": "Totally real embedding norm-square identity and lower height bound from balance and product floor",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ReductionToSiegelDomain.lean#L12-L54",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Red.prod_sq_embedding"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SCR-02",
+      "chapter": "lifts",
+      "anchor": "lifts-adelic-weil-orbit",
+      "title": "Adelic Weil datum, finite-adelic Iwasawa factorization, theta and Eisenstein automorphy, and inverse-denominator decay",
+      "statement": "For a totally real number field F, a standard finite-adelic additive character ψ, and a symmetric invertible quadratic matrix B of size 2M over F with positive-definite majorants P_w satisfying P_w B_w⁻¹ P_w = B_w, the rescaled product Haar measure μ_f = |disc F|^(−M) |N_(F/ℚ)(det B)|^(−1/2) λ_f^(⊗2M) satisfies self-duality on every compact open subgroup and yields a complete non-archimedean Weil representation datum. Every rational element b ∈ F admits a constructive finite-adelic Iwasawa factorization w n(b) = n(y) m(a) k with k ∈ SL₂(Ô_F) and a Ô_F = {x ∈ Ô_F : b x ∈ Ô_F} of normalized Haar measure den(b)⁻¹. Combining the principal congruence neighborhood basis N Ô_F^(2M), the finite-orbit uniform bound under SL₂(Ô_F), and Haar scaling yields |f*(φ, b)| ≤ C · den(b)^(−M) for every Schwartz–Bruhat test φ and every b ∈ F. Furthermore, the quadratic theta series θ(φ; τ) is absolutely summable (and nonvanishing for a suitable congruence indicator), transforms covariantly under rational translations, rational dilations, and Weyl inversion with the archimedean factor c_G(τ), and for M ≥ 3 the adelic Eisenstein series obeys the exact same SL₂(F) automorphy laws.",
+      "hypotheses": "Totally real number field F, normalized additive Haar measure λ_f on the finite adeles 𝔸_(F,f) with λ_f(Ô_F) = 1, continuous standard additive character ψ on 𝔸_(F,f) agreeing with exp(−2πi Tr_(F/ℚ)(b)) on F, symmetric nonsingular matrix B of size 2M over F, positive-definite real majorants P_w satisfying P_w B_w⁻¹ P_w = B_w, orthogonal pair (g_f, g_∞) preserving B, locally constant compactly supported test φ on 𝔸_(F,f)^(2M), and τ ∈ ℍ^[F:ℚ]; M ≥ 3 for the Eisenstein series automorphy.",
+      "correspondence": "Open subgroups of Ô_F have Haar measure inverse to their ideal index in 𝒪_F, which evaluates both denominator lattices and global linear Jacobians by diagonal-transvection induction. The idempotent-and-scale matrix factorization w n(b) = n(y) m(a) k puts m(a⁻¹) n(−y) w n(b) inside SL₂(Ô_F) and extracts the sharp den(b)^(−M) decay directly from the finite-orbit uniform bound. For theta functions, denominator clearing gives Gaussian summability, the global product formula gives parabolic invariance, and Poisson summation on shifted level lattices gives Weyl inversion.",
+      "dependencies": [
+        "SCR-01"
+      ],
+      "equations": [
+        "lifts-adelic-iwasawa-wn-eq",
+        "lifts-adelic-fstar-decay-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.AfTop.finiteAdele_topology",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.finiteAdele_topology": 121,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isCompact_Oh": 14,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isOpen_Oh": 17,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.algebraMap_mem_Oh_iff": 36,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.exists_mul_Oh_subset": 44,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.exists_mul_mem_Oh_of_isCompact": 68,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isOpen_mul_Oh": 88,
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.denseRange_algebraMap": 105
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteAdeleTopology.lean",
+          "lines": [
+            14,
+            126
+          ],
+          "label": "Finite-adelic topology, compactness and openness of integral adeles, and density of the global field",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/FiniteAdeleTopology.lean#L14-L126",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isCompact_Oh",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isOpen_Oh",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.algebraMap_mem_Oh_iff",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.exists_mul_Oh_subset",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.exists_mul_mem_Oh_of_isCompact",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.isOpen_mul_Oh",
+            "GlobalTheory.CompanionTheory.SW.Core.AfTop.denseRange_algebraMap"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.Scale.lf_scale",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.lf_scale": 328,
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_of_subgroup": 40,
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.scale_unit": 131,
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_mul_int": 159,
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_den": 256,
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.scale_field": 262
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicHaarMeasureScaling.lean",
+          "lines": [
+            40,
+            332
+          ],
+          "label": "Haar measure of open integral subgroups, denominator lattices, and scaling by global elements and ideles",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicHaarMeasureScaling.lean#L40-L332",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_of_subgroup",
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.scale_unit",
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_mul_int",
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.mass_den",
+            "GlobalTheory.CompanionTheory.SW.Core.Scale.scale_field"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.PiScale.pi_scale",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.PiScale.pi_scale": 126
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicHaarMeasureLinearChange.lean",
+          "lines": [
+            126,
+            205
+          ],
+          "label": "Determinant-norm and scalar-unit change of variables for product Haar measure on finite-adelic vector spaces",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/AdelicHaarMeasureLinearChange.lean#L126-L205"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.SelfDual.naQuad",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.naQuad": 295,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.OhR": 14,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.LL": 24,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.Gs": 58,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.perp_Gs": 99,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.mass_one": 199,
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.LL_good": 247
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilRepresentationQuadraticDatum.lean",
+          "lines": [
+            14,
+            370
+          ],
+          "label": "Self-dual Haar measure, dual congruence lattices, and non-archimedean quadratic Weil datum",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilRepresentationQuadraticDatum.lean#L14-L370",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.OhR",
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.LL",
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.Gs",
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.perp_Gs",
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.mass_one",
+            "GlobalTheory.CompanionTheory.SW.Core.SelfDual.LL_good"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Iwasawa.iwasawa_w_n",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.iwasawa_w_n": 157,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.IntAt": 11,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.idem": 16,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale": 24,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scaleInv": 33,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale_mul_scaleInv": 63,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale_combo": 70,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scaleUnit": 107,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.kMat": 110,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.image_scale": 115,
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.w_n_eq": 134
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IwasawaDecompositionAdelicSL2.lean",
+          "lines": [
+            11,
+            170
+          ],
+          "label": "Constructive finite-adelic Iwasawa factorization of Weyl-translated unipotent matrices",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IwasawaDecompositionAdelicSL2.lean#L11-L170",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.IntAt",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.idem",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scaleInv",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale_mul_scaleInv",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scale_combo",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.scaleUnit",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.kMat",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.image_scale",
+            "GlobalTheory.CompanionTheory.SW.Iwasawa.w_n_eq"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.LN_small",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.LN_small": 45,
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.oh_mul": 17,
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.oh_nat": 19,
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.LN": 24,
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.co_LN": 35
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+          "lines": [
+            17,
+            53
+          ],
+          "label": "Principal integral congruence lattices as a compact open neighborhood basis at zero",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean#L17-L53",
+          "related_declarations": [
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.oh_mul",
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.oh_nat",
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.LN",
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.co_LN"
+          ]
+        },
+        {
+          "declaration": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+          "declaration_lines": {
+            "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay": 76
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+          "lines": [
+            76,
+            116
+          ],
+          "label": "Uniform inverse-denominator power decay of finite-adelic Eisenstein integrals via Iwasawa and finite orbit",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean#L76-L116"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.ThetaSum.theta_summable_and_ne_zero",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.theta_summable_and_ne_zero": 412,
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.summable_thTerm": 197,
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.sb_indN": 248,
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.indN_eventually_zero": 334,
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.exists_theta_ne_zero": 368
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaSeriesSummable.lean",
+          "lines": [
+            197,
+            415
+          ],
+          "label": "Absolute summability of quadratic theta series for Schwartz–Bruhat tests and nonvanishing witness",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaSeriesSummable.lean#L197-L415",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.summable_thTerm",
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.sb_indN",
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.indN_eventually_zero",
+            "GlobalTheory.CompanionTheory.SW.ThetaSum.exists_theta_ne_zero"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.ThetaUD.main",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.ThetaUD.main": 141,
+            "GlobalTheory.CompanionTheory.SW.ThetaUD.term_U": 76,
+            "GlobalTheory.CompanionTheory.SW.ThetaUD.term_D": 118
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionModularity.lean",
+          "lines": [
+            76,
+            153
+          ],
+          "label": "Parabolic modularity of the quadratic theta series under rational translations and dilations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionModularity.lean#L76-L153",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.ThetaUD.term_U",
+            "GlobalTheory.CompanionTheory.SW.ThetaUD.term_D"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.ThW.thetaInvariance",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.ThW.thetaInvariance": 285,
+            "GlobalTheory.CompanionTheory.SW.ThW.poisson_form": 96,
+            "GlobalTheory.CompanionTheory.SW.ThW.base": 159,
+            "GlobalTheory.CompanionTheory.SW.ThW.core": 236
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionAutomorphy.lean",
+          "lines": [
+            96,
+            320
+          ],
+          "label": "Weil inversion of the quadratic theta series via lattice Poisson summation and orthogonal invariance",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionAutomorphy.lean#L96-L320",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SW.ThW.poisson_form",
+            "GlobalTheory.CompanionTheory.SW.ThW.base",
+            "GlobalTheory.CompanionTheory.SW.ThW.core"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.Core.EiInv.ei_inv",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.Core.EiInv.ei_inv": 9
+          },
+          "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionCuspExpansion.lean",
+          "lines": [
+            9,
+            11
+          ],
+          "label": "Matching parabolic and Weyl inversion automorphy laws for the adelic Eisenstein series",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionCuspExpansion.lean#L9-L11"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "SCR-03",
+      "chapter": "lifts",
+      "anchor": "lifts-parabolic-quotient-volumes",
+      "title": "Split-extension parabolic Haar measure, triviality of the conjugation modular character, and finite-covolume quotient unfolding",
+      "statement": "Let 1 → N → P ⇄ G₁ → 1 be a continuously split exact sequence of locally compact second-countable Hausdorff topological groups with section ι : G₁ → P and projection π : P → G₁, and let Γ ⊂ P be a discrete countable subgroup projecting into a countable lattice Γ₁ ⊂ G₁ with ι(Γ₁) ⊂ Γ. Suppose G₁ has a finite-covolume fundamental domain 𝓕₁ for Γ₁ with respect to a left Haar measure μ₁, and Γ ∩ N is cocompact in N = ker π. Then N carries a left Haar measure ν and a measurable strict fundamental domain D for Γ ∩ N with 0 < ν(D) < ∞, conjugation by ι(G₁) preserves ν identically because the induced measurable modular character δ : G₁ → ℝ≥0 is trivial on the finite-covolume lattice Γ₁ and is therefore identically 1, the pushforward μ_P = Φ_*(ν ⊗ μ₁) under Φ(m, u) = m · ι(u) is a left Haar measure on P, and 𝓕_P = Φ(D × 𝓕₁) is a fundamental domain for Γ in P of finite covolume μ_P(𝓕_P) = ν(D) μ₁(𝓕₁) < ∞ satisfying ∫_(𝓕_P) f dμ_P = ∫_(𝓕₁) ∫_D f(m · ι(u)) dν(m) dμ₁(u) for every measurable f : P → [0, ∞].",
+      "hypotheses": "Locally compact second-countable Hausdorff topological groups P and G₁ equipped with Borel sigma-algebras, continuous homomorphisms ι : G₁ → P and π : P → G₁ with π(ι(u)) = u, countable subgroups Γ ⊂ P and Γ₁ ⊂ G₁ such that Γ is discrete in P, ι(Γ₁) ⊂ Γ, π(Γ) ⊂ Γ₁, μ₁ is a left Haar measure on G₁ with fundamental domain 𝓕₁ of finite measure, and a compact set K ⊂ P meets every (Γ ∩ N)-coset in N = ker π.",
+      "correspondence": "The split homeomorphism Φ : N × G₁ ≃ₜ P converts left multiplication in P into semidirect conjugation on N times left translation on G₁. Cocompactness of Γ ∩ N yields a measurable strict section D of finite positive measure, whose stability under conjugation by ι(Γ₁) forces the conjugation Haar character δ to equal 1 on Γ₁. Partitioning G₁ into logarithmic shells t^n ≤ δ(u) < t^(n+1) shows any measurable homomorphism trivial on a finite-covolume lattice is identically 1, making μ_P = Φ_*(ν ⊗ μ₁) left-invariant and enabling Tonelli unfolding on 𝓕_P = Φ(D × 𝓕₁).",
+      "dependencies": [
+        "SCR-01"
+      ],
+      "equations": [
+        "lifts-parabolic-split-unfold-eq"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.splitHomeo",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitHomeo": 24,
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitMap": 10,
+            "GlobalTheory.CompanionTheory.SplitExtLat.kerPart": 12,
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitEquiv": 15,
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitHomeo_apply": 36,
+            "GlobalTheory.CompanionTheory.SplitExtLat.mul_split": 41,
+            "GlobalTheory.CompanionTheory.SplitExtLat.continuous_conj": 47
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitHomeoApply.lean",
+          "lines": [
+            10,
+            52
+          ],
+          "label": "Topological semidirect product homeomorphism and multiplication law for a split exact group extension",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitHomeoApply.lean#L10-L52",
+          "related_declarations": [
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitMap",
+            "GlobalTheory.CompanionTheory.SplitExtLat.kerPart",
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitEquiv",
+            "GlobalTheory.CompanionTheory.SplitExtLat.splitHomeo_apply",
+            "GlobalTheory.CompanionTheory.SplitExtLat.mul_split",
+            "GlobalTheory.CompanionTheory.SplitExtLat.continuous_conj"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.exists_borel_section_ker",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.exists_borel_section_ker": 11
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicFundamentalDomainSplit.lean",
+          "lines": [
+            11,
+            58
+          ],
+          "label": "Measurable strict fundamental domain of finite positive Haar measure for a cocompact discrete kernel lattice",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicFundamentalDomainSplit.lean#L11-L58"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.conj_haar_character",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.conj_haar_character": 8
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicHaarDecomposition.lean",
+          "lines": [
+            8,
+            144
+          ],
+          "label": "Measurable conjugation modular character on the Levi quotient and its triviality on the Levi lattice",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicHaarDecomposition.lean#L8-L144"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SW.CharacterTrivial.eq_one_of_isFundamentalDomain",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SW.CharacterTrivial.eq_one_of_isFundamentalDomain": 9
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ModularCharacterTrivialFiniteCovolume.lean",
+          "lines": [
+            9,
+            102
+          ],
+          "label": "Triviality of any measurable multiplicative character that is trivial on a finite-covolume lattice",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ModularCharacterTrivialFiniteCovolume.lean#L9-L102"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.isHaarMeasure_map_splitHomeo",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.isHaarMeasure_map_splitHomeo": 8
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicQuotientMeasure.lean",
+          "lines": [
+            8,
+            58
+          ],
+          "label": "Left Haar measure on a split extension as pushforward of the product measure under unimodular conjugation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicQuotientMeasure.lean#L8-L58"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.ae_exists_smul_mem_image_prod",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.ae_exists_smul_mem_image_prod": 8
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicFundamentalDomainVolume.lean",
+          "lines": [
+            8,
+            27
+          ],
+          "label": "Almost-everywhere covering of the split extension by lattice translates of the product fundamental domain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicFundamentalDomainVolume.lean#L8-L27"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.aedisjoint_smul_image_prod",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.aedisjoint_smul_image_prod": 8
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicIntegralUnfolding.lean",
+          "lines": [
+            8,
+            66
+          ],
+          "label": "Almost-everywhere disjointness of distinct lattice translates of the product fundamental domain",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicIntegralUnfolding.lean#L8-L66"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.setLIntegral_splitHomeo_image_prod",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.setLIntegral_splitHomeo_image_prod": 8
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicLeviIntegralFormula.lean",
+          "lines": [
+            8,
+            43
+          ],
+          "label": "Null-measurability of the product fundamental domain and iterated Tonelli unfolding over kernel and Levi",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicLeviIntegralFormula.lean#L8-L43"
+        },
+        {
+          "declaration": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+          "declaration_lines": {
+            "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain": 16
+          },
+          "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+          "lines": [
+            16,
+            39
+          ],
+          "label": "Assembled finite-covolume fundamental domain and iterated Haar unfolding for a split parabolic extension",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean#L16-L39"
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Mobius.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Mobius.im_frac",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean",
+        "line": 66,
+        "spelling": "im_frac"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Mobius.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Mobius.det_emb",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean",
+        "line": 66,
+        "spelling": "det_emb"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Mobius.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Mobius.den_ne",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean",
+        "line": 69,
+        "spelling": "den_ne"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.Mobius.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.Mobius.comp_frac",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/MobiusActionUpperHalfPlane.lean",
+        "line": 75,
+        "spelling": "comp_frac"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.SelfDual.naQuad",
+      "callee": "GlobalTheory.CompanionTheory.SW.Core.SelfDual.LL_good",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilRepresentationQuadraticDatum.lean",
+        "line": 318,
+        "spelling": "LL_good"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Core.SelfDual.naQuad",
+      "callee": "GlobalTheory.T.annihilator_of_annihilator_le",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/WeilRepresentationQuadraticDatum.lean",
+        "line": 367,
+        "spelling": "GlobalTheory.T.annihilator_of_annihilator_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwasawa.iwasawa_w_n",
+      "callee": "GlobalTheory.CompanionTheory.SW.Iwasawa.image_scale",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IwasawaDecompositionAdelicSL2.lean",
+        "line": 162,
+        "spelling": "image_scale"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwasawa.iwasawa_w_n",
+      "callee": "GlobalTheory.CompanionTheory.SW.Iwasawa.w_n_eq",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IwasawaDecompositionAdelicSL2.lean",
+        "line": 169,
+        "spelling": "w_n_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.Iwasawa.iwasawa_w_n",
+      "callee": "GlobalTheory.CompanionTheory.SW.Iwasawa.scale_combo",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/IwasawaDecompositionAdelicSL2.lean",
+        "line": 169,
+        "spelling": "scale_combo"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+      "callee": "GlobalTheory.T.weil_representation_quadratic_datum",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+        "line": 78,
+        "spelling": "GlobalTheory.T.weil_representation_quadratic_datum"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+      "callee": "CompanionTheory.PlacePermOperatorBicommutantSpan.orbit_adelic",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+        "line": 79,
+        "spelling": "orbit_adelic"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+      "callee": "GlobalTheory.T.iwasawa_decomposition_adelic_SL2",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+        "line": 81,
+        "spelling": "GlobalTheory.T.iwasawa_decomposition_adelic_SL2"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+      "callee": "GlobalTheory.T.adelic_haar_measure_scaling",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+        "line": 82,
+        "spelling": "GlobalTheory.T.adelic_haar_measure_scaling"
+      }
+    },
+    {
+      "caller": "CompanionTheory.PlacePermOperatorBicommutantSpan.fstar_decay",
+      "callee": "GlobalTheory.T.adelic_haar_measure_linear_change",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/ThetaDilations/OrbitAdelic.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.T.adelic_haar_measure_linear_change"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThetaSum.theta_summable_and_ne_zero",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThetaSum.summable_thTerm",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaSeriesSummable.lean",
+        "line": 414,
+        "spelling": "summable_thTerm"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThetaSum.theta_summable_and_ne_zero",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThetaSum.exists_theta_ne_zero",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaSeriesSummable.lean",
+        "line": 414,
+        "spelling": "exists_theta_ne_zero"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThetaUD.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThetaUD.term_U",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionModularity.lean",
+        "line": 145,
+        "spelling": "term_U"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThetaUD.main",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThetaUD.term_D",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionModularity.lean",
+        "line": 147,
+        "spelling": "term_D"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThW.core",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThW.base",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionAutomorphy.lean",
+        "line": 281,
+        "spelling": "base"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThW.thetaInvariance",
+      "callee": "GlobalTheory.T.weil_representation_quadratic_datum",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionAutomorphy.lean",
+        "line": 288,
+        "spelling": "GlobalTheory.T.weil_representation_quadratic_datum"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SW.ThW.thetaInvariance",
+      "callee": "GlobalTheory.CompanionTheory.SW.ThW.core",
+      "callsite": {
+        "path": "src/CompanionTheory/SpectralGeometry/LocalGlobalProofs/AdelicAnalysis/ThetaFunctionAutomorphy.lean",
+        "line": 315,
+        "spelling": "core"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.isHaarMeasure_map_splitHomeo",
+      "callee": "GlobalTheory.CompanionTheory.SplitExtLat.continuous_conj",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicQuotientMeasure.lean",
+        "line": 28,
+        "spelling": "continuous_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.isHaarMeasure_map_splitHomeo",
+      "callee": "GlobalTheory.CompanionTheory.SplitExtLat.mul_split",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ParabolicQuotientMeasure.lean",
+        "line": 41,
+        "spelling": "mul_split"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_fundamental_domain_split",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.T.parabolic_fundamental_domain_split"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_haar_decomposition",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 25,
+        "spelling": "GlobalTheory.T.parabolic_haar_decomposition"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.modular_character_trivial_finite_covolume",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 26,
+        "spelling": "GlobalTheory.T.modular_character_trivial_finite_covolume"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_quotient_measure",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 29,
+        "spelling": "GlobalTheory.T.parabolic_quotient_measure"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_levi_integral_formula",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 30,
+        "spelling": "GlobalTheory.T.parabolic_levi_integral_formula"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_fundamental_domain_volume",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.parabolic_fundamental_domain_volume"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompanionTheory.SplitExtLat.exists_haar_fundamentalDomain",
+      "callee": "GlobalTheory.T.parabolic_integral_unfolding",
+      "callsite": {
+        "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/SplitExtensionFundamentalDomain.lean",
+        "line": 32,
+        "spelling": "GlobalTheory.T.parabolic_integral_unfolding"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SCR-01",
+      "SCR-02"
+    ],
+    [
+      "SCR-01",
+      "SCR-03"
+    ]
+  ],
+  "outstanding": [
+    "The Hilbert-plane Möbius action and balanced height floor, the finite-adelic Weil datum, Iwasawa factorization, inverse-denominator Eisenstein decay, and theta/Eisenstein automorphy, and the split-extension parabolic Haar measure and quotient unfolding are reconstructed in SCR-01 through SCR-03."
+  ]
+}
