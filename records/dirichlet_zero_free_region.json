@@ -1,0 +1,1678 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned statements, proof bodies and verified written callsites across ThreeFourOne, LogDerivRight, ZetaGrowth, RiemannZetaOneEqOneSubOfRePos, ZetaInvBound, SmallHeight, ZfoGrowthBall, ZfoTermReNonneg, ZfoNegReLeNorm, ZeroFreeOf, FinalZFR, LdrMid, LogDerivRegionOf, LogDerivRegion, Perron, RectDoublePole, LaurentAtOne, RectShiftOf, RiemannZetaNeZeroOfMemRectangle, AbsZetaPrimeSumErrorLeOfLarge, AbsZetaPrimeSumErrorLeOfOneLe and GzPNTOf for zeta, and LRight, ExistsLocalZeroExpansionOfBound, LocalZeroExpansionWithMultiplicity, LocalZerosOf, TrivReal, EulerFactorLogDerivBound, ZetaLogDerivLandauBound, TrivLogDeriv, Positivity, NoZeroComplexOf, RealLargeTOf and NoZeroComplex for Dirichlet L-functions.",
+  "claims": [
+    {
+      "id": "DZF-01",
+      "chapter": "inputs",
+      "anchor": "inputs-riemann-zero-free-region",
+      "title": "Classical zero-free region for the Riemann zeta function, regional logarithmic-derivative bound, and square-root exponential remainder for the smoothed prime sum",
+      "hypotheses": "Riemann zeta function ζ with its simple pole at s = 1, von Mangoldt function Λ and Euler’s constant γ; complex s ≠ 1 measured against log(|Im s| + 2); real y ≥ 2 for the smoothed prime sum S(y) = ∑_{1≤n≤⌊y⌋} Λ(n)(y/n − 1) and its normalized error G(y) = S(y) − y log y + (1 + γ)y; and the disk lemma of LZE-01 (radius r > 0, growth ratio M ≥ 1, zeros counted with multiplicity on radius r/3, remainder at most 72 log M/r on radius r/6).",
+      "statement": "There is c₀ > 0 such that ζ(s) ≠ 0 whenever s ≠ 1 and Re s ≥ 1 − c₀/log(|Im s| + 2). There are c₁ > 0 and a real C₁ such that |ζ′(s)/ζ(s) + 1/(s − 1)| ≤ C₁ (log(|Im s| + 2))² whenever s ≠ 1 and Re s ≥ 1 − c₁/log(|Im s| + 2). There are c > 0 and a real K such that |G(y)| ≤ K y exp(−c √(log y)) for every y ≥ 2. Along the way, with C ≥ 0 the constant in |ζ′(s)/ζ(s)| ≤ 1/(Re s − 1) + C for Re s > 1, every zero β + it of ζ with |t| ≥ max(3, exp(3C)) satisfies β < 1 − (1/200000)/log(|t| + 2).",
+      "definitions": [
+        "smoothed prime sum S(x) = ∑_{1≤n≤⌊x⌋} Λ(n)(x/n − 1) and normalized error G(x) = S(x) − x log x + (1 + γ)x",
+        "Perron integrand F_y(w) = −(ζ′(w)/ζ(w)) y^w/(w(w − 1)), with S(y) = (1/2π) ∫_ℝ F_y(σ₀ + iu) du for y ≥ 1 and σ₀ > 1",
+        "counterclockwise boundary integral of g over [x₀, x₁] × [y₀, y₁]: ∫_{x₀}^{x₁} g(x + iy₀) dx − ∫_{x₀}^{x₁} g(x + iy₁) dx + i ∫_{y₀}^{y₁} g(x₁ + iy) dy − i ∫_{y₀}^{y₁} g(x₀ + iy) dy"
+      ],
+      "equations": [
+        "inputs-zfr-log-deriv-region",
+        "inputs-gz-pnt-bound",
+        "inputs-zfr-three-four-one",
+        "inputs-gz-pnt-contour"
+      ],
+      "dependencies": [
+        "LZE-01"
+      ],
+      "sources": [
+        {
+          "label": "Termwise positivity of three plus four cosines plus a double-angle cosine in the von Mangoldt series",
+          "declaration": "Formalism.ZF.mertensInequality",
+          "related_declarations": [
+            "Formalism.ZF.VonMangoldtMertensInequality.re_term_vonMangoldt",
+            "Formalism.ZF.VonMangoldtMertensInequality.hasSum_re_L",
+            "Formalism.ZF.VonMangoldtMertensInequality.comb_nonneg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.VonMangoldtMertensInequality.re_term_vonMangoldt": 11,
+            "Formalism.ZF.VonMangoldtMertensInequality.hasSum_re_L": 30,
+            "Formalism.ZF.VonMangoldtMertensInequality.comb_nonneg": 38,
+            "Formalism.ZF.mertensInequality": 46
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ThreeFourOne.lean",
+          "lines": [
+            11,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ThreeFourOne.lean#L11-L65"
+        },
+        {
+          "label": "Right-of-one bound for the logarithmic derivative of zeta with an additive constant",
+          "declaration": "Formalism.ZF.logDerivBoundRightHalfPlane",
+          "declaration_lines": {
+            "Formalism.ZF.logDerivBoundRightHalfPlane": 11
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LogDerivRight.lean",
+          "lines": [
+            11,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LogDerivRight.lean#L11-L42"
+        },
+        {
+          "label": "Telescoping representation of (s−1)ζ(s) in the right half-plane",
+          "declaration": "Formalism.ZF.ComplexPowerDifferenceIntegral.riemannZetaOne_eq_one_sub_of_re_pos",
+          "declaration_lines": {
+            "Formalism.ZF.ComplexPowerDifferenceIntegral.riemannZetaOne_eq_one_sub_of_re_pos": 68
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RiemannZetaOneEqOneSubOfRePos.lean",
+          "lines": [
+            68,
+            87
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RiemannZetaOneEqOneSubOfRePos.lean#L68-L87"
+        },
+        {
+          "label": "The telescoping difference series and its terms",
+          "declaration": "Formalism.ZF.ComplexPowerDifferenceIntegral.Dz",
+          "related_declarations": [
+            "Formalism.ZF.ComplexPowerDifferenceIntegral.dz"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.ComplexPowerDifferenceIntegral.dz": 11,
+            "Formalism.ZF.ComplexPowerDifferenceIntegral.Dz": 15
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/DzDifferentiableOn.lean",
+          "lines": [
+            11,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/DzDifferentiableOn.lean#L11-L15"
+        },
+        {
+          "label": "Polynomial growth of zeta to the right of the imaginary axis",
+          "declaration": "Formalism.ZF.growthBound",
+          "related_declarations": [
+            "Formalism.ZF.norm_Dz_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.norm_Dz_le": 11,
+            "Formalism.ZF.growthBound": 78
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZetaGrowth.lean",
+          "lines": [
+            11,
+            95
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZetaGrowth.lean#L11-L95"
+        },
+        {
+          "label": "Möbius inversion and the integral comparison for the reciprocal of zeta",
+          "declaration": "Formalism.ZF.zetaInvBound_statement",
+          "related_declarations": [
+            "Formalism.ZF.MoebiusInverseZetaBounds.tsum_rpow_le",
+            "Formalism.ZF.MoebiusInverseZetaBounds.norm_term_moebius_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.MoebiusInverseZetaBounds.tsum_rpow_le": 43,
+            "Formalism.ZF.MoebiusInverseZetaBounds.norm_term_moebius_le": 76,
+            "Formalism.ZF.zetaInvBound_statement": 86
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZetaInvBound.lean",
+          "lines": [
+            43,
+            108
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZetaInvBound.lean#L43-L108"
+        },
+        {
+          "label": "Compactness gives a zero-free strip up to any fixed height",
+          "declaration": "Formalism.ZF.zeroFreeBoundedHeight",
+          "declaration_lines": {
+            "Formalism.ZF.zeroFreeBoundedHeight": 9
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/SmallHeight.lean",
+          "lines": [
+            9,
+            42
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/SmallHeight.lean#L9-L42"
+        },
+        {
+          "label": "Compactness bounds the regularized logarithmic derivative up to any fixed height",
+          "declaration": "Formalism.ZF.logDerivBoundedHeight",
+          "declaration_lines": {
+            "Formalism.ZF.logDerivBoundedHeight": 26
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/SmallHeightLogDeriv.lean",
+          "lines": [
+            26,
+            64
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/SmallHeightLogDeriv.lean#L26-L64"
+        },
+        {
+          "label": "Growth ratio (|t|+2) to the tenth power on disks of radius one half",
+          "declaration": "Formalism.ZF.zfo_M_bound",
+          "related_declarations": [
+            "Formalism.ZF.zfo_diff_ball",
+            "Formalism.ZF.zfo_growth_ball"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.zfo_diff_ball": 37,
+            "Formalism.ZF.zfo_growth_ball": 42,
+            "Formalism.ZF.zfo_M_bound": 72
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoGrowthBall.lean",
+          "lines": [
+            37,
+            106
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoGrowthBall.lean#L37-L106"
+        },
+        {
+          "label": "The disk lemma at σ+iτ: real part at most 144 log M minus the zero sum",
+          "declaration": "Formalism.ZF.zfo_landau",
+          "related_declarations": [
+            "Formalism.ZF.zfo_zero_re_lt",
+            "Formalism.ZF.zfo_term_re_nonneg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.zfo_zero_re_lt": 9,
+            "Formalism.ZF.zfo_term_re_nonneg": 14,
+            "Formalism.ZF.zfo_landau": 20
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoTermReNonneg.lean",
+          "lines": [
+            9,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoTermReNonneg.lean#L9-L63"
+        },
+        {
+          "label": "Large-height zeros lie left of 1 − (1/200000)/log(|t|+2)",
+          "declaration": "Formalism.ZF.zfo_large",
+          "related_declarations": [
+            "Formalism.ZF.zfo_neg_re_le_norm"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.zfo_neg_re_le_norm": 10,
+            "Formalism.ZF.zfo_large": 14
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean",
+          "lines": [
+            10,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean#L10-L93"
+        },
+        {
+          "label": "Combining large and small heights with the constant min(1/200000, c log 2)",
+          "declaration": "Formalism.ZF.classicalZeroFreeRegionOfBounds",
+          "declaration_lines": {
+            "Formalism.ZF.classicalZeroFreeRegionOfBounds": 10
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZeroFreeOf.lean",
+          "lines": [
+            10,
+            32
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZeroFreeOf.lean#L10-L32"
+        },
+        {
+          "label": "Assembly of the classical zero-free region from its six inputs",
+          "declaration": "Formalism.ZF.zeroFreeRegion",
+          "related_declarations": [
+            "Formalism.ZF.landauLocal"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.landauLocal": 15,
+            "Formalism.ZF.zeroFreeRegion": 17
+          },
+          "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+          "lines": [
+            15,
+            19
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/FinalZFR.lean#L15-L19"
+        },
+        {
+          "label": "Middle regime: zero sum of size (60/c)ℓ² and remainder 1440ℓ",
+          "declaration": "Formalism.ZF.ldr_mid",
+          "declaration_lines": {
+            "Formalism.ZF.ldr_mid": 9
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LdrMid.lean",
+          "lines": [
+            9,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LdrMid.lean#L9-L124"
+        },
+        {
+          "label": "Three regimes of the regional logarithmic-derivative bound",
+          "declaration": "Formalism.ZF.logDerivBoundInRegionOfBounds",
+          "declaration_lines": {
+            "Formalism.ZF.logDerivBoundInRegionOfBounds": 10
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LogDerivRegionOf.lean",
+          "lines": [
+            10,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LogDerivRegionOf.lean#L10-L85"
+        },
+        {
+          "label": "Assembly of the regional logarithmic-derivative bound",
+          "declaration": "Formalism.ZF.logDerivRegion",
+          "declaration_lines": {
+            "Formalism.ZF.logDerivRegion": 14
+          },
+          "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+          "lines": [
+            14,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/LogDerivRegion.lean#L14-L16"
+        },
+        {
+          "label": "Mellin transform of the smoothed prime sum and the Perron integral",
+          "declaration": "Formalism.ZF.perron_formula",
+          "related_declarations": [
+            "Formalism.ZF.perron_mellin_Sz",
+            "Formalism.ZF.perron_mellinConvergent",
+            "Formalism.ZF.perron_verticalIntegrable"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.perron_mellin_Sz": 210,
+            "Formalism.ZF.perron_mellinConvergent": 226,
+            "Formalism.ZF.perron_verticalIntegrable": 247,
+            "Formalism.ZF.perron_formula": 262
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/Perron.lean",
+          "lines": [
+            210,
+            280
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/Perron.lean#L210-L280"
+        },
+        {
+          "label": "Rectangle integral of a holomorphic function plus a double and a simple pole",
+          "declaration": "Formalism.ZF.rectangle_double_pole",
+          "related_declarations": [
+            "Formalism.ZF.rdp_rectInt_double",
+            "Formalism.ZF.rdp_seg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.rdp_rectInt_double": 80,
+            "Formalism.ZF.rdp_seg": 88,
+            "Formalism.ZF.rectangle_double_pole": 103
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RectDoublePole.lean",
+          "lines": [
+            80,
+            149
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RectDoublePole.lean#L80-L149"
+        },
+        {
+          "label": "Laurent coefficients y and y log y − (1+γ)y at w = 1",
+          "declaration": "Formalism.ZF.laurentExpansionAtOne",
+          "related_declarations": [
+            "Formalism.ZF.laH_deriv_one"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.laH_deriv_one": 34,
+            "Formalism.ZF.laurentExpansionAtOne": 50
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LaurentAtOne.lean",
+          "lines": [
+            34,
+            89
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LaurentAtOne.lean#L34-L89"
+        },
+        {
+          "label": "Residue of the Perron integrand around a zero-free rectangle",
+          "declaration": "Formalism.ZF.rectangleShiftOfResidue",
+          "declaration_lines": {
+            "Formalism.ZF.rectangleShiftOfResidue": 32
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RectShiftOf.lean",
+          "lines": [
+            32,
+            88
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RectShiftOf.lean#L32-L88"
+        },
+        {
+          "label": "Edge estimates on the right line, the horizontal edges and the shifted line",
+          "declaration": "Formalism.ZF.norm_perronIntegrand_le_left",
+          "related_declarations": [
+            "Formalism.ZF.riemannZeta_ne_zero_of_mem_rectangle",
+            "Formalism.ZF.norm_perronIntegrand_le_right",
+            "Formalism.ZF.norm_perronIntegrand_le_horizontal"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.riemannZeta_ne_zero_of_mem_rectangle": 27,
+            "Formalism.ZF.norm_perronIntegrand_le_right": 35,
+            "Formalism.ZF.norm_perronIntegrand_le_horizontal": 70,
+            "Formalism.ZF.norm_perronIntegrand_le_left": 113
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RiemannZetaNeZeroOfMemRectangle.lean",
+          "lines": [
+            27,
+            172
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/RiemannZetaNeZeroOfMemRectangle.lean#L27-L172"
+        },
+        {
+          "label": "Contour shift for large logarithmic height",
+          "declaration": "Formalism.ZF.abs_zetaPrimeSumError_le_of_large",
+          "declaration_lines": {
+            "Formalism.ZF.abs_zetaPrimeSumError_le_of_large": 12
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+          "lines": [
+            12,
+            198
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean#L12-L198"
+        },
+        {
+          "label": "Trivial bound 0 ≤ S(y) ≤ y² log y",
+          "declaration": "Formalism.ZF.abs_zetaPrimeSumError_le_of_one_le",
+          "related_declarations": [
+            "Formalism.ZF.zetaPrimeSum_nonneg_and_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.zetaPrimeSum_nonneg_and_le": 10,
+            "Formalism.ZF.abs_zetaPrimeSumError_le_of_one_le": 38
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfOneLe.lean",
+          "lines": [
+            10,
+            51
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfOneLe.lean#L10-L51"
+        },
+        {
+          "label": "Bounded logarithmic height absorbed into the constant",
+          "declaration": "Formalism.ZF.abs_zetaPrimeSumError_le_of_sqrt_log_lt",
+          "declaration_lines": {
+            "Formalism.ZF.abs_zetaPrimeSumError_le_of_sqrt_log_lt": 11
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean",
+          "lines": [
+            11,
+            46
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean#L11-L46"
+        },
+        {
+          "label": "Choice of the final constants c/8 and max(A, B)",
+          "declaration": "Formalism.ZF.zetaPrimeSumErrorBoundOfBounds",
+          "declaration_lines": {
+            "Formalism.ZF.zetaPrimeSumErrorBoundOfBounds": 48
+          },
+          "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean",
+          "lines": [
+            48,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean#L48-L93"
+        },
+        {
+          "label": "Assembly of the rectangle shift and the smoothed prime number theorem",
+          "declaration": "Formalism.ZF.gzPNT",
+          "related_declarations": [
+            "Formalism.ZF.rectShift"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.rectShift": 18,
+            "Formalism.ZF.gzPNT": 20
+          },
+          "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+          "lines": [
+            18,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/LogDerivRegion.lean#L18-L21"
+        },
+        {
+          "label": "The three target statements for zeta",
+          "declaration": "Formalism.ZF.ZeroFreeRegion",
+          "related_declarations": [
+            "Formalism.ZF.LogDerivRegion",
+            "Formalism.ZF.GzPNT"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.LogDerivRegion": 12,
+            "Formalism.ZF.GzPNT": 16,
+            "Formalism.ZF.ZeroFreeRegion": 9
+          },
+          "path": "src/Formalism/ZeroFreeRegion/Statement.lean",
+          "lines": [
+            9,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/Statement.lean#L9-L18"
+        },
+        {
+          "label": "The smoothed prime sum and its normalized error",
+          "declaration": "Formalism.Gz",
+          "related_declarations": [
+            "Formalism.Sz"
+          ],
+          "declaration_lines": {
+            "Formalism.Sz": 11,
+            "Formalism.Gz": 13
+          },
+          "path": "src/Formalism/StatementOC.lean",
+          "lines": [
+            11,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/StatementOC.lean#L11-L13"
+        },
+        {
+          "label": "Intermediate statements for the zeta region and the contour shift",
+          "declaration": "Formalism.ZF.ZeroFreeOf",
+          "related_declarations": [
+            "Formalism.ZF.ThreeFourOne",
+            "Formalism.ZF.LogDerivRight",
+            "Formalism.ZF.ZetaGrowth",
+            "Formalism.ZF.ZetaInvBound",
+            "Formalism.ZF.SmallHeight",
+            "Formalism.ZF.SmallHeightLogDeriv",
+            "Formalism.ZF.Fy",
+            "Formalism.ZF.Perron",
+            "Formalism.ZF.RectDoublePole",
+            "Formalism.ZF.LaurentAtOne",
+            "Formalism.ZF.RectShift",
+            "Formalism.ZF.LogDerivRegionOf",
+            "Formalism.ZF.RectShiftOf",
+            "Formalism.ZF.GzPNTOf"
+          ],
+          "declaration_lines": {
+            "Formalism.ZF.ThreeFourOne": 19,
+            "Formalism.ZF.LogDerivRight": 25,
+            "Formalism.ZF.ZetaGrowth": 29,
+            "Formalism.ZF.ZetaInvBound": 32,
+            "Formalism.ZF.SmallHeight": 35,
+            "Formalism.ZF.SmallHeightLogDeriv": 38,
+            "Formalism.ZF.Fy": 63,
+            "Formalism.ZF.Perron": 66,
+            "Formalism.ZF.RectDoublePole": 71,
+            "Formalism.ZF.LaurentAtOne": 78,
+            "Formalism.ZF.RectShift": 83,
+            "Formalism.ZF.LogDerivRegionOf": 95,
+            "Formalism.ZF.RectShiftOf": 99,
+            "Formalism.ZF.GzPNTOf": 101,
+            "Formalism.ZF.ZeroFreeOf": 91
+          },
+          "path": "src/Formalism/ZeroFreeRegion/SmallHeightLogDeriv.lean",
+          "lines": [
+            19,
+            102
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/ZeroFreeRegion/SmallHeightLogDeriv.lean#L19-L102"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "The coefficientwise identity 3 + 4 cos θ + cos 2θ = 2(1 + cos θ)² and the disk lemma on radius 1/2 with M = (|t| + 2)^10 give 4/(σ − β) ≤ 37201 log(|t| + 2) at σ = 1 + (1/10000)/log(|t| + 2), hence the exponent 1/200000 above height max(3, exp(3C)); compactness below that height gives min(1/200000, c₂ log 2). The regional bound splits into three regimes with constant (1441 + 60/c₀) + (4 + 4C_R) + 4|C_S|, and the Perron integral shifted to 1 − c/log(T + 2) with T = exp(c√(log y)/4) leaves the double-pole residue y log y − (1 + γ)y.",
+      "review": "Checked 1/(σ − 1) = 10000ℓ, 3·10000 + 4·1440 + 1440 = 37200, 4/37201 > 21/200000, the tenth-power growth ratio from 6(T + 2) and (σ − 1)/2, the three regimes with 10/log 2 ≤ 15 and 2/ℓ ≤ 1/12 for ℓ ≥ 24, the Laurent coefficients H(1) = y and H′(1) = y log y − (1 + γ)y, the sign of the rectangle identity, and the final constants c/8 and max(A, B)."
+    },
+    {
+      "id": "DZF-02",
+      "chapter": "inputs",
+      "anchor": "inputs-dirichlet-local-zero-sum",
+      "title": "Twisted Möbius inverse bound, uniform right-of-one logarithmic derivative, and local zero sum with derivative-witnessed multiplicities at 11/10 + it",
+      "hypotheses": "Modulus q ≥ 1, Dirichlet character χ modulo q with L-function L(s, χ), D_χ(s) = −L′(s, χ)/L(s, χ) and σ = Re s; the right-of-one constant C_R ≥ 0 for ζ from DZF-01; for the local sum, χ nonprincipal, t real, and a growth constant C with |L(s, χ)| ≤ C q (1 + |s|) for every nonprincipal χ and Re s ≥ 1/2 (the partial-summation estimate of LZE-02), C₁ = max(C, 1); for the disk lemma, f complex differentiable on the closed disk of centre z₀ and radius r > 0 with f(z₀) ≠ 0, |f| ≤ M |f(z₀)| on that disk and M ≥ 1.",
+      "statement": "For every q ≥ 1, every χ modulo q and Re s > 1, |L(s, χ)|⁻¹ ≤ σ/(σ − 1) and |D_χ(s)| ≤ 1/(σ − 1) + C_R. The disk lemma of LZE-01 holds with multiplicities m(ρ) ≥ 1 that satisfy m(ρ) ≥ 2 when f′(ρ) = 0 and m(ρ) = 1 when f′(ρ) ≠ 0. With C₀ = 120(1 + log(22C₁)/log 2), for every q ≥ 1, nonprincipal χ and real t, the zeros of L(·, χ) in the closed disk of centre 11/10 + it and radius 1/5 form a finite set Z with multiplicities m(ρ) ≥ 1, m(ρ) ≥ 2 whenever L′(ρ, χ) = 0, and Re D_χ(σ + it) ≤ C₀ log(q(|t| + 2)) − ∑_{ρ∈Z} m(ρ) Re(1/(σ + it − ρ)) for every 1 < σ ≤ 6/5.",
+      "definitions": [
+        "negative logarithmic derivative D_χ(s) = −L′(s, χ)/L(s, χ)",
+        "local zero set Z = {ρ : |ρ − (11/10 + it)| ≤ 1/5, L(ρ, χ) = 0} with multiplicities m(ρ) ∈ ℕ, m(ρ) ≥ 1",
+        "growth ratio M = 22 C₁ q (|t| + 2) on the closed disk of centre 11/10 + it and radius 3/5, with |L(11/10 + it, χ)| ≥ 1/11"
+      ],
+      "equations": [
+        "inputs-dirichlet-multiplicity-witness",
+        "inputs-dirichlet-local-sum"
+      ],
+      "dependencies": [
+        "LZE-01",
+        "LZE-02",
+        "DZF-01"
+      ],
+      "sources": [
+        {
+          "label": "Twisted Möbius inversion and the bound σ/(σ−1) for the reciprocal",
+          "declaration": "Formalism.ZeroFreeDirichlet.inverseBound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.norm_term_twist_moebius_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.norm_term_twist_moebius_le": 12,
+            "Formalism.ZeroFreeDirichlet.inverseBound": 23
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+          "lines": [
+            12,
+            86
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean#L12-L86"
+        },
+        {
+          "label": "Twisted von Mangoldt series and the right-of-one bound with the zeta constant",
+          "declaration": "Formalism.ZeroFreeDirichlet.l_log_deriv_right",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.negLD_eq_LSeries_mul_vonMangoldt",
+            "Formalism.ZeroFreeDirichlet.norm_LSeries_twist_vonMangoldt_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.negLD_eq_LSeries_mul_vonMangoldt": 88,
+            "Formalism.ZeroFreeDirichlet.norm_LSeries_twist_vonMangoldt_le": 96,
+            "Formalism.ZeroFreeDirichlet.l_log_deriv_right": 116
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+          "lines": [
+            88,
+            126
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean#L88-L126"
+        },
+        {
+          "label": "Local factorization and the derivative test for multiplicity one",
+          "declaration": "Formalism.ZeroFreeDirichlet.exists_localZeroExpansion_of_bound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.differentiable_prod_sub_pow",
+            "Formalism.ZeroFreeDirichlet.deriv_sub_mul_at_self",
+            "Formalism.ZeroFreeDirichlet.deriv_eq_zero_iff_mult_of_local_factor"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.differentiable_prod_sub_pow": 12,
+            "Formalism.ZeroFreeDirichlet.deriv_sub_mul_at_self": 20,
+            "Formalism.ZeroFreeDirichlet.deriv_eq_zero_iff_mult_of_local_factor": 27,
+            "Formalism.ZeroFreeDirichlet.exists_localZeroExpansion_of_bound": 49
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean",
+          "lines": [
+            12,
+            180
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean#L12-L180"
+        },
+        {
+          "label": "The disk lemma with the derivative witness clause",
+          "declaration": "Formalism.ZeroFreeDirichlet.localZeroExpansionWithMultiplicity",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.localZeroExpansionWithMultiplicity": 8
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZeroExpansionWithMultiplicity.lean",
+          "lines": [
+            8,
+            11
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZeroExpansionWithMultiplicity.lean#L8-L11"
+        },
+        {
+          "label": "Disk lemma with the exact multiplicity-one clause",
+          "declaration": "Formalism.ZeroFreeDirichlet.landau_local3",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.landau_local3": 8
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LandauLocal3.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LandauLocal3.lean#L8-L9"
+        },
+        {
+          "label": "Statement of the disk lemma with both multiplicity clauses",
+          "declaration": "Formalism.ZeroFreeDirichlet.LandauLocal3",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.LandauLocal3": 57
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean",
+          "lines": [
+            57,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean#L57-L68"
+        },
+        {
+          "label": "Centre 11/10 + it, radius 3/5 and the constant 120(1 + log(22C)/log 2)",
+          "declaration": "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.re_sub_le_re_of_mem_closedBall",
+            "Formalism.ZeroFreeDirichlet.norm_le_norm_add_of_mem_closedBall",
+            "Formalism.ZeroFreeDirichlet.norm_center_le",
+            "Formalism.ZeroFreeDirichlet.re_sum_div_sub",
+            "Formalism.ZeroFreeDirichlet.log_le_div_log_two_mul"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.re_sub_le_re_of_mem_closedBall": 9,
+            "Formalism.ZeroFreeDirichlet.norm_le_norm_add_of_mem_closedBall": 16,
+            "Formalism.ZeroFreeDirichlet.norm_center_le": 22,
+            "Formalism.ZeroFreeDirichlet.re_sum_div_sub": 31,
+            "Formalism.ZeroFreeDirichlet.log_le_div_log_two_mul": 37,
+            "Formalism.ZeroFreeDirichlet.localZeroSumBoundOfBounds": 44
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+          "lines": [
+            9,
+            137
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean#L9-L137"
+        },
+        {
+          "label": "Assembly of the local zero sum",
+          "declaration": "Formalism.ZeroFreeDirichlet.localZeros",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.localZeros": 17
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+          "lines": [
+            17,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean#L17-L18"
+        },
+        {
+          "label": "Statements of the inverse, growth, right-of-one and local zero-sum bounds",
+          "declaration": "Formalism.ZeroFreeDirichlet.LocalZeros",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.negLD",
+            "Formalism.ZeroFreeDirichlet.LandauLocal2",
+            "Formalism.ZeroFreeDirichlet.LGrowth",
+            "Formalism.ZeroFreeDirichlet.LInvBound",
+            "Formalism.ZeroFreeDirichlet.LLogDerivRight"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.negLD": 10,
+            "Formalism.ZeroFreeDirichlet.LandauLocal2": 13,
+            "Formalism.ZeroFreeDirichlet.LGrowth": 25,
+            "Formalism.ZeroFreeDirichlet.LInvBound": 29,
+            "Formalism.ZeroFreeDirichlet.LLogDerivRight": 33,
+            "Formalism.ZeroFreeDirichlet.LocalZeros": 61
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplexOf.lean",
+          "lines": [
+            10,
+            70
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/NoZeroComplexOf.lean#L10-L70"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "L(s, χ) times the twisted Möbius series equals one and the twisted von Mangoldt series is dominated termwise by the zeta series, giving σ/(σ − 1) and the zeta constant C_R uniformly in q and χ. Near a listed zero, f = (w − ρ)^m k with k(ρ) ≠ 0, so f′(ρ) = k(ρ) when m = 1 and f′(ρ) = 0 when m ≥ 2. The disk of radius 3/5 about 11/10 + it lies in Re z ≥ 1/2, the centre value is at least 1/11, the growth ratio is 22C₁q(|t| + 2), and the remainder is 72 log M/(3/5) = 120 log M.",
+      "review": "Checked (11/10)/(1/10) = 11, 1 + 11/10 + 3/5 ≤ 4 so 1 + |z| ≤ 2(|t| + 2), the radii 3/5 ÷ 3 = 1/5 and 3/5 ÷ 6 = 1/10 covering 1 < σ ≤ 6/5, log M ≤ (1 + log(22C₁)/log 2) log(q(|t| + 2)) from log(22C₁) ≥ 0 and log(q(|t| + 2)) ≥ log 2, and the product-rule computation of f′(ρ) for m = 1 and m ≥ 2."
+    },
+    {
+      "id": "DZF-03",
+      "chapter": "inputs",
+      "anchor": "inputs-dirichlet-zero-free-region",
+      "title": "Principal-character reduction, uniform principal logarithmic-derivative bound, 3–4–1 character positivity, and exclusion of nonreal and large-height real zeros near Re s = 1",
+      "hypotheses": "Modulus q ≥ 1 with principal character 1_q, Dirichlet characters χ, χ₁, χ₂ modulo q, D_χ(s) = −L′(s, χ)/L(s, χ), real σ > 1 and t; regions Re s ≥ 1 − c/log(q(|Im s| + 2)); the zeta region, regional bound, growth and reciprocal bounds of DZF-01 and the inverse, right-of-one and local zero-sum bounds of DZF-02 with constants C_R ≥ 0 and C₀.",
+      "statement": "If Re s > 0, s ≠ 1 and L(s, 1_q) = 0, then ζ(s) = 0. There is C_P with Re D_{1_q}(σ + it) ≤ Re(1/(σ − 1 + it)) + C_P log(q(|t| + 2)) for every q ≥ 1, real t and 1 < σ ≤ 2. For σ > 1: 0 ≤ 3 Re D_{1_q}(σ) + 4 Re D_χ(σ + it) + Re D_{χ²}(σ + 2it) for every χ and t; 0 ≤ Re D_{1_q}(σ) + Re D_χ(σ) when χ² = 1_q; and 0 ≤ Re D_{1_q}(σ) + Re D_{χ₁}(σ) + Re D_{χ₂}(σ) + Re D_{χ₁χ₂}(σ) when χ₁² = χ₂² = 1_q. There is c > 0 such that L(s, χ) ≠ 0 whenever χ² ≠ 1_q and Re s ≥ 1 − c/log(q(|Im s| + 2)). For every δ > 0 there is c > 0 such that L(s, χ) ≠ 0 whenever χ² = 1_q, χ ≠ 1_q, |Im s| ≥ δ/log(q(|Im s| + 2)) and Re s ≥ 1 − c/log(q(|Im s| + 2)).",
+      "definitions": [
+        "Dirichlet region of width c > 0 at modulus q: Re s ≥ 1 − c/log(q(|Im s| + 2))",
+        "principal constant C_P = K_ζ + 1 with K_ζ = 840 + |C_ζ| log 4 + |K₃|, where C_ζ is the regional constant for ζ and K₃ = ∑_n Λ(n) n^{−6/5}",
+        "nonreal exclusion constants A = 6|C₀| + 5C_R + 1, δ = min(1/10, 1/(2A)), c = δ/8; large-height constants K = 4 max(C₀, 0) + 2 max(C_P, 0) + 6C_R, a = min(δ/2, 1/10, 1/(4K + 1)), c = a/8"
+      ],
+      "equations": [
+        "inputs-dirichlet-three-four-one",
+        "inputs-dirichlet-nonreal-budget",
+        "inputs-dirichlet-real-budget"
+      ],
+      "dependencies": [
+        "DZF-01",
+        "DZF-02"
+      ],
+      "sources": [
+        {
+          "label": "Principal character: Euler factors do not vanish for Re s > 0",
+          "declaration": "Formalism.ZeroFreeDirichlet.trivialCharZerosOfZeta",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.one_sub_prime_cpow_neg_ne_zero"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.one_sub_prime_cpow_neg_ne_zero": 9,
+            "Formalism.ZeroFreeDirichlet.trivialCharZerosOfZeta": 19
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean",
+          "lines": [
+            9,
+            29
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean#L9-L29"
+        },
+        {
+          "label": "Each Euler factor changes the logarithmic derivative by at most log p",
+          "declaration": "Formalism.ZeroFreeDirichlet.re_negLogDeriv_le",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.euler_factor_logDeriv_bound"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.euler_factor_logDeriv_bound": 9,
+            "Formalism.ZeroFreeDirichlet.re_negLogDeriv_le": 49
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/EulerFactorLogDerivBound.lean",
+          "lines": [
+            9,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/EulerFactorLogDerivBound.lean#L9-L105"
+        },
+        {
+          "label": "Landau disk at 11/10 + it gives 840 log(|t|+2) for zeta",
+          "declaration": "Formalism.ZeroFreeDirichlet.zeta_log_deriv_landau_bound",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.re_ge_and_norm_zeta_le_of_near_eleven_tenths"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.re_ge_and_norm_zeta_le_of_near_eleven_tenths": 22,
+            "Formalism.ZeroFreeDirichlet.zeta_log_deriv_landau_bound": 57
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+          "lines": [
+            22,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean#L22-L117"
+        },
+        {
+          "label": "Three regimes for the real part of −ζ′/ζ with the pole term",
+          "declaration": "Formalism.ZeroFreeDirichlet.zeta_neg_log_deriv_re_bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.zeta_neg_log_deriv_re_bound": 119
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+          "lines": [
+            119,
+            192
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean#L119-L192"
+        },
+        {
+          "label": "Principal-character bound with constant K + 1",
+          "declaration": "Formalism.ZeroFreeDirichlet.trivial_log_deriv_bound",
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.trivial_log_deriv_bound": 11
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivLogDeriv.lean",
+          "lines": [
+            11,
+            23
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivLogDeriv.lean#L11-L23"
+        },
+        {
+          "label": "Coefficientwise 3–4–1 and one-plus-real positivity",
+          "declaration": "Formalism.ZeroFreeDirichlet.term_three_four_one_nonneg",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.term_ofReal_add_mul_I",
+            "Formalism.ZeroFreeDirichlet.term_ofReal",
+            "Formalism.ZeroFreeDirichlet.vonMangoldt_div_rpow_nonneg",
+            "Formalism.ZeroFreeDirichlet.eq_one_or_eq_neg_one_of_sq_eq_one",
+            "Formalism.ZeroFreeDirichlet.term_one_add_real_nonneg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.term_ofReal_add_mul_I": 23,
+            "Formalism.ZeroFreeDirichlet.term_ofReal": 37,
+            "Formalism.ZeroFreeDirichlet.vonMangoldt_div_rpow_nonneg": 48,
+            "Formalism.ZeroFreeDirichlet.eq_one_or_eq_neg_one_of_sq_eq_one": 90,
+            "Formalism.ZeroFreeDirichlet.term_one_add_real_nonneg": 96,
+            "Formalism.ZeroFreeDirichlet.term_three_four_one_nonneg": 51
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+          "lines": [
+            23,
+            109
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean#L23-L109"
+        },
+        {
+          "label": "Exclusion of zeros of nonreal characters",
+          "declaration": "Formalism.ZeroFreeDirichlet.zeroFreeNonRealCharOfBounds",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos_ter",
+            "Formalism.ZeroFreeDirichlet.sum_mult_re_one_div_sub_zeros_nonneg"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos_ter": 9,
+            "Formalism.ZeroFreeDirichlet.sum_mult_re_one_div_sub_zeros_nonneg": 22,
+            "Formalism.ZeroFreeDirichlet.zeroFreeNonRealCharOfBounds": 30
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/NoZeroComplexOf.lean",
+          "lines": [
+            9,
+            160
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/NoZeroComplexOf.lean#L9-L160"
+        },
+        {
+          "label": "Exclusion of zeros of real characters at height at least δ/ℓ",
+          "declaration": "Formalism.ZeroFreeDirichlet.realCharZeroFreeLargeHeightOfBounds",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos",
+            "Formalism.ZeroFreeDirichlet.re_one_div_ofReal_add_mul_I",
+            "Formalism.ZeroFreeDirichlet.two_le_mul_abs_add_two",
+            "Formalism.ZeroFreeDirichlet.log_mul_abs_two_mul_le"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.re_one_div_sub_zero_pos": 9,
+            "Formalism.ZeroFreeDirichlet.re_one_div_ofReal_add_mul_I": 22,
+            "Formalism.ZeroFreeDirichlet.two_le_mul_abs_add_two": 27,
+            "Formalism.ZeroFreeDirichlet.log_mul_abs_two_mul_le": 31,
+            "Formalism.ZeroFreeDirichlet.realCharZeroFreeLargeHeightOfBounds": 47
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean",
+          "lines": [
+            9,
+            168
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean#L9-L168"
+        },
+        {
+          "label": "Assembly of the nonreal and large-height exclusions",
+          "declaration": "Formalism.ZeroFreeDirichlet.noZeroComplex",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.realLargeT"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.realLargeT": 23,
+            "Formalism.ZeroFreeDirichlet.noZeroComplex": 20
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+          "lines": [
+            20,
+            24
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean#L20-L24"
+        },
+        {
+          "label": "Statements of positivity, the principal bound and the two exclusions",
+          "declaration": "Formalism.ZeroFreeDirichlet.Positivity",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.TrivLogDeriv",
+            "Formalism.ZeroFreeDirichlet.TrivZeros",
+            "Formalism.ZeroFreeDirichlet.NoZeroComplex",
+            "Formalism.ZeroFreeDirichlet.RealLargeT"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.TrivLogDeriv": 48,
+            "Formalism.ZeroFreeDirichlet.TrivZeros": 53,
+            "Formalism.ZeroFreeDirichlet.NoZeroComplex": 72,
+            "Formalism.ZeroFreeDirichlet.RealLargeT": 76,
+            "Formalism.ZeroFreeDirichlet.Positivity": 37
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplexOf.lean",
+          "lines": [
+            37,
+            79
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/NoZeroComplexOf.lean#L37-L79"
+        },
+        {
+          "label": "The Dirichlet region and the notion of an L-zero",
+          "declaration": "Formalism.ZeroFreeDirichlet.InRegion",
+          "related_declarations": [
+            "Formalism.ZeroFreeDirichlet.IsLZero"
+          ],
+          "declaration_lines": {
+            "Formalism.ZeroFreeDirichlet.IsLZero": 12,
+            "Formalism.ZeroFreeDirichlet.InRegion": 9
+          },
+          "path": "src/Formalism/LandauZeroFreeBounds/Statement.lean",
+          "lines": [
+            9,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LandauZeroFreeBounds/Statement.lean#L9-L13"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "L(s, 1_q) = ∏_{p∣q}(1 − p^{−s}) ζ(s) with nonvanishing Euler factors for Re s > 0, each changing the logarithmic derivative by at most log p; the zeta part of the principal bound uses the regional bound for |t| ≤ 2, the disk at 11/10 + it with M = 66(|t| + 2) and 120 log M ≤ 840 log(|t| + 2) for |t| > 2 and σ ≤ 6/5, and the absolutely convergent series beyond 6/5. On units, w = χ(n)n^{−it} gives 3 + 4 Re w + Re w² = 2(1 + Re w)²; the two exclusions test at σ = 1 + δ/ℓ and σ = 1 + a/L.",
+      "review": "Checked 4⁶ > 66 so 120 log(66(|t| + 2)) ≤ 840 log(|t| + 2) for |t| > 2, 2a(1 + x)² = a(3 + 4x + 2x² − 1), σ − β ≤ (9/8)(δ/ℓ), the budget 6Kℓ + 3C_R − (5/9)ℓu with u ≥ 2A and ℓ > 0.69, the pole term (σ − 1)/((σ − 1)² + 4t²) ≤ (a²/(4δ²))(L/a) ≤ (1/16)(L/a), and 3 − 32/9 + 1/16 + 1/4 = −35/144."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "landauLocal",
+      "callee": "localZeroExpansionOfFactorization",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 15,
+        "spelling": "localZeroExpansionOfFactorization"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "classicalZeroFreeRegionOfBounds",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 18,
+        "spelling": "classicalZeroFreeRegionOfBounds"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "mertensInequality",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 18,
+        "spelling": "mertensInequality"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "logDerivBoundRightHalfPlane",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 18,
+        "spelling": "logDerivBoundRightHalfPlane"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "growthBound",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 18,
+        "spelling": "growthBound"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "zetaInvBound_statement",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 18,
+        "spelling": "zetaInvBound_statement"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "zeroFreeBoundedHeight",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 19,
+        "spelling": "zeroFreeBoundedHeight"
+      }
+    },
+    {
+      "caller": "zeroFreeRegion",
+      "callee": "landauLocal",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/FinalZFR.lean",
+        "line": 19,
+        "spelling": "landauLocal"
+      }
+    },
+    {
+      "caller": "classicalZeroFreeRegionOfBounds",
+      "callee": "zfo_large",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZeroFreeOf.lean",
+        "line": 12,
+        "spelling": "zfo_large"
+      }
+    },
+    {
+      "caller": "zfo_large",
+      "callee": "zfo_landau",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean",
+        "line": 58,
+        "spelling": "zfo_landau"
+      }
+    },
+    {
+      "caller": "zfo_large",
+      "callee": "zfo_M_bound",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean",
+        "line": 59,
+        "spelling": "zfo_M_bound"
+      }
+    },
+    {
+      "caller": "zfo_large",
+      "callee": "zfo_diff_ball",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean",
+        "line": 58,
+        "spelling": "zfo_diff_ball"
+      }
+    },
+    {
+      "caller": "zfo_large",
+      "callee": "zfo_neg_re_le_norm",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/ZfoNegReLeNorm.lean",
+        "line": 75,
+        "spelling": "zfo_neg_re_le_norm"
+      }
+    },
+    {
+      "caller": "logDerivRegion",
+      "callee": "logDerivBoundInRegionOfBounds",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 15,
+        "spelling": "logDerivBoundInRegionOfBounds"
+      }
+    },
+    {
+      "caller": "rectShift",
+      "callee": "rectangleShiftOfResidue",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 18,
+        "spelling": "rectangleShiftOfResidue"
+      }
+    },
+    {
+      "caller": "rectShift",
+      "callee": "rectangle_double_pole",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 18,
+        "spelling": "rectangle_double_pole"
+      }
+    },
+    {
+      "caller": "rectShift",
+      "callee": "laurentExpansionAtOne",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 18,
+        "spelling": "laurentExpansionAtOne"
+      }
+    },
+    {
+      "caller": "gzPNT",
+      "callee": "zetaPrimeSumErrorBoundOfBounds",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 21,
+        "spelling": "zetaPrimeSumErrorBoundOfBounds"
+      }
+    },
+    {
+      "caller": "gzPNT",
+      "callee": "perron_formula",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 21,
+        "spelling": "perron_formula"
+      }
+    },
+    {
+      "caller": "gzPNT",
+      "callee": "rectShift",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/LogDerivRegion.lean",
+        "line": 21,
+        "spelling": "rectShift"
+      }
+    },
+    {
+      "caller": "logDerivBoundInRegionOfBounds",
+      "callee": "ldr_mid",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/LogDerivRegionOf.lean",
+        "line": 65,
+        "spelling": "Formalism.ZF.ldr_mid"
+      }
+    },
+    {
+      "caller": "zetaPrimeSumErrorBoundOfBounds",
+      "callee": "abs_zetaPrimeSumError_le_of_large",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean",
+        "line": 78,
+        "spelling": "abs_zetaPrimeSumError_le_of_large"
+      }
+    },
+    {
+      "caller": "zetaPrimeSumErrorBoundOfBounds",
+      "callee": "abs_zetaPrimeSumError_le_of_sqrt_log_lt",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean",
+        "line": 87,
+        "spelling": "abs_zetaPrimeSumError_le_of_sqrt_log_lt"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_sqrt_log_lt",
+      "callee": "abs_zetaPrimeSumError_le_of_one_le",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/GzPNTOf.lean",
+        "line": 40,
+        "spelling": "abs_zetaPrimeSumError_le_of_one_le"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "norm_sub_le_of_rectangle_identity",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 61,
+        "spelling": "norm_sub_le_of_rectangle_identity"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "riemannZeta_ne_zero_of_mem_rectangle",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 56,
+        "spelling": "riemannZeta_ne_zero_of_mem_rectangle"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "norm_perronIntegrand_le_right",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 73,
+        "spelling": "norm_perronIntegrand_le_right"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "norm_perronIntegrand_le_horizontal",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 80,
+        "spelling": "norm_perronIntegrand_le_horizontal"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "norm_perronIntegrand_le_left",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 91,
+        "spelling": "norm_perronIntegrand_le_left"
+      }
+    },
+    {
+      "caller": "abs_zetaPrimeSumError_le_of_large",
+      "callee": "log_exp_add_two_bounds",
+      "callsite": {
+        "path": "src/Formalism/ZeroFreeRegion/ZetaLogDerivativeBounds/AbsZetaPrimeSumErrorLeOfLarge.lean",
+        "line": 34,
+        "spelling": "log_exp_add_two_bounds"
+      }
+    },
+    {
+      "caller": "localZeros",
+      "callee": "localZeroSumBoundOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 18,
+        "spelling": "localZeroSumBoundOfBounds"
+      }
+    },
+    {
+      "caller": "localZeros",
+      "callee": "localZeroExpansionWithMultiplicity",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 18,
+        "spelling": "localZeroExpansionWithMultiplicity"
+      }
+    },
+    {
+      "caller": "localZeros",
+      "callee": "lfunction_polynomial_growth",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 18,
+        "spelling": "lfunction_polynomial_growth"
+      }
+    },
+    {
+      "caller": "localZeros",
+      "callee": "inverseBound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 18,
+        "spelling": "inverseBound"
+      }
+    },
+    {
+      "caller": "noZeroComplex",
+      "callee": "zeroFreeNonRealCharOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 21,
+        "spelling": "zeroFreeNonRealCharOfBounds"
+      }
+    },
+    {
+      "caller": "noZeroComplex",
+      "callee": "negLogDerivPositivity",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 21,
+        "spelling": "negLogDerivPositivity"
+      }
+    },
+    {
+      "caller": "noZeroComplex",
+      "callee": "l_log_deriv_right",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 21,
+        "spelling": "l_log_deriv_right"
+      }
+    },
+    {
+      "caller": "realLargeT",
+      "callee": "realCharZeroFreeLargeHeightOfBounds",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 24,
+        "spelling": "realCharZeroFreeLargeHeightOfBounds"
+      }
+    },
+    {
+      "caller": "realLargeT",
+      "callee": "trivial_log_deriv_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/NoZeroComplex.lean",
+        "line": 24,
+        "spelling": "trivial_log_deriv_bound"
+      }
+    },
+    {
+      "caller": "l_log_deriv_right",
+      "callee": "logDerivBoundRightHalfPlane",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 117,
+        "spelling": "Formalism.ZF.logDerivBoundRightHalfPlane"
+      }
+    },
+    {
+      "caller": "l_log_deriv_right",
+      "callee": "negLD_eq_LSeries_mul_vonMangoldt",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 120,
+        "spelling": "negLD_eq_LSeries_mul_vonMangoldt"
+      }
+    },
+    {
+      "caller": "l_log_deriv_right",
+      "callee": "norm_LSeries_twist_vonMangoldt_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 121,
+        "spelling": "norm_LSeries_twist_vonMangoldt_le"
+      }
+    },
+    {
+      "caller": "l_log_deriv_right",
+      "callee": "lamF_eq_norm",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 123,
+        "spelling": "Formalism.ZF.lamF_eq_norm"
+      }
+    },
+    {
+      "caller": "inverseBound",
+      "callee": "norm_term_twist_moebius_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 81,
+        "spelling": "norm_term_twist_moebius_le"
+      }
+    },
+    {
+      "caller": "inverseBound",
+      "callee": "mul_mu_eq_one",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 75,
+        "spelling": "DirichletCharacter.LSeries.mul_mu_eq_one"
+      }
+    },
+    {
+      "caller": "inverseBound",
+      "callee": "norm_term_one_succ",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 67,
+        "spelling": "norm_term_one_succ"
+      }
+    },
+    {
+      "caller": "inverseBound",
+      "callee": "summable_shift",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LRight.lean",
+        "line": 70,
+        "spelling": "summable_shift"
+      }
+    },
+    {
+      "caller": "exists_localZeroExpansion_of_bound",
+      "callee": "zeroFactorization",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean",
+        "line": 62,
+        "spelling": "Formalism.ZF.zeroFactorization"
+      }
+    },
+    {
+      "caller": "exists_localZeroExpansion_of_bound",
+      "callee": "deriv_eq_zero_iff_mult_of_local_factor",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean",
+        "line": 77,
+        "spelling": "deriv_eq_zero_iff_mult_of_local_factor"
+      }
+    },
+    {
+      "caller": "exists_localZeroExpansion_of_bound",
+      "callee": "logDerivBoundOnBall",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean",
+        "line": 152,
+        "spelling": "Formalism.ZF.logDerivBoundOnBall"
+      }
+    },
+    {
+      "caller": "exists_localZeroExpansion_of_bound",
+      "callee": "landauLocal_logDeriv_prod",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ExistsLocalZeroExpansionOfBound.lean",
+        "line": 172,
+        "spelling": "Formalism.ZF.landauLocal_logDeriv_prod"
+      }
+    },
+    {
+      "caller": "localZeroExpansionWithMultiplicity",
+      "callee": "exists_localZeroExpansion_of_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZeroExpansionWithMultiplicity.lean",
+        "line": 10,
+        "spelling": "exists_localZeroExpansion_of_bound"
+      }
+    },
+    {
+      "caller": "landau_local3",
+      "callee": "exists_localZeroExpansion_of_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LandauLocal3.lean",
+        "line": 9,
+        "spelling": "exists_localZeroExpansion_of_bound"
+      }
+    },
+    {
+      "caller": "localZeroSumBoundOfBounds",
+      "callee": "re_sub_le_re_of_mem_closedBall",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+        "line": 78,
+        "spelling": "re_sub_le_re_of_mem_closedBall"
+      }
+    },
+    {
+      "caller": "localZeroSumBoundOfBounds",
+      "callee": "norm_le_norm_add_of_mem_closedBall",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+        "line": 83,
+        "spelling": "norm_le_norm_add_of_mem_closedBall"
+      }
+    },
+    {
+      "caller": "localZeroSumBoundOfBounds",
+      "callee": "norm_center_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+        "line": 84,
+        "spelling": "norm_center_le"
+      }
+    },
+    {
+      "caller": "localZeroSumBoundOfBounds",
+      "callee": "log_le_div_log_two_mul",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+        "line": 122,
+        "spelling": "log_le_div_log_two_mul"
+      }
+    },
+    {
+      "caller": "localZeroSumBoundOfBounds",
+      "callee": "re_sum_div_sub",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LocalZerosOf.lean",
+        "line": 130,
+        "spelling": "re_sum_div_sub"
+      }
+    },
+    {
+      "caller": "trivial_log_deriv_bound",
+      "callee": "zeta_neg_log_deriv_re_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivLogDeriv.lean",
+        "line": 12,
+        "spelling": "zeta_neg_log_deriv_re_bound"
+      }
+    },
+    {
+      "caller": "trivial_log_deriv_bound",
+      "callee": "re_negLogDeriv_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivLogDeriv.lean",
+        "line": 15,
+        "spelling": "re_negLogDeriv_le"
+      }
+    },
+    {
+      "caller": "zeta_neg_log_deriv_re_bound",
+      "callee": "logDerivRegion",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+        "line": 122,
+        "spelling": "Formalism.ZF.logDerivRegion"
+      }
+    },
+    {
+      "caller": "zeta_neg_log_deriv_re_bound",
+      "callee": "zeta_log_deriv_landau_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+        "line": 166,
+        "spelling": "zeta_log_deriv_landau_bound"
+      }
+    },
+    {
+      "caller": "zeta_log_deriv_landau_bound",
+      "callee": "landauLocal",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+        "line": 72,
+        "spelling": "Formalism.ZF.landauLocal"
+      }
+    },
+    {
+      "caller": "zeta_log_deriv_landau_bound",
+      "callee": "zetaInvBound_statement",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+        "line": 61,
+        "spelling": "Formalism.ZF.zetaInvBound_statement"
+      }
+    },
+    {
+      "caller": "re_ge_and_norm_zeta_le_of_near_eleven_tenths",
+      "callee": "growthBound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/ZetaLogDerivLandauBound.lean",
+        "line": 48,
+        "spelling": "Formalism.ZF.growthBound"
+      }
+    },
+    {
+      "caller": "re_negLogDeriv_le",
+      "callee": "euler_factor_logDeriv_bound",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/EulerFactorLogDerivBound.lean",
+        "line": 58,
+        "spelling": "euler_factor_logDeriv_bound"
+      }
+    },
+    {
+      "caller": "re_negLogDeriv_le",
+      "callee": "LFunctionTrivChar_eq_mul_riemannZeta",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/EulerFactorLogDerivBound.lean",
+        "line": 62,
+        "spelling": "DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta"
+      }
+    },
+    {
+      "caller": "trivialCharZerosOfZeta",
+      "callee": "LFunctionTrivChar_eq_mul_riemannZeta",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean",
+        "line": 21,
+        "spelling": "DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta"
+      }
+    },
+    {
+      "caller": "trivialCharZerosOfZeta",
+      "callee": "one_sub_prime_cpow_neg_ne_zero",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/TrivReal.lean",
+        "line": 28,
+        "spelling": "one_sub_prime_cpow_neg_ne_zero"
+      }
+    },
+    {
+      "caller": "negLogDerivPositivity",
+      "callee": "term_three_four_one_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+        "line": 142,
+        "spelling": "term_three_four_one_nonneg"
+      }
+    },
+    {
+      "caller": "negLogDerivPositivity",
+      "callee": "term_one_add_real_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+        "line": 143,
+        "spelling": "term_one_add_real_nonneg"
+      }
+    },
+    {
+      "caller": "negLogDerivPositivity",
+      "callee": "hasSum_re_term",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/Positivity.lean",
+        "line": 134,
+        "spelling": "hasSum_re_term"
+      }
+    },
+    {
+      "caller": "zeroFreeNonRealCharOfBounds",
+      "callee": "re_one_div_sub_zero_pos_ter",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/NoZeroComplexOf.lean",
+        "line": 102,
+        "spelling": "re_one_div_sub_zero_pos_ter"
+      }
+    },
+    {
+      "caller": "zeroFreeNonRealCharOfBounds",
+      "callee": "sum_mult_re_one_div_sub_zeros_nonneg",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/NoZeroComplexOf.lean",
+        "line": 137,
+        "spelling": "sum_mult_re_one_div_sub_zeros_nonneg"
+      }
+    },
+    {
+      "caller": "realCharZeroFreeLargeHeightOfBounds",
+      "callee": "two_le_mul_abs_add_two",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean",
+        "line": 75,
+        "spelling": "two_le_mul_abs_add_two"
+      }
+    },
+    {
+      "caller": "realCharZeroFreeLargeHeightOfBounds",
+      "callee": "re_one_div_sub_zero_pos",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean",
+        "line": 103,
+        "spelling": "re_one_div_sub_zero_pos"
+      }
+    },
+    {
+      "caller": "realCharZeroFreeLargeHeightOfBounds",
+      "callee": "re_one_div_ofReal_add_mul_I",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean",
+        "line": 130,
+        "spelling": "re_one_div_ofReal_add_mul_I"
+      }
+    },
+    {
+      "caller": "realCharZeroFreeLargeHeightOfBounds",
+      "callee": "log_mul_abs_two_mul_le",
+      "callsite": {
+        "path": "src/Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/RealLargeTOf.lean",
+        "line": 151,
+        "spelling": "log_mul_abs_two_mul_le"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "LZE-01",
+      "DZF-01"
+    ],
+    [
+      "LZE-01",
+      "DZF-02"
+    ],
+    [
+      "LZE-02",
+      "DZF-02"
+    ],
+    [
+      "DZF-01",
+      "DZF-02"
+    ],
+    [
+      "DZF-01",
+      "DZF-03"
+    ],
+    [
+      "DZF-02",
+      "DZF-03"
+    ]
+  ],
+  "outstanding": [
+    "The same-character small-height argument, the comparison of two real characters and the final assembly of the Dirichlet region with at most one exceptional zero are given in the exceptional-twist passages, which cite these three results as dependencies. Siegel’s lower bound for L(1, χ) is used by neither of the three results here."
+  ],
+  "review_scope": "Checked the 3–4–1 budget 37200ℓ + 3C ≤ 37201ℓ and the exponent 1/200000, the growth ratio (|t| + 2)^10 on disks of radius one half, the three regimes of the regional bound with constant (1441 + 60/c₀) + (4 + 4C_R) + 4|C_S|, the Perron–rectangle identity with residue y log y − (1 + γ)y and final constants c/8 and max(A, B), the twisted inverse bound σ/(σ − 1), the uniform right-of-one constant, the derivative test for multiplicities, the disk at 11/10 + it with M = 22C₁q(|t| + 2) and 120 log M, the principal-character reduction and constant K_ζ + 1, the coefficient identity 2a(1 + Re w)², and the nonreal and large-height budgets; 49 pinned source ranges with 78 verified callsites."
+}

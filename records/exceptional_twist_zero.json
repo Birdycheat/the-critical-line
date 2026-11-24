@@ -21,7 +21,9 @@
         "inputs-exceptional-positive",
         "inputs-exceptional-budget"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "DZF-02"
+      ],
       "correspondence": "All zeros of a nonprincipal character have Re ρ<1, so the real parts of their reciprocal distances from σ are positive. Retain each named zero with multiplicity at least one: each gives ≥1/(3e), while the principal allowance is 1/(2e). The product character gives at most Cℓ. Positivity contradicts the total upper bound 3Cℓ+C′−1/(6e)≤(H−1)ℓ−(10/3)Hℓ<0.",
       "sources": [
         {
@@ -157,7 +159,10 @@
       ],
       "equations": [],
       "dependencies": [
-        "ETZ-01"
+        "ETZ-01",
+        "DZF-01",
+        "DZF-02",
+        "DZF-03"
       ],
       "correspondence": "Two distinct zeros or a zero of multiplicity at least two would violate that strict inequality. Conjugation of a real Dirichlet character's L-function then excludes a nonreal zero. The global statement uses separate proofs for the other character and imaginary-part cases. The change-of-level formula preserves each zero; the common product level has log(2M₁M₂)≤3log D. Uniqueness at that level yields agreement on common units.",
       "sources": [
@@ -498,6 +503,22 @@
   ],
   "derivation_edges": [
     [
+      "DZF-02",
+      "ETZ-01"
+    ],
+    [
+      "DZF-01",
+      "ETZ-02"
+    ],
+    [
+      "DZF-02",
+      "ETZ-02"
+    ],
+    [
+      "DZF-03",
+      "ETZ-02"
+    ],
+    [
       "ETZ-01",
       "ETZ-02"
     ],
@@ -649,7 +670,7 @@
     }
   ],
   "outstanding": [
-    "The analytic disk lemma with multiplicities, polynomial growth and right-of-one inverse estimate feeding localZeros; the Riemann zeta region, principal-character reduction, nonreal-character and large-imaginary-part exclusions feeding zFRDirichlet. The same-character small-height argument is summarized with its actual constants.",
+    "The disk lemma with derivative-witnessed multiplicities, polynomial growth and the right-of-one inverse estimate behind the local zero sum are reconstructed in DZF-02; the Riemann zeta region, principal-character reduction, nonreal-character and large-imaginary-part exclusions behind the combined Dirichlet region are reconstructed in DZF-01 and DZF-03. The same-character small-height argument is summarized with its actual constants.",
     "The independent proof of Siegel’s lower bound for L(1,χ), the right-of-one derivative control in excBound_of_siegelLower, and the complete relative progression theorem remain upstream. The comparison of two characters permits one exceptional real zero. The fixed-height estimate counts pairs carrying its possible aligned denominator.",
     "Variable-height selection, later zero-density exclusions and contour estimates have separate consumers."
   ],
