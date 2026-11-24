@@ -1,0 +1,860 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "LTD-01",
+      "chapter": "lifts",
+      "anchor": "lifts-base-change-descent-off-t",
+      "title": "Weak unitary descent, Jacquet–Shalika Speh-length collapse, and strong base-change descent off nonsplit sets",
+      "statement": "Let E be a CM number field unramified over its maximal totally real subfield at all finite places, let n ≥ 1, and let π be a regular algebraic conjugate self-dual cuspidal automorphic representation of GL_n(𝔸_E) unramified at every nonsplit finite place. (1) Combining the trace-formula dichotomy with partial-norm unitarity and split rigidity rules out nontrivial isobaric partitions, yielding a definite unitary automorphic representation σ of U(n) unramified at all nonsplit places whose local base change matches the Satake multiset of π at all but finitely many split places. (2) For any integer q > 1, d ≥ 1, and z ∈ ℂ, if every shifted parameter satisfies |z q^((d−1)/2 − k)| ∈ (q^(−1/2), q^(1/2)) (0 ≤ k < d), then d = 1; applying this to the Speh base change of σ collapses every Speh length d_i to 1. (3) Split rigidity and cuspidal multiplicity one then force a single cuspidal factor c = 1 with P_0 = π, identifying the split local component of σ with that of π at every split place and matching archimedean infinitesimal characters. (4) For polarized regular algebraic cuspidal representations, this yields strong base-change descent off every finite nonsplit set T.",
+      "hypotheses": "A CM field E unramified over E^+ at all finite places, a regular algebraic polarized (hence conjugate self-dual) cuspidal automorphic representation π of GL_n(𝔸_E) unramified at all nonsplit finite places, Speh base change, split rigidity, Jacquet–Shalika local bounds, cuspidal multiplicity one, and the weight-one geometric realizations of WGR-03.",
+      "correspondence": "Split rigidity eliminates multi-factor trace-formula outcomes to give weak unitary descent; the open multiplicative width q of the Jacquet–Shalika strip collapses every Speh segment length to d_i = 1; split rigidity and multiplicity one collapse the factor count to c = 1 with P_0 = π, upgrading weak descent to strong base-change descent off T.",
+      "dependencies": [
+        "WGR-03"
+      ],
+      "equations": [
+        "lifts-ltd-speh-collapse",
+        "lifts-ltd-strong-descent-match"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.Desc.desc_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Desc.desc_of": 127,
+            "UpperTheory.Gal.Desc.WeakAll": 18,
+            "UpperTheory.Gal.Desc.weakAll_of": 24,
+            "UpperTheory.Gal.Desc.len_one": 35,
+            "UpperTheory.Gal.Desc.match_of": 54
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/Strong.lean",
+          "lines": [
+            18,
+            140
+          ],
+          "label": "Weak unitary descent via split rigidity, Jacquet–Shalika collapse of Speh lengths to one, and strong base-change matching",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/Strong.lean#L18-L140",
+          "related_declarations": [
+            "UpperTheory.Gal.Desc.WeakAll",
+            "UpperTheory.Gal.Desc.weakAll_of",
+            "UpperTheory.Gal.Desc.len_one",
+            "UpperTheory.Gal.Desc.match_of"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Desc.descOffT",
+          "declaration_lines": {
+            "UpperTheory.Gal.Desc.descOffT": 31,
+            "UpperTheory.Gal.Desc.speh": 24,
+            "UpperTheory.Gal.Desc.weakAll": 26,
+            "UpperTheory.Gal.Desc.desc": 28
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+          "lines": [
+            24,
+            32
+          ],
+          "label": "Assembly of Speh base change, weak descent, strong descent, and strong base-change descent off nonsplit sets",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean#L24-L32",
+          "related_declarations": [
+            "UpperTheory.Gal.Desc.speh",
+            "UpperTheory.Gal.Desc.weakAll",
+            "UpperTheory.Gal.Desc.desc"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "LTD-02",
+      "chapter": "lifts",
+      "anchor": "lifts-joint-local-weil-closure",
+      "title": "Adic Frobenius sections, Galois-invariant crystalline period matrices, joint local Weil closure, and odd-rank crystalline descent assembly",
+      "statement": "Let ℓ be a prime, K a finite extension of ℚ_ℓ with Breuil–Kisin prism datum, and E a CM number field. (1) For any Weil–Deligne representation x and element σ, the nth power sum of the characteristic roots at σ equals the trace at σ^n. (2) In an ℓ-adically complete ring R where ℓ is a nonzerodivisor with endomorphism φ fixing ℓ and φ(u) = u^q (q > 0), any pair of matrices α, β with scaled inverses α α' = β β' = ℓ^(2N) I_d and ℓ(α − β) = u^q Γ satisfying ℓ^((2N+1)(n+1)+1) | u^(q^(n+1) − 1) for all n ≥ n_0 admits iterative products P_(n+1) = α φ(P_n) β' converging after rescaling to matrices Q, Q' with Q Q' = ℓ^(2k) I_d, Q ≡ Q' ≡ ℓ^k I_d (mod u), and Q β = α φ(Q); over A_cris this constructs the Frobenius section of every Breuil–Kisin frame. (3) For every crystalline frame, the Galois defect D = Q' ε' σ(Q) − ℓ^(2k) I_d is u-divisible and satisfies the twisted Frobenius equation, hence vanishes, forcing ε' σ(Q) = Q and yielding an invertible Galois-invariant matrix U = f(τ)^(−N) f(Y) Q ∈ GL_d(B_cris) satisfying ρ(g) σ_B(U) = U. (4) Bounding all Hodge–Tate jumps by a single integer N yields crystalline Breuil–Kisin frames on every approximating layer and on the limit lattice, transporting local finite-extension models inside single-trace closure and establishing joint local Weil moment closure. (5) Specializing the trace limit to odd rank, transferring all four local conditions (unramified, de Rham, crystalline, and Weil–Deligne polynomial) via LTD-01 to GL_m cuspidal forms, and patching across an infinite family of quadratic CM extensions assembles the complete odd-rank Galois attachment.",
+      "hypotheses": "A prime ℓ, a CM field E, Breuil–Kisin prism data and bounded-pole period rings at finite extensions K/ℚ_ℓ, strong base-change descent off T from LTD-01, and the four-property odd-rank congruence and trace-limit architecture.",
+      "correspondence": "Adic matrix iteration builds Frobenius sections in A_cris, u-divisible defect vanishing forces exact Galois invariance and produces an invertible B_cris period matrix, uniform jump bounds build linked crystalline layer frames for joint Weil moment closure, and quadratic CM patching plus strong base-change descent assemble the global odd-rank companion.",
+      "dependencies": [
+        "LTD-01"
+      ],
+      "equations": [
+        "lifts-ltd-acris-frobenius-section",
+        "lifts-ltd-galois-invariant-bcris"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.powTr_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.powTr_holds": 10
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowTrHolds.lean",
+          "lines": [
+            10,
+            17
+          ],
+          "label": "Identification of nth power sums of Weil–Deligne eigenvalues with the trace at the nth power of a Weil element",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowTrHolds.lean#L10-L17"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of": 13
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+          "lines": [
+            25,
+            53
+          ],
+          "label": "Local finite-extension model transport, Breuil–Kisin datum instantiation, and layer frame construction inside single-trace closure",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean#L25-L53"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.coreU_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.coreU_holds": 216
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoreUHolds.lean",
+          "lines": [
+            9,
+            303
+          ],
+          "label": "Adic matrix iteration converging to an invertible Frobenius-intertwining section congruent to a scalar power modulo u",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/CoreUHolds.lean#L9-L303"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds": 11
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean",
+          "lines": [
+            11,
+            37
+          ],
+          "label": "Uniform Hodge–Tate jump bound, semistable layer Breuil–Kisin frames, linked limit frame, and crystalline propagation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean#L11-L37"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds": 16
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+          "lines": [
+            16,
+            122
+          ],
+          "label": "Vanishing of the u-divisible Frobenius-twisted Galois defect forcing exact Galois invariance of the crystalline section",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean#L16-L122"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invU_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.invU_holds": 16
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvUHolds.lean",
+          "lines": [
+            16,
+            93
+          ],
+          "label": "Construction of an invertible Galois-invariant period matrix over the crystalline period ring from the section and integral frame",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvUHolds.lean#L16-L93"
+        },
+        {
+          "declaration": "UpperTheory.Gal.ClosedPhiFromClosedTrace.secU_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.ClosedPhiFromClosedTrace.secU_holds": 12
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/SecUHolds.lean",
+          "lines": [
+            12,
+            87
+          ],
+          "label": "Instantiation of the adic Frobenius section over the integral crystalline period ring for every Breuil–Kisin frame",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/SecUHolds.lean#L12-L87"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Lim.limFinOdd_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Lim.limFinOdd_of": 197
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TraceLimits/LimFinOddOf.lean",
+          "lines": [
+            196,
+            199
+          ],
+          "label": "Specialization of the four-property trace limit to odd-rank unitary congruence families",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TraceLimits/LimFinOddOf.lean#L196-L199"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Core.toCore",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.toCore": 61,
+            "UpperTheory.Gal.Int.Core.sphDown_holds": 37,
+            "UpperTheory.Gal.Int.Core.stepDown_holds": 43,
+            "UpperTheory.Gal.Int.Core.joinUp_holds": 46,
+            "UpperTheory.Gal.Int.Core.rowCsd_of": 48,
+            "UpperTheory.Gal.Int.Core.core_of_limU": 53,
+            "UpperTheory.Gal.Int.Core.core_of_limOdd": 56,
+            "UpperTheory.Gal.Int.Core.limOdd_of_limFinOdd": 59
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+          "lines": [
+            37,
+            64
+          ],
+          "label": "Spherical local descent, quadratic CM patching, and end-to-end assembly of the global odd-rank Galois attachment",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean#L37-L64",
+          "related_declarations": [
+            "UpperTheory.Gal.Int.Core.sphDown_holds",
+            "UpperTheory.Gal.Int.Core.stepDown_holds",
+            "UpperTheory.Gal.Int.Core.joinUp_holds",
+            "UpperTheory.Gal.Int.Core.rowCsd_of",
+            "UpperTheory.Gal.Int.Core.core_of_limU",
+            "UpperTheory.Gal.Int.Core.core_of_limOdd",
+            "UpperTheory.Gal.Int.Core.limOdd_of_limFinOdd"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Core.stepDown_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Core.stepDown_of": 92,
+            "UpperTheory.Gal.Int.Core.joinGL_holds": 64,
+            "UpperTheory.Gal.Int.Core.joinEnd_holds": 82
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinEndHolds.lean",
+          "lines": [
+            64,
+            136
+          ],
+          "label": "Transfer of all four local conditions from unitary descent to general linear cuspidal forms and infinite quadratic CM patching",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinEndHolds.lean#L64-L136",
+          "related_declarations": [
+            "UpperTheory.Gal.Int.Core.joinGL_holds",
+            "UpperTheory.Gal.Int.Core.joinEnd_holds"
+          ]
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "LTD-03",
+      "chapter": "lifts",
+      "anchor": "lifts-breuil-kisin-period-frames",
+      "title": "Integral spanning matrix lattices, Breuil–Kisin prism data, A_inf Frobenius–Galois equations, and Hodge–Tate operator power-sum expansion",
+      "statement": "Let ℓ be a prime, Γ a compact topological group, and K a finite extension of ℚ_ℓ. (1) Any continuous representation r : Γ → GL_a(ℚ̄_ℓ) has all matrix entries in a single finite extension L/ℚ_ℓ and admits a finite set t ⊆ M_a(L) spanning M_a(L) over ℚ_ℓ whose ℤ_ℓ-span contains I_a and is left r(Γ)-stable; product-tuple lattices carry linear relations modulo ℓ^N with a uniform trace-norm bound ℓ^K. (2) Every finite extension K/ℚ_ℓ admits an Eisenstein Breuil–Kisin prism datum over Witt vectors of its residue field, and every abstract local period-ring triple fits a concrete period-ring core matching algebraic sections, Teichmüller roots, Fontaine logarithms, unramified Frobenius, and the cyclotomic character. (3) For every Breuil–Kisin frame F with integral period matrix Y whose image under the Witt-vector inclusion equals τ^N T and Y Y' = τ^(2N) I_d, injectivity of the Witt-vector inclusion and unit-cancellation cocycle compatibility establish the three integral period equations φ(Y) = Y A_0, τ^N ρ(g) σ(Y) = σ(τ)^N Y ε(g), and E_0^N ε(g) σ(A_0) = σ(E_0)^N A_0 φ(ε(g)), where A_0 and E_0 denote the evaluations of A and E in A_inf; whenever F is de Rham, its rationalized representation is de Rham. (4) Every de Rham representation over L admits an adapted Hodge basis at each embedding τ : K ↪ L with exact de Rham graded multiplicities; a matrix u ∈ M_a(ℂ_ℓ) is the Hodge–Tate operator for scalar z if and only if u θ_D(V) = θ_D(V) diag(z^(p_i − q)); and whenever a lattice (ρ, b, e) reads r, the lattice and target Hodge–Tate operators satisfy u^n = ∑_i (U^n e)_i σ(b_i) for every n ≥ 0.",
+      "hypotheses": "A prime ℓ, a compact topological group Γ, a continuous representation r : Γ → GL_a(ℚ̄_ℓ), a finite extension K/ℚ_ℓ, local period-ring data (A_inf, A_cris, B_cris, B_dR), and an integral Breuil–Kisin frame or adapted de Rham representation.",
+      "correspondence": "Compact-image finiteness builds left-stable spanning lattices and modulo-ℓ^N precision towers; Eisenstein polynomials over Witt vectors construct Breuil–Kisin data and concrete period cores; unit-cancellation cocycle identities yield the three A_inf Frobenius–Galois equations and de Rham descent; adapted Hodge bases diagonalize the Hodge–Tate operator and expand u^n in lattice coordinates.",
+      "dependencies": [],
+      "equations": [
+        "lifts-ltd-ainf-frobenius-galois",
+        "lifts-ltd-hodge-tate-diagonal",
+        "lifts-ltd-hodge-tate-power-sum"
+      ],
+      "sources": [
+        {
+          "declaration": "GlobalTheory.exists_stable_spanning_finset",
+          "declaration_lines": {
+            "GlobalTheory.exists_stable_spanning_finset": 12
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsStableSpanningFinsetMatrices.lean",
+          "lines": [
+            12,
+            81
+          ],
+          "label": "Finite left-stable spanning matrix lattice containing the identity over a finite p-adic coefficient extension",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsStableSpanningFinsetMatrices.lean#L12-L81"
+        },
+        {
+          "declaration": "GlobalTheory.CompactRepField.exists_finiteDimensional_entries_mem_of_continuous",
+          "declaration_lines": {
+            "GlobalTheory.CompactRepField.exists_finiteDimensional_entries_mem_of_continuous": 10
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFiniteExtensionEntriesOfCompactRep.lean",
+          "lines": [
+            10,
+            24
+          ],
+          "label": "Realization of all matrix entries of a continuous compact-group representation inside a single finite extension of ℚ_ℓ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFiniteExtensionEntriesOfCompactRep.lean#L10-L24"
+        },
+        {
+          "declaration": "GlobalTheory.BKLim.isDR_of_frame_isDR",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.isDR_of_frame_isDR": 16
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsDeRhamOfBreuilKisinFrameIsDeRham.lean",
+          "lines": [
+            16,
+            41
+          ],
+          "label": "De Rham criterion transferring an invertible Galois-invariant period matrix from a de Rham Breuil–Kisin frame to its rational representation",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsDeRhamOfBreuilKisinFrameIsDeRham.lean#L16-L41"
+        },
+        {
+          "declaration": "GlobalTheory.HodgeAt.exists_hodge_at_embedding",
+          "declaration_lines": {
+            "GlobalTheory.HodgeAt.exists_hodge_at_embedding": 22
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean",
+          "lines": [
+            22,
+            75
+          ],
+          "label": "Adapted Hodge basis at a fixed embedding preserving exact de Rham graded filtration multiplicities",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean#L22-L75"
+        },
+        {
+          "declaration": "GlobalTheory.BKLim.isHT_iff_diag",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.isHT_iff_diag": 41,
+            "GlobalTheory.BKLim.HTDiag.theta_zero_of_pow_eq": 18
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsHodgeTateIffDiagonalAdaptedBasis.lean",
+          "lines": [
+            18,
+            185
+          ],
+          "label": "Characterization of the Hodge–Tate operator as the unique matrix diagonalized in the reduced adapted Hodge basis",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsHodgeTateIffDiagonalAdaptedBasis.lean#L18-L185",
+          "related_declarations": [
+            "GlobalTheory.BKLim.HTDiag.theta_zero_of_pow_eq"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.BKLim.htOp_pow_eq_sum",
+          "declaration_lines": {
+            "GlobalTheory.BKLim.htOp_pow_eq_sum": 15
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/HodgeTateOperatorPowEqSum.lean",
+          "lines": [
+            15,
+            115
+          ],
+          "label": "Exact power-sum expansion expressing powers of the target Hodge–Tate operator via lattice-level powers applied to the identity coordinates",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/HodgeTateOperatorPowEqSum.lean#L15-L115"
+        },
+        {
+          "declaration": "GlobalTheory.FrameEq.frame_Y_eqs",
+          "declaration_lines": {
+            "GlobalTheory.FrameEq.frame_Y_eqs": 67,
+            "GlobalTheory.FrameEq.map_inj": 14,
+            "GlobalTheory.FrameEq.map_smul_rh": 31,
+            "GlobalTheory.FrameEq.frobW_galW": 36,
+            "GlobalTheory.FrameEq.cocycle_frob": 41
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrameAinfMatrixFrobeniusGaloisEqs.lean",
+          "lines": [
+            14,
+            109
+          ],
+          "label": "Frobenius, Galois, and twisted cocycle compatibility equations for the integral period matrix of a Breuil–Kisin frame",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/FrameAinfMatrixFrobeniusGaloisEqs.lean#L14-L109",
+          "related_declarations": [
+            "GlobalTheory.FrameEq.map_inj",
+            "GlobalTheory.FrameEq.map_smul_rh",
+            "GlobalTheory.FrameEq.frobW_galW",
+            "GlobalTheory.FrameEq.cocycle_frob"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.TraceConjugationCover.traceL",
+          "declaration_lines": {
+            "GlobalTheory.TraceConjugationCover.traceL": 53,
+            "GlobalTheory.TraceConjugationCover.tup": 16,
+            "GlobalTheory.TraceConjugationCover.latL": 19,
+            "GlobalTheory.TraceConjugationCover.latT": 23,
+            "GlobalTheory.TraceConjugationCover.Carries": 27,
+            "GlobalTheory.TraceConjugationCover.zOm_smul": 36,
+            "GlobalTheory.TraceConjugationCover.norm_l": 41,
+            "GlobalTheory.TraceConjugationCover.norm_zOm_le": 45,
+            "GlobalTheory.TraceConjugationCover.tup_mem_latT": 49
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/TupMemLatT.lean",
+          "lines": [
+            16,
+            62
+          ],
+          "label": "Product-tuple integral matrix lattice, modulo-ℓ^N precision carrying predicate, and uniform trace-norm bound",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/TupMemLatT.lean#L16-L62",
+          "related_declarations": [
+            "GlobalTheory.TraceConjugationCover.tup",
+            "GlobalTheory.TraceConjugationCover.latL",
+            "GlobalTheory.TraceConjugationCover.latT",
+            "GlobalTheory.TraceConjugationCover.Carries",
+            "GlobalTheory.TraceConjugationCover.zOm_smul",
+            "GlobalTheory.TraceConjugationCover.norm_l",
+            "GlobalTheory.TraceConjugationCover.norm_zOm_le",
+            "GlobalTheory.TraceConjugationCover.tup_mem_latT"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+          "declaration_lines": {
+            "GlobalTheory.BSP.nonempty_bk_of_finExt": 28,
+            "GlobalTheory.BSP.wq_map_injective": 17
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+          "lines": [
+            17,
+            71
+          ],
+          "label": "Existence of a Breuil–Kisin Eisenstein prism datum over Witt vectors of the residue field for every finite extension of ℚ_ℓ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean#L17-L71",
+          "related_declarations": [
+            "GlobalTheory.BSP.wq_map_injective"
+          ]
+        },
+        {
+          "declaration": "GlobalTheory.MemLoc.FitsEx.exists_fits",
+          "declaration_lines": {
+            "GlobalTheory.MemLoc.FitsEx.exists_fits": 137,
+            "GlobalTheory.MemLoc.FitsEx.exists_lift": 17,
+            "GlobalTheory.MemLoc.FitsEx.eps_root": 29,
+            "GlobalTheory.MemLoc.FitsEx.isLog_unique": 40,
+            "GlobalTheory.MemLoc.FitsEx.exists_finExt": 45,
+            "GlobalTheory.MemLoc.FitsEx.iota_alg": 50,
+            "GlobalTheory.MemLoc.FitsEx.iota_inj": 56,
+            "GlobalTheory.MemLoc.FitsEx.phi_alg": 61,
+            "GlobalTheory.MemLoc.FitsEx.sigma_eq": 76,
+            "GlobalTheory.MemLoc.FitsEx.zeta_prim": 91,
+            "GlobalTheory.MemLoc.FitsEx.chi_eq": 100
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFinExt.lean",
+          "lines": [
+            17,
+            182
+          ],
+          "label": "Fitting abstract local period-ring triples to concrete period-ring cores via algebraic sections, Teichmüller roots, Fontaine logarithms, and cyclotomic congruences",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFinExt.lean#L17-L182",
+          "related_declarations": [
+            "GlobalTheory.MemLoc.FitsEx.exists_lift",
+            "GlobalTheory.MemLoc.FitsEx.eps_root",
+            "GlobalTheory.MemLoc.FitsEx.isLog_unique",
+            "GlobalTheory.MemLoc.FitsEx.exists_finExt",
+            "GlobalTheory.MemLoc.FitsEx.iota_alg",
+            "GlobalTheory.MemLoc.FitsEx.iota_inj",
+            "GlobalTheory.MemLoc.FitsEx.phi_alg",
+            "GlobalTheory.MemLoc.FitsEx.sigma_eq",
+            "GlobalTheory.MemLoc.FitsEx.zeta_prim",
+            "GlobalTheory.MemLoc.FitsEx.chi_eq"
+          ]
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Desc.match_of",
+      "callee": "GlobalTheory.SatInd.satake_locProd_speh",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/Strong.lean",
+        "line": 71,
+        "spelling": "GlobalTheory.SatInd.satake_locProd_speh"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.match_of",
+      "callee": "GlobalTheory.CuspRep.CsdUnitary.isUnitary_of_isCsd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/Strong.lean",
+        "line": 93,
+        "spelling": "GlobalTheory.CuspRep.CsdUnitary.isUnitary_of_isCsd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.desc_of",
+      "callee": "GlobalTheory.SplitUnram.isUnramifiedAt_of_isSplitAt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/Strong.lean",
+        "line": 133,
+        "spelling": "GlobalTheory.SplitUnram.isUnramifiedAt_of_isSplitAt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.speh",
+      "callee": "UpperTheory.BaseChangeIdentities.baseChangeNB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 24,
+        "spelling": "UpperTheory.BaseChangeIdentities.baseChangeNB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.weakAll",
+      "callee": "UpperTheory.V.Z.Tf.SR.splitRigid",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 26,
+        "spelling": "SR.splitRigid"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.weakAll",
+      "callee": "UpperTheory.V.Z.Tf.GaloisFromTraceFormula.runTh",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 26,
+        "spelling": "GaloisFromTraceFormula.runTh"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.desc",
+      "callee": "PositivityTheory.JacquetShalikaLocal.jacquetShalikaBound",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 29,
+        "spelling": "PositivityTheory.JacquetShalikaLocal.jacquetShalikaBound"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.desc",
+      "callee": "PositivityTheory.jumpWindows.cuspidalMultiplicityOne",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 29,
+        "spelling": "PositivityTheory.jumpWindows.cuspidalMultiplicityOne"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Desc.descOffT",
+      "callee": "GlobalTheory.Cong.descOffT_of_desc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/BaseChangeDescent/BcBackOffT.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.Cong.descOffT_of_desc"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.powTr_holds",
+      "callee": "GlobalTheory.AboveL.eig_pow_of_rep",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/PowTrHolds.lean",
+        "line": 14,
+        "spelling": "GlobalTheory.AboveL.eig_pow_of_rep"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+      "callee": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.BSP.nonempty_bk_of_finExt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.closedTr_of",
+      "callee": "GlobalTheory.BSP.exists_isPer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/ClosedPhiOfClosedTr.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.BSP.exists_isPer"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds",
+      "callee": "GlobalTheory.T.isSemistable_latticeInMatrixAlgebraLayer",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean",
+        "line": 28,
+        "spelling": "GlobalTheory.T.isSemistable_latticeInMatrixAlgebraLayer"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds",
+      "callee": "GlobalTheory.T.exists_breuilKisinFrame_semistable_boundedJumps",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean",
+        "line": 31,
+        "spelling": "GlobalTheory.T.exists_breuilKisinFrame_semistable_boundedJumps"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds",
+      "callee": "GlobalTheory.T.layer_DdR_bounds_alt",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean",
+        "line": 32,
+        "spelling": "GlobalTheory.T.layer_DdR_bounds_alt"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.frEx_holds",
+      "callee": "GlobalTheory.T.exists_deRhamFrame_limitLattice_breuilKisinTower",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/FrExHolds.lean",
+        "line": 34,
+        "spelling": "GlobalTheory.T.exists_deRhamFrame_limitLattice_breuilKisinTower"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+      "callee": "GlobalTheory.T.breuilKisinPreframe_bounded_poles",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.T.breuilKisinPreframe_bounded_poles"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+      "callee": "GlobalTheory.T.frame_ainf_matrix_frobenius_galois_eqs",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.frame_ainf_matrix_frobenius_galois_eqs"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+      "callee": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+        "line": 21,
+        "spelling": "GlobalTheory.T.acris_torsionFree_complete_frobenius_properties"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+      "callee": "GlobalTheory.T.frobenius_equation_of_twisted_cocycle_defect",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+        "line": 61,
+        "spelling": "GlobalTheory.T.frobenius_equation_of_twisted_cocycle_defect"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invQ_holds",
+      "callee": "GlobalTheory.T.acris_frobenius_matrix_eq_zero_of_dvd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvQHolds.lean",
+        "line": 115,
+        "spelling": "GlobalTheory.T.acris_frobenius_matrix_eq_zero_of_dvd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.ClosedPhiFromClosedTrace.invU_holds",
+      "callee": "GlobalTheory.CrisLoc.unit_of_root_aB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ClosedPhiFunctoriality/InvUHolds.lean",
+        "line": 28,
+        "spelling": "GlobalTheory.CrisLoc.unit_of_root_aB"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Lim.limFinOdd_of",
+      "callee": "UpperTheory.Gal.Lim.limWU4_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TraceLimits/LimFinOddOf.lean",
+        "line": 197,
+        "spelling": "limWU4_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.core_of_limU",
+      "callee": "GlobalTheory.RoadW.core_of_rowStarCore",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 54,
+        "spelling": "GlobalTheory.RoadW.core_of_rowStarCore"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.core_of_limOdd",
+      "callee": "UpperTheory.Gal.Int.Core.limU_of_limOdd",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/LimOddOfLimFinOdd.lean",
+        "line": 57,
+        "spelling": "limU_of_limOdd"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinGL_holds",
+      "callee": "GlobalTheory.Cong.exists_weight_of_isAutRepU",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinEndHolds.lean",
+        "line": 67,
+        "spelling": "GlobalTheory.Cong.exists_weight_of_isAutRepU"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.joinGL_holds",
+      "callee": "GlobalTheory.Cong.satake_locComp",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinEndHolds.lean",
+        "line": 71,
+        "spelling": "GlobalTheory.Cong.satake_locComp"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Core.stepDown_of",
+      "callee": "GlobalTheory.RoadW.sphAt_of_repIso",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/CrystallineDescent/JoinEndHolds.lean",
+        "line": 134,
+        "spelling": "GlobalTheory.RoadW.sphAt_of_repIso"
+      }
+    },
+    {
+      "caller": "GlobalTheory.exists_stable_spanning_finset",
+      "callee": "GlobalTheory.zl_span_image_finite",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsStableSpanningFinsetMatrices.lean",
+        "line": 15,
+        "spelling": "zl_span_image_finite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CompactRepField.exists_finiteDimensional_entries_mem_of_continuous",
+      "callee": "GlobalTheory.CompactRepField.exists_finiteDimensional_entries_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFiniteExtensionEntriesOfCompactRep.lean",
+        "line": 20,
+        "spelling": "exists_finiteDimensional_entries_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.isDR_of_frame_isDR",
+      "callee": "GlobalTheory.T.exists_invariant_basis_deRham_breuilKisin",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsDeRhamOfBreuilKisinFrameIsDeRham.lean",
+        "line": 20,
+        "spelling": "GlobalTheory.T.exists_invariant_basis_deRham_breuilKisin"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.isDR_of_frame_isDR",
+      "callee": "GlobalTheory.PMon.isDR_of_periodMatrix",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsDeRhamOfBreuilKisinFrameIsDeRham.lean",
+        "line": 22,
+        "spelling": "GlobalTheory.PMon.isDR_of_periodMatrix"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HodgeAt.exists_hodge_at_embedding",
+      "callee": "GlobalTheory.HodgeAt.exists_ext_fixing",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean",
+        "line": 29,
+        "spelling": "exists_ext_fixing"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HodgeAt.exists_hodge_at_embedding",
+      "callee": "GlobalTheory.T.exists_bdR_element_normalized_killing_phi_kernel",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean",
+        "line": 30,
+        "spelling": "GlobalTheory.T.exists_bdR_element_normalized_killing_phi_kernel"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HodgeAt.exists_hodge_at_embedding",
+      "callee": "GlobalTheory.T.card_eq_of_linIndep_spanning_deRham",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean",
+        "line": 71,
+        "spelling": "GlobalTheory.T.card_eq_of_linIndep_spanning_deRham"
+      }
+    },
+    {
+      "caller": "GlobalTheory.HodgeAt.exists_hodge_at_embedding",
+      "callee": "GlobalTheory.T.hodge_basis_of_adapted_invariant_family",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsHodgeBasisAtEmbedding.lean",
+        "line": 73,
+        "spelling": "GlobalTheory.T.hodge_basis_of_adapted_invariant_family"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BKLim.isHT_iff_diag",
+      "callee": "GlobalTheory.MemLoc.BdRField.bdR_isField",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsHodgeTateIffDiagonalAdaptedBasis.lean",
+        "line": 45,
+        "spelling": "BdRField.bdR_isField"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callee": "GlobalTheory.T.ringOfIntegers_finiteExt_isDVR_finite_unit_iff",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+        "line": 30,
+        "spelling": "GlobalTheory.T.ringOfIntegers_finiteExt_isDVR_finite_unit_iff"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callee": "GlobalTheory.T.exists_uniformiser_eisenstein_not_in_X_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+        "line": 38,
+        "spelling": "GlobalTheory.T.exists_uniformiser_eisenstein_not_in_X_pow"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callee": "GlobalTheory.T.breuilKisin_quotient_eisenstein_equiv",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+        "line": 39,
+        "spelling": "GlobalTheory.T.breuilKisin_quotient_eisenstein_equiv"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callee": "GlobalTheory.T.exists_breuilKisin_eval_teichmuller_tilt",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+        "line": 42,
+        "spelling": "GlobalTheory.T.exists_breuilKisin_eval_teichmuller_tilt"
+      }
+    },
+    {
+      "caller": "GlobalTheory.BSP.nonempty_bk_of_finExt",
+      "callee": "GlobalTheory.T.span_eq_ker_theta_of_distinguished_ainf",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/NonemptyBreuilKisinDatum.lean",
+        "line": 61,
+        "spelling": "GlobalTheory.T.span_eq_ker_theta_of_distinguished_ainf"
+      }
+    },
+    {
+      "caller": "GlobalTheory.MemLoc.FitsEx.exists_fits",
+      "callee": "GlobalTheory.MemLoc.exists_isLogA",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFinExt.lean",
+        "line": 163,
+        "spelling": "exists_isLogA"
+      }
+    },
+    {
+      "caller": "GlobalTheory.MemLoc.FitsEx.exists_fits",
+      "callee": "GlobalTheory.MemLoc.exists_frobenius_Kur",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsFinExt.lean",
+        "line": 164,
+        "spelling": "exists_frobenius_Kur"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "WGR-03",
+      "LTD-01"
+    ],
+    [
+      "LTD-01",
+      "LTD-02"
+    ]
+  ],
+  "outstanding": [
+    "The strong base-change descent off nonsplit sets, adic Frobenius section construction, Galois-invariant crystalline period matrices, joint local Weil moment closure, odd-rank crystalline descent assembly, integral spanning matrix lattices, Breuil–Kisin prism data, period-ring fitting, integral Frobenius–Galois equations, adapted Hodge bases, and Hodge–Tate operator power-sum expansion are reconstructed in LTD-01 through LTD-03."
+  ]
+}
