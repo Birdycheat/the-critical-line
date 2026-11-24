@@ -12,7 +12,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 04 | `normalization` | From the global theta function to an integral jet | `126` (`49` / `77`) | `0` | ✅ Terminé (Cycle 3 : `WFG-01`–`02` ferment `HTC-01`, `TDE-01`, `CED-01`–`02`, 100 % auto-contenu) |
-| 05 | `global` | Lattices and the arithmetic main term | `146` (`70` / `76`) | `5` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; interfaces amont restantes) |
+| 05 | `global` | Lattices and the arithmetic main term | `149` (`70` / `79`) | `2` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; Cycle 7 ✅ Terminé : `PGU-01`–`03` ferment `RPI-01`, `FMU-01`, `RFV-01` ; 2 interfaces amont restantes : `FDG-01`, `global.lattice`) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
 | 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
@@ -29,7 +29,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 4. ✅ **Cycle 4 (Terminé)** — **Ch. 8 (`inputs`)** : *Région sans zéro, répulsion de Bessel en $s=1$ et formule explicite tronquée pour les fonctions $L$ de classes de rayons sans équation fonctionnelle* (`ray-class-l-functions.fragment.html` + `ray_class_l_functions.json`, raccordé à `word-prime-window`, `word_prime_window.json` ; `RCL-01`–`03`, ferme les 4 interfaces analytiques amont de `WPW-01`).
 5. ✅ **Cycle 5 (Terminé)** — **Ch. 5 (`global`)** : *Réalisations isométriques de quotients et sous-réseaux arithmétiques et changement de base archimédien du sous-réseau orthogonal, du radical nilpotent et du centre* (`isometric-quotient-realization.fragment.html` + `isometric_quotient_realization.json`, raccordé à `deep-orbit-cover`, `unipotent-hom-cover`, `unipotent-first-radius`, `unipotent_first_radius.json`, `unipotent_lattice_radii.json` ; `IQR-01`–`02`, ferme `UFR-01`).
 6. ✅ **Cycle 6 (Terminé)** — **Ch. 5 (`global`)** : *Jauge de Haar riemannienne, jacobien de la carte exponentielle ordonnée, indice du sous-groupe de congruence et borne absolue de covolume hermitien* (`deep-cusp-jacobian-index.fragment.html` + `deep_cusp_jacobian_index.json`, raccordé à `deep-cusp-count`, `deep-sobolev`, `deep_cusp_count.json`, `deep_sobolev.json` ; `DCJ-01`–`03`, ferme `DCP-01`).
-7. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+7. ✅ **Cycle 7 (Terminé)** — **Ch. 5 (`global`)** : *Asymptotiques locales de jauge sur sous-groupes algébriques matriciels, module de conjugaison du radical unipotent isotrope, calibration par tranche de la constante d'Iwasawa, inégalité de covolume sur tranches dénombrables, finitude du volume quotient, constante arithmétique à cinq facteurs et majoration de $\zeta_E(l)$* (`parabolic-gauge-unfolding.fragment.html` + `parabolic_gauge_unfolding.json`, raccordé à `real-parabolic-integration`, `marked-flag-unfolding`, `rare-flag-volume`, `real_parabolic_integration.json`, `marked_flag_unfolding.json`, `rare_flag_volume.json` ; `PGU-01`–`03`, ferme `RPI-01`, `FMU-01` et `RFV-01`).
+8. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -58,13 +59,17 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | $\mathcal{D}$ | Domaine fondamental mesurable de $\Gamma = G(F)$ dans $G(\mathbb{A}_F)$ (lorsque le corps de base $F$ est en portée) | Ch. 5 |
 | $P_\infty = \prod_v c_v$ | Produit archimédien des constantes de jauge riemannienne de Haar | Ch. 5 |
 | $k_g = \mu_{\mathrm{fin}}(K_g)$ | Volume de Haar fini-adélique positif du sous-groupe de congruence de niveau $g$ | Ch. 5 |
+| $\nu_E = |\mathrm{disc}(E)|^{1/(2f)} / 2$ | Demi-discriminant racine du corps CM $E$ | Ch. 5 |
+| $d_N = \dim_{\mathbb{R}} N$ | Dimension réelle du radical unipotent d'un drapeau isotrope | Ch. 5 |
+| $V(r) = \mathrm{vol}(\mathrm{U}(r))$ | Volume de Hilbert–Schmidt du groupe unitaire compact $\mathrm{U}(r)$ | Ch. 5 |
+| $S(r) = \prod_{l=1}^r \frac{2\pi^l}{(l-1)!}$ | Produit des aires de sphères unitaires du groupe unitaire compact $\mathrm{U}(r)$ | Ch. 5 |
 
 ---
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`952` résultats au total après Cycle 6 : `371` `core-argument` / `581` `rebuilt-infrastructure`, `865` auto-contenus, `21` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`955` résultats au total après Cycle 7 : `371` `core-argument` / `584` `rebuilt-infrastructure`, `874` auto-contenus, `18` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -213,3 +218,34 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep` (`HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean#L37-L71`)
   - `GlobalTheory.UnitaryVolume.volume_unitary`, `volume_zero` (`RiemannianHaarGaugeVolumeUnitaryGroupEq.lean#L66-L133`)
   - `GlobalTheory.zetaProd_sphereVolume_bounds`, `GlobalTheory.ZetaProd.zeta_le`, `GlobalTheory.ZetaProd.prod_three_le` (`ZetaProdSphereVolumeBounds.lean#L9-L192`)
+
+
+### Cycle 7 — Mesures de Haar paraboliques, calibration d'Iwasawa et constante à cinq facteurs (`parabolic_gauge_unfolding`)
+- *Statut* : ✅ Terminé (`content/parabolic-gauge-unfolding.fragment.html` + `records/parabolic_gauge_unfolding.json`, rôle `rebuilt-infrastructure` ; ferme `RPI-01`, `FMU-01` et `RFV-01`).
+- *Déclarations `[CORE]` couvertes — `PGU-01` (`#global-parabolic-modulus-shape`)* :
+  - `GlobalTheory.GaugeSubLoc.gauge_local_asymptotics` (`GaugeMeasureMatrixAlgebraSubgroupLocalAsymptotic.lean#L164-L210`)
+  - `GlobalTheory.GaugeConjScale.map_conj_eq_inv_det_smul`, `scalar_eq_inv_det`, `hs_conj_le` (`MapConjGaugeMeasureEqInvDetSmul.lean#L30-L181`)
+  - `GlobalTheory.FlagModulus.flag_finrank_det` (`FlagNilradicalFinrankAndAbsDetConj.lean#L246-L356`)
+  - `GlobalTheory.PerpModulus.perp_modulus` (`SignedFormOrthogonalFinrankDetUnitary.lean#L260-L296`)
+  - `GlobalTheory.RealFormBasis.finrank_and_det` (`FinrankAndDetOfRealBasisSkewPart.lean#L49-L177`)
+  - `GlobalTheory.DoubledFlag.sum_eq_dimN_and_layerProd_eq` (`DoubledFlagSumEqUnipotentDimAndLayerProd.lean#L22-L133`)
+  - `GlobalTheory.FlagModulus.modulus` (`IsotropicFlagLeviConjHaarModulus.lean#L260-L424`)
+  - `GlobalTheory.IwasawaShape.exists_lintegral_eq`, `exists_lintegral_eq_of_measurable` (`ExistsLintegralEqOfMeasurable.lean#L12-L244`)
+  - `GlobalTheory.IwasawaShape.iwasawa_shape` (`IwasawaIntegrationFormulaUpToConstant.lean#L64-L98`)
+- *Déclarations `[CORE]` couvertes — `PGU-02` (`#global-parabolic-slab-squeeze`)* :
+  - `GlobalTheory.IwConst.flag_dims` (`IsotropicFlagDimensionCount.lean#L89-L117`)
+  - `GlobalTheory.VolMaxK.volume_maxK`, `exists_gauge_allPos` (`VolumeUnitaryMaximalCompactEqProd.lean#L212-L277`)
+  - `GlobalTheory.IwSand.gau_sandwich` (`IwasawaProductGaugeSandwichNearOne.lean#L139-L210`)
+  - `GlobalTheory.IwConstBox.prod_gauge_body` (`TendstoProdGaugeMeasuresGaugeBody.lean#L42-L81`)
+  - `GlobalTheory.IwConst.localised_iwasawa_asymptotics` (`LocalisedIwasawaIntegralSmallBallAsymptotics.lean#L35-L182`)
+  - `GlobalTheory.IwConst.iwasawa_unfold_lintegral` (`IwasawaLintegralUnfoldCompactLevi.lean#L31-L82`)
+  - `GlobalTheory.IwConst.slab_measure_squeeze` (`SlabMeasureSqueeze.lean#L11-L63`)
+  - `GlobalTheory.IwConst.iwasawa_constant` (`IwasawaIntegrationFormulaConstant.lean#L157-L368`)
+- *Déclarations `[CORE]` couvertes — `PGU-03` (`#global-flag-five-factor-quotient`)* :
+  - `GlobalTheory.FlagMeas.covol_prod_le_tsum_slices` (`CovolProdLeTsumSlices.lean#L8-L57`)
+  - `GlobalTheory.FlagUnfold.unfoldBound` (`IsotropicFlagUnfoldingBound.lean#L213-L284`)
+  - `GlobalTheory.FlagMeas.fundDom_volume_pos_lt_top` (`UnitaryAdelicQuotientVolumePosLtTop.lean#L14-L45`)
+  - `GlobalTheory.FiveFactors.prod_five_factors`, `volU_eq`, `prod_rankFac`, `dimN_eq`, `cIw_eq` (`ProdFiveFactorsHermitianVolume.lean#L9-L128`)
+  - `GlobalTheory.FlagMeas.Bound.flagMeasureBound` (`IsotropicFlagProbabilityBoundOfVolumeRatio.lean#L64-L104`)
+  - `GlobalTheory.DedekindZetaBound.one_le_zetaE_and_le`, `hasSum_zeta_pow` (`OneLeDedekindZetaRealValueAndLeZetaPow.lean#L39-L76`)
+  - `GlobalTheory.FlagMeas.ConstBd.zeta_prod` (`FlagExplicitConstantLeExpNegHalf.lean#L55-L66`)

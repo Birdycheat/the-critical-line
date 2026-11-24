@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies and verified written callsites across FlagMeasures.",
+  "claims": [
+    {
+      "id": "PGU-01",
+      "chapter": "global",
+      "anchor": "global-parabolic-modulus-shape",
+      "title": "Subalgebra Haar asymptotics, conjugation modulus on the isotropic nilradical, and parabolic integral factorization",
+      "hypotheses": "The real unitary group G = U(p, q) (n = p + q) with Hilbert–Schmidt norm ‖X‖_HS = (Re tr(X X*))^(1/2); a real multiplication-closed subspace A ⊆ M_n(ℂ) defining S = {g ∈ G : g − 1 ∈ A} with Hilbert–Schmidt orthonormal real basis E₁, …, E_d of A ∩ Lie(G) and d-gauge left-S-invariant Borel measure μ; a totally isotropic flag 0 = W₀ ⊂ W₁ ⊂ ⋯ ⊂ W_a of positive rank jumps j₁, …, j_a ≥ 1 (J = ∑ j_i ≤ min(p, q)) with unipotent radical N, self-adjoint Levi subgroup M, maximal compact subgroup K, unimodular σ-finite Haar measure μ_G, nonzero left Haar measures μ_N, μ_M finite on compacts, and probability Haar measure μ_K.",
+      "statement": "Any d-gauge left-S-invariant Borel measure μ on S is σ-finite, finite on compact sets, and unique, and satisfies r^(−d) ∫_{‖g−1‖_HS < √r₁} φ(t(g)/r) dμ(g) → ∫_{ℝ^d} φ(t) dt as r → 0⁺ for all 0 < r₁ ≤ r₀ and continuous compactly supported φ : ℝ^d → ℝ; conjugation T(u) = m u m⁻¹ by any m ∈ G normalizing S (m S m⁻¹ = S) with Ad(m)(E_k) = ∑_i L_{ik} E_i (det L ≠ 0) pushes μ forward to |det L|⁻¹ μ; on the isotropic flag nilradical, dim_ℝ N = d_N = 2J² − ∑ j_i² + 2J(n − 2J) and (u ↦ m u m⁻¹)_* μ_N = δ(m) μ_N with measurable modulus δ(m) = |det_ℝ(Ad(m)|_{Lie(N)})|⁻¹ = P₁(s) at s_i = (D_i/D_{i−1})^(−1/j_i); and there exists 0 < κ < ∞ such that ∫_G φ(g) dμ_G(g) = κ ∫_N ∫_M δ(m) ∫_K φ(u m k) dμ_K(k) dμ_M(m) dμ_N(u) for every nonnegative measurable φ.",
+      "definitions": [
+        "matrix-algebra subgroup S = {g ∈ G : g − 1 ∈ A} with tangent coordinate map t_i(g) = Re tr((g − 1) E_i*)",
+        "self-dual (2a + 1)-step flag completion F_s = W_s and F_{2a+1−s} = W_s^⊥ (0 ≤ s ≤ a) with subspace determinants D_s = |det_ℂ(m|_{F_s})| = D_{2a+1−s}",
+        "compact-set conjugation ratio δ(m) = μ_N(m⁻¹ C m) / μ_N(C) for 0 < μ_N(C) < ∞"
+      ],
+      "equations": [
+        "global-parabolic-subalgebra-asymptotic-eq",
+        "global-parabolic-modulus-layer-eq",
+        "global-parabolic-up-to-constant-eq"
+      ],
+      "dependencies": [
+        "FSV-01"
+      ],
+      "sources": [
+        {
+          "label": "Uniqueness of the Hilbert–Schmidt subgroup Haar gauge and rescaled small-ball test-function asymptotics",
+          "declaration": "GlobalTheory.GaugeSubLoc.gauge_local_asymptotics",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.GaugeSubLoc.gauge_local_asymptotics": 164
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GaugeMeasureMatrixAlgebraSubgroupLocalAsymptotic.lean",
+          "lines": [
+            164,
+            210
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/GaugeMeasureMatrixAlgebraSubgroupLocalAsymptotic.lean#L164-L210"
+        },
+        {
+          "label": "Frobenius norm sandwich under conjugation and inverse-determinant Haar pushforward modulus",
+          "declaration": "GlobalTheory.GaugeConjScale.map_conj_eq_inv_det_smul",
+          "related_declarations": [
+            "GlobalTheory.GaugeConjScale.scalar_eq_inv_det",
+            "GlobalTheory.GaugeConjScale.hs_conj_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.GaugeConjScale.scalar_eq_inv_det": 30,
+            "GlobalTheory.GaugeConjScale.hs_conj_le": 109,
+            "GlobalTheory.GaugeConjScale.map_conj_eq_inv_det_smul": 123
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MapConjGaugeMeasureEqInvDetSmul.lean",
+          "lines": [
+            30,
+            181
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MapConjGaugeMeasureEqInvDetSmul.lean#L30-L181"
+        },
+        {
+          "label": "Filtration of the complex flag nilradical, complex dimension sum and conjugation determinant product",
+          "declaration": "GlobalTheory.FlagModulus.flag_finrank_det",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagModulus.flag_finrank_det": 246
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagNilradicalFinrankAndAbsDetConj.lean",
+          "lines": [
+            246,
+            356
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagNilradicalFinrankAndAbsDetConj.lean#L246-L356"
+        },
+        {
+          "label": "Complementary rank and equality of absolute subspace determinants on signed-form orthogonals",
+          "declaration": "GlobalTheory.PerpModulus.perp_modulus",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.PerpModulus.perp_modulus": 260
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SignedFormOrthogonalFinrankDetUnitary.lean",
+          "lines": [
+            260,
+            296
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SignedFormOrthogonalFinrankDetUnitary.lean#L260-L296"
+        },
+        {
+          "label": "Equality of real dimension and determinant on the skew-adjoint fixed locus of an involution-stable complex space",
+          "declaration": "GlobalTheory.RealFormBasis.finrank_and_det",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.RealFormBasis.finrank_and_det": 49
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FinrankAndDetOfRealBasisSkewPart.lean",
+          "lines": [
+            49,
+            177
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FinrankAndDetOfRealBasisSkewPart.lean#L49-L177"
+        },
+        {
+          "label": "Reflected-pair telescoping of the doubled-flag dimension sum and one-place layer monomial",
+          "declaration": "GlobalTheory.DoubledFlag.sum_eq_dimN_and_layerProd_eq",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.DoubledFlag.sum_eq_dimN_and_layerProd_eq": 22
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DoubledFlagSumEqUnipotentDimAndLayerProd.lean",
+          "lines": [
+            22,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DoubledFlagSumEqUnipotentDimAndLayerProd.lean#L22-L133"
+        },
+        {
+          "label": "Assembly of the Levi conjugation Haar modulus on the isotropic unipotent radical",
+          "declaration": "GlobalTheory.FlagModulus.modulus",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagModulus.modulus": 260
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+          "lines": [
+            260,
+            424
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean#L260-L424"
+        },
+        {
+          "label": "Measurability of the compact-set conjugation ratio and Haar integral factorization up to a positive constant",
+          "declaration": "GlobalTheory.IwasawaShape.exists_lintegral_eq",
+          "related_declarations": [
+            "GlobalTheory.IwasawaShape.exists_lintegral_eq_of_measurable"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.IwasawaShape.exists_lintegral_eq_of_measurable": 12,
+            "GlobalTheory.IwasawaShape.exists_lintegral_eq": 208
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLintegralEqOfMeasurable.lean",
+          "lines": [
+            12,
+            244
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLintegralEqOfMeasurable.lean#L12-L244"
+        },
+        {
+          "label": "One-place parabolic integration formula on U(p, q) up to a nonzero finite constant",
+          "declaration": "GlobalTheory.IwasawaShape.iwasawa_shape",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwasawaShape.iwasawa_shape": 64
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+          "lines": [
+            64,
+            98
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean#L64-L98"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Rescaled bump-function convergence on matrix-algebra subgroups identifies the conjugation Haar modulus |det L|⁻¹, doubled-flag filtration and skew-involution stability evaluate dim_ℝ N = d_N and |det L|⁻¹ = P₁(s), and left-(NM)- and right-K-invariant Haar uniqueness factors the integral on G = N M K up to 0 < κ < ∞.",
+      "review": "Checked exact linearity t(m u m⁻¹) = L t(u) on S via skew/self-adjoint decomposition, Frobenius sandwich {h < ρ/C²} ⊆ T⁻¹{h < ρ/C} ⊆ {h < ρ}, complementary determinant identity D_{2a+1−s} = D_s, Hom-filtration exponents D_s^{ν_{s+1}} / D_{s+1}^{ν_s}, and compact-set measurability of δ(m)."
+    },
+    {
+      "id": "PGU-02",
+      "chapter": "global",
+      "anchor": "global-parabolic-slab-squeeze",
+      "title": "Maximal compact product volume, dimension balance, and small-ball slab squeeze for the Iwasawa constant",
+      "hypotheses": "The unitary group G = U(p, q) (n = p + q) with unimodular Haar measure μ_G and Riemannian gauge constant c > 0, a totally isotropic flag of positive rank jumps j₁, …, j_a ≥ 1 (J = ∑ j_i ≤ min(p, q)) with subgroups N, M, K ≃ U(p) × U(q), and L = K ∩ M carrying Hilbert–Schmidt gauge Haar measures μ_N, μ_M, μ₀, ν_L, probability Haar measure μ_K on K, and parabolic factorization constant κ > 0.",
+      "statement": "The subgroup dimensions satisfy n² = 2 d_N + d_M, p² + q² = d_N + d_L, and d_N + d_M + d_K = n² + d_L; the d_K-gauge Haar measure on K has total mass μ₀(K) = V(p) V(q) so μ₀ = V(p) V(q) μ_K; on the transverse slab S_ρ(r) = {k ∈ K : ‖k − 1‖_HS < ρ, ‖π_L(k − 1)‖₂ ≤ r} (0 < ρ ≤ min(ρ₀, 1/8)), the localized integral I_ρ(r) satisfies I_ρ(r) / r^(d_N+d_M+d_K) → 2^(d_N/2) ω_{n²} ω_{d_L} as r → 0⁺; and compact-Levi unfolding combined with the two-sided coset-ball squeeze proves c κ = 2^(−d_N/2) V(p) V(q) / vol(L) = c_Iw.",
+      "definitions": [
+        "Hilbert–Schmidt maximal compact volume μ₀(K) = V(p) V(q) = 2^([p(p−1)+q(q−1)]/2) S(p) S(q)",
+        "L-transverse slab S_ρ(r) = {k ∈ K : ‖k − 1‖_HS < ρ, ‖π_L(k − 1)‖₂ ≤ r}",
+        "homogeneous linear product gauge γ(X, Y, Z) = max(‖X + Y + Z‖_HS, ‖π_L(Z)‖₂) of unit-body volume 2^(d_N/2) ω_{n²} ω_{d_L}"
+      ],
+      "equations": [
+        "global-parabolic-dim-balance-eq",
+        "global-parabolic-localised-asymptotic-eq",
+        "global-parabolic-slab-squeeze-eq"
+      ],
+      "dependencies": [
+        "PGU-01",
+        "DCJ-01",
+        "DCJ-03"
+      ],
+      "sources": [
+        {
+          "label": "Parabolic and compact-intersection real dimension balance for an isotropic flag",
+          "declaration": "GlobalTheory.IwConst.flag_dims",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConst.flag_dims": 89
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagDimensionCount.lean",
+          "lines": [
+            89,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagDimensionCount.lean#L89-L117"
+        },
+        {
+          "label": "Block-diagonal isometric product gauge and Hilbert–Schmidt volume V(p) V(q) of the maximal compact subgroup",
+          "declaration": "GlobalTheory.VolMaxK.volume_maxK",
+          "related_declarations": [
+            "GlobalTheory.VolMaxK.exists_gauge_allPos"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.VolMaxK.exists_gauge_allPos": 212,
+            "GlobalTheory.VolMaxK.volume_maxK": 226
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeUnitaryMaximalCompactEqProd.lean",
+          "lines": [
+            212,
+            277
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeUnitaryMaximalCompactEqProd.lean#L212-L277"
+        },
+        {
+          "label": "Second-order tangent approximation of u m k − 1 and local sandwich against the linear product gauge",
+          "declaration": "GlobalTheory.IwSand.gau_sandwich",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwSand.gau_sandwich": 139
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaProductGaugeSandwichNearOne.lean",
+          "lines": [
+            139,
+            210
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaProductGaugeSandwichNearOne.lean#L139-L210"
+        },
+        {
+          "label": "Small-scale convergence of rescaled product subgroup Haar gauges on homogeneous linear gauge bodies",
+          "declaration": "GlobalTheory.IwConstBox.prod_gauge_body",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConstBox.prod_gauge_body": 42
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TendstoProdGaugeMeasuresGaugeBody.lean",
+          "lines": [
+            42,
+            81
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/TendstoProdGaugeMeasuresGaugeBody.lean#L42-L81"
+        },
+        {
+          "label": "Small-ball asymptotic evaluation of the slab-localized parabolic integral",
+          "declaration": "GlobalTheory.IwConst.localised_iwasawa_asymptotics",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConst.localised_iwasawa_asymptotics": 35
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean",
+          "lines": [
+            35,
+            182
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean#L35-L182"
+        },
+        {
+          "label": "Fubini unfolding of the slab-localized parabolic integral along the compact Levi intersection",
+          "declaration": "GlobalTheory.IwConst.iwasawa_unfold_lintegral",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConst.iwasawa_unfold_lintegral": 31
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaLintegralUnfoldCompactLevi.lean",
+          "lines": [
+            31,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaLintegralUnfoldCompactLevi.lean#L31-L82"
+        },
+        {
+          "label": "Two-sided small-ball measure squeeze of the compact-Levi coset intersection with the transverse slab",
+          "declaration": "GlobalTheory.IwConst.slab_measure_squeeze",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConst.slab_measure_squeeze": 11
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SlabMeasureSqueeze.lean",
+          "lines": [
+            11,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/SlabMeasureSqueeze.lean#L11-L63"
+        },
+        {
+          "label": "Asymptotic ratio identification of the normalized one-place Iwasawa constant",
+          "declaration": "GlobalTheory.IwConst.iwasawa_constant",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IwConst.iwasawa_constant": 157
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+          "lines": [
+            157,
+            368
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean#L157-L368"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Isometric block-diagonal embedding and PGU-01 uniqueness fix μ₀(K) = V(p) V(q), second-order tangent expansion evaluates the r^(n²+d_L) limit of I_ρ(r) as 2^(d_N/2) ω_{n²} ω_{d_L}, and unfolding I_ρ(r) over L = K ∩ M with a minimum-distance coset squeeze matches c κ vol(L) 2^(d_N/2) with V(p) V(q).",
+      "review": "Checked dimension balance d_N + d_M + d_K = n² + d_L, Pythagorean norm additivity on U(p) × U(q), seven-term remainder ‖u m k − 1 − (X + Y + Z)‖_HS ≤ 7s², first-variation orthogonality π_L(ℓ₁ k − 1) = 0 at the coset minimizer, and cancellation of ω_{n²} ω_{d_L} > 0."
+    },
+    {
+      "id": "PGU-03",
+      "chapter": "global",
+      "anchor": "global-flag-five-factor-quotient",
+      "title": "Countable slice covolume inequality, finiteness of the unitary quotient volume, and five-factor flag constant",
+      "hypotheses": "Measurable groups G₁, G₂ with σ-finite μ₁, left-invariant σ-finite μ₂, subgroup Γ ≤ G₁ × G₂, measurable K ≤ G₂ with μ₂(K) < ∞, and a countable slice cover (x_c, Γ_c, A_c)_{c∈ι}; and a finite-unramified CM Hermitian automorphic datum over E/F ([F : ℚ] = f ≥ 1, [E : ℚ] = 2f, ν_E = |disc E|^(1/(2f))/2) of uniform signature (p, q) with p ≥ 2 (n = p + q), measurable fundamental domain 𝒟, and positive isotropic rank jumps j₁, …, j_a ≥ 1 summing to J ≤ min(p, q) with n − 2J ≥ 2 (in particular whenever a ≥ 1, J ≤ q, and 2q + 2 ≤ n).",
+      "statement": "Under the slice-covering and stabilizer-lift hypotheses, covol(Γ, μ₁ × μ₂, A) ≤ μ₂(K) ∑_{c∈ι} covol(Γ_c, μ₁, A_c); for p ≥ 2, the ambient fundamental-domain volume satisfies 0 < μ(𝒟) < ∞; dividing the unfolded common-and-block constant A_j by the Hermitian rank-step product R_J cancels all ∑ j_i² exponents to yield the exact five-factor constant κ_j; and for every integer l ≥ 2, 1 ≤ ζ_E(l) ≤ ζ(l)^(2f), giving ∏_{i=1}^a ∏_{l=2}^{j_i} ζ_E(l) ≤ exp(2 f J).",
+      "definitions": [
+        "left-quotient covolume covol(Λ, ν, A) = inf{ν(D) : D measurable, A ⊆ ⋃_{λ∈Λ} λ⁻¹ D}",
+        "five-factor arithmetic flag constant κ_j combining discriminant, power-of-two, sphere-ratio, zeta-residue, and zeta/L-value factors",
+        "2f-fold Dirichlet divisor convolution (1 ∗ ⋯ ∗ 1)(n) majorizing norm-n integral ideal counts in 𝒪_E"
+      ],
+      "equations": [
+        "global-flag-slice-covol-eq",
+        "global-flag-five-factor-eq",
+        "global-flag-dedekind-zeta-bound-eq"
+      ],
+      "dependencies": [
+        "PGU-02",
+        "FSV-03",
+        "CLM-05",
+        "RCV-01",
+        "HRV-02",
+        "DCJ-03"
+      ],
+      "sources": [
+        {
+          "label": "Countable product-slice covering and covolume subadditivity for compact-open finite stabilizers",
+          "declaration": "GlobalTheory.FlagMeas.covol_prod_le_tsum_slices",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.covol_prod_le_tsum_slices": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolProdLeTsumSlices.lean",
+          "lines": [
+            8,
+            57
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CovolProdLeTsumSlices.lean#L8-L57"
+        },
+        {
+          "label": "Marked-flag slice covering and factored upper bound over block and residual lattice classes",
+          "declaration": "GlobalTheory.FlagUnfold.unfoldBound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagUnfold.unfoldBound": 213
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean",
+          "lines": [
+            213,
+            284
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean#L213-L284"
+        },
+        {
+          "label": "Strict positivity and finiteness of the unitary adelic fundamental-domain volume for p ≥ 2",
+          "declaration": "GlobalTheory.FlagMeas.fundDom_volume_pos_lt_top",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.fundDom_volume_pos_lt_top": 14
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAdelicQuotientVolumePosLtTop.lean",
+          "lines": [
+            14,
+            45
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryAdelicQuotientVolumePosLtTop.lean#L14-L45"
+        },
+        {
+          "label": "Cancellation of root-discriminant and power-of-two exponents in the five-factor flag constant",
+          "declaration": "GlobalTheory.FiveFactors.prod_five_factors",
+          "related_declarations": [
+            "GlobalTheory.FiveFactors.volU_eq",
+            "GlobalTheory.FiveFactors.prod_rankFac",
+            "GlobalTheory.FiveFactors.dimN_eq",
+            "GlobalTheory.FiveFactors.cIw_eq"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.FiveFactors.volU_eq": 9,
+            "GlobalTheory.FiveFactors.prod_rankFac": 30,
+            "GlobalTheory.FiveFactors.dimN_eq": 39,
+            "GlobalTheory.FiveFactors.cIw_eq": 50,
+            "GlobalTheory.FiveFactors.prod_five_factors": 80
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdFiveFactorsHermitianVolume.lean",
+          "lines": [
+            9,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ProdFiveFactorsHermitianVolume.lean#L9-L128"
+        },
+        {
+          "label": "Normalization of the unfolded flag mass by the ambient quotient volume and identification of the five-factor coefficient",
+          "declaration": "GlobalTheory.FlagMeas.Bound.flagMeasureBound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.Bound.flagMeasureBound": 64
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean",
+          "lines": [
+            64,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean#L64-L104"
+        },
+        {
+          "label": "Dirichlet-convolution majorant and real special-value bounds 1 ≤ ζ_E(l) ≤ ζ(l)^[E:ℚ]",
+          "declaration": "GlobalTheory.DedekindZetaBound.one_le_zetaE_and_le",
+          "related_declarations": [
+            "GlobalTheory.DedekindZetaBound.hasSum_zeta_pow"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.DedekindZetaBound.hasSum_zeta_pow": 39,
+            "GlobalTheory.DedekindZetaBound.one_le_zetaE_and_le": 54
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeDedekindZetaRealValueAndLeZetaPow.lean",
+          "lines": [
+            39,
+            76
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OneLeDedekindZetaRealValueAndLeZetaPow.lean#L39-L76"
+        },
+        {
+          "label": "Block product bound exp(2 f J) for the Dedekind zeta special values at integers l ≥ 2",
+          "declaration": "GlobalTheory.FlagMeas.ConstBd.zeta_prod",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.ConstBd.zeta_prod": 55
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+          "lines": [
+            55,
+            66
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean#L55-L66"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Summing ε_c-optimal measurable Γ_c-covers across finite-level cosets x_c K proves the countable slice covolume bound, rank-step descent to signature (2, 0) proves 0 < μ(𝒟) < ∞, cancelling ∑ j_i² powers between A_j and R_J isolates the five-factor formula for κ_j, and [E : ℚ]-fold divisor convolution bounds the ordinary ζ_E(l) product by exp(2 f J).",
+      "review": "Checked composite orbit lift γ′γ into D_c × x_c K, signature descent (p, q) → (2, 0) for p ≥ 2, telescoping rank sum ∑_{M=n−2J+1}^n (M − 1/2) = 2nJ − 2J² = d_N + ∑ j_i², exact exponent cancellation for ν_E and 2, and prime-ideal norm tuple injection into d_E-fold divisor factorizations."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.GaugeConjScale.map_conj_eq_inv_det_smul",
+      "callee": "GlobalTheory.T.gaugeMeasure_matrixAlgebraSubgroup_local_asymptotics",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MapConjGaugeMeasureEqInvDetSmul.lean",
+        "line": 134,
+        "spelling": "GlobalTheory.T.gaugeMeasure_matrixAlgebraSubgroup_local_asymptotics"
+      }
+    },
+    {
+      "caller": "GlobalTheory.GaugeConjScale.map_conj_eq_inv_det_smul",
+      "callee": "GlobalTheory.GaugeConjScale.scalar_eq_inv_det",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MapConjGaugeMeasureEqInvDetSmul.lean",
+        "line": 161,
+        "spelling": "scalar_eq_inv_det"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagModulus.modulus",
+      "callee": "GlobalTheory.T.finrank_and_det_of_real_basis_skew_part",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 338,
+        "spelling": "GlobalTheory.T.finrank_and_det_of_real_basis_skew_part"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagModulus.modulus",
+      "callee": "GlobalTheory.T.signedFormOrthogonal_finrank_det_unitary",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 340,
+        "spelling": "GlobalTheory.T.signedFormOrthogonal_finrank_det_unitary"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagModulus.modulus",
+      "callee": "GlobalTheory.T.flagNilradical_finrank_and_abs_det_conj",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 341,
+        "spelling": "GlobalTheory.T.flagNilradical_finrank_and_abs_det_conj"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagModulus.modulus",
+      "callee": "GlobalTheory.T.doubledFlag_sum_eq_unipotentDim_and_layerProd",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 375,
+        "spelling": "GlobalTheory.T.doubledFlag_sum_eq_unipotentDim_and_layerProd"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagModulus.modulus",
+      "callee": "GlobalTheory.T.map_conj_gaugeMeasure_eq_inv_det_smul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagLeviConjHaarModulus.lean",
+        "line": 413,
+        "spelling": "GlobalTheory.T.map_conj_gaugeMeasure_eq_inv_det_smul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwasawaShape.iwasawa_shape",
+      "callee": "GlobalTheory.IwasawaShape.exists_lintegral_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaUpToConstant.lean",
+        "line": 87,
+        "spelling": "GlobalTheory.IwasawaShape.exists_lintegral_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.VolMaxK.volume_maxK",
+      "callee": "GlobalTheory.VolMaxK.exists_gauge_allPos",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeUnitaryMaximalCompactEqProd.lean",
+        "line": 229,
+        "spelling": "exists_gauge_allPos"
+      }
+    },
+    {
+      "caller": "GlobalTheory.VolMaxK.volume_maxK",
+      "callee": "GlobalTheory.T.gaugeMeasure_matrixAlgebraSubgroup_local_asymptotics",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/VolumeUnitaryMaximalCompactEqProd.lean",
+        "line": 274,
+        "spelling": "GlobalTheory.T.gaugeMeasure_matrixAlgebraSubgroup_local_asymptotics"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.localised_iwasawa_asymptotics",
+      "callee": "GlobalTheory.T.iwasawa_product_gauge_sandwich_near_one",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean",
+        "line": 40,
+        "spelling": "GlobalTheory.T.iwasawa_product_gauge_sandwich_near_one"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.localised_iwasawa_asymptotics",
+      "callee": "GlobalTheory.T.tendsto_prod_gaugeMeasures_gaugeBody",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LocalisedIwasawaIntegralSmallBallAsymptotics.lean",
+        "line": 42,
+        "spelling": "GlobalTheory.T.tendsto_prod_gaugeMeasures_gaugeBody"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.iwasawa_constant",
+      "callee": "GlobalTheory.T.isotropicFlag_dimension_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 159,
+        "spelling": "GlobalTheory.T.isotropicFlag_dimension_count"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.iwasawa_constant",
+      "callee": "GlobalTheory.T.volume_unitaryMaximalCompact_eq_prod",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 184,
+        "spelling": "GlobalTheory.T.volume_unitaryMaximalCompact_eq_prod"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.iwasawa_constant",
+      "callee": "GlobalTheory.T.slab_measure_squeeze'",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 233,
+        "spelling": "GlobalTheory.T.slab_measure_squeeze'"
+      }
+    },
+    {
+      "caller": "GlobalTheory.IwConst.iwasawa_constant",
+      "callee": "GlobalTheory.T.iwasawa_lintegral_unfold_compact_levi",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IwasawaIntegrationFormulaConstant.lean",
+        "line": 235,
+        "spelling": "GlobalTheory.T.iwasawa_lintegral_unfold_compact_levi"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagUnfold.unfoldBound",
+      "callee": "GlobalTheory.FlagMeas.covol_prod_le_tsum_slices",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagUnfoldingBound.lean",
+        "line": 232,
+        "spelling": "GlobalTheory.FlagMeas.covol_prod_le_tsum_slices"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.Bound.flagMeasureBound",
+      "callee": "GlobalTheory.T.unitary_adelic_quotient_volume_pos_lt_top",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean",
+        "line": 69,
+        "spelling": "GlobalTheory.T.unitary_adelic_quotient_volume_pos_lt_top"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.Bound.flagMeasureBound",
+      "callee": "GlobalTheory.T.prod_five_factors_hermitian_volume",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/IsotropicFlagProbabilityBoundOfVolumeRatio.lean",
+        "line": 96,
+        "spelling": "GlobalTheory.T.prod_five_factors_hermitian_volume"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.ConstBd.zeta_prod",
+      "callee": "GlobalTheory.T.one_le_dedekindZetaRealValue_and_le_zeta_pow",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/FlagExplicitConstantLeExpNegHalf.lean",
+        "line": 61,
+        "spelling": "GlobalTheory.T.one_le_dedekindZetaRealValue_and_le_zeta_pow"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "FSV-01",
+      "PGU-01"
+    ],
+    [
+      "PGU-01",
+      "PGU-02"
+    ],
+    [
+      "DCJ-01",
+      "PGU-02"
+    ],
+    [
+      "DCJ-03",
+      "PGU-02"
+    ],
+    [
+      "PGU-02",
+      "PGU-03"
+    ],
+    [
+      "FSV-03",
+      "PGU-03"
+    ],
+    [
+      "CLM-05",
+      "PGU-03"
+    ],
+    [
+      "RCV-01",
+      "PGU-03"
+    ],
+    [
+      "HRV-02",
+      "PGU-03"
+    ],
+    [
+      "DCJ-03",
+      "PGU-03"
+    ],
+    [
+      "PGU-01",
+      "RPI-01"
+    ],
+    [
+      "PGU-02",
+      "RPI-02"
+    ],
+    [
+      "PGU-03",
+      "FMU-01"
+    ],
+    [
+      "PGU-03",
+      "FMU-02"
+    ],
+    [
+      "PGU-03",
+      "RFV-01"
+    ]
+  ],
+  "outstanding": [
+    "FSV-01–03, CLM-05, RCV-01, HRV-02, and DCJ-01–03 supply the completed-flag layer products, block and residual lattice covolumes, Hermitian rank-step volume ratios, and compact unitary Riemannian gauges assembled here into RPI-01–02, FMU-01–02, and RFV-01."
+  ],
+  "review_scope": "Checked matrix-algebra subgroup Haar uniqueness and rescaled test-function limits, conjugation modulus via Frobenius-ball sandwiching, self-dual doubled-flag nilradical filtration and skew-involution determinant equality, slab-localized parabolic small-ball asymptotics and compact-Levi coset squeeze, countable product-slice covolume subadditivity, positivity and finiteness of μ(𝒟) for p ≥ 2, five-factor exponent cancellation in κ_j, and [E : ℚ]-fold divisor-convolution bounds on ζ_E(l)."
+}
