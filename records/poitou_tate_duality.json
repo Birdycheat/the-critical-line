@@ -1,0 +1,990 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned statements, proof bodies and verified written callsites across TensorHomDualRepRootsOfUnityIsoCartierPairing, GcohFin, GcohTate, GcohTop, PoitouTateNineTermGs, NineAddCore, PoitouTateNormalisedHolds, and PoitouTateDualityOfNormalised.",
+  "claims": [
+    {
+      "id": "PTD-01",
+      "chapter": "inputs",
+      "anchor": "inputs-local-finiteness",
+      "title": "Local Galois cohomology finiteness and cohomological dimension two over local fields",
+      "hypotheses": "A nonarchimedean local field K with separable closure K^{sep} and absolute Galois group G_K = Gal(K^{sep}/K), and a finite discrete G_K-module M whose cardinality |M| is nonzero in K (automatically satisfied whenever char(K) = 0, in particular for every finite extension K of ℚ_ℓ and every finite discrete ℤ/ℓ^rℤ-module M, even when |M| is a power of the residue characteristic ℓ).",
+      "statement": "For every degree t ≥ 0, both the local Galois cohomology group H^t(G_K, M) and the cohomology group H^t(G_K, M^*) of the Cartier dual M^* = Hom(M, (K^{sep})^×) are finite, and H^t(G_K, M) = 0 for all t ≥ 3. In particular, for every prime ℓ, every finite extension K of ℚ_ℓ inside ℚ̄_ℓ, every r ≥ 1, and every continuous finite discrete ℤ/ℓ^rℤ-representation M of G_K, the groups H^0(G_K, M), H^1(G_K, M), and H^2(G_K, M) are finite and H^n(G_K, M) vanishes for all n ≥ 3.",
+      "definitions": [
+        "finite discrete Galois module M over a nonarchimedean local field K with |M| invertible in K",
+        "Cartier dual M^* = Hom(M, (K^{sep})^×) with conjugate Galois action (g · f)(m) = g(f(g^{−1} · m))",
+        "local cohomological dimension bound H^t(G_K, M) = 0 for all t ≥ 3"
+      ],
+      "equations": [
+        "inputs-local-finiteness-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Finiteness of H^t(G_K, M) and H^t(G_K, M^*) and vanishing in degrees t ≥ 3 over nonarchimedean local fields",
+          "declaration": "GroundTheory.ProfCoh.finite_cohomology_localField",
+          "related_declarations": [
+            "GroundTheory.ProfCoh.subsingleton_cohomology_localField",
+            "GroundTheory.ProfCoh.finite_cohomology_cartierDual_localField"
+          ],
+          "declaration_lines": {
+            "GroundTheory.ProfCoh.subsingleton_cohomology_localField": 115,
+            "GroundTheory.ProfCoh.finite_cohomology_cartierDual_localField": 120,
+            "GroundTheory.ProfCoh.finite_cohomology_localField": 111
+          },
+          "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+          "lines": [
+            111,
+            129
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean#L111-L129"
+        },
+        {
+          "label": "Transport of local finiteness and degree ≥ 3 vanishing to finite discrete ℤ/ℓ^rℤ-representations over finite extensions of ℚ_ℓ",
+          "declaration": "CompanionTheory.LocalTateOrthogonality.Gcoh.locfin_of",
+          "declaration_lines": {
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.locfin_of": 8
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+          "lines": [
+            8,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean#L8-L36"
+        },
+        {
+          "label": "Top-level instantiation of local finiteness for finite extensions of ℚ_ℓ",
+          "declaration": "CompanionTheory.LocalTateOrthogonality.Gcoh.top_locfin",
+          "declaration_lines": {
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.top_locfin": 13
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+          "lines": [
+            13,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean#L13-L15"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Lagrange's theorem gives |M| · m = 0 on M and hence |M| · f = 0 on the Cartier dual M^* = Hom(M, (K^{sep})^×); with (|M| : K) ≠ 0, top-level local Galois finiteness and cohomological dimension two give finiteness of H^t(G_K, M) and H^t(G_K, M^*) for all t ≥ 0 and subsingleton H^t(G_K, M) for t ≥ 3. Over a finite extension K/ℚ_ℓ inside ℚ̄_ℓ, characteristic 0 makes |M| ≠ 0 in K unconditionally, and transporting along the discrete-module cohomology equivalences proves the ℤ/ℓ^rℤ local finiteness interface.",
+      "review": "Checked strict disjointness from PTD-02 on GcohTop.lean ([13,15] vs [11,12]) and TensorHomDualRepRootsOfUnityIsoCartierPairing.lean ([111,129] vs [20,110] and [130,185]); verified characteristic-0 nonvanishing (|M| : K) ≠ 0 even when |M| is a power of ℓ, and Euler-characteristic check on ℚ_ℓ (odd ℓ and ℓ = 2)."
+    },
+    {
+      "id": "PTD-02",
+      "chapter": "inputs",
+      "anchor": "inputs-local-tate-duality",
+      "title": "Local Tate duality for finite Galois modules via the Brauer invariant and Cartier pairing",
+      "hypotheses": "A nonarchimedean local field K with separable closure K^{sep}, a finite discrete G_K-module M with |M| nonzero in K, Cartier dual M^* = Hom(M, (K^{sep})^×), local finiteness from PTD-01, and integers r, s ≥ 0 with r + s = 2; for the ℓ-adic cyclotomic interface, a prime ℓ, a finite extension K of ℚ_ℓ inside ℚ̄_ℓ, an integer r ≥ 1, and a continuous finite discrete ℤ/ℓ^rℤ-representation M of G_K with twisted dual M(1)^∨ = Hom(M, ℤ/ℓ^rℤ(1)).",
+      "statement": "(1) Cartier local Tate duality: for every r + s = 2, the local duality pairing H^r(G_K, M) × H^s(G_K, M^*) → ℚ/ℤ induced by cup product and the local Brauer invariant is nondegenerate in both variables, yielding bijections H^r(G_K, M) ≅ Hom(H^s(G_K, M^*), ℚ/ℤ) and H^s(G_K, M^*) ≅ Hom(H^r(G_K, M), ℚ/ℤ). (2) Twisted-dual cup-product duality over finite extensions K/ℚ_ℓ: H^2(G_K, ℤ/ℓ^rℤ(1)) ≅ ℤ/ℓ^rℤ, and the cup-product pairings induce bijections H^0(G_K, M) ≅ Hom(H^2(G_K, M(1)^∨), H^2(G_K, ℤ/ℓ^rℤ(1))), H^1(G_K, M) ≅ Hom(H^1(G_K, M(1)^∨), H^2(G_K, ℤ/ℓ^rℤ(1))) (in both directions), and H^2(G_K, M) ≅ Hom(H^0(G_K, M(1)^∨), H^2(G_K, ℤ/ℓ^rℤ(1))).",
+      "definitions": [
+        "local duality pairing H^r(G_K, M) × H^s(G_K, M^*) → ℚ/ℤ given by cup product followed by the local Brauer invariant",
+        "n-torsion dual Hom(M, μ_n) ≅ M^* for n = |M| and canonical embedding ℤ/nℤ ↪ ℚ/ℤ",
+        "cyclotomic twisted dual M(1)^∨ = Hom(M, ℤ/ℓ^rℤ(1)) with Galois action via the mod-ℓ^r cyclotomic character"
+      ],
+      "equations": [
+        "inputs-local-tate-cartier-eq",
+        "inputs-local-tate-cup-eq"
+      ],
+      "dependencies": [
+        "PTD-01"
+      ],
+      "sources": [
+        {
+          "label": "Transport along ℤ/nℤ ↪ ℚ/ℤ, Brauer invariant compatibility on μ_n, and identification of the Cartier pairing with μ_n-duality",
+          "declaration": "GroundTheory.ProfCoh.localDualityPairing_cohomologyMap",
+          "related_declarations": [
+            "GroundTheory.ProfCoh.bijective_of_zmodToQZ",
+            "GroundTheory.ProfCoh.cohomologyAddEquivOfIso",
+            "GroundTheory.ProfCoh.brauerInvOfIsSepClosure_rootsOfUnity",
+            "GroundTheory.ProfCoh.tensorHom_dualRepRootsOfUnityIso_cartierPairing"
+          ],
+          "declaration_lines": {
+            "GroundTheory.ProfCoh.bijective_of_zmodToQZ": 20,
+            "GroundTheory.ProfCoh.cohomologyAddEquivOfIso": 44,
+            "GroundTheory.ProfCoh.brauerInvOfIsSepClosure_rootsOfUnity": 74,
+            "GroundTheory.ProfCoh.tensorHom_dualRepRootsOfUnityIso_cartierPairing": 88,
+            "GroundTheory.ProfCoh.localDualityPairing_cohomologyMap": 98
+          },
+          "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+          "lines": [
+            20,
+            110
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean#L20-L110"
+        },
+        {
+          "label": "Bijectivity of the local Tate duality pairing in both directions and full local Tate duality theorem",
+          "declaration": "GroundTheory.ProfCoh.tate_local_duality",
+          "related_declarations": [
+            "GroundTheory.ProfCoh.bijective_localDualityPairing",
+            "GroundTheory.ProfCoh.bijective_localDualityPairing_flip"
+          ],
+          "declaration_lines": {
+            "GroundTheory.ProfCoh.bijective_localDualityPairing": 130,
+            "GroundTheory.ProfCoh.bijective_localDualityPairing_flip": 146,
+            "GroundTheory.ProfCoh.tate_local_duality": 174
+          },
+          "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+          "lines": [
+            130,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean#L130-L185"
+        },
+        {
+          "label": "Transport of local duality to cup-product pairings with the cyclotomic twisted dual over finite extensions of ℚ_ℓ",
+          "declaration": "CompanionTheory.LocalTateOrthogonality.Gcoh.tate_of",
+          "related_declarations": [
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.tate_core"
+          ],
+          "declaration_lines": {
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.tate_core": 9,
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.tate_of": 61
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+          "lines": [
+            9,
+            75
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean#L9-L75"
+        },
+        {
+          "label": "Top-level instantiation of local Tate duality for finite extensions of ℚ_ℓ",
+          "declaration": "CompanionTheory.LocalTateOrthogonality.Gcoh.top_tate",
+          "declaration_lines": {
+            "CompanionTheory.LocalTateOrthogonality.Gcoh.top_tate": 11
+          },
+          "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+          "lines": [
+            11,
+            12
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean#L11-L12"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "For n = |M|, Hom(M, μ_n) ≅ M^* intertwines evaluation into μ_n ↪ (K^{sep})^× with the Cartier pairing, and the Brauer invariant on H^2(G_K, μ_n) equals ℤ/nℤ ↪ ℚ/ℤ composed with the local class-formation invariant; transport along ℤ/nℤ ↪ ℚ/ℤ yields bijectivity of the Cartier pairing, and finiteness of H^s(G_K, Hom(M, μ_n)) from PTD-01 yields bijectivity of the flipped pairing. Over K/ℚ_ℓ, identifying μ_{ℓ^r} with ℤ/ℓ^rℤ(χ_{cyc}) and transporting the (0,2), (1,1), and (2,0) cup products across discrete representations yields the twisted-dual interface.",
+      "review": "Checked strict disjointness of all ranges in TensorHomDualRepRootsOfUnityIsoCartierPairing.lean ([20,110] and [130,185] vs PTD-01's [111,129]) and GcohTop.lean ([11,12] vs [13,15]); checked full GcohTate.lean [9,75] covering tate_core and tate_of; verified explicit duality check on K = ℚ_3, M = ℤ/3ℤ, M(1)^∨ = μ_3."
+    },
+    {
+      "id": "PTD-03",
+      "chapter": "inputs",
+      "anchor": "inputs-poitou-tate-duality",
+      "title": "Poitou–Tate global duality, Shafarevich–Tate pairing, nine-term exact sequence, and conjugation compatibility",
+      "hypotheses": "A number field K (or F inside an algebraic closure Ω), a finite set S of finite places containing all primes dividing a positive integer N (or a prime power ℓ^r with r ≥ 1), the archimedean exclusion hypothesis that N is odd or K is totally complex (equivalently ℓ ≠ 2 or F is totally complex), chosen prolongations of the places in S, a finite discrete module M over the Galois group G_{K,S} unramified outside S killed by N (or over ℤ/ℓ^rℤ), a primitive ℓ^r-th root of unity ζ ∈ Ω for normalized local invariants, global Artin reciprocity CFT-01, local finiteness PTD-01, and local Tate duality PTD-02.",
+      "statement": "(1) Compact-support global duality: for every r + s = 3, H^r_c(G_{K,S}, M) ≅ Hom(H^s(G_{K,S}, M'), ℚ/ℤ), where M' = Hom(M, μ_N). (2) Shafarevich–Tate duality: the locally trivial cohomology kernels Ш^1_S(K, M) and Ш^2_S(K, M') are finite and canonically Pontryagin dual via a bijective pairing in both directions. (3) Nine-term exact sequence: the global-to-local restriction maps in degrees 0, 1, 2, the local Tate duals of restriction in degrees 2, 1, 0 for M', and the connecting transgression maps fit into an exact nine-term sequence from 0 → H^0(G_{K,S}, M) through ∏_{v∈S} H^2(K_v, M) → H^0(G_{K,S}, M')^∨ → 0. (4) Normalized and conjugation-compatible interface: for every prime ℓ, r ≥ 1, (ℓ ≠ 2 or F totally complex), and primitive ℓ^r-th root ζ ∈ Ω, there exists a normalized family of bijective local invariants inv_A : H^2(D_A, μ_{ℓ^r}) ≃ ℤ/ℓ^rℤ satisfying the nine-term exact sequence, Shafarevich–Tate duality, and vanishing H^n(G_{F,S}, M) = 0 for all n ≥ 3; moreover, any normalized family of bijective local invariants is automatically conjugation-compatible under field automorphisms of Ω preserving F.",
+      "definitions": [
+        "Galois group G_{K,S} unramified outside S and locally trivial kernel Ш^i_S(K, M) = ker(H^i(G_{K,S}, M) → ∏_{v∈S} H^i(K_v, M))",
+        "compact-support global cohomology H^r_c(G_{K,S}, M) and nine-term Poitou–Tate exact sequence",
+        "ζ-normalized local invariants inv_A (sending Kummer-unramified cup cocycles of local uniformizers to 1) and conjugation compatibility under automorphisms of Ω"
+      ],
+      "equations": [
+        "inputs-poitou-tate-sha-eq",
+        "inputs-poitou-tate-nine-term-eq"
+      ],
+      "dependencies": [
+        "PTD-01",
+        "PTD-02",
+        "CFT-01"
+      ],
+      "sources": [
+        {
+          "label": "Prime-power base case, compact-support duality (r + s = 3), Shafarevich–Tate duality, and nine-term Poitou–Tate exact sequence for G_{K,S}",
+          "declaration": "GroundTheory.ProfCoh.poitouTate_nineTerm_gs",
+          "related_declarations": [
+            "GroundTheory.ProfCoh.gsBaseCase",
+            "GroundTheory.ProfCoh.poitouTate_duality_gs",
+            "GroundTheory.ProfCoh.poitouTate_sha_gs"
+          ],
+          "declaration_lines": {
+            "GroundTheory.ProfCoh.gsBaseCase": 23,
+            "GroundTheory.ProfCoh.poitouTate_duality_gs": 36,
+            "GroundTheory.ProfCoh.poitouTate_sha_gs": 42,
+            "GroundTheory.ProfCoh.poitouTate_nineTerm_gs": 50
+          },
+          "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+          "lines": [
+            23,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean#L23-L71"
+        },
+        {
+          "label": "Transport of the nine-term Poitou–Tate exact sequence to explicit ℤ/ℓ^rℤ representations with normalized local invariants",
+          "declaration": "PositivityTheory.Lit1.PTN.nineAdd_core",
+          "declaration_lines": {
+            "PositivityTheory.Lit1.PTN.nineAdd_core": 27
+          },
+          "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+          "lines": [
+            27,
+            90
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean#L27-L90"
+        },
+        {
+          "label": "Assembly of the normalized Poitou–Tate package (nine-term exactness, Sha duality, and degree ≥ 3 vanishing)",
+          "declaration": "PositivityTheory.Lit1.PTN.poitouTateNormalised_holds",
+          "related_declarations": [
+            "PositivityTheory.Lit1.PTN.nineAddFS_V"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.Lit1.PTN.nineAddFS_V": 13,
+            "PositivityTheory.Lit1.PTN.poitouTateNormalised_holds": 18
+          },
+          "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+          "lines": [
+            13,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean#L13-L21"
+        },
+        {
+          "label": "Pullback conjugation on decomposition, inertia, and Frobenius, uniformizer transport, automatic conjugation compatibility, and full Poitou–Tate duality",
+          "declaration": "GlobalTheory.PoitouTateConj.poitouTateDuality_of_normalised",
+          "related_declarations": [
+            "GlobalTheory.PoitouTateConj.conjBack",
+            "GlobalTheory.PoitouTateConj.conjBack_mem_Dec",
+            "GlobalTheory.PoitouTateConj.conjBack_mem_Ine",
+            "GlobalTheory.PoitouTateConj.conjBack_isFrob",
+            "GlobalTheory.PoitouTateConj.cycMod_conjBack",
+            "GlobalTheory.PoitouTateConj.continuous_conjBack",
+            "GlobalTheory.PoitouTateConj.exists_place_map",
+            "GlobalTheory.PoitouTateConj.conjCompatible"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.PoitouTateConj.conjBack": 12,
+            "GlobalTheory.PoitouTateConj.conjBack_mem_Dec": 47,
+            "GlobalTheory.PoitouTateConj.conjBack_mem_Ine": 54,
+            "GlobalTheory.PoitouTateConj.conjBack_isFrob": 62,
+            "GlobalTheory.PoitouTateConj.cycMod_conjBack": 69,
+            "GlobalTheory.PoitouTateConj.continuous_conjBack": 79,
+            "GlobalTheory.PoitouTateConj.exists_place_map": 107,
+            "GlobalTheory.PoitouTateConj.conjCompatible": 142,
+            "GlobalTheory.PoitouTateConj.poitouTateDuality_of_normalised": 223
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+          "lines": [
+            12,
+            228
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean#L12-L228"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Reducing along prime-power factors of N preserves the odd-or-totally-complex hypothesis and establishes the compact-support global duality hypotheses for G_{K,S}, yielding r + s = 3 duality, finite Ш^1 ↔ Ш^2 duality, and nine-term exactness. NineAddCore transfers these nine arrows to explicit ℤ/ℓ^rℤ-modules and ζ-normalized local invariants, and PoitouTateNormalisedHolds packages nine-term exactness with Sha duality and H^n = 0 (n ≥ 3). Finally, conjugating along σ ∈ Aut(Ω) carries decomposition, inertia, Frobenius, and uniformizer Kummer cocycles at A to those at A' while preserving the cyclotomic character, proving that every normalized bijective invariant family is automatically conjugation-compatible.",
+      "review": "Verified full ranges on PoitouTateNineTermGs.lean [23,71], NineAddCore.lean [27,90], PoitouTateNormalisedHolds.lean [13,21], and PoitouTateDualityOfNormalised.lean [12,228]; verified exact odd-or-totally-complex hypothesis, Kummer-unramified normalization condition inv([κ ∪ χ]) = 1, and complete 9-term numerical check on K = ℚ, ℓ = 3, S = {3}, M = ℤ/3ℤ."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "finite_cohomology_localField",
+      "callee": "finite_cohomology_galois_top",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 113,
+        "spelling": "finite_cohomology_galois_top"
+      }
+    },
+    {
+      "caller": "subsingleton_cohomology_localField",
+      "callee": "subsingleton_cohomology_galois_top",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 118,
+        "spelling": "subsingleton_cohomology_galois_top"
+      }
+    },
+    {
+      "caller": "finite_cohomology_cartierDual_localField",
+      "callee": "finite_cohomology_galois_top",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 128,
+        "spelling": "finite_cohomology_galois_top"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "gcRep",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 15,
+        "spelling": "gcRep"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "gc0",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 22,
+        "spelling": "gc0"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "gc1",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 23,
+        "spelling": "gc1"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "gc2",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 24,
+        "spelling": "gc2"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "finite_cohomology_localField",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 26,
+        "spelling": "finite_cohomology_localField"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "finite_cohomology_localField",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 28,
+        "spelling": "finite_cohomology_localField"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "finite_cohomology_localField",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 30,
+        "spelling": "finite_cohomology_localField"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "gcn",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 32,
+        "spelling": "gcn"
+      }
+    },
+    {
+      "caller": "locfin_of",
+      "callee": "subsingleton_cohomology_localField",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohFin.lean",
+        "line": 33,
+        "spelling": "subsingleton_cohomology_localField"
+      }
+    },
+    {
+      "caller": "top_locfin",
+      "callee": "locfin_of",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+        "line": 13,
+        "spelling": "locfin_of"
+      }
+    },
+    {
+      "caller": "top_locfin",
+      "callee": "gcField",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+        "line": 13,
+        "spelling": "gcField"
+      }
+    },
+    {
+      "caller": "brauerInvOfIsSepClosure_rootsOfUnity",
+      "callee": "zmodToQZ_localInvRootsOfUnity",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 85,
+        "spelling": "zmodToQZ_localInvRootsOfUnity"
+      }
+    },
+    {
+      "caller": "localDualityPairing_cohomologyMap",
+      "callee": "cupPairing_cohomologyMap",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 105,
+        "spelling": "cupPairing_cohomologyMap"
+      }
+    },
+    {
+      "caller": "localDualityPairing_cohomologyMap",
+      "callee": "tensorHom_dualRepRootsOfUnityIso_cartierPairing",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 107,
+        "spelling": "tensorHom_dualRepRootsOfUnityIso_cartierPairing"
+      }
+    },
+    {
+      "caller": "localDualityPairing_cohomologyMap",
+      "callee": "brauerInvOfIsSepClosure_rootsOfUnity",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 108,
+        "spelling": "brauerInvOfIsSepClosure_rootsOfUnity"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing",
+      "callee": "bijective_of_zmodToQZ",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 138,
+        "spelling": "bijective_of_zmodToQZ"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing",
+      "callee": "cohomologyAddEquivOfIso",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 141,
+        "spelling": "cohomologyAddEquivOfIso"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing",
+      "callee": "localDualityPairing_cohomologyMap",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 143,
+        "spelling": "localDualityPairing_cohomologyMap"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing_flip",
+      "callee": "finite_cohomology_galois_top",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 158,
+        "spelling": "finite_cohomology_galois_top"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing_flip",
+      "callee": "bijective_of_bijective_flip",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 160,
+        "spelling": "bijective_of_bijective_flip"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing_flip",
+      "callee": "bijective_of_zmodToQZ",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 164,
+        "spelling": "bijective_of_zmodToQZ"
+      }
+    },
+    {
+      "caller": "bijective_localDualityPairing_flip",
+      "callee": "localDualityPairing_cohomologyMap",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 169,
+        "spelling": "localDualityPairing_cohomologyMap"
+      }
+    },
+    {
+      "caller": "tate_local_duality",
+      "callee": "finite_cohomology_localField",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 180,
+        "spelling": "finite_cohomology_localField"
+      }
+    },
+    {
+      "caller": "tate_local_duality",
+      "callee": "finite_cohomology_cartierDual_localField",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 180,
+        "spelling": "finite_cohomology_cartierDual_localField"
+      }
+    },
+    {
+      "caller": "tate_local_duality",
+      "callee": "bijective_localDualityPairing",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 180,
+        "spelling": "bijective_localDualityPairing"
+      }
+    },
+    {
+      "caller": "tate_local_duality",
+      "callee": "bijective_localDualityPairing_flip",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 181,
+        "spelling": "bijective_localDualityPairing_flip"
+      }
+    },
+    {
+      "caller": "tate_local_duality",
+      "callee": "subsingleton_cohomology_localField",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/LocalTateDuality/TensorHomDualRepRootsOfUnityIsoCartierPairing.lean",
+        "line": 181,
+        "spelling": "subsingleton_cohomology_localField"
+      }
+    },
+    {
+      "caller": "tate_core",
+      "callee": "exists_dualEquiv",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 39,
+        "spelling": "exists_dualEquiv"
+      }
+    },
+    {
+      "caller": "tate_core",
+      "callee": "cup_product_H1_H1_bijective",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 47,
+        "spelling": "cup_product_H1_H1_bijective"
+      }
+    },
+    {
+      "caller": "tate_core",
+      "callee": "bij_flip",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 55,
+        "spelling": "bij_flip"
+      }
+    },
+    {
+      "caller": "tate_core",
+      "callee": "cup_product_H0_H2_bijective",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 56,
+        "spelling": "cup_product_H0_H2_bijective"
+      }
+    },
+    {
+      "caller": "tate_core",
+      "callee": "cup_product_H2_H0_bijective",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 58,
+        "spelling": "cup_product_H2_H0_bijective"
+      }
+    },
+    {
+      "caller": "tate_of",
+      "callee": "tate_core",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 70,
+        "spelling": "tate_core"
+      }
+    },
+    {
+      "caller": "tate_of",
+      "callee": "localDualityHypotheses",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 71,
+        "spelling": "localDualityHypotheses"
+      }
+    },
+    {
+      "caller": "tate_of",
+      "callee": "finite_cohomology_galois_top",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTate.lean",
+        "line": 72,
+        "spelling": "finite_cohomology_galois_top"
+      }
+    },
+    {
+      "caller": "top_tate",
+      "callee": "tate_of",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+        "line": 11,
+        "spelling": "tate_of"
+      }
+    },
+    {
+      "caller": "top_tate",
+      "callee": "gcMu",
+      "callsite": {
+        "path": "src/CompanionTheory/AutomorphicTheory/PadicCyclotomicFields/GcohTop.lean",
+        "line": 11,
+        "spelling": "gcMu"
+      }
+    },
+    {
+      "caller": "gsBaseCase",
+      "callee": "exists_compactDualityHypotheses_gs",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 28,
+        "spelling": "exists_compactDualityHypotheses_gs"
+      }
+    },
+    {
+      "caller": "poitouTate_duality_gs",
+      "callee": "gsPoitouTateDualityHypotheses",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 38,
+        "spelling": "gsPoitouTateDualityHypotheses"
+      }
+    },
+    {
+      "caller": "poitouTate_duality_gs",
+      "callee": "gsBaseCase",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 38,
+        "spelling": "gsBaseCase"
+      }
+    },
+    {
+      "caller": "poitouTate_sha_gs",
+      "callee": "gsPoitouTateDualityHypotheses",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 46,
+        "spelling": "gsPoitouTateDualityHypotheses"
+      }
+    },
+    {
+      "caller": "poitouTate_sha_gs",
+      "callee": "gsBaseCase",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 46,
+        "spelling": "gsBaseCase"
+      }
+    },
+    {
+      "caller": "poitouTate_nineTerm_gs",
+      "callee": "gsPoitouTateDualityHypotheses",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 69,
+        "spelling": "gsPoitouTateDualityHypotheses"
+      }
+    },
+    {
+      "caller": "poitouTate_nineTerm_gs",
+      "callee": "gsBaseCase",
+      "callsite": {
+        "path": "src/GroundTheory/ProfiniteCohomology/PoitouTate/PoitouTateNineTermGs.lean",
+        "line": 69,
+        "spelling": "gsBaseCase"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "contAction_twDual_C",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 47,
+        "spelling": "contAction_twDual_C"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "poitouTate_nineTerm_gs",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 62,
+        "spelling": "poitouTate_nineTerm_gs"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "tate_duality_degree_zero_middle",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 63,
+        "spelling": "tate_duality_degree_zero_middle"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "tate_duality_degree_one_middle",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 64,
+        "spelling": "tate_duality_degree_one_middle"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "tate_duality_degree_two_middle",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 65,
+        "spelling": "tate_duality_degree_two_middle"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "tate_duality_degree_zero_left",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 66,
+        "spelling": "tate_duality_degree_zero_left"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "tate_duality_degree_one_left",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 67,
+        "spelling": "tate_duality_degree_one_left"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "degree_two_cohomology_comparison_left",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 68,
+        "spelling": "degree_two_cohomology_comparison_left"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "nineAdd_of_found3",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 69,
+        "spelling": "nineAdd_of_found3"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "locTr0_B",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 86,
+        "spelling": "locTr0_B"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "locTr1_C",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 87,
+        "spelling": "locTr1_C"
+      }
+    },
+    {
+      "caller": "nineAdd_core",
+      "callee": "locTr2'",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/NineAddCore.lean",
+        "line": 88,
+        "spelling": "locTr2'"
+      }
+    },
+    {
+      "caller": "nineAddFS_V",
+      "callee": "foundData_nonempty",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+        "line": 15,
+        "spelling": "foundData_nonempty"
+      }
+    },
+    {
+      "caller": "nineAddFS_V",
+      "callee": "nineAdd_core",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+        "line": 16,
+        "spelling": "nineAdd_core"
+      }
+    },
+    {
+      "caller": "poitouTateNormalised_holds",
+      "callee": "poitouTateNormalised_of_nine",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+        "line": 19,
+        "spelling": "PositivityTheory.PTN.poitouTateNormalised_of_nine"
+      }
+    },
+    {
+      "caller": "poitouTateNormalised_holds",
+      "callee": "nineCmpFS_of_nineAddFS",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+        "line": 19,
+        "spelling": "nineCmpFS_of_nineAddFS"
+      }
+    },
+    {
+      "caller": "poitouTateNormalised_holds",
+      "callee": "nineAddFS_V",
+      "callsite": {
+        "path": "src/Development/WeilBound/CoreStatements/PublishedTheorems/PoitouTateDuality/PoitouTateNineTerm/PoitouTateNormalisedHolds.lean",
+        "line": 19,
+        "spelling": "nineAddFS_V"
+      }
+    },
+    {
+      "caller": "conjBack_mem_Dec",
+      "callee": "apply_conjBack",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 50,
+        "spelling": "apply_conjBack"
+      }
+    },
+    {
+      "caller": "conjBack_mem_Ine",
+      "callee": "conjBack_mem_Dec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 56,
+        "spelling": "conjBack_mem_Dec"
+      }
+    },
+    {
+      "caller": "conjBack_isFrob",
+      "callee": "conjBack_mem_Dec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 64,
+        "spelling": "conjBack_mem_Dec"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "conjBack_mem_Dec",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 151,
+        "spelling": "conjBack_mem_Dec"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "continuous_conjBack",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 154,
+        "spelling": "continuous_conjBack"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "cycMod_conjBack",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 160,
+        "spelling": "cycMod_conjBack"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "exists_unramified",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 182,
+        "spelling": "GlobalTheory.Published.PoitouTate.Model.exists_unramified"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "exists_kummer",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 185,
+        "spelling": "GlobalTheory.Published.PoitouTate.Model.exists_kummer"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "exists_place_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 195,
+        "spelling": "exists_place_map"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "conjBack_mem_Ine",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 209,
+        "spelling": "conjBack_mem_Ine"
+      }
+    },
+    {
+      "caller": "conjCompatible",
+      "callee": "conjBack_isFrob",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 210,
+        "spelling": "conjBack_isFrob"
+      }
+    },
+    {
+      "caller": "poitouTateDuality_of_normalised",
+      "callee": "conjCompatible",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PoitouTateDualityOfNormalised.lean",
+        "line": 226,
+        "spelling": "conjCompatible"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "PTD-01",
+      "PTD-02"
+    ],
+    [
+      "PTD-01",
+      "PTD-03"
+    ],
+    [
+      "PTD-02",
+      "PTD-03"
+    ],
+    [
+      "CFT-01",
+      "PTD-03"
+    ]
+  ],
+  "outstanding": [
+    "Finite-coefficient local finiteness, local Tate duality, and global Poitou–Tate duality (including nine-term exactness, Shafarevich–Tate duality, and automatic conjugation compatibility of normalized local invariants) are reconstructed in PTD-01 through PTD-03."
+  ]
+}
