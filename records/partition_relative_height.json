@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies, and verified written callsites across PartitionUnitySmooth, HeightContinuity, and SBridge.",
+  "claims": [
+    {
+      "id": "PRH-01",
+      "chapter": "inputs",
+      "anchor": "inputs-overlap-smooth-separation",
+      "title": "Smooth cutoff thickening in the positive cone, lattice dilation count, and smoothness of the dyadic retraction",
+      "hypotheses": "Arbitrary number field L; integer rank N ≥ 0 for smooth bump separation and lattice dilation count, and N ≥ 1 for the dyadic retraction; finite-dimensional real normed space HS(L, N) of Hermitian matrix tuples with positive-definite cone Pos(L, N), quadratic form q_h(z) = ∑_w Re(z_w* h_w z_w) on V_ℝ = ∏_w ℂ^N of real dimension d_ℝ, arithmetic group Γ = GL_N(𝒪_L) acting by q_{γ·h}(z) = q_h(γ⁻¹ z), L_θ-Lipschitz smooth cutoff θ : ℝ → [0, 1] equal to 1 on (−∞, 1] and 0 on [4, ∞), single-scale outer-product average T_s(h) = (s² Z_s(h))⁻¹ ∑_{v∈𝒪_L^N} θ(q_h(v)/s) rk(h, v), and (for N ≥ 1) smooth Γ-invariant proxy μ : Pos(L, N) → ℝ satisfying c_μ λ∨(h) ≤ μ(h) ≤ C′_μ λ∨(h) with c_μ > 0.",
+      "statement": "For N ≥ 0, every compact subset K ⊆ Pos(L, N) admits ε > 0 with compact closed metric thickening K′ ⊆ Pos(L, N) ({x : dist(x, K) ≤ ε} for K ≠ ∅, ∅ for K = ∅), a constant m > 0, and b ∈ C^∞(HS(L, N), ℝ) supported in K′ satisfying 0 ≤ b ≤ 1/m and b ≥ 1 on K, so every smooth function supported in K′ (in particular ψ = b/g(S) extended by zero) has a global Lipschitz constant L_ψ; for N ≥ 0, α ∈ ℝ, h ∈ Pos(L, N), and s ≥ 0, #{v ∈ 𝒪_L^N : q_h(v) ≤ α s} ≤ (√(8 max(α, 1) + 2))^{d_ℝ} #{v ∈ 𝒪_L^N : q_h(v) ≤ s}; and for N ≥ 1, R(h) = μ(h) h + ∑_{j∈ℤ} θ(4^j μ(h)) T_{4^j}(h) maps Pos(L, N) into Pos(L, N), satisfies R(γ·h) = γ·R(h) and q_{R(h)}(z) ≥ μ(h) q_h(z), and is C^∞ on Pos(L, N) via local truncation to a finite window of scales and lattice vectors F₀ ⊂ 𝒪_L^N.",
+      "definitions": [
+        "closed metric thickening K′ ⊆ Pos(L, N) ({x ∈ HS(L, N) : dist(x, K) ≤ ε} when K ≠ ∅, ∅ when K = ∅) and rescaled smooth seed b = f/m (m = min_{x∈K} f(x) > 0 for K ≠ ∅, b = 0 and m = 1 for K = ∅)",
+        "lattice dilation constant C_α = (√(8 max(α, 1) + 2))^{d_ℝ} on V_ℝ of real dimension d_ℝ = dim_ℝ V_ℝ",
+        "single-scale rank-one average T_s(h) = (s² Z_s(h))⁻¹ ∑_{v∈𝒪_L^N} θ(q_h(v)/s) rk(h, v) with Z_s(h) = ∑_{v∈𝒪_L^N} θ(q_h(v)/s) ≥ 1 and dyadic retraction R(h) = μ(h) h + ∑_{j∈ℤ} θ(4^j μ(h)) T_{4^j}(h)"
+      ],
+      "equations": [
+        "inputs-overlap-lattice-dilation-eq",
+        "inputs-overlap-retraction-window-eq"
+      ],
+      "dependencies": [
+        "DLM-01"
+      ],
+      "sources": [
+        {
+          "label": "Metric thickening inside the positive cone, smooth support separation, and rescaled seed bump",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump": 70
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            70,
+            93
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L70-L93"
+        },
+        {
+          "label": "Global Lipschitz regularity of the compactly supported orbit-normalized smooth weight",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump": 70
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean",
+          "lines": [
+            146,
+            166
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GbGSmooth.lean#L146-L166"
+        },
+        {
+          "label": "Haar ball packing and uniform lattice-point dilation count on positive-definite ellipsoids",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GCount",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.ncard_q_le_mul_le_sqrt_pow_mul_ncard"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.ncard_q_le_mul_le_sqrt_pow_mul_ncard": 157,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GCount": 260
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GCount.lean",
+          "lines": [
+            157,
+            284
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GCount.lean#L157-L284"
+        },
+        {
+          "label": "Arithmetic equivariance and positive-definiteness of the dyadic outer-product retraction",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.ret_act",
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.psd_term"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.ret_act": 76,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.psd_term": 105,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv": 113
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonneg.lean",
+          "lines": [
+            76,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonneg.lean#L76-L130"
+        },
+        {
+          "label": "Local truncation to finitely many dyadic scales and lattice vectors and smoothness of the retraction",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRSmooth",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRSmooth": 79
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRSmooth.lean",
+          "lines": [
+            79,
+            225
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GRSmooth.lean#L79-L225"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Metric separation and smooth support existence build the seed bump on K′ ⊆ Pos(L, N); integrating indicator sums of radius-(s/4) q_h-balls against additive Haar measure on V_ℝ proves the metric-independent lattice dilation bound; and uniform upper and lower scale cutoffs around each h₀ ∈ Pos(L, N) reduce R(h) locally to a finite smooth sum.",
+      "review": "Checked empty-core branch K = ∅, s = 0 lattice-count branch, parallelogram-inequality ball containment (8ρ + 2)(s/4) and center-difference bound < s, and nowhere-vanishing denominator 4^{2j} Z_{4^j}(h) ≥ 4^{2j}."
+    },
+    {
+      "id": "PRH-02",
+      "chapter": "inputs",
+      "anchor": "inputs-overlap-relative-moduli",
+      "title": "Relative quadratic moduli of determinant normalization and of the dyadic outer-product retraction",
+      "hypotheses": "Number field L of degree [L : ℚ] ≥ 1 with infinite-place multiplicities mult(w) ∈ {1, 2} summing to [L : ℚ], positive rank N ≥ 1, relative quadratic closeness Cl_δ(h, k) for h ∈ Pos(L, N) and arbitrary Hermitian k ∈ HS(L, N) defined by |q_k(z) − q_h(z)| ≤ δ q_h(z) for all z ∈ V_ℝ, common-scale normalization N₀(h) = P_mult(h)^{−1/(N[L:ℚ])} h with P_mult(h) = ∏_w (det h_w)^{mult(w)}, L_θ-Lipschitz cutoff θ : ℝ → [0, 1], and smooth Γ-invariant proxy μ satisfying c_μ λ∨(h) ≤ μ(h) ≤ C′_μ λ∨(h) (c_μ = 1/4, C′_μ = 4) and |μ(k) − μ(h)| ≤ C_μ δ μ(h) for 0 ≤ δ ≤ 1/4 under Cl_δ(h, k).",
+      "statement": "Common-scale normalization N₀ is C^∞, Γ-equivariant, positive-scale invariant, preserves λ(N₀(h)) λ∨(N₀(h)) = λ(h) λ∨(h) > 0, and satisfies k ∈ Pos(L, N) and Cl_{3δ}(N₀(h), N₀(k)) whenever h ∈ Pos(L, N), k ∈ HS(L, N), and 0 ≤ δ ≤ 1/4 obey Cl_δ(h, k); each single-scale average satisfies 0 ≤ q_{T_s(h)}(z) ≤ (4/s) q_h(z), vanishes for 4s ≤ λ(h), and obeys |q_{T_s(k)}(z) − q_{T_s(h)}(z)| ≤ (C_T δ / s) q_h(z) with C_T = (160 L_θ + 40) C₁₀ under Cl_δ(h, k) (0 ≤ δ ≤ 1/4); and there exists C_R > 0 depending only on (L_θ, c_μ, C_μ, C_T) such that for all h ∈ Pos(L, N), k ∈ HS(L, N), and 0 ≤ δ ≤ 1/4, Cl_δ(h, k) implies Cl_{C_R(1+H(h))δ}(R(h), R(k)) with H(h) = [λ(h) λ∨(h)]⁻¹, so for 0 ≤ δ ≤ 1/12 the composite F = R ∘ N₀ satisfies Cl_{3 C_R(1+H(h))δ}(F(h), F(k)).",
+      "definitions": [
+        "multiplicity-weighted determinant product P_mult(h) = ∏_w (det h_w)^{mult(w)}, root scale A_h = P_mult(h)^{1/(N[L:ℚ])}, and normalized form N₀(h) = A_h⁻¹ h",
+        "single-scale perturbation constant C_T = (160 L_θ + 40) C₁₀ using the dilation-10 lattice count factor C₁₀",
+        "reciprocal-minima height H(h) = [λ(h) λ∨(h)]⁻¹ and composite equivariant map F(h) = R(N₀(h))"
+      ],
+      "equations": [
+        "inputs-overlap-norm-modulus-eq",
+        "inputs-overlap-retraction-modulus-eq"
+      ],
+      "dependencies": [
+        "PRH-01",
+        "DLM-01"
+      ],
+      "sources": [
+        {
+          "label": "Unitary congruence determinant monotonicity and factor-of-three algebraic rescaling bound",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.lipAlg",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.detMono"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.detMono": 42,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.lipAlg": 86
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/DiagForm.lean",
+          "lines": [
+            42,
+            105
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/DiagForm.lean#L42-L105"
+        },
+        {
+          "label": "Equivariance, height preservation, and factor-of-three relative modulus of determinant normalization",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm": 107
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+          "lines": [
+            107,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean#L107-L185"
+        },
+        {
+          "label": "Local rank-one perturbation, weight-sum ratio stability, and single-scale outer-product Lipschitz bound",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTLip",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.place_form_perturbation_bound_of_sq_le",
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.abs_ratio_perturbation_bound_of_estimates"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.place_form_perturbation_bound_of_sq_le": 139,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.abs_ratio_perturbation_bound_of_estimates": 215,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTLip": 239
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonnegBis.lean",
+          "lines": [
+            139,
+            421
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonnegBis.lean#L139-L421"
+        },
+        {
+          "label": "Active dyadic scale window, reciprocal-scale geometric sum, and height-linear retraction modulus",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip_lemma_6"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip_lemma_6": 97,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip": 364
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+          "lines": [
+            97,
+            500
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean#L97-L500"
+        },
+        {
+          "label": "Composition of the normalization and retraction relative quadratic moduli",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin": 11
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            89,
+            117
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L89-L117"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Simultaneous unitary diagonalization gives (1 − δ) A_h ≤ A_k ≤ (1 + δ) A_h and normalization factor C_n = 3; dilation-10 lattice comparison bounds the single-scale outer-product variation by (C_T δ / s) q_h(z); and summing 4^{−j} above 4^{lo} > 3λ(h)/64 against q_{R(h)}(z) ≥ c_μ λ∨(h) q_h(z) yields C_R(1 + H(h))δ.",
+      "review": "Checked unit-norm determinant invariance |Norm_{L/ℚ}(det γ)| = 1, inequality 3(1 − 1/4) = 9/4 > 2 for C_n = 3, support-to-core dilation 8s / ((4/5)s) = 10, geometric tail (4/3)(64/[3λ]) = 256/[9λ], and threshold δ ≤ 1/12 ensuring 3δ ≤ 1/4."
+    },
+    {
+      "id": "PRH-03",
+      "chapter": "inputs",
+      "anchor": "inputs-overlap-height-floor",
+      "title": "Totally complex lattice norm floor, reciprocal-minima height bound, and moving-frame derivative closure",
+      "hypotheses": "Totally complex number field L of degree e = [L : ℚ] = 2r (r ≥ 1 complex places, each of multiplicity mult(w) = 2 and archimedean absolute value w(x) = |ι_w(x)|, so w(x)^{mult(w)} = |ι_w(x)|²), positive rank N ≥ 1, real dimension d = 2 r N, discriminant-dimension constant I₀ = |Δ_L|^N d^d, archimedean frame group G_p(L, N) = ∏_w GL_N(ℂ) acting on HS(L, N) by congruence (x · v)_w = (x_w⁻¹)* v_w x_w⁻¹ and parameterizing positive forms h_x = x · 1 with (h_x)_w = (x_w⁻¹)* x_w⁻¹ and dual (h_x∨)_w = (x_w^T)* x_w^T, sup matrix-entry norm ‖v‖ on HS(L, N), smooth function ψ : HS(L, N) → ℝ with relative Lipschitz constant C_ψ ≥ 0 on Pos(L, N), and pulled-back functions φ = ψ ∘ F and φ_γ(h) = φ(γ⁻¹ · h) (γ ∈ Γ = GL_N(𝒪_L)).",
+      "statement": "The standard form satisfies λ(1) ≥ 1, and every frame x ∈ G_p(L, N) satisfies λ(h_x) > 0, λ∨(h_x) > 0, [λ(h_x) λ∨(h_x)]^{Nr} ≤ I₀², and H(h_x) = [λ(h_x) λ∨(h_x)]⁻¹ ≥ c₀ := [max(1, I₀²)]⁻¹ > 0; absorbing 1 + H(h_x) ≤ (1 + c₀⁻¹) H(h_x) and differentiating along the affine ray h_x + t(x · v) in HS(L, N) bounds |Dφ_γ(h_x)(x · v)| ≤ C_* H(h_x) ‖v‖ with C_* = N C_ψ C_R C_n(1 + c₀⁻¹) = 3 N C_ψ C_R(1 + c₀⁻¹) uniformly for all γ ∈ Γ, x ∈ G_p(L, N), and v ∈ HS(L, N).",
+      "definitions": [
+        "frame-parameterized positive tuple h_x = x · 1 with (h_x)_w = (x_w⁻¹)* x_w⁻¹ and dual tuple (h_x∨)_w = (x_w^T)* x_w^T, and congruence action (x · v)_w = (x_w⁻¹)* v_w x_w⁻¹ on HS(L, N)",
+        "uniform positive height floor c₀ = [max(1, I₀²)]⁻¹ > 0 where I₀ = |Δ_L|^N (2 r N)^{2 r N}",
+        "moving-frame derivative prefactor C_* = N C_ψ C_R C_n(1 + c₀⁻¹) = 3 N C_ψ C_R(1 + c₀⁻¹) at height exponent a = 1"
+      ],
+      "equations": [
+        "inputs-overlap-height-floor-eq",
+        "inputs-overlap-frame-deriv-eq"
+      ],
+      "dependencies": [
+        "PRH-02",
+        "FCR-01"
+      ],
+      "sources": [
+        {
+          "label": "Totally complex integral norm floor for the identity form and positivity of primal and dual frame minima",
+          "declaration": "PositivityTheory.KB.HeightDistance.one_le_lm_one",
+          "related_declarations": [
+            "PositivityTheory.KB.HeightDistance.lm_mul_le",
+            "PositivityTheory.KB.HeightDistance.one_le_norm_place",
+            "PositivityTheory.KB.HeightDistance.lm_iv_pos",
+            "PositivityTheory.KB.HeightDistance.lm_tp_pos"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.HeightDistance.lm_mul_le": 90,
+            "PositivityTheory.KB.HeightDistance.one_le_norm_place": 104,
+            "PositivityTheory.KB.HeightDistance.one_le_lm_one": 131,
+            "PositivityTheory.KB.HeightDistance.lm_iv_pos": 227,
+            "PositivityTheory.KB.HeightDistance.lm_tp_pos": 233
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/MatrixTupleDistortionPos.lean",
+          "lines": [
+            90,
+            238
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/MatrixTupleDistortionPos.lean#L90-L238"
+        },
+        {
+          "label": "Dual determinant cancellation for rescaled minima and uniform positive height lower bound",
+          "declaration": "PositivityTheory.KB.HeightDistance.ht_lower",
+          "related_declarations": [
+            "PositivityTheory.KB.HeightDistance.lm_prod_le"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.HeightDistance.lm_prod_le": 155,
+            "PositivityTheory.KB.HeightDistance.ht_lower": 183
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+          "lines": [
+            155,
+            190
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean#L155-L190"
+        },
+        {
+          "label": "Height-continuity and uniform positive height floor package across ranks",
+          "declaration": "PositivityTheory.KB.sHt_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.sHt_of": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean",
+          "lines": [
+            6,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean#L6-L9"
+        },
+        {
+          "label": "Linear-ray quadratic distortion in congruence frames and moving-frame operator derivative bound",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB",
+          "related_declarations": [
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.d_key"
+          ],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.d_key": 17,
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB": 29
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+          "lines": [
+            17,
+            63
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean#L17-L63"
+        },
+        {
+          "label": "Height-floor absorption of the additive constant into one power of height",
+          "declaration": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin": 11
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean",
+          "lines": [
+            118,
+            130
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGFin.lean#L118-L130"
+        },
+        {
+          "label": "Assembly of the smooth equivariant partition of unity from the height-floor supplier",
+          "declaration": "PositivityTheory.KB.sPU_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.sPU_of": 23
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+          "lines": [
+            23,
+            31
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean#L23-L31"
+        },
+        {
+          "label": "Unconditional bridge instantiation of the smooth partition of unity with the totally complex height floor",
+          "declaration": "PositivityTheory.KB.sPU",
+          "related_declarations": [],
+          "declaration_lines": {
+            "PositivityTheory.KB.sPU": 32
+          },
+          "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+          "lines": [
+            32,
+            35
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean#L32-L35"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Integrality of rational field norms gives λ(1) ≥ 1 and positivity of λ(h_x), λ∨(h_x) via entrywise matrix-tuple distortion dist₁(A) = (1 + ∑_{w,i,j} |(A_w − I_N)_{i,j}|)²; multiplying the integer-basis determinant bounds on λ(h_x)⁻¹ h_x and λ∨(h_x)⁻¹ h_x∨ cancels |det(x_w⁻¹)|² |det(x_w^T)|² = 1 to yield H(h_x) ≥ [max(1, I₀²)]⁻¹; and linear-ray congruence distortion Cl_{N‖v‖t}(h_x, h_x + t(x · v)) gives prefactor 3 N C_ψ C_R(1 + c₀⁻¹) at exponent a = 1.",
+      "review": "Checked placewise norm identity ∏_w |ι_w(u_i)|² = |Norm_{L/ℚ}(u_i)| ≥ 1, dual matrix factorization ((h_x)_w⁻¹)^T = (x_w^T)* x_w^T, exponent alternative on Nr ≥ 1 giving λ λ∨ ≤ max(1, I₀²), and affine-ray difference-quotient factor N giving C_* = N C_ψ C_R C_n(1 + c₀⁻¹)."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GCount",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.ncard_q_le_mul_le_sqrt_pow_mul_ncard",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GCount.lean",
+        "line": 283,
+        "spelling": "ncard_q_le_mul_le_sqrt_pow_mul_ncard"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.ret_act",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonneg.lean",
+        "line": 123,
+        "spelling": "ret_act"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.psd_term",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/RhoNonneg.lean",
+        "line": 121,
+        "spelling": "psd_term"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.detMono",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+        "line": 154,
+        "spelling": "detMono"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.lipAlg",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/GProdScale.lean",
+        "line": 184,
+        "spelling": "lipAlg"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip_lemma_6",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfGRLip.lean",
+        "line": 474,
+        "spelling": "pf_GRLip_lemma_6"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GCount",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 24,
+        "spelling": "pf_GCount"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 26,
+        "spelling": "pf_GREqv"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 27,
+        "spelling": "pf_GTLip"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRSmooth",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 29,
+        "spelling": "pf_GRSmooth"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30,
+        "spelling": "pf_GRLip"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30,
+        "spelling": "pf_GBump"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30,
+        "spelling": "pf_GNrm"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU_of",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/SPUOf.lean",
+        "line": 30,
+        "spelling": "pf_DerB"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.one_le_lm_one",
+      "callee": "PositivityTheory.KB.HeightDistance.one_le_norm_place",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/MatrixTupleDistortionPos.lean",
+        "line": 139,
+        "spelling": "one_le_norm_place"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.lm_iv_pos",
+      "callee": "PositivityTheory.KB.HeightDistance.one_le_lm_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/MatrixTupleDistortionPos.lean",
+        "line": 228,
+        "spelling": "one_le_lm_one"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.lm_tp_pos",
+      "callee": "PositivityTheory.KB.HeightDistance.one_le_lm_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/MatrixTupleDistortionPos.lean",
+        "line": 234,
+        "spelling": "one_le_lm_one"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.lm_prod_le",
+      "callee": "PositivityTheory.KB.HeightDistance.lm_iv_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+        "line": 157,
+        "spelling": "lm_iv_pos"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.lm_prod_le",
+      "callee": "PositivityTheory.KB.HeightDistance.lm_tp_pos",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+        "line": 158,
+        "spelling": "lm_tp_pos"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.lm_prod_le",
+      "callee": "UpperTheory.V.KT.detlow",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+        "line": 159,
+        "spelling": "detlow"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB",
+      "callee": "PositivityTheory.KB.SmoothPartitionUnityBasic.d_key",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/PartitionUnitySmooth/PfDerB.lean",
+        "line": 56,
+        "spelling": "d_key"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.HeightDistance.ht_lower",
+      "callee": "PositivityTheory.KB.HeightDistance.lm_prod_le",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/ContinuousHt.lean",
+        "line": 189,
+        "spelling": "lm_prod_le"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sHt_of",
+      "callee": "PositivityTheory.KB.HeightDistance.ht_lower",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeightContinuity/SHtOf.lean",
+        "line": 8,
+        "spelling": "PositivityTheory.KB.HeightDistance.ht_lower"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU",
+      "callee": "PositivityTheory.KB.sPU_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 32,
+        "spelling": "sPU_of"
+      }
+    },
+    {
+      "caller": "PositivityTheory.KB.sPU",
+      "callee": "PositivityTheory.KB.sHt_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/SBridge.lean",
+        "line": 32,
+        "spelling": "sHt_of"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DLM-01",
+      "PRH-01"
+    ],
+    [
+      "PRH-01",
+      "PRH-02"
+    ],
+    [
+      "DLM-01",
+      "PRH-02"
+    ],
+    [
+      "PRH-02",
+      "PRH-03"
+    ],
+    [
+      "FCR-01",
+      "PRH-03"
+    ],
+    [
+      "PRH-01",
+      "OVL-02"
+    ],
+    [
+      "PRH-02",
+      "OVL-03"
+    ],
+    [
+      "PRH-03",
+      "OVL-03"
+    ],
+    [
+      "PRH-01",
+      "TPK-02"
+    ],
+    [
+      "PRH-02",
+      "TPK-03"
+    ],
+    [
+      "PRH-03",
+      "TPK-03"
+    ]
+  ],
+  "outstanding": [
+    "DLM-01 supplies the smooth dual-minimum comparison and FCR-01 supplies the integer-basis determinant bound, which combine here with smooth bump separation inside the positive-definite cone, Haar ball-packing lattice dilation counts, determinant-normalization and dyadic-retraction relative quadratic moduli, and dual determinant cancellation for the height floor to establish OVL-02, OVL-03, TPK-02, and TPK-03."
+  ],
+  "review_scope": "Checked metric thickening and smooth support separation on HS(L, N), Haar ball-packing lattice dilation bound, local finite-window truncation of the dyadic retraction, unitary congruence determinant monotonicity and factor-of-three normalization modulus, single-scale rank-one perturbation constant (160 L_θ + 40) C₁₀, dyadic reciprocal-scale geometric sum and large/small C_μ δ regimes, totally complex norm floor λ(1) ≥ 1, dual determinant cancellation for H ≥ [max(1, I₀²)]⁻¹, linear-ray moving-frame derivative closure at exponent one with C_* = 3 N C_ψ C_R(1 + c₀⁻¹), and 17 pinned source ranges with 25 callsites."
+}

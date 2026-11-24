@@ -15,7 +15,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 05 | `global` | Lattices and the arithmetic main term | `152` (`70` / `82`) | `1` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; Cycle 7 ✅ Terminé : `PGU-01`–`03` ferment `RPI-01`, `FMU-01`, `RFV-01` ; Cycle 8 ✅ Terminé : `FDW-01`–`03` ferment `FDG-01` ; 1 interface amont restante : `global.lattice`) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
-| 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
+| 08 | `inputs` | Supplying the arithmetic hypotheses | `236` (`93` / `143`) | `8` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; Cycle 9 ✅ Terminé : `PRH-01`–`03` ferment `OVL-01` et `TPK-01` ; 8 interfaces amont restantes) |
 | 09 | `windows` | The one-sided window theorem | `6` (`6` / `0`) | `0` | ✅ Terminé |
 | 10 | `reflection` | Reflection and the final statement | `3` (`3` / `0`) | `0` | ✅ Terminé |
 
@@ -31,7 +31,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 6. ✅ **Cycle 6 (Terminé)** — **Ch. 5 (`global`)** : *Jauge de Haar riemannienne, jacobien de la carte exponentielle ordonnée, indice du sous-groupe de congruence et borne absolue de covolume hermitien* (`deep-cusp-jacobian-index.fragment.html` + `deep_cusp_jacobian_index.json`, raccordé à `deep-cusp-count`, `deep-sobolev`, `deep_cusp_count.json`, `deep_sobolev.json` ; `DCJ-01`–`03`, ferme `DCP-01`).
 7. ✅ **Cycle 7 (Terminé)** — **Ch. 5 (`global`)** : *Asymptotiques locales de jauge sur sous-groupes algébriques matriciels, module de conjugaison du radical unipotent isotrope, calibration par tranche de la constante d'Iwasawa, inégalité de covolume sur tranches dénombrables, finitude du volume quotient, constante arithmétique à cinq facteurs et majoration de $\zeta_E(l)$* (`parabolic-gauge-unfolding.fragment.html` + `parabolic_gauge_unfolding.json`, raccordé à `real-parabolic-integration`, `marked-flag-unfolding`, `rare-flag-volume`, `real_parabolic_integration.json`, `marked_flag_unfolding.json`, `rare_flag_volume.json` ; `PGU-01`–`03`, ferme `RPI-01`, `FMU-01` et `RFV-01`).
 8. ✅ **Cycle 8 (Terminé)** — **Ch. 5 (`global`)** : *Formule des dimensions de Weyl compacte sur $U(p) \times U(q)$, calibration de Haar polaire, limite gaussienne des coefficients matriciels tangents et enveloppe globale intégrable par potentiel de mineurs de Cauchy–Binet* (`formal-degree-weyl-envelope.fragment.html` + `formal_degree_weyl_envelope.json`, raccordé à `formal-degree`, `formal_degree.json` ; `FDW-01`–`03`, ferme `FDG-01`).
-9. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+9. ✅ **Cycle 9 (Terminé)** — **Ch. 8 (`inputs`)** : *Séparation lisse dans le cône positif, comptage de dilatation réticulaire par empilement de boules de Haar, régularité et troncature locale de la rétraction dyadique, modules quadratiques relatifs de normalisation et rétraction, plancher de hauteur totalement complexe et fermeture différentielle en repère mobile* (`partition-relative-height.fragment.html` + `partition_relative_height.json`, raccordé à `partition-overlap`, `thick-partition`, `partition_overlap.json`, `thick_partition.json` ; `PRH-01`–`03`, ferme `OVL-01` et `TPK-01`).
+10. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -68,13 +69,20 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | $J(z)$ | Jacobien polaire hyperbolique $\prod_{0 \le a < b < N} \mathrm{shc}(\mu_a(z) - \mu_b(z))$ ($\mu_a(z)$ valeurs propres de $P(z)$) | Ch. 5 |
 | $\Phi(\lambda, X)$ | Potentiel de mineurs de Cauchy–Binet $\sum_{i=0}^{N-2} (\lambda_i - \lambda_{i+1} + 1)\,\ell_{i+1}(X)$ | Ch. 5 |
 | $\ell_i(X) = \log \Delta_i(\exp X)$ | Logarithme du mineur principal dominant d'ordre $i$ de $\exp X$ | Ch. 5 |
+| $L_\theta$ | Constante de Lipschitz globale de la coupure lisse $\theta : \mathbb{R} \to [0, 1]$ | Ch. 8 |
+| $F_0 \subset \mathcal{O}_L^N$ | Ensemble fini local de vecteurs réticulaires tronquant la rétraction dyadique $R$ près de $h_0$ | Ch. 8 |
+| $\Lambda_{8s}, \Lambda_{4s/5}$ | Ensembles réticulaires $\{v \in \mathcal{O}_L^N : q_h(v) \le 8s\}$ et $\{v \in \mathcal{O}_L^N : q_h(v) \le \frac{4}{5}s\}$ comparés au facteur de dilatation $10$ | Ch. 8 |
+| $N_0(h) = A_h^{-1} h$, $A_h$ | Normalisation à l'échelle commune avec $A_h = P_{\mathrm{mult}}(h)^{1/(N[L:\mathbb{Q}])}$ et $P_{\mathrm{mult}}(h) = \prod_w (\det h_w)^{\mathrm{mult}(w)}$ | Ch. 8 |
+| $C_T, C_R$ | Constantes de module quadratique relatif à une échelle ($C_T = (160 L_\theta + 40)C_{10}$) et pour la rétraction dyadique $R$ | Ch. 8 |
+| $c_0, C_*$ | Plancher uniforme de hauteur $H(h_x) \ge c_0 := [\max(1, I_0^2)]^{-1} > 0$ et constante de dérivée $C_* = 3 N C_\psi C_R(1 + c_0^{-1})$ à l'exposant $a = 1$ | Ch. 8 |
+| $\mathrm{dist}_1(A)$ | Distorsion matricielle par entrées $(1 + \sum_{w,i,j} \lvert (A_w - I_N)_{i,j} \rvert)^2 \in [1, \infty)$ sur $G_p(L, N)$ | Ch. 8 |
 
 ---
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`958` résultats au total après Cycle 8 : `371` `core-argument` / `587` `rebuilt-infrastructure`, `879` auto-contenus, `17` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`961` résultats au total après Cycle 9 : `371` `core-argument` / `590` `rebuilt-infrastructure`, `888` auto-contenus, `15` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -289,3 +297,25 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `ReciprocityTheory.ChartRestriction.DS.fdU_integrable_prod_exp`, `fdU_lintegral_gauss` (`FdUpperA.lean#L61-L78`)
   - `ReciprocityTheory.ChartRestriction.DS.formal_degree_limsup_upper_bound`, `fdU_major`, `fdU_pointwise` (`FdUpper.lean#L28-L137`)
   - `ReciprocityTheory.ChartRestriction.DS.thmFD` (`ThmFD.lean#L21-L104`)
+
+### Cycle 9 — Séparation lisse dans le cône, modules quadratiques relatifs et plancher de hauteur (`partition_relative_height`)
+- *Statut* : ✅ Terminé (`content/partition-relative-height.fragment.html` + `records/partition_relative_height.json`, rôle `rebuilt-infrastructure` ; ferme `OVL-01` et `TPK-01`).
+- *Déclarations `[CORE]` couvertes — `PRH-01` (`#inputs-overlap-smooth-separation`)* :
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GBump` (`GbGSmooth.lean#L70-L93, #L146-L166`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GCount`, `ncard_q_le_mul_le_sqrt_pow_mul_ncard` (`GCount.lean#L157-L284`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GREqv`, `ret_act`, `psd_term` (`RhoNonneg.lean#L76-L130`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRSmooth` (`GRSmooth.lean#L79-L225`)
+- *Déclarations `[CORE]` couvertes — `PRH-02` (`#inputs-overlap-relative-moduli`)* :
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.LipschitzAlgebraNorm.lipAlg`, `detMono` (`DiagForm.lean#L42-L105`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GNrm` (`GProdScale.lean#L107-L185`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GTLip`, `place_form_perturbation_bound_of_sq_le`, `abs_ratio_perturbation_bound_of_estimates` (`RhoNonnegBis.lean#L139-L421`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GRLip`, `pf_GRLip_lemma_6` (`PfGRLip.lean#L97-L500`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin` (`PfGFin.lean#L89-L117`)
+- *Déclarations `[CORE]` couvertes — `PRH-03` (`#inputs-overlap-height-floor`)* :
+  - `PositivityTheory.KB.HeightDistance.one_le_lm_one`, `lm_mul_le`, `one_le_norm_place`, `lm_iv_pos`, `lm_tp_pos` (`MatrixTupleDistortionPos.lean#L90-L238`)
+  - `PositivityTheory.KB.HeightDistance.ht_lower`, `lm_prod_le` (`ContinuousHt.lean#L155-L190`)
+  - `PositivityTheory.KB.sHt_of` (`SHtOf.lean#L6-L9`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_DerB`, `d_key` (`PfDerB.lean#L17-L63`)
+  - `PositivityTheory.KB.SmoothPartitionUnityBasic.pf_GFin` (`PfGFin.lean#L118-L130`)
+  - `PositivityTheory.KB.sPU_of` (`SPUOf.lean#L23-L31`)
+  - `PositivityTheory.KB.sPU` (`SBridge.lean#L32-L35`)
