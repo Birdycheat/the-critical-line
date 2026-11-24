@@ -1,0 +1,783 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies and verified written callsites across FlagMeasures and FoundationProofs.",
+  "claims": [
+    {
+      "id": "DCJ-01",
+      "chapter": "global",
+      "anchor": "global-deep-chart-jacobian",
+      "title": "Riemannian Haar gauge and the ordered exponential-cube Jacobian bound",
+      "hypotheses": "An integer dimension n ≥ 0, a sign vector ε ∈ {±1}ⁿ defining J_ε = diag(ε₁, …, ε_n), the real unitary group U(ε) = {u ∈ GL_n(ℂ) : u* J_ε u = J_ε} with real Lie algebra 𝔤_ε = {X ∈ M_n(ℂ) : X* J_ε + J_ε X = 0} of real dimension n² equipped with Re tr(X Y*) and Hilbert–Schmidt norm ‖·‖_HS, a left Haar measure μ_ε on U(ε), a real orthonormal basis E₁, …, E_{n²} ∈ 𝔤_ε defining Θ(t) = exp(t₁ E₁) ⋯ exp(t_{n²} E_{n²}), and a cube side length s > 0 satisfying n(exp(3n²s) − 1) ≤ 1/2.",
+      "statement": "There exists a unique positive scalar c_ε > 0 such that c_ε μ_ε({u ∈ U(ε) : ‖u − 1‖_HS ≤ r}) / r^(n²) → ω_{n²} as r → 0⁺, where ω_{n²} is the Lebesgue volume of the unit Euclidean ball in ℝ^(n²); and for every nonnegative measurable function Φ : U(ε) → [0, ∞], ∫_{[0,s]^(n²)} Φ(Θ(t)) dt ≤ exp(2n³(exp(2n²s) − 1)) · c_ε ∫_{Θ([0,s]^(n²))} Φ(y) dμ_ε(y). When 8n⁵s ≤ 1 and 12n³s ≤ 1, the exponential prefactor is at most e at each of the f real places.",
+      "definitions": [
+        "Riemannian Haar gauge constant c_ε > 0 calibrated against unit Euclidean ball volume ω_{n²} in Hilbert–Schmidt metric",
+        "ordered product exponential chart Θ(t) = exp(t₁ E₁) ⋯ exp(t_{n²} E_{n²}) on ℝ^(n²)",
+        "operator-norm derivative distortion bound δ = n(exp(2n²s) − 1) ≤ 1/2"
+      ],
+      "equations": [
+        "global-deep-haar-gauge-eq",
+        "global-deep-ordered-chart-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Exported statement of existence and uniqueness of the positive Riemannian Haar gauge constant",
+          "declaration": "GlobalTheory.T.riemannianHaarGauge_exists_pos_unique",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.riemannianHaarGauge_exists_pos_unique": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RiemannianHaarGaugeExistsPosUniqueStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RiemannianHaarGaugeExistsPosUniqueStatement.lean#L6-L7"
+        },
+        {
+          "label": "Small-ball Hilbert–Schmidt squeeze in the exponential chart and uniqueness of the Haar gauge scalar",
+          "declaration": "GlobalTheory.GaugeConst.exists_unique_isGauge",
+          "related_declarations": [
+            "GlobalTheory.GaugeConst.exists_limit_of_chart",
+            "GlobalTheory.GaugeConst.exists_limit"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.GaugeConst.exists_limit_of_chart": 59,
+            "GlobalTheory.GaugeConst.exists_limit": 266,
+            "GlobalTheory.GaugeConst.exists_unique_isGauge": 286
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLimitOfChart.lean",
+          "lines": [
+            59,
+            303
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLimitOfChart.lean#L59-L303"
+        },
+        {
+          "label": "Positive finite asymptotic Haar density of small Euclidean balls pushed forward by an isometric chart",
+          "declaration": "GlobalTheory.CompactDualExists.exists_density_of_chart",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CompactDualExists.exists_density_of_chart": 17
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NonemptyCompactDualHaar.lean",
+          "lines": [
+            17,
+            94
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/NonemptyCompactDualHaar.lean#L17-L94"
+        },
+        {
+          "label": "Telescopic Hilbert–Schmidt expansion and global injectivity of the ordered product exponential on the cube",
+          "declaration": "GlobalTheory.ExpChartExpanding.expanding",
+          "related_declarations": [
+            "GlobalTheory.ExpChartExpanding.orderedProductExp_expanding_real_smul"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ExpChartExpanding.orderedProductExp_expanding_real_smul": 176,
+            "GlobalTheory.ExpChartExpanding.expanding": 218
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrderedProductExpExpandingRealSmul.lean",
+          "lines": [
+            176,
+            223
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/OrderedProductExpExpandingRealSmul.lean#L176-L223"
+        },
+        {
+          "label": "Infinitesimal group-ball inclusion, Besicovitch–Vitali covering and the ordered exponential-cube integral bound",
+          "declaration": "GlobalTheory.ProductChart.lintegral_chart_le",
+          "related_declarations": [
+            "GlobalTheory.ProductChart.lintegral_le_of_balls",
+            "GlobalTheory.ProductChart.eventually_ball_subset"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ProductChart.lintegral_le_of_balls": 18,
+            "GlobalTheory.ProductChart.eventually_ball_subset": 326,
+            "GlobalTheory.ProductChart.lintegral_chart_le": 440
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EventuallyBallSubset.lean",
+          "lines": [
+            18,
+            526
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EventuallyBallSubset.lean#L18-L526"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Strict differentiability of the matrix exponential at 0 identifies a unique positive Haar gauge scalar c_ε, while telescopic expansion of Θ on [0,s]^(n²), contraction inversion of Θ(t)⁻¹ L_t within operator-norm defect δ = n(exp(2n²s) − 1) ≤ 1/2, and Vitali–Besicovitch covering bound the cube integral by exp(2n³(exp(2n²s) − 1)) c_ε times the Haar integral.",
+      "review": "Checked n = 0 degenerate case, κ-ball squeeze around ‖u − 1‖_HS ≤ r, injectivity on (0,s)^(n²) under n(exp(3n²s) − 1) ≤ 1/2, scalar bound (1 − δ)^(−n²) ≤ exp(2n²δ) on 0 ≤ δ ≤ 1/2, and specialization under 8n⁵s ≤ 1 and 12n³s ≤ 1."
+    },
+    {
+      "id": "DCJ-02",
+      "chapter": "global",
+      "anchor": "global-deep-congruence-index",
+      "title": "Projective endomorphism reduction and the congruence level index",
+      "hypotheses": "An automorphic Hermitian datum of rank n ≥ 0 over a CM extension E/F of real degree f = [F : ℚ] ([E : ℚ] = 2f), a finitely generated full 𝒪_E-lattice L ⊂ Eⁿ with finite-adelic completion L_fin, compact finite-adelic stabilizer K₀ ⊂ G(𝔸_{F,fin}), congruence subgroup K_g = {x ∈ K₀ : (x − 1)L_fin ⊆ g L_fin} for an integer g ≥ 1, and any Haar measure μ_fin on G(𝔸_{F,fin}).",
+      "statement": "For every integer g ≥ 1, the congruence subgroup K_g contains a neighborhood of the identity of positive finite Haar measure 0 < μ_fin(K_g) ≤ μ_fin(K₀) < ∞ and satisfies μ_fin(K₀) ≤ g^(2n²f) μ_fin(K_g).",
+      "definitions": [
+        "principal congruence subgroup K_g = {x ∈ K₀ : (x − 1)L_fin ⊆ g L_fin}",
+        "projective modulo-g global endomorphism lift φ(x) ∈ End_{𝒪_E}(L)"
+      ],
+      "equations": [
+        "global-deep-congruence-index-eq"
+      ],
+      "dependencies": [
+        "PXL-01"
+      ],
+      "sources": [
+        {
+          "label": "Projective lifting to global lattice endomorphisms, coset injection and the congruence level measure bound",
+          "declaration": "GlobalTheory.CongIndex.measure_Kset_le",
+          "related_declarations": [
+            "GlobalTheory.CongIndex.measure_le_card_mul",
+            "GlobalTheory.CongIndex.exists_end",
+            "GlobalTheory.CongIndex.congr_of_end",
+            "GlobalTheory.CongIndex.card_end_quot"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.CongIndex.measure_le_card_mul": 14,
+            "GlobalTheory.CongIndex.exists_end": 63,
+            "GlobalTheory.CongIndex.congr_of_end": 91,
+            "GlobalTheory.CongIndex.card_end_quot": 152,
+            "GlobalTheory.CongIndex.measure_Kset_le": 173
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean",
+          "lines": [
+            14,
+            216
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean#L14-L216"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Dedekind projectivity of L over 𝒪_E and finite-adele strong approximation from PXL-01 lift each stabilizer element x ∈ K₀ modulo g L_fin to φ(x) ∈ End_{𝒪_E}(L), injecting K₀/K_g into End_{𝒪_E}(L)/g End_{𝒪_E}(L) of ℤ-rank at most 2n²f.",
+      "review": "Checked Dedekind-domain projectivity of torsion-free finitely generated L, left-coset invariance y⁻¹(g L_fin) = g L_fin for y ∈ K₀, and injective evaluation of End_{𝒪_E}(L) on m ≤ n E-independent vectors into E^(m×n)."
+    },
+    {
+      "id": "DCJ-03",
+      "chapter": "global",
+      "anchor": "global-deep-global-covolume",
+      "title": "Fundamental-domain covolume and the absolute unitary volume bound",
+      "hypotheses": "An automorphic Hermitian datum of rank n = p + q ≥ 8 over a CM extension E/F (compatible with complex conjugation and unramified at finite places as in the flag datum) of real degree f = [F : ℚ] ≥ 1 and root discriminant d = |disc E|^(1/(2f)) = 2ν_E ≥ 1, with common archimedean signature (p, q) satisfying q² ≤ n, product Haar measure μ = μ_∞ × μ_fin (with σ-finite Haar measure μ_fin) and archimedean gauge product P_∞ = ∏_v c_v, measurable fundamental domain 𝒟 for Γ = G(F), and real scale X ≥ 2 satisfying d ≤ X and 2f d ≤ X².",
+      "statement": "For every Γ-left-invariant measurable subset A ⊆ G(𝔸_F), the quotient covolume of Γ ∖ A equals μ(A ∩ 𝒟) and covol(Γ, μ, G(𝔸_F)) = μ(𝒟) > 0; in definite signature (r, 0), P_∞ covol(Γ, μ, G(𝔸_F)) / μ_fin(K₀) ≤ vol(U(r))^f h_def(E, r); at rank two, h_def(E, 2) ≤ 4^f d^(5f) (1 + f log d)^(5f); and in signature (p, q) with n ≥ 8 and q² ≤ n, P_∞ covol(Γ, μ, G(𝔸_F)) / μ_fin(K₀) ≤ X^(n²f), yielding μ(𝒟) ≤ X^N g^(2N) k_g / P_∞ at N = n²f and X = n f d g b ≥ 16.",
+      "definitions": [
+        "definite unimodular Hermitian class number h_def(E, r) over 𝒪_E",
+        "orthogonal plane splitting along a short vector u ∈ Λ into rank-one lines N₁, N₂ of common real-generated scale ideal 𝔫",
+        "rank-two unitary Riemannian volume vol(U(2)) = 8π³"
+      ],
+      "equations": [
+        "global-deep-definite-covolume-eq",
+        "global-deep-rank-two-class-eq",
+        "global-deep-absolute-covolume-eq",
+        "global-deep-fundamental-volume-eq"
+      ],
+      "dependencies": [
+        "DCJ-01",
+        "HRV-02",
+        "PVC-01",
+        "PXL-02"
+      ],
+      "sources": [
+        {
+          "label": "Exported statement identifying the rational left-quotient covolume with the fundamental-domain intersection measure",
+          "declaration": "GlobalTheory.T.leftQuotientCovolume_eq_fundamentalDomain_inter",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.leftQuotientCovolume_eq_fundamentalDomain_inter": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqFundamentalDomainInterStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqFundamentalDomainInterStatement.lean#L6-L7"
+        },
+        {
+          "label": "Discreteness and countability of G(F) and positivity of the fundamental-domain measure",
+          "declaration": "GlobalTheory.CovolRat.covol_eq_inter_fund",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.CovolRat.covol_eq_inter_fund": 11
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqFundamentalDomainInter.lean",
+          "lines": [
+            11,
+            41
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqFundamentalDomainInter.lean#L11-L41"
+        },
+        {
+          "label": "General left-quotient covolume identity on measurable fundamental domains for countable discrete groups",
+          "declaration": "GlobalTheory.covol_eq_measure_inter_fund",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.covol_eq_measure_inter_fund": 9
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqMeasureInterFundamentalDom.lean",
+          "lines": [
+            9,
+            43
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqMeasureInterFundamentalDom.lean#L9-L43"
+        },
+        {
+          "label": "Exported statement bounding the definite unitary gauge volume by vol(U(r))^f times the definite class number",
+          "declaration": "GlobalTheory.T.unitaryGaugeVolume_le_classNumber_definite",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.unitaryGaugeVolume_le_classNumber_definite": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefiniteStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefiniteStatement.lean#L6-L7"
+        },
+        {
+          "label": "Double-coset collapse of isometric self-dual lattices and definite gauge-volume bound",
+          "declaration": "GlobalTheory.DefiniteVolume.gaugeVol_le",
+          "related_declarations": [
+            "GlobalTheory.DefiniteVolume.coset_of_isom",
+            "GlobalTheory.DefiniteVolume.covol_le",
+            "GlobalTheory.DefiniteVolume.gauge_local"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.DefiniteVolume.coset_of_isom": 132,
+            "GlobalTheory.DefiniteVolume.covol_le": 158,
+            "GlobalTheory.DefiniteVolume.gaugeVol_le": 213,
+            "GlobalTheory.DefiniteVolume.gauge_local": 199
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefinite.lean",
+          "lines": [
+            126,
+            247
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefinite.lean#L126-L247"
+        },
+        {
+          "label": "Exported statement of the rank-two definite unimodular Hermitian class bound",
+          "declaration": "GlobalTheory.T.rank_two_definite_unimodular_hermitian_class_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rank_two_definite_unimodular_hermitian_class_bound": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBoundStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBoundStatement.lean#L6-L7"
+        },
+        {
+          "label": "Four-factor assembly of scale ideals, rank-one line classes and unimodular gluings in rank two",
+          "declaration": "GlobalTheory.RankTwoCount.rankTwoClasses",
+          "related_declarations": [
+            "GlobalTheory.RankTwoCount.card_glueData_le",
+            "GlobalTheory.RankTwoCount.defClassNum_le_card"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.RankTwoCount.card_glueData_le": 168,
+            "GlobalTheory.RankTwoCount.defClassNum_le_card": 184,
+            "GlobalTheory.RankTwoCount.rankTwoClasses": 225
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+          "lines": [
+            150,
+            256
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean#L150-L256"
+        },
+        {
+          "label": "Existence of a nonzero vector of Hermitian length at most d at every complex place in a rank-two unimodular lattice",
+          "declaration": "GlobalTheory.ShortVec.exists_short_vector",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.ShortVec.exists_short_vector": 239
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsShortVectorUnimodularHermitianLatticeRankT.lean",
+          "lines": [
+            239,
+            383
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsShortVectorUnimodularHermitianLatticeRankT.lean#L239-L383"
+        },
+        {
+          "label": "Orthogonal plane splitting along a short vector and common real-generated scale ideal of the coordinate lines",
+          "declaration": "GlobalTheory.PlaneSplit.planeSplit",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.PlaneSplit.planeSplit": 290
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DefiniteUnimodularPlaneSplitAlongVector.lean",
+          "lines": [
+            290,
+            408
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DefiniteUnimodularPlaneSplitAlongVector.lean#L290-L408"
+        },
+        {
+          "label": "Bound on rank-one positive-definite Hermitian lattice classes of prescribed scale ideal",
+          "declaration": "GlobalTheory.RankOneClasses.card_classes_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.RankOneClasses.card_classes_le": 162
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardRankOneHermitianLatticeClassesLe.lean",
+          "lines": [
+            162,
+            240
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardRankOneHermitianLatticeClassesLe.lean#L162-L240"
+        },
+        {
+          "label": "Descent to the totally real subfield and count of real-generated ideals of bounded norm",
+          "declaration": "GlobalTheory.RealIdealCount.ncard_real_ideals_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.RealIdealCount.ncard_real_ideals_le": 64
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NcardRealGeneratedIdealsLe.lean",
+          "lines": [
+            64,
+            104
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/NcardRealGeneratedIdealsLe.lean#L64-L104"
+        },
+        {
+          "label": "Bound on unimodular Hermitian overlattices gluing two orthogonal rank-one lines",
+          "declaration": "GlobalTheory.GlueLines.card_gluings_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.GlueLines.card_gluings_le": 218
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardUnimodularGluingsTwoLinesLe.lean",
+          "lines": [
+            218,
+            331
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/CardUnimodularGluingsTwoLinesLe.lean#L218-L331"
+        },
+        {
+          "label": "Minkowski bound on the ideal class number of the CM field in terms of its root discriminant",
+          "declaration": "GlobalTheory.classNumber_le_minkowski_count",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.classNumber_le_minkowski_count": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberLeMinkowskiCount.lean",
+          "lines": [
+            8,
+            13
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ClassNumberLeMinkowskiCount.lean#L8-L13"
+        },
+        {
+          "label": "Exported statement of the arithmetic absorption of rank-step factors and rank-two class bounds into X^(n²f)",
+          "declaration": "GlobalTheory.T.absolute_hermitian_volume_bound_arith",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.absolute_hermitian_volume_bound_arith": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArithStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArithStatement.lean#L6-L7"
+        },
+        {
+          "label": "Evaluation of vol(U(2)) = 8π³, rank-factor product estimate and base-X exponent arithmetic for n ≥ 8",
+          "declaration": "GlobalTheory.VolArith.volume_bound_arith",
+          "related_declarations": [
+            "GlobalTheory.VolArith.volU_two",
+            "GlobalTheory.VolArith.prod_rankFac_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.VolArith.volU_two": 10,
+            "GlobalTheory.VolArith.prod_rankFac_le": 50,
+            "GlobalTheory.VolArith.volume_bound_arith": 74
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArith.lean",
+          "lines": [
+            10,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArith.lean#L10-L125"
+        },
+        {
+          "label": "Exported statement of the absolute gauge-normalized Hermitian covolume bound from rank-step induction",
+          "declaration": "GlobalTheory.T.hermAbsoluteVolumeBound_of_volume_ratio_induction",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.hermAbsoluteVolumeBound_of_volume_ratio_induction": 6
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInductionStatement.lean",
+          "lines": [
+            6,
+            7
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInductionStatement.lean#L6-L7"
+        },
+        {
+          "label": "Synthesis of rank-step volume induction down to signature (2, 0), definite class bound and arithmetic absorption",
+          "declaration": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep": 37
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+          "lines": [
+            37,
+            71
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean#L37-L71"
+        },
+        {
+          "label": "Gauge-normalized Haar volume of the compact unitary group U(r) via unit-sphere stabilizer induction",
+          "declaration": "GlobalTheory.UnitaryVolume.volume_unitary",
+          "related_declarations": [
+            "GlobalTheory.UnitaryVolume.volume_zero"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.UnitaryVolume.volume_zero": 66,
+            "GlobalTheory.UnitaryVolume.volume_unitary": 88
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RiemannianHaarGaugeVolumeUnitaryGroupEq.lean",
+          "lines": [
+            66,
+            133
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RiemannianHaarGaugeVolumeUnitaryGroupEq.lean#L66-L133"
+        },
+        {
+          "label": "Telescoping tail bounds and numerical product estimate ∏_{M=3}^n ζ(M) < 1.4",
+          "declaration": "GlobalTheory.zetaProd_sphereVolume_bounds",
+          "related_declarations": [
+            "GlobalTheory.ZetaProd.zeta_le",
+            "GlobalTheory.ZetaProd.prod_three_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.ZetaProd.zeta_le": 9,
+            "GlobalTheory.ZetaProd.prod_three_le": 132,
+            "GlobalTheory.zetaProd_sphereVolume_bounds": 186
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZetaProdSphereVolumeBounds.lean",
+          "lines": [
+            9,
+            192
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ZetaProdSphereVolumeBounds.lean#L9-L192"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Rank-step induction from HRV-02 reduces the gauge-normalized covolume in signature (p, q) (n ≥ 8, q² ≤ n) to signature (2, 0), where double cosets are bounded by vol(U(2))^f = (8π³)^f times h_def(E, 2) ≤ 4^f d^(5f) (1 + f log d)^(5f) via short-vector orthogonal splitting, and n ≥ 8 absorbs all factors into X^(n²f).",
+      "review": "Checked covolume identity on countable discrete Γ = G(F), double-coset collapse for E-isometric point lattices, four-factor rank-two count (real ideals, two rank-one line classes, unimodular gluings), sum ∑_{M=3}^n (M − 1/2) = (n² − 4)/2, and exponent bound n²/2 + 24 ≤ n² for n ≥ 8."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.GaugeConst.exists_unique_isGauge",
+      "callee": "GlobalTheory.GaugeConst.exists_limit",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLimitOfChart.lean",
+        "line": 289,
+        "spelling": "exists_limit"
+      }
+    },
+    {
+      "caller": "GlobalTheory.GaugeConst.exists_limit",
+      "callee": "GlobalTheory.GaugeConst.exists_limit_of_chart",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLimitOfChart.lean",
+        "line": 272,
+        "spelling": "exists_limit_of_chart"
+      }
+    },
+    {
+      "caller": "GlobalTheory.GaugeConst.exists_limit_of_chart",
+      "callee": "GlobalTheory.CompactDualExists.exists_density_of_chart",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsLimitOfChart.lean",
+        "line": 73,
+        "spelling": "GlobalTheory.CompactDualExists.exists_density_of_chart"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ProductChart.lintegral_chart_le",
+      "callee": "GlobalTheory.ExpChartExpanding.expanding",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EventuallyBallSubset.lean",
+        "line": 464,
+        "spelling": "GlobalTheory.ExpChartExpanding.expanding"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ProductChart.lintegral_chart_le",
+      "callee": "GlobalTheory.ProductChart.lintegral_le_of_balls",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EventuallyBallSubset.lean",
+        "line": 473,
+        "spelling": "lintegral_le_of_balls"
+      }
+    },
+    {
+      "caller": "GlobalTheory.ProductChart.lintegral_chart_le",
+      "callee": "GlobalTheory.ProductChart.eventually_ball_subset",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/EventuallyBallSubset.lean",
+        "line": 487,
+        "spelling": "eventually_ball_subset"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongIndex.measure_Kset_le",
+      "callee": "GlobalTheory.CongIndex.exists_end",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean",
+        "line": 196,
+        "spelling": "exists_end"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongIndex.measure_Kset_le",
+      "callee": "GlobalTheory.CongIndex.card_end_quot",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean",
+        "line": 199,
+        "spelling": "card_end_quot"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongIndex.measure_Kset_le",
+      "callee": "GlobalTheory.CongIndex.measure_le_card_mul",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean",
+        "line": 203,
+        "spelling": "measure_le_card_mul"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CongIndex.measure_Kset_le",
+      "callee": "GlobalTheory.CongIndex.congr_of_end",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/MeasureLeCardMul.lean",
+        "line": 206,
+        "spelling": "congr_of_end"
+      }
+    },
+    {
+      "caller": "GlobalTheory.CovolRat.covol_eq_inter_fund",
+      "callee": "GlobalTheory.covol_eq_measure_inter_fund",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/LeftQuotientCovolumeEqFundamentalDomainInter.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.covol_eq_measure_inter_fund"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+      "callee": "GlobalTheory.T.hermVolumeRatioSameKind_of_volumeRatioInduction",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+        "line": 47,
+        "spelling": "GlobalTheory.T.hermVolumeRatioSameKind_of_volumeRatioInduction"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+      "callee": "GlobalTheory.T.riemannianHaarGauge_exists_pos_unique",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+        "line": 49,
+        "spelling": "GlobalTheory.T.riemannianHaarGauge_exists_pos_unique"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+      "callee": "GlobalTheory.T.unitaryGaugeVolume_le_classNumber_definite",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+        "line": 52,
+        "spelling": "GlobalTheory.T.unitaryGaugeVolume_le_classNumber_definite"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+      "callee": "GlobalTheory.T.rank_two_definite_unimodular_hermitian_class_bound",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+        "line": 53,
+        "spelling": "GlobalTheory.T.rank_two_definite_unimodular_hermitian_class_bound"
+      }
+    },
+    {
+      "caller": "GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep",
+      "callee": "GlobalTheory.T.absolute_hermitian_volume_bound_arith",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean",
+        "line": 58,
+        "spelling": "GlobalTheory.T.absolute_hermitian_volume_bound_arith"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.rankTwoClasses",
+      "callee": "GlobalTheory.RankTwoCount.defClassNum_le_card",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 232,
+        "spelling": "defClassNum_le_card"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.rankTwoClasses",
+      "callee": "GlobalTheory.RankTwoCount.card_glueData_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 232,
+        "spelling": "card_glueData_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.rankTwoClasses",
+      "callee": "GlobalTheory.classNumber_le_minkowski_count",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 235,
+        "spelling": "GlobalTheory.classNumber_le_minkowski_count"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.defClassNum_le_card",
+      "callee": "GlobalTheory.T.exists_short_vector_unimodular_hermitian_lattice_rank_two",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 191,
+        "spelling": "GlobalTheory.T.exists_short_vector_unimodular_hermitian_lattice_rank_two"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.defClassNum_le_card",
+      "callee": "GlobalTheory.T.definiteUnimodularPlane_split_along_vector",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 193,
+        "spelling": "GlobalTheory.T.definiteUnimodularPlane_split_along_vector"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.card_glueData_le",
+      "callee": "GlobalTheory.T.card_rankOne_hermitian_lattice_classes_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 171,
+        "spelling": "GlobalTheory.T.card_rankOne_hermitian_lattice_classes_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.card_glueData_le",
+      "callee": "GlobalTheory.T.ncard_realGenerated_ideals_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 173,
+        "spelling": "GlobalTheory.T.ncard_realGenerated_ideals_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RankTwoCount.card_glueData_le",
+      "callee": "GlobalTheory.T.card_unimodular_gluings_two_lines_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/RankTwoDefiniteUnimodularHermitianClassBound.lean",
+        "line": 181,
+        "spelling": "GlobalTheory.T.card_unimodular_gluings_two_lines_le"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DefiniteVolume.gaugeVol_le",
+      "callee": "GlobalTheory.DefiniteVolume.gauge_local",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefinite.lean",
+        "line": 223,
+        "spelling": "gauge_local"
+      }
+    },
+    {
+      "caller": "GlobalTheory.DefiniteVolume.gauge_local",
+      "callee": "GlobalTheory.T.riemannianHaarGauge_volume_unitaryGroup_eq",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/UnitaryGaugeVolumeLeClassNumberDefinite.lean",
+        "line": 202,
+        "spelling": "GlobalTheory.T.riemannianHaarGauge_volume_unitaryGroup_eq"
+      }
+    },
+    {
+      "caller": "GlobalTheory.VolArith.prod_rankFac_le",
+      "callee": "GlobalTheory.zetaProd_sphereVolume_bounds",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArith.lean",
+        "line": 72,
+        "spelling": "GlobalTheory.zetaProd_sphereVolume_bounds"
+      }
+    },
+    {
+      "caller": "GlobalTheory.VolArith.volume_bound_arith",
+      "callee": "GlobalTheory.VolArith.prod_rankFac_le",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/AbsoluteHermitianVolumeBoundArith.lean",
+        "line": 76,
+        "spelling": "prod_rankFac_le"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "DCJ-01",
+      "CSE-02"
+    ],
+    [
+      "DCJ-01",
+      "DCJ-03"
+    ],
+    [
+      "DCJ-01",
+      "DCP-03"
+    ],
+    [
+      "PXL-01",
+      "DCJ-02"
+    ],
+    [
+      "DCJ-02",
+      "CSE-02"
+    ],
+    [
+      "DCJ-02",
+      "DCP-03"
+    ],
+    [
+      "HRV-02",
+      "DCJ-03"
+    ],
+    [
+      "PVC-01",
+      "DCJ-03"
+    ],
+    [
+      "PXL-02",
+      "DCJ-03"
+    ],
+    [
+      "DCJ-03",
+      "DCP-03"
+    ]
+  ],
+  "outstanding": [
+    "HRV-01–02 and PVC-01 supply the inductive Hermitian rank-step volume ratios and the compact unitary sphere-volume convention, while PXL-01–02 supply the self-dual automorphic point lattice and finite-adele strong approximation."
+  ],
+  "review_scope": "Checked exponential-chart density calibration and uniqueness of the Riemannian Haar gauge, telescopic injectivity and Vitali–Besicovitch Jacobian bound for ordered one-parameter exponentials, Dedekind-projective endomorphism lifting of finite-adelic congruence cosets, rank-two unimodular Hermitian short-vector plane splitting, and rank-step volume absorption into X^(n²f)."
+}

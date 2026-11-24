@@ -12,7 +12,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 04 | `normalization` | From the global theta function to an integral jet | `126` (`49` / `77`) | `0` | ✅ Terminé (Cycle 3 : `WFG-01`–`02` ferment `HTC-01`, `TDE-01`, `CED-01`–`02`, 100 % auto-contenu) |
-| 05 | `global` | Lattices and the arithmetic main term | `143` (`70` / `73`) | `6` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; interfaces amont restantes) |
+| 05 | `global` | Lattices and the arithmetic main term | `146` (`70` / `76`) | `5` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; Cycle 6 ✅ Terminé : `DCJ-01`–`03` ferment `DCP-01` ; interfaces amont restantes) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
 | 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
@@ -28,7 +28,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 3. ✅ **Cycle 3 (Terminé)** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass, logarithme invariant et factorisation de corde cubique* (`weierstrass-formal-group.fragment.html` + `weierstrass_formal_group.json`, raccordé à `height-two-coordinate`, `curve-exponential-defect`, `height_two_coordinate.json`, `torsion_degree.json`, `curve_exponential_defect.json` ; `WFG-01`–`02`, rend le Ch. 4 100 % auto-contenu).
 4. ✅ **Cycle 4 (Terminé)** — **Ch. 8 (`inputs`)** : *Région sans zéro, répulsion de Bessel en $s=1$ et formule explicite tronquée pour les fonctions $L$ de classes de rayons sans équation fonctionnelle* (`ray-class-l-functions.fragment.html` + `ray_class_l_functions.json`, raccordé à `word-prime-window`, `word_prime_window.json` ; `RCL-01`–`03`, ferme les 4 interfaces analytiques amont de `WPW-01`).
 5. ✅ **Cycle 5 (Terminé)** — **Ch. 5 (`global`)** : *Réalisations isométriques de quotients et sous-réseaux arithmétiques et changement de base archimédien du sous-réseau orthogonal, du radical nilpotent et du centre* (`isometric-quotient-realization.fragment.html` + `isometric_quotient_realization.json`, raccordé à `deep-orbit-cover`, `unipotent-hom-cover`, `unipotent-first-radius`, `unipotent_first_radius.json`, `unipotent_lattice_radii.json` ; `IQR-01`–`02`, ferme `UFR-01`).
-6. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+6. ✅ **Cycle 6 (Terminé)** — **Ch. 5 (`global`)** : *Jauge de Haar riemannienne, jacobien de la carte exponentielle ordonnée, indice du sous-groupe de congruence et borne absolue de covolume hermitien* (`deep-cusp-jacobian-index.fragment.html` + `deep_cusp_jacobian_index.json`, raccordé à `deep-cusp-count`, `deep-sobolev`, `deep_cusp_count.json`, `deep_sobolev.json` ; `DCJ-01`–`03`, ferme `DCP-01`).
+7. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -54,13 +55,16 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | $L = x^\varepsilon$ | Échelle logarithmique lente au point de mesure $x$ ($0 < \varepsilon < 1/52$) | Ch. 5, 7, 8 |
 | $D^\star, d_u^\star, X_u$ | Masses/volumes normalisés de ligne et colonne pour le mot $u$, liés par $X_u^{fk} = D^\star / d_u^\star$ | Ch. 5 |
 | $\Gamma, T_u^*, T_u$ | Facteur auxiliaire $\Gamma \ge 1$, borne inférieure de fenêtre $T_u^* = X_u \Gamma^{-2/(fk)}$, premier normique $T_u = N(\pi_u) \in [T_u^*, (1 + \frac{1}{fk}) T_u^*]$ | Ch. 5, 8 |
+| $\mathcal{D}$ | Domaine fondamental mesurable de $\Gamma = G(F)$ dans $G(\mathbb{A}_F)$ (lorsque le corps de base $F$ est en portée) | Ch. 5 |
+| $P_\infty = \prod_v c_v$ | Produit archimédien des constantes de jauge riemannienne de Haar | Ch. 5 |
+| $k_g = \mu_{\mathrm{fin}}(K_g)$ | Volume de Haar fini-adélique positif du sous-groupe de congruence de niveau $g$ | Ch. 5 |
 
 ---
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`949` résultats au total après Cycle 5 : `371` `core-argument` / `578` `rebuilt-infrastructure`, `859` auto-contenus, `22` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`952` résultats au total après Cycle 6 : `371` `core-argument` / `581` `rebuilt-infrastructure`, `865` auto-contenus, `21` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -178,3 +182,34 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `GlobalTheory.RealSpan.spanAt_properties`, `isSkew_map`, `inNil_map`, `inCen_map`, `span_perp` (`ComplexSpanAtRealPlaceAutPointLatticeProperties.lean#L87-L185`)
   - `GlobalTheory.PerpBaseChange.perpSet_baseChange`, `mem_span_of_forms` (`PerpSetBaseChange.lean#L24-L157`)
   - `GlobalTheory.IntegralBoundFlagMeasures.main` (`ImportsMore.lean#L7-L34`)
+
+### Cycle 6 — Jauge de Haar riemannienne, indice de congruence et covolume absolu (`deep_cusp_jacobian_index`)
+- *Statut* : ✅ Terminé (`content/deep-cusp-jacobian-index.fragment.html` + `records/deep_cusp_jacobian_index.json`, rôle `rebuilt-infrastructure` ; ferme `DCP-01`).
+- *Déclarations `[CORE]` couvertes — `DCJ-01` (`#global-deep-chart-jacobian`)* :
+  - `GlobalTheory.T.riemannianHaarGauge_exists_pos_unique` (`RiemannianHaarGaugeExistsPosUniqueStatement.lean#L6-L7`)
+  - `GlobalTheory.GaugeConst.exists_unique_isGauge`, `exists_limit_of_chart`, `exists_limit` (`ExistsLimitOfChart.lean#L59-L303`)
+  - `GlobalTheory.CompactDualExists.exists_density_of_chart` (`NonemptyCompactDualHaar.lean#L17-L94`)
+  - `GlobalTheory.ExpChartExpanding.expanding`, `orderedProductExp_expanding_real_smul` (`OrderedProductExpExpandingRealSmul.lean#L176-L223`)
+  - `GlobalTheory.ProductChart.lintegral_chart_le`, `lintegral_le_of_balls`, `eventually_ball_subset` (`EventuallyBallSubset.lean#L18-L526`)
+- *Déclarations `[CORE]` couvertes — `DCJ-02` (`#global-deep-congruence-index`)* :
+  - `GlobalTheory.CongIndex.measure_Kset_le`, `measure_le_card_mul`, `exists_end`, `congr_of_end`, `card_end_quot` (`MeasureLeCardMul.lean#L14-L216`)
+- *Déclarations `[CORE]` couvertes — `DCJ-03` (`#global-deep-global-covolume`)* :
+  - `GlobalTheory.T.leftQuotientCovolume_eq_fundamentalDomain_inter` (`LeftQuotientCovolumeEqFundamentalDomainInterStatement.lean#L6-L7`)
+  - `GlobalTheory.CovolRat.covol_eq_inter_fund` (`LeftQuotientCovolumeEqFundamentalDomainInter.lean#L11-L41`)
+  - `GlobalTheory.covol_eq_measure_inter_fund` (`LeftQuotientCovolumeEqMeasureInterFundamentalDom.lean#L9-L43`)
+  - `GlobalTheory.T.unitaryGaugeVolume_le_classNumber_definite` (`UnitaryGaugeVolumeLeClassNumberDefiniteStatement.lean#L6-L7`)
+  - `GlobalTheory.DefiniteVolume.gaugeVol_le`, `coset_of_isom`, `covol_le`, `gauge_local` (`UnitaryGaugeVolumeLeClassNumberDefinite.lean#L126-L247`)
+  - `GlobalTheory.T.rank_two_definite_unimodular_hermitian_class_bound` (`RankTwoDefiniteUnimodularHermitianClassBoundStatement.lean#L6-L7`)
+  - `GlobalTheory.RankTwoCount.rankTwoClasses`, `card_glueData_le`, `defClassNum_le_card` (`RankTwoDefiniteUnimodularHermitianClassBound.lean#L150-L256`)
+  - `GlobalTheory.ShortVec.exists_short_vector` (`ExistsShortVectorUnimodularHermitianLatticeRankT.lean#L239-L383`)
+  - `GlobalTheory.PlaneSplit.planeSplit` (`DefiniteUnimodularPlaneSplitAlongVector.lean#L290-L408`)
+  - `GlobalTheory.RankOneClasses.card_classes_le` (`CardRankOneHermitianLatticeClassesLe.lean#L162-L240`)
+  - `GlobalTheory.RealIdealCount.ncard_real_ideals_le` (`NcardRealGeneratedIdealsLe.lean#L64-L104`)
+  - `GlobalTheory.GlueLines.card_gluings_le` (`CardUnimodularGluingsTwoLinesLe.lean#L218-L331`)
+  - `GlobalTheory.classNumber_le_minkowski_count` (`ClassNumberLeMinkowskiCount.lean#L8-L13`)
+  - `GlobalTheory.T.absolute_hermitian_volume_bound_arith` (`AbsoluteHermitianVolumeBoundArithStatement.lean#L6-L7`)
+  - `GlobalTheory.VolArith.volume_bound_arith`, `volU_two`, `prod_rankFac_le` (`AbsoluteHermitianVolumeBoundArith.lean#L10-L125`)
+  - `GlobalTheory.T.hermAbsoluteVolumeBound_of_volume_ratio_induction` (`HermAbsoluteVolumeBoundOfVolumeRatioInductionStatement.lean#L6-L7`)
+  - `GlobalTheory.FlagMeas.AbsVol.absoluteVolume_of_volumeStep` (`HermAbsoluteVolumeBoundOfVolumeRatioInduction.lean#L37-L71`)
+  - `GlobalTheory.UnitaryVolume.volume_unitary`, `volume_zero` (`RiemannianHaarGaugeVolumeUnitaryGroupEq.lean#L66-L133`)
+  - `GlobalTheory.zetaProd_sphereVolume_bounds`, `GlobalTheory.ZetaProd.zeta_le`, `GlobalTheory.ZetaProd.prod_three_le` (`ZetaProdSphereVolumeBounds.lean#L9-L192`)
