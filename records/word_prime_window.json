@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned definitions, theorem statements, proof bodies and verified written callsites across ShortNorms, GlobalInterpolation, DecoratedLatticeProofs and GlobalSchurBounds.",
+  "claims": [
+    {
+      "id": "WPW-01",
+      "chapter": "inputs",
+      "anchor": "inputs-short-norm-primes",
+      "title": "Short-interval norm primes in an imaginary quadratic ray class",
+      "hypotheses": "d is prime with d ≡ 3 mod 4 and d ≥ 100 (supplied by PRP-03); M ≥ 3 is an integer; B = 4dM²; X ≥ 1 and h are real numbers satisfying log B ≤ c√(log X) and exp(−c√(log X)) ≤ h ≤ 1. For the dyadic auxiliary-prime extraction at N = QS·q·d (QS > 0), 1 ≤ k ≤ r ≤ x⁵ and Y = (kb)⁸ with b = exp(L), L = x^ε.",
+      "statement": "There exist absolute constants A, c, c′ > 0 such that the interval (X, X(1 + h)] contains at least c′hX / ((4dM²)^A log X) primes p represented as 4p = A₀² + dB₀² with M ∣ B₀ and 2M ∣ A₀ − 2 − B₀, equivalently p = ππ̄ for a unique π ∈ 𝒪_K with π − 1 ∈ M𝒪_K in K = ℚ(√(−d)). At h = 1 this gives at least Y^(9/10) such primes in (Y, 2Y]; discarding at most 20r³Y^(3/4) < Y^(9/10) candidates sharing an exceptional cyclotomic prime divisor through exponent r extracts two distinct auxiliary primes g₀ ≠ g₁ in [(kb)⁸, 2(kb)⁸] with disjoint exceptional divisor sets.",
+      "definitions": [
+        "imaginary quadratic integer ring 𝒪_K = ℤ[(1 + √(−d))/2]",
+        "ray class group modulo M𝒪_K and density 2π/(√d M²)",
+        "binary quadratic congruence representation of 4p",
+        "effective exceptional-zero repulsion δ = c₉ / B^(A₁) (0 < c₉ ≤ 1)",
+        "exceptional cyclotomic prime divisors through exponent r"
+      ],
+      "equations": [
+        "inputs-short-norm-bound"
+      ],
+      "dependencies": [
+        "PRP-03"
+      ],
+      "sources": [
+        {
+          "label": "Short-interval norm-prime statement and binary quadratic congruences",
+          "declaration": "UpperTheory.T3.ShortNorm",
+          "related_declarations": [
+            "UpperTheory.T3.ModAt"
+          ],
+          "declaration_lines": {
+            "UpperTheory.T3.ShortNorm": 8,
+            "UpperTheory.T3.ModAt": 15
+          },
+          "path": "src/Development/AutomorphicArithmetic/ShortNorms/ShortNorm.lean",
+          "lines": [
+            8,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ShortNorms/ShortNorm.lean#L8-L16"
+        },
+        {
+          "label": "Exported unconditional short-interval norm-prime theorem",
+          "declaration": "UpperTheory.T3.shortNorm",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.T3.shortNorm": 5
+          },
+          "path": "src/Development/AutomorphicArithmetic/ShortNorms/Primes.lean",
+          "lines": [
+            5,
+            5
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ShortNorms/Primes.lean#L5-L5"
+        },
+        {
+          "label": "Prime-power removal and short-interval lower bound for imaginary quadratic norm primes",
+          "declaration": "GlobalTheory.Hk.normPrimes_short_interval_lower",
+          "related_declarations": [
+            "GlobalTheory.Hk.sum_lam_zero_le_card_normPrimes",
+            "GlobalTheory.Hk.sqrt_le_short_main"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.sum_lam_zero_le_card_normPrimes": 10,
+            "GlobalTheory.Hk.sqrt_le_short_main": 49,
+            "GlobalTheory.Hk.normPrimes_short_interval_lower": 98
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean",
+          "lines": [
+            10,
+            147
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean#L10-L147"
+        },
+        {
+          "label": "Ray-class group cardinality bound, quadratic convolution positivity and norm-one identification",
+          "declaration": "GlobalTheory.Hk.exists_lFam_ray",
+          "related_declarations": [
+            "GlobalTheory.Hk.card_ray_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.card_ray_le": 50,
+            "GlobalTheory.Hk.exists_lFam_ray": 73
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLFamRay.lean",
+          "lines": [
+            50,
+            128
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLFamRay.lean#L50-L128"
+        },
+        {
+          "label": "Character orthogonality, exceptional-zero allowance and error sum in the trivial ray class",
+          "declaration": "GlobalTheory.Hk.ShortInt.trivialClass_shortInterval",
+          "related_declarations": [
+            "GlobalTheory.Hk.ShortInt.zeros",
+            "GlobalTheory.Hk.ShortInt.sum_psi",
+            "GlobalTheory.Hk.ShortInt.exc_le",
+            "GlobalTheory.Hk.ShortInt.sum_est",
+            "GlobalTheory.Hk.ShortInt.err_le"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Hk.ShortInt.zeros": 20,
+            "GlobalTheory.Hk.ShortInt.sum_psi": 103,
+            "GlobalTheory.Hk.ShortInt.exc_le": 115,
+            "GlobalTheory.Hk.ShortInt.sum_est": 144,
+            "GlobalTheory.Hk.ShortInt.err_le": 181,
+            "GlobalTheory.Hk.ShortInt.trivialClass_shortInterval": 218
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean",
+          "lines": [
+            20,
+            281
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean#L20-L281"
+        },
+        {
+          "label": "Logarithmic zero-free region interface for imaginary quadratic ray-class L-functions",
+          "declaration": "GlobalTheory.T.rayClassLFunction_zero_free_region",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunction_zero_free_region": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegionStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegionStatement.lean#L8-L9"
+        },
+        {
+          "label": "Uniqueness and simplicity interface for a real exceptional ray-class zero",
+          "declaration": "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZeroStatement.lean#L8-L9"
+        },
+        {
+          "label": "Effective polynomial repulsion interface for real zeros of ray-class L-functions",
+          "declaration": "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOneStatement.lean#L8-L9"
+        },
+        {
+          "label": "Truncated Perron explicit-formula interface for ray-class Chebyshev sums",
+          "declaration": "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZeroStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZeroStatement.lean#L8-L9"
+        },
+        {
+          "label": "Dyadic norm-prime count of exponent nine tenths",
+          "declaration": "UpperTheory.T3.normPrimesN",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.T3.normPrimesN": 108
+          },
+          "path": "src/Development/AutomorphicArithmetic/ShortNorms/normPrimesN.lean",
+          "lines": [
+            108,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ShortNorms/normPrimesN.lean#L108-L157"
+        },
+        {
+          "label": "Supplying dyadic norm primes to the host field",
+          "declaration": "UpperTheory.Top.hostOfField",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Top.hostOfField": 8
+          },
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/HostOfField.lean",
+          "lines": [
+            8,
+            15
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/HostOfField.lean#L8-L15"
+        },
+        {
+          "label": "Disjoint exceptional cyclotomic divisors and extraction of two auxiliary norm-one primes",
+          "declaration": "GlobalTheory.EX.two_type_primes",
+          "related_declarations": [
+            "GlobalTheory.EX.excluded_count_lt",
+            "GlobalTheory.EX.exists_pair_disjoint_exceptional"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.EX.excluded_count_lt": 17,
+            "GlobalTheory.EX.exists_pair_disjoint_exceptional": 33,
+            "GlobalTheory.EX.two_type_primes": 54
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsTwoLargeNormOnePrimes.lean",
+          "lines": [
+            17,
+            96
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsTwoLargeNormOnePrimes.lean#L17-L96"
+        }
+      ],
+      "correspondence": "In 𝒪_K = ℤ[(1+√(−d))/2], π = u + v(1+√(−d))/2 has 4ππ̄ = A₀² + dB₀² with A₀ = 2u + v, B₀ = v, and π − 1 ∈ M𝒪_K iff M ∣ B₀ and 2M ∣ A₀ − 2 − B₀. Injecting G into Cl(𝒪_K) × (𝒪_K/M𝒪_K) with Minkowski's bound h_K ≤ d ≤ 4d gives |G| ≤ 4dM² = B, while d ≥ 100 and M ≥ 3 make 1-mod-M𝒪_K generators unique and give ray-class density 2π/(√d M²). Character orthogonality combines hX, exceptional loss ≤ hX(1 − δ/2) for δ = c₉ / B^(A₁) (0 < c₉ ≤ 1), and summed Perron errors ≤ hXδ/4 before removing O(√X) prime powers and dividing by 4 log X; on [Y, 2Y] at most (3r + 1)(1 + 2r²(Y^(3/4) + 1)) ≤ 20r³Y^(3/4) < Y^(9/10) primes share an exceptional cyclotomic divisor.",
+      "status": "mathematical proof reconstructed",
+      "review": "Hypotheses, binary quadratic congruences, Minkowski ray-class bound, cyclotomic exclusion and short-interval assembly audited against pinned Lean declarations."
+    },
+    {
+      "id": "WPW-02",
+      "chapter": "inputs",
+      "anchor": "inputs-word-prime-window",
+      "title": "Unconditional selection of each word’s level prime and window bounds",
+      "hypotheses": "0 < ε < 1/52, c_s > 0, C_Y > 0 (C_Y = 9 on the global route), x ≥ x₀ (in particular x ≥ max(2, c_s^(−4))) with L = x^ε; d ≥ 100 prime with d ≡ 3 mod 4; N = QS·q·d > 0 divisible by d with log N ≤ 3x^(ε/5)(log x)²; 1 ≤ g_i ≤ exp(C_Y L); integers m ≥ x^(1/3) and f, k ≥ 1 with 1 ≤ V = fk ≤ x¹²; any two pre-assigned host primes strictly below X′ = exp(x^(ε/3)); D★ > 0, d_u★ > 0, Γ > 1 (and Γ ≥ 1 for the upper log bound), X_u = (D★ / d_u★)^(1/(fk)), T_u* = X_u Γ^(−2/(fk)), and c_s m L ≤ log T_u*.",
+      "statement": "For M = N(g₀g₁)², every word u admits a prime T_u ∈ (T_u*, (1 + 1/(fk))T_u*] ⊆ [T_u*, (1 + 1/(fk))T_u*] distinct from both pre-assigned host primes below X′ = exp(x^(ε/3)), congruent to 1 modulo QS·q·d, with π_u ∈ 𝒪_E ∩ K satisfying π_u π̄_u = T_u and π_u − 1 ∈ N(g₀g₁)²𝒪_E. For every prime T_u in [T_u*, (1 + 1/(fk))T_u*] and Γ ≥ 1, d_u★ T_u^(fk) ≤ (exp(1)/Γ²)D★ (hence d₀(D, u) = d_u★(T_u^k − 1)^f ≤ D★ exp(−2Cm⁵fL) whenever 1 + 2Cm⁵fL ≤ 2 log Γ) and log X_u − 2 log Γ/(fk) ≤ log T_u ≤ log T_u* + 1 ≤ log X_u + 1.",
+      "definitions": [
+        "target word scale X_u",
+        "lower window endpoint T_u*",
+        "combined level modulus M = N(g₀g₁)²",
+        "pre-assigned host prime bound X′ = exp(x^(ε/3))",
+        "ramified column dimension d₀(D, u) = d_u★(T_u^k − 1)^f"
+      ],
+      "equations": [
+        "inputs-word-prime-window-bounds"
+      ],
+      "dependencies": [
+        "WPW-01",
+        "PRP-03"
+      ],
+      "sources": [
+        {
+          "label": "Scale comparison and short-interval prime selection for the combined modulus",
+          "declaration": "UpperTheory.T3.levelPrimeN",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.T3.levelPrimeN": 36
+          },
+          "path": "src/Development/AutomorphicArithmetic/ShortNorms/levelPrimeN.lean",
+          "lines": [
+            36,
+            161
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/ShortNorms/levelPrimeN.lean#L36-L161"
+        },
+        {
+          "label": "Imaginary quadratic ray-class norm-one predicate",
+          "declaration": "GlobalTheory.EX.NormOne",
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LogCondLeThree.lean",
+          "lines": [
+            15,
+            18
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LogCondLeThree.lean#L15-L18"
+        },
+        {
+          "label": "Dyadic norm-prime and word-level prime interfaces",
+          "declaration": "GlobalTheory.EX.LevelPrime",
+          "related_declarations": [
+            "GlobalTheory.EX.NormPrimes"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.EX.NormPrimes": 75,
+            "GlobalTheory.EX.LevelPrime": 81
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LogCondLeThree.lean",
+          "lines": [
+            75,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LogCondLeThree.lean#L75-L85"
+        },
+        {
+          "label": "Unconditional instantiation of the dyadic and word-level prime suppliers",
+          "declaration": "GlobalTheory.EX.levelPrime_unconditional",
+          "related_declarations": [
+            "GlobalTheory.EX.normPrimes_unconditional",
+            "GlobalTheory.EX.normPrimes_and_levelPrime_unconditional"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.EX.normPrimes_unconditional": 26,
+            "GlobalTheory.EX.levelPrime_unconditional": 48,
+            "GlobalTheory.EX.normPrimes_and_levelPrime_unconditional": 81
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean",
+          "lines": [
+            26,
+            82
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean#L26-L82"
+        },
+        {
+          "label": "Excluding the two exceptional primes and assembling the word’s level choice",
+          "declaration": "GlobalTheory.EX.OB.exists_levCh_of_levelPrime",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.EX.OB.exists_levCh_of_levelPrime": 20
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLevChOfLevelPrime.lean",
+          "lines": [
+            20,
+            113
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLevChOfLevelPrime.lean#L20-L113"
+        },
+        {
+          "label": "Transporting the quadratic norm-one generator into the host CM field",
+          "declaration": "GlobalTheory.EX.normOne_host",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.EX.normOne_host": 15
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormOnePrimeElements.lean",
+          "lines": [
+            15,
+            20
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormOnePrimeElements.lean#L15-L20"
+        },
+        {
+          "label": "Rational congruence modulo the base conductor from the quadratic generator",
+          "declaration": "GlobalTheory.Mem.LevelChoice.exists_levCh",
+          "related_declarations": [
+            "GlobalTheory.Mem.LevelChoice.mod_eq_one_of_norm"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Mem.LevelChoice.mod_eq_one_of_norm": 12,
+            "GlobalTheory.Mem.LevelChoice.exists_levCh": 47
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ModEqOneOfNorm.lean",
+          "lines": [
+            12,
+            65
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ModEqOneOfNorm.lean#L12-L65"
+        },
+        {
+          "label": "Packaged level-choice datum for a word",
+          "declaration": "LevCh",
+          "related_declarations": [],
+          "declaration_lines": {
+            "LevCh": 38
+          },
+          "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/DuStarPos.lean",
+          "lines": [
+            38,
+            56
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/DuStarPos.lean#L38-L56"
+        },
+        {
+          "label": "Target word scale and lower window endpoint",
+          "declaration": "ColumnsAtT.Xu",
+          "related_declarations": [
+            "ColumnsAtT.Tstar"
+          ],
+          "declaration_lines": {
+            "ColumnsAtT.Xu": 157,
+            "ColumnsAtT.Tstar": 159
+          },
+          "path": "src/Formalism/LocalRingCardinality/DataKernels.lean",
+          "lines": [
+            157,
+            159
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/DataKernels.lean#L157-L159"
+        },
+        {
+          "label": "Short multiplicative window condition across all words",
+          "declaration": "Formalism.BasicNotions.D7.T_win",
+          "path": "src/Formalism/LocalRingCardinality/RhoDetPrimeEqMuTildeMulChiPow.lean",
+          "lines": [
+            153,
+            154
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalRingCardinality/RhoDetPrimeEqMuTildeMulChiPow.lean#L153-L154"
+        },
+        {
+          "label": "Upper column-mass factor exp(1)/Γ² and lower logarithmic bound from the window",
+          "declaration": "GlobalTheory.Core.Rk.levelPrime_window",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.Core.Rk.levelPrime_window": 11
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/LevelPrimeWindow.lean",
+          "lines": [
+            11,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/LevelPrimeWindow.lean#L11-L92"
+        },
+        {
+          "label": "Logarithmic window bounds at both endpoints in the global family",
+          "declaration": "Formalism.MainNotions.GlobalTheoryTheory.count_at_of",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.MainNotions.GlobalTheoryTheory.count_at_of": 20
+          },
+          "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+          "lines": [
+            20,
+            142
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean#L20-L142"
+        },
+        {
+          "label": "Top-level invocation along the global route",
+          "declaration": "UpperTheory.Top.recS",
+          "related_declarations": [],
+          "declaration_lines": {
+            "UpperTheory.Top.recS": 30
+          },
+          "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ObjCTrue.lean",
+          "lines": [
+            30,
+            36
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CharacterBoxes/ObjCTrue.lean#L30-L36"
+        },
+        {
+          "label": "Supplying the unconditional prime-selection witnesses to the global object construction",
+          "declaration": "GlobalTheory.Fc.objCP_and_of_recExP",
+          "related_declarations": [
+            "GlobalTheory.Fc.objCP_of_recExP"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.Fc.objCP_and_of_recExP": 70,
+            "GlobalTheory.Fc.objCP_of_recExP": 121
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsObjectsOfAdmissibleTwistDatum.lean",
+          "lines": [
+            70,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsObjectsOfAdmissibleTwistDatum.lean#L70-L123"
+        }
+      ],
+      "correspondence": "Since 1/6 + ε/2 > ε > ε/5 for 0 < ε < 1/52, √(log T_u*) ≥ √c_s x^(1/6+ε/2) dominates both log(4dM²) ≤ log 4 + 3 log N + 4(log g₀ + log g₁) and log(fk) ≤ 12 log x, placing (d, M, T_u*, 1/(fk)) in WPW-01. Integrality of (T_u − 1)/M in ℚ ∩ 𝒪_K = ℤ yields T_u ≡ 1 mod QS·q·d; for x ≥ max(2, c_s^(−4)), X′ = exp(x^(ε/3)) ≤ exp(c_s m L) ≤ T_u* ≤ T_u excludes both pre-assigned host primes; and (1 + 1/(fk))^(fk) ≤ exp(1) bounds d₀(D, u) = d_u★(T_u^k − 1)^f ≤ (exp(1)/Γ²)D★ alongside both logarithmic window bounds.",
+      "status": "mathematical proof reconstructed",
+      "review": "Scale dominance, order of quantifiers, pre-assigned prime bound X′ = exp(x^(ε/3)), rational congruence descent and ramified column window inequalities audited against pinned Lean sources."
+    }
+  ],
+  "written_source_calls": [
+    { "caller": "UpperTheory.Top.recS", "callee": "GlobalTheory.T.existsObjects_of_admissibleTwistDatum", "callsite": { "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ObjCTrue.lean", "line": 34 } },
+    { "caller": "UpperTheory.Top.recS", "callee": "GlobalTheory.EX.normPrimes_and_levelPrime_unconditional", "callsite": { "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ObjCTrue.lean", "line": 34 } },
+    { "caller": "GlobalTheory.Fc.objCP_of_recExP", "callee": "GlobalTheory.Fc.objCP_and_of_recExP", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsObjectsOfAdmissibleTwistDatum.lean", "line": 123 } },
+    { "caller": "GlobalTheory.Fc.objCP_and_of_recExP", "callee": "GlobalTheory.EX.OB.exists_levCh_of_levelPrime", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsObjectsOfAdmissibleTwistDatum.lean", "line": 87 } },
+    { "caller": "GlobalTheory.EX.OB.exists_levCh_of_levelPrime", "callee": "GlobalTheory.Mem.LevelChoice.exists_levCh", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLevChOfLevelPrime.lean", "line": 93 } },
+    { "caller": "GlobalTheory.EX.OB.exists_levCh_of_levelPrime", "callee": "GlobalTheory.EX.normOne_host", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLevChOfLevelPrime.lean", "line": 109 } },
+    { "caller": "GlobalTheory.Mem.LevelChoice.exists_levCh", "callee": "GlobalTheory.Mem.LevelChoice.mod_eq_one_of_norm", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ModEqOneOfNorm.lean", "line": 60 } },
+    { "caller": "GlobalTheory.EX.normOne_host", "callee": "GlobalTheory.Mem.An.normOne_iff_host", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormOnePrimeElements.lean", "line": 19 } },
+    { "caller": "GlobalTheory.EX.normPrimes_unconditional", "callee": "UpperTheory.T3.normPrimesN", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean", "line": 28 } },
+    { "caller": "GlobalTheory.EX.levelPrime_unconditional", "callee": "UpperTheory.T3.levelPrimeN", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean", "line": 50 } },
+    { "caller": "GlobalTheory.EX.levelPrime_unconditional", "callee": "UpperTheory.T3.shortNorm", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean", "line": 50 } },
+    { "caller": "GlobalTheory.EX.normPrimes_and_levelPrime_unconditional", "callee": "GlobalTheory.EX.normPrimes_unconditional", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean", "line": 82 } },
+    { "caller": "GlobalTheory.EX.normPrimes_and_levelPrime_unconditional", "callee": "GlobalTheory.EX.levelPrime_unconditional", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesAndLevelPrimeUnconditional.lean", "line": 82 } },
+    { "caller": "UpperTheory.Top.hostOfField", "callee": "UpperTheory.T3.shortNorm", "callsite": { "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/HostOfField.lean", "line": 15 } },
+    { "caller": "GlobalTheory.EX.two_type_primes", "callee": "GlobalTheory.EX.exists_pair_disjoint_exceptional", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsTwoLargeNormOnePrimes.lean", "line": 87 } },
+    { "caller": "UpperTheory.T3.shortNorm", "callee": "GlobalTheory.T.normPrimesImagQuad_short_interval_lower_bound", "callsite": { "path": "src/Development/AutomorphicArithmetic/ShortNorms/Primes.lean", "line": 5 } },
+    { "caller": "GlobalTheory.Hk.normPrimes_short_interval_lower", "callee": "GlobalTheory.T.exists_lam_zero_sum_shortInterval_ge", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean", "line": 99 } },
+    { "caller": "GlobalTheory.Hk.normPrimes_short_interval_lower", "callee": "GlobalTheory.T.exists_lFam_normOne_of_mod_four_eq_three", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean", "line": 106 } },
+    { "caller": "GlobalTheory.Hk.normPrimes_short_interval_lower", "callee": "GlobalTheory.Hk.sqrt_le_short_main", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean", "line": 114 } },
+    { "caller": "GlobalTheory.Hk.normPrimes_short_interval_lower", "callee": "GlobalTheory.Hk.sum_lam_zero_le_card_normPrimes", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormPrimesImagQuadShortIntervalLowerBound.lean", "line": 117 } },
+    { "caller": "GlobalTheory.Hk.exists_lFam_ray", "callee": "GlobalTheory.Hk.card_ray_le", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsLFamRay.lean", "line": 84 } },
+    { "caller": "GlobalTheory.Hk.ShortInt.zeros", "callee": "GlobalTheory.T.rayClassLFunction_zero_free_region", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean", "line": 24 } },
+    { "caller": "GlobalTheory.Hk.ShortInt.zeros", "callee": "GlobalTheory.T.rayClassLFunction_unique_simple_exceptional_zero", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean", "line": 25 } },
+    { "caller": "GlobalTheory.Hk.ShortInt.zeros", "callee": "GlobalTheory.T.exists_rayClassLFunction_real_zero_far_from_one", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean", "line": 26 } },
+    { "caller": "GlobalTheory.Hk.ShortInt.trivialClass_shortInterval", "callee": "GlobalTheory.Hk.ShortInt.zeros", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean", "line": 219 } },
+    { "caller": "GlobalTheory.Hk.ShortInt.trivialClass_shortInterval", "callee": "GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero", "callsite": { "path": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TrivialClassShortInterval.lean", "line": 220 } }
+  ],
+  "derivation_edges": [
+    ["PRP-03", "WPW-01"],
+    ["PRP-03", "WPW-02"],
+    ["WPW-01", "WPW-02"]
+  ],
+  "outstanding": [
+    "Four analytic properties of imaginary quadratic ray-class L-functions remain separate inputs at the formal boundary of WPW-01: the logarithmic zero-free region across the ray-class family, uniqueness and simplicity of at most one real exceptional zero, the effective polynomial lower bound at s = 1 obtained from nonnegative quadratic convolution coefficients via a positive Bessel kernel (giving 1 − β ≥ c₉ / B^(A₁) with 0 < c₉ ≤ 1), and the truncated Perron explicit formula for ray-class Chebyshev differences."
+  ],
+  "review_scope": "Checked hypotheses, quantifier order, binary quadratic congruence equivalence, Minkowski ray-class bound, cyclotomic exclusion, scale exponents for 0 < ε < 1/52, pre-assigned prime bound X′ = exp(x^(ε/3)), rational norm congruence descent and ramified column short-window bounds."
+}

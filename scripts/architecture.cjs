@@ -462,7 +462,7 @@ function renderMacroBlueprint(stats = {}) {
           </defs>
           <text x="14" y="15" class="bp-band-label">PART I · ANALYTIC OPENING (HYPOTHETICAL OFF-LINE ZERO → SIMPLE POLE)</text>
           <text x="14" y="148" class="bp-band-label">PART II · ARITHMETIC, GEOMETRIC &amp; AUTOMORPHIC ENGINE</text>
-          <text x="14" y="283" class="bp-band-label bp-band-label--if">UPSTREAM KERNEL-CERTIFIED FORMAL INTERFACES (27 TIER C BOUNDARIES)</text>
+          <text x="14" y="283" class="bp-band-label bp-band-label--if">UPSTREAM KERNEL-CERTIFIED FORMAL INTERFACES (${fmt(stats.openInterfaces)} TIER C BOUNDARIES)</text>
           <text x="280" y="410" class="bp-band-label">PART III · WINDOW CONTRADICTION &amp; CLASSICAL RH / GRH</text>
           <g class="bp-edges">${edgeSvg}</g>
           ${chBox(1, "target", 14, 22, 224, 78, "Statement & characters", "Zeta, Dirichlet L & reduction", "chapter-01.html")}

@@ -451,7 +451,7 @@ function sanitizeReadingProse(text) {
     .replace(/\bexcBound_of_siegelLower\b/g, "the right-of-one derivative bound from Siegel’s estimate");
 }
 function classifyTask(file, chapter) {
-  if (/exceptional|detector|count_five|mass_floor|word_upper|progression|repulsion/i.test(file))
+  if (/exceptional|detector|count_five|mass_floor|word_upper|word_prime|progression|repulsion/i.test(file))
     return "Analytic number theory & prime windows";
   if (/period|isogeny|companion|hecke|height_two|rank_extraction|ordinary|crystalline|semistable/i.test(file))
     return "Arithmetic geometry, moduli & p-adic periods";
