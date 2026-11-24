@@ -15,7 +15,9 @@
       "definitions": [
         "ξ(n)=χ(n)conj(ψ(n)) has period qχ qψ. Gχψ=∑n vχ(n)conj(vψ(n))."
       ],
-      "dependencies": [],
+      "dependencies": [
+        "SDD-01"
+      ],
       "equations": [
         "inputs-short-detector-sieve"
       ],
@@ -177,7 +179,8 @@
       ],
       "dependencies": [
         "SDM-01",
-        "ZDB-01"
+        "ZDB-01",
+        "SDD-02"
       ],
       "equations": [
         "inputs-short-detector-budget"
@@ -571,6 +574,14 @@
   ],
   "derivation_edges": [
     [
+      "SDD-01",
+      "SDM-01"
+    ],
+    [
+      "SDD-02",
+      "SDM-02"
+    ],
+    [
       "SDM-01",
       "SDM-02"
     ],
@@ -594,6 +605,6 @@
     }
   ],
   "outstanding": [
-    "The zero detector and its choices of truncations remain the upstream input ZDB-01. ZDB-03 independently treats conductor one, sums over the blocks, and includes bounded heights."
+    "ZDB-01 supplies the zero-detector polynomial and its dyadic block selection, SDD-01 and SDD-02 supply the slit-plane complex-power step bound, Hermitian Gram expansion, prime-power divisor majorant, and binary-logarithm window thresholds, and ZDB-03 treats conductor one, sums over the blocks, and covers bounded heights."
   ]
 }

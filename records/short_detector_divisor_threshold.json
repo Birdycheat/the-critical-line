@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies, and verified written callsites across LFunctionEqGOfOneLt, CountZTwist, CountZDual, DivisorBound, CountZMoll, and CountZNum.",
+  "claims": [
+    {
+      "id": "SDD-01",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-hermitian-step",
+      "title": "Unit-step complex-power integral bound and Hermitian Gram expansion of the dual column norm",
+      "hypotheses": "Real x > 0, complex exponent z ∈ ℂ (z ≠ 0 for the slit-plane integral identity, Re z > 0 for the endpoint power bound), and integers n ≥ U ≥ 1 for the unit-step complex-power bound; arbitrary finite index sets S and I, complex coefficients b : I → ℂ, row entries v : S × I → ℂ, row outputs s_i = ∑_{n∈I} b(n) v_i(n), dual column w(n) = ∑_{i∈S} conj(s_i) v_i(n), Gram entries G_{i,j} = ∑_{n∈I} v_i(n) conj(v_j(n)), and real row-sum bound Δ ≥ 0 satisfying ∑_{j∈S} |G_{i,j}| ≤ Δ for every i ∈ S.",
+      "statement": "For every real x > 0, x^(−z) − (x + 1)^(−z) = z ∫_x^(x+1) t^(−z−1) dt whenever z ≠ 0 and |x^(−z) − (x + 1)^(−z)| ≤ |z| x^(−Re z − 1) whenever Re z > 0, so |(n + 1)^(−z) − n^(−z)| ≤ |z|/U for all integers n ≥ U ≥ 1 when Re z > 0; and on finite sets S and I, G_{j,i} = conj(G_{i,j}), ∑_{n∈I} |w(n)|² = ∑_{i∈S} ∑_{j∈S} conj(s_i) s_j G_{i,j} ≤ Δ ∑_{i∈S} |s_i|², and ∑_{i∈S} |s_i|² ≤ Δ ∑_{n∈I} |b(n)|².",
+      "definitions": [
+        "row outputs s_i = ∑_{n∈I} b(n) v_i(n) (i ∈ S) and dual column w(n) = ∑_{i∈S} conj(s_i) v_i(n) (n ∈ I)",
+        "Hermitian Gram matrix G_{i,j} = ∑_{n∈I} v_i(n) conj(v_j(n)) on S × S with absolute row-sum bound Δ ≥ 0"
+      ],
+      "equations": [
+        "inputs-short-detector-cpow-step-eq",
+        "inputs-short-detector-dual-gram-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Slit-plane fundamental theorem of calculus and unit-step complex-power difference bound",
+          "declaration": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'",
+          "related_declarations": [
+            "Formalism.FX.LFunctionPartialSum.cpow_sub_eq_integral",
+            "Formalism.FX.LFunctionPartialSum.norm_integral_le",
+            "Formalism.FX.LFunctionPartialSum.integral_rpow_le"
+          ],
+          "declaration_lines": {
+            "Formalism.FX.LFunctionPartialSum.cpow_sub_eq_integral": 15,
+            "Formalism.FX.LFunctionPartialSum.norm_integral_le": 34,
+            "Formalism.FX.LFunctionPartialSum.integral_rpow_le": 50,
+            "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'": 69
+          },
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+          "lines": [
+            15,
+            73
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean#L15-L73"
+        },
+        {
+          "label": "Specialization of the unit-step complex-power bound to integers n ≥ U ≥ 1",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.norm_cpow_step_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.norm_cpow_step_le": 13
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+          "lines": [
+            13,
+            30
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean#L13-L30"
+        },
+        {
+          "label": "Adjoint pairing of row outputs with the dual column and finite Cauchy–Schwarz inequality",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality": 9
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+          "lines": [
+            9,
+            47
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean#L9-L47"
+        },
+        {
+          "label": "Hermitian conjugation symmetry of the Gram matrix and double-sum expansion of the dual column norm",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality": 9
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+          "lines": [
+            48,
+            85
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean#L48-L85"
+        },
+        {
+          "label": "Symmetrized arithmetic-geometric mean collapse under absolute row-sum bounds and positive norm cancellation",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.duality_inequality": 9
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean",
+          "lines": [
+            86,
+            124
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZDual.lean#L86-L124"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Slit-plane integration of −z t^(−z−1) over [x, x + 1] and left-endpoint monotonicity of t^(−Re z − 1) establish the unit-step complex-power bound; Fubini interchange on S × S × I and Hermitian symmetry |G_{j,i}| = |G_{i,j}| expand and bound ∑_{n∈I} |w(n)|² by Δ ∑_{i∈S} |s_i|².",
+      "review": "Checked positive-ray slit-plane inclusion on [x, x + 1], monotonicity n^(−Re z − 1) ≤ n^(−1) ≤ U^(−1) for n ≥ U ≥ 1 and Re z > 0, Gram conjugation G_{j,i} = conj(G_{i,j}), and zero/positive case split on ∑_{i∈S} |s_i|²."
+    },
+    {
+      "id": "SDD-02",
+      "chapter": "inputs",
+      "anchor": "inputs-short-detector-divisor-window",
+      "title": "Prime-power divisor majorant, dyadic coefficient-square monotone bound, and explicit binary-logarithm absorption thresholds",
+      "hypotheses": "Real exponent ε > 0 with A = max(1, 1/(ε log 2)), K = ⌈2^(1/ε)⌉, and D = A^K, specialized to ε = 1/400, σ₀ = 399/400, and C = D² = A^(2K); integers n ≥ 1, U ≥ 1, and nonnegative cutoffs Y, N ≥ 0 with truncated Möbius convolution a(n) = ∑_{d e = n, 1 ≤ d ≤ Y, 1 ≤ e ≤ N} μ(d) and weighted coefficients b(n) = a(n) n^(−σ₀) (plus modulus q ≥ 1, Dirichlet character χ mod q, s ∈ ℂ, 1 ≤ Y ≤ N, and R ≥ Y N for the polynomial product identity); and real box height Q ≥ Q₀ ≥ 20 with dyadic cutoffs X = ⌈Q⌉, Y = X⁴, J = 8(⌊log₂ X⌋ + 1), N = 2^J, and block scales U = Y 2^j (0 ≤ j < J).",
+      "statement": "For every ε > 0 and integer n ≥ 1, τ(n) ≤ D n^ε; for all integers Y, N ≥ 0, |a(n)| ≤ τ(n) (with a(1) = 1 when Y, N ≥ 1, and (∑_{1≤e≤N} χ(e)e^(−s))(∑_{1≤d≤Y} μ(d)χ(d)d^(−s)) = 1 + ∑_{Y<n≤R} a(n)χ(n)n^(−s) when 1 ≤ Y ≤ N and R ≥ Y N), and at ε = 1/400 and σ₀ = 399/400 all integers Y, N ≥ 0 and U ≥ 1 obey ∑_{U<n≤2U} |b(n)|² ≤ C U^(−99/100) ≤ C U^(−197/200); and for any C ≥ 0 there exist Q₀ ≥ 20 and C₁ = 1 + 8 C · 1048576^(3/200) > 0 such that every Q ≥ Q₀ satisfies J ≤ 32 log Q, Y N ≤ 1048576 Q¹², 8 C Q³ U^(−197/200) ≤ 1/(8 J²) for all 0 ≤ j < J, and 1 + J · 8 J² C (Y N)^(3/200) ≤ C₁ Q^(1/4).",
+      "definitions": [
+        "divisor majorant constants A = max(1, 1/(ε log 2)), K = ⌈2^(1/ε)⌉, D = A^K, and squared block constant C = D² at ε = 1/400",
+        "weighted Möbius convolution coefficient b(n) = a(n) n^(−399/400) on (U, 2U]",
+        "dyadic window cutoffs X = ⌈Q⌉, Y = X⁴, J = 8(⌊log₂ X⌋ + 1), N = 2^J, and assembled prefactor C₁ = 1 + 8 C · 1048576^(3/200)"
+      ],
+      "equations": [
+        "inputs-short-detector-divisor-bound-eq",
+        "inputs-short-detector-window-thresholds-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Prime-power exponential and inductive local bounds, real-power factorization, and uniform divisor majorant",
+          "declaration": "Formalism.FX.divisor_weight_bound",
+          "related_declarations": [
+            "Formalism.FX.succ_le_max_mul_exp",
+            "Formalism.FX.succ_le_max_mul_pow",
+            "Formalism.FX.succ_le_pow_of_two_le",
+            "Formalism.FX.rpow_eq_prod_primeFactors"
+          ],
+          "declaration_lines": {
+            "Formalism.FX.succ_le_max_mul_exp": 7,
+            "Formalism.FX.succ_le_max_mul_pow": 18,
+            "Formalism.FX.succ_le_pow_of_two_le": 32,
+            "Formalism.FX.rpow_eq_prod_primeFactors": 45,
+            "Formalism.FX.divisor_weight_bound": 56
+          },
+          "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+          "lines": [
+            7,
+            92
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean#L7-L92"
+        },
+        {
+          "label": "Evaluation of the unit constant term in the truncated Möbius convolution",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_one",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_one": 10
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            10,
+            21
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L10-L21"
+        },
+        {
+          "label": "Divisor-count majorant for the truncated Möbius convolution coefficients",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_norm_le",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_norm_le": 60
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            60,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L60-L78"
+        },
+        {
+          "label": "Truncated Dirichlet polynomial product identity isolating the unit constant term",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mollifier_identity",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mollifier_identity": 79
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            79,
+            131
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L79-L131"
+        },
+        {
+          "label": "Monotone per-integer weighted bound, dyadic block cardinality U, and relaxed square-sum exponent",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.coefficient_square_bound",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.coefficient_square_bound": 133
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+          "lines": [
+            133,
+            191
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean#L133-L191"
+        },
+        {
+          "label": "Binary-logarithm block-count bound and simultaneous asymptotic absorption thresholds",
+          "declaration": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.numeric_constants",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.numeric_constants": 10
+          },
+          "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean",
+          "lines": [
+            10,
+            134
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZNum.lean#L10-L134"
+        }
+      ],
+      "status": "source checked",
+      "correspondence": "Splitting prime factors at K = ⌈2^(1/ε)⌉ bounds small-prime divisor multiplicities by A (p^ε)^k and large primes by (p^ε)^k to give τ(n) ≤ A^K n^ε; summing |b(n)|² ≤ D² U^(−199/100) across U integers yields C U^(−197/200); and J ≤ 32 log Q above Q₀ ≥ 20 simultaneously discharges 8 C Q³ U^(−197/200) ≤ 1/(8 J²) and the Q^(1/4) window sum.",
+      "review": "Checked singleton support of a(1) = 1 for Y, N ≥ 1, cardinality #{p | n : p < K} ≤ K, negative-exponent monotonicity on n ≥ U ≥ 1, inequality 3 log 2 > 2 giving J ≤ 32 log Q, and exponent identity 7/100 + 12 · 3/200 = 1/4."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'",
+      "callee": "Formalism.FX.LFunctionPartialSum.cpow_sub_eq_integral",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 72,
+        "spelling": "cpow_sub_eq_integral"
+      }
+    },
+    {
+      "caller": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'",
+      "callee": "Formalism.FX.LFunctionPartialSum.norm_integral_le",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 73,
+        "spelling": "norm_integral_le"
+      }
+    },
+    {
+      "caller": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'",
+      "callee": "Formalism.FX.LFunctionPartialSum.integral_rpow_le",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/LFunctionEqGOfOneLt.lean",
+        "line": 73,
+        "spelling": "integral_rpow_le"
+      }
+    },
+    {
+      "caller": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.norm_cpow_step_le",
+      "callee": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZTwist.lean",
+        "line": 16,
+        "spelling": "Formalism.FX.LFunctionPartialSum.norm_cpow_sub_le'"
+      }
+    },
+    {
+      "caller": "Formalism.FX.succ_le_max_mul_pow",
+      "callee": "Formalism.FX.succ_le_max_mul_exp",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 23,
+        "spelling": "succ_le_max_mul_exp"
+      }
+    },
+    {
+      "caller": "Formalism.FX.divisor_weight_bound",
+      "callee": "Formalism.FX.rpow_eq_prod_primeFactors",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 67,
+        "spelling": "rpow_eq_prod_primeFactors"
+      }
+    },
+    {
+      "caller": "Formalism.FX.divisor_weight_bound",
+      "callee": "Formalism.FX.succ_le_max_mul_pow",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 73,
+        "spelling": "succ_le_max_mul_pow"
+      }
+    },
+    {
+      "caller": "Formalism.FX.divisor_weight_bound",
+      "callee": "Formalism.FX.succ_le_pow_of_two_le",
+      "callsite": {
+        "path": "src/Formalism/LFunctionBounds/LFunctionBoundsProofs/DivisorBound.lean",
+        "line": 75,
+        "spelling": "succ_le_pow_of_two_le"
+      }
+    },
+    {
+      "caller": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mollifier_identity",
+      "callee": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_one",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+        "line": 124,
+        "spelling": "mco_one"
+      }
+    },
+    {
+      "caller": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.coefficient_square_bound",
+      "callee": "Formalism.HermitianLattices.Ext.PrimitiveCharacterCasts.ZD.mco_norm_le",
+      "callsite": {
+        "path": "src/Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZMoll.lean",
+        "line": 156,
+        "spelling": "mco_norm_le"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "SDD-01",
+      "SDM-01"
+    ],
+    [
+      "SDD-02",
+      "SDM-02"
+    ]
+  ],
+  "outstanding": [
+    "Self-contained reconstruction of the slit-plane unit-step complex-power bound, the Hermitian Gram expansion of the dual column norm, the prime-power divisor majorant, the dyadic block square-sum bound, and the simultaneous binary-logarithm window thresholds supplying SDM-01 and SDM-02."
+  ],
+  "review_scope": "Checked slit-plane integration on [x, x + 1], left-endpoint real-power monotonicity, Hermitian Gram conjugation and symmetric quadratic collapse, prime-power splitting at K = ⌈2^(1/ε)⌉ for τ(n) ≤ D n^ε, unit constant term a(1) = 1, dyadic square-sum relaxation U^(−99/100) ≤ U^(−197/200), binary-logarithm ceiling inequality J ≤ 32 log Q for Q ≥ 20, simultaneous window thresholds with Y N ≤ 2²⁰ Q¹², and 11 pinned source ranges with 10 verified callsites."
+}
