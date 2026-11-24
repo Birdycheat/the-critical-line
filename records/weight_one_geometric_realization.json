@@ -1,0 +1,769 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "WGR-01",
+      "chapter": "lifts",
+      "anchor": "lifts-weight-one-crystalline-steps",
+      "title": "Smooth crystalline comparison, natural Hodge–Tate spectral frames, Galois eigenspace realizations, and the step package",
+      "statement": "Let ℓ be a prime and E a number field with algebraic closure Ω and Galois group Γ = Gal(Ω/E). (1) For every finite extension K/ℚ_ℓ, the smooth étale comparison side yields a smooth projective Hodge–Tate comparison isomorphism, bijectivity, and natural Hodge–Tate spectral frames Φ_M with ∑_a e_a = d intertwining the étale and Hodge pullback matrices E(u) Φ_M = Φ_(M') H(u) across morphisms u : M' → M of smooth models. (2) Smooth proper integral models have crystalline étale cohomology (B_cris-admissible), establishing both that every Hecke eigenspace piece cut out by an integral smooth cover over O_(E,w) is crystalline at w | ℓ and, paired with universal finite-level crystalline Frobenius annihilation ∑_(i=0)^n (−1)^i ℓ^(f i(i−1)/2) A_i ⊗ φ^(f(n−i+N)) = 0 on invariants, that integral Hecke congruences annihilate crystalline Frobenius at w | ℓ. (3) For every nice Hecke tower H over E and eigenvalue system θ, Galois commutation preserves the simultaneous eigenspace piece, total étale cohomology is finite-dimensional with continuous matrix entries, and Jordan–Hölder semisimplification yields a continuous semisimple representation ρ : Γ → GL_D(Q̄_ℓ) realizing that piece. (4) Combining natural Hodge–Tate frames, crystalline comparison, Čech-cube Hodge base change, trace splitting, and lower-piece correspondence lifts ensures that every complex Hodge weight of a good integral realization at w | ℓ occurs as a filtration jump of ρ|_w. (5) Together with Eichler–Shimura congruence away from ℓ, integral-to-local cut reduction, rank-one twisting, Satake cardinality, jump transfer, richness extraction, and split-line character subtraction, these assemble the complete seventeen-component comparison step package.",
+      "hypotheses": "A prime ℓ, a number field E with algebraic closure Ω, finite extensions K/ℚ_ℓ, smooth projective models with finite étale Hecke correspondences, and the smooth étale, Čech-cube, and Eichler–Shimura local comparison inputs established in the preceding sections.",
+      "correspondence": "The smooth étale side feeds parallel Hodge–Tate spectral frames and B_cris-admissibility, yielding the crystalline, crystalline-Frobenius, and Hodge–Tate jump steps; Galois-Hecke commutation, finite-dimensional cohomology, continuity, and semisimplification realize every nice Hecke eigenspace as a continuous semisimple representation, assembling all seventeen entries of the comparison step package.",
+      "dependencies": [],
+      "equations": [
+        "lifts-weight-one-hodge-tate-intertwining",
+        "lifts-weight-one-crystalline-frob-poly"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.Seam.HT.htSpecGood",
+          "declaration_lines": {
+            "UpperTheory.Gal.Seam.HT.htSpecGood": 21,
+            "UpperTheory.Gal.Seam.HT.etSideS": 15,
+            "UpperTheory.Gal.Seam.HT.hodgeTate_comparison_smooth_projective": 17,
+            "UpperTheory.Gal.Seam.HT.htBij": 19
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean",
+          "lines": [
+            15,
+            22
+          ],
+          "label": "Smooth étale side over finite p-adic extensions, smooth projective Hodge–Tate comparison, bijectivity, and natural Hodge–Tate spectral comparison frames",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean#L15-L22",
+          "related_declarations": [
+            "UpperTheory.Gal.Seam.HT.etSideS",
+            "UpperTheory.Gal.Seam.HT.hodgeTate_comparison_smooth_projective",
+            "UpperTheory.Gal.Seam.HT.htBij"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Seam.crysStep_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Seam.crysStep_holds": 9,
+            "UpperTheory.Gal.Seam.cstSmooth": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/Closed.lean",
+          "lines": [
+            7,
+            10
+          ],
+          "label": "Smooth crystalline comparison from the étale side and crystalline realization of Hecke eigenspace pieces cut out by integral smooth covers",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/Closed.lean#L7-L10",
+          "related_declarations": [
+            "UpperTheory.Gal.Seam.cstSmooth"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Ru.crystallineComparison.phiStep",
+          "declaration_lines": {
+            "UpperTheory.Ru.crystallineComparison.phiStep": 13,
+            "UpperTheory.Ru.crystallineComparison.finAll": 9,
+            "UpperTheory.Ru.crystallineComparison.smoothModel_crystalline": 11
+          },
+          "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean",
+          "lines": [
+            9,
+            14
+          ],
+          "label": "Universal finite-level crystalline Frobenius annihilation, smooth-model crystalline admissibility, and assembly of the crystalline Frobenius step",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean#L9-L14",
+          "related_declarations": [
+            "UpperTheory.Ru.crystallineComparison.finAll",
+            "UpperTheory.Ru.crystallineComparison.smoothModel_crystalline"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.repEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.repEx_holds": 77,
+            "UpperTheory.Gal.Int.Geo.bcSplits": 50,
+            "UpperTheory.Gal.Int.Geo.etGood": 52,
+            "UpperTheory.Gal.Int.Geo.galClos": 54,
+            "UpperTheory.Gal.Int.Geo.hopSpec": 56,
+            "UpperTheory.Gal.Int.Geo.grEx": 59,
+            "UpperTheory.Gal.Int.Geo.hopGal": 61,
+            "UpperTheory.Gal.Int.Geo.pieceStab": 63,
+            "UpperTheory.Gal.Int.Geo.degFin": 65,
+            "UpperTheory.Gal.Int.Geo.htotFin": 68,
+            "UpperTheory.Gal.Int.Geo.degCont": 70,
+            "UpperTheory.Gal.Int.Geo.totCont": 72,
+            "UpperTheory.Gal.Int.Geo.repEx_core": 74
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+          "lines": [
+            50,
+            78
+          ],
+          "label": "Galois commutation, Hecke-eigenspace stability, finite dimensionality, continuity of matrix coefficients, and semisimple Galois realization of a nice tower",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean#L50-L78",
+          "related_declarations": [
+            "UpperTheory.Gal.Int.Geo.bcSplits",
+            "UpperTheory.Gal.Int.Geo.etGood",
+            "UpperTheory.Gal.Int.Geo.galClos",
+            "UpperTheory.Gal.Int.Geo.hopSpec",
+            "UpperTheory.Gal.Int.Geo.grEx",
+            "UpperTheory.Gal.Int.Geo.hopGal",
+            "UpperTheory.Gal.Int.Geo.pieceStab",
+            "UpperTheory.Gal.Int.Geo.degFin",
+            "UpperTheory.Gal.Int.Geo.htotFin",
+            "UpperTheory.Gal.Int.Geo.degCont",
+            "UpperTheory.Gal.Int.Geo.totCont",
+            "UpperTheory.Gal.Int.Geo.repEx_core"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.G3.jumpStep_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.G3.jumpStep_of": 78,
+            "UpperTheory.Gal.G3.seamHopEx_holds": 46,
+            "UpperTheory.Gal.G3.locTower_holds": 55,
+            "UpperTheory.Gal.G3.traceSplit_holds": 57,
+            "UpperTheory.Gal.G3.hodgeBC_holds": 61,
+            "UpperTheory.Gal.G3.coverOp_holds": 65,
+            "UpperTheory.Gal.G3.lowHodge_holds": 67,
+            "UpperTheory.Gal.G3.hopLies_holds": 71,
+            "UpperTheory.Gal.G3.lowPiece_holds": 73,
+            "UpperTheory.Gal.G3.lowCov_holds": 75
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/TraceSplitHolds.lean",
+          "lines": [
+            46,
+            85
+          ],
+          "label": "Local tower base change, Hodge trace splitting, Čech-cube Hodge base change, lower-piece correspondence lifts, and Hodge–Tate jump occurrence at places over ℓ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/TraceSplitHolds.lean#L46-L85",
+          "related_declarations": [
+            "UpperTheory.Gal.G3.seamHopEx_holds",
+            "UpperTheory.Gal.G3.locTower_holds",
+            "UpperTheory.Gal.G3.traceSplit_holds",
+            "UpperTheory.Gal.G3.hodgeBC_holds",
+            "UpperTheory.Gal.G3.coverOp_holds",
+            "UpperTheory.Gal.G3.lowHodge_holds",
+            "UpperTheory.Gal.G3.hopLies_holds",
+            "UpperTheory.Gal.G3.lowPiece_holds",
+            "UpperTheory.Gal.G3.lowCov_holds"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.steps_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.steps_of": 17
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/StepsMain.lean",
+          "lines": [
+            17,
+            20
+          ],
+          "label": "Seventeen-component assembly of the local-global comparison, twisting, Satake, jump, and character-subtraction step package",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/StepsMain.lean#L17-L20"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "WGR-02",
+      "chapter": "lifts",
+      "anchor": "lifts-weight-one-kodaira-spencer",
+      "title": "Admissible fibre-power towers, good integral models, Galois flag descent, finite-level cohomology descent, and conditional realization",
+      "statement": "Let p be a prime and let D, G, L be a PEL unitary datum linked to an algebraic group over ℚ with universal abelian scheme. (1) Whenever an integral Hecke element h satisfies k h^(−1)(Λ̂) ⊆ Λ̂ for a positive integer k, level N k is admissible over level N; translation isogenies compose, pull back, act freely and transitively on level-structure orbits, and descend along finite étale covers, producing smooth fibre powers, nice Hecke towers, and complete Kuga–Sato towers with unique transitive free witness maps. (2) At every prime w where the group-side Hecke test is good, integral lattice generation, finite étale base covers, congruence quotients, and fibre-power extensions yield a smooth integral reduction of the fibre-power Hecke tower. (3) Every finite-dimensional representation admits a Jordan–Hölder flag and change-of-basis matrix P whose conjugate P^(−1) ρ_0 P is block upper triangular with semisimple diagonal-block projection; conjugation invariance and uniqueness of the correspondence characterization force Galois–Hecke commutation (G A G^(−1) = A implies A G = G A); writing an algebraic extension Ω/k as the directed colimit of its finite intermediate extensions L/k expresses X_Ω = lim_L X_L with affine transitions between quasi-compact quasi-separated schemes, so finitariness of torsion Tate twists forces every torsion étale cohomology class to descend to a finite subextension L/k; local base change transports Hecke congruences to crystalline Frobenius data at w | ℓ; and injectivity of integer casting transfers highest-weight jumps to Hodge–Tate jump occurrence. (4) Combining the step package, the six-part Kuga–Sato package, and automorphic plan existence yields the weight-one geometric realization conditional only on the holomorphic Lefschetz trace formula.",
+      "hypotheses": "A prime p, a PEL unitary Shimura datum with universal abelian family, a Hecke tower over a CM number field E, an algebraic extension Ω/k, a quasi-compact quasi-separated scheme X over k, and the seventeen-component comparison step package of WGR-01.",
+      "correspondence": "Admissible congruence levels, translation isogeny descent, and integral reduction supply smooth nice fibre-power towers with good integral models; Jordan–Hölder flag conjugation, uniqueness-forced Galois commutation, directed-colimit descent of torsion étale cohomology, local crystalline transport, and integer-jump recovery connect them to the step package, assembling weight-one geometric realization modulo the holomorphic Lefschetz formula.",
+      "dependencies": [
+        "WGR-01"
+      ],
+      "equations": [
+        "lifts-weight-one-flag-grading",
+        "lifts-weight-one-directed-colimit-descent"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Gal.G3.kSEx_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.G3.kSEx_holds": 172,
+            "UpperTheory.Gal.G3.fibrePowerTower_admissibleLevel": 72,
+            "UpperTheory.Gal.G3.kNCong_holds": 74,
+            "UpperTheory.Gal.G3.tateTwist_holds": 82,
+            "UpperTheory.Gal.G3.transSelf_holds": 88,
+            "UpperTheory.Gal.G3.transComp_holds": 90,
+            "UpperTheory.Gal.G3.transDeep_holds": 110,
+            "UpperTheory.Gal.G3.transOrbit_holds": 114,
+            "UpperTheory.Gal.G3.transFree_holds": 116,
+            "UpperTheory.Gal.G3.powSm_holds": 120,
+            "UpperTheory.Gal.G3.etDesc_holds": 122,
+            "UpperTheory.Gal.G3.kSNice_holds": 152,
+            "UpperTheory.Gal.G3.witUniq_holds": 160,
+            "UpperTheory.Gal.G3.descMap_holds": 162,
+            "UpperTheory.Gal.G3.witEx_holds": 164,
+            "UpperTheory.Gal.G3.witOne_holds": 166,
+            "UpperTheory.Gal.G3.witTrans_holds": 168,
+            "UpperTheory.Gal.G3.witFree_holds": 170
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/FibrePowerTowerAdmissibleLevel.lean",
+          "lines": [
+            64,
+            173
+          ],
+          "label": "Admissible congruence levels, translation isogeny orbits, finite étale descent, fibre-power smoothness, tower niceness, and witness maps for Kuga–Sato towers",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/FibrePowerTowerAdmissibleLevel.lean#L64-L173",
+          "related_declarations": [
+            "UpperTheory.Gal.G3.fibrePowerTower_admissibleLevel",
+            "UpperTheory.Gal.G3.kNCong_holds",
+            "UpperTheory.Gal.G3.tateTwist_holds",
+            "UpperTheory.Gal.G3.transSelf_holds",
+            "UpperTheory.Gal.G3.transComp_holds",
+            "UpperTheory.Gal.G3.transDeep_holds",
+            "UpperTheory.Gal.G3.transOrbit_holds",
+            "UpperTheory.Gal.G3.transFree_holds",
+            "UpperTheory.Gal.G3.powSm_holds",
+            "UpperTheory.Gal.G3.etDesc_holds",
+            "UpperTheory.Gal.G3.kSNice_holds",
+            "UpperTheory.Gal.G3.witUniq_holds",
+            "UpperTheory.Gal.G3.descMap_holds",
+            "UpperTheory.Gal.G3.witEx_holds",
+            "UpperTheory.Gal.G3.witOne_holds",
+            "UpperTheory.Gal.G3.witTrans_holds",
+            "UpperTheory.Gal.G3.witFree_holds"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.FiniteEtaleModels.ksGood_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.FiniteEtaleModels.ksGood_holds": 45,
+            "UpperTheory.Gal.FiniteEtaleModels.stepA": 31,
+            "UpperTheory.Gal.FiniteEtaleModels.baseFet": 33,
+            "UpperTheory.Gal.FiniteEtaleModels.stepB": 35,
+            "UpperTheory.Gal.FiniteEtaleModels.quotOf": 41,
+            "UpperTheory.Gal.FiniteEtaleModels.extEx": 43
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/FiniteEtaleModels/KsGoodHolds.lean",
+          "lines": [
+            31,
+            48
+          ],
+          "label": "Integral lattice generation, finite étale base covers, congruence quotients, and good integral reduction of fibre-power Hecke towers at good primes",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/FiniteEtaleModels/KsGoodHolds.lean#L31-L48",
+          "related_declarations": [
+            "UpperTheory.Gal.FiniteEtaleModels.stepA",
+            "UpperTheory.Gal.FiniteEtaleModels.baseFet",
+            "UpperTheory.Gal.FiniteEtaleModels.stepB",
+            "UpperTheory.Gal.FiniteEtaleModels.quotOf",
+            "UpperTheory.Gal.FiniteEtaleModels.extEx"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.grEx_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.grEx_of": 56,
+            "UpperTheory.Gal.Int.Geo.cj": 17,
+            "UpperTheory.Gal.Int.Geo.cj_apply": 20,
+            "UpperTheory.Gal.Int.Geo.low": 23,
+            "UpperTheory.Gal.Int.Geo.IsJH": 29,
+            "UpperTheory.Gal.Int.Geo.FlagEx": 32,
+            "UpperTheory.Gal.Int.Geo.FlagBasis": 35,
+            "UpperTheory.Gal.Int.Geo.FlagMove": 38,
+            "UpperTheory.Gal.Int.Geo.GrHom": 42,
+            "UpperTheory.Gal.Int.Geo.SSOfSum": 47,
+            "UpperTheory.Gal.Int.Geo.GrSS": 50,
+            "UpperTheory.Gal.Int.Geo.GrEx": 53,
+            "UpperTheory.Gal.Int.Geo.ContGL": 64,
+            "UpperTheory.Gal.Int.Geo.GrKill": 68,
+            "UpperTheory.Gal.Int.Geo.IsGr.comp": 72,
+            "UpperTheory.Gal.Int.Geo.MatEx": 77,
+            "UpperTheory.Gal.Int.Geo.MatConj": 83,
+            "UpperTheory.Gal.Int.Geo.HopGal": 87,
+            "UpperTheory.Gal.Int.Geo.OpConj": 90,
+            "UpperTheory.Gal.Int.Geo.OpUniq": 95,
+            "UpperTheory.Gal.Int.Geo.PieceStab": 98,
+            "UpperTheory.Gal.Int.Geo.RelDim": 102,
+            "UpperTheory.Gal.Int.Geo.CompSum": 105,
+            "UpperTheory.Gal.Int.Geo.DegFin": 108,
+            "UpperTheory.Gal.Int.Geo.HtotFin": 112,
+            "UpperTheory.Gal.Int.Geo.HtDesc": 115,
+            "UpperTheory.Gal.Int.Geo.StabOpen": 120,
+            "UpperTheory.Gal.Int.Geo.DegCont": 124,
+            "UpperTheory.Gal.Int.Geo.ExtCont": 129,
+            "UpperTheory.Gal.Int.Geo.TotCont": 134
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/FlagBasis.lean",
+          "lines": [
+            17,
+            137
+          ],
+          "label": "Jordan–Hölder flag bases, block-upper-triangular conjugation, associated graded semisimple representations, and Galois cohomology finiteness and continuity interfaces",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/FlagBasis.lean#L17-L137",
+          "related_declarations": [
+            "UpperTheory.Gal.Int.Geo.cj",
+            "UpperTheory.Gal.Int.Geo.cj_apply",
+            "UpperTheory.Gal.Int.Geo.low",
+            "UpperTheory.Gal.Int.Geo.IsJH",
+            "UpperTheory.Gal.Int.Geo.FlagEx",
+            "UpperTheory.Gal.Int.Geo.FlagBasis",
+            "UpperTheory.Gal.Int.Geo.FlagMove",
+            "UpperTheory.Gal.Int.Geo.GrHom",
+            "UpperTheory.Gal.Int.Geo.SSOfSum",
+            "UpperTheory.Gal.Int.Geo.GrSS",
+            "UpperTheory.Gal.Int.Geo.GrEx",
+            "UpperTheory.Gal.Int.Geo.ContGL",
+            "UpperTheory.Gal.Int.Geo.GrKill",
+            "UpperTheory.Gal.Int.Geo.IsGr.comp",
+            "UpperTheory.Gal.Int.Geo.MatEx",
+            "UpperTheory.Gal.Int.Geo.MatConj",
+            "UpperTheory.Gal.Int.Geo.HopGal",
+            "UpperTheory.Gal.Int.Geo.OpConj",
+            "UpperTheory.Gal.Int.Geo.OpUniq",
+            "UpperTheory.Gal.Int.Geo.PieceStab",
+            "UpperTheory.Gal.Int.Geo.RelDim",
+            "UpperTheory.Gal.Int.Geo.CompSum",
+            "UpperTheory.Gal.Int.Geo.DegFin",
+            "UpperTheory.Gal.Int.Geo.HtotFin",
+            "UpperTheory.Gal.Int.Geo.HtDesc",
+            "UpperTheory.Gal.Int.Geo.StabOpen",
+            "UpperTheory.Gal.Int.Geo.DegCont",
+            "UpperTheory.Gal.Int.Geo.ExtCont",
+            "UpperTheory.Gal.Int.Geo.TotCont"
+          ]
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.jumpsOf",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.jumpsOf": 14
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/JumpsOf.lean",
+          "lines": [
+            14,
+            22
+          ],
+          "label": "Injective recovery of integer filtration jumps from highest-weight coordinates and transfer to local Hodge–Tate jump occurrence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/JumpsOf.lean#L14-L22"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.geoSide_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.geoSide_of": 6
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGeoSide.lean",
+          "lines": [
+            6,
+            21
+          ],
+          "label": "Local geometric crystalline transport pulling back global Hecke congruences along a completion embedding at a prime dividing ℓ",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGeoSide.lean#L6-L21"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.hopGal_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.hopGal_of": 16
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHopGal.lean",
+          "lines": [
+            16,
+            21
+          ],
+          "label": "Galois–Hecke commutation derived from conjugation invariance and uniqueness of the correspondence operator characterization",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHopGal.lean#L16-L21"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.htDesc_of",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.htDesc_of": 227
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHtDesc.lean",
+          "lines": [
+            19,
+            232
+          ],
+          "label": "Directed colimit of finite subextensions, projective-limit base change with affine transitions, and finite-level descent for torsion étale cohomology",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHtDesc.lean#L19-L232"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.geoOne_of_parts",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.geoOne_of_parts": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeoOneOfParts.lean",
+          "lines": [
+            7,
+            8
+          ],
+          "label": "Conditional assembly of the weight-one geometric realization from the step package, Kuga–Sato comparison package, and automorphic plan existence",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeoOneOfParts.lean#L7-L8"
+        }
+      ],
+      "status": "source checked"
+    },
+    {
+      "id": "WGR-03",
+      "chapter": "lifts",
+      "anchor": "lifts-weight-one-geo-assembly",
+      "title": "Clopen holomorphic Lefschetz reduction and unconditional weight-one geometric realizations",
+      "statement": "Let Z be a smooth projective scheme over ℂ of pure relative dimension d (not assumed connected), and let c_1, c_2 : Y → Z be finite étale morphisms over ℂ whose complex fixed-point locus F = {y ∈ Y(ℂ) : c_1(y) = c_2(y)} is finite and transverse, meaning that the local tangent matrix A_y ∈ M_d(ℂ) of c_2 ∘ c_1^(−1) at each y ∈ F satisfies det(I_d − A_y) ≠ 0. (1) Quasi-compactness and smoothness decompose Z into finitely many pairwise disjoint integral clopen projective components Z = ⊔_(j ∈ J) V_j, pulling back to a clopen cover W_(j,k) = c_1^(−1)(V_j) ∩ c_2^(−1)(V_k) of Y with finite étale restrictions c_(1,j,k) : W_(j,k) → V_j and c_(2,j,k) : W_(j,k) → V_k. (2) Open restriction gives an isomorphism H^b(Z, Ω^a) ≅ ∏_(j ∈ J) H^b(V_j, Ω^a) identifying c_(1*) c_2^* with the block matrix (T_(j,k)) whose off-diagonal blocks (j ≠ k) drop out of the trace, yielding finite dimensionality of H^b(Z, Ω^a) and tr(c_(1*) c_2^*) = ∑_(j ∈ J) tr(T_(j,j)). (3) Every fixed point y ∈ F satisfies c_1(y) = c_2(y) ∈ V_j for a unique j ∈ J, lifts uniquely into the diagonal clopen piece W_(j,j) with unchanged tangent matrix A_y, and applying the integral-component holomorphic Lefschetz formula on each (V_j, W_(j,j)) yields ∑_(b=0)^d (−1)^b tr(c_(1*) c_2^* | H^b(Z, Ω^a)) = ∑_(y ∈ F) [t^a] det(I_d + t A_y) / det(I_d − A_y) for every integer a ≥ 0. (4) Exporting this formula discharges the sole remaining holomorphic Lefschetz hypothesis of WGR-02 and delivers the unconditional weight-one geometric realization theorem: for any odd rank m, CM field E, prime ℓ, separated places w_0, v' | ℓ with lacunary weight at v', and auxiliary automorphic representation U, there exist continuous semisimple Galois realizations realizing the base comparison, Eichler–Shimura Satake annihilation at every eligible spherical prime w ∤ ℓ, and both crystalline Hodge–Tate jump occurrence and crystalline Frobenius Satake annihilation at every separated auxiliary prime w | ℓ.",
+      "hypotheses": "A smooth projective complex scheme Z of pure relative dimension d, a finite étale correspondence c_1, c_2 : Y → Z over ℂ with finite transverse complex fixed-point locus F, the irreducible-component holomorphic Lefschetz formula, and the conditional weight-one geometric realization assembly of WGR-01 and WGR-02.",
+      "correspondence": "Disjoint clopen integral decomposition turns global Hodge cohomology into a finite product whose correspondence trace depends solely on diagonal blocks W_(j,j), while every fixed point lands uniquely in a diagonal block; summing the irreducible holomorphic Lefschetz formula across components exports the general trace identity and closes the unconditional weight-one geometric realization.",
+      "dependencies": [
+        "WGR-01",
+        "WGR-02"
+      ],
+      "equations": [
+        "lifts-weight-one-clopen-block-trace",
+        "lifts-weight-one-holomorphic-lefschetz"
+      ],
+      "sources": [
+        {
+          "declaration": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence",
+          "declaration_lines": {
+            "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence": 255
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+          "lines": [
+            263,
+            358
+          ],
+          "label": "Clopen integral-component decomposition, block-diagonal trace reduction, unique fixed-point lifting, and holomorphic Lefschetz formula for finite étale correspondences",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/LefschetzFixedPointFiniteEtaleCorrespondence.lean#L263-L358"
+        },
+        {
+          "declaration": "GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence",
+          "declaration_lines": {
+            "GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+          "lines": [
+            8,
+            15
+          ],
+          "label": "Export of the clopen-assembled holomorphic Lefschetz fixed-point formula to the global Satake correspondence interface",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LefschetzFixedPointFiniteEtaleCorrespondence.lean#L8-L15"
+        },
+        {
+          "declaration": "UpperTheory.Gal.Int.Geo.geoOne_holds",
+          "declaration_lines": {
+            "UpperTheory.Gal.Int.Geo.geoOne_holds": 11,
+            "UpperTheory.Gal.Int.Geo.weight_one_geometric_realization": 7
+          },
+          "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean",
+          "lines": [
+            7,
+            12
+          ],
+          "label": "Discharge of the holomorphic Lefschetz hypothesis and unconditional assembly of weight-one geometric Galois realizations",
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean#L7-L12",
+          "related_declarations": [
+            "UpperTheory.Gal.Int.Geo.weight_one_geometric_realization"
+          ]
+        }
+      ],
+      "status": "source checked"
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "UpperTheory.Gal.Seam.HT.etSideS",
+      "callee": "UpperTheory.Gal.KunnethLefschetz.Top.etSide_sm_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean",
+        "line": 15,
+        "spelling": "Top.etSide_sm_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Seam.HT.hodgeTate_comparison_smooth_projective",
+      "callee": "CrystallineSemistableComparison.HT.hodgeTate_of_etale_side",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean",
+        "line": 17,
+        "spelling": "CrystallineSemistableComparison.HT.hodgeTate_of_etale_side"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Seam.HT.htBij",
+      "callee": "CrystallineSemistableComparison.Onto.htBij_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean",
+        "line": 19,
+        "spelling": "Onto.htBij_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Seam.HT.htSpecGood",
+      "callee": "UpperTheory.Gal.Seam.Spec.htSpecGood_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/ClosedHT.lean",
+        "line": 21,
+        "spelling": "Spec.htSpecGood_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Seam.cstSmooth",
+      "callee": "CrystallineSemistableComparison.Close.cstSmooth_of_side",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/Closed.lean",
+        "line": 7,
+        "spelling": "CrystallineSemistableComparison.Close.cstSmooth_of_side"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Seam.crysStep_holds",
+      "callee": "UpperTheory.Gal.Seam.crysStep_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/CrystallineTowers/Closed.lean",
+        "line": 9,
+        "spelling": "crysStep_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Ru.crystallineComparison.finAll",
+      "callee": "UpperTheory.Ru.crystallineComparison.finAll_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean",
+        "line": 9,
+        "spelling": "finAll_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Ru.crystallineComparison.smoothModel_crystalline",
+      "callee": "CrystallineSemistableComparison.cstSmooth_of_side",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean",
+        "line": 11,
+        "spelling": "CrystallineSemistableComparison.cstSmooth_of_side"
+      }
+    },
+    {
+      "caller": "UpperTheory.Ru.crystallineComparison.phiStep",
+      "callee": "UpperTheory.Ru.crystallineComparison.phiStep_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean",
+        "line": 13,
+        "spelling": "phiStep_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Ru.crystallineComparison.phiStep",
+      "callee": "UpperTheory.Gal.Int.Geo.geoSide_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/SmoothModelCrystalline.lean",
+        "line": 13,
+        "spelling": "UpperTheory.Gal.Int.Geo.geoSide_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.grEx",
+      "callee": "UpperTheory.Gal.Int.Geo.grEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 59,
+        "spelling": "grEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.hopGal",
+      "callee": "UpperTheory.Gal.Int.Geo.hopGal_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 61,
+        "spelling": "hopGal_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.repEx_core",
+      "callee": "UpperTheory.Gal.Int.Geo.repEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/RepMain.lean",
+        "line": 75,
+        "spelling": "repEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G3.jumpStep_of",
+      "callee": "PositivityTheory.AutomorphicGaloisHodgeTate.G8.jumpStep_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/TraceSplitHolds.lean",
+        "line": 79,
+        "spelling": "PositivityTheory.AutomorphicGaloisHodgeTate.G8.jumpStep_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G3.fibrePowerTower_admissibleLevel",
+      "callee": "UpperTheory.Gal.G3.pAdmOf",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/FibrePowerTowerAdmissibleLevel.lean",
+        "line": 72,
+        "spelling": "pAdmOf"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G3.kSNice_holds",
+      "callee": "UpperTheory.Gal.G3.pKSNice",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/FibrePowerTowerAdmissibleLevel.lean",
+        "line": 152,
+        "spelling": "pKSNice"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.G3.kSEx_holds",
+      "callee": "UpperTheory.Gal.G3.pKSEx",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/PAdicWittLattices/FibrePowerTowerAdmissibleLevel.lean",
+        "line": 172,
+        "spelling": "pKSEx"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.FiniteEtaleModels.ksGood_holds",
+      "callee": "UpperTheory.Gal.FiniteEtaleModels.ksGood_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/FiniteEtaleModels/KsGoodHolds.lean",
+        "line": 46,
+        "spelling": "ksGood_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.jumpsOf",
+      "callee": "GlobalTheory.RoadWGeo.wtJumps_val",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/JumpsOf.lean",
+        "line": 19,
+        "spelling": "GlobalTheory.RoadWGeo.wtJumps_val"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoSide_of",
+      "callee": "UpperTheory.Ru.crystallineComparison.congBC",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGeoSide.lean",
+        "line": 10,
+        "spelling": "UpperTheory.Ru.crystallineComparison.congBC"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoSide_of",
+      "callee": "UpperTheory.Gal.Seam.locTower_holds",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGeoSide.lean",
+        "line": 12,
+        "spelling": "UpperTheory.Gal.Seam.locTower_holds"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoSide_of",
+      "callee": "UpperTheory.Ru.crystallineComparison.geoLoc",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PGeoSide.lean",
+        "line": 15,
+        "spelling": "UpperTheory.Ru.crystallineComparison.geoLoc"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.htDesc_of",
+      "callee": "GlobalTheory.T.contCone_of_isLimit_of_qcqs_affine_transitions",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHtDesc.lean",
+        "line": 230,
+        "spelling": "GlobalTheory.T.contCone_of_isLimit_of_qcqs_affine_transitions"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.htDesc_of",
+      "callee": "GlobalTheory.T.tateTwist_finitary",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/PHtDesc.lean",
+        "line": 230,
+        "spelling": "GlobalTheory.T.tateTwist_finitary"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoOne_of_parts",
+      "callee": "UpperTheory.Gal.Int.Geo.geoOne_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeoOneOfParts.lean",
+        "line": 7,
+        "spelling": "geoOne_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoOne_of_parts",
+      "callee": "UpperTheory.Gal.Int.Geo.packEx_of",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeoOneOfParts.lean",
+        "line": 7,
+        "spelling": "packEx_of"
+      }
+    },
+    {
+      "caller": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callee": "UpperTheory.Cb.compactSpace_of_projective_and_of_finite",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+        "line": 265,
+        "spelling": "UpperTheory.Cb.compactSpace_of_projective_and_of_finite"
+      }
+    },
+    {
+      "caller": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callee": "UpperTheory.Cb.exists_integral_clopen_decomposition_of_smooth",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+        "line": 266,
+        "spelling": "UpperTheory.Cb.exists_integral_clopen_decomposition_of_smooth"
+      }
+    },
+    {
+      "caller": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callee": "UpperTheory.Cb.exists_finite_etale_restrict_clopen",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+        "line": 319,
+        "spelling": "UpperTheory.Cb.exists_finite_etale_restrict_clopen"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callee": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/LefschetzFixedPointFiniteEtaleCorrespondence.lean",
+        "line": 15,
+        "spelling": "UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.weight_one_geometric_realization",
+      "callee": "GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence"
+      }
+    },
+    {
+      "caller": "UpperTheory.Gal.Int.Geo.geoOne_holds",
+      "callee": "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one",
+      "callsite": {
+        "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean",
+        "line": 11,
+        "spelling": "geometric_realization_of_weight_one"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "WGR-01",
+      "WGR-02"
+    ],
+    [
+      "WGR-01",
+      "WGR-03"
+    ],
+    [
+      "WGR-02",
+      "WGR-03"
+    ]
+  ],
+  "outstanding": [
+    "The smooth crystalline and Hodge–Tate spectral comparisons, Galois eigenspace realization, seventeen-component step package, admissible Kuga–Sato fibre-power towers, good integral models, Jordan–Hölder flag semisimplification, Galois–Hecke commutation, finite-extension torsion cohomology descent, clopen holomorphic Lefschetz reduction, and unconditional weight-one geometric realization assembly are reconstructed in WGR-01 through WGR-03."
+  ]
+}
