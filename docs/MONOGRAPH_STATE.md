@@ -11,7 +11,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 01 | `target` | What the Riemann Hypothesis says | `5` (`5` / `0`) | `0` | ✅ Terminé |
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
-| 04 | `normalization` | From the global theta function to an integral jet | `124` (`49` / `75`) | `2` | ⏳ À faire (après Cycle 2 : `TDE-01` loi de groupe formel, `HTC-01`, `RTC-01`) |
+| 04 | `normalization` | From the global theta function to an integral jet | `126` (`49` / `77`) | `0` | ✅ Terminé (Cycle 3 : `WFG-01`–`02` ferment `HTC-01`, `TDE-01`, `CED-01`–`02`, 100 % auto-contenu) |
 | 05 | `global` | Lattices and the arithmetic main term | `141` (`70` / `71`) | `7` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; interfaces amont restantes) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
@@ -25,7 +25,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 
 1. ✅ **Cycle 1 (Terminé)** — **Ch. 8 (`inputs`) & raccords Ch. 5 (`global`)** : *Sélection inconditionnelle du premier de niveau $T_u$ dans la fenêtre courte $[T_u^*, (1 + \frac{1}{fk}) T_u^*]$ via les premiers normiques de $\mathbb{Q}(\sqrt{-d})$ modulo $M$* (`word-prime-window.fragment.html` + `word_prime_window.json`, raccordé à `prime-pair`, `count-five`, `word-upper`, `mass-floor`, `global.json` ; `WPW-01`–`02`).
 2. ✅ **Cycle 2 (Terminé)** — **Ch. 4 (`normalization`)** : *Biadditivité du défaut d'addition et congruence sous négation de la série correctrice $\varphi$ sur le modèle entier de Weierstrass* (`curve-exponential-defect.fragment.html` + `curve_exponential_defect.json`, raccordé à `torsion-degree`, `torsion_degree.json` ; `CED-01`–`02`, complète `#normalization-torsion-integral-unit`).
-3. ⏳ **Cycle 3** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass courte à bonne réduction ($p \ge 5$)* (ferme l'interface `HTC-01`).
+3. ✅ **Cycle 3 (Terminé)** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass, logarithme invariant et factorisation de corde cubique* (`weierstrass-formal-group.fragment.html` + `weierstrass_formal_group.json`, raccordé à `height-two-coordinate`, `curve-exponential-defect`, `height_two_coordinate.json`, `torsion_degree.json`, `curve_exponential_defect.json` ; `WFG-01`–`02`, rend le Ch. 4 100 % auto-contenu).
 4. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
@@ -57,8 +57,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
-### Chapitres auto-contenus existants (Ch. 1, 2, 3, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`942` résultats au total après Cycle 2, `26` interfaces ouvertes).
+### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`944` résultats au total après Cycle 3 : `368` `core-argument` / `576` `rebuilt-infrastructure`, `850` auto-contenus, `24` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -108,3 +108,26 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `Formalism.L2.Th1.B.Cube_of` (`ConstantCoeffEqZeroOfParallelogram.lean#L115-L298`)
   - `ReciprocityTheory.ChartRestriction.L1.phNorm_int` (`FgPhInt.lean#L12-L85`)
   - `ReciprocityTheory.ChartRestriction.L1.sq_formula` (`FgIsoU.lean#L53-L122`)
+
+### Cycle 3 — Loi de groupe formel entière de Weierstrass & factorisation de corde (`weierstrass_formal_group`)
+- *Statut* : ✅ Terminé (`content/weierstrass-formal-group.fragment.html` + `records/weierstrass_formal_group.json`, rôle `rebuilt-infrastructure`).
+- *Déclarations `[CORE]` couvertes — `WFG-01` (`#normalization-weierstrass-formal-group`)* :
+  - `Formalism.L2.Th1.A.fgl`, `wSer`, `logSer`, `expSer` (`CompInv.lean#L36-L125`)
+  - `Formalism.ELL.wSeriesExistsUnique_holds`, `wSeriesLeadingTerm_holds`, `wSeriesSubstUnique_holds` (`WSeries.lean#L17-L234`)
+  - `Formalism.ELL.wSeriesUnique` (`FormalGroupPointsNoTorsion.lean#L74-L78`)
+  - `Formalism.L2.Th1.A.formal_group_chord` (`FormalGroupEqWSeries.lean#L104-L466`)
+  - `Formalism.L2.Th1.A.logSpec_of`, `expSpec_of`, `logNeg_of` (`LogExp.lean#L60-L119`)
+  - `Formalism.L2.Th1.A.flowThirdPoint` (`FlowThird.lean#L74-L123`)
+  - `Formalism.L2.Th1.A.formal_group_group_law`, `formal_group_logarithm`, `formal_group_inverse` (`FormalLogarithmBaseChange.lean#L144-L578`)
+  - `Formalism.L2.Th1.A.fglGroup`, `fglLog` (`FglInvariant.lean#L14-L16`)
+  - `Formalism.L2.Th1.A.bridgeLaw` (`TwoTorsionU.lean#L15-L16`)
+  - `Formalism.L2.Th1.A.bridgeLaw_of` (`BridgeJ.lean#L59-L115`)
+  - `Formalism.L2.Th1.A.uSerEq_of` (`BridgeK.lean#L173-L213`)
+  - `ReciprocityTheory.ChartRestriction.L1.curve_law`, `lgS_eq_logSer` (`ShortWIntModel.lean#L12-L34`)
+  - `ReciprocityTheory.ChartRestriction.L1.cm3` (`FgClose.lean#L25-L68`)
+- *Déclarations `[CORE]` couvertes — `WFG-02` (`#normalization-weierstrass-chord-factorization`)* :
+  - `Formalism.ELL.cube_two`, `CubeTwoAlt.main` (`CubeTwo.lean#L303-L412`)
+  - `Formalism.L2.Th1.A.cube_two_relation`, `CubeR.two_univ`, `coeffMem_of` (`FormalGroupConstCoeffZero.lean#L128-L245`)
+  - `Formalism.L2.Th1.A.cubeTwoR` (`CubeThreeR.lean#L8-L10`)
+  - `Formalism.L2.Th1.A.bridgeCurve_of` (`BridgeJ.lean#L59-L115`)
+  - `Formalism.L2.Th1.A.bridgeCurve` (`TwoTorsionU.lean#L15-L16`)

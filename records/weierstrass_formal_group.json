@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "claims": [
+    {
+      "id": "WFG-01",
+      "chapter": "normalization",
+      "anchor": "normalization-weierstrass-formal-group",
+      "title": "The integral Weierstrass formal group law and its invariant logarithm",
+      "hypotheses": "An arbitrary commutative ring R and a Weierstrass equation W with coefficients a₁, a₂, a₃, a₄, a₆∈R; for the formal logarithm and analytic coordinate comparison, a field K of characteristic zero; for the unit-ball and short-model specialization, a characteristic-zero ultrametric valued field K with closed unit ball R containing the coefficients of W (namely |g₂|≤1, |g₃|≤1, and |2|=1 on y²=x³−(g₂/4)x−g₃/4).",
+      "statement": "A contractive fixed-point equation in local coordinates T=−x/y, w=−1/y defines a unique series w_W(T)=T³w_U(T)∈R[[T]] with w_U(0)=1, together with division-free secant addition F_W(U₁,U₂)∈R[[U₁,U₂]], formal negation i_W(T)∈R[[T]], and unit invariant differential ω_W(T)∈1+TR[[T]]. Over any characteristic-zero field K, log_W(T)=∫₀^T ω_W(s) ds satisfies log_W(F_W(U₁,U₂))=log_W(U₁)+log_W(U₂) and log_W(i_W(T))=−log_W(T), with inverse exponential matching −x(z)/y(z) on short models; specializing the universal coefficient ring Z=ℤ[A₁,A₂,A₃,A₄,A₆]⊂Frac(Z) makes F_W a commutative formal group law with inverse i_W over every commutative ring R; in particular, whenever a subring R⊆K (such as the closed unit ball of an ultrametric field K, including y²=x³−(g₂/4)x−g₃/4 when |g₂|≤1, |g₃|≤1, and |2|=1) contains the coefficients of W, F_W, i_W, every integer multiplication series [n]_W(T), and [1/2]_W(T) when 2∈Rˣ have coefficients in R and match addition, negation, and scalar multiplication under log_W.",
+      "definitions": [
+        "contractive local Weierstrass series w_W(T)=T³w_U(T)",
+        "regularized coordinate series A(T)=x_S(T)=w_U(T)⁻¹",
+        "formal negation series i_W(T) and invariant differential ω_W(T)",
+        "division-free secant slope λ(U₁,U₂) and Vieta third abscissa u₃",
+        "Weierstrass formal group law F_W(U₁,U₂) and formal logarithm log_W(T)"
+      ],
+      "equations": [
+        "normalization-weierstrass-fixed-point",
+        "normalization-weierstrass-secant-addition",
+        "normalization-weierstrass-logarithm-homomorphism"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Power-series coordinates, division-free secant addition, invariant differential and formal logarithm",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CompInv.lean",
+          "lines": [
+            36,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CompInv.lean#L36-L125",
+          "declaration": "Formalism.L2.Th1.A.fgl",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.wSer": 36,
+            "Formalism.L2.Th1.A.fgl": 89,
+            "Formalism.L2.Th1.A.logSer": 109,
+            "Formalism.L2.Th1.A.expSer": 111
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.A.wSer",
+            "Formalism.L2.Th1.A.logSer",
+            "Formalism.L2.Th1.A.expSer"
+          ]
+        },
+        {
+          "label": "Existence, uniqueness and leading term of the contractive Weierstrass fixed-point series",
+          "path": "src/Formalism/EllipticTorsion/EllipticTorsionProofs/WSeries.lean",
+          "lines": [
+            17,
+            234
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/EllipticTorsion/EllipticTorsionProofs/WSeries.lean#L17-L234",
+          "declaration": "Formalism.ELL.wSeriesExistsUnique_holds",
+          "declaration_lines": {
+            "Formalism.ELL.wSeriesExistsUnique_holds": 208,
+            "Formalism.ELL.wSeriesLeadingTerm_holds": 214,
+            "Formalism.ELL.wSeriesSubstUnique_holds": 219
+          },
+          "related_declarations": [
+            "Formalism.ELL.wSeriesLeadingTerm_holds",
+            "Formalism.ELL.wSeriesSubstUnique_holds"
+          ]
+        },
+        {
+          "label": "Exported uniqueness of the local Weierstrass series over a commutative ring",
+          "path": "src/Formalism/EllipticTorsion/FormalGroupPointsNoTorsion.lean",
+          "lines": [
+            74,
+            78
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/EllipticTorsion/FormalGroupPointsNoTorsion.lean#L74-L78",
+          "declaration": "Formalism.ELL.wSeriesUnique",
+          "declaration_lines": {
+            "Formalism.ELL.wSeriesUnique": 76
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Division-free secant intersection and cubic relation for the third point",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalGroupEqWSeries.lean",
+          "lines": [
+            104,
+            466
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalGroupEqWSeries.lean#L104-L466",
+          "declaration": "Formalism.L2.Th1.A.formal_group_chord",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.formal_group_chord": 462
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Formal logarithm, inverse exponential and oddness under formal negation",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/LogExp.lean",
+          "lines": [
+            60,
+            119
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/LogExp.lean#L60-L119",
+          "declaration": "Formalism.L2.Th1.A.logSpec_of",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.logSpec_of": 60,
+            "Formalism.L2.Th1.A.expSpec_of": 69,
+            "Formalism.L2.Th1.A.logNeg_of": 99
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.A.expSpec_of",
+            "Formalism.L2.Th1.A.logNeg_of"
+          ]
+        },
+        {
+          "label": "Invariant-derivation flow of the third secant intersection point",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FlowThird.lean",
+          "lines": [
+            74,
+            123
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FlowThird.lean#L74-L123",
+          "declaration": "Formalism.L2.Th1.A.flowThirdPoint",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.flowThirdPoint": 74
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Logarithm homomorphism in characteristic zero and universal base change of the group axioms",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalLogarithmBaseChange.lean",
+          "lines": [
+            144,
+            578
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalLogarithmBaseChange.lean#L144-L578",
+          "declaration": "Formalism.L2.Th1.A.formal_group_group_law",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.formal_group_logarithm": 547,
+            "Formalism.L2.Th1.A.formal_group_group_law": 560,
+            "Formalism.L2.Th1.A.formal_group_inverse": 571
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.A.formal_group_logarithm",
+            "Formalism.L2.Th1.A.formal_group_inverse"
+          ]
+        },
+        {
+          "label": "Exported formal logarithm identity and commutative formal group axioms",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/FglInvariant.lean",
+          "lines": [
+            14,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/FglInvariant.lean#L14-L16",
+          "declaration": "Formalism.L2.Th1.A.fglGroup",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.fglLog": 14,
+            "Formalism.L2.Th1.A.fglGroup": 15
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.A.fglLog"
+          ]
+        },
+        {
+          "label": "Exported identification of the formal group law with logarithmic addition",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean",
+          "lines": [
+            15,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean#L15-L16",
+          "declaration": "Formalism.L2.Th1.A.bridgeLaw",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.bridgeLaw": 15
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Integrality of the formal group law and inverse on the closed unit ball",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeJ.lean",
+          "lines": [
+            59,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeJ.lean#L59-L115",
+          "declaration": "Formalism.L2.Th1.A.bridgeLaw_of",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.bridgeLaw_of": 59
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Identification of the formal exponential with the analytic coordinate ratio −x(z)/y(z)",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeK.lean",
+          "lines": [
+            173,
+            213
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeK.lean#L173-L213",
+          "declaration": "Formalism.L2.Th1.A.uSerEq_of",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.uSerEq_of": 173
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Comparison of the short-model logarithm and integral formal group law",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ShortWIntModel.lean",
+          "lines": [
+            12,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ShortWIntModel.lean#L12-L34",
+          "declaration": "ReciprocityTheory.ChartRestriction.L1.curve_law",
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.L1.lgS_eq_logSer": 12,
+            "ReciprocityTheory.ChartRestriction.L1.curve_law": 28
+          },
+          "related_declarations": [
+            "ReciprocityTheory.ChartRestriction.L1.lgS_eq_logSer"
+          ]
+        },
+        {
+          "label": "Application of the integral curve law to the multiplication-by-p endomorphism",
+          "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+          "lines": [
+            25,
+            68
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean#L25-L68",
+          "declaration": "ReciprocityTheory.ChartRestriction.L1.cm3",
+          "declaration_lines": {
+            "ReciprocityTheory.ChartRestriction.L1.cm3": 25
+          },
+          "related_declarations": []
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Contractive iteration in R[[T]] constructs w_W(T)=T³w_U(T), and monomial divided differences form λ(U₁,U₂) and u₃ without division. Differentiating the secant cubic along f_w(U_i)∂_{U_i} proves ω_W(F_W)∂_{U_i}F_W=ω_W(U_i), yielding log_W(F_W(U₁,U₂))=log_W(U₁)+log_W(U₂) over characteristic-zero fields and transferring the commutative formal group axioms from Z=ℤ[A₁,A₂,A₃,A₄,A₆]⊂Frac(Z) to every commutative ring R.",
+      "review": "Verified contractive degree shift on TR[[T]], division-free secant factorization, invariant-derivation cancellation of c₃(u₃−U₁)(u₃−U₂), sign reversal under i_W, and short-model normalization −x(z)/y(z)=z+O(z⁵)."
+    },
+    {
+      "id": "WFG-02",
+      "chapter": "normalization",
+      "anchor": "normalization-weierstrass-chord-factorization",
+      "title": "Universal two-variable chord factorization on the cubic",
+      "hypotheses": "An arbitrary commutative ring R and a Weierstrass equation W with coefficients a₁, a₂, a₃, a₄, a₆∈R.",
+      "statement": "For the regularized coordinate series A(T)=w_U(T)⁻¹∈1+TR[[T]], formal group law F_W(U₁,U₂) and formal inverse i_W(T), there exists c(U₁,U₂)∈R[[U₁,U₂]] with c(0,0)=−1 such that U₂²A(U₁)−U₁²A(U₂)=c(U₁,U₂)F_W(U₁,U₂)F_W(U₁,i_W(U₂)).",
+      "definitions": [
+        "diagonal quotient Q(U₁,U₂) of formal subtraction",
+        "Vieta constant-term relation for the secant cubic",
+        "universal two-variable chord unit c(U₁,U₂)"
+      ],
+      "equations": [
+        "normalization-weierstrass-chord-eq"
+      ],
+      "dependencies": [
+        "WFG-01"
+      ],
+      "sources": [
+        {
+          "label": "Vieta constant-term elimination and universal two-variable chord factorization",
+          "path": "src/Formalism/EllipticTorsion/EllipticTorsionProofs/CubeTwo.lean",
+          "lines": [
+            303,
+            412
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/EllipticTorsion/EllipticTorsionProofs/CubeTwo.lean#L303-L412",
+          "declaration": "Formalism.ELL.cube_two",
+          "declaration_lines": {
+            "Formalism.ELL.CubeTwoAlt.main": 303,
+            "Formalism.ELL.cube_two": 407
+          },
+          "related_declarations": [
+            "Formalism.ELL.CubeTwoAlt.main"
+          ]
+        },
+        {
+          "label": "Specialization of the universal two-variable chord factorization to any commutative ring",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalGroupConstCoeffZero.lean",
+          "lines": [
+            128,
+            245
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalGroupConstCoeffZero.lean#L128-L245",
+          "declaration": "Formalism.L2.Th1.A.cube_two_relation",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.CubeR.two_univ": 128,
+            "Formalism.L2.Th1.A.cube_two_relation": 192,
+            "Formalism.L2.Th1.A.coeffMem_of": 210
+          },
+          "related_declarations": [
+            "Formalism.L2.Th1.A.CubeR.two_univ",
+            "Formalism.L2.Th1.A.coeffMem_of"
+          ]
+        },
+        {
+          "label": "Exported two-variable chord relation over an arbitrary commutative ring",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CubeThreeR.lean",
+          "lines": [
+            8,
+            10
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CubeThreeR.lean#L8-L10",
+          "declaration": "Formalism.L2.Th1.A.cubeTwoR",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.cubeTwoR": 9
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Transfer of the cubic chord unit to an integral Weierstrass model on the unit ball",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeJ.lean",
+          "lines": [
+            59,
+            115
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/BridgeJ.lean#L59-L115",
+          "declaration": "Formalism.L2.Th1.A.bridgeCurve_of",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.bridgeCurve_of": 82
+          },
+          "related_declarations": []
+        },
+        {
+          "label": "Exported cubic chord factorization for the curve-defect parallelogram",
+          "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean",
+          "lines": [
+            15,
+            16
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean#L15-L16",
+          "declaration": "Formalism.L2.Th1.A.bridgeCurve",
+          "declaration_lines": {
+            "Formalism.L2.Th1.A.bridgeCurve": 16
+          },
+          "related_declarations": []
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Over the universal integral domain Z=ℤ[A₁,A₂,A₃,A₄,A₆], diagonal vanishing factors F_W(U₁,i_W(U₂))=(U₂−U₁)Q with Q(0,0)=−1, and Vieta’s constant term c₃U₁U₂u₃=ν(1−A₃ν−A₆ν²) combines with (U₂−U₁)ν to cancel U₁U₂ and express U₂²A(U₁)−U₁²A(U₂) as c F_W(U₁,U₂)F_W(U₁,i_W(U₂)); specializing Z→R extends the identity to every commutative ring.",
+      "review": "Checked Vieta constant-term sign c₃U₁U₂u₃=ν(1−A₃ν−A₆ν²), cancellation of U₁U₂ in Z[[U₁,U₂]], invertibility of all six one-unit factors, and constant term c(0,0)=−1."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "Formalism.L2.Th1.A.wSer",
+      "callee": "Formalism.ELL.wSeriesUnique",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CompInv.lean",
+        "line": 36,
+        "spelling": "Formalism.ELL.wSeriesUnique"
+      }
+    },
+    {
+      "caller": "Formalism.ELL.wSeriesUnique",
+      "callee": "Formalism.ELL.wSeriesExistsUnique_holds",
+      "callsite": {
+        "path": "src/Formalism/EllipticTorsion/FormalGroupPointsNoTorsion.lean",
+        "line": 76,
+        "spelling": "wSeriesExistsUnique_holds"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.bridgeLaw",
+      "callee": "Formalism.L2.Th1.A.bridgeLaw_of",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean",
+        "line": 15,
+        "spelling": "bridgeLaw_of"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.bridgeCurve",
+      "callee": "Formalism.L2.Th1.A.bridgeCurve_of",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/TwoTorsionU.lean",
+        "line": 16,
+        "spelling": "bridgeCurve_of"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.fglLog",
+      "callee": "Formalism.L2.Th1.A.formal_group_logarithm",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/FglInvariant.lean",
+        "line": 14,
+        "spelling": "formal_group_logarithm"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.fglGroup",
+      "callee": "Formalism.L2.Th1.A.formal_group_group_law",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/FglInvariant.lean",
+        "line": 15,
+        "spelling": "formal_group_group_law"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.Fgl2.Dm_uThird",
+      "callee": "Formalism.L2.Th1.A.flowThirdPoint",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalLogarithmBaseChange.lean",
+        "line": 177,
+        "spelling": "flowThirdPoint"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.Fgl2.FZ",
+      "callee": "Formalism.L2.Th1.A.Fgl2.exists_FK",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalLogarithmBaseChange.lean",
+        "line": 395,
+        "spelling": "exists_FK"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.cubeTwoR",
+      "callee": "Formalism.L2.Th1.A.cube_two_relation",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/CubeThreeR.lean",
+        "line": 9,
+        "spelling": "cube_two_relation"
+      }
+    },
+    {
+      "caller": "Formalism.L2.Th1.A.CubeR.two_univ",
+      "callee": "Formalism.ELL.cubeTwo",
+      "callsite": {
+        "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/WeierstrassTwoTorsion/WeierstrassSubstitution/FormalGroupConstCoeffZero.lean",
+        "line": 129,
+        "spelling": "Formalism.ELL.cubeTwo"
+      }
+    },
+    {
+      "caller": "Formalism.ELL.cube_two",
+      "callee": "Formalism.ELL.CubeTwoAlt.main",
+      "callsite": {
+        "path": "src/Formalism/EllipticTorsion/EllipticTorsionProofs/CubeTwo.lean",
+        "line": 411,
+        "spelling": "CubeTwoAlt.main"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.L1.lgS_eq_logSer",
+      "callee": "Formalism.L2.Th1.A.uSerEq",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ShortWIntModel.lean",
+        "line": 17,
+        "spelling": "Formalism.L2.Th1.A.uSerEq"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.L1.curve_law",
+      "callee": "Formalism.L2.Th1.A.bridgeLaw",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/ShortWIntModel.lean",
+        "line": 33,
+        "spelling": "Formalism.L2.Th1.A.bridgeLaw"
+      }
+    },
+    {
+      "caller": "ReciprocityTheory.ChartRestriction.L1.cm3",
+      "callee": "ReciprocityTheory.ChartRestriction.L1.curve_law",
+      "callsite": {
+        "path": "src/ReciprocityTheory/ReductiveGroups/UnramifiedIntegrals/FgClose.lean",
+        "line": 40,
+        "spelling": "curve_law"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "WFG-01",
+      "WFG-02"
+    ],
+    [
+      "WFG-01",
+      "CED-01"
+    ],
+    [
+      "WFG-01",
+      "CED-02"
+    ],
+    [
+      "WFG-02",
+      "CED-02"
+    ],
+    [
+      "WFG-01",
+      "TDE-01"
+    ],
+    [
+      "WFG-01",
+      "HTC-01"
+    ]
+  ],
+  "outstanding": []
+}
