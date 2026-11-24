@@ -12,7 +12,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 | 02 | `pilot` | Prime powers and the Mellin transform | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 03 | `local` | From formal logarithms to divisibility | `9` (`9` / `0`) | `0` | ✅ Terminé |
 | 04 | `normalization` | From the global theta function to an integral jet | `126` (`49` / `77`) | `0` | ✅ Terminé (Cycle 3 : `WFG-01`–`02` ferment `HTC-01`, `TDE-01`, `CED-01`–`02`, 100 % auto-contenu) |
-| 05 | `global` | Lattices and the arithmetic main term | `141` (`70` / `71`) | `7` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; interfaces amont restantes) |
+| 05 | `global` | Lattices and the arithmetic main term | `143` (`70` / `73`) | `6` | ⏳ À faire (Cycle 1 raccordé : `CNT-02`, `MSF-02`, `WUP-01`, `global.count` ; Cycle 5 ✅ Terminé : `IQR-01`–`02` ferment `UFR-01` ; interfaces amont restantes) |
 | 06 | `lifts` | Theta lifts, local factors and the Galois input | `408` (`120` / `288`) | `6` | ⏳ À faire (`BGM-01`, `HFT-01`, `OCI-01`, `OVM-01`, `REX-01`, `SDR-01`) |
 | 07 | `balance` | The arithmetic balance | `7` (`7` / `0`) | `0` | ✅ Terminé |
 | 08 | `inputs` | Supplying the arithmetic hypotheses | `233` (`93` / `140`) | `10` | ⏳ À faire (Cycle 1 ✅ Terminé : `WPW-01`–`02` ; Cycle 4 ✅ Terminé : `RCL-01`–`03` ferment `WPW-01` ; interfaces amont restantes) |
@@ -27,7 +27,8 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 2. ✅ **Cycle 2 (Terminé)** — **Ch. 4 (`normalization`)** : *Biadditivité du défaut d'addition et congruence sous négation de la série correctrice $\varphi$ sur le modèle entier de Weierstrass* (`curve-exponential-defect.fragment.html` + `curve_exponential_defect.json`, raccordé à `torsion-degree`, `torsion_degree.json` ; `CED-01`–`02`, complète `#normalization-torsion-integral-unit`).
 3. ✅ **Cycle 3 (Terminé)** — **Ch. 4 (`normalization`)** : *Loi de groupe formel entière d'une équation de Weierstrass, logarithme invariant et factorisation de corde cubique* (`weierstrass-formal-group.fragment.html` + `weierstrass_formal_group.json`, raccordé à `height-two-coordinate`, `curve-exponential-defect`, `height_two_coordinate.json`, `torsion_degree.json`, `curve_exponential_defect.json` ; `WFG-01`–`02`, rend le Ch. 4 100 % auto-contenu).
 4. ✅ **Cycle 4 (Terminé)** — **Ch. 8 (`inputs`)** : *Région sans zéro, répulsion de Bessel en $s=1$ et formule explicite tronquée pour les fonctions $L$ de classes de rayons sans équation fonctionnelle* (`ray-class-l-functions.fragment.html` + `ray_class_l_functions.json`, raccordé à `word-prime-window`, `word_prime_window.json` ; `RCL-01`–`03`, ferme les 4 interfaces analytiques amont de `WPW-01`).
-5. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
+5. ✅ **Cycle 5 (Terminé)** — **Ch. 5 (`global`)** : *Réalisations isométriques de quotients et sous-réseaux arithmétiques et changement de base archimédien du sous-réseau orthogonal, du radical nilpotent et du centre* (`isometric-quotient-realization.fragment.html` + `isometric_quotient_realization.json`, raccordé à `deep-orbit-cover`, `unipotent-hom-cover`, `unipotent-first-radius`, `unipotent_first_radius.json`, `unipotent_lattice_radii.json` ; `IQR-01`–`02`, ferme `UFR-01`).
+6. ⏳ **Cycles suivants** — Dépliage ordonné des interfaces amont restantes (Ch. 5, Ch. 6, Ch. 8).
 
 ---
 
@@ -59,7 +60,7 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
 ## 4. Registre des déclarations Lean `[CORE]` couvertes par section
 
 ### Chapitres auto-contenus existants (Ch. 1, 2, 3, 4, 7, 9, 10)
-- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`947` résultats au total après Cycle 4 : `371` `core-argument` / `576` `rebuilt-infrastructure`, `855` auto-contenus, `23` interfaces ouvertes).
+- Couverture complète figée dans `records/*.json` et `records/solution_terms.json` (`949` résultats au total après Cycle 5 : `371` `core-argument` / `578` `rebuilt-infrastructure`, `859` auto-contenus, `22` interfaces ouvertes).
 
 ### Cycle 1 — Fenêtre du premier de niveau $T_u$ (`word_prime_window`)
 - *Statut* : ✅ Terminé (`content/word-prime-window.fragment.html` + `records/word_prime_window.json`, rôle `core-argument`).
@@ -162,3 +163,18 @@ Source de vérité persistante de l'Orchestrateur pour l'achèvement de la preuv
   - `GlobalTheory.PerronCoeff.truncated_perron_of_le_two_vonMangoldt` (`TruncatedPerronOfLeTwoVonMangoldt.lean#L9-L157`)
   - `GlobalTheory.T.rayClassFamily_psi_with_exceptional_zero` (`RayClassFamilyPsiWithExceptionalZeroStatement.lean#L8-L9`)
   - `GlobalTheory.Hk.PsiExc.psi_exceptional`, `shift`, `exists_line`, `contour` (`RayClassFamilyPsiWithExceptionalZero.lean#L14-L502`)
+
+### Cycle 5 — Réalisations isométriques de quotients/sous-réseaux et changement de base archimédien (`isometric_quotient_realization`)
+- *Statut* : ✅ Terminé (`content/isometric-quotient-realization.fragment.html` + `records/isometric_quotient_realization.json`, rôle `rebuilt-infrastructure` ; ferme `UFR-01`).
+- *Déclarations `[CORE]` couvertes — `IQR-01` (`#global-isometric-quotient-realization`)* :
+  - `GlobalTheory.T.quotient_lattice_realized_isometrically` (`QuotientLatticeRealizedIsometricallyStatement.lean#L7-L8`)
+  - `GlobalTheory.QuotCoord.quot_realized`, `exists_quot_matrix`, `exists_coisometry`, `exists_frame`, `sizeQ_eq_size` (`QuotientLatticeRealizedIsometrically.lean#L9-L287`)
+  - `GlobalTheory.T.exists_isometric_realisation_of_sublattice'` (`ExistsIsometricRealisationOfSublatticeStatement.lean#L7-L8`)
+  - `GlobalTheory.exists_isometric_realisation_of_sublattice`, `GlobalTheory.SubReal.exists_isometry_factor` (`ExistsIsometricRealisationOfSublattice.lean#L28-L125`)
+  - `Formalism.HN.rerealize`, `Formalism.HN.quotRealize` (`ShiftInvariance.lean#L58-L59`)
+  - `Formalism.HN.lattice_rerealization` (`Rerealize.lean#L197-L341`)
+- *Déclarations `[CORE]` couvertes — `IQR-02` (`#global-archimedean-orthogonal-span`)* :
+  - `GlobalTheory.T.complexSpanAtRealPlace_autPointLattice_properties` (`ComplexSpanAtRealPlaceAutPointLatticePropertiesStatement.lean#L8-L9`)
+  - `GlobalTheory.RealSpan.spanAt_properties`, `isSkew_map`, `inNil_map`, `inCen_map`, `span_perp` (`ComplexSpanAtRealPlaceAutPointLatticeProperties.lean#L87-L185`)
+  - `GlobalTheory.PerpBaseChange.perpSet_baseChange`, `mem_span_of_forms` (`PerpSetBaseChange.lean#L24-L157`)
+  - `GlobalTheory.IntegralBoundFlagMeasures.main` (`ImportsMore.lean#L7-L34`)

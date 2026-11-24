@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "corpus": {
+    "repository": "Deicyde/riemann-hypothesis",
+    "commit": "e50d09817ad81469f737e8f637561e6ccf86c670"
+  },
+  "evidence": "Reconstructed from pinned theorem statements, proof bodies and verified written callsites across FlagMeasures and HarderNarasimhan.",
+  "claims": [
+    {
+      "id": "IQR-01",
+      "chapter": "global",
+      "anchor": "global-isometric-quotient-realization",
+      "title": "Isometric frame realizations of arithmetic quotients and sublattices",
+      "hypotheses": "A totally complex number field K equipped with a ring involution, an integer n ≥ 0, invertible frames X_w ∈ GL_n(ℂ) indexed by the complex places w of K with frame coordinates f_{X,w}(y) = X_w⁻¹ y_w ∈ ℂⁿ, a finitely generated 𝒪_K-submodule A ⊆ Kⁿ and an 𝒪_K-submodule S ⊆ A saturated in A under the Euclidean realization ρ_X with quotient rank m = rk_K(A) − rk_K(S), and a finitely generated 𝒪_K-submodule R ⊆ Kⁿ of K-rank j = rk_K(R).",
+      "statement": "On the quotient side, there exist q ∈ M_{m×n}(K), invertible frames X′_w ∈ GL_m(ℂ), and matrices Q_w ∈ M_{m×n}(ℂ) at every complex place w such that q vanishes on S, has kernel K·S on K·A, and maps A onto a full 𝒪_K-lattice q(A) ⊆ K^m; Q_w Q_w* = 1_m, im(Q_w*) ⊆ U′_w = span_ℂ f_{X,w}(A), and u − Q_w* Q_w u ∈ U_w = span_ℂ f_{X,w}(S) for all u ∈ U′_w; (X′_w)⁻¹(qy)_w = Q_w f_{X,w}(y) for all y ∈ A; and for every nonzero 𝒪_K-sublattice N′ ⊆ q(A), N = A ∩ q⁻¹(N′) satisfies S ⊊ N ⊆ A, q(N) = N′, and equal normalized quotient size relative to (X, S) and size in X′. On the sublattice side, there exist i ∈ M_{n×j}(K), invertible frames X″_w ∈ GL_j(ℂ), isometric matrices P_w ∈ M_{n×j}(ℂ) with P_w* P_w = 1_j, and a full finitely generated 𝒪_K-lattice B ⊆ K^j mapped bijectively onto R by i such that X_w⁻¹ i_w = P_w(X″_w)⁻¹ at every complex place w and the largest normalized quotient size of B in X″ equals that of R in X.",
+      "definitions": [
+        "orthogonal complement subspace C_w = U_w⊥ ∩ U′_w and partial coisometry Q_w",
+        "intertwining quotient frame X′_w = q_w X_w Q_w* ∈ GL_m(ℂ)",
+        "positive-definite Hermitian Gram square root S_w = (Y_w* Y_w)^{1/2}",
+        "polar column isometry P_w = Y_w S_w⁻¹ and sublattice frame X″_w = S_w⁻¹"
+      ],
+      "equations": [
+        "global-isometric-quotient-frame-eq",
+        "global-isometric-sublattice-polar-eq"
+      ],
+      "dependencies": [],
+      "sources": [
+        {
+          "label": "Exported statement of the isometric frame realization of a saturated arithmetic quotient",
+          "declaration": "GlobalTheory.T.quotient_lattice_realized_isometrically",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.quotient_lattice_realized_isometrically": 7
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometricallyStatement.lean",
+          "lines": [
+            7,
+            8
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometricallyStatement.lean#L7-L8"
+        },
+        {
+          "label": "Rational quotient matrix, orthogonal coisometry Q_w, invertible frame X′_w and equality of normalized quotient sizes",
+          "declaration": "GlobalTheory.QuotCoord.quot_realized",
+          "related_declarations": [
+            "GlobalTheory.QuotCoord.exists_quot_matrix",
+            "GlobalTheory.QuotCoord.exists_coisometry",
+            "GlobalTheory.QuotCoord.exists_frame",
+            "GlobalTheory.QuotCoord.sizeQ_eq_size"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.QuotCoord.exists_quot_matrix": 9,
+            "GlobalTheory.QuotCoord.exists_coisometry": 29,
+            "GlobalTheory.QuotCoord.exists_frame": 108,
+            "GlobalTheory.QuotCoord.sizeQ_eq_size": 154,
+            "GlobalTheory.QuotCoord.quot_realized": 237
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean",
+          "lines": [
+            9,
+            287
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean#L9-L287"
+        },
+        {
+          "label": "Exported statement of the isometric polar-frame realization of an arithmetic sublattice",
+          "declaration": "GlobalTheory.T.exists_isometric_realisation_of_sublattice'",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.exists_isometric_realisation_of_sublattice'": 7
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublatticeStatement.lean",
+          "lines": [
+            7,
+            8
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublatticeStatement.lean#L7-L8"
+        },
+        {
+          "label": "Positive-definite Hermitian square-root factorization and isometric column realization of a sublattice",
+          "declaration": "GlobalTheory.exists_isometric_realisation_of_sublattice",
+          "related_declarations": [
+            "GlobalTheory.SubReal.exists_isometry_factor"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.SubReal.exists_isometry_factor": 28,
+            "GlobalTheory.exists_isometric_realisation_of_sublattice": 69
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublattice.lean",
+          "lines": [
+            28,
+            125
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublattice.lean#L28-L125"
+        },
+        {
+          "label": "Exported Harder–Narasimhan lattice and quotient rerealization invariants",
+          "declaration": "Formalism.HN.rerealize",
+          "related_declarations": [
+            "Formalism.HN.quotRealize"
+          ],
+          "declaration_lines": {
+            "Formalism.HN.rerealize": 58,
+            "Formalism.HN.quotRealize": 59
+          },
+          "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+          "lines": [
+            58,
+            59
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/ShiftInvariance.lean#L58-L59"
+        },
+        {
+          "label": "Preservation of saturation, covolumes, Harder–Narasimhan slopes and largest normalized size under isometric rerealization",
+          "declaration": "Formalism.HN.lattice_rerealization",
+          "related_declarations": [],
+          "declaration_lines": {
+            "Formalism.HN.lattice_rerealization": 197
+          },
+          "path": "src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/Rerealize.lean",
+          "lines": [
+            197,
+            341
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Formalism/HarderNarasimhan/HarderNarasimhanProofs/Rerealize.lean#L197-L341"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Orthonormal conjugate rows on U_w⊥ ∩ U′_w define Q_w with Q_w Q_w* = 1_m and invertible frame X′_w = q_w X_w Q_w* matching quotient orthogonal-projection covolumes with ρ_{X′}-covolumes, while polar factorization Y_w = P_w S_w of X_w⁻¹ i_w via S_w = (Y_w* Y_w)^{1/2} defines X″_w = S_w⁻¹ and preserves all Harder–Narasimhan quotient slopes and sizes.",
+      "review": "Checked surjectivity and invertibility of X′_w = q_w X_w Q_w*, Minkowski splitting ℝ · ρ_X(S) = ⊕_w U_w across complex places, strict positivity of Y_w* Y_w from the left inverse g_w X_w, and quotient size preservation (including j = 0)."
+    },
+    {
+      "id": "IQR-02",
+      "chapter": "global",
+      "anchor": "global-archimedean-orthogonal-span",
+      "title": "Archimedean base change of the orthogonal sublattice, nilradical and center",
+      "hypotheses": "An automorphic Hermitian datum of rank n ≥ 0 over a CM extension E/F with CM involution σ_E, Hermitian matrix J ∈ GL_n(E), and complex embeddings φ_v : E ↪ ℂ indexed by the real places v of F intertwining σ_E with complex conjugation; an adelic point x with full self-dual point lattice Λ_x ⊂ Eⁿ; and an 𝒪_E-submodule R ⊆ Eⁿ with E-span W = E·R and orthogonal intersection P = {y ∈ Λ_x : ∀ s ∈ R, ⟨s, y⟩_J = 0}.",
+      "statement": "Writing span_v(M) = span_ℂ φ_v(M) ⊆ ℂⁿ at each real place v of F: (1) span_v(R) = span_ℂ φ_v(W) and span_v(Λ_x) = ℂⁿ; (2) span_v(P) coincides with the Hermitian orthogonal complement (span_v(R))^{⊥_{J_v}} in ℂⁿ; and (3) every rational matrix Y ∈ M_n(E) in the stabilizer nilradical of W (skew-Hermitian for J and mapping Eⁿ → W⊥ → W → 0) embeds diagonally as (φ_v(Y))_v into the real stabilizer nilradical of (span_v(R))_v, and every Y in the rational center (additionally vanishing on W⊥) embeds diagonally into the real center.",
+      "definitions": [
+        "orthogonal lattice intersection P = Λ_x ∩ R^{⊥_J}",
+        "archimedean complex span span_v(M) = span_ℂ φ_v(M)",
+        "dual linear-form span D ⊆ (Eⁿ)* and coannihilator projection π : Eⁿ → W⊥",
+        "diagonal archimedean embedding of rational nilradical and central matrices"
+      ],
+      "equations": [
+        "global-archimedean-orthogonal-span-eq"
+      ],
+      "dependencies": [
+        "PXL-02"
+      ],
+      "sources": [
+        {
+          "label": "Exported statement of the archimedean complex-span, orthogonal-complement and nilradical/center base-change properties",
+          "declaration": "GlobalTheory.T.complexSpanAtRealPlace_autPointLattice_properties",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.T.complexSpanAtRealPlace_autPointLattice_properties": 8
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticePropertiesStatement.lean",
+          "lines": [
+            8,
+            9
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticePropertiesStatement.lean#L8-L9"
+        },
+        {
+          "label": "Proof of full-lattice denominator clearing E · P = W⊥, complex orthogonal span identity and nilradical/central diagonal embedding",
+          "declaration": "GlobalTheory.RealSpan.spanAt_properties",
+          "related_declarations": [
+            "GlobalTheory.RealSpan.isSkew_map",
+            "GlobalTheory.RealSpan.inNil_map",
+            "GlobalTheory.RealSpan.inCen_map",
+            "GlobalTheory.RealSpan.span_perp"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.RealSpan.isSkew_map": 87,
+            "GlobalTheory.RealSpan.inNil_map": 95,
+            "GlobalTheory.RealSpan.inCen_map": 105,
+            "GlobalTheory.RealSpan.span_perp": 140,
+            "GlobalTheory.RealSpan.spanAt_properties": 170
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+          "lines": [
+            87,
+            185
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean#L87-L185"
+        },
+        {
+          "label": "Dual coannihilator projection and commutation of Hermitian orthogonal complements with involution-preserving scalar extension",
+          "declaration": "GlobalTheory.PerpBaseChange.perpSet_baseChange",
+          "related_declarations": [
+            "GlobalTheory.PerpBaseChange.mem_span_of_forms"
+          ],
+          "declaration_lines": {
+            "GlobalTheory.PerpBaseChange.mem_span_of_forms": 24,
+            "GlobalTheory.PerpBaseChange.perpSet_baseChange": 110
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PerpSetBaseChange.lean",
+          "lines": [
+            24,
+            157
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PerpSetBaseChange.lean#L24-L157"
+        },
+        {
+          "label": "Clearing denominators over the ring of integers to scale a rational subspace vector into a full lattice",
+          "declaration": "GlobalTheory.IntegralBoundFlagMeasures.main",
+          "related_declarations": [],
+          "declaration_lines": {
+            "GlobalTheory.IntegralBoundFlagMeasures.main": 7
+          },
+          "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ImportsMore.lean",
+          "lines": [
+            7,
+            34
+          ],
+          "url": "https://github.com/Deicyde/riemann-hypothesis/blob/e50d09817ad81469f737e8f637561e6ccf86c670/src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ImportsMore.lean#L7-L34"
+        }
+      ],
+      "status": "mathematical proof reconstructed",
+      "correspondence": "Full rank E · Λ_x = Eⁿ from PXL-02 clears denominators in 𝒪_E to identify E · P = W⊥, while an E-linear projection onto the coannihilator W⊥ expresses every coordinate defect in the dual form span D and proves (span_A ι(W))^{⊥_{ι(J)}} = span_A ι(W⊥); specializing to φ_v : E ↪ ℂ transfers the orthogonal complement and the nilradical and central three-step conditions to every real place.",
+      "review": "Checked 𝒪_E-denominator clearing into P = Λ_x ∩ W⊥, double-annihilator identity K⁰ = D in finite dimension over E, coordinate reconstruction u = ∑_s u_s ι(π(e_s)) over any commutative ring A, and involution compatibility φ_v ∘ σ_E = conj ∘ φ_v."
+    }
+  ],
+  "written_source_calls": [
+    {
+      "caller": "GlobalTheory.T.quotient_lattice_realized_isometrically",
+      "callee": "GlobalTheory.QuotCoord.quot_realized",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometricallyStatement.lean",
+        "line": 8,
+        "spelling": "GlobalTheory.QuotCoord.quot_realized"
+      }
+    },
+    {
+      "caller": "GlobalTheory.QuotCoord.quot_realized",
+      "callee": "GlobalTheory.QuotCoord.exists_quot_matrix",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean",
+        "line": 242,
+        "spelling": "exists_quot_matrix"
+      }
+    },
+    {
+      "caller": "GlobalTheory.QuotCoord.quot_realized",
+      "callee": "GlobalTheory.QuotCoord.exists_coisometry",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean",
+        "line": 249,
+        "spelling": "exists_coisometry"
+      }
+    },
+    {
+      "caller": "GlobalTheory.QuotCoord.quot_realized",
+      "callee": "GlobalTheory.QuotCoord.exists_frame",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean",
+        "line": 259,
+        "spelling": "exists_frame"
+      }
+    },
+    {
+      "caller": "GlobalTheory.QuotCoord.quot_realized",
+      "callee": "GlobalTheory.QuotCoord.sizeQ_eq_size",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/QuotientLatticeRealizedIsometrically.lean",
+        "line": 283,
+        "spelling": "sizeQ_eq_size"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.exists_isometric_realisation_of_sublattice'",
+      "callee": "GlobalTheory.exists_isometric_realisation_of_sublattice",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublatticeStatement.lean",
+        "line": 8,
+        "spelling": "GlobalTheory.exists_isometric_realisation_of_sublattice"
+      }
+    },
+    {
+      "caller": "GlobalTheory.exists_isometric_realisation_of_sublattice",
+      "callee": "GlobalTheory.SubReal.exists_isometry_factor",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublattice.lean",
+        "line": 94,
+        "spelling": "exists_isometry_factor"
+      }
+    },
+    {
+      "caller": "GlobalTheory.exists_isometric_realisation_of_sublattice",
+      "callee": "Formalism.HN.rerealize",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ExistsIsometricRealisationOfSublattice.lean",
+        "line": 113,
+        "spelling": "Formalism.HN.rerealize"
+      }
+    },
+    {
+      "caller": "Formalism.HN.rerealize",
+      "callee": "Formalism.HN.lattice_rerealization",
+      "callsite": {
+        "path": "src/Formalism/HarderNarasimhan/ShiftInvariance.lean",
+        "line": 58,
+        "spelling": "lattice_rerealization"
+      }
+    },
+    {
+      "caller": "GlobalTheory.T.complexSpanAtRealPlace_autPointLattice_properties",
+      "callee": "GlobalTheory.RealSpan.spanAt_properties",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticePropertiesStatement.lean",
+        "line": 9,
+        "spelling": "GlobalTheory.RealSpan.spanAt_properties"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.spanAt_properties",
+      "callee": "GlobalTheory.PointLattice.lamX_selfDual",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 176,
+        "spelling": "GlobalTheory.PointLattice.lamX_selfDual"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.spanAt_properties",
+      "callee": "GlobalTheory.PerpBaseChange.perpSet_baseChange",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 180,
+        "spelling": "GlobalTheory.PerpBaseChange.perpSet_baseChange"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.spanAt_properties",
+      "callee": "GlobalTheory.RealSpan.span_perp",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 181,
+        "spelling": "span_perp"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.spanAt_properties",
+      "callee": "GlobalTheory.RealSpan.inNil_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 183,
+        "spelling": "inNil_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.spanAt_properties",
+      "callee": "GlobalTheory.RealSpan.inCen_map",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 185,
+        "spelling": "inCen_map"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.span_perp",
+      "callee": "GlobalTheory.RealSpan.exists_smul_mem",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 155,
+        "spelling": "exists_smul_mem"
+      }
+    },
+    {
+      "caller": "GlobalTheory.RealSpan.exists_smul_mem",
+      "callee": "GlobalTheory.IntegralBoundFlagMeasures.main",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/ComplexSpanAtRealPlaceAutPointLatticeProperties.lean",
+        "line": 124,
+        "spelling": "_root_.GlobalTheory.IntegralBoundFlagMeasures.main"
+      }
+    },
+    {
+      "caller": "GlobalTheory.PerpBaseChange.perpSet_baseChange",
+      "callee": "GlobalTheory.PerpBaseChange.mem_span_of_forms",
+      "callsite": {
+        "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PerpSetBaseChange.lean",
+        "line": 134,
+        "spelling": "mem_span_of_forms"
+      }
+    }
+  ],
+  "derivation_edges": [
+    [
+      "IQR-01",
+      "UHR-02"
+    ],
+    [
+      "IQR-01",
+      "UFR-01"
+    ],
+    [
+      "PXL-02",
+      "IQR-02"
+    ],
+    [
+      "IQR-02",
+      "UFR-01"
+    ],
+    [
+      "IQR-02",
+      "UCR-01"
+    ]
+  ],
+  "outstanding": [
+    "PXL-01–03 construct the self-dual automorphic point lattice and its archimedean Hermitian frames at each real place."
+  ],
+  "review_scope": "Checked coisometric quotient frame construction, polar square-root sublattice rerealization, equality of quotient and sublattice Harder–Narasimhan sizes, denominator clearing in the full point lattice, dual coannihilator base change of Hermitian orthogonal complements, and diagonal archimedean embedding of rational nilradical and central matrices."
+}
